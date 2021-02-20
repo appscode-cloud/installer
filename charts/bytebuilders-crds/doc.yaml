@@ -1,0 +1,18 @@
+project:
+  name: ByteBuilders CRDs
+  shortName: ByteBuilders CRDs
+  url: https://github.com/bytebuilders/resource-model
+  description: Resource Models for ByteBuilders
+  app: ByteBuilders crds
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: bytebuilders-crds
+  values: "-- generate from values file --"
+  valuesExample: "-- generate from values file --"
+prerequisites:
+- Kubernetes 1.16+
+release:
+  name: bytebuilders-crds
+  namespace: kube-system

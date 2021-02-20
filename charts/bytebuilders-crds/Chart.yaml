@@ -1,0 +1,13 @@
+apiVersion: v2
+name: bytebuilders-crds
+description: Resource Models for ByteBuilders
+type: application
+version: v0.1.0
+appVersion: v0.1.0
+home: https://byte.builders
+icon: https://cdn.appscode.com/images/products/appscode/appscode-512x512.png
+sources:
+- https://github.com/bytebuilders/resource-model
+maintainers:
+- name: appscode
+  email: support@appscode.com
