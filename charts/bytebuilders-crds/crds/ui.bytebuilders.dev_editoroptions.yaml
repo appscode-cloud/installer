@@ -4,18 +4,17 @@ metadata:
   creationTimestamp: null
   labels:
     app.kubernetes.io/name: bytebuilders
-  name: clusterinfos.cluster.bytebuilders.dev
+  name: editoroptions.ui.bytebuilders.dev
 spec:
-  group: cluster.bytebuilders.dev
+  group: ui.bytebuilders.dev
   names:
     categories:
-    - kubernetes
-    - resource-model
+    - ui
     - appscode
-    kind: ClusterInfo
-    listKind: ClusterInfoList
-    plural: clusterinfos
-    singular: clusterinfo
+    kind: EditorOption
+    listKind: EditorOptionList
+    plural: editoroptions
+    singular: editoroption
   scope: Cluster
   versions:
   - name: v1alpha1
@@ -36,49 +35,36 @@ spec:
             type: object
           spec:
             properties:
-              createdAt:
-                format: int64
-                type: integer
-              displayName:
+              category:
+                description: Category defines the category of the application that
+                  this editor is for (eg, database)
                 type: string
-              endpoint:
-                type: string
-              externalID:
-                type: string
-              initialKubernetesVersion:
-                type: string
-              initialNodeCount:
-                format: int32
-                type: integer
-              location:
-                type: string
-              name:
-                type: string
-              ownerID:
-                format: int64
-                type: integer
-              ownerName:
-                type: string
-              project:
-                type: string
+              editor:
+                description: ChartRepoRef references to a single version of a Chart
+                properties:
+                  name:
+                    type: string
+                  url:
+                    type: string
+                  version:
+                    type: string
+                required:
+                - name
+                - url
+                - version
+                type: object
               provider:
-                enum:
-                - AKS
-                - DigitalOcean
-                - EKS
-                - GKE
-                - Linode
-                - Packet
-                - Scaleway
-                - Vultr
+                description: Provider defines the name of the provider for this application
+                  (eg, kubedb.com)
                 type: string
-              uid:
+              type:
+                description: Type defines the application type (eg, mongods.kubedb.com)
                 type: string
             required:
-            - displayName
-            - name
-            - ownerID
-            - uid
+            - category
+            - editor
+            - provider
+            - type
             type: object
           status:
             properties:
@@ -88,9 +74,6 @@ spec:
                   which is updated on mutation by the API Server.
                 format: int64
                 type: integer
-              phase:
-                description: Phase represents current status of the cluster
-                type: string
             type: object
         type: object
     served: true
