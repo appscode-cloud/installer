@@ -17,7 +17,7 @@ limitations under the License.
 package v1alpha1
 
 import (
-	"kmodules.xyz/installer/apis/installer"
+	"go.bytebuilders.dev/installer/apis/installer"
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"

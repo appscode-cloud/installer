@@ -17,7 +17,7 @@ limitations under the License.
 package fuzzer
 
 import (
-	"kmodules.xyz/installer/apis/installer/v1alpha1"
+	"go.bytebuilders.dev/installer/apis/installer/v1alpha1"
 
 	fuzz "github.com/google/gofuzz"
 	runtimeserializer "k8s.io/apimachinery/pkg/runtime/serializer"
