@@ -19,14 +19,10 @@ package v1alpha1_test
 import (
 	"testing"
 
-	"go.bytebuilders.dev/installer/apis/installer/v1alpha1"
-
 	schemachecker "kmodules.xyz/schema-checker"
 )
 
 func TestDefaultValues(t *testing.T) {
-	checker := schemachecker.New("../../..", []interface{}{
-		v1alpha1.PrepareKubernetesClusterSpec{},
-	})
+	checker := schemachecker.New("../../..", []interface{}{})
 	checker.TestAll(t)
 }
