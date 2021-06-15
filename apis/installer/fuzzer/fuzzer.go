@@ -17,17 +17,10 @@ limitations under the License.
 package fuzzer
 
 import (
-	"go.bytebuilders.dev/installer/apis/installer/v1alpha1"
-
-	fuzz "github.com/google/gofuzz"
 	runtimeserializer "k8s.io/apimachinery/pkg/runtime/serializer"
 )
 
 // Funcs returns the fuzzer functions for this api group.
 var Funcs = func(codecs runtimeserializer.CodecFactory) []interface{} {
-	return []interface{}{
-		func(s *v1alpha1.PrepareKubernetesCluster, c fuzz.Continue) {
-			c.FuzzNoCustom(s) // fuzz self without calling this function again
-		},
-	}
+	return []interface{}{}
 }
