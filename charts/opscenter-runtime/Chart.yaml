@@ -1,0 +1,34 @@
+apiVersion: v2
+name: opscenter-runtime
+description: ByteBuilders Opscenter Runtime by AppsCode
+type: application
+version: v2021.11.18
+appVersion: v2021.11.18
+home: https://byte.builders
+icon: https://cdn.appscode.com/images/products/appscode/appscode-512x512.png
+sources:
+- https://github.com/bytebuilders
+maintainers:
+- name: appscode
+  email: support@appscode.com
+dependencies:
+- name: kube-ui-server
+  repository: https://charts.appscode.com/stable/
+  condition: kube-ui-server.enabled
+  version: v2021.11.18
+- name: panopticon
+  repository: https://charts.appscode.com/stable/
+  condition: panopticon.enabled
+  version: v2021.10.06
+- name: grafana-operator
+  repository: https://charts.appscode.com/stable/
+  condition: grafana-operator.enabled
+  version: v2021.11.16
+- name: grafana-ui-server
+  repository: https://charts.appscode.com/stable/
+  condition: grafana-ui-server.enabled
+  version: v2021.11.16
+- name: grafana-configurator
+  repository: https://charts.appscode.com/stable/
+  condition: grafana-configurator.enabled
+  version: v2021.11.16

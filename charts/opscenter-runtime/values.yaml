@@ -1,0 +1,14 @@
+# Default values for opscenter-runtime.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+kube-ui-server:
+  enabled: true
+panopticon:
+  enabled: true
+grafana-operator:
+  enabled: true
+grafana-ui-server:
+  enabled: true
+grafana-configurator:
+  enabled: true
