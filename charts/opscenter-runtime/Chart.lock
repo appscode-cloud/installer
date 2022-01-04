@@ -1,10 +1,10 @@
 dependencies:
 - name: kube-ui-server
   repository: https://charts.appscode.com/stable/
-  version: v2021.11.18
+  version: v2022.01.04
 - name: panopticon
   repository: https://charts.appscode.com/stable/
-  version: v2021.10.06
+  version: v2021.11.25
 - name: grafana-operator
   repository: https://charts.appscode.com/stable/
   version: v2021.11.16
@@ -14,5 +14,5 @@ dependencies:
 - name: grafana-configurator
   repository: https://charts.appscode.com/stable/
   version: v2021.11.16
-digest: sha256:f7820a3c4cd88c073b0e03f0fe41aa492092c4c589858f7459aeee71ae52e799
-generated: "2021-11-23T13:37:22.22311516-08:00"
+digest: sha256:572ac921245e205f93b55b5f9d3cf410feeb43fb3170220d25f87db179f35a1a
+generated: "2022-01-04T15:06:19.17202-08:00"
