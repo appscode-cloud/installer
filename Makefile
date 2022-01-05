@@ -357,11 +357,18 @@ ct: $(BUILD_DIRS)
 	    -v $$(pwd)/.go/bin/$(OS)_$(ARCH):/go/bin                \
 	    -v $$(pwd)/.go/bin/$(OS)_$(ARCH):/go/bin/$(OS)_$(ARCH)  \
 	    -v $$(pwd)/.go/cache:/.cache                            \
+	    -v $$(which helm):/usr/local/bin/helm                   \
 	    --env HTTP_PROXY=$(HTTP_PROXY)                          \
 	    --env HTTPS_PROXY=$(HTTPS_PROXY)                        \
 	    --env KUBECONFIG=$(subst $(HOME),,$(KUBECONFIG))        \
 	    $(CHART_TEST_IMAGE)                                     \
-	    ct $(CT_COMMAND) --debug $(CT_ARGS)
+	    /bin/sh -c "                                            \
+	      set -x; \
+	      kubectl delete crds --all; \
+	      helm repo add appscode https://charts.appscode.com/stable/; \
+	      helm repo update; \
+	      ct $(CT_COMMAND) --debug --validate-maintainers=false $(CT_ARGS) \
+	    "
 
 ADDTL_LINTERS   := goconst,gofmt,goimports,unparam
 
