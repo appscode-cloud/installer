@@ -44,13 +44,13 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `opscenter-runtime` chart and their default values.
 
-|          Parameter           | Description | Default |
-|------------------------------|-------------|---------|
-| kube-ui-server.enabled       |             | `true`  |
-| panopticon.enabled           |             | `true`  |
-| grafana-operator.enabled     |             | `true`  |
-| grafana-ui-server.enabled    |             | `true`  |
-| grafana-configurator.enabled |             | `true`  |
+|          Parameter           | Description |      Default      |
+|------------------------------|-------------|-------------------|
+| kube-ui-server.enabled       |             | <code>true</code> |
+| panopticon.enabled           |             | <code>true</code> |
+| grafana-operator.enabled     |             | <code>true</code> |
+| grafana-ui-server.enabled    |             | <code>true</code> |
+| grafana-configurator.enabled |             | <code>true</code> |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example:
