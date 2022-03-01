@@ -4,10 +4,11 @@
 
 ## TL;DR;
 
-```console
+```bash
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm install opscenter-runtime appscode/opscenter-runtime -n kubeops
+$ helm search repo appscode/opscenter-runtime --version=v2022.02.08
+$ helm upgrade -i opscenter-runtime appscode/opscenter-runtime -n kubeops --create-namespace --version=v2022.02.08
 ```
 
 ## Introduction
@@ -20,10 +21,10 @@ This chart deploys a KubeDB Opscenter on a [Kubernetes](http://kubernetes.io) cl
 
 ## Installing the Chart
 
-To install the chart with the release name `opscenter-runtime`:
+To install/upgrade the chart with the release name `opscenter-runtime`:
 
-```console
-$ helm install opscenter-runtime appscode/opscenter-runtime -n kubeops
+```bash
+$ helm upgrade -i opscenter-runtime appscode/opscenter-runtime -n kubeops --create-namespace --version=v2022.02.08
 ```
 
 The command deploys a KubeDB Opscenter on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -32,10 +33,10 @@ The command deploys a KubeDB Opscenter on the Kubernetes cluster in the default 
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `opscenter-runtime`:
+To uninstall the `opscenter-runtime`:
 
-```console
-$ helm delete opscenter-runtime -n kubeops
+```bash
+$ helm uninstall opscenter-runtime -n kubeops
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -53,15 +54,15 @@ The following table lists the configurable parameters of the `opscenter-runtime`
 | grafana-configurator.enabled |             | <code>true</code> |
 
 
-Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example:
+Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
-```console
-$ helm install opscenter-runtime appscode/opscenter-runtime -n kubeops --set -- generate from values file --
+```bash
+$ helm upgrade -i opscenter-runtime appscode/opscenter-runtime -n kubeops --create-namespace --version=v2022.02.08 --set -- generate from values file --
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
-```console
-$ helm install opscenter-runtime appscode/opscenter-runtime -n kubeops --values values.yaml
+```bash
+$ helm upgrade -i opscenter-runtime appscode/opscenter-runtime -n kubeops --create-namespace --version=v2022.02.08 --values values.yaml
 ```
