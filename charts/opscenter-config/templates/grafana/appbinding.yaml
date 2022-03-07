@@ -1,11 +1,11 @@
 apiVersion: appcatalog.appscode.com/v1alpha1
 kind: AppBinding
 metadata:
-  name: {{ include "opscenter-config.fullname" . }}
+  name: {{ include "opscenter-config.fullname" . }}-grafana
   namespace: {{ .Release.Namespace }}
 {{- if .Values.grafana.default }}
   annotations:
-    openviz.dev/is-default-grafana: "true"
+    monitoring.appscode.com/is-default-grafana: "true"
 {{- end }}
   labels:
     {{- include "opscenter-config.labels" . | nindent 4 }}
@@ -16,9 +16,9 @@ spec:
     url: {{ .Values.grafana.url }}
   {{- else }}
     service:
-      scheme: {{ required "A valid .Values.grafana.service.scheme entry required!" .Values.grafana.service.scheme }}
-      name: {{ required "A valid .Values.grafana.service.name entry required!" .Values.grafana.service.name }}
-      port: {{ required "A valid .Values.grafana.service.port entry required!" .Values.grafana.service.port }}
+      scheme: {{ .Values.grafana.service.scheme }}
+      name: {{ .Values.grafana.service.name }}
+      port: {{ .Values.grafana.service.port }}
     {{- with .Values.grafana.service.path }}
       path: {{ . }}
     {{- end }}
@@ -27,7 +27,7 @@ spec:
     {{- end }}
   {{- end }}
   secret:
-    name: {{ include "opscenter-config.fullname" . }}-auth
+    name: {{ include "opscenter-config.fullname" . }}-grafana-auth
 {{- if .Values.grafana.tls.insecureSkipTLSVerify }}
   insecureSkipTLSVerify: true
 {{- end }}
