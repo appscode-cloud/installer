@@ -1,18 +1,18 @@
 project:
-  name: KubeDB Opscenter by AppsCode
-  shortName: KubeDB Opscenter
+  name: ByteBuilders Opscenter Core by AppsCode
+  shortName: ByteBuilders Opscenter
   url: https://github.com/kubedb
-  description: KubeDB Opscenter
-  app: a KubeDB Opscenter
+  description: ByteBuilders Opscenter Core
+  app: a ByteBuilders Opscenter
 repository:
   url: https://charts.appscode.com/stable/
   name: appscode
 chart:
-  name: opscenter-runtime
+  name: opscenter-core
   values: -- generate from values file --
   valuesExample: -- generate from values file --
 prerequisites:
 - Kubernetes 1.16+
 release:
-  name: opscenter-runtime
+  name: opscenter-core
   namespace: kubeops

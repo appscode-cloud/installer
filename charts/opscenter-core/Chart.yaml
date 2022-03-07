@@ -1,6 +1,6 @@
 apiVersion: v2
-name: opscenter-runtime
-description: ByteBuilders Opscenter Runtime by AppsCode
+name: opscenter-core
+description: ByteBuilders Opscenter Core by AppsCode
 type: application
 version: v2022.02.08
 appVersion: v2022.02.08
