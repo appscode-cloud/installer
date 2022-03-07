@@ -28,7 +28,3 @@ dependencies:
   repository: https://charts.appscode.com/stable/
   condition: grafana-ui-server.enabled
   version: v2021.11.16
-- name: grafana-configurator
-  repository: https://charts.appscode.com/stable/
-  condition: grafana-configurator.enabled
-  version: v2021.11.16
