@@ -10,5 +10,3 @@ grafana-operator:
   enabled: true
 grafana-ui-server:
   enabled: true
-grafana-configurator:
-  enabled: true
