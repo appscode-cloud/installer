@@ -1,6 +1,6 @@
 apiVersion: v2
-name: opscenter-runtime
-description: ByteBuilders Opscenter Runtime by AppsCode
+name: opscenter-core
+description: ByteBuilders Opscenter Core by AppsCode
 type: application
 version: v2022.02.08
 appVersion: v2022.02.08
@@ -27,8 +27,4 @@ dependencies:
 - name: grafana-ui-server
   repository: https://charts.appscode.com/stable/
   condition: grafana-ui-server.enabled
-  version: v2021.11.16
-- name: grafana-configurator
-  repository: https://charts.appscode.com/stable/
-  condition: grafana-configurator.enabled
   version: v2021.11.16

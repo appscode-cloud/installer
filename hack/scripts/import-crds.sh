@@ -17,3 +17,7 @@
 crd-importer \
     --input=../resource-model/crds \
     --out=./charts/bytebuilders-crds/crds
+
+crd-importer \
+    --input=https://github.com/kmodules/custom-resources/raw/kubernetes-1.21.1/crds/appcatalog.appscode.com_appbindings.yaml \
+    --out=./charts/opscenter-config/crds

@@ -34,4 +34,4 @@ _testmain.go
 /bin
 /.go
 
-/charts/opscenter-runtime/charts
+/charts/opscenter-core/charts
