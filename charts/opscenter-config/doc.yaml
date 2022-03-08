@@ -1,0 +1,18 @@
+project:
+  name: ByteBuilders Opscenter Configurator by AppsCode
+  shortName: ByteBuilders Opscenter Configurator
+  url: https://github.com/bytebuilders/installer
+  description: ByteBuilders Opscenter Configurator
+  app: a ByteBuilders Opscenter Configurator
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: opscenter-config
+  values: "-- generate from values file --"
+  valuesExample: "-- generate from values file --"
+prerequisites:
+- Kubernetes 1.16+
+release:
+  name: opscenter-config
+  namespace: kubeops

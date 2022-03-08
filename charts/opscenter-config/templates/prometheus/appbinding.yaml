@@ -1,0 +1,45 @@
+apiVersion: appcatalog.appscode.com/v1alpha1
+kind: AppBinding
+metadata:
+  name: {{ include "opscenter-config.fullname" . }}-prometheus
+  namespace: {{ .Release.Namespace }}
+{{- if .Values.prometheus.default }}
+  annotations:
+    monitoring.appscode.com/is-default-prometheus: "true"
+{{- end }}
+  labels:
+    {{- include "opscenter-config.labels" . | nindent 4 }}
+spec:
+  type: Prometheus
+  clientConfig:
+  {{- if .Values.prometheus.url }}
+    url: {{ .Values.prometheus.url }}
+  {{- else }}
+    service:
+      scheme: {{ .Values.prometheus.service.scheme }}
+      name: {{ .Values.prometheus.service.name }}
+      port: {{ .Values.prometheus.service.port }}
+    {{- with .Values.prometheus.service.path }}
+      path: {{ . }}
+    {{- end }}
+    {{- with .Values.prometheus.service.query }}
+      query: {{ . }}
+    {{- end }}
+  {{- end }}
+{{- if or .Values.prometheus.basicAuth.password .Values.prometheus.bearerToken }}
+  secret:
+    name: {{ include "opscenter-config.fullname" . }}-prometheus-auth
+{{- end }}
+{{- if .Values.prometheus.tls.caBundle }}
+  clientCertificateSecret:
+    name: {{ include "opscenter-config.fullname" . }}-prometheus-tls
+{{- end }}
+{{- if .Values.prometheus.tls.insecureSkipTLSVerify }}
+  insecureSkipTLSVerify: true
+{{- end }}
+{{- with .Values.prometheus.tls.caBundle }}
+  caBundle: {{ . | b64enc }}
+{{- end }}
+{{- with .Values.prometheus.tls.serverName }}
+  serverName: {{ . }}
+{{- end }}

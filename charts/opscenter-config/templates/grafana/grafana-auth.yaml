@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "opscenter-config.fullname" . }}-grafana-auth
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "opscenter-config.labels" . | nindent 4 }}
+stringData:
+  apiKey: {{ .Values.grafana.auth.apiKey | quote }}

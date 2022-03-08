@@ -1,0 +1,21 @@
+# if tls is provided, then create a secret for tls
+{{- if .Values.prometheus.tls.caBundle }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "kube-ui-server.fullname" . }}-prometheus-tls
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kube-ui-server.labels" . | nindent 4 }}
+type: kubernetes.io/tls
+stringData:
+{{- with .Values.prometheus.tls.caBundle }}
+  ca.crt: {{ . | quote }}
+{{- end }}
+{{- with .Values.prometheus.tls.cert }}
+  client.crt: {{ . | quote }}
+{{- end }}
+{{- with .Values.prometheus.tls.key }}
+  client.key: {{ . | quote }}
+{{- end }}
+{{- end }}
