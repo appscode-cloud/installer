@@ -3,7 +3,7 @@ name: opscenter-config
 description: ByteBuilders Opscenter Configuration
 type: application
 version: v2022.03.07
-appVersion: v0.0.1
+appVersion: v2022.03.07
 home: https://github.com/bytebuilders
 icon: https://cdn.appscode.com/images/products/kubeops/icons/android-icon-192x192.png
 sources:
