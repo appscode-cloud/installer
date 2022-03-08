@@ -5,8 +5,9 @@ grafana:
     name: "kube-prometheus-stack-grafana"
     namespace: "monitoring"
     port: "80"
-  auth:
-    apiKey: "admin:prom-operator"
+  basicAuth:
+    username: "admin"
+    password: "prom-operator"
   dashboard:
     datasource: "Prometheus"
 
