@@ -3,10 +3,10 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ include "kube-ui-server.fullname" . }}-prometheus-auth
+  name: {{ include "opscenter-config.fullname" . }}-prometheus-auth
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "kube-ui-server.labels" . | nindent 4 }}
+    {{- include "opscenter-config.labels" . | nindent 4 }}
 stringData:
 {{- with .Values.prometheus.basicAuth.username }}
   username: {{ . | quote }}
