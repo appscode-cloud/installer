@@ -18,6 +18,7 @@ GO_PKG   := go.bytebuilders.dev
 REPO     := $(notdir $(shell pwd))
 BIN      := installer
 
+# Produce CRDs that work back to Kubernetes 1.11 (no version conversion)
 CRD_OPTIONS          ?= "crd:crdVersions={v1}"
 # https://github.com/appscodelabs/gengo-builder
 CODE_GENERATOR_IMAGE ?= appscode/gengo:release-1.21
@@ -104,22 +105,19 @@ version:
 	@echo commit_hash=$(commit_hash)
 	@echo commit_timestamp=$(commit_timestamp)
 
-.PHONY: clientset
-clientset:
-	@docker run --rm 	                                          \
-		-u $$(id -u):$$(id -g)                                    \
-		-v /tmp:/.cache                                           \
-		-v $$(pwd):$(DOCKER_REPO_ROOT)                            \
-		-w $(DOCKER_REPO_ROOT)                                    \
-		--env HTTP_PROXY=$(HTTP_PROXY)                            \
-		--env HTTPS_PROXY=$(HTTPS_PROXY)                          \
-		$(CODE_GENERATOR_IMAGE)                                   \
-		/go/src/k8s.io/code-generator/generate-groups.sh          \
-			"deepcopy"                                            \
-			$(GO_PKG)/$(REPO)/client                              \
-			$(GO_PKG)/$(REPO)/apis                                \
-			"$(API_GROUPS)"                                       \
-			--go-header-file "./hack/license/go.txt"
+.PHONY: codegen
+codegen:
+	@echo "Generating deepcopy funcs"
+	@docker run --rm \
+		-u $$(id -u):$$(id -g) \
+		-v /tmp:/.cache \
+		-v $$(pwd):$(DOCKER_REPO_ROOT) \
+		-w $(DOCKER_REPO_ROOT) \
+	    --env HTTP_PROXY=$(HTTP_PROXY) \
+	    --env HTTPS_PROXY=$(HTTPS_PROXY) \
+		$(CODE_GENERATOR_IMAGE) \
+		controller-gen \
+			object:headerFile="./hack/license/go.txt" paths="./apis/..."
 
 # Generate openapi schema
 .PHONY: openapi
@@ -169,7 +167,7 @@ gen-crds:
 		controller-gen                      \
 			$(CRD_OPTIONS)                  \
 			paths="./apis/..."              \
-			output:crd:artifacts:config=crds
+			output:crd:artifacts:config=.crds
 
 crds_to_patch :=
 
@@ -177,43 +175,27 @@ crds_to_patch :=
 patch-crds: $(addprefix patch-crd-, $(crds_to_patch))
 patch-crd-%: $(BUILD_DIRS)
 	@echo "patching $*"
-	@kubectl patch -f crds/$* -p "$$(cat hack/crd-patch.json)" --type=json --local=true -o yaml > bin/$*
-	@mv bin/$* crds/$*
+	@kubectl patch -f .crds/$* -p "$$(cat hack/crd-patch.json)" --type=json --local=true -o yaml > bin/$*
+	@mv bin/$* .crds/$*
 
 .PHONY: label-crds
 label-crds: $(BUILD_DIRS)
-	@for f in crds/*.yaml; do \
-		echo "applying app.kubernetes.io/name=kubedb label to $$f"; \
-		kubectl label --overwrite -f $$f --local=true -o yaml app.kubernetes.io/name=kubedb > bin/crd.yaml; \
+	@for f in .crds/*.yaml; do \
+		echo "applying app.kubernetes.io/name=bytebuilders label to $$f"; \
+		kubectl label --overwrite -f $$f --local=true -o yaml app.kubernetes.io/name=bytebuilders > bin/crd.yaml; \
 		mv bin/crd.yaml $$f; \
 	done
-
-.PHONY: gen-bindata
-gen-bindata:
-	@docker run                                                 \
-	    -i                                                      \
-	    --rm                                                    \
-	    -u $$(id -u):$$(id -g)                                  \
-	    -v $$(pwd):/src                                         \
-	    -w /src/crds                                        \
-		-v /tmp:/.cache                                         \
-	    --env HTTP_PROXY=$(HTTP_PROXY)                          \
-	    --env HTTPS_PROXY=$(HTTPS_PROXY)                        \
-	    $(BUILD_IMAGE)                                          \
-	    go-bindata -ignore=\\.go -ignore=\\.DS_Store -mode=0644 -modtime=1573722179 -o bindata.go -pkg crds ./...
 
 .PHONY: gen-values-schema
 gen-values-schema: $(BUILD_DIRS)
 	@for dir in charts/*/; do \
 		dir=$${dir%*/}; \
 		dir=$${dir##*/}; \
-		crd_file=crds/installer.kmodules.xyz_$$(echo $$dir | tr -d '-')s.yaml; \
+		crd_file=.crds/installer.bytebuilders.dev_$$(echo $$dir | tr -d '-')s.yaml; \
 		if [ ! -f $${crd_file} ]; then \
 			continue; \
 		fi; \
-		yq r $${crd_file} spec.versions[0].schema.openAPIV3Schema.properties.spec > bin/values.openapiv3_schema.yaml; \
-		yq d bin/values.openapiv3_schema.yaml description > charts/$${dir}/values.openapiv3_schema.yaml; \
-		rm -rf bin/values.openapiv3_schema.yaml; \
+		yq -y --indentless '.spec.versions[0].schema.openAPIV3Schema.properties.spec | del(.description)' $${crd_file} > charts/$${dir}/values.openapiv3_schema.yaml; \
 	done
 
 .PHONY: gen-chart-doc
@@ -235,7 +217,7 @@ gen-chart-doc-%:
 manifests: gen-crds gen-values-schema gen-chart-doc
 
 .PHONY: gen
-gen: clientset manifests
+gen: codegen manifests
 
 CHART_REGISTRY     ?= appscode
 CHART_REGISTRY_URL ?= https://charts.appscode.com/stable/
@@ -249,13 +231,14 @@ chart-%:
 	@$(MAKE) chart-contents-$* gen-chart-doc-$* --no-print-directory
 
 chart-contents-%:
-	@yq w -i ./charts/$*/doc.yaml repository.name --tag '!!str' $(CHART_REGISTRY)
-	@yq w -i ./charts/$*/doc.yaml repository.url --tag '!!str' $(CHART_REGISTRY_URL)
-	@if [ ! -z "$(CHART_VERSION)" ]; then                                              \
-		yq w -i ./charts/$*/Chart.yaml version --tag '!!str' $(CHART_VERSION);         \
+	@yq -y --indentless -i '.repository.name="$(CHART_REGISTRY)"' ./charts/$*/doc.yaml
+	@yq -y --indentless -i '.repository.url="$(CHART_REGISTRY_URL)"' ./charts/$*/doc.yaml
+	@if [ -n "$(CHART_VERSION)" ]; then \
+	  yq -y --indentless -i '.version="$(CHART_VERSION)"' ./charts/$*/Chart.yaml; \
 	fi
-	@if [ ! -z "$(APP_VERSION)" ]; then                                                \
-		yq w -i ./charts/$*/Chart.yaml appVersion --tag '!!str' $(APP_VERSION);        \
+	@if [ -n "$(APP_VERSION)" ]; then \
+		yq -y --indentless -i '.appVersion="$(APP_VERSION)"' ./charts/$*/Chart.yaml; \
+		yqq w -i ./charts/$*/values.yaml operator.tag --tag '!!str' $(APP_VERSION); \
 	fi
 
 fmt: $(BUILD_DIRS)

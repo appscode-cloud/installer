@@ -21,5 +21,5 @@ limitations under the License.
 // +k8s:openapi-gen=true
 // +k8s:defaulter-gen=TypeMeta
 
-// +groupName=installer.kmodules.xyz
+// +groupName=installer.bytebuilders.dev
 package v1alpha1

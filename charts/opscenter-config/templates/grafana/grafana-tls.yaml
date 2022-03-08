@@ -1,0 +1,21 @@
+# if tls is provided, then create a secret for tls
+{{- if .Values.grafana.tls.ca }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "opscenter-config.fullname" . }}-grafana-tls
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "opscenter-config.labels" . | nindent 4 }}
+type: kubernetes.io/tls
+stringData:
+{{- with .Values.grafana.tls.ca }}
+  ca.crt: {{ . | quote }}
+{{- end }}
+{{- with .Values.grafana.tls.cert }}
+  client.crt: {{ . | quote }}
+{{- end }}
+{{- with .Values.grafana.tls.key }}
+  client.key: {{ . | quote }}
+{{- end }}
+{{- end }}

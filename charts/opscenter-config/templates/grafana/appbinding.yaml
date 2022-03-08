@@ -27,13 +27,22 @@ spec:
       query: {{ . }}
     {{- end }}
   {{- end }}
+{{- if or .Values.grafana.basicAuth.password .Values.grafana.bearerToken }}
   secret:
     name: {{ include "opscenter-config.fullname" . }}-grafana-auth
+{{- end }}
+{{- if .Values.grafana.tls.ca }}
+  clientCertificateSecret:
+    name: {{ include "opscenter-config.fullname" . }}-grafana-tls
+{{- end }}
 {{- if .Values.grafana.tls.insecureSkipTLSVerify }}
   insecureSkipTLSVerify: true
 {{- end }}
-{{- with .Values.grafana.tls.caBundle }}
+{{- with .Values.grafana.tls.ca }}
   caBundle: {{ . | b64enc }}
+{{- end }}
+{{- with .Values.grafana.tls.serverName }}
+  serverName: {{ . }}
 {{- end }}
 {{- if or .Values.grafana.dashboard.datasource .Values.grafana.dashboard.folderID }}
   parameters:
