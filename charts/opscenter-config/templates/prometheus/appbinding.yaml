@@ -18,6 +18,7 @@ spec:
     service:
       scheme: {{ .Values.prometheus.service.scheme }}
       name: {{ .Values.prometheus.service.name }}
+      namespace: {{ .Values.prometheus.service.namespace }}
       port: {{ .Values.prometheus.service.port }}
     {{- with .Values.prometheus.service.path }}
       path: {{ . }}

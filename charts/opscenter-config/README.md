@@ -53,18 +53,20 @@ The following table lists the configurable parameters of the `opscenter-config` 
 | grafana.url                          |                                                                             | <code>""</code>        |
 | grafana.service.scheme               |                                                                             | <code>""</code>        |
 | grafana.service.name                 |                                                                             | <code>""</code>        |
+| grafana.service.namespace            |                                                                             | <code>""</code>        |
 | grafana.service.port                 |                                                                             | <code>""</code>        |
 | grafana.service.path                 |                                                                             | <code>""</code>        |
 | grafana.service.query                |                                                                             | <code>""</code>        |
 | grafana.auth.apiKey                  |                                                                             | <code>""</code>        |
 | grafana.tls.insecureSkipTLSVerify    |                                                                             | <code>false</code>     |
 | grafana.tls.caBundle                 |                                                                             | <code>""</code>        |
-| dashboard.datasource                 |                                                                             | <code>""</code>        |
-| dashboard.folderID                   |                                                                             | <code>0</code>         |
+| grafana.dashboard.datasource         |                                                                             | <code>""</code>        |
+| grafana.dashboard.folderID           |                                                                             | <code>0</code>         |
 | prometheus.default                   |                                                                             | <code>false</code>     |
 | prometheus.url                       |                                                                             | <code>""</code>        |
 | prometheus.service.scheme            |                                                                             | <code>""</code>        |
 | prometheus.service.name              |                                                                             | <code>""</code>        |
+| prometheus.service.namespace         |                                                                             | <code>""</code>        |
 | prometheus.service.port              |                                                                             | <code>""</code>        |
 | prometheus.service.path              |                                                                             | <code>""</code>        |
 | prometheus.service.query             |                                                                             | <code>""</code>        |
@@ -75,7 +77,7 @@ The following table lists the configurable parameters of the `opscenter-config` 
 | prometheus.tls.cert                  | The client cert to use for communicating with the Prometheus server.        | <code>""</code>        |
 | prometheus.tls.key                   | The client key to use for communicating with the Prometheus server.         | <code>""</code>        |
 | prometheus.tls.serverName            | The server name which will be used to verify the Prometheus server address. | <code>""</code>        |
-| prometheus.tls.insecureSkipTLSVerify | To skip tls verification when communicating with the Prometheus server.     | <code>""</code>        |
+| prometheus.tls.insecureSkipTLSVerify | To skip tls verification when communicating with the Prometheus server.     | <code>false</code>     |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

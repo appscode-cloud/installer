@@ -13,6 +13,7 @@ grafana:
   service:
     scheme: ""
     name: ""
+    namespace: ""
     port: ""
     path: ""
     query: ""
@@ -24,9 +25,9 @@ grafana:
     insecureSkipTLSVerify: false
     caBundle: ""
 
-dashboard:
-  datasource: ""
-  folderID: 0
+  dashboard:
+    datasource: ""
+    folderID: 0
 
 prometheus:
   default: false
@@ -36,6 +37,7 @@ prometheus:
   service:
     scheme: ""
     name: ""
+    namespace: ""
     port: ""
     path: ""
     query: ""
@@ -58,4 +60,4 @@ prometheus:
     # The server name which will be used to verify the Prometheus server address.
     serverName: ""
     # To skip tls verification when communicating with the Prometheus server.
-    insecureSkipTLSVerify: ""
+    insecureSkipTLSVerify: false
