@@ -1,5 +1,5 @@
 # if tls is provided, then create a secret for tls
-{{- if .Values.prometheus.tls.caBundle }}
+{{- if .Values.prometheus.tls.ca }}
 apiVersion: v1
 kind: Secret
 metadata:
@@ -9,7 +9,7 @@ metadata:
     {{- include "opscenter-config.labels" . | nindent 4 }}
 type: kubernetes.io/tls
 stringData:
-{{- with .Values.prometheus.tls.caBundle }}
+{{- with .Values.prometheus.tls.ca }}
   ca.crt: {{ . | quote }}
 {{- end }}
 {{- with .Values.prometheus.tls.cert }}

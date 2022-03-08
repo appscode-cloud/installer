@@ -18,12 +18,26 @@ grafana:
     path: ""
     query: ""
 
-  auth:
-    apiKey: ""
+  # The HTTP basic authentication username for the Prometheus server.
+  basicAuth:
+    # The HTTP basic authentication username for the Prometheus server.
+    username: ""
+    # The HTTP basic authentication password for the Prometheus server.
+    password: ""
+  # The bearer token for the Prometheus server.
+  bearerToken: ""
 
   tls:
+    # The CA cert to use for the Prometheus server.
+    ca: ""
+    # The client cert to use for communicating with the Prometheus server.
+    cert: ""
+    # The client key to use for communicating with the Prometheus server.
+    key: ""
+    # The server name which will be used to verify the Prometheus server address.
+    serverName: ""
+    # To skip tls verification when communicating with the Prometheus server.
     insecureSkipTLSVerify: false
-    caBundle: ""
 
   dashboard:
     datasource: ""
@@ -52,7 +66,7 @@ prometheus:
   bearerToken: ""
   tls:
     # The CA cert to use for the Prometheus server.
-    caBundle: ""
+    ca: ""
     # The client cert to use for communicating with the Prometheus server.
     cert: ""
     # The client key to use for communicating with the Prometheus server.

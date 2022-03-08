@@ -34,4 +34,5 @@ _testmain.go
 /bin
 /.go
 
+/.crds
 /charts/opscenter-core/charts

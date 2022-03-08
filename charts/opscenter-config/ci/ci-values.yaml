@@ -7,6 +7,8 @@ grafana:
     port: "80"
   auth:
     apiKey: "admin:prom-operator"
+  dashboard:
+    datasource: "Prometheus"
 
 prometheus:
   default: true
