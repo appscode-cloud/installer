@@ -1,3 +1,5 @@
+# if basic auth or bearer token is provided, then create a secret for auth
+{{- if or .Values.grafana.basicAuth.password .Values.grafana.bearerToken }}
 apiVersion: v1
 kind: Secret
 metadata:
@@ -6,4 +8,13 @@ metadata:
   labels:
     {{- include "opscenter-config.labels" . | nindent 4 }}
 stringData:
-  apiKey: {{ .Values.grafana.auth.apiKey | quote }}
+{{- with .Values.grafana.basicAuth.username }}
+  username: {{ . | quote }}
+{{- end }}
+{{- with .Values.grafana.basicAuth.password }}
+  password: {{ . | quote }}
+{{- end }}
+{{- with .Values.grafana.bearerToken }}
+  token: {{ . | quote }}
+{{- end }}
+{{- end }}

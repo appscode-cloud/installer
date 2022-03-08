@@ -57,9 +57,14 @@ The following table lists the configurable parameters of the `opscenter-config` 
 | grafana.service.port                 |                                                                             | <code>""</code>        |
 | grafana.service.path                 |                                                                             | <code>""</code>        |
 | grafana.service.query                |                                                                             | <code>""</code>        |
-| grafana.auth.apiKey                  |                                                                             | <code>""</code>        |
-| grafana.tls.insecureSkipTLSVerify    |                                                                             | <code>false</code>     |
-| grafana.tls.caBundle                 |                                                                             | <code>""</code>        |
+| grafana.basicAuth.username           | The HTTP basic authentication username for the Prometheus server.           | <code>""</code>        |
+| grafana.basicAuth.password           | The HTTP basic authentication password for the Prometheus server.           | <code>""</code>        |
+| grafana.bearerToken                  | The bearer token for the Prometheus server.                                 | <code>""</code>        |
+| grafana.tls.ca                       | The CA cert to use for the Prometheus server.                               | <code>""</code>        |
+| grafana.tls.cert                     | The client cert to use for communicating with the Prometheus server.        | <code>""</code>        |
+| grafana.tls.key                      | The client key to use for communicating with the Prometheus server.         | <code>""</code>        |
+| grafana.tls.serverName               | The server name which will be used to verify the Prometheus server address. | <code>""</code>        |
+| grafana.tls.insecureSkipTLSVerify    | To skip tls verification when communicating with the Prometheus server.     | <code>false</code>     |
 | grafana.dashboard.datasource         |                                                                             | <code>""</code>        |
 | grafana.dashboard.folderID           |                                                                             | <code>0</code>         |
 | prometheus.default                   |                                                                             | <code>false</code>     |
@@ -73,7 +78,7 @@ The following table lists the configurable parameters of the `opscenter-config` 
 | prometheus.basicAuth.username        | The HTTP basic authentication username for the Prometheus server.           | <code>""</code>        |
 | prometheus.basicAuth.password        | The HTTP basic authentication password for the Prometheus server.           | <code>""</code>        |
 | prometheus.bearerToken               | The bearer token for the Prometheus server.                                 | <code>""</code>        |
-| prometheus.tls.caBundle              | The CA cert to use for the Prometheus server.                               | <code>""</code>        |
+| prometheus.tls.ca                    | The CA cert to use for the Prometheus server.                               | <code>""</code>        |
 | prometheus.tls.cert                  | The client cert to use for communicating with the Prometheus server.        | <code>""</code>        |
 | prometheus.tls.key                   | The client key to use for communicating with the Prometheus server.         | <code>""</code>        |
 | prometheus.tls.serverName            | The server name which will be used to verify the Prometheus server address. | <code>""</code>        |
