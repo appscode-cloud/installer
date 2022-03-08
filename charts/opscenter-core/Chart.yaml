@@ -2,8 +2,8 @@ apiVersion: v2
 name: opscenter-core
 description: ByteBuilders Opscenter Core by AppsCode
 type: application
-version: v2022.02.08
-appVersion: v2022.02.08
+version: v2022.03.07
+appVersion: v2022.03.07
 home: https://byte.builders
 icon: https://cdn.appscode.com/images/products/appscode/appscode-512x512.png
 sources:
@@ -15,7 +15,7 @@ dependencies:
 - name: kube-ui-server
   repository: https://charts.appscode.com/stable/
   condition: kube-ui-server.enabled
-  version: v2022.02.08
+  version: v2022.03.07
 - name: panopticon
   repository: https://charts.appscode.com/stable/
   condition: panopticon.enabled
