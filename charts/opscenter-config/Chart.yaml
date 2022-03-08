@@ -1,6 +1,6 @@
 apiVersion: v2
 name: opscenter-config
-description: A Helm chart for ByteBuilders Opscenter Configuration
+description: ByteBuilders Opscenter Configuration
 type: application
 version: v2022.03.07
 appVersion: v0.0.1
