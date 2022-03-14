@@ -32,7 +32,7 @@ spec:
     name: {{ include "opscenter-config.fullname" . }}-prometheus-auth
 {{- end }}
 {{- if .Values.prometheus.tls.ca }}
-  clientCertificateSecret:
+  tlsSecret:
     name: {{ include "opscenter-config.fullname" . }}-prometheus-tls
 {{- end }}
 {{- if .Values.prometheus.tls.insecureSkipTLSVerify }}

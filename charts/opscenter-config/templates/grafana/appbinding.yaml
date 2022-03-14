@@ -32,7 +32,7 @@ spec:
     name: {{ include "opscenter-config.fullname" . }}-grafana-auth
 {{- end }}
 {{- if .Values.grafana.tls.ca }}
-  clientCertificateSecret:
+  tlsSecret:
     name: {{ include "opscenter-config.fullname" . }}-grafana-tls
 {{- end }}
 {{- if .Values.grafana.tls.insecureSkipTLSVerify }}
