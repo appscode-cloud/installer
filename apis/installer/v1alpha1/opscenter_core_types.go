@@ -45,10 +45,11 @@ type OpscenterCore struct {
 
 // OpscenterCoreSpec is the schema for Identity Server values file
 type OpscenterCoreSpec struct {
-	KubeUiServer    KubeUiServerSpec    `json:"kube-ui-server"`
-	Panopticon      PanopticonSpec      `json:"panopticon"`
-	GrafanaOperator GrafanaOperatorSpec `json:"grafana-operator"`
-	GrafanaUiServer GrafanaUiServerSpec `json:"grafana-ui-server"`
+	KubeUiServer          KubeUiServerSpec          `json:"kube-ui-server"`
+	Panopticon            PanopticonSpec            `json:"panopticon"`
+	GrafanaOperator       GrafanaOperatorSpec       `json:"grafana-operator"`
+	GrafanaUiServer       GrafanaUiServerSpec       `json:"grafana-ui-server"`
+	KubeGrafanaDashboards KubeGrafanaDashboardsSpec `json:"kube-grafana-dashboards"`
 }
 
 type KubeUiServerSpec struct {
@@ -69,6 +70,11 @@ type GrafanaOperatorSpec struct {
 type GrafanaUiServerSpec struct {
 	Enabled                                bool `json:"enabled"`
 	*openviz_installer.GrafanaUiServerSpec `json:",inline,omitempty"`
+}
+
+type KubeGrafanaDashboardsSpec struct {
+	Enabled                                      bool `json:"enabled"`
+	*openviz_installer.KubeGrafanaDashboardsSpec `json:",inline,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

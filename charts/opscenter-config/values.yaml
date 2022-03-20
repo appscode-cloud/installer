@@ -65,5 +65,3 @@ prometheus:
     serverName: ""
     # To skip tls verification when communicating with the Prometheus server.
     insecureSkipTLSVerify: false
-operator:
-  tag: v2022.03.20
