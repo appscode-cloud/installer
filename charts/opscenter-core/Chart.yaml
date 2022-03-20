@@ -2,8 +2,8 @@ apiVersion: v2
 name: opscenter-core
 description: ByteBuilders Opscenter Core by AppsCode
 type: application
-version: v2022.03.07
-appVersion: v2022.03.07
+version: v2022.03.20
+appVersion: v2022.03.20
 home: https://byte.builders
 icon: https://cdn.appscode.com/images/products/appscode/appscode-512x512.png
 sources:

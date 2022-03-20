@@ -4,12 +4,9 @@
 
 nameOverride: ""
 fullnameOverride: opscenter
-
 grafana:
   default: false
-
   url: ""
-
   service:
     scheme: ""
     name: ""
@@ -17,7 +14,6 @@ grafana:
     port: ""
     path: ""
     query: ""
-
   # The HTTP basic authentication username for the Prometheus server.
   basicAuth:
     # The HTTP basic authentication username for the Prometheus server.
@@ -26,7 +22,6 @@ grafana:
     password: ""
   # The bearer token for the Prometheus server.
   bearerToken: ""
-
   tls:
     # The CA cert to use for the Prometheus server.
     ca: ""
@@ -38,16 +33,12 @@ grafana:
     serverName: ""
     # To skip tls verification when communicating with the Prometheus server.
     insecureSkipTLSVerify: false
-
   dashboard:
     datasource: ""
     folderID: 0
-
 prometheus:
   default: false
-
   url: ""
-
   service:
     scheme: ""
     name: ""
@@ -55,7 +46,6 @@ prometheus:
     port: ""
     path: ""
     query: ""
-
   # The HTTP basic authentication username for the Prometheus server.
   basicAuth:
     # The HTTP basic authentication username for the Prometheus server.
@@ -75,3 +65,5 @@ prometheus:
     serverName: ""
     # To skip tls verification when communicating with the Prometheus server.
     insecureSkipTLSVerify: false
+operator:
+  tag: v2022.03.20
