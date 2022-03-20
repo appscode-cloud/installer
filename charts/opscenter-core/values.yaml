@@ -12,5 +12,3 @@ grafana-ui-server:
   enabled: true
 kube-grafana-dashboards:
   enabled: true
-operator:
-  tag: v2022.03.20

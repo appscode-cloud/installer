@@ -3,7 +3,7 @@ module go.bytebuilders.dev/installer
 go 1.17
 
 require (
-	go.openviz.dev/installer v0.0.0-20220308203737-6a8df5012026
+	go.openviz.dev/installer v0.0.0-20220320225825-1847803940fb
 	k8s.io/api v0.21.1
 	k8s.io/apimachinery v0.21.1
 	kmodules.xyz/schema-checker v0.2.1

@@ -238,7 +238,6 @@ contents-%:
 	fi
 	@if [ -n "$(APP_VERSION)" ]; then \
 		yq -y --indentless -i '.appVersion="$(APP_VERSION)"' ./charts/$*/Chart.yaml; \
-		yqq w -i ./charts/$*/values.yaml operator.tag --tag '!!str' $(APP_VERSION); \
 	fi
 
 fmt: $(BUILD_DIRS)
