@@ -23,8 +23,12 @@ dependencies:
 - name: grafana-operator
   repository: https://charts.appscode.com/stable/
   condition: grafana-operator.enabled
-  version: v2021.11.16
+  version: v2022.03.20
 - name: grafana-ui-server
   repository: https://charts.appscode.com/stable/
   condition: grafana-ui-server.enabled
-  version: v2021.11.16
+  version: v2022.03.20
+- name: kube-grafana-dashboards
+  repository: https://charts.appscode.com/stable/
+  condition: kube-grafana-dashboards.enabled
+  version: v2022.03.20

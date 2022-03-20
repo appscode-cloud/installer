@@ -10,3 +10,5 @@ grafana-operator:
   enabled: true
 grafana-ui-server:
   enabled: true
+kube-grafana-dashboards:
+  enabled: true
