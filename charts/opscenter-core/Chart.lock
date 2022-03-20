@@ -7,9 +7,12 @@ dependencies:
   version: v2021.11.25
 - name: grafana-operator
   repository: https://charts.appscode.com/stable/
-  version: v2021.11.16
+  version: v2022.03.20
 - name: grafana-ui-server
   repository: https://charts.appscode.com/stable/
-  version: v2021.11.16
-digest: sha256:08557ce48a851fdbdc8509fc960e1f6aa7a73cc2f5a0848ef6bf561f8fdc9ca9
-generated: "2022-03-07T20:31:23.080036-08:00"
+  version: v2022.03.20
+- name: kube-grafana-dashboards
+  repository: https://charts.appscode.com/stable/
+  version: v2022.03.20
+digest: sha256:0086ae049682cb0b6fa8bf845babda5496a1823c7be10491fd958a978bbbc1b1
+generated: "2022-03-20T09:12:34.07596-07:00"

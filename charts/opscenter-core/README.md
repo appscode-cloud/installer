@@ -45,12 +45,13 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `opscenter-core` chart and their default values.
 
-|         Parameter         | Description |      Default      |
-|---------------------------|-------------|-------------------|
-| kube-ui-server.enabled    |             | <code>true</code> |
-| panopticon.enabled        |             | <code>true</code> |
-| grafana-operator.enabled  |             | <code>true</code> |
-| grafana-ui-server.enabled |             | <code>true</code> |
+|            Parameter            | Description |      Default      |
+|---------------------------------|-------------|-------------------|
+| kube-ui-server.enabled          |             | <code>true</code> |
+| panopticon.enabled              |             | <code>true</code> |
+| grafana-operator.enabled        |             | <code>true</code> |
+| grafana-ui-server.enabled       |             | <code>true</code> |
+| kube-grafana-dashboards.enabled |             | <code>true</code> |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

@@ -36,3 +36,4 @@ _testmain.go
 
 /.crds
 /charts/opscenter-core/charts
+.DS_Store
