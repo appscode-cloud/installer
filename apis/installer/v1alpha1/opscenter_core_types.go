@@ -53,27 +53,27 @@ type OpscenterCoreSpec struct {
 }
 
 type KubeUiServerSpec struct {
-	Enabled                             bool `json:"enabled"`
+	Enabled                             *bool `json:"enabled"`
 	*kubeops_installer.KubeUiServerSpec `json:",inline,omitempty"`
 }
 
 type PanopticonSpec struct {
-	Enabled                           bool `json:"enabled"`
+	Enabled                           *bool `json:"enabled"`
 	*kubeops_installer.PanopticonSpec `json:",inline,omitempty"`
 }
 
 type GrafanaOperatorSpec struct {
-	Enabled                                bool `json:"enabled"`
+	Enabled                                *bool `json:"enabled"`
 	*openviz_installer.GrafanaOperatorSpec `json:",inline,omitempty"`
 }
 
 type GrafanaUiServerSpec struct {
-	Enabled                                bool `json:"enabled"`
+	Enabled                                *bool `json:"enabled"`
 	*openviz_installer.GrafanaUiServerSpec `json:",inline,omitempty"`
 }
 
 type KubeGrafanaDashboardsSpec struct {
-	Enabled                                      bool `json:"enabled"`
+	Enabled                                      *bool `json:"enabled"`
 	*openviz_installer.KubeGrafanaDashboardsSpec `json:",inline,omitempty"`
 }
 
