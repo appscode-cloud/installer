@@ -1,4 +1,42 @@
 properties:
+  global:
+    properties:
+      imagePullSecrets:
+        items:
+          type: string
+        type: array
+      license:
+        type: string
+      monitoring:
+        properties:
+          agent:
+            enum:
+            - prometheus.io
+            - prometheus.io/operator
+            - prometheus.io/builtin
+            type: string
+          serviceMonitor:
+            properties:
+              labels:
+                additionalProperties:
+                  type: string
+                type: object
+            type: object
+        required:
+        - agent
+        - serviceMonitor
+        type: object
+      registry:
+        type: string
+      registryFQDN:
+        type: string
+    required:
+    - imagePullSecrets
+    - license
+    - monitoring
+    - registry
+    - registryFQDN
+    type: object
   grafana-operator:
     properties:
       affinity:
@@ -771,65 +809,20 @@ properties:
         type: object
       apiserver:
         properties:
-          bypassValidatingWebhookXray:
-            type: boolean
-          ca:
-            type: string
-          enableMutatingWebhook:
-            type: boolean
-          enableValidatingWebhook:
-            type: boolean
-          groupPriorityMinimum:
-            format: int32
-            type: integer
           healthcheck:
             properties:
               enabled:
                 type: boolean
-            type: object
-          servingCerts:
-            properties:
-              caCrt:
-                type: string
-              generate:
-                type: boolean
-              serverCrt:
-                type: string
-              serverKey:
-                type: string
+              probePort:
+                type: integer
             required:
-            - generate
+            - probePort
             type: object
           useKubeapiserverFqdnForAks:
             type: boolean
-          versionPriority:
-            format: int32
-            type: integer
         required:
-        - ca
-        - enableMutatingWebhook
-        - enableValidatingWebhook
-        - groupPriorityMinimum
         - healthcheck
-        - servingCerts
         - useKubeapiserverFqdnForAks
-        - versionPriority
-        type: object
-      cleaner:
-        properties:
-          registry:
-            type: string
-          repository:
-            type: string
-          skip:
-            type: boolean
-          tag:
-            type: string
-        required:
-        - registry
-        - repository
-        - skip
-        - tag
         type: object
       criticalAddon:
         type: boolean
@@ -837,37 +830,7 @@ properties:
         type: boolean
       fullnameOverride:
         type: string
-      imagePullPolicy:
-        type: string
-      imagePullSecrets:
-        items:
-          type: string
-        type: array
-      logLevel:
-        format: int32
-        type: integer
-      monitoring:
-        properties:
-          agent:
-            type: string
-          serviceMonitor:
-            properties:
-              labels:
-                additionalProperties:
-                  type: string
-                type: object
-            type: object
-        required:
-        - agent
-        - serviceMonitor
-        type: object
-      nameOverride:
-        type: string
-      nodeSelector:
-        additionalProperties:
-          type: string
-        type: object
-      operator:
+      image:
         properties:
           registry:
             type: string
@@ -1044,6 +1007,43 @@ properties:
         - repository
         - tag
         type: object
+      imagePullPolicy:
+        type: string
+      imagePullSecrets:
+        items:
+          type: string
+        type: array
+      logLevel:
+        format: int32
+        type: integer
+      monitoring:
+        properties:
+          agent:
+            enum:
+            - prometheus.io
+            - prometheus.io/operator
+            - prometheus.io/builtin
+            type: string
+          bindPort:
+            type: integer
+          serviceMonitor:
+            properties:
+              labels:
+                additionalProperties:
+                  type: string
+                type: object
+            type: object
+        required:
+        - agent
+        - bindPort
+        - serviceMonitor
+        type: object
+      nameOverride:
+        type: string
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
       podAnnotations:
         additionalProperties:
           type: string
@@ -1184,6 +1184,8 @@ properties:
                 type: string
             type: object
         type: object
+      registryFQDN:
+        type: string
       replicaCount:
         format: int32
         type: integer
@@ -1240,11 +1242,11 @@ properties:
         type: array
     required:
     - apiserver
-    - cleaner
     - enabled
+    - image
     - imagePullPolicy
     - monitoring
-    - operator
+    - registryFQDN
     - replicaCount
     - serviceAccount
     type: object
@@ -2248,6 +2250,10 @@ properties:
       monitoring:
         properties:
           agent:
+            enum:
+            - prometheus.io
+            - prometheus.io/operator
+            - prometheus.io/builtin
             type: string
           serviceMonitor:
             properties:
@@ -2406,6 +2412,8 @@ properties:
                 type: string
             type: object
         type: object
+      registryFQDN:
+        type: string
       replicaCount:
         format: int32
         type: integer
@@ -2466,6 +2474,7 @@ properties:
     - image
     - imagePullPolicy
     - monitoring
+    - registryFQDN
     - replicaCount
     - serviceAccount
     type: object
@@ -3611,9 +3620,11 @@ properties:
       monitoring:
         properties:
           agent:
+            enum:
+            - prometheus.io
+            - prometheus.io/operator
+            - prometheus.io/builtin
             type: string
-          enabled:
-            type: boolean
           serviceMonitor:
             properties:
               labels:
@@ -3815,6 +3826,8 @@ properties:
         - proxyURL
         - tls
         type: object
+      registryFQDN:
+        type: string
       replicaCount:
         format: int32
         type: integer
@@ -3876,6 +3889,7 @@ properties:
     - imagePullPolicy
     - monitoring
     - prometheus
+    - registryFQDN
     - replicaCount
     - serviceAccount
     type: object
@@ -4651,8 +4665,6 @@ properties:
         type: object
       apiserver:
         properties:
-          ca:
-            type: string
           enableValidatingWebhook:
             type: boolean
           groupPriorityMinimum:
@@ -4682,7 +4694,6 @@ properties:
             format: int32
             type: integer
         required:
-        - ca
         - enableValidatingWebhook
         - groupPriorityMinimum
         - healthcheck
@@ -4708,47 +4719,11 @@ properties:
         type: object
       criticalAddon:
         type: boolean
-      enableAnalytics:
-        type: boolean
       enabled:
         type: boolean
       fullnameOverride:
         type: string
-      imagePullPolicy:
-        type: string
-      imagePullSecrets:
-        items:
-          type: string
-        type: array
-      license:
-        type: string
-      logLevel:
-        format: int32
-        type: integer
-      monitoring:
-        properties:
-          agent:
-            type: string
-          enabled:
-            type: boolean
-          serviceMonitor:
-            properties:
-              labels:
-                additionalProperties:
-                  type: string
-                type: object
-            type: object
-        required:
-        - agent
-        - serviceMonitor
-        type: object
-      nameOverride:
-        type: string
-      nodeSelector:
-        additionalProperties:
-          type: string
-        type: object
-      operator:
+      image:
         properties:
           registry:
             type: string
@@ -4924,6 +4899,42 @@ properties:
         - registry
         - repository
         - tag
+        type: object
+      imagePullPolicy:
+        type: string
+      imagePullSecrets:
+        items:
+          type: string
+        type: array
+      license:
+        type: string
+      logLevel:
+        format: int32
+        type: integer
+      monitoring:
+        properties:
+          agent:
+            enum:
+            - prometheus.io
+            - prometheus.io/operator
+            - prometheus.io/builtin
+            type: string
+          serviceMonitor:
+            properties:
+              labels:
+                additionalProperties:
+                  type: string
+                type: object
+            type: object
+        required:
+        - agent
+        - serviceMonitor
+        type: object
+      nameOverride:
+        type: string
+      nodeSelector:
+        additionalProperties:
+          type: string
         type: object
       podAnnotations:
         additionalProperties:
@@ -5125,13 +5136,15 @@ properties:
     - apiserver
     - cleaner
     - enabled
+    - image
     - imagePullPolicy
     - monitoring
-    - operator
+    - registryFQDN
     - replicaCount
     - serviceAccount
     type: object
 required:
+- global
 - grafana-operator
 - grafana-ui-server
 - kube-grafana-dashboards

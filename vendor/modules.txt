@@ -50,7 +50,7 @@ github.com/yudai/gojsondiff/formatter
 # github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82
 ## explicit
 github.com/yudai/golcs
-# go.openviz.dev/installer v0.0.0-20220320225825-1847803940fb
+# go.openviz.dev/installer v0.0.0-20220405094613-104d6739c514
 ## explicit; go 1.17
 go.openviz.dev/installer/apis/installer
 go.openviz.dev/installer/apis/installer/v1alpha1
@@ -150,7 +150,7 @@ k8s.io/klog/v2
 # kmodules.xyz/schema-checker v0.2.1
 ## explicit; go 1.15
 kmodules.xyz/schema-checker
-# kubeops.dev/installer v0.0.0-20220308211645-5eefe44e2d22
+# kubeops.dev/installer v0.0.0-20220405093254-a8be72329da1
 ## explicit; go 1.17
 kubeops.dev/installer/apis/installer
 kubeops.dev/installer/apis/installer/v1alpha1

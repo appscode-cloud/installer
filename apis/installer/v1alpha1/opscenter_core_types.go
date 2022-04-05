@@ -45,11 +45,33 @@ type OpscenterCore struct {
 
 // OpscenterCoreSpec is the schema for Identity Server values file
 type OpscenterCoreSpec struct {
+	Global                GlobalValues              `json:"global"`
 	KubeUiServer          KubeUiServerSpec          `json:"kube-ui-server"`
 	Panopticon            PanopticonSpec            `json:"panopticon"`
 	GrafanaOperator       GrafanaOperatorSpec       `json:"grafana-operator"`
 	GrafanaUiServer       GrafanaUiServerSpec       `json:"grafana-ui-server"`
 	KubeGrafanaDashboards KubeGrafanaDashboardsSpec `json:"kube-grafana-dashboards"`
+}
+
+type GlobalValues struct {
+	License          string     `json:"license"`
+	Registry         string     `json:"registry"`
+	RegistryFQDN     string     `json:"registryFQDN"`
+	ImagePullSecrets []string   `json:"imagePullSecrets"`
+	Monitoring       Monitoring `json:"monitoring"`
+}
+
+// +kubebuilder:validation:Enum=prometheus.io;prometheus.io/operator;prometheus.io/builtin
+type MonitoringAgent string
+
+type Monitoring struct {
+	Agent          MonitoringAgent       `json:"agent"`
+	ServiceMonitor *ServiceMonitorLabels `json:"serviceMonitor"`
+}
+
+type ServiceMonitorLabels struct {
+	// +optional
+	Labels map[string]string `json:"labels"`
 }
 
 type KubeUiServerSpec struct {
