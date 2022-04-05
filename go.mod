@@ -3,11 +3,10 @@ module go.bytebuilders.dev/installer
 go 1.17
 
 require (
-	go.openviz.dev/installer v0.0.0-20220320225825-1847803940fb
-	k8s.io/api v0.21.1
+	go.openviz.dev/installer v0.0.0-20220405094613-104d6739c514
 	k8s.io/apimachinery v0.21.1
 	kmodules.xyz/schema-checker v0.2.1
-	kubeops.dev/installer v0.0.0-20220308211645-5eefe44e2d22
+	kubeops.dev/installer v0.0.0-20220405093254-a8be72329da1
 )
 
 require (
@@ -31,6 +30,7 @@ require (
 	google.golang.org/protobuf v1.25.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
+	k8s.io/api v0.21.1 // indirect
 	k8s.io/klog/v2 v2.8.0 // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.1.2 // indirect
 	sigs.k8s.io/yaml v1.2.0 // indirect

@@ -1,11 +1,11 @@
 /*
-Copyright AppsCode Inc. and Contributors
+Copyright AppsCode Inc. and Contributors.
 
-Licensed under the AppsCode Community License 1.0.0 (the "License");
+Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    https://github.com/appscode/licenses/raw/1.0.0/AppsCode-Community-1.0.0.md
+    http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -26,7 +26,7 @@ type ImageRef struct {
 	Tag        string `json:"tag"`
 }
 
-type Container struct {
+type ContianerRef struct {
 	ImageRef `json:",inline"`
 	// Compute Resources required by the sidecar container.
 	// +optional
@@ -34,11 +34,6 @@ type Container struct {
 	// Security options the pod should run with.
 	// +optional
 	SecurityContext *core.SecurityContext `json:"securityContext"`
-}
-
-type CleanerRef struct {
-	ImageRef `json:",inline"`
-	Skip     bool `json:"skip"`
 }
 
 type ServiceAccountSpec struct {
@@ -50,36 +45,54 @@ type ServiceAccountSpec struct {
 }
 
 type WebHookSpec struct {
-	GroupPriorityMinimum       int32           `json:"groupPriorityMinimum"`
-	VersionPriority            int32           `json:"versionPriority"`
 	UseKubeapiserverFqdnForAks bool            `json:"useKubeapiserverFqdnForAks"`
 	Healthcheck                HealthcheckSpec `json:"healthcheck"`
-	ServingCerts               ServingCerts    `json:"servingCerts"`
-}
-
-type HealthcheckSpec struct {
-	//+optional
-	Enabled bool `json:"enabled"`
 }
 
 type ServingCerts struct {
 	Generate bool `json:"generate"`
-	//+optional
+	// +optional
 	CaCrt string `json:"caCrt"`
-	//+optional
+	// +optional
 	ServerCrt string `json:"serverCrt"`
-	//+optional
+	// +optional
 	ServerKey string `json:"serverKey"`
 }
 
-type Monitoring struct {
+type HealthcheckSpec struct {
 	// +optional
-	Enabled        bool                  `json:"enabled"`
-	Agent          string                `json:"agent"`
+	Enabled   bool `json:"enabled"`
+	ProbePort int  `json:"probePort"`
+}
+
+// +kubebuilder:validation:Enum=prometheus.io;prometheus.io/operator;prometheus.io/builtin
+type MonitoringAgent string
+
+type Monitoring struct {
+	Agent          MonitoringAgent       `json:"agent"`
+	BindPort       int                   `json:"bindPort"`
 	ServiceMonitor *ServiceMonitorLabels `json:"serviceMonitor"`
 }
 
 type ServiceMonitorLabels struct {
 	// +optional
 	Labels map[string]string `json:"labels"`
+}
+
+type EASSpec struct {
+	GroupPriorityMinimum       int32              `json:"groupPriorityMinimum"`
+	VersionPriority            int32              `json:"versionPriority"`
+	UseKubeapiserverFqdnForAks bool               `json:"useKubeapiserverFqdnForAks"`
+	Healthcheck                EASHealthcheckSpec `json:"healthcheck"`
+	ServingCerts               ServingCerts       `json:"servingCerts"`
+}
+
+type EASHealthcheckSpec struct {
+	// +optional
+	Enabled bool `json:"enabled"`
+}
+
+type EASMonitoring struct {
+	Agent          MonitoringAgent       `json:"agent"`
+	ServiceMonitor *ServiceMonitorLabels `json:"serviceMonitor"`
 }
