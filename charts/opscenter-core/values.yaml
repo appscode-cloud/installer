@@ -42,6 +42,8 @@ kube-ui-server:
   enabled: true
 panopticon:
   enabled: true
+supervisor:
+  enabled: true
 grafana-operator:
   enabled: true
 grafana-ui-server:

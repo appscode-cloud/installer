@@ -150,7 +150,7 @@ k8s.io/klog/v2
 # kmodules.xyz/schema-checker v0.2.1
 ## explicit; go 1.15
 kmodules.xyz/schema-checker
-# kubeops.dev/installer v0.0.0-20220405093254-a8be72329da1
+# kubeops.dev/installer v0.0.0-20220415042723-80b1bceb655d
 ## explicit; go 1.17
 kubeops.dev/installer/apis/installer
 kubeops.dev/installer/apis/installer/v1alpha1
