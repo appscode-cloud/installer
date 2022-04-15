@@ -48,6 +48,7 @@ type OpscenterCoreSpec struct {
 	Global                GlobalValues              `json:"global"`
 	KubeUiServer          KubeUiServerSpec          `json:"kube-ui-server"`
 	Panopticon            PanopticonSpec            `json:"panopticon"`
+	Supervisor            SupervisorSpec            `json:"supervisor"`
 	GrafanaOperator       GrafanaOperatorSpec       `json:"grafana-operator"`
 	GrafanaUiServer       GrafanaUiServerSpec       `json:"grafana-ui-server"`
 	KubeGrafanaDashboards KubeGrafanaDashboardsSpec `json:"kube-grafana-dashboards"`
@@ -82,6 +83,11 @@ type KubeUiServerSpec struct {
 type PanopticonSpec struct {
 	Enabled                           *bool `json:"enabled"`
 	*kubeops_installer.PanopticonSpec `json:",inline,omitempty"`
+}
+
+type SupervisorSpec struct {
+	Enabled                           *bool `json:"enabled"`
+	*kubeops_installer.SupervisorSpec `json:",inline,omitempty"`
 }
 
 type GrafanaOperatorSpec struct {
