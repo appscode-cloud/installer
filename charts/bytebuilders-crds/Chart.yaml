@@ -2,8 +2,8 @@ apiVersion: v2
 name: bytebuilders-crds
 description: Resource Models for ByteBuilders
 type: application
-version: v2022.04.04
-appVersion: v2022.04.04
+version: v2022.04.14
+appVersion: v2022.04.14
 home: https://byte.builders
 icon: https://cdn.appscode.com/images/products/appscode/appscode-512x512.png
 sources:
