@@ -5,6 +5,9 @@ dependencies:
 - name: panopticon
   repository: https://charts.appscode.com/stable/
   version: v2022.04.04
+- name: supervisor
+  repository: https://charts.appscode.com/stable/
+  version: v2022.04.14
 - name: grafana-operator
   repository: https://charts.appscode.com/stable/
   version: v2022.04.04
@@ -14,5 +17,5 @@ dependencies:
 - name: kube-grafana-dashboards
   repository: https://charts.appscode.com/stable/
   version: v2022.04.04
-digest: sha256:777c5c485ad3e25fead5a72f2423af66f9ce99e6ee8f055f874680db2cadcea4
-generated: "2022-04-05T02:52:01.579617-07:00"
+digest: sha256:a718bba7c736135967c2887868b47b2de09812fe9884e5e89b893db5f5d01507
+generated: "2022-04-14T23:11:15.09442-07:00"

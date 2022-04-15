@@ -6,7 +6,7 @@ require (
 	go.openviz.dev/installer v0.0.0-20220405094613-104d6739c514
 	k8s.io/apimachinery v0.21.1
 	kmodules.xyz/schema-checker v0.2.1
-	kubeops.dev/installer v0.0.0-20220405093254-a8be72329da1
+	kubeops.dev/installer v0.0.0-20220415042723-80b1bceb655d
 )
 
 require (

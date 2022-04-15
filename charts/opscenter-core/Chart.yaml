@@ -20,6 +20,10 @@ dependencies:
   repository: https://charts.appscode.com/stable/
   condition: panopticon.enabled
   version: v2022.04.04
+- name: supervisor
+  repository: https://charts.appscode.com/stable/
+  condition: supervisor.enabled
+  version: v2022.04.14
 - name: grafana-operator
   repository: https://charts.appscode.com/stable/
   condition: grafana-operator.enabled
