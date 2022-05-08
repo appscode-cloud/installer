@@ -1,5 +1,5 @@
 apiVersion: v2
-name: bytebuilders-crds
+name: ace-crds
 description: Resource Models for ByteBuilders
 type: application
 version: v2022.04.14
