@@ -15,14 +15,14 @@
 # limitations under the License.
 
 crd-importer \
-    --input=../resource-model/crds \
-    --out=./charts/bytebuilders-crds/crds
-
-crd-importer \
     --input=https://github.com/kmodules/custom-resources/raw/kubernetes-1.21.1/crds/appcatalog.appscode.com_appbindings.yaml \
     --out=./charts/opscenter-config/crds
 
 crd-importer \
+    --input=../resource-model/crds \
+    --out=./charts/ace-crds/crds
+
+crd-importer \
     --input=https://github.com/kubepack/kubepack/raw/v0.3.8/crds/kubepack.com_plans.yaml \
     --input=https://github.com/kubepack/kubepack/raw/v0.3.8/crds/kubepack.com_products.yaml \
-    --out=./charts/bytebuilders-crds/crds
+    --out=./charts/ace-crds/crds
