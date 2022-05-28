@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "ace.fullname" . }}-db-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.offshootLabels" . | nindent 4 }}
+    app.kubernetes.io/component: database
+    app.kubernetes.io/instance: {{ include "ace.fullname" . }}-db
+    app.kubernetes.io/managed-by: kubedb.com
+    app.kubernetes.io/name: postgreses.kubedb.com
+type: Opaque
+stringData:
+  user.conf: |
+    max_connections=110
+    shared_buffers=258MB

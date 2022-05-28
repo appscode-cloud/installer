@@ -1,0 +1,14 @@
+{{- if .Values.global.infra.objstore.provider }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "settings.objstoreSecretName" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+type: Opaque
+stringData:
+{{- if eq .Values.global.infra.objstore.provider "Google" }}
+  sa.json: '{{ .Values.global.infra.objstore.auth.serviceAccountJson }}'
+{{- end }}
+{{- end }}

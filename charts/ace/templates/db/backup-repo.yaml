@@ -1,0 +1,13 @@
+apiVersion: stash.appscode.com/v1alpha1
+kind: Repository
+metadata:
+  name: {{ include "ace.fullname" . }}-db-repo
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+spec:
+  backend:
+    gcs:
+      bucket: stash-testing
+      prefix: /{{ include "ace.fullname" . }}/db
+    storageSecretName: {{ include "ace.fullname" . }}-backup-repo-cred

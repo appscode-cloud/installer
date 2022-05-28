@@ -1,0 +1,142 @@
+{{ if (index .Values "ingress-nginx" "enabled") }}
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "ace.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+  annotations:
+    cert-manager.io/issuer: {{ include "ace.fullname" . }}
+spec:
+  ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
+  rules:
+{{- if (index .Values "platform-ui" "enabled") }}
+  - host: {{ .Values.settings.platform.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-platform-api
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+{{- end }}
+{{- if (index .Values "accounts-ui" "enabled") }}
+  - host: accounts.{{ .Values.settings.platform.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-accounts-ui
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+{{- end }}
+{{- if (index .Values "cluster-ui" "enabled") }}
+  - host: console.{{ .Values.settings.platform.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-cluster-ui
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+{{- end }}
+{{- if (index .Values "deploy-ui" "enabled") }}
+  - host: deploy.{{ .Values.settings.platform.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-deploy-ui
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+{{- end }}
+{{- if .Values.grafana.enabled }}
+  - host: grafana.{{ .Values.settings.platform.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-grafana
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+{{- end }}
+{{- if (index .Values "kubedb-ui" "enabled") }}
+  - host: kubedb.{{ .Values.settings.platform.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-kubedb-ui
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+{{- end }}
+{{- if (index .Values "marketplace-ui" "enabled") }}
+  - host: marketplace.{{ .Values.settings.platform.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-marketplace-ui
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+{{- end }}
+{{- if (index .Values "prom-proxy" "enabled") }}
+  - host: prometheus.{{ .Values.settings.platform.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-prom-proxy
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+{{- end }}
+  tls:
+  - secretName: {{ include "ace.fullname" . }}-cert
+    hosts:
+  {{- if (index .Values "platform-ui" "enabled") }}
+    - '{{ .Values.settings.platform.domain }}'
+  {{- end }}
+  {{- if (index .Values "accounts-ui" "enabled") }}
+    - 'accounts.{{ .Values.settings.platform.domain }}'
+  {{- end }}
+  {{- if (index .Values "cluster-ui" "enabled") }}
+    - 'console.{{ .Values.settings.platform.domain }}'
+  {{- end }}
+  {{- if (index .Values "deploy-ui" "enabled") }}
+    - 'deploy.{{ .Values.settings.platform.domain }}'
+  {{- end }}
+  {{- if .Values.grafana.enabled }}
+    - 'grafana.{{ .Values.settings.platform.domain }}'
+  {{- end }}
+  {{- if (index .Values "kubedb-ui" "enabled") }}
+    - 'kubedb.{{ .Values.settings.platform.domain }}'
+  {{- end }}
+  {{- if (index .Values "marketplace-ui" "enabled") }}
+    - 'marketplace.{{ .Values.settings.platform.domain }}'
+  {{- end }}
+  {{- if .Values.nats.enabled }}
+    - 'nats.{{ .Values.settings.platform.domain }}'
+  {{- end }}
+  {{- if (index .Values "prom-proxy" "enabled") }}
+    - 'prometheus.{{ .Values.settings.platform.domain }}'
+  {{- end }}
+
+{{- end }}

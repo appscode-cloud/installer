@@ -1,0 +1,45 @@
+dependencies:
+- name: platform-ui
+  repository: file://../platform-ui
+  version: 0.1.0
+- name: accounts-ui
+  repository: file://../accounts-ui
+  version: 0.1.0
+- name: cluster-ui
+  repository: file://../cluster-ui
+  version: 0.1.0
+- name: deploy-ui
+  repository: file://../deploy-ui
+  version: 0.1.0
+- name: kubedb-ui
+  repository: file://../kubedb-ui
+  version: 0.1.0
+- name: marketplace-ui
+  repository: file://../marketplace-ui
+  version: 0.1.0
+- name: platform-api
+  repository: file://../platform-api
+  version: 0.1.0
+- name: prom-proxy
+  repository: file://../prom-proxy
+  version: 0.1.0
+- name: billing
+  repository: file://../billing
+  version: 0.1.0
+- name: grafana
+  repository: file://../grafana
+  version: 0.1.0
+- name: nats
+  repository: https://nats-io.github.io/k8s/helm/charts/
+  version: 0.16.0
+- name: reloader
+  repository: https://stakater.github.io/stakater-charts
+  version: v0.0.110
+- name: ingress-nginx
+  repository: https://kubernetes.github.io/ingress-nginx
+  version: 4.1.0
+- name: external-dns
+  repository: https://kubernetes-sigs.github.io/external-dns/
+  version: 1.9.0
+digest: sha256:03cd80aa59575c091bdb1a2c7394eba982df2f6685f39539d41c4495fa8988ef
+generated: "2022-05-28T11:46:14.208054-07:00"

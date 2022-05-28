@@ -1,0 +1,46 @@
+apiVersion: kubedb.com/v1alpha2
+kind: Postgres
+metadata:
+  name: {{ include "ace.fullname" . }}-db
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+spec:
+  version: "{{ .Values.settings.db.version }}"
+  replicas: 3
+  storageType: Durable
+  storage:
+    storageClassName: {{ .Values.global.infra.storageClass.name }}
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: {{ .Values.settings.db.persistence.size }}
+  podTemplate:
+    spec:
+      resources:
+        {{- toYaml .Values.settings.db.resources | nindent 8 }}
+  terminationPolicy: {{ .Values.settings.db.terminationPolicy }}
+  authSecret:
+    name: {{ include "ace.fullname" . }}-db-auth
+  configSecret:
+    name: {{ include "ace.fullname" . }}-db-config
+  init:
+    waitForInitialRestore: true
+    script:
+      secret:
+        secretName: {{ include "ace.fullname" . }}-db-init-script
+{{- if .Values.global.monitoring }}
+  monitor:
+    agent: {{ .Values.global.monitoring.agent }}
+    prometheus:
+      {{- with .Values.global.monitoring.exporter.resources }}
+      exporter:
+        resources:
+          {{- toYaml . | nindent 10 }}
+      {{- end }}
+      serviceMonitor:
+        interval: 30s
+        labels:
+          {{- toYaml .Values.global.monitoring.serviceMonitor.labels | nindent 10 }}
+{{- end }}

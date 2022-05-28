@@ -1,0 +1,194 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: {{ include "settings.platformConfigSecretName" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+stringData:
+  app.ini: |-
+    APP_NAME = {{ .Values.settings.platform.appName }}
+
+    RUN_MODE = {{ .Values.settings.platform.runMode }}
+
+    EXPERIMENTAL_FEATURES = {{ .Values.settings.platform.experimentalFeatures }}
+
+    [server]
+    PROTOCOL = http
+    DOMAIN = {{ .Values.settings.platform.domain }}
+    ROOT_URL = https://{{ .Values.settings.platform.domain }}
+    LANDING_PAGE = {{ .Values.settings.platform.serverLandingPage }}
+    SSH_DOMAIN = {{ default .Values.settings.platform.domain .Values.settings.sshDomain }}
+    SSH_PORT = {{ .Values.settings.sshPort }}
+    SSH_LISTEN_PORT = {{ .Values.settings.sshPort }}
+
+    [database]
+    DB_TYPE = {{ .Values.settings.platform.databaseType | quote }}
+    HOST = {{ template "gitea.database.host" . }}
+    NAME = {{ .Values.settings.db.databaseName }}
+    USER = {{ .Values.settings.db.auth.username }}
+    PASSWD = {{ .Values.settings.db.auth.password }}
+
+    [session]
+    DOMAIN = {{ .Values.settings.platform.domain }}
+    PROVIDER = {{ .Values.settings.platform.sessionProvider }}
+    PROVIDER_CONFIG = {{ template "gitea.session.host" . }}
+    COOKIE_NAME = {{ .Values.settings.platform.cookieName}}
+
+    [cache]
+    ADAPTER = {{ .Values.settings.platform.cacheAdapter }}
+    INTERVAL = {{ .Values.settings.platform.cacheInterval }}
+    HOST = {{ template "gitea.cache.host" . }}
+
+{{- with .Values.settings.smtp }}
+    [mailer]
+    ENABLED = true
+    MAILER_TYPE = smtp
+    HOST    = {{ .host }}
+    IS_TLS_ENABLED = {{ .tlsEnabled }}
+    FROM    = {{ .from }}
+    USER    = {{ .username }}
+    PASSWD  = {{ .password}}
+    SUBJECT_PREFIX = {{ .subjectPrefix }}
+    SEND_AS_PLAIN_TEXT = {{ .sendAsPlainText }}
+{{- end }}
+
+    [log]
+    MODE = {{ .Values.settings.platform.logMode }}
+    LEVEL = {{ .Values.settings.platform.logLevel }}
+
+    [oauth2]
+    JWT_SECRET = {{ randAlphaNum 43 }}
+
+    [security]
+    INTERNAL_TOKEN = {{ randAlphaNum 105 }}
+    SECRET_KEY     = {{ template "gitea.secretkey" . }}
+    INSTALL_LOCK = {{ .Values.settings.platform.installLock }}
+    CSRF_COOKIE_HTTP_ONLY = {{ .Values.settings.platform.enableCSRFCookieHttpOnly }}
+
+    [service]
+    ENABLE_CAPTCHA = {{ .Values.settings.platform.serviceEnableCaptcha }}
+    ACTIVE_CODE_LIVE_MINUTES = 180
+    RESET_PASSWD_CODE_LIVE_MINUTES = 180
+    REGISTER_EMAIL_CONFIRM = {{ .Values.settings.platform.serviceRegisterEmailConfirm }}
+    DISABLE_REGISTRATION = {{ .Values.settings.platform.serviceDisableRegistration }}
+    REQUIRE_SIGNIN_VIEW = {{ .Values.settings.platform.serviceRequireSignInView }}
+    ENABLE_NOTIFY_MAIL = {{ .Values.settings.platform.serviceEnableNotifyMail }}
+    ENABLE_REVERSE_PROXY_AUTHENTICATION = false
+    ENABLE_REVERSE_PROXY_AUTO_REGISTRATION = false
+
+    [repository.upload]
+    ENABLED = {{ .Values.settings.platform.repositoryUploadEnabled }}
+    ALLOWED_TYPES = {{ .Values.settings.platform.repositoryUploadAllowedTypes }}
+    MAX_FILE_SIZE = {{ .Values.settings.platform.repositoryUploadMaxFileSize }}
+    MAX_FILES = {{ .Values.settings.platform.repositoryUploadMaxFiles }}
+
+    [ui]
+    EXPLORE_PAGING_NUM = {{ .Values.settings.platform.uiExplorePagingNum }}
+    ISSUE_PAGING_NUM = {{ .Values.settings.platform.uiIssuePagingNum }}
+    FEED_MAX_COMMIT_NUM = {{ .Values.settings.platform.uiFeedMaxCommitNum }}
+
+    [webhook]
+    QUEUE_LENGTH = {{ .Values.settings.platform.webhookQueueLength }}
+    DELIVER_TIMEOUT = {{ .Values.settings.platform.webhookDeliverTimeout }}
+    SKIP_TLS_VERIFY = {{ .Values.settings.platform.webhookSkipTlsVerify }}
+    PAGING_NUM = {{ .Values.settings.platform.webhookPagingNum }}
+
+    [cron]
+    ENABLED = {{ .Values.settings.platform.cronEnabled }}
+    RUN_AT_START = {{ .Values.settings.platform.cronRunAtStart }}
+
+    [cron.update_mirrors]
+    SCHEDULE = {{ .Values.settings.platform.cronUpdateMirrorsSchedule }}
+
+    [cron.repo_health_check]
+    SCHEDULE = {{ .Values.settings.platform.cronRepoHealthCheckSchedule }}
+    TIMEOUT = {{ .Values.settings.platform.cronRepoHealthCheckTimeout }}
+    ARGS = {{ .Values.settings.platform.cronRepoHealthCheckArgs }}
+
+    [cron.check_repo_stats]
+    RUN_AT_START = {{ .Values.settings.platform.cronCheckRepoStatsRunAtStart }}
+    SCHEDULE = {{ .Values.settings.platform.cronCheckRepoStatsSchedule }}
+
+    [cron.repo_archive_cleanup]
+    RUN_AT_START = {{ .Values.settings.platform.cronRepoArchiveCleanupRunAtStart }}
+    SCHEDULE = {{ .Values.settings.platform.cronRepoArchiveCleanupSchedule }}
+    OLDER_THAN = {{ .Values.settings.platform.cronRepoArchiveCleanupOlderThan }}
+
+    [other]
+    SHOW_FOOTER_BRANDING = {{ .Values.settings.platform.otherShowFooterBranding }}
+    SHOW_FOOTER_VERSION = {{ .Values.settings.platform.otherShowFooterVersion }}
+    SHOW_FOOTER_TEMPLATE_LOAD_TIME = {{ .Values.settings.platform.otherShowFooterTemplateLoadTime }}
+
+  {{- if (include "monitoring.agent" .) }}
+    [metrics]
+    ENABLED = true
+  {{- end }}
+
+    [cors]
+    ENABLED = true
+    SCHEME = https
+    ALLOW_DOMAIN = {{ .Values.settings.platform.domain }}
+    ALLOW_SUBDOMAIN = true
+
+    ;[worker]
+    ;CLUSTER_ID= pharmer-cluster
+    ;URL = nats://nats-cluster.default:4222
+
+  {{- if .Values.billing.enabled }}
+    [payment_gateway]
+    PROVIDERS = stripe
+    STRIPE_KEY = {{ .Values.settings.stripe.stripeKey }}
+    ENDPOINT_SECRET = {{ .Values.settings.stripe.endpointSecret }}
+  {{- end }}
+
+    [kms]
+    MASTER_KEY_URL = '{{ include "gitea.kms.masterKeyURL" . }}'
+
+    [searchlight]
+    ENABLE = {{ .Values.settings.searchlight.enabled }}
+  {{- if .Values.settings.searchlight.enabled }}
+    ALERTMANAGER_ADDR = {{ .Values.settings.searchlight.alertmanagerAddr }}
+    QUERY_ADDR = {{ .Values.settings.searchlight.queryAddr }}
+    RULER_ADDR = {{ .Values.settings.searchlight.rulerAddr }}
+    M3COORDINATOR_ADDR = {{ .Values.settings.searchlight.m3coordinatorAddr }}
+  {{- end }}
+
+  {{- if .Values.nats.enabled }}
+    [nats]
+    OPERATOR_CREDS = {{ .Values.settings.nats.mountPath }}/Operator.creds
+    SYSTEM_CREDS = {{ .Values.settings.nats.mountPath }}/SYS.creds
+    SYSTEM_USER_CREDS = {{ .Values.settings.nats.mountPath }}/sys.creds
+    ADMIN_CREDS = {{ .Values.settings.nats.mountPath }}/ADMIN.creds
+    ADMIN_USER_CREDS = {{ .Values.settings.nats.mountPath }}/admin.creds
+
+    ACCOUNT_RESOLVER = nats://nats.{{ .Values.settings.platform.domain }}:4222
+    NATS_SERVER = wss://nats.{{ .Values.settings.platform.domain }}
+    SERVER = nats://nats.{{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc:4222,nats://nats.{{ .Values.settings.platform.domain }}:4222
+    WEBSOCKET_SERVER = wss://nats.{{ .Values.settings.platform.domain }}
+    SHARD_COUNT = {{ .Values.settings.nats.shardCount }}
+  {{- end }}
+
+{{- if .Values.global.infra.objstore.provider }}
+  {{- if .Values.billing.enabled }}
+    [badger]
+    PATH = {{ .Values.global.infra.badger.mountPath }}
+    LEVELS = {{ .Values.global.infra.badger.levels }}
+
+    [invoice]
+    PATH = {{ .Values.global.infra.invoice.mountPath }}
+    HOST = {{ .Values.global.infra.invoice.host }}
+    BUCKET = {{ .Values.global.infra.invoice.bucket }}
+    TRACKER_EMAIL = {{ .Values.global.infra.invoice.trackerEmail }}
+  {{- if eq .Values.global.infra.objstore.provider "Google" }}
+    CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
+  {{- end }}
+  {{- end }}
+
+    [yaml_storage]
+    HOST = {{ .Values.global.infra.objstore.host }}
+    BUCKET = {{ .Values.global.infra.objstore.bucket }}
+  {{- if eq .Values.global.infra.objstore.provider "Google" }}
+    CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
+  {{- end }}
+{{- end }}

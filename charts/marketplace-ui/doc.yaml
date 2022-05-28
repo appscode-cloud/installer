@@ -1,0 +1,18 @@
+project:
+  name: Marketplace UI by AppsCode
+  shortName: Marketplace UI
+  url: https://github.com/bytebuilders
+  description: ByteBuilders Marketplace UI
+  app: a Marketplace UI
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: marketplace-ui
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.19+
+release:
+  name: marketplace-ui
+  namespace: kubeops
