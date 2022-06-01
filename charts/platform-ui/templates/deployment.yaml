@@ -22,7 +22,6 @@ spec:
         {{- include "platform-ui.selectorLabels" . | nindent 8 }}
     spec:
       {{- include "appscode.imagePullSecrets" . | nindent 6 }}
-      serviceAccountName: {{ include "appscode.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

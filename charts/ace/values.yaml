@@ -51,10 +51,11 @@ external-dns:
   enabled: true
 
 # -------------
-nameOverride: ""
-fullnameOverride: ""
 
 global:
+  nameOverride: "ace"
+  fullnameOverride: ""
+
   # License for the product.
   # Example:
   # helm install appscode/ace \

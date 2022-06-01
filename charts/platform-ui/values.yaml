@@ -13,7 +13,7 @@ image:
   # Docker registry used to pull app container image
   registry: appscode
   # App container image
-  repository: platform-ui
+  repository: gitea
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
   pullPolicy: Always
