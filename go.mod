@@ -4,15 +4,16 @@ go 1.18
 
 require (
 	go.openviz.dev/installer v0.0.0-20220604082341-49cce25117ff
+	k8s.io/api v0.24.1
 	k8s.io/apimachinery v0.24.1
-	kmodules.xyz/schema-checker v0.3.0
+	kmodules.xyz/schema-checker v0.3.1
 	kubeops.dev/installer v0.0.0-20220604094109-ce62286902ed
 )
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/go-logr/logr v1.2.0 // indirect
-	github.com/gobuffalo/flect v0.2.5 // indirect
+	github.com/gobeam/stringy v0.0.5 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/go-cmp v0.5.5 // indirect
@@ -30,7 +31,6 @@ require (
 	google.golang.org/protobuf v1.27.1 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	k8s.io/api v0.24.1 // indirect
 	k8s.io/klog/v2 v2.60.1 // indirect
 	k8s.io/utils v0.0.0-20220210201930-3a6ce19ff2f9 // indirect
 	sigs.k8s.io/json v0.0.0-20211208200746-9f7c6b3444d2 // indirect

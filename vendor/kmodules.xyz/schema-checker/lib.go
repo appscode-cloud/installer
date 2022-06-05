@@ -24,7 +24,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/gobuffalo/flect"
+	"github.com/gobeam/stringy"
 	"github.com/pkg/errors"
 	diff "github.com/yudai/gojsondiff"
 	"github.com/yudai/gojsondiff/formatter"
@@ -43,11 +43,11 @@ type DefaultTypeMapper struct{}
 var _ TypeMapper = &DefaultTypeMapper{}
 
 func (d DefaultTypeMapper) ChartNameToSchemaKind(chartName string) string {
-	return flect.Pascalize(chartName) + "Spec"
+	return stringy.New(chartName).CamelCase() + "Spec"
 }
 
 func (d DefaultTypeMapper) KindToSchemaKind(kind string) string {
-	return flect.Pascalize(kind + "Spec")
+	return stringy.New(kind + "Spec").CamelCase()
 }
 
 func (d DefaultTypeMapper) ToKind(schemaKind string) string {
@@ -55,7 +55,7 @@ func (d DefaultTypeMapper) ToKind(schemaKind string) string {
 }
 
 func (d DefaultTypeMapper) ToChartName(k string) string {
-	return flect.Dasherize(d.ToKind(k))
+	return stringy.New(d.ToKind(k)).KebabCase().ToLower()
 }
 
 type SchemaChecker struct {

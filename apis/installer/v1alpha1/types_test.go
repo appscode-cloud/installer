@@ -27,8 +27,18 @@ import (
 
 func TestDefaultValues(t *testing.T) {
 	checker := schemachecker.New(os.DirFS("../../.."),
-		v1alpha1.OpscenterCoreSpec{},
+		v1alpha1.AccountsUiSpec{},
+		v1alpha1.BillingSpec{},
+		v1alpha1.ClusterUiSpec{},
+		v1alpha1.DeployUiSpec{},
+		v1alpha1.GrafanaSpec{},
+		v1alpha1.KubedbUiSpec{},
+		v1alpha1.MarketplaceUiSpec{},
 		v1alpha1.OpscenterConfigSpec{},
+		v1alpha1.OpscenterCoreSpec{},
+		v1alpha1.PlatformApiSpec{},
+		v1alpha1.PlatformUiSpec{},
+		v1alpha1.PromProxySpec{},
 	)
 	checker.TestAll(t)
 }
