@@ -22,23 +22,26 @@ import (
 
 	"go.bytebuilders.dev/installer/apis/installer/v1alpha1"
 
-	schemachecker "kmodules.xyz/schema-checker"
+	sc "kmodules.xyz/schema-checker"
 )
 
 func TestDefaultValues(t *testing.T) {
-	checker := schemachecker.New(os.DirFS("../../.."),
-		v1alpha1.AccountsUiSpec{},
-		v1alpha1.BillingSpec{},
-		v1alpha1.ClusterUiSpec{},
-		v1alpha1.DeployUiSpec{},
-		v1alpha1.GrafanaSpec{},
-		v1alpha1.KubedbUiSpec{},
-		v1alpha1.MarketplaceUiSpec{},
-		v1alpha1.OpscenterConfigSpec{},
-		v1alpha1.OpscenterCoreSpec{},
-		v1alpha1.PlatformApiSpec{},
-		v1alpha1.PlatformUiSpec{},
-		v1alpha1.PromProxySpec{},
+	checker := sc.New(os.DirFS("../../.."),
+		// sc.TestCase{Obj: v1alpha1.AccountsUiSpec{}},
+		// sc.TestCase{Obj: v1alpha1.BillingSpec{}},
+		// sc.TestCase{Obj: v1alpha1.ClusterUiSpec{}},
+		// sc.TestCase{Obj: v1alpha1.DeployUiSpec{}},
+		// sc.TestCase{Obj: v1alpha1.GrafanaSpec{}},
+		// sc.TestCase{Obj: v1alpha1.KubedbUiSpec{}},
+		// sc.TestCase{Obj: v1alpha1.MarketplaceUiSpec{}},
+		// sc.TestCase{Obj: v1alpha1.OpscenterConfigSpec{}},
+		// sc.TestCase{Obj: v1alpha1.OpscenterCoreSpec{}},
+		// sc.TestCase{Obj: v1alpha1.PlatformApiSpec{}},
+		// sc.TestCase{Obj: v1alpha1.PlatformUiSpec{}},
+		// sc.TestCase{Obj: v1alpha1.PromProxySpec{}},
+		// sc.TestCase{Obj: v1alpha1.ExternalDnsSpec{}, File: "https://raw.githubusercontent.com/kubernetes-sigs/external-dns/198217981ffe3a6aebe957165459a47094a0212b/charts/external-dns/values.yaml"},
+		// sc.TestCase{Obj: v1alpha1.NatsSpec{}, File: "https://github.com/nats-io/k8s/raw/nats-0.17.0/helm/charts/nats/values.yaml"},
+		sc.TestCase{Obj: v1alpha1.ReloaderSpec{}, File: "https://github.com/stakater/Reloader/raw/v0.0.113/deployments/kubernetes/chart/reloader/values.yaml"},
 	)
 	checker.TestAll(t)
 }

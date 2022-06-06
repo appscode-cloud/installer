@@ -104,6 +104,8 @@ gopkg.in/yaml.v2
 # k8s.io/api v0.24.1
 ## explicit; go 1.16
 k8s.io/api/core/v1
+k8s.io/api/networking/v1
+k8s.io/api/rbac/v1
 # k8s.io/apimachinery v0.24.1
 ## explicit; go 1.16
 k8s.io/apimachinery/pkg/api/apitesting
@@ -155,7 +157,7 @@ k8s.io/klog/v2/internal/severity
 k8s.io/utils/internal/third_party/forked/golang/net
 k8s.io/utils/net
 k8s.io/utils/strings/slices
-# kmodules.xyz/schema-checker v0.3.1
+# kmodules.xyz/schema-checker v0.4.0
 ## explicit; go 1.17
 kmodules.xyz/schema-checker
 # kubeops.dev/installer v0.0.0-20220604094109-ce62286902ed

@@ -78,6 +78,14 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&PlatformUi{},
 		&PromProxyList{},
 		&PromProxy{},
+		&ExternalDns{},
+		&ExternalDnsList{},
+		&Nats{},
+		&NatsList{},
+		&IngressNginx{},
+		&IngressNginxList{},
+		&Reloader{},
+		&ReloaderList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,
