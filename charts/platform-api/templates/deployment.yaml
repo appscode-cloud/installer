@@ -1,0 +1,113 @@
+{{ $infra := .Values.infra }}
+{{- if .Values.global }}
+{{- $infra = .Values.global.infra }}
+{{- end }}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "platform-api.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "platform-api.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "platform-api.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "platform-api.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- include "appscode.imagePullSecrets" . | nindent 6 }}
+      serviceAccountName: {{ include "appscode.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - gitea
+            - web
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "Google") }}
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: {{ $infra.objstore.mountPath }}/sa.json
+          {{- end }}
+          volumeMounts:
+            - name: data
+              mountPath: /data
+            {{- if (include "settings.platformConfigSecretName" .) }}
+            - name: config
+              mountPath: /data/platform/conf/app.ini
+              subPath: app.ini
+            {{- end }}
+            {{- if (include "settings.objstoreSecretName" .) }}
+            - name: objstore-cred
+              mountPath: {{ $infra.objstore.mountPath }}
+            {{- end }}
+            {{- if (include "settings.kmsSecretName" .) }}
+            - name: kms-cred
+              mountPath: {{ $infra.kms.mountPath }}
+            {{- end }}
+      volumes:
+        {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
+        - name: config
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
+        {{- end }}
+        {{- with $secretName := (include "settings.objstoreSecretName" .) }}
+        - name: data
+          emptyDir: {}
+        - name: objstore-cred
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
+        {{- else }}
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ include "platform-api.fullname" . }}-data
+        {{- end }}
+        {{- with $secretName := (include "settings.kmsSecretName" .) }}
+        - name: kms-cred
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
+        {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

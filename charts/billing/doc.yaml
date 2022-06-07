@@ -1,0 +1,18 @@
+project:
+  name: Billing Backend by AppsCode
+  shortName: Billing Backend
+  url: https://github.com/bytebuilders
+  description: ByteBuilders Billing Backend
+  app: a billing backend
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: billing
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.19+
+release:
+  name: billing
+  namespace: kubeops

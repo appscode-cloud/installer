@@ -33,7 +33,8 @@ _testmain.go
 
 /bin
 /.go
-
-/.crds
-/charts/opscenter-core/charts
 .DS_Store
+/.crds
+
+/charts/ace/charts
+/charts/opscenter-core/charts

@@ -1,0 +1,28 @@
+{{- if (index .Values "ingress-nginx" "enabled") }}
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: {{ include "ace.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+spec:
+  acme:
+    server: {{ .Values.global.infra.tls.acmeServer }}
+    email: {{ .Values.global.infra.tls.email }}
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: {{ include "ace.fullname" . }}-cert-cred
+    # ACME DNS-01 provider configurations
+    solvers:
+    # An empty 'selector' means that this solver matches all domains
+    - selector: {}
+      dns01:
+      {{- if eq .Values.global.infra.dns.provider "Cloudflare" }}
+        cloudflare:
+          email: '{{ .Values.global.infra.dns.auth.email }}'
+          apiTokenSecretRef:
+            name: {{ include "ace.fullname" . }}-dns-cred
+            key: api-token
+      {{- end }}
+{{- end }}

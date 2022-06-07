@@ -1,3 +1,0 @@
-Get the crds by running the following command:
-
-  kubectl get crds | grep bytebuilders

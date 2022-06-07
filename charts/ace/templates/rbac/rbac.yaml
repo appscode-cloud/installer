@@ -1,0 +1,34 @@
+# TODO: Remove this once virtual-kubernetes is ready
+# This temporarily gives the s/a in gitea deployment permission on the BB crds.
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ include "ace.fullname" . }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+rules:
+- apiGroups:
+  - cloud.bytebuilders.dev
+  - cluster.bytebuilders.dev
+  - kubepack.com
+  resources:
+  - "*"
+  verbs: ["*"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ include "ace.fullname" . }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ include "ace.fullname" . }}
+subjects:
+- kind: ServiceAccount
+  name: {{ include "appscode.serviceAccountName" . }}
+  namespace: {{ .Release.Namespace }}
