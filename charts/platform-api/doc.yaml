@@ -1,0 +1,18 @@
+project:
+  name: ACE Platform apiserver by AppsCode
+  shortName: ACE Platform apiserver
+  url: https://github.com/bytebuilders
+  description: ACE Platform apiserver
+  app: a ACE Platform apiserver
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: platform-api
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.19+
+release:
+  name: platform-api
+  namespace: kubeops

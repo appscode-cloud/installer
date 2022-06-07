@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "ace.fullname" . }}-db-auth
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.offshootLabels" . | nindent 4 }}
+    app.kubernetes.io/component: database
+    app.kubernetes.io/instance: {{ include "ace.fullname" . }}-db
+    app.kubernetes.io/managed-by: kubedb.com
+    app.kubernetes.io/name: postgreses.kubedb.com
+type: kubernetes.io/basic-auth
+stringData:
+  username: '{{ .Values.settings.db.auth.username }}'
+  password: '{{ .Values.settings.db.auth.password }}'

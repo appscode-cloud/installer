@@ -1,0 +1,15 @@
+{{- if (index .Values "ingress-nginx" "enabled") }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "ace.fullname" . }}-dns-cred
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+type: Opaque
+stringData:
+{{- if eq .Values.global.infra.dns.provider "Cloudflare" }}
+  api-token: '{{ .Values.global.infra.dns.auth.token }}'
+{{- end }}
+
+{{- end }}

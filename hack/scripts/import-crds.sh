@@ -14,15 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+BYTEBUILDERS_RESOURCE_MODEL_TAG=${BYTEBUILDERS_RESOURCE_MODEL_TAG:-master}
+KUBEPACK_KUBEPACK_TAG=${KUBEPACK_KUBEPACK_TAG:-master}
+
 crd-importer \
     --input=https://github.com/kmodules/custom-resources/raw/kubernetes-1.21.1/crds/appcatalog.appscode.com_appbindings.yaml \
     --out=./charts/opscenter-config/crds
 
 crd-importer \
-    --input=../resource-model/crds \
-    --out=./charts/ace-crds/crds
-
-crd-importer \
-    --input=https://github.com/kubepack/kubepack/raw/v0.3.8/crds/kubepack.com_plans.yaml \
-    --input=https://github.com/kubepack/kubepack/raw/v0.3.8/crds/kubepack.com_products.yaml \
-    --out=./charts/ace-crds/crds
+    --input=https://github.com/bytebuilders/resource-model/raw/${BYTEBUILDERS_RESOURCE_MODEL_TAG}/crds/cloud.bytebuilders.dev_credentials.yaml \
+    --input=https://github.com/bytebuilders/resource-model/raw/${BYTEBUILDERS_RESOURCE_MODEL_TAG}/crds/cluster.bytebuilders.dev_clusterauthinfotemplates.yaml \
+    --input=https://github.com/bytebuilders/resource-model/raw/${BYTEBUILDERS_RESOURCE_MODEL_TAG}/crds/cluster.bytebuilders.dev_clusterinfos.yaml \
+    --input=https://github.com/bytebuilders/resource-model/raw/${BYTEBUILDERS_RESOURCE_MODEL_TAG}/crds/cluster.bytebuilders.dev_clusteruserauths.yaml \
+    --input=https://github.com/kubepack/kubepack/raw/${KUBEPACK_KUBEPACK_TAG}/crds/kubepack.com_plans.yaml \
+    --input=https://github.com/kubepack/kubepack/raw/${KUBEPACK_KUBEPACK_TAG}/crds/kubepack.com_products.yaml \
+    --out=./charts/ace/crds

@@ -1,0 +1,133 @@
+{{ $infra := .Values.infra }}
+{{- if .Values.global }}
+{{- $infra = .Values.global.infra }}
+{{- end }}
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "billing.fullname" . }}-processor
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: "billing-processor"
+    {{- include "billing.labels" . | nindent 4 }}
+spec:
+  podManagementPolicy: Parallel
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: "billing-processor"
+      {{- include "billing.selectorLabels" . | nindent 6 }}
+  serviceName: {{ include "billing.fullname" . }}-processor
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        app.kubernetes.io/component: "billing-processor"
+        {{- include "billing.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- include "appscode.imagePullSecrets" . | nindent 6 }}
+      serviceAccountName: {{ include "appscode.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - gitea
+            - monitor
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: BILLING_PROCESSOR_COUNT
+              value: "{{ .Values.replicaCount }}"
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "Google") }}
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: {{ $infra.objstore.mountPath }}/sa.json
+          {{- end }}
+          volumeMounts:
+            - name: data
+              mountPath: /data
+            {{- if (include "settings.platformConfigSecretName" .) }}
+            - name: config
+              mountPath: /data/platform/conf/app.ini
+              subPath: app.ini
+            {{- end }}
+            - name: badger-store
+              mountPath: {{ $infra.badger.mountPath }}
+            # {{- if (include "settings.objstoreSecretName" .) }}
+            # - name: objstore-cred
+            #   mountPath: {{ $infra.objstore.mountPath }}
+            # {{- end }}
+            # {{- if (include "settings.kmsSecretName" .) }}
+            # - name: kms-cred
+            #   mountPath: {{ $infra.kms.mountPath }}
+            # {{- end }}
+      volumes:
+        - name: data
+          emptyDir: {}
+        {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
+        - name: config
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
+        {{- end }}
+        # {{- with $secretName := (include "settings.objstoreSecretName" .) }}
+        # - name: objstore-cred
+        #   secret:
+        #     defaultMode: 420
+        #     secretName: {{ $secretName }}
+        # {{- end }}
+        # {{- with $secretName := (include "settings.kmsSecretName" .) }}
+        # - name: kms-cred
+        #   secret:
+        #     defaultMode: 420
+        #     secretName: {{ $secretName }}
+        # {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  volumeClaimTemplates:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: badger-store
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: {{ .Values.persistence.size }}
+        storageClassName: {{ $infra.storageClass.name }}

@@ -1,0 +1,34 @@
+{{- if .Values.nats.enabled }}
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ include "settings.natsSecretName" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+stringData:
+  Operator.creds: {{ .Values.settings.nats.operatorCreds }}
+  Operator.jwt: {{ .Values.settings.nats.operatorJwt }}
+  SYS.creds: {{ .Values.settings.nats.systemCreds }}
+  SYS.jwt: {{ .Values.settings.nats.systemJwt }}
+  sys.creds: {{ .Values.settings.nats.systemUserCreds }}
+  ADMIN.creds: {{ .Values.settings.nats.adminCreds }}
+  admin.creds: {{ .Values.settings.nats.adminUserCreds }}
+
+---
+
+# mounted into nats-server
+apiVersion: v1
+kind: ConfigMap
+type: Opaque
+metadata:
+  name: {{ include "settings.natsSecretName" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+data:
+  Operator.jwt: {{ .Values.settings.nats.operatorJwt }}
+  SYS.jwt: {{ .Values.settings.nats.systemJwt }}
+
+{{- end }}

@@ -1,0 +1,38 @@
+apiVersion: kubedb.com/v1alpha2
+kind: Redis
+metadata:
+  name: {{ include "ace.fullname" . }}-cache
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+spec:
+  version: "{{ .Values.settings.cache.version }}"
+  storageType: Durable
+  storage:
+    storageClassName: {{ .Values.global.infra.storageClass.name }}
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: {{ .Values.settings.cache.persistence.size }}
+  podTemplate:
+    spec:
+      resources:
+        {{- toYaml .Values.settings.cache.resources | nindent 8 }}
+  terminationPolicy: {{ .Values.settings.cache.terminationPolicy }}
+  authSecret:
+    name: {{ include "ace.fullname" . }}-cache-auth
+{{- if .Values.global.monitoring }}
+  monitor:
+    agent: {{ .Values.global.monitoring.agent }}
+    prometheus:
+      {{- with .Values.global.monitoring.exporter.resources }}
+      exporter:
+        resources:
+          {{- toYaml . | nindent 10 }}
+      {{- end }}
+      serviceMonitor:
+        interval: 30s
+        labels:
+          {{- toYaml .Values.global.monitoring.serviceMonitor.labels | nindent 10 }}
+{{- end }}

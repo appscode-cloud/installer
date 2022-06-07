@@ -1,0 +1,93 @@
+{{ $infra := .Values.infra }}
+{{- if .Values.global }}
+{{- $infra = .Values.global.infra }}
+{{- end }}
+
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "billing.fullname" . }}-summary
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: "billing-summary"
+    {{- include "billing.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.summary.schedule }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          {{- include "appscode.imagePullSecrets" . | nindent 10 }}
+          serviceAccountName: {{ include "appscode.serviceAccountName" . }}
+          securityContext:
+            {{- toYaml .Values.podSecurityContext | nindent 12 }}
+          containers:
+            - name: {{ .Chart.Name }}
+              securityContext:
+                {{- toYaml .Values.securityContext | nindent 16 }}
+              image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              command:
+                - gitea
+                - summary
+              resources:
+                {{- toYaml .Values.resources | nindent 16 }}
+              env:
+              {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "Google") }}
+                - name: GOOGLE_APPLICATION_CREDENTIALS
+                  value: {{ $infra.objstore.mountPath }}/sa.json
+              {{- end }}
+              volumeMounts:
+                - name: data
+                  mountPath: /data
+                {{- if (include "settings.platformConfigSecretName" .) }}
+                - name: config
+                  mountPath: /data/platform/conf/app.ini
+                  subPath: app.ini
+                {{- end }}
+                {{- if (include "settings.objstoreSecretName" .) }}
+                - name: objstore-cred
+                  mountPath: {{ $infra.objstore.mountPath }}
+                {{- end }}
+                {{- if (include "settings.kmsSecretName" .) }}
+                - name: kms-cred
+                  mountPath: {{ $infra.kms.mountPath }}
+                {{- end }}
+                - name: invoice-store
+                  mountPath: {{ $infra.invoice.mountPath }}
+          volumes:
+            - name: data
+              emptyDir: {}
+            {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
+            - name: config
+              secret:
+                defaultMode: 420
+                secretName: {{ $secretName }}
+            {{- end }}
+            {{- with $secretName := (include "settings.objstoreSecretName" .) }}
+            - name: objstore-cred
+              secret:
+                defaultMode: 420
+                secretName: {{ $secretName }}
+            {{- end }}
+            {{- with $secretName := (include "settings.kmsSecretName" .) }}
+            - name: kms-cred
+              secret:
+                defaultMode: 420
+                secretName: {{ $secretName }}
+            {{- end }}
+            - name: invoice-store
+              emptyDir: {}
+          {{- with .Values.nodeSelector }}
+          nodeSelector:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.affinity }}
+          affinity:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.tolerations }}
+          tolerations:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          restartPolicy: OnFailure

@@ -1,0 +1,115 @@
+{{- $infra := .Values.global.infra -}}
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "ace.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+spec:
+  backoffLimit: 4
+  template:
+    {{- with .Values.podAnnotations }}
+    metadata:
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    spec:
+      {{- include "appscode.imagePullSecrets" . | nindent 6 }}
+      serviceAccountName: {{ include "appscode.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - gitea
+            - dev
+            - --reload-nats-accounts
+            # - --register-crds
+            # - --crate-nats-stream
+            # - --create-products
+            # - --migrate
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "Google") }}
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: {{ $infra.objstore.mountPath }}/sa.json
+          {{- end }}
+          volumeMounts:
+            - name: data
+              mountPath: /data
+            {{- if (include "settings.platformConfigSecretName" .) }}
+            - name: config
+              mountPath: /data/platform/conf/app.ini
+              subPath: app.ini
+            {{- end }}
+            {{- if (include "settings.natsSecretName" .) }}
+            - name: nats-cred
+              mountPath: {{ .Values.settings.nats.mountPath }}
+            {{- end }}
+            # {{- if (include "settings.objstoreSecretName" .) }}
+            # - name: objstore-cred
+            #   mountPath: {{ $infra.objstore.mountPath }}
+            # {{- end }}
+            # {{- if (include "settings.kmsSecretName" .) }}
+            # - name: kms-cred
+            #   mountPath: {{ $infra.kms.mountPath }}
+            # {{- end }}
+      volumes:
+        - name: data
+          emptyDir: {}
+        {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
+        - name: config
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
+        {{- end }}
+        {{- with $secretName := (include "settings.natsSecretName" .) }}
+        - name: nats-cred
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
+        {{- end }}
+        # {{- with $secretName := (include "settings.objstoreSecretName" .) }}
+        # - name: objstore-cred
+        #   secret:
+        #     defaultMode: 420
+        #     secretName: {{ $secretName }}
+        # {{- end }}
+        # {{- with $secretName := (include "settings.kmsSecretName" .) }}
+        # - name: kms-cred
+        #   secret:
+        #     defaultMode: 420
+        #     secretName: {{ $secretName }}
+        # {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      restartPolicy: Never

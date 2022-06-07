@@ -1,0 +1,21 @@
+{{ $infra := .Values.infra }}
+{{- if .Values.global }}
+{{- $infra = .Values.global.infra }}
+{{- end }}
+
+{{- if not (include "settings.objstoreSecretName" .) }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "platform-api.fullname" . }}-data
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "platform-api.labels" . | nindent 4 }}
+spec:
+  storageClassName: {{ $infra.storageClass.name }}
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size }}
+{{- end }}

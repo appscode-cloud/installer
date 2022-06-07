@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "ace.fullname" . }}-cache-auth
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.offshootLabels" . | nindent 4 }}
+    app.kubernetes.io/component: database
+    app.kubernetes.io/instance: {{ include "ace.fullname" . }}-cache
+    app.kubernetes.io/managed-by: kubedb.com
+    app.kubernetes.io/name: redises.kubedb.com
+type: kubernetes.io/basic-auth
+stringData:
+  username: '{{ .Values.settings.cache.auth.username }}'
+  password: '{{ .Values.settings.cache.auth.password }}'

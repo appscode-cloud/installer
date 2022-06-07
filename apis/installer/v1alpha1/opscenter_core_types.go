@@ -62,19 +62,6 @@ type GlobalValues struct {
 	Monitoring       Monitoring `json:"monitoring"`
 }
 
-// +kubebuilder:validation:Enum=prometheus.io;prometheus.io/operator;prometheus.io/builtin
-type MonitoringAgent string
-
-type Monitoring struct {
-	Agent          MonitoringAgent       `json:"agent"`
-	ServiceMonitor *ServiceMonitorLabels `json:"serviceMonitor"`
-}
-
-type ServiceMonitorLabels struct {
-	// +optional
-	Labels map[string]string `json:"labels"`
-}
-
 type KubeUiServerSpec struct {
 	Enabled                             *bool `json:"enabled"`
 	*kubeops_installer.KubeUiServerSpec `json:",inline,omitempty"`
