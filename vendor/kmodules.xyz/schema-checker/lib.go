@@ -156,6 +156,7 @@ func (checker *SchemaChecker) Check(schemaKind string, file string) (string, err
 		if err != nil {
 			return "", errors.Wrap(err, file)
 		}
+		defer resp.Body.Close()
 		var buf bytes.Buffer
 		_, err = io.Copy(&buf, resp.Body)
 		if err != nil {
