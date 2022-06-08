@@ -47,12 +47,12 @@ type IngressNginxSpec struct {
 }
 
 type IngressNginxController struct {
-	HostPort             IngressNginxControllerHostPort             `json:"hostPort"`
+	HostPort             *IngressNginxControllerHostPort            `json:"hostPort,omitempty"`
 	IngressClassByName   bool                                       `json:"ingressClassByName"`
 	IngressClassResource IngressNginxControllerIngressClassResource `json:"ingressClassResource"`
-	Kind                 string                                     `json:"kind"`
-	NodeSelector         map[string]string                          `json:"nodeSelector"`
-	Service              IngressNginxControllerService              `json:"service"`
+	Kind                 string                                     `json:"kind,omitempty"`
+	NodeSelector         map[string]string                          `json:"nodeSelector,omitempty"`
+	Service              *IngressNginxControllerService             `json:"service,omitempty"`
 }
 
 type IngressNginxControllerHostPort struct {
