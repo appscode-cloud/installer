@@ -141,8 +141,8 @@ global:
       # might be a file storage prefixed with file://
       bucket: gs://bytebuilders-avatars
     kubepack:
-      host:
-      bucket:
+      host: ""
+      bucket: ""
     badger:
       mountPath: /badger
       levels: 7
@@ -161,7 +161,7 @@ settings:
       size: 100Gi
     resources:
       limits:
-        cpu: 1000m
+        cpu: "1"
         memory: 2Gi
     auth:
       username: postgres
@@ -179,7 +179,7 @@ settings:
       size: 10Gi
     resources:
       limits:
-        cpu: 1000m
+        cpu: "1"
         memory: 2Gi
     auth:
       username: root
