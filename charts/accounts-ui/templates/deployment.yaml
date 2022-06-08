@@ -37,7 +37,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
             - gitea
-            - web
+            - accounts
           ports:
             - name: http
               containerPort: 80
