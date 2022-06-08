@@ -165,11 +165,11 @@ Determine database host name
 {{- end -}}
 
 {{- define "gitea.cache.host" -}}
-{{- printf "network=tcp,addr=%s-cache.%s:6379,password='%s',db=1,pool_size=100,idle_timeout=180,prefix=cache" (include "ace.fullname" .) .Release.Namespace .Values.settings.cache.auth.password -}}
+{{- printf "network=tcp,addr=%s-cache.%s:6379,password='%s',db=1,pool_size=100,idle_timeout=180,prefix=cache-" (include "ace.fullname" .) .Release.Namespace .Values.settings.cache.auth.password -}}
 {{- end -}}
 
 {{- define "gitea.session.host" -}}
-{{- printf "network=tcp,addr=%s-cache.%s:6379,password='%s',db=0,pool_size=100,idle_timeout=180,prefix=session" (include "ace.fullname" .) .Release.Namespace .Values.settings.cache.auth.password -}}
+{{- printf "network=tcp,addr=%s-cache.%s:6379,password='%s',db=0,pool_size=100,idle_timeout=180,prefix=session-" (include "ace.fullname" .) .Release.Namespace .Values.settings.cache.auth.password -}}
 {{- end -}}
 
 

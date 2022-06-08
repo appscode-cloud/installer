@@ -88,7 +88,7 @@ stringData:
     # Example: mysql://user:secret@host:port/database
     url =
 
-    skip_migrations = {{ .Values.grafana.skipMigrations }}
+    skip_migrations = {{ .Values.settings.grafana.skipMigrations }}
 
     # Max idle conn setting default is 2
     max_idle_conn = 2

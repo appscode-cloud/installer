@@ -32,12 +32,6 @@ platform-api:
 prom-proxy:
   enabled: true
 
-nats:
-  enabled: true
-
-reloader:
-  enabled: true
-
 ingress-nginx:
   enabled: true
   controller:
@@ -47,7 +41,16 @@ ingress-nginx:
       name: nginx-ace
       controllerValue: "k8s.io/nginx-ace"
 
-external-dns:
+ingress-dns:
+  enabled: true
+
+nats:
+  enabled: true
+
+nats-dns:
+  enabled: false
+
+reloader:
   enabled: true
 
 # -------------
@@ -119,8 +122,6 @@ global:
     # KMS and Object Store services are required
     # set provider to empty to disable this feature
     objstore:
-      host:
-      bucket:
       provider: Google
       # credential : /data/credentials/sa.json
       mountPath: /data/credentials
@@ -136,6 +137,12 @@ global:
       # masterKeyURL: base64key://smGbjm71Nxd1Ig5FS0wj9SlbzAIrnolCz9bQQ6uAhl4=
       # provider: "Google"
       # masterKeyURL: gcpkms://projects/
+    avatars:
+      # might be a file storage prefixed with file://
+      bucket: gs://bytebuilders-avatars
+    kubepack:
+      host:
+      bucket:
     badger:
       mountPath: /badger
       levels: 7
@@ -160,6 +167,12 @@ settings:
       username: postgres
       password: "xyz"
   cache:
+    ## Either "memory", "redis", or "memcache", default is "memory"
+    ##
+    cacheAdapter: redis
+    ## For "memory" only, GC interval in seconds, default is 60
+    ##
+    cacheInterval: 60
     version: "6.0.6"
     terminationPolicy: Delete
     persistence:
@@ -259,65 +272,10 @@ settings:
     sessionProviderConfig:
     # sessionProviderConfig: network=tcp,addr=gitea-cache.byte:6379,db=0,pool_size=100,idle_timeout=180,prefix=session
     cookieName: i_like_bytebuilders
-    ## Either "memory", "redis", or "memcache", default is "memory"
-    ##
-    cacheAdapter: redis
-
-    ## For "memory" only, GC interval in seconds, default is 60
-    ##
-    cacheInterval: 60
-
-    ## For "redis" and "memcache", connection host address
-    ## redis: network=tcp,addr=:6379,password=xyz,db=0,pool_size=100,idle_timeout=180
-    ## memcache: `127.0.0.1:11211`
-    ##
-    cacheHost:
-    # cacheHost: network=tcp,addr=gitea-cache.byte:6379,db=1,pool_size=100,idle_timeout=180,prefix=cache
-
-    cachePassword:
 
     ## Landing page for non-logged users, can be "home" or "explore"
     ##
     serverLandingPage: home
-
-    ## Either "mysql", "postgres" or "sqlite3", you can connect to TiDB with
-    ## MySQL protocol.  Default is to use the postgresql configuration included
-    ## with this chart.
-    ##
-    databaseType: postgres
-
-    ## Database host.  Unused unless `postgresql.install` is false.
-    ##
-    databaseHost:
-    # databaseHost: bytebuilders-db.byte:5432
-
-    ## Database user.  Unused unless `postgresql.install` is false.
-    ##
-    databaseUser: postgres
-
-    ## Database password.  Unused unless `postgresql.install` is false.
-    ##
-    databasePassword:
-
-    ## Database password.  Unused unless `postgresql.install` is false.
-    ##
-    databaseName: bb
-
-    ## Hook task queue length, increase if webhook shooting starts hanging
-    ##
-    webhookQueueLength: 1000
-
-    ## Deliver timeout in seconds
-    ##
-    webhookDeliverTimeout: 5
-
-    ## Allow insecure certification
-    ##
-    webhookSkipTlsVerify: true
-
-    ## Number of history information in each page
-    ##
-    webhookPagingNum: 10
 
     ## Can be "console" and "file", default is "console"
     ## Use comma to separate multiple modes, e.g. "console, file"
@@ -339,67 +297,6 @@ settings:
     ## Show time of template execution in the footer
     ##
     otherShowFooterTemplateLoadTime: true
-
-    ## Change this value for your installation.
-    ##
-    securitySecretKey: "changeme"
-
-    ## Number of repositories that are showed in one explore page
-    ##
-    uiExplorePagingNum: 20
-
-    ## Number of issues that are showed in one page
-    ##
-    uiIssuePagingNum: 10
-
-    ## Number of maximum commits showed in one activity feed.
-    ## NOTE: This value is also used in how many commits a webhook will send.
-    ##
-    uiFeedMaxCommitNum: 5
-
-    ## Enable running cron tasks periodically.
-    ##
-    cronEnabled: true
-
-    ## Run cron tasks when Gogs starts.
-    ##
-    cronRunAtStart: false
-
-    ## Cron syntax for scheduling update mirrors, e.g. @every 1h.
-    ##
-    cronUpdateMirrorsSchedule: '@every 10m'
-
-    ## Cron syntax for scheduling repository health check, e.g. @every 24h.
-    ##
-    cronRepoHealthCheckSchedule: '@every 24h'
-
-    ## Time duration syntax for health check execution timeout, e.g. 60s.
-    ##
-    cronRepoHealthCheckTimeout: 60s
-
-    ## Arguments for command git fsck, e.g. --unreachable --tags.
-    ##
-    cronRepoHealthCheckArgs:
-
-    ## Enable this to run repository statistics check at start time.
-    ##
-    cronCheckRepoStatsRunAtStart: true
-
-    ## Cron syntax for scheduling repository statistics check, e.g. @every 24h.
-    ##
-    cronCheckRepoStatsSchedule: '@every 24h'
-
-    ## Enable this to run repository archives cleanup at start time.
-    ##
-    cronRepoArchiveCleanupRunAtStart: false
-
-    ## Cron syntax for scheduling repository statistics check, e.g. @every 24h.
-    ##
-    cronRepoArchiveCleanupSchedule: '@every 24h'
-
-    ## Time duration to check if archive should be cleaned, e.g. 24h
-    ##
-    cronRepoArchiveCleanupOlderThan: 24h
 
     # csrf cookie http only enable
     enableCSRFCookieHttpOnly: false
@@ -449,6 +346,12 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
   pullPolicy: Always
+
+# Docker registry containing cluster connector images
+clusterConnector:
+  registry: ""
+  repository: ""
+  tag: ""
 
 podAnnotations: {}
 

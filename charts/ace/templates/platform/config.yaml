@@ -13,6 +13,30 @@ stringData:
 
     EXPERIMENTAL_FEATURES = {{ .Values.settings.platform.experimentalFeatures }}
 
+    DOMAIN   = {{ .Values.settings.platform.domain }}
+
+    [site_accounts]
+    ; WHY http, not https?
+    PROTOCOL = http
+    DOMAIN = {{ .Values.settings.platform.domain }}
+    ROOT_URL = https://accounts.{{ .Values.settings.platform.domain }}
+    LANDING_PAGE = {{ .Values.settings.platform.serverLandingPage }}
+    APP_DATA_PATH = /data
+
+    [site_api]
+    ; WHY http, not https?
+    PROTOCOL = http
+    DOMAIN = api.{{ .Values.settings.platform.domain }}
+    ROOT_URL = https://api.{{ .Values.settings.platform.domain }}
+
+    [picture]
+    DISABLE_GRAVATAR        = false
+    ENABLE_FEDERATED_AVATAR = true
+    AVATAR_UPLOAD_PATH      = /avatars
+
+    [storage]
+    BUCKET_URL = {{ .Values.global.infra.avatars.bucket }}
+
     [server]
     PROTOCOL = http
     DOMAIN = {{ .Values.settings.platform.domain }}
@@ -36,8 +60,8 @@ stringData:
     COOKIE_NAME = {{ .Values.settings.platform.cookieName}}
 
     [cache]
-    ADAPTER = {{ .Values.settings.platform.cacheAdapter }}
-    INTERVAL = {{ .Values.settings.platform.cacheInterval }}
+    ADAPTER = {{ .Values.settings.cache.cacheAdapter }}
+    INTERVAL = {{ .Values.settings.cache.cacheInterval }}
     HOST = {{ template "gitea.cache.host" . }}
 
 {{- with .Values.settings.smtp }}
@@ -76,44 +100,7 @@ stringData:
     ENABLE_NOTIFY_MAIL = {{ .Values.settings.platform.serviceEnableNotifyMail }}
     ENABLE_REVERSE_PROXY_AUTHENTICATION = false
     ENABLE_REVERSE_PROXY_AUTO_REGISTRATION = false
-
-    [repository.upload]
-    ENABLED = {{ .Values.settings.platform.repositoryUploadEnabled }}
-    ALLOWED_TYPES = {{ .Values.settings.platform.repositoryUploadAllowedTypes }}
-    MAX_FILE_SIZE = {{ .Values.settings.platform.repositoryUploadMaxFileSize }}
-    MAX_FILES = {{ .Values.settings.platform.repositoryUploadMaxFiles }}
-
-    [ui]
-    EXPLORE_PAGING_NUM = {{ .Values.settings.platform.uiExplorePagingNum }}
-    ISSUE_PAGING_NUM = {{ .Values.settings.platform.uiIssuePagingNum }}
-    FEED_MAX_COMMIT_NUM = {{ .Values.settings.platform.uiFeedMaxCommitNum }}
-
-    [webhook]
-    QUEUE_LENGTH = {{ .Values.settings.platform.webhookQueueLength }}
-    DELIVER_TIMEOUT = {{ .Values.settings.platform.webhookDeliverTimeout }}
-    SKIP_TLS_VERIFY = {{ .Values.settings.platform.webhookSkipTlsVerify }}
-    PAGING_NUM = {{ .Values.settings.platform.webhookPagingNum }}
-
-    [cron]
-    ENABLED = {{ .Values.settings.platform.cronEnabled }}
-    RUN_AT_START = {{ .Values.settings.platform.cronRunAtStart }}
-
-    [cron.update_mirrors]
-    SCHEDULE = {{ .Values.settings.platform.cronUpdateMirrorsSchedule }}
-
-    [cron.repo_health_check]
-    SCHEDULE = {{ .Values.settings.platform.cronRepoHealthCheckSchedule }}
-    TIMEOUT = {{ .Values.settings.platform.cronRepoHealthCheckTimeout }}
-    ARGS = {{ .Values.settings.platform.cronRepoHealthCheckArgs }}
-
-    [cron.check_repo_stats]
-    RUN_AT_START = {{ .Values.settings.platform.cronCheckRepoStatsRunAtStart }}
-    SCHEDULE = {{ .Values.settings.platform.cronCheckRepoStatsSchedule }}
-
-    [cron.repo_archive_cleanup]
-    RUN_AT_START = {{ .Values.settings.platform.cronRepoArchiveCleanupRunAtStart }}
-    SCHEDULE = {{ .Values.settings.platform.cronRepoArchiveCleanupSchedule }}
-    OLDER_THAN = {{ .Values.settings.platform.cronRepoArchiveCleanupOlderThan }}
+    NO_REPLY_ADDRESS = {{ .Values.settings.smtp.from }}
 
     [other]
     SHOW_FOOTER_BRANDING = {{ .Values.settings.platform.otherShowFooterBranding }}
@@ -130,10 +117,6 @@ stringData:
     SCHEME = https
     ALLOW_DOMAIN = {{ .Values.settings.platform.domain }}
     ALLOW_SUBDOMAIN = true
-
-    ;[worker]
-    ;CLUSTER_ID= pharmer-cluster
-    ;URL = nats://nats-cluster.default:4222
 
   {{- if .Values.billing.enabled }}
     [payment_gateway]
@@ -186,9 +169,16 @@ stringData:
   {{- end }}
 
     [yaml_storage]
-    HOST = {{ .Values.global.infra.objstore.host }}
-    BUCKET = {{ .Values.global.infra.objstore.bucket }}
+    HOST = {{ .Values.global.infra.kubepack.host }}
+    BUCKET = {{ .Values.global.infra.kubepack.bucket }}
   {{- if eq .Values.global.infra.objstore.provider "Google" }}
     CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
   {{- end }}
+{{- end }}
+
+{{- if .Values.clusterConnector.registry }}
+    [cluster_connector]
+    REGISTRY    = {{ .Values.clusterConnector.registry }}
+    REPOSITORY  = {{ .Values.clusterConnector.repository }}
+    TAG         = {{ .Values.clusterConnector.tag }}
 {{- end }}
