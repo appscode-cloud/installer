@@ -29,17 +29,20 @@ dependencies:
 - name: grafana
   repository: file://../grafana
   version: 0.1.0
-- name: nats
-  repository: https://nats-io.github.io/k8s/helm/charts/
-  version: 0.16.0
-- name: reloader
-  repository: https://stakater.github.io/stakater-charts
-  version: v0.0.110
 - name: ingress-nginx
   repository: https://kubernetes.github.io/ingress-nginx
   version: 4.1.0
 - name: external-dns
   repository: https://kubernetes-sigs.github.io/external-dns/
   version: 1.9.0
-digest: sha256:03cd80aa59575c091bdb1a2c7394eba982df2f6685f39539d41c4495fa8988ef
-generated: "2022-05-28T11:46:14.208054-07:00"
+- name: nats
+  repository: https://nats-io.github.io/k8s/helm/charts/
+  version: 0.16.0
+- name: external-dns
+  repository: https://kubernetes-sigs.github.io/external-dns/
+  version: 1.9.0
+- name: reloader
+  repository: https://stakater.github.io/stakater-charts
+  version: v0.0.110
+digest: sha256:4ed2779c3398d545b7b59e05ccb4062d57de3964b9c53c447609d3bc554120be
+generated: "2022-06-07T19:01:14.90714-07:00"
