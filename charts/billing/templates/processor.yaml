@@ -73,7 +73,7 @@ spec:
               mountPath: /data
             {{- if (include "settings.platformConfigSecretName" .) }}
             - name: config
-              mountPath: /data/platform/conf/app.ini
+              mountPath: /data/gitea/conf/app.ini
               subPath: app.ini
             {{- end }}
             - name: badger-store

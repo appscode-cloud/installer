@@ -1,18 +1,18 @@
 project:
-  name: Deploy UI by AppsCode
-  shortName: Deploy UI
+  name: Platform UI by AppsCode
+  shortName: Platform UI
   url: https://github.com/bytebuilders
-  description: ByteBuilders Deploy UI
-  app: a Deploy UI
+  description: ByteBuilders Platform UI
+  app: a Platform UI
 repository:
   url: https://charts.appscode.com/stable/
   name: appscode
 chart:
-  name: deploy-ui
+  name: platform-ui
   values: -- generate from values file --
   valuesExample: -- generate from values file --
 prerequisites:
 - Kubernetes 1.19+
 release:
-  name: deploy-ui
+  name: platform-ui
   namespace: ace-system

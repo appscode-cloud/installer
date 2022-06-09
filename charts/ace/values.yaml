@@ -34,12 +34,12 @@ prom-proxy:
 
 ingress-nginx:
   enabled: true
-  controller:
-    ingressClassByName: true
-    ingressClassResource:
-      enabled: true
-      name: nginx-ace
-      controllerValue: "k8s.io/nginx-ace"
+  # controller:
+  #   ingressClassByName: true
+  #   ingressClassResource:
+  #     enabled: true
+  #     name: nginx-ace
+  #     controllerValue: "k8s.io/nginx-ace"
 
 ingress-dns:
   enabled: true
@@ -158,7 +158,7 @@ settings:
     databaseName: bb
     terminationPolicy: Delete
     persistence:
-      size: 100Gi
+      size: 10Gi
     resources:
       limits:
         cpu: "1"
@@ -167,14 +167,8 @@ settings:
       username: postgres
       password: "xyz"
   cache:
-    ## Either "memory", "redis", or "memcache", default is "memory"
-    ##
-    cacheAdapter: redis
-    ## For "memory" only, GC interval in seconds, default is 60
-    ##
-    cacheInterval: 60
     version: "6.0.6"
-    terminationPolicy: Delete
+    cacheInterval: 60
     persistence:
       size: 10Gi
     resources:
@@ -184,6 +178,7 @@ settings:
     auth:
       username: root
       password: "xyz"
+    terminationPolicy: Delete
   # Mail service
   smtp:
     # enableMailerService: true
@@ -198,6 +193,7 @@ settings:
   # NATS credentials
   nats:
     shardCount: 128
+    replicas: 1
     mountPath: /nats/creds
     operatorCreds: 'xyz'
     operatorJwt: 'xyz'
@@ -329,13 +325,9 @@ settings:
 
     skipMigrations: true
 
-# postgresql:
-#   install: false
-#   postgresUser: xyz
-#   postgresPassword: xyz
-#   postgresDatabase: xyz
-#   persistence:
-#     enabled: false
+  security:
+    oauth2JWTSecret: ""
+    csrfSecretKey: ""
 
 # Docker registry containing app images
 image:

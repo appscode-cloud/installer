@@ -8,7 +8,7 @@
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
 $ helm search repo appscode/billing --version=0.1.0
-$ helm upgrade -i billing appscode/billing -n kubeops --create-namespace --version=0.1.0
+$ helm upgrade -i billing appscode/billing -n ace-system --create-namespace --version=0.1.0
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys a billing backend on a [Kubernetes](http://kubernetes.io) clu
 To install/upgrade the chart with the release name `billing`:
 
 ```bash
-$ helm upgrade -i billing appscode/billing -n kubeops --create-namespace --version=0.1.0
+$ helm upgrade -i billing appscode/billing -n ace-system --create-namespace --version=0.1.0
 ```
 
 The command deploys a billing backend on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -36,7 +36,7 @@ The command deploys a billing backend on the Kubernetes cluster in the default c
 To uninstall the `billing`:
 
 ```bash
-$ helm uninstall billing -n kubeops
+$ helm uninstall billing -n ace-system
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -69,7 +69,7 @@ The following table lists the configurable parameters of the `billing` chart and
 | monitoring.agent                   | Name of monitoring agent (eg "prometheus.io/operator")                                                                                                              | <code>""</code>              |
 | monitoring.serviceMonitor.labels   | Specify the labels for ServiceMonitor. Prometheus crd will select ServiceMonitor using these labels. Only usable when monitoring agent is `prometheus.io/operator`. | <code>{}</code>              |
 | summary.schedule                   |                                                                                                                                                                     | <code>"0 8 */1 */1 *"</code> |
-| persistence.size                   |                                                                                                                                                                     | <code>100Gi</code>           |
+| persistence.size                   |                                                                                                                                                                     | <code>10Gi</code>            |
 | infra.storageClass.name            |                                                                                                                                                                     | <code>"standard"</code>      |
 | infra.objstore.provider            |                                                                                                                                                                     | <code>""</code>              |
 | infra.objstore.mountPath           |                                                                                                                                                                     | <code>""</code>              |
@@ -87,12 +87,12 @@ The following table lists the configurable parameters of the `billing` chart and
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i billing appscode/billing -n kubeops --create-namespace --version=0.1.0 --set replicaCount=3
+$ helm upgrade -i billing appscode/billing -n ace-system --create-namespace --version=0.1.0 --set replicaCount=3
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i billing appscode/billing -n kubeops --create-namespace --version=0.1.0 --values values.yaml
+$ helm upgrade -i billing appscode/billing -n ace-system --create-namespace --version=0.1.0 --values values.yaml
 ```

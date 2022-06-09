@@ -66,37 +66,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-monitoring:
-  # Name of monitoring agent (eg "prometheus.io/operator")
-  agent: ""
-  serviceMonitor:
-    # Specify the labels for ServiceMonitor.
-    # Prometheus crd will select ServiceMonitor using these labels.
-    # Only usable when monitoring agent is `prometheus.io/operator`.
-    labels: {}
-
-persistence:
-  size: 10Gi
-
-infra:
-  storageClass:
-    name: "standard"
-  objstore:
-    provider: ""
-    mountPath: ""
-  kms:
-    provider: ""
-    mountPath: ""
-  badger:
-    mountPath: /badger
-  invoice:
-    mountPath: /billing
-
-settings:
-  secretName:
-    platformConfig: ""
-    grafanaConfig: ""
-    objstore: ""
-    kms: ""
-    nats: ""

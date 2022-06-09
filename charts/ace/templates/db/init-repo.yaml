@@ -1,3 +1,4 @@
+{{- if false }}
 apiVersion: stash.appscode.com/v1alpha1
 kind: Repository
 metadata:
@@ -11,3 +12,4 @@ spec:
       bucket: stash-testing
       prefix: /{{ include "ace.fullname" . }}/db
     storageSecretName: {{ include "ace.fullname" . }}-init-repo-cred
+{{- end }}

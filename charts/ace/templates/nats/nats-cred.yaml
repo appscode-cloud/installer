@@ -8,20 +8,24 @@ metadata:
   labels:
     {{- include "ace.labels" . | nindent 4 }}
 stringData:
-  Operator.creds: {{ .Values.settings.nats.operatorCreds }}
+  Operator.creds: |
+    {{- .Values.settings.nats.operatorCreds | nindent 4 }}
   Operator.jwt: {{ .Values.settings.nats.operatorJwt }}
-  SYS.creds: {{ .Values.settings.nats.systemCreds }}
+  SYS.creds: |
+    {{- .Values.settings.nats.systemCreds | nindent 4 }}
   SYS.jwt: {{ .Values.settings.nats.systemJwt }}
-  sys.creds: {{ .Values.settings.nats.systemUserCreds }}
-  ADMIN.creds: {{ .Values.settings.nats.adminCreds }}
-  admin.creds: {{ .Values.settings.nats.adminUserCreds }}
+  sys.creds: |
+    {{- .Values.settings.nats.systemUserCreds | nindent 4 }}
+  ADMIN.creds: |
+    {{- .Values.settings.nats.adminCreds | nindent 4 }}
+  admin.creds: |
+    {{- .Values.settings.nats.adminUserCreds | nindent 4 }}
 
 ---
 
 # mounted into nats-server
 apiVersion: v1
 kind: ConfigMap
-type: Opaque
 metadata:
   name: {{ include "settings.natsSecretName" . }}
   namespace: {{ .Release.Namespace }}

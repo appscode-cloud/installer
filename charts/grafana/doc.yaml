@@ -15,4 +15,4 @@ prerequisites:
 - Kubernetes 1.19+
 release:
   name: grafana
-  namespace: kubeops
+  namespace: ace-system

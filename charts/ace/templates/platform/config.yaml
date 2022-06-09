@@ -47,8 +47,8 @@ stringData:
     SSH_LISTEN_PORT = {{ .Values.settings.sshPort }}
 
     [database]
-    DB_TYPE = {{ .Values.settings.platform.databaseType | quote }}
-    HOST = {{ template "gitea.database.host" . }}
+    DB_TYPE = "postgres"
+    HOST = {{ template "settings.database.host" . }}
     NAME = {{ .Values.settings.db.databaseName }}
     USER = {{ .Values.settings.db.auth.username }}
     PASSWD = {{ .Values.settings.db.auth.password }}
@@ -56,13 +56,13 @@ stringData:
     [session]
     DOMAIN = {{ .Values.settings.platform.domain }}
     PROVIDER = {{ .Values.settings.platform.sessionProvider }}
-    PROVIDER_CONFIG = {{ template "gitea.session.host" . }}
+    PROVIDER_CONFIG = {{ template "settings.session.host" . }}
     COOKIE_NAME = {{ .Values.settings.platform.cookieName}}
 
     [cache]
-    ADAPTER = {{ .Values.settings.cache.cacheAdapter }}
+    ADAPTER = redis
     INTERVAL = {{ .Values.settings.cache.cacheInterval }}
-    HOST = {{ template "gitea.cache.host" . }}
+    HOST = {{ template "settings.cache.host" . }}
 
 {{- with .Values.settings.smtp }}
     [mailer]
@@ -82,11 +82,10 @@ stringData:
     LEVEL = {{ .Values.settings.platform.logLevel }}
 
     [oauth2]
-    JWT_SECRET = {{ randAlphaNum 43 }}
+    JWT_SECRET = {{ include  "settings.oauth2JWTSecret" . }}
 
     [security]
-    INTERNAL_TOKEN = {{ randAlphaNum 105 }}
-    SECRET_KEY     = {{ template "gitea.secretkey" . }}
+    SECRET_KEY     = {{ include "settings.csrfSecretkey" . }}
     INSTALL_LOCK = {{ .Values.settings.platform.installLock }}
     CSRF_COOKIE_HTTP_ONLY = {{ .Values.settings.platform.enableCSRFCookieHttpOnly }}
 
@@ -126,7 +125,7 @@ stringData:
   {{- end }}
 
     [kms]
-    MASTER_KEY_URL = '{{ include "gitea.kms.masterKeyURL" . }}'
+    MASTER_KEY_URL = '{{ include "settings.kms.masterKeyURL" . }}'
 
     [searchlight]
     ENABLE = {{ .Values.settings.searchlight.enabled }}
@@ -145,11 +144,16 @@ stringData:
     ADMIN_CREDS = {{ .Values.settings.nats.mountPath }}/ADMIN.creds
     ADMIN_USER_CREDS = {{ .Values.settings.nats.mountPath }}/admin.creds
 
+    ; When TLS is not used, use cluster svc ip
+    ;ACCOUNT_RESOLVER = nats://{{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc:4222
+    ;SERVER = nats://{{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc:4222,nats://nats.{{ .Values.settings.platform.domain }}:4222
+
     ACCOUNT_RESOLVER = nats://nats.{{ .Values.settings.platform.domain }}:4222
     NATS_SERVER = wss://nats.{{ .Values.settings.platform.domain }}
-    SERVER = nats://nats.{{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc:4222,nats://nats.{{ .Values.settings.platform.domain }}:4222
+    SERVER = nats://nats.{{ .Values.settings.platform.domain }}:4222
     WEBSOCKET_SERVER = wss://nats.{{ .Values.settings.platform.domain }}
     SHARD_COUNT = {{ .Values.settings.nats.shardCount }}
+    REPLICAS = {{ .Values.settings.nats.replicas }}
   {{- end }}
 
 {{- if .Values.global.infra.objstore.provider }}

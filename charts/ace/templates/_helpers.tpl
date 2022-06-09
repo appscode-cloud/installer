@@ -136,7 +136,7 @@ Returns the ServiceMonitor labels
 {{- end }}
 
 {{- define "settings.kmsSecretName" -}}
-{{- if .Values.global.infra.kms.masterKeyURL -}}
+{{- if .Values.global.infra.kms.provider -}}
 {{- printf "%s-kms-cred" (include "ace.fullname" .) -}}
 {{- end -}}
 {{- end }}
@@ -156,19 +156,23 @@ Returns the ServiceMonitor labels
 {{/*
 Determine database host name
 */}}
-{{- define "gitea.database.host" -}}
+{{- define "settings.database.host" -}}
 {{- printf "%s-db.%s:5432" (include "ace.fullname" .) .Release.Namespace -}}
 {{- end -}}
 
-{{- define  "gitea.secretkey" -}}
-{{ randAlphaNum 64 }}
+{{- define  "settings.oauth2JWTSecret" -}}
+{{ .Values.settings.security.oauth2JWTSecret | default (randAlphaNum 43) }}
 {{- end -}}
 
-{{- define "gitea.cache.host" -}}
+{{- define  "settings.csrfSecretkey" -}}
+{{ .Values.settings.security.csrfSecretKey | default (randAlphaNum 64) }}
+{{- end -}}
+
+{{- define "settings.cache.host" -}}
 {{- printf "network=tcp,addr=%s-cache.%s:6379,password='%s',db=1,pool_size=100,idle_timeout=180,prefix=cache-" (include "ace.fullname" .) .Release.Namespace .Values.settings.cache.auth.password -}}
 {{- end -}}
 
-{{- define "gitea.session.host" -}}
+{{- define "settings.session.host" -}}
 {{- printf "network=tcp,addr=%s-cache.%s:6379,password='%s',db=0,pool_size=100,idle_timeout=180,prefix=session-" (include "ace.fullname" .) .Release.Namespace .Values.settings.cache.auth.password -}}
 {{- end -}}
 
@@ -181,7 +185,7 @@ Determine database host name
 {{- printf "addr=%s-cache.%s:6379,password='%s',db=0,pool_size=100" (include "ace.fullname" .) .Release.Namespace .Values.settings.cache.auth.password -}}
 {{- end -}}
 
-{{- define  "gitea.kms.masterKeyURL" -}}
+{{- define  "settings.kms.masterKeyURL" -}}
 {{- if .Values.global.infra.kms.masterKeyURL -}}
 {{- .Values.global.infra.kms.masterKeyURL -}}
 {{- else -}}

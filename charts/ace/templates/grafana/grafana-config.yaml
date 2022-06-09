@@ -78,8 +78,8 @@ stringData:
     # as separate properties or as on string using the url property.
 
     # Either "mysql", "postgres" or "sqlite3", it's your choice
-    type = {{ .Values.settings.platform.databaseType | quote }}
-    host = {{ template "gitea.database.host" . }}
+    type = postgres
+    host = {{ template "settings.database.host" . }}
     name = {{ .Values.settings.db.databaseName }}
     user = {{ .Values.settings.db.auth.username }}
     # If the password contains # or ; you have to wrap it with triple quotes. Ex """#password;"""
@@ -88,7 +88,7 @@ stringData:
     # Example: mysql://user:secret@host:port/database
     url =
 
-    skip_migrations = {{ .Values.settings.grafana.skipMigrations }}
+    skip_migrations = {{ .Release.IsUpgrade }}
 
     # Max idle conn setting default is 2
     max_idle_conn = 2
@@ -126,7 +126,7 @@ stringData:
     #################################### Cache server #############################
     [remote_cache]
     # Either "redis", "memcached" or "database" default is "database"
-    type = {{ .Values.settings.grafana.cacheAdapter }}
+    type = redis
 
     # cache connectionstring options
     # database: will use Grafana primary database.

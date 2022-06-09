@@ -18,7 +18,7 @@ spec:
       paths:
       - backend:
           service:
-            name: {{ include "ace.fullname" . }}-platform-api
+            name: {{ include "ace.fullname" . }}-platform-ui
             port:
               number: 80
         path: /
