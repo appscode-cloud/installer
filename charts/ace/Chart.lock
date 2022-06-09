@@ -37,12 +37,12 @@ dependencies:
   version: 1.9.0
 - name: nats
   repository: https://nats-io.github.io/k8s/helm/charts/
-  version: 0.16.0
+  version: 0.17.0
 - name: external-dns
   repository: https://kubernetes-sigs.github.io/external-dns/
   version: 1.9.0
 - name: reloader
   repository: https://stakater.github.io/stakater-charts
   version: v0.0.110
-digest: sha256:4ed2779c3398d545b7b59e05ccb4062d57de3964b9c53c447609d3bc554120be
-generated: "2022-06-07T19:01:14.90714-07:00"
+digest: sha256:546cf17fa8b8beb7e813f7f38e1f80cdbeaec7306b00fe14d7d12816a6805e9c
+generated: "2022-06-09T06:30:39.584444255-07:00"

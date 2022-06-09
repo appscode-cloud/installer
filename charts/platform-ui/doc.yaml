@@ -1,9 +1,9 @@
 project:
-  name: Platform UI by AppsCode
-  shortName: Platform UI
+  name: Accounts UI by AppsCode
+  shortName: Accounts UI
   url: https://github.com/bytebuilders
-  description: ByteBuilders Platform UI
-  app: a Platform UI
+  description: Accounts UI
+  app: a Accounts UI
 repository:
   url: https://charts.appscode.com/stable/
   name: appscode
@@ -15,4 +15,4 @@ prerequisites:
 - Kubernetes 1.19+
 release:
   name: platform-ui
-  namespace: kubeops
+  namespace: ace-system

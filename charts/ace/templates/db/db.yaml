@@ -26,7 +26,7 @@ spec:
   configSecret:
     name: {{ include "ace.fullname" . }}-db-config
   init:
-    waitForInitialRestore: true
+    waitForInitialRestore: false
     script:
       secret:
         secretName: {{ include "ace.fullname" . }}-db-init-script

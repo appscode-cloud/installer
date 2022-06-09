@@ -8,7 +8,7 @@
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
 $ helm search repo appscode/grafana --version=0.1.0
-$ helm upgrade -i grafana appscode/grafana -n kubeops --create-namespace --version=0.1.0
+$ helm upgrade -i grafana appscode/grafana -n ace-system --create-namespace --version=0.1.0
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys a Grafana UI on a [Kubernetes](http://kubernetes.io) cluster 
 To install/upgrade the chart with the release name `grafana`:
 
 ```bash
-$ helm upgrade -i grafana appscode/grafana -n kubeops --create-namespace --version=0.1.0
+$ helm upgrade -i grafana appscode/grafana -n ace-system --create-namespace --version=0.1.0
 ```
 
 The command deploys a Grafana UI on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -36,7 +36,7 @@ The command deploys a Grafana UI on the Kubernetes cluster in the default config
 To uninstall the `grafana`:
 
 ```bash
-$ helm uninstall grafana -n kubeops
+$ helm uninstall grafana -n ace-system
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -89,12 +89,12 @@ The following table lists the configurable parameters of the `grafana` chart and
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i grafana appscode/grafana -n kubeops --create-namespace --version=0.1.0 --set replicaCount=1
+$ helm upgrade -i grafana appscode/grafana -n ace-system --create-namespace --version=0.1.0 --set replicaCount=1
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i grafana appscode/grafana -n kubeops --create-namespace --version=0.1.0 --values values.yaml
+$ helm upgrade -i grafana appscode/grafana -n ace-system --create-namespace --version=0.1.0 --values values.yaml
 ```

@@ -77,7 +77,7 @@ monitoring:
     labels: {}
 
 persistence:
-  size: 100Gi
+  size: 10Gi
 
 infra:
   storageClass:

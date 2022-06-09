@@ -8,7 +8,7 @@
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
 $ helm search repo appscode/deploy-ui --version=0.1.0
-$ helm upgrade -i deploy-ui appscode/deploy-ui -n kubeops --create-namespace --version=0.1.0
+$ helm upgrade -i deploy-ui appscode/deploy-ui -n ace-system --create-namespace --version=0.1.0
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys a Deploy UI on a [Kubernetes](http://kubernetes.io) cluster u
 To install/upgrade the chart with the release name `deploy-ui`:
 
 ```bash
-$ helm upgrade -i deploy-ui appscode/deploy-ui -n kubeops --create-namespace --version=0.1.0
+$ helm upgrade -i deploy-ui appscode/deploy-ui -n ace-system --create-namespace --version=0.1.0
 ```
 
 The command deploys a Deploy UI on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -36,7 +36,7 @@ The command deploys a Deploy UI on the Kubernetes cluster in the default configu
 To uninstall the `deploy-ui`:
 
 ```bash
-$ helm uninstall deploy-ui -n kubeops
+$ helm uninstall deploy-ui -n ace-system
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -75,12 +75,12 @@ The following table lists the configurable parameters of the `deploy-ui` chart a
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i deploy-ui appscode/deploy-ui -n kubeops --create-namespace --version=0.1.0 --set replicaCount=1
+$ helm upgrade -i deploy-ui appscode/deploy-ui -n ace-system --create-namespace --version=0.1.0 --set replicaCount=1
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i deploy-ui appscode/deploy-ui -n kubeops --create-namespace --version=0.1.0 --values values.yaml
+$ helm upgrade -i deploy-ui appscode/deploy-ui -n ace-system --create-namespace --version=0.1.0 --values values.yaml
 ```
