@@ -15729,8 +15729,6 @@ properties:
             - password
             - username
             type: object
-          cacheAdapter:
-            type: string
           cacheInterval:
             type: integer
           persistence:
@@ -15769,7 +15767,6 @@ properties:
             type: string
         required:
         - auth
-        - cacheAdapter
         - cacheInterval
         - persistence
         - resources
@@ -15869,6 +15866,8 @@ properties:
             type: string
           operatorJwt:
             type: string
+          replicas:
+            type: integer
           shardCount:
             type: integer
           systemCreds:
@@ -15885,6 +15884,7 @@ properties:
         - mountPath
         - operatorCreds
         - operatorJwt
+        - replicas
         - shardCount
         - systemCreds
         - systemJwt
@@ -15992,6 +15992,16 @@ properties:
         - queryAddr
         - rulerAddr
         type: object
+      security:
+        properties:
+          csrfSecretKey:
+            type: string
+          oauth2JWTSecret:
+            type: string
+        required:
+        - csrfSecretKey
+        - oauth2JWTSecret
+        type: object
       smtp:
         properties:
           from:
@@ -16034,6 +16044,7 @@ properties:
     - nats
     - platform
     - searchlight
+    - security
     - smtp
     - stripe
     type: object
