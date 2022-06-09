@@ -1,3 +1,4 @@
+{{- if false }}
 apiVersion: stash.appscode.com/v1beta1
 kind: RestoreSession
 metadata:
@@ -15,3 +16,4 @@ spec:
       name: {{ include "ace.fullname" . }}-db
   rules:
   - snapshots: [latest]
+{{- end }}

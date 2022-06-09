@@ -1,19 +1,19 @@
-# KubeDB UI
+# Platform UI
 
-[KubeDB UI by AppsCode](https://github.com/bytebuilders) - ByteBuilders KubeDB UI
+[Platform UI by AppsCode](https://github.com/bytebuilders) - ByteBuilders Platform UI
 
 ## TL;DR;
 
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm search repo appscode/kubedb-ui --version=0.1.0
-$ helm upgrade -i kubedb-ui appscode/kubedb-ui -n ace-system --create-namespace --version=0.1.0
+$ helm search repo appscode/platform-ui --version=0.1.0
+$ helm upgrade -i platform-ui appscode/platform-ui -n ace-system --create-namespace --version=0.1.0
 ```
 
 ## Introduction
 
-This chart deploys a KubeDB UI on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart deploys a Platform UI on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
@@ -21,36 +21,36 @@ This chart deploys a KubeDB UI on a [Kubernetes](http://kubernetes.io) cluster u
 
 ## Installing the Chart
 
-To install/upgrade the chart with the release name `kubedb-ui`:
+To install/upgrade the chart with the release name `platform-ui`:
 
 ```bash
-$ helm upgrade -i kubedb-ui appscode/kubedb-ui -n ace-system --create-namespace --version=0.1.0
+$ helm upgrade -i platform-ui appscode/platform-ui -n ace-system --create-namespace --version=0.1.0
 ```
 
-The command deploys a KubeDB UI on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
+The command deploys a Platform UI on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
 
 > **Tip**: List all releases using `helm list`
 
 ## Uninstalling the Chart
 
-To uninstall the `kubedb-ui`:
+To uninstall the `platform-ui`:
 
 ```bash
-$ helm uninstall kubedb-ui -n ace-system
+$ helm uninstall platform-ui -n ace-system
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
 
 ## Configuration
 
-The following table lists the configurable parameters of the `kubedb-ui` chart and their default values.
+The following table lists the configurable parameters of the `platform-ui` chart and their default values.
 
 |                 Parameter                  |                                                             Description                                                              |        Default         |
 |--------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|------------------------|
 | replicaCount                               |                                                                                                                                      | <code>1</code>         |
 | registryFQDN                               | Docker registry fqdn used to pull app related images. Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image} | <code>""</code>        |
 | image.registry                             | Docker registry used to pull app container image                                                                                     | <code>appscode</code>  |
-| image.repository                           | App container image                                                                                                                  | <code>kubedb-ui</code> |
+| image.repository                           | App container image                                                                                                                  | <code>gitea</code>     |
 | image.tag                                  | Overrides the image tag whose default is the chart appVersion.                                                                       | <code>""</code>        |
 | image.pullPolicy                           |                                                                                                                                      | <code>Always</code>    |
 | imagePullSecrets                           |                                                                                                                                      | <code>[]</code>        |
@@ -75,12 +75,12 @@ The following table lists the configurable parameters of the `kubedb-ui` chart a
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i kubedb-ui appscode/kubedb-ui -n ace-system --create-namespace --version=0.1.0 --set replicaCount=1
+$ helm upgrade -i platform-ui appscode/platform-ui -n ace-system --create-namespace --version=0.1.0 --set replicaCount=1
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i kubedb-ui appscode/kubedb-ui -n ace-system --create-namespace --version=0.1.0 --values values.yaml
+$ helm upgrade -i platform-ui appscode/platform-ui -n ace-system --create-namespace --version=0.1.0 --values values.yaml
 ```
