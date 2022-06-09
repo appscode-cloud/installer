@@ -243,6 +243,7 @@ type Settings struct {
 	Nats        NatsSettings        `json:"nats"`
 	Platform    PlatformSettings    `json:"platform"`
 	Stripe      StripeSettings      `json:"stripe"`
+	Security    SecuritySettings    `json:"security"`
 	Searchlight SearchlightSettings `json:"searchlight"`
 	Grafana     GrafanaSettings     `json:"grafana"`
 }
@@ -257,7 +258,6 @@ type DBSettings struct {
 }
 
 type CacheSettings struct {
-	CacheAdapter      string                    `json:"cacheAdapter"`
 	CacheInterval     int                       `json:"cacheInterval"`
 	Version           string                    `json:"version"`
 	TerminationPolicy string                    `json:"terminationPolicy"`
@@ -278,6 +278,7 @@ type SmtpSettings struct {
 
 type NatsSettings struct {
 	ShardCount      int    `json:"shardCount"`
+	Replics         int    `json:"replicas"`
 	MountPath       string `json:"mountPath"`
 	OperatorCreds   string `json:"operatorCreds"`
 	OperatorJwt     string `json:"operatorJwt"`
@@ -329,6 +330,11 @@ type SearchlightSettings struct {
 	QueryAddr         string `json:"queryAddr"`
 	RulerAddr         string `json:"rulerAddr"`
 	M3CoordinatorAddr string `json:"m3coordinatorAddr"`
+}
+
+type SecuritySettings struct {
+	Oauth2JWTSecret string `json:"oauth2JWTSecret"`
+	CsrfSecretKey   string `json:"csrfSecretKey"`
 }
 
 type GrafanaSettings struct {
