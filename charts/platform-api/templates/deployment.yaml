@@ -43,14 +43,14 @@ spec:
             - name: http
               containerPort: 3003
               protocol: TCP
-          # livenessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: http
-          # readinessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: http
+          livenessProbe:
+            httpGet:
+              path: /api/v1/version
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /api/v1/version
+              port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
