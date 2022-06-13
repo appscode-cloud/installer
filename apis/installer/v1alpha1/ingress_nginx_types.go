@@ -17,6 +17,7 @@ limitations under the License.
 package v1alpha1
 
 import (
+	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -44,6 +45,8 @@ type IngressNginx struct {
 // IngressNginxSpec is the schema for IngressNginx Operator values file
 type IngressNginxSpec struct {
 	Controller IngressNginxController `json:"controller"`
+	// +optional
+	TCP map[string]string `json:"tcp,omitempty"`
 }
 
 type IngressNginxController struct {
@@ -53,6 +56,8 @@ type IngressNginxController struct {
 	Kind                 string                                     `json:"kind,omitempty"`
 	NodeSelector         map[string]string                          `json:"nodeSelector,omitempty"`
 	Service              *IngressNginxControllerService             `json:"service,omitempty"`
+	//+optional
+	Resources core.ResourceRequirements `json:"resources"`
 }
 
 type IngressNginxControllerHostPort struct {

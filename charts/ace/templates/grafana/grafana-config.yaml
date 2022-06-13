@@ -137,7 +137,7 @@ stringData:
     #################################### Session #############################
     [session]
     # Either "memory", "file", "redis", "mysql", "postgres", "memcache", default is "file"
-    provider = {{ .Values.settings.grafana.sessionProvider }}
+    provider = redis
 
     # Provider config options
     # memory: not have any config yet

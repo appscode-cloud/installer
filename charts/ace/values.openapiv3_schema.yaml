@@ -3018,13 +3018,10 @@ properties:
             properties:
               masterKeyURL:
                 type: string
-              mountPath:
-                type: string
               provider:
                 type: string
             required:
             - masterKeyURL
-            - mountPath
             - provider
             type: object
           kubepack:
@@ -5590,6 +5587,25 @@ properties:
             additionalProperties:
               type: string
             type: object
+          resources:
+            properties:
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
           service:
             properties:
               external:
@@ -5608,6 +5624,10 @@ properties:
         type: object
       enabled:
         type: boolean
+      tcp:
+        additionalProperties:
+          type: string
+        type: object
     required:
     - controller
     - enabled
@@ -8498,15 +8518,26 @@ properties:
                 type: string
               operator:
                 type: string
+              resolverPreload:
+                additionalProperties:
+                  type: string
+                type: object
               store:
                 properties:
                   dir:
                     type: string
                   size:
+                    anyOf:
+                    - type: integer
+                    - type: string
+                    pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                    x-kubernetes-int-or-string: true
+                  storageClassName:
                     type: string
                 required:
                 - dir
                 - size
+                - storageClassName
                 type: object
               systemAccount:
                 type: string
@@ -8516,6 +8547,7 @@ properties:
             - allowDelete
             - interval
             - operator
+            - resolverPreload
             - store
             - systemAccount
             - type
@@ -8624,6 +8656,27 @@ properties:
             type: boolean
           replicas:
             type: integer
+          tls:
+            properties:
+              ca:
+                type: string
+              cert:
+                type: string
+              key:
+                type: string
+              secret:
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+                type: object
+            required:
+            - ca
+            - cert
+            - key
+            - secret
+            type: object
         required:
         - enabled
         - extraRoutes
@@ -9032,6 +9085,12 @@ properties:
                   enabled:
                     type: boolean
                   size:
+                    anyOf:
+                    - type: integer
+                    - type: string
+                    pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                    x-kubernetes-int-or-string: true
+                  storageClassName:
                     type: string
                   storageDirectory:
                     type: string
@@ -9040,6 +9099,7 @@ properties:
                 - annotations
                 - enabled
                 - size
+                - storageClassName
                 - storageDirectory
                 type: object
               memStorage:
@@ -9047,7 +9107,11 @@ properties:
                   enabled:
                     type: boolean
                   size:
-                    type: string
+                    anyOf:
+                    - type: integer
+                    - type: string
+                    pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                    x-kubernetes-int-or-string: true
                 required:
                 - enabled
                 - size
@@ -9101,13 +9165,13 @@ properties:
               connectErrorReports:
                 type: string
               debug:
-                type: string
+                type: boolean
               logtime:
                 type: string
               reconnectErrorReports:
                 type: string
               trace:
-                type: string
+                type: boolean
             required:
             - connectErrorReports
             - debug
@@ -10916,6 +10980,27 @@ properties:
             type: integer
           sameOrigin:
             type: boolean
+          tls:
+            properties:
+              ca:
+                type: string
+              cert:
+                type: string
+              key:
+                type: string
+              secret:
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+                type: object
+            required:
+            - ca
+            - cert
+            - key
+            - secret
+            type: object
         required:
         - allowedOrigins
         - enabled
@@ -15833,26 +15918,8 @@ properties:
         properties:
           appMode:
             type: string
-          cacheAdapter:
-            type: string
-          cacheHost:
-            type: string
-          cacheInterval:
-            type: integer
-          sessionProvider:
-            type: string
-          sessionProviderConfig:
-            type: string
-          skipMigrations:
-            type: boolean
         required:
         - appMode
-        - cacheAdapter
-        - cacheHost
-        - cacheInterval
-        - sessionProvider
-        - sessionProviderConfig
-        - skipMigrations
         type: object
       nats:
         properties:
@@ -15941,10 +16008,6 @@ properties:
             type: boolean
           serviceRequireSignInView:
             type: boolean
-          sessionProvider:
-            type: string
-          sessionProviderConfig:
-            type: string
         required:
         - appName
         - cookieName
@@ -15970,8 +16033,6 @@ properties:
         - serviceEnableNotifyMail
         - serviceRegisterEmailConfirm
         - serviceRequireSignInView
-        - sessionProvider
-        - sessionProviderConfig
         type: object
       searchlight:
         properties:

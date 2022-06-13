@@ -1,0 +1,33 @@
+# TODO: expose nats websocket via nginx
+# https://discuss.kubernetes.io/t/how-to-use-ingress-nginx-with-secure-backend/7347/2
+
+{{ if (and (index .Values "ingress-nginx" "enabled") (and .Values.nats.enabled (not .Values.nats.nats.externalAccess))) }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "ace.fullname" . }}-nats
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    cert-manager.io/issuer: {{ include "ace.fullname" . }}
+spec:
+  ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
+  rules:
+  - host: nats.{{ .Values.settings.platform.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: nats-server
+            port:
+              number: 443
+        path: /
+        pathType: Prefix
+  tls:
+  - secretName: {{ include "ace.fullname" . }}-nats-cert
+    hosts:
+    - 'nats.{{ .Values.settings.platform.domain }}'
+
+{{- end }}

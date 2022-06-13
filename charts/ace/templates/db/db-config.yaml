@@ -13,4 +13,4 @@ type: Opaque
 stringData:
   user.conf: |
     max_connections=110
-    shared_buffers=258MB
+    # shared_buffers=258MB

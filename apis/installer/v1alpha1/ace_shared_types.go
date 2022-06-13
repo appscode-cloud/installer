@@ -67,6 +67,17 @@ type LocalObjectReference struct {
 	Name string `json:"name"`
 }
 
+// ObjectReference contains enough information to let you inspect or modify the referred object.
+type ObjectReference struct {
+	// Namespace of the referent.
+	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+	// +optional
+	Namespace string `json:"namespace"`
+	// Name of the referent.
+	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+	Name string `json:"name"`
+}
+
 type ProviderMount struct {
 	Provider  string `json:"provider"`
 	MountPath string `json:"mountPath"`
