@@ -151,6 +151,7 @@ type AceReloader struct {
 type AceGlobalValues struct {
 	NameOverride     string                 `json:"nameOverride"`
 	FullnameOverride string                 `json:"fullnameOverride"`
+	Hosted           bool                   `json:"hosted"`
 	License          string                 `json:"license"`
 	Registry         string                 `json:"registry"`
 	RegistryFQDN     string                 `json:"registryFQDN"`
