@@ -1,34 +1,34 @@
 dependencies:
 - name: platform-ui
   repository: file://../platform-ui
-  version: 0.1.0
+  version: v2022.06.14
 - name: accounts-ui
   repository: file://../accounts-ui
-  version: 0.1.0
+  version: v2022.06.14
 - name: cluster-ui
   repository: file://../cluster-ui
-  version: 0.1.0
+  version: v2022.06.14
 - name: deploy-ui
   repository: file://../deploy-ui
-  version: 0.1.0
+  version: v2022.06.14
 - name: kubedb-ui
   repository: file://../kubedb-ui
-  version: 0.1.0
+  version: v2022.06.14
 - name: marketplace-ui
   repository: file://../marketplace-ui
-  version: 0.1.0
+  version: v2022.06.14
 - name: platform-api
   repository: file://../platform-api
-  version: 0.1.0
+  version: v2022.06.14
 - name: prom-proxy
   repository: file://../prom-proxy
-  version: 0.1.0
+  version: v2022.06.14
 - name: billing
   repository: file://../billing
-  version: 0.1.0
+  version: v2022.06.14
 - name: grafana
   repository: file://../grafana
-  version: 0.1.0
+  version: v2022.06.14
 - name: ingress-nginx
   repository: https://kubernetes.github.io/ingress-nginx
   version: 4.1.0
@@ -44,5 +44,5 @@ dependencies:
 - name: reloader
   repository: https://stakater.github.io/stakater-charts
   version: v0.0.110
-digest: sha256:546cf17fa8b8beb7e813f7f38e1f80cdbeaec7306b00fe14d7d12816a6805e9c
-generated: "2022-06-09T06:30:39.584444255-07:00"
+digest: sha256:ea7b2522e01667400c5498507ca37717b7d439d6ef98cbfd175fc48fd7a62a1d
+generated: "2022-06-14T06:06:18.651903-07:00"
