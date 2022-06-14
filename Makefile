@@ -198,6 +198,21 @@ gen-values-schema: $(BUILD_DIRS)
 		yq -y --indentless '.spec.versions[0].schema.openAPIV3Schema.properties.spec | del(.description)' $${crd_file} > charts/$${dir}/values.openapiv3_schema.yaml; \
 	done
 
+.PHONY: gen-external-schema
+gen-external-schema: $(BUILD_DIRS)
+	@for dir in schema/*/; do \
+		dir=$${dir%*/}; \
+		dir=$${dir##*/}; \
+		crd_file=.crds/installer.bytebuilders.dev_$$(echo $$dir | tr -d '-')s.yaml; \
+		if [ ! -f $${crd_file} ]; then \
+			continue; \
+		fi; \
+		yq -y --indentless '.spec.versions[0].schema.openAPIV3Schema.properties.spec | del(.description)' $${crd_file} > schema/$${dir}/values.openapiv3_schema.yaml; \
+	done
+
+.PHONY: gen-schema
+gen-schema: gen-values-schema gen-external-schema
+
 .PHONY: gen-chart-doc
 gen-chart-doc: $(shell find $$(pwd)/charts -maxdepth 1 -mindepth 1 -type d -printf 'gen-chart-doc-%f ')
 
@@ -214,7 +229,7 @@ gen-chart-doc-%:
 		chart-doc-gen -d ./charts/$*/doc.yaml -v ./charts/$*/values.yaml > ./charts/$*/README.md
 
 .PHONY: manifests
-manifests: gen-crds gen-values-schema gen-chart-doc
+manifests: gen-crds gen-schema gen-chart-doc
 
 .PHONY: gen
 gen: codegen manifests

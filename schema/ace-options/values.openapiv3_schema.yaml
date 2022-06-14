@@ -1,0 +1,636 @@
+properties:
+  accounts-ui:
+    properties:
+      enabled:
+        type: boolean
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      resources:
+        properties:
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+    required:
+    - enabled
+    type: object
+  billing:
+    properties:
+      enabled:
+        type: boolean
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      resources:
+        properties:
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+    required:
+    - enabled
+    type: object
+  cluster-ui:
+    properties:
+      enabled:
+        type: boolean
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      resources:
+        properties:
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+    required:
+    - enabled
+    type: object
+  deploy-ui:
+    properties:
+      enabled:
+        type: boolean
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      resources:
+        properties:
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+    required:
+    - enabled
+    type: object
+  grafana:
+    properties:
+      enabled:
+        type: boolean
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      resources:
+        properties:
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+    required:
+    - enabled
+    type: object
+  hosted:
+    type: boolean
+  imagePullSecrets:
+    items:
+      type: string
+    type: array
+  infra:
+    properties:
+      cloudServices:
+        properties:
+          auth:
+            properties:
+              serviceAccountJson:
+                type: string
+            required:
+            - serviceAccountJson
+            type: object
+          kms:
+            properties:
+              masterKeyURL:
+                type: string
+            required:
+            - masterKeyURL
+            type: object
+          objstore:
+            properties:
+              bucket:
+                type: string
+            required:
+            - bucket
+            type: object
+          provider:
+            type: string
+        required:
+        - auth
+        - objstore
+        - provider
+        type: object
+      dns:
+        properties:
+          auth:
+            properties:
+              email:
+                type: string
+              token:
+                type: string
+            required:
+            - email
+            - token
+            type: object
+          provider:
+            type: string
+        required:
+        - auth
+        - provider
+        type: object
+      storageClass:
+        properties:
+          name:
+            type: string
+        required:
+        - name
+        type: object
+      tls:
+        properties:
+          email:
+            type: string
+        required:
+        - email
+        type: object
+    required:
+    - cloudServices
+    - dns
+    - storageClass
+    - tls
+    type: object
+  ingress:
+    properties:
+      exposeVia:
+        enum:
+        - LoadBalancer
+        - HostPort
+        type: string
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      resources:
+        properties:
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+    required:
+    - exposeVia
+    - nodeSelector
+    type: object
+  kubedb-ui:
+    properties:
+      enabled:
+        type: boolean
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      resources:
+        properties:
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+    required:
+    - enabled
+    type: object
+  license:
+    type: string
+  marketplace-ui:
+    properties:
+      enabled:
+        type: boolean
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      resources:
+        properties:
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+    required:
+    - enabled
+    type: object
+  monitoring:
+    properties:
+      agent:
+        type: string
+      exporter:
+        properties:
+          resources:
+            properties:
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - resources
+        type: object
+      serviceMonitor:
+        properties:
+          labels:
+            additionalProperties:
+              type: string
+            type: object
+        required:
+        - labels
+        type: object
+    required:
+    - agent
+    - exporter
+    - serviceMonitor
+    type: object
+  nats:
+    properties:
+      exposeVia:
+        enum:
+        - LoadBalancer
+        - HostPort
+        type: string
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      replicas:
+        type: integer
+      resources:
+        properties:
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+    required:
+    - exposeVia
+    - replicas
+    type: object
+  platform-api:
+    properties:
+      enabled:
+        type: boolean
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      resources:
+        properties:
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+    required:
+    - enabled
+    type: object
+  platform-ui:
+    properties:
+      enabled:
+        type: boolean
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      resources:
+        properties:
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+    required:
+    - enabled
+    type: object
+  prom-proxy:
+    properties:
+      enabled:
+        type: boolean
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      resources:
+        properties:
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+    required:
+    - enabled
+    type: object
+  registry:
+    type: string
+  registryFQDN:
+    type: string
+  release:
+    properties:
+      name:
+        type: string
+      namespace:
+        type: string
+    required:
+    - name
+    type: object
+  settings:
+    properties:
+      cache:
+        properties:
+          persistence:
+            properties:
+              size:
+                anyOf:
+                - type: integer
+                - type: string
+                pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                x-kubernetes-int-or-string: true
+            required:
+            - size
+            type: object
+          resources:
+            properties:
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - persistence
+        - resources
+        type: object
+      db:
+        properties:
+          persistence:
+            properties:
+              size:
+                anyOf:
+                - type: integer
+                - type: string
+                pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                x-kubernetes-int-or-string: true
+            required:
+            - size
+            type: object
+          resources:
+            properties:
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - persistence
+        - resources
+        type: object
+      platform:
+        properties:
+          domain:
+            type: string
+        required:
+        - domain
+        type: object
+      smtp:
+        properties:
+          from:
+            type: string
+          host:
+            type: string
+          password:
+            type: string
+          sendAsPlainText:
+            type: boolean
+          tlsEnabled:
+            type: boolean
+          username:
+            type: string
+        required:
+        - from
+        - host
+        - password
+        - sendAsPlainText
+        - tlsEnabled
+        - username
+        type: object
+    required:
+    - cache
+    - db
+    - platform
+    - smtp
+    type: object
+required:
+- accounts-ui
+- billing
+- cluster-ui
+- deploy-ui
+- grafana
+- hosted
+- imagePullSecrets
+- infra
+- ingress
+- kubedb-ui
+- license
+- marketplace-ui
+- monitoring
+- nats
+- platform-api
+- platform-ui
+- prom-proxy
+- registry
+- registryFQDN
+- release
+- settings
+type: object
