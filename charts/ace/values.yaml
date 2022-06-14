@@ -59,6 +59,8 @@ global:
   nameOverride: "ace"
   fullnameOverride: ""
 
+  hosted: false
+
   # License for the product.
   # Example:
   # helm install appscode/ace \

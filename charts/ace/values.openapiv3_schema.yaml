@@ -2932,6 +2932,8 @@ properties:
     properties:
       fullnameOverride:
         type: string
+      hosted:
+        type: boolean
       imagePullSecrets:
         items:
           type: string
@@ -3116,6 +3118,7 @@ properties:
         type: object
     required:
     - fullnameOverride
+    - hosted
     - imagePullSecrets
     - infra
     - license
