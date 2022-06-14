@@ -58,7 +58,6 @@ type ServiceMonitorLabels struct {
 type AceInfra struct {
 	StorageClass LocalObjectReference `json:"storageClass"`
 	Objstore     ProviderMount        `json:"objstore"`
-	Kms          ProviderMount        `json:"kms"`
 	Badger       VolumeMount          `json:"badger"`
 	Invoice      VolumeMount          `json:"invoice"`
 }
@@ -95,7 +94,6 @@ type AceSettingsSecretName struct {
 	PlatformConfig string `json:"platformConfig"`
 	GrafanaConfig  string `json:"grafanaConfig"`
 	Objstore       string `json:"objstore"`
-	Kms            string `json:"kms"`
 	Nats           string `json:"nats"`
 }
 

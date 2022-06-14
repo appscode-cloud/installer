@@ -129,8 +129,6 @@ global:
         serviceAccountJson: "xyz"
     kms:
       # location where the secret key resides
-      provider: ""
-      mountPath: ""
       masterKeyURL: ""
       # ref: https://gocloud.dev/howto/secrets/#local
       # the URL hostname must be a base64-encoded key, of length 32 bytes when decoded.

@@ -104,25 +104,29 @@ type AceOptionsNatsSettings struct {
 }
 
 type AceOptionsPlatformInfra struct {
-	StorageClass LocalObjectReference    `json:"storageClass"`
-	TLS          AceOptionsInfraTLS      `json:"tls"`
-	DNS          InfraDns                `json:"dns"`
-	Objstore     AceOptionsInfraObjstore `json:"objstore"`
-	Kms          AceOptionsInfraKms      `json:"kms"`
+	StorageClass  LocalObjectReference         `json:"storageClass"`
+	TLS           AceOptionsInfraTLS           `json:"tls"`
+	DNS           InfraDns                     `json:"dns"`
+	CloudServices AceOptionsInfraCloudServices `json:"cloudServices"`
 }
 
 type AceOptionsInfraTLS struct {
 	Email string `json:"email"`
 }
 
+type AceOptionsInfraCloudServices struct {
+	Provider string                  `json:"provider"`
+	Auth     ObjstoreAuth            `json:"auth"`
+	Objstore AceOptionsInfraObjstore `json:"objstore"`
+	// +optional
+	Kms *AceOptionsInfraKms `json:"kms,omitempty"`
+}
+
 type AceOptionsInfraObjstore struct {
-	Bucket   string       `json:"bucket"`
-	Provider string       `json:"provider"`
-	Auth     ObjstoreAuth `json:"auth"`
+	Bucket string `json:"bucket"`
 }
 
 type AceOptionsInfraKms struct {
-	Provider     string `json:"provider"`
 	MasterKeyURL string `json:"masterKeyURL"`
 }
 

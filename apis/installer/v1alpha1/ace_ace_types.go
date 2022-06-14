@@ -211,7 +211,6 @@ type ObjstoreAuth struct {
 }
 
 type InfraKms struct {
-	Provider     string `json:"provider"`
 	MasterKeyURL string `json:"masterKeyURL"`
 }
 

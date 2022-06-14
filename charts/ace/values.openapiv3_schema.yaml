@@ -412,16 +412,6 @@ properties:
             required:
             - mountPath
             type: object
-          kms:
-            properties:
-              mountPath:
-                type: string
-              provider:
-                type: string
-            required:
-            - mountPath
-            - provider
-            type: object
           objstore:
             properties:
               mountPath:
@@ -442,7 +432,6 @@ properties:
         required:
         - badger
         - invoice
-        - kms
         - objstore
         - storageClass
         type: object
@@ -657,8 +646,6 @@ properties:
             properties:
               grafanaConfig:
                 type: string
-              kms:
-                type: string
               nats:
                 type: string
               objstore:
@@ -667,7 +654,6 @@ properties:
                 type: string
             required:
             - grafanaConfig
-            - kms
             - nats
             - objstore
             - platformConfig
@@ -1453,16 +1439,6 @@ properties:
             required:
             - mountPath
             type: object
-          kms:
-            properties:
-              mountPath:
-                type: string
-              provider:
-                type: string
-            required:
-            - mountPath
-            - provider
-            type: object
           objstore:
             properties:
               mountPath:
@@ -1483,7 +1459,6 @@ properties:
         required:
         - badger
         - invoice
-        - kms
         - objstore
         - storageClass
         type: object
@@ -1698,8 +1673,6 @@ properties:
             properties:
               grafanaConfig:
                 type: string
-              kms:
-                type: string
               nats:
                 type: string
               objstore:
@@ -1708,7 +1681,6 @@ properties:
                 type: string
             required:
             - grafanaConfig
-            - kms
             - nats
             - objstore
             - platformConfig
@@ -3018,11 +2990,8 @@ properties:
             properties:
               masterKeyURL:
                 type: string
-              provider:
-                type: string
             required:
             - masterKeyURL
-            - provider
             type: object
           kubepack:
             properties:
@@ -3569,16 +3538,6 @@ properties:
             required:
             - mountPath
             type: object
-          kms:
-            properties:
-              mountPath:
-                type: string
-              provider:
-                type: string
-            required:
-            - mountPath
-            - provider
-            type: object
           objstore:
             properties:
               mountPath:
@@ -3599,7 +3558,6 @@ properties:
         required:
         - badger
         - invoice
-        - kms
         - objstore
         - storageClass
         type: object
@@ -3803,8 +3761,6 @@ properties:
             properties:
               grafanaConfig:
                 type: string
-              kms:
-                type: string
               nats:
                 type: string
               objstore:
@@ -3813,7 +3769,6 @@ properties:
                 type: string
             required:
             - grafanaConfig
-            - kms
             - nats
             - objstore
             - platformConfig
@@ -13154,16 +13109,6 @@ properties:
             required:
             - mountPath
             type: object
-          kms:
-            properties:
-              mountPath:
-                type: string
-              provider:
-                type: string
-            required:
-            - mountPath
-            - provider
-            type: object
           objstore:
             properties:
               mountPath:
@@ -13184,7 +13129,6 @@ properties:
         required:
         - badger
         - invoice
-        - kms
         - objstore
         - storageClass
         type: object
@@ -13399,8 +13343,6 @@ properties:
             properties:
               grafanaConfig:
                 type: string
-              kms:
-                type: string
               nats:
                 type: string
               objstore:
@@ -13409,7 +13351,6 @@ properties:
                 type: string
             required:
             - grafanaConfig
-            - kms
             - nats
             - objstore
             - platformConfig
@@ -14522,16 +14463,6 @@ properties:
             required:
             - mountPath
             type: object
-          kms:
-            properties:
-              mountPath:
-                type: string
-              provider:
-                type: string
-            required:
-            - mountPath
-            - provider
-            type: object
           objstore:
             properties:
               mountPath:
@@ -14552,7 +14483,6 @@ properties:
         required:
         - badger
         - invoice
-        - kms
         - objstore
         - storageClass
         type: object
@@ -14756,8 +14686,6 @@ properties:
             properties:
               grafanaConfig:
                 type: string
-              kms:
-                type: string
               nats:
                 type: string
               objstore:
@@ -14766,7 +14694,6 @@ properties:
                 type: string
             required:
             - grafanaConfig
-            - kms
             - nats
             - objstore
             - platformConfig
