@@ -27,14 +27,16 @@ spec:
           image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
-            - sh
-            - -c
-            - "sleep 120; gitea dev --reload-nats-accounts"
-            # - gitea
-            # - dev
-            # - --reload-nats-accounts
+            # - sh
+            # - -c
+            # - "sleep 120; gitea dev --reload-nats-accounts"
+            - gitea
+            - dev
+            - --reload-nats-accounts
+            {{ if .Values.global.hosted }}
+            - --crate-nats-stream
+            {{ end }}
             # - --register-crds
-            # - --crate-nats-stream
             # - --create-products
             # - --migrate
           # ports:
