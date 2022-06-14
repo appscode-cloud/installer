@@ -58,12 +58,22 @@ type ServiceMonitorLabels struct {
 type AceInfra struct {
 	StorageClass LocalObjectReference `json:"storageClass"`
 	Objstore     ProviderMount        `json:"objstore"`
-	Kms          ProviderMount        `json:"kms"`
 	Badger       VolumeMount          `json:"badger"`
 	Invoice      VolumeMount          `json:"invoice"`
 }
 
 type LocalObjectReference struct {
+	Name string `json:"name"`
+}
+
+// ObjectReference contains enough information to let you inspect or modify the referred object.
+type ObjectReference struct {
+	// Namespace of the referent.
+	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+	// +optional
+	Namespace string `json:"namespace"`
+	// Name of the referent.
+	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 	Name string `json:"name"`
 }
 
@@ -84,7 +94,6 @@ type AceSettingsSecretName struct {
 	PlatformConfig string `json:"platformConfig"`
 	GrafanaConfig  string `json:"grafanaConfig"`
 	Objstore       string `json:"objstore"`
-	Kms            string `json:"kms"`
 	Nats           string `json:"nats"`
 }
 

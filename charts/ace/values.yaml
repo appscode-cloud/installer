@@ -3,37 +3,37 @@
 # Declare variables to be passed into your templates.
 
 billing:
-  enabled: true
+  enabled: false
 
 platform-ui:
-  enabled: true
+  enabled: false
 
 accounts-ui:
-  enabled: true
+  enabled: false
 
 cluster-ui:
-  enabled: true
+  enabled: false
 
 deploy-ui:
-  enabled: true
+  enabled: false
 
 grafana:
-  enabled: true
+  enabled: false
 
 kubedb-ui:
-  enabled: true
+  enabled: false
 
 marketplace-ui:
-  enabled: true
+  enabled: false
 
 platform-api:
-  enabled: true
+  enabled: false
 
 prom-proxy:
-  enabled: true
+  enabled: false
 
 ingress-nginx:
-  enabled: true
+  enabled: false
   # controller:
   #   ingressClassByName: true
   #   ingressClassResource:
@@ -42,16 +42,16 @@ ingress-nginx:
   #     controllerValue: "k8s.io/nginx-ace"
 
 ingress-dns:
-  enabled: true
+  enabled: false
 
 nats:
-  enabled: true
+  enabled: false
 
 nats-dns:
   enabled: false
 
 reloader:
-  enabled: true
+  enabled: false
 
 # -------------
 
@@ -129,8 +129,6 @@ global:
         serviceAccountJson: "xyz"
     kms:
       # location where the secret key resides
-      provider: ""
-      mountPath: ""
       masterKeyURL: ""
       # ref: https://gocloud.dev/howto/secrets/#local
       # the URL hostname must be a base64-encoded key, of length 32 bytes when decoded.
@@ -263,10 +261,6 @@ settings:
     ##
     serviceEnableNotifyMail: true
 
-    sessionProvider: redis
-
-    sessionProviderConfig:
-    # sessionProviderConfig: network=tcp,addr=gitea-cache.byte:6379,db=0,pool_size=100,idle_timeout=180,prefix=session
     cookieName: i_like_bytebuilders
 
     ## Landing page for non-logged users, can be "home" or "explore"
@@ -314,20 +308,15 @@ settings:
     # possible values : production, development
     appMode: production
 
-    sessionProvider: redis
-    sessionProviderConfig:
-    # sessionProviderConfig: addr=gitea-cache.byte:6379,db=0,pool_size=100
-
-    cacheAdapter: redis
-    cacheInterval: 60
-    cacheHost:
-    # cacheHost: addr=bytebuilders-cache.byte:6379,db=1,pool_size=100
-
-    skipMigrations: true
-
   security:
     oauth2JWTSecret: ""
     csrfSecretKey: ""
+
+# Docker registry containing cluster connector images
+clusterConnector:
+  registry: ""
+  repository: ""
+  tag: ""
 
 # Docker registry containing app images
 image:
@@ -338,12 +327,6 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
   pullPolicy: Always
-
-# Docker registry containing cluster connector images
-clusterConnector:
-  registry: ""
-  repository: ""
-  tag: ""
 
 podAnnotations: {}
 

@@ -106,10 +106,6 @@ Returns the ServiceMonitor labels
 {{- .Values.settings.secretName.objstore }}
 {{- end }}
 
-{{- define "settings.kmsSecretName" -}}
-{{- .Values.settings.secretName.kms }}
-{{- end }}
-
 {{- define "settings.natsSecretName" -}}
 {{- .Values.settings.secretName.nats -}}
 {{- end }}

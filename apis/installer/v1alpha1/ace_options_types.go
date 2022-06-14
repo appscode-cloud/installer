@@ -17,6 +17,7 @@ limitations under the License.
 package v1alpha1
 
 import (
+	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -43,17 +44,121 @@ type AceOptions struct {
 
 // AceOptionsSpec is the schema for AceOptions Operator values file
 type AceOptionsSpec struct {
-	Platform AcePlatformOptions `json:"platform"`
-	DNS      AceDNSOptions      `json:"dns"`
+	Release          ObjectReference         `json:"release"`
+	Hosted           bool                    `json:"hosted"`
+	License          string                  `json:"license"`
+	Registry         string                  `json:"registry"`
+	RegistryFQDN     string                  `json:"registryFQDN"`
+	ImagePullSecrets []string                `json:"imagePullSecrets"`
+	Monitoring       GlobalMonitoring        `json:"monitoring"`
+	Infra            AceOptionsPlatformInfra `json:"infra"`
+	Settings         AceOptionsSettings      `json:"settings"`
+	Billing          AceOptionsComponentSpec `json:"billing"`
+	PlatformUi       AceOptionsComponentSpec `json:"platform-ui"`
+	AccountsUi       AceOptionsComponentSpec `json:"accounts-ui"`
+	ClusterUi        AceOptionsComponentSpec `json:"cluster-ui"`
+	DeployUi         AceOptionsComponentSpec `json:"deploy-ui"`
+	Grafana          AceOptionsComponentSpec `json:"grafana"`
+	KubedbUi         AceOptionsComponentSpec `json:"kubedb-ui"`
+	MarketplaceUi    AceOptionsComponentSpec `json:"marketplace-ui"`
+	PlatformApi      AceOptionsComponentSpec `json:"platform-api"`
+	PromProxy        AceOptionsComponentSpec `json:"prom-proxy"`
+	Ingress          AceOptionsIngressNginx  `json:"ingress"`
+	Nats             AceOptionsNatsSettings  `json:"nats"`
 }
 
-type AcePlatformOptions struct {
+type AceOptionsComponentSpec struct {
+	Enabled bool `json:"enabled"`
+	//+optional
+	Resources core.ResourceRequirements `json:"resources"`
+	// +optional
+	NodeSelector map[string]string `json:"nodeSelector,omitempty"`
+}
+
+// +kubebuilder:validation:Enum=LoadBalancer;HostPort
+type ServiceType string
+
+const (
+	ServiceTypeLoadBalancer ServiceType = "LoadBalancer"
+	ServiceTypeHostPort     ServiceType = "HostPort"
+)
+
+const (
+	DefaultPasswordLength = 16
+)
+
+type AceOptionsIngressNginx struct {
+	ExposeVia ServiceType `json:"exposeVia"`
+	//+optional
+	Resources    core.ResourceRequirements `json:"resources"`
+	NodeSelector map[string]string         `json:"nodeSelector"`
+}
+
+type AceOptionsNatsSettings struct {
+	ExposeVia ServiceType `json:"exposeVia"`
+	Replics   int         `json:"replicas"`
+	//+optional
+	Resources core.ResourceRequirements `json:"resources"`
+	//+optional
+	NodeSelector map[string]string `json:"nodeSelector,omitempty"`
+}
+
+type AceOptionsPlatformInfra struct {
+	StorageClass  LocalObjectReference         `json:"storageClass"`
+	TLS           AceOptionsInfraTLS           `json:"tls"`
+	DNS           InfraDns                     `json:"dns"`
+	CloudServices AceOptionsInfraCloudServices `json:"cloudServices"`
+}
+
+type AceOptionsInfraTLS struct {
+	Email string `json:"email"`
+}
+
+type AceOptionsInfraCloudServices struct {
+	Provider string                  `json:"provider"`
+	Auth     ObjstoreAuth            `json:"auth"`
+	Objstore AceOptionsInfraObjstore `json:"objstore"`
+	// +optional
+	Kms *AceOptionsInfraKms `json:"kms,omitempty"`
+}
+
+type AceOptionsInfraObjstore struct {
+	Bucket string `json:"bucket"`
+}
+
+type AceOptionsInfraKms struct {
+	MasterKeyURL string `json:"masterKeyURL"`
+}
+
+type AceOptionsSettings struct {
+	DB       AceOptionsDBSettings       `json:"db"`
+	Cache    AceOptionsCacheSettings    `json:"cache"`
+	SMTP     AceOptionsSMTPSettings     `json:"smtp"`
+	Platform AceOptionsPlatformSettings `json:"platform"`
+}
+
+type AceOptionsDBSettings struct {
+	Persistence PersistenceSpec           `json:"persistence"`
+	Resources   core.ResourceRequirements `json:"resources"`
+}
+
+type AceOptionsCacheSettings struct {
+	Persistence PersistenceSpec           `json:"persistence"`
+	Resources   core.ResourceRequirements `json:"resources"`
+}
+
+type AceOptionsSMTPSettings struct {
+	Host       string `json:"host"`
+	TlsEnabled bool   `json:"tlsEnabled"`
+	From       string `json:"from"`
+	Username   string `json:"username"`
+	Password   string `json:"password"`
+	// SubjectPrefix   string `json:"subjectPrefix"`
+	SendAsPlainText bool `json:"sendAsPlainText"`
+}
+
+type AceOptionsPlatformSettings struct {
 	Domain string `json:"domain"`
-}
-
-type AceDNSOptions struct {
-	Provider string           `json:"provider"`
-	Auth     DNSProdviderAuth `json:"auth"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

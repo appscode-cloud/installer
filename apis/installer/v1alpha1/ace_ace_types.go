@@ -67,9 +67,10 @@ type AceSpec struct {
 	PodSecurityContext *core.PodSecurityContext  `json:"podSecurityContext"`
 	SecurityContext    *core.SecurityContext     `json:"securityContext"`
 	Resources          core.ResourceRequirements `json:"resources"`
-	NodeSelector       map[string]string         `json:"nodeSelector"`
-	Tolerations        []core.Toleration         `json:"tolerations"`
-	Affinity           *core.Affinity            `json:"affinity"`
+	//+optional
+	NodeSelector map[string]string `json:"nodeSelector,omitempty"`
+	Tolerations  []core.Toleration `json:"tolerations"`
+	Affinity     *core.Affinity    `json:"affinity"`
 }
 
 type AceBilling struct {
@@ -191,11 +192,11 @@ type InfraTLS struct {
 }
 
 type InfraDns struct {
-	Provider string           `json:"provider"`
-	Auth     DNSProdviderAuth `json:"auth"`
+	Provider string          `json:"provider"`
+	Auth     DNSProviderAuth `json:"auth"`
 }
 
-type DNSProdviderAuth struct {
+type DNSProviderAuth struct {
 	Email string `json:"email"`
 	Token string `json:"token"`
 }
@@ -211,8 +212,6 @@ type ObjstoreAuth struct {
 }
 
 type InfraKms struct {
-	Provider     string `json:"provider"`
-	MountPath    string `json:"mountPath"`
 	MasterKeyURL string `json:"masterKeyURL"`
 }
 
@@ -307,8 +306,6 @@ type PlatformSettings struct {
 	ServiceDisableRegistration      bool    `json:"serviceDisableRegistration"`
 	ServiceRequireSignInView        bool    `json:"serviceRequireSignInView"`
 	ServiceEnableNotifyMail         bool    `json:"serviceEnableNotifyMail"`
-	SessionProvider                 string  `json:"sessionProvider"`
-	SessionProviderConfig           *string `json:"sessionProviderConfig"`
 	CookieName                      string  `json:"cookieName"`
 	ServerLandingPage               string  `json:"serverLandingPage"`
 	LogMode                         string  `json:"logMode"`
@@ -338,13 +335,7 @@ type SecuritySettings struct {
 }
 
 type GrafanaSettings struct {
-	AppMode               string  `json:"appMode"`
-	SessionProvider       string  `json:"sessionProvider"`
-	SessionProviderConfig *string `json:"sessionProviderConfig"`
-	CacheAdapter          string  `json:"cacheAdapter"`
-	CacheInterval         int     `json:"cacheInterval"`
-	CacheHost             *string `json:"cacheHost"`
-	SkipMigrations        bool    `json:"skipMigrations"`
+	AppMode string `json:"appMode"`
 }
 
 type ClusterConnectorSpec struct {

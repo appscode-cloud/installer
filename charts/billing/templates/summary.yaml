@@ -49,10 +49,6 @@ spec:
                 - name: objstore-cred
                   mountPath: {{ $infra.objstore.mountPath }}
                 {{- end }}
-                {{- if (include "settings.kmsSecretName" .) }}
-                - name: kms-cred
-                  mountPath: {{ $infra.kms.mountPath }}
-                {{- end }}
                 - name: invoice-store
                   mountPath: {{ $infra.invoice.mountPath }}
           volumes:
@@ -66,12 +62,6 @@ spec:
             {{- end }}
             {{- with $secretName := (include "settings.objstoreSecretName" .) }}
             - name: objstore-cred
-              secret:
-                defaultMode: 420
-                secretName: {{ $secretName }}
-            {{- end }}
-            {{- with $secretName := (include "settings.kmsSecretName" .) }}
-            - name: kms-cred
               secret:
                 defaultMode: 420
                 secretName: {{ $secretName }}

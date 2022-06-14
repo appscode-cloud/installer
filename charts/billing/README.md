@@ -73,14 +73,11 @@ The following table lists the configurable parameters of the `billing` chart and
 | infra.storageClass.name            |                                                                                                                                                                     | <code>"standard"</code>      |
 | infra.objstore.provider            |                                                                                                                                                                     | <code>""</code>              |
 | infra.objstore.mountPath           |                                                                                                                                                                     | <code>""</code>              |
-| infra.kms.provider                 |                                                                                                                                                                     | <code>""</code>              |
-| infra.kms.mountPath                |                                                                                                                                                                     | <code>""</code>              |
 | infra.badger.mountPath             |                                                                                                                                                                     | <code>/badger</code>         |
 | infra.invoice.mountPath            |                                                                                                                                                                     | <code>/billing</code>        |
 | settings.secretName.platformConfig |                                                                                                                                                                     | <code>""</code>              |
 | settings.secretName.grafanaConfig  |                                                                                                                                                                     | <code>""</code>              |
 | settings.secretName.objstore       |                                                                                                                                                                     | <code>""</code>              |
-| settings.secretName.kms            |                                                                                                                                                                     | <code>""</code>              |
 | settings.secretName.nats           |                                                                                                                                                                     | <code>""</code>              |
 
 

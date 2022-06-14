@@ -55,7 +55,7 @@ stringData:
 
     [session]
     DOMAIN = {{ .Values.settings.platform.domain }}
-    PROVIDER = {{ .Values.settings.platform.sessionProvider }}
+    PROVIDER = redis
     PROVIDER_CONFIG = {{ template "settings.session.host" . }}
     COOKIE_NAME = {{ .Values.settings.platform.cookieName}}
 
