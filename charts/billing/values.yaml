@@ -81,9 +81,6 @@ infra:
   objstore:
     provider: ""
     mountPath: ""
-  kms:
-    provider: ""
-    mountPath: ""
   badger:
     mountPath: /badger
   invoice:
@@ -94,5 +91,4 @@ settings:
     platformConfig: ""
     grafanaConfig: ""
     objstore: ""
-    kms: ""
     nats: ""

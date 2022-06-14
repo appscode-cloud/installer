@@ -12,4 +12,4 @@ metadata:
 type: Opaque
 stringData:
   data.sql: |
-     CREATE DATABASE bb;
+     CREATE DATABASE {{ .Values.settings.db.databaseName }};

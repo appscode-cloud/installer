@@ -135,23 +135,9 @@ Returns the ServiceMonitor labels
 {{- printf "%s-objstore-cred" (include "ace.fullname" .) -}}
 {{- end }}
 
-{{- define "settings.kmsSecretName" -}}
-{{- if .Values.global.infra.kms.provider -}}
-{{- printf "%s-kms-cred" (include "ace.fullname" .) -}}
-{{- end -}}
-{{- end }}
-
 {{- define "settings.natsSecretName" -}}
 {{- printf "%s-nats-cred" (include "ace.fullname" .) -}}
 {{- end }}
-
-
-
-
-
-
-
-
 
 {{/*
 Determine database host name

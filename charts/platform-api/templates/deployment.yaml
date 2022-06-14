@@ -70,10 +70,6 @@ spec:
             - name: objstore-cred
               mountPath: {{ $infra.objstore.mountPath }}
             {{- end }}
-            {{- if (include "settings.kmsSecretName" .) }}
-            - name: kms-cred
-              mountPath: {{ $infra.kms.mountPath }}
-            {{- end }}
       volumes:
         {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
         - name: config
@@ -92,12 +88,6 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: {{ include "platform-api.fullname" . }}-data
-        {{- end }}
-        {{- with $secretName := (include "settings.kmsSecretName" .) }}
-        - name: kms-cred
-          secret:
-            defaultMode: 420
-            secretName: {{ $secretName }}
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
