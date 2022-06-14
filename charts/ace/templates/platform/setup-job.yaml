@@ -34,7 +34,7 @@ spec:
             - dev
             - --reload-nats-accounts
             {{ if .Values.global.hosted }}
-            - --crate-nats-stream
+            - --create-nats-stream
             {{ end }}
             # - --register-crds
             # - --create-products
