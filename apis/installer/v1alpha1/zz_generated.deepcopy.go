@@ -3694,7 +3694,6 @@ func (in *NatsWebsocketSpec) DeepCopyInto(out *NatsWebsocketSpec) {
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
-	out.HandshakeTimeout = in.HandshakeTimeout
 	if in.TLS != nil {
 		in, out := &in.TLS, &out.TLS
 		*out = new(TLSSpec)

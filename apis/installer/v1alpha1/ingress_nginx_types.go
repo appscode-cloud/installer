@@ -54,8 +54,9 @@ type IngressNginxController struct {
 	IngressClassByName   bool                                       `json:"ingressClassByName"`
 	IngressClassResource IngressNginxControllerIngressClassResource `json:"ingressClassResource"`
 	Kind                 string                                     `json:"kind,omitempty"`
-	NodeSelector         map[string]string                          `json:"nodeSelector,omitempty"`
-	Service              *IngressNginxControllerService             `json:"service,omitempty"`
+	//+optional
+	NodeSelector map[string]string              `json:"nodeSelector,omitempty"`
+	Service      *IngressNginxControllerService `json:"service,omitempty"`
 	//+optional
 	Resources core.ResourceRequirements `json:"resources"`
 }

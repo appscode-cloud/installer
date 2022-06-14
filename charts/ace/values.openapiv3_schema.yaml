@@ -5485,7 +5485,6 @@ properties:
     - logFormat
     - logLevel
     - nameOverride
-    - nodeSelector
     - podAnnotations
     - podLabels
     - podSecurityContext
@@ -8492,7 +8491,6 @@ properties:
                 required:
                 - dir
                 - size
-                - storageClassName
                 type: object
               systemAccount:
                 type: string
@@ -8502,7 +8500,6 @@ properties:
             - allowDelete
             - interval
             - operator
-            - resolverPreload
             - store
             - systemAccount
             - type
@@ -9054,7 +9051,6 @@ properties:
                 - annotations
                 - enabled
                 - size
-                - storageClassName
                 - storageDirectory
                 type: object
               memStorage:
@@ -10483,7 +10479,6 @@ properties:
         - extraVolumes
         - image
         - imagePullSecrets
-        - nodeSelector
         - podAnnotations
         - podLabels
         - pullPolicy
@@ -12667,7 +12662,6 @@ properties:
     - logFormat
     - logLevel
     - nameOverride
-    - nodeSelector
     - podAnnotations
     - podLabels
     - podSecurityContext
@@ -15521,7 +15515,6 @@ properties:
             - image
             - labels
             - livenessProbe
-            - nodeSelector
             - pod
             - priorityClassName
             - readinessProbe
@@ -16068,7 +16061,6 @@ required:
 - marketplace-ui
 - nats
 - nats-dns
-- nodeSelector
 - platform-api
 - platform-ui
 - podAnnotations

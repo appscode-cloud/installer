@@ -67,9 +67,10 @@ type AceSpec struct {
 	PodSecurityContext *core.PodSecurityContext  `json:"podSecurityContext"`
 	SecurityContext    *core.SecurityContext     `json:"securityContext"`
 	Resources          core.ResourceRequirements `json:"resources"`
-	NodeSelector       map[string]string         `json:"nodeSelector"`
-	Tolerations        []core.Toleration         `json:"tolerations"`
-	Affinity           *core.Affinity            `json:"affinity"`
+	//+optional
+	NodeSelector map[string]string `json:"nodeSelector,omitempty"`
+	Tolerations  []core.Toleration `json:"tolerations"`
+	Affinity     *core.Affinity    `json:"affinity"`
 }
 
 type AceBilling struct {
