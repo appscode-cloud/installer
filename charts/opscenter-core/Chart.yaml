@@ -16,10 +16,6 @@ dependencies:
   repository: https://charts.appscode.com/stable/
   condition: kube-ui-server.enabled
   version: v2022.06.14
-- name: panopticon
-  repository: https://charts.appscode.com/stable/
-  condition: panopticon.enabled
-  version: v2022.06.14
 - name: supervisor
   repository: https://charts.appscode.com/stable/
   condition: supervisor.enabled

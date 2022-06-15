@@ -18,6 +18,7 @@ package v1alpha1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	kubeops_installer "kubeops.dev/installer/apis/installer/v1alpha1"
 )
 
 const (
@@ -45,8 +46,15 @@ type OpscenterConfig struct {
 type OpscenterConfigSpec struct {
 	NameOverride     string           `json:"nameOverride"`
 	FullnameOverride string           `json:"fullnameOverride"`
+	Global           GlobalValues     `json:"global"`
+	Panopticon       PanopticonSpec   `json:"panopticon"`
 	Grafana          GrafanaConfig    `json:"grafana"`
 	Prometheus       PrometheusConfig `json:"prometheus"`
+}
+
+type PanopticonSpec struct {
+	Enabled                           *bool `json:"enabled"`
+	*kubeops_installer.PanopticonSpec `json:",inline,omitempty"`
 }
 
 type GrafanaConfig struct {
