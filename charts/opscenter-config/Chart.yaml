@@ -16,3 +16,7 @@ dependencies:
   repository: https://charts.appscode.com/stable/
   condition: panopticon.enabled
   version: v2022.06.14
+- name: ui-presets
+  repository: file://../ui-presets
+  condition: ui-presets.enabled
+  version: v2022.06.14

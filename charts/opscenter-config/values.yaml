@@ -44,6 +44,9 @@ global:
 panopticon:
   enabled: true
 
+ui-presets:
+  enabled: true
+
 grafana:
   default: false
   url: ""

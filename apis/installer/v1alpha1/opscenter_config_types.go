@@ -44,17 +44,23 @@ type OpscenterConfig struct {
 
 // OpscenterConfigSpec is the schema for OpscenterConfig Operator values file
 type OpscenterConfigSpec struct {
-	NameOverride     string           `json:"nameOverride"`
-	FullnameOverride string           `json:"fullnameOverride"`
-	Global           GlobalValues     `json:"global"`
-	Panopticon       PanopticonSpec   `json:"panopticon"`
-	Grafana          GrafanaConfig    `json:"grafana"`
-	Prometheus       PrometheusConfig `json:"prometheus"`
+	NameOverride     string                `json:"nameOverride"`
+	FullnameOverride string                `json:"fullnameOverride"`
+	Global           GlobalValues          `json:"global"`
+	Panopticon       PanopticonSpec        `json:"panopticon"`
+	UiPreset         EmbeddedUiPresetsSpec `json:"ui-presets"`
+	Grafana          GrafanaConfig         `json:"grafana"`
+	Prometheus       PrometheusConfig      `json:"prometheus"`
 }
 
 type PanopticonSpec struct {
 	Enabled                           *bool `json:"enabled"`
 	*kubeops_installer.PanopticonSpec `json:",inline,omitempty"`
+}
+
+type EmbeddedUiPresetsSpec struct {
+	Enabled        *bool `json:"enabled"`
+	*UiPresetsSpec `json:",inline,omitempty"`
 }
 
 type GrafanaConfig struct {
