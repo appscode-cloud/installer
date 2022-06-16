@@ -1,0 +1,19 @@
+apiVersion: charts.x-helm.dev/v1alpha1
+kind: ClusterChartPreset
+metadata:
+  name: kubedb.com-v1alpha2-mongodbs
+spec:
+  selector: {}
+  values:
+  {{- with (dig "global" "monitoring" "serviceMonitor" "labels" .Values.monitoring.serviceMonitor.labels (dict "global" .Values.global)) }}
+    monitoring:
+      serviceMonitor:
+        labels:
+          {{- toYaml . | nindent 10 }}
+  {{- end }}
+  {{- with (dig "global" "monitoring" "serviceMonitor" "labels" .Values.form.alert.labels (dict "global" .Values.global)) }}
+    form:
+      alert:
+        labels:
+          {{- toYaml . | nindent 10 }}
+  {{- end }}

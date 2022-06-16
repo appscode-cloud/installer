@@ -88,6 +88,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&PromProxy{},
 		&ReloaderList{},
 		&Reloader{},
+		&UiPresets{},
+		&UiPresetsList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,
