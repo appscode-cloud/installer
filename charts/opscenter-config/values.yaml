@@ -40,6 +40,9 @@ global:
       # Prometheus crd will select ServiceMonitor using these labels.
       # Only usable when monitoring agent is `prometheus.io/operator`.
       labels: {}
+    alert:
+      ## Labels for default rules
+      labels: {}
 
 panopticon:
   enabled: true

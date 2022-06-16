@@ -11,7 +11,7 @@ spec:
         labels:
           {{- toYaml . | nindent 10 }}
   {{- end }}
-  {{- with (dig "global" "monitoring" "serviceMonitor" "labels" .Values.form.alert.labels (dict "global" .Values.global)) }}
+  {{- with (dig "global" "monitoring" "alert" "labels" .Values.form.alert.labels (dict "global" .Values.global)) }}
     form:
       alert:
         labels:

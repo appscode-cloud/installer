@@ -44,13 +44,27 @@ type OpscenterConfig struct {
 
 // OpscenterConfigSpec is the schema for OpscenterConfig Operator values file
 type OpscenterConfigSpec struct {
-	NameOverride     string                `json:"nameOverride"`
-	FullnameOverride string                `json:"fullnameOverride"`
-	Global           GlobalValues          `json:"global"`
-	Panopticon       PanopticonSpec        `json:"panopticon"`
-	UiPreset         EmbeddedUiPresetsSpec `json:"ui-presets"`
-	Grafana          GrafanaConfig         `json:"grafana"`
-	Prometheus       PrometheusConfig      `json:"prometheus"`
+	NameOverride     string                      `json:"nameOverride"`
+	FullnameOverride string                      `json:"fullnameOverride"`
+	Global           OpscenterConfigGlobalValues `json:"global"`
+	Panopticon       PanopticonSpec              `json:"panopticon"`
+	UiPreset         EmbeddedUiPresetsSpec       `json:"ui-presets"`
+	Grafana          GrafanaConfig               `json:"grafana"`
+	Prometheus       PrometheusConfig            `json:"prometheus"`
+}
+
+type OpscenterConfigGlobalValues struct {
+	License          string            `json:"license"`
+	Registry         string            `json:"registry"`
+	RegistryFQDN     string            `json:"registryFQDN"`
+	ImagePullSecrets []string          `json:"imagePullSecrets"`
+	Monitoring       ClusterMonitoring `json:"monitoring"`
+}
+
+type ClusterMonitoring struct {
+	Agent          MonitoringAgent       `json:"agent"`
+	ServiceMonitor *ServiceMonitorLabels `json:"serviceMonitor"`
+	Alert          *ServiceMonitorLabels `json:"alert"`
 }
 
 type PanopticonSpec struct {
