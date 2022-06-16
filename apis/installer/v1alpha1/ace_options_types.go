@@ -72,7 +72,7 @@ type AceOptionsComponentSpec struct {
 	//+optional
 	Resources core.ResourceRequirements `json:"resources"`
 	// +optional
-	NodeSelector map[string]string `json:"nodeSelector,omitempty"`
+	NodeSelector map[string]string `json:"nodeSelector"`
 }
 
 // +kubebuilder:validation:Enum=LoadBalancer;HostPort
@@ -100,7 +100,7 @@ type AceOptionsNatsSettings struct {
 	//+optional
 	Resources core.ResourceRequirements `json:"resources"`
 	//+optional
-	NodeSelector map[string]string `json:"nodeSelector,omitempty"`
+	NodeSelector map[string]string `json:"nodeSelector"`
 }
 
 type AceOptionsPlatformInfra struct {

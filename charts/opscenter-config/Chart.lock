@@ -1,0 +1,6 @@
+dependencies:
+- name: panopticon
+  repository: https://charts.appscode.com/stable/
+  version: v2022.06.14
+digest: sha256:232c59e378e67ba484954d0647e856344a19fb5c87507bc69d8da1a7a1edb39b
+generated: "2022-06-15T16:59:08.897196-07:00"

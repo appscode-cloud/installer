@@ -277,7 +277,7 @@ type NatsboxSpec struct {
 	PodLabels        map[string]string     `json:"podLabels"`
 	Affinity         *core.Affinity        `json:"affinity"`
 	//+optional
-	NodeSelector      map[string]string  `json:"nodeSelector,omitempty"`
+	NodeSelector      map[string]string  `json:"nodeSelector"`
 	Tolerations       []core.Toleration  `json:"tolerations"`
 	ExtraVolumeMounts []core.VolumeMount `json:"extraVolumeMounts"`
 	ExtraVolumes      []core.Volume      `json:"extraVolumes"`
