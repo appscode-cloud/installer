@@ -1,0 +1,18 @@
+project:
+  name: ACE UI Presets by AppsCode
+  shortName: ACE UI Presets
+  url: https://github.com/bytebuilders
+  description: ACE UI presets
+  app: ACE UI presets
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: ui-presets
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.19+
+release:
+  name: ui-presets
+  namespace: kubeops

@@ -848,6 +848,39 @@ properties:
     - tls
     - url
     type: object
+  ui-presets:
+    properties:
+      enabled:
+        type: boolean
+      form:
+        properties:
+          alert:
+            properties:
+              labels:
+                additionalProperties:
+                  type: string
+                type: object
+            type: object
+        required:
+        - alert
+        type: object
+      monitoring:
+        properties:
+          serviceMonitor:
+            properties:
+              labels:
+                additionalProperties:
+                  type: string
+                type: object
+            type: object
+        required:
+        - serviceMonitor
+        type: object
+    required:
+    - enabled
+    - form
+    - monitoring
+    type: object
 required:
 - fullnameOverride
 - global
@@ -855,4 +888,5 @@ required:
 - nameOverride
 - panopticon
 - prometheus
+- ui-presets
 type: object

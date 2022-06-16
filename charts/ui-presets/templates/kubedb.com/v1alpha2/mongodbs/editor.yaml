@@ -1,0 +1,15 @@
+apiVersion: meta.k8s.appscode.com/v1alpha1
+kind: ResourceEditor
+metadata:
+  creationTimestamp: null
+  labels:
+    k8s.io/group: kubedb.com
+    k8s.io/kind: MongoDB
+    k8s.io/resource: mongodbs
+    k8s.io/version: v1alpha2
+  name: kubedb.com-v1alpha2-mongodbs
+spec:
+  variants:
+  - apiGroup: charts.x-helm.dev
+    kind: ClusterChartPreset
+    name: kubedb.com-v1alpha2-mongodbs
