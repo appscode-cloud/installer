@@ -66,7 +66,7 @@ type DeployUiSpec struct {
 	Resources   core.ResourceRequirements `json:"resources"`
 	Autoscaling AutoscalingSpec           `json:"autoscaling"`
 	//+optional
-	NodeSelector map[string]string `json:"nodeSelector,omitempty"`
+	NodeSelector map[string]string `json:"nodeSelector"`
 	// If specified, the pod's tolerations.
 	// +optional
 	Tolerations []core.Toleration `json:"tolerations"`

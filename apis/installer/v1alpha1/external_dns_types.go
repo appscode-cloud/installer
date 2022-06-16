@@ -68,7 +68,7 @@ type ExternalDnsSpec struct {
 	ExtraVolumeMounts             []core.VolumeMount            `json:"extraVolumeMounts"`
 	Resources                     core.ResourceRequirements     `json:"resources"`
 	//+optional
-	NodeSelector              map[string]string               `json:"nodeSelector,omitempty"`
+	NodeSelector              map[string]string               `json:"nodeSelector"`
 	Tolerations               []core.Toleration               `json:"tolerations"`
 	Affinity                  *core.Affinity                  `json:"affinity"`
 	TopologySpreadConstraints []core.TopologySpreadConstraint `json:"topologySpreadConstraints"`

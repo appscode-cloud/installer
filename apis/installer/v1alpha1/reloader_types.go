@@ -86,7 +86,7 @@ type ReloaderLegacy struct {
 type ReloaderDeploymentSpec struct {
 	Replicas int `json:"replicas"`
 	//+optional
-	NodeSelector             map[string]string         `json:"nodeSelector,omitempty"`
+	NodeSelector             map[string]string         `json:"nodeSelector"`
 	Affinity                 *core.Affinity            `json:"affinity"`
 	SecurityContext          *core.PodSecurityContext  `json:"securityContext"`
 	ContainerSecurityContext *core.SecurityContext     `json:"containerSecurityContext"`
