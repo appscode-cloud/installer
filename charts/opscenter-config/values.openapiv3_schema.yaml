@@ -17,6 +17,13 @@ properties:
             - prometheus.io/operator
             - prometheus.io/builtin
             type: string
+          alert:
+            properties:
+              labels:
+                additionalProperties:
+                  type: string
+                type: object
+            type: object
           serviceMonitor:
             properties:
               labels:
@@ -26,6 +33,7 @@ properties:
             type: object
         required:
         - agent
+        - alert
         - serviceMonitor
         type: object
       registry:
