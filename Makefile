@@ -250,6 +250,9 @@ contents-%:
 	@yq -y --indentless -i '.repository.url="$(CHART_REGISTRY_URL)"' ./charts/$*/doc.yaml
 	@if [ -n "$(CHART_VERSION)" ]; then \
 	  yq -y --indentless -i '.version="$(CHART_VERSION)"' ./charts/$*/Chart.yaml; \
+	  yq -y --indentless -i '.dependencies |= map(select(.name == "$*").version="$(CHART_VERSION)")' ./charts/ace/Chart.yaml; \
+	  yq -y --indentless -i '.dependencies |= map(select(.name == "$*").version="$(CHART_VERSION)")' ./charts/opscenter-core/Chart.yaml; \
+	  yq -y --indentless -i '.dependencies |= map(select(.name == "$*").version="$(CHART_VERSION)")' ./charts/opscenter-config/Chart.yaml; \
 	fi
 	@if [ -n "$(APP_VERSION)" ]; then \
 		yq -y --indentless -i '.appVersion="$(APP_VERSION)"' ./charts/$*/Chart.yaml; \
