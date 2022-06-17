@@ -48,7 +48,7 @@ The following table lists the configurable parameters of the `ui-presets` chart 
 |            Parameter             |                                                                                Description                                                                                |     Default     |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 | monitoring.serviceMonitor.labels | Specify the labels for ServiceMonitor. Prometheus crd will select ServiceMonitor using these labels. Only usable when monitoring agent is `prometheus.io/webhook server`. | <code>{}</code> |
-| form.alert.labels                | # Labels for default rules                                                                                                                                                | <code>{}</code> |
+| monitoring.alert.labels          | # Labels for default rules                                                                                                                                                | <code>{}</code> |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

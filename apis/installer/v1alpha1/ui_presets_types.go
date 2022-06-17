@@ -44,15 +44,11 @@ type UiPresets struct {
 // UiPresetsSpec is the schema for UiPresets Operator values file
 type UiPresetsSpec struct {
 	Monitoring ServiceMonitorPreset `json:"monitoring"`
-	Form       AlertPreset          `json:"form"`
 }
 
 type ServiceMonitorPreset struct {
 	ServiceMonitor ServiceMonitorLabels `json:"serviceMonitor"`
-}
-
-type AlertPreset struct {
-	Alert ServiceMonitorLabels `json:"alert"`
+	Alert          ServiceMonitorLabels `json:"alert"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
