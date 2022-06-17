@@ -860,7 +860,7 @@ properties:
     properties:
       enabled:
         type: boolean
-      form:
+      monitoring:
         properties:
           alert:
             properties:
@@ -869,11 +869,6 @@ properties:
                   type: string
                 type: object
             type: object
-        required:
-        - alert
-        type: object
-      monitoring:
-        properties:
           serviceMonitor:
             properties:
               labels:
@@ -882,11 +877,11 @@ properties:
                 type: object
             type: object
         required:
+        - alert
         - serviceMonitor
         type: object
     required:
     - enabled
-    - form
     - monitoring
     type: object
 required:
