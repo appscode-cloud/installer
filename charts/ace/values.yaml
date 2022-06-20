@@ -106,7 +106,7 @@ global:
     exporter:
       resources:
         requests:
-          cpu: 100m
+          # cpu: 100m
           memory: 128Mi
 
   infra:
@@ -161,7 +161,7 @@ settings:
       size: 10Gi
     resources:
       limits:
-        cpu: "1"
+        # cpu: "1"
         memory: 2Gi
     auth:
       username: postgres
@@ -173,7 +173,7 @@ settings:
       size: 10Gi
     resources:
       limits:
-        cpu: "1"
+        # cpu: "1"
         memory: 2Gi
     auth:
       username: root
