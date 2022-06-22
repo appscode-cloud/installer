@@ -33,7 +33,7 @@ spec:
             - gitea
             - dev
             - --reload-nats-accounts
-            {{ if .Values.global.hosted }}
+            {{ if .Values.global.platform.hosted }}
             - --create-nats-stream
             {{ end }}
             # - --register-crds

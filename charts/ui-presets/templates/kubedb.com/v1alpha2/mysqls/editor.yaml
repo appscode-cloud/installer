@@ -9,6 +9,12 @@ metadata:
     k8s.io/version: v1alpha2
   name: kubedb.com-v1alpha2-mysqls
 spec:
+  resource:
+    group: kubedb.com
+    kind: MySQL
+    name: mysqls
+    scope: Namespaced
+    version: v1alpha2
   variants:
   - apiGroup: charts.x-helm.dev
     kind: ClusterChartPreset

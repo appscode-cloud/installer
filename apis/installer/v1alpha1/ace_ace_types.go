@@ -149,16 +149,16 @@ type AceReloader struct {
 }
 
 type AceGlobalValues struct {
-	NameOverride     string                 `json:"nameOverride"`
-	FullnameOverride string                 `json:"fullnameOverride"`
-	Hosted           bool                   `json:"hosted"`
-	License          string                 `json:"license"`
-	Registry         string                 `json:"registry"`
-	RegistryFQDN     string                 `json:"registryFQDN"`
-	ImagePullSecrets []string               `json:"imagePullSecrets"`
-	ServiceAccount   NatsServiceAccountSpec `json:"serviceAccount"`
-	Monitoring       GlobalMonitoring       `json:"monitoring"`
-	Infra            PlatformInfra          `json:"infra"`
+	NameOverride     string                     `json:"nameOverride"`
+	FullnameOverride string                     `json:"fullnameOverride"`
+	Platform         AceOptionsPlatformSettings `json:"platform"`
+	License          string                     `json:"license"`
+	Registry         string                     `json:"registry"`
+	RegistryFQDN     string                     `json:"registryFQDN"`
+	ImagePullSecrets []string                   `json:"imagePullSecrets"`
+	ServiceAccount   NatsServiceAccountSpec     `json:"serviceAccount"`
+	Monitoring       GlobalMonitoring           `json:"monitoring"`
+	Infra            PlatformInfra              `json:"infra"`
 }
 
 type GlobalMonitoring struct {
@@ -291,7 +291,6 @@ type NatsSettings struct {
 }
 
 type PlatformSettings struct {
-	Domain                          string  `json:"domain"`
 	AppName                         string  `json:"appName"`
 	RunMode                         string  `json:"runMode"`
 	ExperimentalFeatures            bool    `json:"experimentalFeatures"`

@@ -2932,8 +2932,6 @@ properties:
     properties:
       fullnameOverride:
         type: string
-      hosted:
-        type: boolean
       imagePullSecrets:
         items:
           type: string
@@ -3097,6 +3095,16 @@ properties:
         type: object
       nameOverride:
         type: string
+      platform:
+        properties:
+          domain:
+            type: string
+          hosted:
+            type: boolean
+        required:
+        - domain
+        - hosted
+        type: object
       registry:
         type: string
       registryFQDN:
@@ -3118,12 +3126,12 @@ properties:
         type: object
     required:
     - fullnameOverride
-    - hosted
     - imagePullSecrets
     - infra
     - license
     - monitoring
     - nameOverride
+    - platform
     - registry
     - registryFQDN
     - serviceAccount
@@ -13786,6 +13794,16 @@ properties:
         additionalProperties:
           type: string
         type: object
+      platform:
+        properties:
+          domain:
+            type: string
+          hosted:
+            type: boolean
+        required:
+        - domain
+        - hosted
+        type: object
       podAnnotations:
         additionalProperties:
           type: string
@@ -13975,6 +13993,7 @@ properties:
     - autoscaling
     - enabled
     - image
+    - platform
     - replicaCount
     - service
     - serviceAccount
@@ -15889,8 +15908,6 @@ properties:
             type: string
           disableHttpGit:
             type: boolean
-          domain:
-            type: string
           enableCSRFCookieHttpOnly:
             type: boolean
           experimentalFeatures:
@@ -15935,7 +15952,6 @@ properties:
         - appName
         - cookieName
         - disableHttpGit
-        - domain
         - enableCSRFCookieHttpOnly
         - experimentalFeatures
         - forcePrivate

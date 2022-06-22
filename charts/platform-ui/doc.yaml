@@ -1,9 +1,9 @@
 project:
-  name: Accounts UI by AppsCode
-  shortName: Accounts UI
+  name: Platform UI by AppsCode
+  shortName: Platform UI
   url: https://github.com/bytebuilders
-  description: Accounts UI
-  app: a Accounts UI
+  description: ByteBuilders Platform UI
+  app: a Platform UI
 repository:
   url: https://charts.appscode.com/stable/
   name: appscode

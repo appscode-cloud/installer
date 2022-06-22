@@ -90,10 +90,9 @@ jobs:
           echo "issuing panopticon license"
           LICENSE_KEY=$(curl -X POST -d "name=1gtm&email=1gtm@appscode.com&product=panopticon-enterprise&cluster=${CLUSTER_UID}&tos=true&token=${BYTEBUILDERS_LICENSE_TOKEN}" https://license-issuer.appscode.com/issue-license)
           # ref: https://github.com/mikefarah/yq/issues/230#issuecomment-487458629
-          yqq w -i ./charts/opscenter-core/ci/ci-values.yaml panopticon.license --tag '!!str' -- "${LICENSE_KEY}"
+          yqq w -i ./charts/opscenter-config/ci/ci-values.yaml panopticon.license --tag '!!str' -- "${LICENSE_KEY}"
 
       - name: Test charts
         run: |
           export KUBECONFIG="${HOME}/.kube/config"
-          ./hack/scripts/update-chart-dependencies.sh
           ./hack/scripts/ct.sh

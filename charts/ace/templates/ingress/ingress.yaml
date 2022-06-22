@@ -13,7 +13,7 @@ spec:
   ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
   rules:
 {{- if (index .Values "platform-ui" "enabled") }}
-  - host: {{ .Values.settings.platform.domain }}
+  - host: {{ .Values.global.platform.domain }}
     http:
       paths:
       - backend:
@@ -25,7 +25,7 @@ spec:
         pathType: Prefix
 {{- end }}
 {{- if (index .Values "accounts-ui" "enabled") }}
-  - host: accounts.{{ .Values.settings.platform.domain }}
+  - host: accounts.{{ .Values.global.platform.domain }}
     http:
       paths:
       - backend:
@@ -37,7 +37,7 @@ spec:
         pathType: Prefix
 {{- end }}
 {{- if (index .Values "platform-api" "enabled") }}
-  - host: api.{{ .Values.settings.platform.domain }}
+  - host: api.{{ .Values.global.platform.domain }}
     http:
       paths:
       - backend:
@@ -49,7 +49,7 @@ spec:
         pathType: Prefix
 {{- end }}
 {{- if (index .Values "cluster-ui" "enabled") }}
-  - host: console.{{ .Values.settings.platform.domain }}
+  - host: console.{{ .Values.global.platform.domain }}
     http:
       paths:
       - backend:
@@ -61,7 +61,7 @@ spec:
         pathType: Prefix
 {{- end }}
 {{- if (index .Values "deploy-ui" "enabled") }}
-  - host: deploy.{{ .Values.settings.platform.domain }}
+  - host: deploy.{{ .Values.global.platform.domain }}
     http:
       paths:
       - backend:
@@ -73,7 +73,7 @@ spec:
         pathType: Prefix
 {{- end }}
 {{- if .Values.grafana.enabled }}
-  - host: grafana.{{ .Values.settings.platform.domain }}
+  - host: grafana.{{ .Values.global.platform.domain }}
     http:
       paths:
       - backend:
@@ -85,7 +85,7 @@ spec:
         pathType: Prefix
 {{- end }}
 {{- if (index .Values "kubedb-ui" "enabled") }}
-  - host: kubedb.{{ .Values.settings.platform.domain }}
+  - host: kubedb.{{ .Values.global.platform.domain }}
     http:
       paths:
       - backend:
@@ -97,7 +97,7 @@ spec:
         pathType: Prefix
 {{- end }}
 {{- if (index .Values "marketplace-ui" "enabled") }}
-  - host: marketplace.{{ .Values.settings.platform.domain }}
+  - host: marketplace.{{ .Values.global.platform.domain }}
     http:
       paths:
       - backend:
@@ -109,7 +109,7 @@ spec:
         pathType: Prefix
 {{- end }}
 {{- if (index .Values "prom-proxy" "enabled") }}
-  - host: prometheus.{{ .Values.settings.platform.domain }}
+  - host: prometheus.{{ .Values.global.platform.domain }}
     http:
       paths:
       - backend:
@@ -124,34 +124,34 @@ spec:
   - secretName: {{ include "ace.fullname" . }}-cert
     hosts:
   {{- if (index .Values "platform-ui" "enabled") }}
-    - '{{ .Values.settings.platform.domain }}'
+    - '{{ .Values.global.platform.domain }}'
   {{- end }}
   {{- if (index .Values "accounts-ui" "enabled") }}
-    - 'accounts.{{ .Values.settings.platform.domain }}'
+    - 'accounts.{{ .Values.global.platform.domain }}'
   {{- end }}
   {{- if (index .Values "platform-api" "enabled") }}
-    - 'api.{{ .Values.settings.platform.domain }}'
+    - 'api.{{ .Values.global.platform.domain }}'
   {{- end }}
   {{- if (index .Values "cluster-ui" "enabled") }}
-    - 'console.{{ .Values.settings.platform.domain }}'
+    - 'console.{{ .Values.global.platform.domain }}'
   {{- end }}
   {{- if (index .Values "deploy-ui" "enabled") }}
-    - 'deploy.{{ .Values.settings.platform.domain }}'
+    - 'deploy.{{ .Values.global.platform.domain }}'
   {{- end }}
   {{- if .Values.grafana.enabled }}
-    - 'grafana.{{ .Values.settings.platform.domain }}'
+    - 'grafana.{{ .Values.global.platform.domain }}'
   {{- end }}
   {{- if (index .Values "kubedb-ui" "enabled") }}
-    - 'kubedb.{{ .Values.settings.platform.domain }}'
+    - 'kubedb.{{ .Values.global.platform.domain }}'
   {{- end }}
   {{- if (index .Values "marketplace-ui" "enabled") }}
-    - 'marketplace.{{ .Values.settings.platform.domain }}'
+    - 'marketplace.{{ .Values.global.platform.domain }}'
   {{- end }}
   {{- if (and .Values.nats.enabled .Values.nats.nats.externalAccess) }}
-    - 'nats.{{ .Values.settings.platform.domain }}'
+    - 'nats.{{ .Values.global.platform.domain }}'
   {{- end }}
   {{- if (index .Values "prom-proxy" "enabled") }}
-    - 'prometheus.{{ .Values.settings.platform.domain }}'
+    - 'prometheus.{{ .Values.global.platform.domain }}'
   {{- end }}
 
 {{- end }}
