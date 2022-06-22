@@ -1,6 +1,6 @@
-{{ $infra := .Values.infra }}
+{{ $p := .Values.platform }}
 {{- if .Values.global }}
-{{- $infra = .Values.global.infra }}
+{{- $p = .Values.global.platform }}
 {{- end }}
 
 apiVersion: apps/v1
@@ -35,12 +35,14 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command:
-            - gitea
-            - accounts
+          {{- with $p.domain }}
+          env:
+            - name: PLATFORM_DOMAIN
+              value: {{ . }}
+          {{- end }}
           ports:
             - name: http
-              containerPort: 3000
+              containerPort: 5998
               protocol: TCP
           livenessProbe:
             httpGet:
@@ -52,42 +54,6 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          env:
-          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "Google") }}
-            - name: GOOGLE_APPLICATION_CREDENTIALS
-              value: {{ $infra.objstore.mountPath }}/sa.json
-          {{- end }}
-          volumeMounts:
-            - name: data
-              mountPath: /data
-            {{- if (include "settings.platformConfigSecretName" .) }}
-            - name: config
-              mountPath: /data/gitea/conf/app.ini
-              subPath: app.ini
-            {{- end }}
-            {{- if (include "settings.objstoreSecretName" .) }}
-            - name: objstore-cred
-              mountPath: {{ $infra.objstore.mountPath }}
-            {{- end }}
-      volumes:
-        {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
-        - name: config
-          secret:
-            defaultMode: 420
-            secretName: {{ $secretName }}
-        {{- end }}
-        {{- with $secretName := (include "settings.objstoreSecretName" .) }}
-        - name: data
-          emptyDir: {}
-        - name: objstore-cred
-          secret:
-            defaultMode: 420
-            secretName: {{ $secretName }}
-        {{- else }}
-        - name: data
-          persistentVolumeClaim:
-            claimName: {{ include "platform-ui.fullname" . }}-data
-        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

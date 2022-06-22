@@ -1,19 +1,28 @@
+{{ $m := .Values.monitoring }}
+{{- if .Values.global }}
+{{- $m = .Values.global.monitoring }}
+{{- end }}
+
 apiVersion: charts.x-helm.dev/v1alpha1
 kind: ClusterChartPreset
 metadata:
-  name: kubedb.com-v1alpha2-mongodbs
+  name: kubedb.com-v1alpha2-mysqls
 spec:
   selector: {}
   values:
-  {{- with (dig "global" "monitoring" "serviceMonitor" "labels" .Values.monitoring.serviceMonitor.labels (dict "global" .Values.global)) }}
     monitoring:
       serviceMonitor:
+      {{- with $m.serviceMonitor.labels }}
         labels:
           {{- toYaml . | nindent 10 }}
-  {{- end }}
-  {{- with (dig "global" "monitoring" "alert" "labels" .Values.monitoring.alert.labels (dict "global" .Values.global)) }}
+      {{- else }}
+        labels: {}
+      {{- end }}
     form:
       alert:
+      {{- with $m.alert.labels }}
         labels:
           {{- toYaml . | nindent 10 }}
-  {{- end }}
+      {{- else }}
+        labels: {}
+      {{- end }}

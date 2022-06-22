@@ -13,7 +13,7 @@ image:
   # Docker registry used to pull app container image
   registry: appscode
   # App container image
-  repository: gitea
+  repository: platform-ui
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
   pullPolicy: Always
@@ -21,6 +21,10 @@ image:
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+
+platform:
+  domain: ""
+  hosted: false
 
 serviceAccount:
   name: ""
@@ -66,33 +70,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-monitoring:
-  # Name of monitoring agent (eg "prometheus.io/operator")
-  agent: ""
-  serviceMonitor:
-    # Specify the labels for ServiceMonitor.
-    # Prometheus crd will select ServiceMonitor using these labels.
-    # Only usable when monitoring agent is `prometheus.io/operator`.
-    labels: {}
-
-persistence:
-  size: 10Gi
-
-infra:
-  storageClass:
-    name: "standard"
-  objstore:
-    provider: ""
-    mountPath: ""
-  badger:
-    mountPath: /badger
-  invoice:
-    mountPath: /billing
-
-settings:
-  secretName:
-    platformConfig: ""
-    grafanaConfig: ""
-    objstore: ""
-    nats: ""

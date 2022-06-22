@@ -398,6 +398,16 @@ properties:
     additionalProperties:
       type: string
     type: object
+  platform:
+    properties:
+      domain:
+        type: string
+      hosted:
+        type: boolean
+    required:
+    - domain
+    - hosted
+    type: object
   podAnnotations:
     additionalProperties:
       type: string
@@ -586,6 +596,7 @@ properties:
 required:
 - autoscaling
 - image
+- platform
 - replicaCount
 - service
 - serviceAccount
