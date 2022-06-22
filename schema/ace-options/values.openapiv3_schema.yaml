@@ -149,8 +149,6 @@ properties:
     required:
     - enabled
     type: object
-  hosted:
-    type: boolean
   imagePullSecrets:
     items:
       type: string
@@ -580,8 +578,11 @@ properties:
         properties:
           domain:
             type: string
+          hosted:
+            type: boolean
         required:
         - domain
+        - hosted
         type: object
       smtp:
         properties:
@@ -617,7 +618,6 @@ required:
 - cluster-ui
 - deploy-ui
 - grafana
-- hosted
 - imagePullSecrets
 - infra
 - ingress

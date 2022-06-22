@@ -45,7 +45,6 @@ type AceOptions struct {
 // AceOptionsSpec is the schema for AceOptions Operator values file
 type AceOptionsSpec struct {
 	Release          ObjectReference         `json:"release"`
-	Hosted           bool                    `json:"hosted"`
 	License          string                  `json:"license"`
 	Registry         string                  `json:"registry"`
 	RegistryFQDN     string                  `json:"registryFQDN"`
@@ -159,6 +158,7 @@ type AceOptionsSMTPSettings struct {
 
 type AceOptionsPlatformSettings struct {
 	Domain string `json:"domain"`
+	Hosted bool   `json:"hosted"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

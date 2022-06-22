@@ -59,7 +59,9 @@ global:
   nameOverride: "ace"
   fullnameOverride: ""
 
-  hosted: false
+  platform:
+    domain: appscode.ninja
+    hosted: false
 
   # License for the product.
   # Example:
@@ -204,8 +206,6 @@ settings:
     adminCreds: 'xyz'
     adminUserCreds: 'xyz'
   platform:
-    domain: appscode.ninja
-
     ######## settings___oiginal:
     appName: 'ACE: Kubernetes Native Data Platform'
     ## Either "dev", "prod" or "test".

@@ -13,21 +13,21 @@ stringData:
 
     EXPERIMENTAL_FEATURES = {{ .Values.settings.platform.experimentalFeatures }}
 
-    DOMAIN   = {{ .Values.settings.platform.domain }}
+    DOMAIN   = {{ .Values.global.platform.domain }}
 
     [site_accounts]
     ; WHY http, not https?
     PROTOCOL = http
-    DOMAIN = {{ .Values.settings.platform.domain }}
-    ROOT_URL = https://accounts.{{ .Values.settings.platform.domain }}
+    DOMAIN = {{ .Values.global.platform.domain }}
+    ROOT_URL = https://accounts.{{ .Values.global.platform.domain }}
     LANDING_PAGE = {{ .Values.settings.platform.serverLandingPage }}
     APP_DATA_PATH = /data
 
     [site_api]
     ; WHY http, not https?
     PROTOCOL = http
-    DOMAIN = api.{{ .Values.settings.platform.domain }}
-    ROOT_URL = https://api.{{ .Values.settings.platform.domain }}
+    DOMAIN = api.{{ .Values.global.platform.domain }}
+    ROOT_URL = https://api.{{ .Values.global.platform.domain }}
 
     [picture]
     DISABLE_GRAVATAR        = false
@@ -39,10 +39,10 @@ stringData:
 
     [server]
     PROTOCOL = http
-    DOMAIN = {{ .Values.settings.platform.domain }}
-    ROOT_URL = https://{{ .Values.settings.platform.domain }}
+    DOMAIN = {{ .Values.global.platform.domain }}
+    ROOT_URL = https://{{ .Values.global.platform.domain }}
     LANDING_PAGE = {{ .Values.settings.platform.serverLandingPage }}
-    SSH_DOMAIN = {{ default .Values.settings.platform.domain .Values.settings.sshDomain }}
+    SSH_DOMAIN = {{ default .Values.global.platform.domain .Values.settings.sshDomain }}
     SSH_PORT = {{ .Values.settings.sshPort }}
     SSH_LISTEN_PORT = {{ .Values.settings.sshPort }}
 
@@ -54,7 +54,7 @@ stringData:
     PASSWD = {{ .Values.settings.db.auth.password }}
 
     [session]
-    DOMAIN = {{ .Values.settings.platform.domain }}
+    DOMAIN = {{ .Values.global.platform.domain }}
     PROVIDER = redis
     PROVIDER_CONFIG = {{ template "settings.session.host" . }}
     COOKIE_NAME = {{ .Values.settings.platform.cookieName}}
@@ -114,7 +114,7 @@ stringData:
     [cors]
     ENABLED = true
     SCHEME = https
-    ALLOW_DOMAIN = {{ .Values.settings.platform.domain }}
+    ALLOW_DOMAIN = {{ .Values.global.platform.domain }}
     ALLOW_SUBDOMAIN = true
 
   {{- if .Values.billing.enabled }}
@@ -146,12 +146,12 @@ stringData:
 
     ; When TLS is not used, use cluster svc ip
     ;ACCOUNT_RESOLVER = nats://{{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc:4222
-    ;SERVER = nats://{{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc:4222,nats://nats.{{ .Values.settings.platform.domain }}:4222
+    ;SERVER = nats://{{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc:4222,nats://nats.{{ .Values.global.platform.domain }}:4222
 
-    ACCOUNT_RESOLVER = nats://nats.{{ .Values.settings.platform.domain }}:4222
-    NATS_SERVER = wss://nats.{{ .Values.settings.platform.domain }}
-    SERVER = nats://nats.{{ .Values.settings.platform.domain }}:4222
-    WEBSOCKET_SERVER = wss://nats.{{ .Values.settings.platform.domain }}
+    ACCOUNT_RESOLVER = nats://nats.{{ .Values.global.platform.domain }}:4222
+    NATS_SERVER = wss://nats.{{ .Values.global.platform.domain }}
+    SERVER = nats://nats.{{ .Values.global.platform.domain }}:4222
+    WEBSOCKET_SERVER = wss://nats.{{ .Values.global.platform.domain }}
     SHARD_COUNT = {{ .Values.settings.nats.shardCount }}
     REPLICAS = {{ .Values.settings.nats.replicas }}
   {{- end }}

@@ -9,6 +9,12 @@ metadata:
     k8s.io/version: v1alpha1
   name: kubevault.com-v1alpha1-vaultservers
 spec:
+  resource:
+    group: kubevault.com
+    kind: VaultServer
+    name: vaultservers
+    scope: Namespaced
+    version: v1alpha1
   variants:
   - apiGroup: charts.x-helm.dev
     kind: ClusterChartPreset

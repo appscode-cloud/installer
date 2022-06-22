@@ -364,8 +364,7 @@ ct: $(BUILD_DIRS)
 	    /bin/sh -c "                                            \
 	      set -x; \
 	      kubectl delete crds --all; \
-	      helm repo add appscode https://charts.appscode.com/stable/; \
-	      helm repo update; \
+	      ./hack/scripts/update-chart-dependencies.sh; \
 	      ct $(CT_COMMAND) --debug --validate-maintainers=false $(CT_ARGS) \
 	    "
 
