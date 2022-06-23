@@ -499,6 +499,7 @@ properties:
         type: string
     required:
     - name
+    - namespace
     type: object
   settings:
     properties:
