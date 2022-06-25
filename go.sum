@@ -258,8 +258,8 @@ k8s.io/utils v0.0.0-20220210201930-3a6ce19ff2f9 h1:HNSDgDCrr/6Ly3WEGKZftiE7IY19V
 k8s.io/utils v0.0.0-20220210201930-3a6ce19ff2f9/go.mod h1:jPW/WVKK9YHAvNhRxK0md/EJ228hCsBRufyofKtW8HA=
 kmodules.xyz/schema-checker v0.4.1 h1:V5UEjR6UMAXf307lTgw+9rDRfHLTNA8g/q9DngqYI9M=
 kmodules.xyz/schema-checker v0.4.1/go.mod h1:BRXLB3Osuc9raHRJxHOgZFGecZ2aZumLXCHAOa5NPdA=
-kubeops.dev/installer v0.0.0-20220604094109-ce62286902ed h1:q4YEuHhbUnOfXl8ZDMDktP/s1fNQKDLvuE7dcDJczIs=
-kubeops.dev/installer v0.0.0-20220604094109-ce62286902ed/go.mod h1:RXPGTjXy3O+lOOsK7jmJjP4/fFyASRU31wayX6+1rsQ=
+kubeops.dev/installer v0.0.0-20220625004504-70ff7c51bdf0 h1:imJeWAmIcULHY7llTqKwvo0N2g4+JXLOakIwVwdIt/Q=
+kubeops.dev/installer v0.0.0-20220625004504-70ff7c51bdf0/go.mod h1:RXPGTjXy3O+lOOsK7jmJjP4/fFyASRU31wayX6+1rsQ=
 sigs.k8s.io/json v0.0.0-20211208200746-9f7c6b3444d2 h1:kDi4JBNAsJWfz1aEXhO8Jg87JJaPNLh5tIzYHgStQ9Y=
 sigs.k8s.io/json v0.0.0-20211208200746-9f7c6b3444d2/go.mod h1:B+TnT182UBxE84DiCz4CVE26eOSDAeYCpfDnC2kdKMY=
 sigs.k8s.io/structured-merge-diff/v4 v4.0.2/go.mod h1:bJZC9H9iH24zzfZ/41RGcq60oK1F7G282QMXDPYydCw=
