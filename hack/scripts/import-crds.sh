@@ -30,11 +30,11 @@ crd-importer \
     --input=https://github.com/kubepack/kubepack/raw/${KUBEPACK_KUBEPACK_TAG}/crds/kubepack.com_products.yaml \
     --out=./charts/ace/crds
 
-KMODULES_RESOURCE_METADATA_TAG=${KMODULES_RESOURCE_METADATA_TAG:-v0.11.3}
+KMODULES_RESOURCE_METADATA_TAG=${KMODULES_RESOURCE_METADATA_TAG:-v0.12.0}
 KUBEPACK_PRESET_TAG=${KUBEPACK_PRESET_TAG:-v0.0.1}
 
 crd-importer \
-    --input=https://github.com/kmodules/resource-metadata/raw/${KMODULES_RESOURCE_METADATA_TAG}/crds/meta.k8s.appscode.com_resourceeditors.yaml \
+    --input=https://github.com/kmodules/resource-metadata/raw/${KMODULES_RESOURCE_METADATA_TAG}/crds/ui.k8s.appscode.com_resourceeditors.yaml \
     --input=https://github.com/kubepack/preset/raw/${KUBEPACK_PRESET_TAG}/crds/charts.x-helm.dev_chartpresets.yaml \
     --input=https://github.com/kubepack/preset/raw/${KUBEPACK_PRESET_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
     --input=https://github.com/kubepack/preset/raw/${KUBEPACK_PRESET_TAG}/crds/charts.x-helm.dev_vendorchartpresets.yaml \
