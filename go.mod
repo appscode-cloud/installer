@@ -7,7 +7,7 @@ require (
 	k8s.io/api v0.24.1
 	k8s.io/apimachinery v0.24.1
 	kmodules.xyz/schema-checker v0.4.1
-	kubeops.dev/installer v0.0.0-20220604094109-ce62286902ed
+	kubeops.dev/installer v0.0.0-20220625004504-70ff7c51bdf0
 )
 
 require (
