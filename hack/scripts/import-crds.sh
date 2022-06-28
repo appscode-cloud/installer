@@ -30,7 +30,7 @@ crd-importer \
     --input=https://github.com/kubepack/kubepack/raw/${KUBEPACK_KUBEPACK_TAG}/crds/kubepack.com_products.yaml \
     --out=./charts/ace/crds
 
-KMODULES_RESOURCE_METADATA_TAG=${KMODULES_RESOURCE_METADATA_TAG:-v0.12.0}
+KMODULES_RESOURCE_METADATA_TAG=${KMODULES_RESOURCE_METADATA_TAG:-v0.12.1}
 KUBEPACK_PRESET_TAG=${KUBEPACK_PRESET_TAG:-v0.0.1}
 
 crd-importer \

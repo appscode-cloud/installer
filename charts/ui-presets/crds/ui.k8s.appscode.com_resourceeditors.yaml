@@ -10,7 +10,7 @@ spec:
     listKind: ResourceEditorList
     plural: resourceeditors
     singular: resourceeditor
-  scope: Namespaced
+  scope: Cluster
   versions:
   - additionalPrinterColumns:
     - jsonPath: .status.phase
