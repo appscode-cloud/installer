@@ -23,6 +23,15 @@ spec:
               number: 80
         path: /
         pathType: Prefix
+    {{- if .Values.global.platform.hosted }}
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-platform-api
+            port:
+              number: 80
+        path: /api/
+        pathType: Prefix
+    {{- end }}
 {{- end }}
 {{- if (index .Values "accounts-ui" "enabled") }}
   - host: accounts.{{ .Values.global.platform.domain }}
