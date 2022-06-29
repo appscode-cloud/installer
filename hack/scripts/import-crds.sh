@@ -31,7 +31,7 @@ crd-importer \
     --out=./charts/ace/crds
 
 KMODULES_RESOURCE_METADATA_TAG=${KMODULES_RESOURCE_METADATA_TAG:-v0.12.1}
-KUBEPACK_PRESET_TAG=${KUBEPACK_PRESET_TAG:-v0.0.1}
+KUBEPACK_PRESET_TAG=${KUBEPACK_PRESET_TAG:-v0.0.2}
 
 crd-importer \
     --input=https://github.com/kmodules/resource-metadata/raw/${KMODULES_RESOURCE_METADATA_TAG}/crds/ui.k8s.appscode.com_resourceeditors.yaml \
