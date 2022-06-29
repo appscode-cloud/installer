@@ -8,21 +8,28 @@ kind: ClusterChartPreset
 metadata:
   name: kubedb.com-v1alpha2-mysqls
 spec:
+  displayName: MySQL
   selector: {}
   values:
-    monitoring:
-      serviceMonitor:
-      {{- with $m.serviceMonitor.labels }}
-        labels:
-          {{- toYaml . | nindent 10 }}
-      {{- else }}
-        labels: {}
-      {{- end }}
-    form:
-      alert:
-      {{- with $m.alert.labels }}
-        labels:
-          {{- toYaml . | nindent 10 }}
-      {{- else }}
-        labels: {}
-      {{- end }}
+    spec:
+      monitoring:
+        {{- with $m.serviceMonitor.labels }}
+        agent: prometheus.io/operator
+        serviceMonitor:
+          labels:
+            {{- toYaml . | nindent 12 }}
+        {{- else }}
+        agent: ""
+        serviceMonitor:
+          labels: {}
+        {{- end }}
+      form:
+        alert:
+        {{- with $m.alert.labels }}
+          enabled: true
+          labels:
+            {{- toYaml . | nindent 12 }}
+        {{- else }}
+          enabled: false
+          labels: {}
+        {{- end }}

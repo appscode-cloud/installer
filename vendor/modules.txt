@@ -160,7 +160,7 @@ k8s.io/utils/strings/slices
 # kmodules.xyz/schema-checker v0.4.1
 ## explicit; go 1.17
 kmodules.xyz/schema-checker
-# kubeops.dev/installer v0.0.0-20220625004504-70ff7c51bdf0
+# kubeops.dev/installer v0.0.0-20220627095147-82e789070444
 ## explicit; go 1.18
 kubeops.dev/installer/apis/installer
 kubeops.dev/installer/apis/installer/v1alpha1
