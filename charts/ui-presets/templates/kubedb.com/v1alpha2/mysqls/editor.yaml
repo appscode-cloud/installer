@@ -18,4 +18,4 @@ spec:
   variants:
   - apiGroup: charts.x-helm.dev
     kind: ClusterChartPreset
-    name: kubedb.com-v1alpha2-mongodbs
+    name: kubedb.com-v1alpha2-mysqls
