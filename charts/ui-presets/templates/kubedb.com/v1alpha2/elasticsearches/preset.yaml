@@ -23,13 +23,13 @@ spec:
         serviceMonitor:
           labels: {}
         {{- end }}
-      form:
-        alert:
-        {{- with $m.alert.labels }}
-          enabled: true
-          labels:
-            {{- toYaml . | nindent 12 }}
-        {{- else }}
-          enabled: false
-          labels: {}
-        {{- end }}
+    form:
+      alert:
+      {{- with $m.alert.labels }}
+        enabled: true
+        labels:
+          {{- toYaml . | nindent 10 }}
+      {{- else }}
+        enabled: false
+        labels: {}
+      {{- end }}
