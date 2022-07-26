@@ -64,7 +64,7 @@ dependencies:
 - name: nats
   repository: https://nats-io.github.io/k8s/helm/charts/
   condition: nats.enabled
-  version: 0.17.1
+  version: 0.17.2
 - alias: nats-dns
   name: external-dns
   repository: https://kubernetes-sigs.github.io/external-dns/
