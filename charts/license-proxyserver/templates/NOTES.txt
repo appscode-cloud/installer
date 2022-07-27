@@ -1,0 +1,3 @@
+To verify that license-proxyserver operator has started, run:
+
+  kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "license-proxyserver.name" . }},app.kubernetes.io/instance={{ .Release.Name }}"

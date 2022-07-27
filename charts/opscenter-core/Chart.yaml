@@ -12,6 +12,10 @@ maintainers:
 - name: appscode
   email: support@appscode.com
 dependencies:
+- name: license-proxyserver
+  repository: file://../license-proxyserver
+  condition: license-proxyserver.enabled
+  version: v2022.06.14
 - name: kube-ui-server
   repository: https://charts.appscode.com/stable/
   condition: kube-ui-server.enabled
