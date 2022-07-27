@@ -72,6 +72,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&IngressNginx{},
 		&KubedbUiList{},
 		&KubedbUi{},
+		&LicenseProxyserverList{},
+		&LicenseProxyserver{},
 		&MarketplaceUiList{},
 		&MarketplaceUi{},
 		&NatsList{},
@@ -88,8 +90,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&PromProxy{},
 		&ReloaderList{},
 		&Reloader{},
-		&UiPresets{},
 		&UiPresetsList{},
+		&UiPresets{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

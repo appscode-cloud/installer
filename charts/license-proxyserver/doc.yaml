@@ -1,0 +1,18 @@
+project:
+  name: AppsCode License ProxyServer
+  shortName: AppsCode License ProxyServer
+  url: https://github.com/bytebuilders/license-proxyserver
+  description: AppsCode License ProxyServer
+  app: a Kubernetes license proxyserver
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: license-proxyserver
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.16+
+release:
+  name: license-proxyserver
+  namespace: kubeops

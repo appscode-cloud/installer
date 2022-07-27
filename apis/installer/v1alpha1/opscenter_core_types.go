@@ -45,12 +45,13 @@ type OpscenterCore struct {
 
 // OpscenterCoreSpec is the schema for Identity Server values file
 type OpscenterCoreSpec struct {
-	Global                GlobalValues              `json:"global"`
-	KubeUiServer          KubeUiServerSpec          `json:"kube-ui-server"`
-	Supervisor            SupervisorSpec            `json:"supervisor"`
-	GrafanaOperator       GrafanaOperatorSpec       `json:"grafana-operator"`
-	GrafanaUiServer       GrafanaUiServerSpec       `json:"grafana-ui-server"`
-	KubeGrafanaDashboards KubeGrafanaDashboardsSpec `json:"kube-grafana-dashboards"`
+	Global                GlobalValues                   `json:"global"`
+	LicenseProxyserver    EmbeddedLicenseProxyserverSpec `json:"license-proxyserver"`
+	KubeUiServer          KubeUiServerSpec               `json:"kube-ui-server"`
+	Supervisor            SupervisorSpec                 `json:"supervisor"`
+	GrafanaOperator       GrafanaOperatorSpec            `json:"grafana-operator"`
+	GrafanaUiServer       GrafanaUiServerSpec            `json:"grafana-ui-server"`
+	KubeGrafanaDashboards KubeGrafanaDashboardsSpec      `json:"kube-grafana-dashboards"`
 }
 
 type GlobalValues struct {
@@ -59,6 +60,11 @@ type GlobalValues struct {
 	RegistryFQDN     string     `json:"registryFQDN"`
 	ImagePullSecrets []string   `json:"imagePullSecrets"`
 	Monitoring       Monitoring `json:"monitoring"`
+}
+
+type EmbeddedLicenseProxyserverSpec struct {
+	Enabled                 *bool `json:"enabled"`
+	*LicenseProxyserverSpec `json:",inline,omitempty"`
 }
 
 type KubeUiServerSpec struct {
