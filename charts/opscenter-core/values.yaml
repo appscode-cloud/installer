@@ -38,6 +38,8 @@ global:
       # Only usable when monitoring agent is `prometheus.io/operator`.
       labels: {}
 
+license-proxyserver:
+  enabled: true
 kube-ui-server:
   enabled: true
 supervisor:
