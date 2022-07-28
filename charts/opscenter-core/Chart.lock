@@ -1,4 +1,7 @@
 dependencies:
+- name: license-proxyserver
+  repository: file://../license-proxyserver
+  version: v2022.06.14
 - name: kube-ui-server
   repository: https://charts.appscode.com/stable/
   version: v2022.06.14
@@ -14,5 +17,5 @@ dependencies:
 - name: kube-grafana-dashboards
   repository: https://charts.appscode.com/stable/
   version: v2022.06.14
-digest: sha256:e0aeddcff5b64aae1c8150136fba17f1be330265825a05458b202b5cb204cbf6
-generated: "2022-06-15T16:59:02.147516-07:00"
+digest: sha256:67557e13a03032116a1ef302a3cab15526c4f68787363f791db1a60e1dbe8d17
+generated: "2022-07-27T17:02:38.73503-07:00"
