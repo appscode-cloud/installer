@@ -30,6 +30,10 @@ crd-importer \
     --input=https://github.com/kubepack/kubepack/raw/${KUBEPACK_KUBEPACK_TAG}/crds/kubepack.com_products.yaml \
     --out=./charts/ace/crds
 
+crd-importer \
+    --input=https://github.com/prometheus-operator/prometheus-operator/raw/v0.54.1/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml \
+    --out=./charts/license-proxyserver/crds
+
 KMODULES_RESOURCE_METADATA_TAG=${KMODULES_RESOURCE_METADATA_TAG:-v0.12.1}
 KUBEPACK_PRESET_TAG=${KUBEPACK_PRESET_TAG:-v0.0.2}
 
