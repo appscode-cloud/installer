@@ -4,7 +4,7 @@
 {{- end }}
 
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "platform-api.fullname" . }}
   namespace: {{ .Release.Namespace }}
@@ -14,6 +14,7 @@ spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
+  podManagementPolicy: "Parallel"
   selector:
     matchLabels:
       {{- include "platform-api.selectorLabels" . | nindent 6 }}
