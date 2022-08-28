@@ -77,8 +77,14 @@ type LicenseProxyserverSpec struct {
 	ServiceAccount     ServiceAccountSpec       `json:"serviceAccount"`
 	Apiserver          WebHookSpec              `json:"apiserver"`
 	Monitoring         Monitoring               `json:"monitoring"`
+	Platform           PlatformSpec             `json:"platform"`
 	// +optional
-	License string `json:"license"`
+	Licenses map[string]string `json:"licenses"`
+}
+
+type PlatformSpec struct {
+	BaseURL string `json:"baseURL"`
+	Token   string `json:"token"`
 }
 
 type ImageRef struct {

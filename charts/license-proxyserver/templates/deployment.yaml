@@ -33,7 +33,7 @@ spec:
       {{- include "appscode.imagePullSecrets" . | nindent 6 }}
       serviceAccountName: {{ include "license-proxyserver.serviceAccountName" . }}
       containers:
-      - name: operator
+      - name: server
         securityContext:
           {{- toYaml .Values.image.securityContext | nindent 10 }}
         image: {{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
@@ -46,13 +46,20 @@ spec:
         - --tls-cert-file=/var/serving-cert/tls.crt
         - --tls-private-key-file=/var/serving-cert/tls.key
         - --use-kubeapiserver-fqdn-for-aks={{ .Values.apiserver.useKubeapiserverFqdnForAks }}
-        {{- if include "appscode.license" . }}
-        - --license-file=/var/run/secrets/appscode/license/key.txt
+        - --baseURL={{ .Values.platform.baseURL }}
+        - --token=$(PLATFORM_API_TOKEN)
+        {{- if .Values.licenses }}
+        - --license-dir=/var/run/secrets/appscode/license
         {{- end }}
         ports:
         - containerPort: 8443
         - containerPort: 8081
         env:
+        - name: PLATFORM_API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "license-proxyserver.fullname" . }}-token
+              key: token
         - name: POD_NAME
           valueFrom:
             fieldRef:
@@ -80,20 +87,20 @@ spec:
         volumeMounts:
         - mountPath: /var/serving-cert
           name: serving-cert
-        {{- if include "appscode.license" . }}
+        {{- if .Values.licenses }}
         - mountPath: /var/run/secrets/appscode/license
-          name: license
+          name: licenses
         {{- end }}
       volumes:
       - name: serving-cert
         secret:
           defaultMode: 420
           secretName: {{ include "license-proxyserver.fullname" . }}-apiserver-cert
-      {{- if include "appscode.license" . }}
-      - name: license
+      {{- if .Values.licenses }}
+      - name: licenses
         secret:
           defaultMode: 420
-          secretName: {{ include "license-proxyserver.fullname" . }}-license
+          secretName: {{ include "license-proxyserver.fullname" . }}-licenses
       {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}

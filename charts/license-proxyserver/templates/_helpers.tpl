@@ -63,31 +63,10 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
-Returns the appscode license
-*/}}
-{{- define "appscode.license" -}}
-{{- .Values.license }}
-{{- end }}
-
-{{/*
 Returns the registry used for operator docker image
 */}}
 {{- define "image.registry" -}}
 {{- list .Values.registryFQDN .Values.image.registry | compact | join "/" }}
-{{- end }}
-
-{{/*
-Returns the registry used for cleaner docker image
-*/}}
-{{- define "cleaner.registry" -}}
-{{- list .Values.registryFQDN .Values.cleaner.registry | compact | join "/" }}
-{{- end }}
-
-{{/*
-Returns whether the cleaner job YAML will be generated or not
-*/}}
-{{- define "cleaner.generate" -}}
-{{- ternary "false" "true" .Values.cleaner.skip -}}
 {{- end }}
 
 {{- define "appscode.imagePullSecrets" -}}
