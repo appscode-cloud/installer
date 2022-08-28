@@ -495,8 +495,10 @@ properties:
     items:
       type: string
     type: array
-  license:
-    type: string
+  licenses:
+    additionalProperties:
+      type: string
+    type: object
   logLevel:
     format: int32
     type: integer
@@ -524,6 +526,16 @@ properties:
   nodeSelector:
     additionalProperties:
       type: string
+    type: object
+  platform:
+    properties:
+      baseURL:
+        type: string
+      token:
+        type: string
+    required:
+    - baseURL
+    - token
     type: object
   podAnnotations:
     additionalProperties:
@@ -632,6 +644,7 @@ required:
 - image
 - imagePullPolicy
 - monitoring
+- platform
 - registryFQDN
 - replicaCount
 - serviceAccount
