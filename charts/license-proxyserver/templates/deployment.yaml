@@ -55,11 +55,13 @@ spec:
         - containerPort: 8443
         - containerPort: 8081
         env:
+        {{- if .Values.platform.token }}
         - name: PLATFORM_API_TOKEN
           valueFrom:
             secretKeyRef:
               name: {{ include "license-proxyserver.fullname" . }}-token
               key: token
+        {{- end }}
         - name: POD_NAME
           valueFrom:
             fieldRef:
