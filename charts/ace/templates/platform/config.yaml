@@ -35,16 +35,11 @@ stringData:
     AVATAR_UPLOAD_PATH      = /avatars
 
     [storage]
-    BUCKET_URL = {{ .Values.global.infra.avatars.bucket }}
-
-    [server]
-    PROTOCOL = http
-    DOMAIN = {{ .Values.global.platform.domain }}
-    ROOT_URL = https://{{ .Values.global.platform.domain }}
-    LANDING_PAGE = {{ .Values.settings.platform.serverLandingPage }}
-    SSH_DOMAIN = {{ default .Values.global.platform.domain .Values.settings.sshDomain }}
-    SSH_PORT = {{ .Values.settings.sshPort }}
-    SSH_LISTEN_PORT = {{ .Values.settings.sshPort }}
+    HOST = {{ .Values.global.storage.host }}
+    BUCKET_URL = {{ .Values.global.infra.storage.bucket }}
+  {{- if eq .Values.global.infra.objstore.provider "Google" }}
+    CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
+  {{- end }}
 
     [database]
     DB_TYPE = "postgres"
@@ -86,7 +81,6 @@ stringData:
 
     [security]
     SECRET_KEY     = {{ include "settings.csrfSecretkey" . }}
-    INSTALL_LOCK = {{ .Values.settings.platform.installLock }}
     CSRF_COOKIE_HTTP_ONLY = {{ .Values.settings.platform.enableCSRFCookieHttpOnly }}
 
     [service]
@@ -166,6 +160,7 @@ stringData:
     PATH = {{ .Values.global.infra.invoice.mountPath }}
     HOST = {{ .Values.global.infra.invoice.host }}
     BUCKET = {{ .Values.global.infra.invoice.bucket }}
+    PREFIX = {{ .Values.global.infra.invoice.prefix }}
     TRACKER_EMAIL = {{ .Values.global.infra.invoice.trackerEmail }}
   {{- if eq .Values.global.infra.objstore.provider "Google" }}
     CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
@@ -175,14 +170,37 @@ stringData:
     [yaml_storage]
     HOST = {{ .Values.global.infra.kubepack.host }}
     BUCKET = {{ .Values.global.infra.kubepack.bucket }}
+    PREFIX = {{ .Values.global.infra.kubepack.prefix }}
   {{- if eq .Values.global.infra.objstore.provider "Google" }}
     CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
   {{- end }}
 {{- end }}
 
-{{- if .Values.clusterConnector.registry }}
     [cluster_connector]
+  {{- if .Values.clusterConnector.registry }}
     REGISTRY    = {{ .Values.clusterConnector.registry }}
     REPOSITORY  = {{ .Values.clusterConnector.repository }}
     TAG         = {{ .Values.clusterConnector.tag }}
-{{- end }}
+    PULL_POLICY = {{ .Values.clusterConnector.pullPolicy }}
+  {{- end }}
+    HOST        = {{ .Values.clusterConnector.host }}
+    BUCKET      = {{ .Values.clusterConnector.bucket }}
+    PREFIX      = {{ .Values.clusterConnector.prefix }}
+  {{- if eq .Values.global.infra.objstore.provider "Google" }}
+    CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
+  {{- end }}
+
+    [contract]
+    BUCKET          = {{ .Values.contract.bucket }}
+    PREFIX          = {{ .Values.contract.prefix }}
+  {{- if eq .Values.global.infra.objstore.provider "Google" }}
+    CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
+  {{- end }}
+    LICENSE_BUCKET  = {{ .Values.contract.licenseBucket }}
+
+    [firebase]
+    PROJECT   = {{ .Values.firebase.project }}
+    DATABASE  = {{ .Values.firebase.database }}
+  {{- if eq .Values.global.infra.objstore.provider "Google" }}
+    CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
+  {{- end }}

@@ -63,6 +63,8 @@ type AceSpec struct {
 	Settings           Settings                  `json:"settings"`
 	Image              ImageReference            `json:"image"`
 	ClusterConnector   ClusterConnectorSpec      `json:"clusterConnector"`
+	Contract           ContractStorage           `json:"contract"`
+	Firebase           FirebaseSettings          `json:"firebase"`
 	PodAnnotations     map[string]string         `json:"podAnnotations"`
 	PodSecurityContext *core.PodSecurityContext  `json:"podSecurityContext"`
 	SecurityContext    *core.SecurityContext     `json:"securityContext"`
@@ -181,7 +183,7 @@ type PlatformInfra struct {
 	DNS          InfraDns             `json:"dns"`
 	Objstore     InfraObjstore        `json:"objstore"`
 	Kms          InfraKms             `json:"kms"`
-	Avatars      InfraAvatars         `json:"avatars"`
+	Storage      InfraStorage         `json:"storage"`
 	Kubepack     InfraKubepack        `json:"kubepack"`
 	Badger       InfraBadger          `json:"badger"`
 	Invoice      InfraInvoice         `json:"invoice"`
@@ -216,13 +218,15 @@ type InfraKms struct {
 	MasterKeyURL string `json:"masterKeyURL"`
 }
 
-type InfraAvatars struct {
+type InfraStorage struct {
+	Host   string `json:"host"`
 	Bucket string `json:"bucket"`
 }
 
 type InfraKubepack struct {
 	Host   string `json:"host"`
 	Bucket string `json:"bucket"`
+	Prefix string `json:"prefix"`
 }
 
 type InfraBadger struct {
@@ -233,6 +237,7 @@ type InfraBadger struct {
 type InfraInvoice struct {
 	MountPath    string `json:"mountPath"`
 	Bucket       string `json:"bucket"`
+	Prefix       string `json:"prefix"`
 	TrackerEmail string `json:"trackerEmail"`
 }
 
@@ -339,9 +344,22 @@ type GrafanaSettings struct {
 }
 
 type ClusterConnectorSpec struct {
-	Registry   string `json:"registry"`
-	Repository string `json:"repository"`
-	Tag        string `json:"tag"`
+	ImageReference `json:",inline,omitempty"`
+
+	Host   string `json:"host"`
+	Bucket string `json:"bucket"`
+	Prefix string `json:"prefix"`
+}
+
+type ContractStorage struct {
+	Bucket        string `json:"bucket"`
+	Prefix        string `json:"prefix"`
+	LicenseBucket string `json:"licenseBucket"`
+}
+
+type FirebaseSettings struct {
+	Project  string `json:"project"`
+	Database string `json:"database"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

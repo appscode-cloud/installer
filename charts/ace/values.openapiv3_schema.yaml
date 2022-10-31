@@ -2365,6 +2365,14 @@ properties:
     type: object
   clusterConnector:
     properties:
+      bucket:
+        type: string
+      host:
+        type: string
+      prefix:
+        type: string
+      pullPolicy:
+        type: string
       registry:
         type: string
       repository:
@@ -2372,9 +2380,26 @@ properties:
       tag:
         type: string
     required:
+    - bucket
+    - host
+    - prefix
+    - pullPolicy
     - registry
     - repository
     - tag
+    type: object
+  contract:
+    properties:
+      bucket:
+        type: string
+      licenseBucket:
+        type: string
+      prefix:
+        type: string
+    required:
+    - bucket
+    - licenseBucket
+    - prefix
     type: object
   deploy-ui:
     properties:
@@ -2983,6 +3008,16 @@ properties:
     - service
     - serviceAccount
     type: object
+  firebase:
+    properties:
+      database:
+        type: string
+      project:
+        type: string
+    required:
+    - database
+    - project
+    type: object
   global:
     properties:
       fullnameOverride:
@@ -2993,13 +3028,6 @@ properties:
         type: array
       infra:
         properties:
-          avatars:
-            properties:
-              bucket:
-                type: string
-            required:
-            - bucket
-            type: object
           badger:
             properties:
               levels:
@@ -3034,11 +3062,14 @@ properties:
                 type: string
               mountPath:
                 type: string
+              prefix:
+                type: string
               trackerEmail:
                 type: string
             required:
             - bucket
             - mountPath
+            - prefix
             - trackerEmail
             type: object
           kms:
@@ -3054,9 +3085,12 @@ properties:
                 type: string
               host:
                 type: string
+              prefix:
+                type: string
             required:
             - bucket
             - host
+            - prefix
             type: object
           objstore:
             properties:
@@ -3076,6 +3110,16 @@ properties:
             - mountPath
             - provider
             type: object
+          storage:
+            properties:
+              bucket:
+                type: string
+              host:
+                type: string
+            required:
+            - bucket
+            - host
+            type: object
           storageClass:
             properties:
               name:
@@ -3094,13 +3138,13 @@ properties:
             - email
             type: object
         required:
-        - avatars
         - badger
         - dns
         - invoice
         - kms
         - kubepack
         - objstore
+        - storage
         - storageClass
         - tls
         type: object
@@ -16340,7 +16384,9 @@ required:
 - billing
 - cluster-ui
 - clusterConnector
+- contract
 - deploy-ui
+- firebase
 - global
 - grafana
 - image
