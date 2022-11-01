@@ -140,7 +140,7 @@ Returns the ServiceMonitor labels
 {{- end }}
 
 {{- define "settings.caProviderClass" -}}
-{{- if (has .Values.global.infra.tls.issuer (list "ca" "letsencrypt-staging")) }}(include "ace.fullname" .){{end -}}
+{{- if (has .Values.global.infra.tls.issuer (list "ca" "letsencrypt-staging")) }}{{ include "ace.fullname" . }}{{end -}}
 {{- end }}
 
 {{/*
