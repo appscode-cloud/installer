@@ -2363,19 +2363,6 @@ properties:
     - service
     - serviceAccount
     type: object
-  clusterConnector:
-    properties:
-      registry:
-        type: string
-      repository:
-        type: string
-      tag:
-        type: string
-    required:
-    - registry
-    - repository
-    - tag
-    type: object
   deploy-ui:
     properties:
       affinity:
@@ -2993,13 +2980,6 @@ properties:
         type: array
       infra:
         properties:
-          avatars:
-            properties:
-              bucket:
-                type: string
-            required:
-            - bucket
-            type: object
           badger:
             properties:
               levels:
@@ -3014,12 +2994,9 @@ properties:
             properties:
               auth:
                 properties:
-                  email:
-                    type: string
                   token:
                     type: string
                 required:
-                - email
                 - token
                 type: object
               provider:
@@ -3034,11 +3011,14 @@ properties:
                 type: string
               mountPath:
                 type: string
+              prefix:
+                type: string
               trackerEmail:
                 type: string
             required:
             - bucket
             - mountPath
+            - prefix
             - trackerEmail
             type: object
           kms:
@@ -3054,9 +3034,12 @@ properties:
                 type: string
               host:
                 type: string
+              prefix:
+                type: string
             required:
             - bucket
             - host
+            - prefix
             type: object
           objstore:
             properties:
@@ -3076,6 +3059,16 @@ properties:
             - mountPath
             - provider
             type: object
+          storage:
+            properties:
+              bucket:
+                type: string
+              host:
+                type: string
+            required:
+            - bucket
+            - host
+            type: object
           storageClass:
             properties:
               name:
@@ -3094,13 +3087,13 @@ properties:
             - email
             type: object
         required:
-        - avatars
         - badger
         - dns
         - invoice
         - kms
         - kubepack
         - objstore
+        - storage
         - storageClass
         - tls
         type: object
@@ -16070,6 +16063,44 @@ properties:
         - terminationPolicy
         - version
         type: object
+      clusterConnector:
+        properties:
+          bucket:
+            type: string
+          host:
+            type: string
+          prefix:
+            type: string
+          pullPolicy:
+            type: string
+          registry:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - bucket
+        - host
+        - prefix
+        - pullPolicy
+        - registry
+        - repository
+        - tag
+        type: object
+      contract:
+        properties:
+          bucket:
+            type: string
+          licenseBucket:
+            type: string
+          prefix:
+            type: string
+        required:
+        - bucket
+        - licenseBucket
+        - prefix
+        type: object
       db:
         properties:
           auth:
@@ -16125,6 +16156,16 @@ properties:
         - resources
         - terminationPolicy
         - version
+        type: object
+      firebase:
+        properties:
+          database:
+            type: string
+          project:
+            type: string
+        required:
+        - database
+        - project
         type: object
       grafana:
         properties:
@@ -16309,7 +16350,10 @@ properties:
         type: object
     required:
     - cache
+    - clusterConnector
+    - contract
     - db
+    - firebase
     - grafana
     - nats
     - platform
@@ -16339,7 +16383,6 @@ required:
 - affinity
 - billing
 - cluster-ui
-- clusterConnector
 - deploy-ui
 - global
 - grafana
