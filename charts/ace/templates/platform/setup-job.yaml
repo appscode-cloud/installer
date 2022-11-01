@@ -33,6 +33,7 @@ spec:
             - gitea
             - dev
             - --reload-nats-accounts
+            - --exim
             {{ if .Values.global.platform.hosted }}
             - --create-nats-stream
             {{ end }}
@@ -70,10 +71,10 @@ spec:
             - name: nats-cred
               mountPath: {{ .Values.settings.nats.mountPath }}
             {{- end }}
-            # {{- if (include "settings.objstoreSecretName" .) }}
-            # - name: objstore-cred
-            #   mountPath: {{ $infra.objstore.mountPath }}
-            # {{- end }}
+            {{- if (include "settings.objstoreSecretName" .) }}
+            - name: objstore-cred
+              mountPath: {{ $infra.objstore.mountPath }}
+            {{- end }}
       volumes:
         - name: data
           emptyDir: {}
@@ -89,12 +90,12 @@ spec:
             defaultMode: 420
             secretName: {{ $secretName }}
         {{- end }}
-        # {{- with $secretName := (include "settings.objstoreSecretName" .) }}
-        # - name: objstore-cred
-        #   secret:
-        #     defaultMode: 420
-        #     secretName: {{ $secretName }}
-        # {{- end }}
+        {{- with $secretName := (include "settings.objstoreSecretName" .) }}
+        - name: objstore-cred
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
