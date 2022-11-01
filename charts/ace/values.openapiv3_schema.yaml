@@ -2363,44 +2363,6 @@ properties:
     - service
     - serviceAccount
     type: object
-  clusterConnector:
-    properties:
-      bucket:
-        type: string
-      host:
-        type: string
-      prefix:
-        type: string
-      pullPolicy:
-        type: string
-      registry:
-        type: string
-      repository:
-        type: string
-      tag:
-        type: string
-    required:
-    - bucket
-    - host
-    - prefix
-    - pullPolicy
-    - registry
-    - repository
-    - tag
-    type: object
-  contract:
-    properties:
-      bucket:
-        type: string
-      licenseBucket:
-        type: string
-      prefix:
-        type: string
-    required:
-    - bucket
-    - licenseBucket
-    - prefix
-    type: object
   deploy-ui:
     properties:
       affinity:
@@ -3007,16 +2969,6 @@ properties:
     - replicaCount
     - service
     - serviceAccount
-    type: object
-  firebase:
-    properties:
-      database:
-        type: string
-      project:
-        type: string
-    required:
-    - database
-    - project
     type: object
   global:
     properties:
@@ -16114,6 +16066,44 @@ properties:
         - terminationPolicy
         - version
         type: object
+      clusterConnector:
+        properties:
+          bucket:
+            type: string
+          host:
+            type: string
+          prefix:
+            type: string
+          pullPolicy:
+            type: string
+          registry:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - bucket
+        - host
+        - prefix
+        - pullPolicy
+        - registry
+        - repository
+        - tag
+        type: object
+      contract:
+        properties:
+          bucket:
+            type: string
+          licenseBucket:
+            type: string
+          prefix:
+            type: string
+        required:
+        - bucket
+        - licenseBucket
+        - prefix
+        type: object
       db:
         properties:
           auth:
@@ -16169,6 +16159,16 @@ properties:
         - resources
         - terminationPolicy
         - version
+        type: object
+      firebase:
+        properties:
+          database:
+            type: string
+          project:
+            type: string
+        required:
+        - database
+        - project
         type: object
       grafana:
         properties:
@@ -16353,7 +16353,10 @@ properties:
         type: object
     required:
     - cache
+    - clusterConnector
+    - contract
     - db
+    - firebase
     - grafana
     - nats
     - platform
@@ -16383,10 +16386,7 @@ required:
 - affinity
 - billing
 - cluster-ui
-- clusterConnector
-- contract
 - deploy-ui
-- firebase
 - global
 - grafana
 - image

@@ -62,9 +62,6 @@ type AceSpec struct {
 	Global             AceGlobalValues           `json:"global"`
 	Settings           Settings                  `json:"settings"`
 	Image              ImageReference            `json:"image"`
-	ClusterConnector   ClusterConnectorSpec      `json:"clusterConnector"`
-	Contract           ContractStorage           `json:"contract"`
-	Firebase           FirebaseSettings          `json:"firebase"`
 	PodAnnotations     map[string]string         `json:"podAnnotations"`
 	PodSecurityContext *core.PodSecurityContext  `json:"podSecurityContext"`
 	SecurityContext    *core.SecurityContext     `json:"securityContext"`
@@ -242,15 +239,18 @@ type InfraInvoice struct {
 }
 
 type Settings struct {
-	DB          DBSettings          `json:"db"`
-	Cache       CacheSettings       `json:"cache"`
-	Smtp        SmtpSettings        `json:"smtp"`
-	Nats        NatsSettings        `json:"nats"`
-	Platform    PlatformSettings    `json:"platform"`
-	Stripe      StripeSettings      `json:"stripe"`
-	Security    SecuritySettings    `json:"security"`
-	Searchlight SearchlightSettings `json:"searchlight"`
-	Grafana     GrafanaSettings     `json:"grafana"`
+	DB               DBSettings           `json:"db"`
+	Cache            CacheSettings        `json:"cache"`
+	Smtp             SmtpSettings         `json:"smtp"`
+	Nats             NatsSettings         `json:"nats"`
+	Platform         PlatformSettings     `json:"platform"`
+	Stripe           StripeSettings       `json:"stripe"`
+	Security         SecuritySettings     `json:"security"`
+	Searchlight      SearchlightSettings  `json:"searchlight"`
+	Grafana          GrafanaSettings      `json:"grafana"`
+	ClusterConnector ClusterConnectorSpec `json:"clusterConnector"`
+	Contract         ContractStorage      `json:"contract"`
+	Firebase         FirebaseSettings     `json:"firebase"`
 }
 
 type DBSettings struct {
