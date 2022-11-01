@@ -1,0 +1,16 @@
+{{- if (has .Values.global.infra.tls.issuer (list "ca" "letsencrypt-staging")) }}
+
+apiVersion: cacerts.csi.cert-manager.io/v1alpha1
+kind: CAProviderClass
+metadata:
+  name: {{ include "ace.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+spec:
+  refs:
+  - apiGroup: cert-manager.io
+    kind: Issuer
+    namespace: {{ .Release.Namespace }}
+    name: {{ include "ace.fullname" . }}
+{{- end}}

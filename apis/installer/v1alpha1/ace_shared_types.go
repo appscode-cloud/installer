@@ -86,6 +86,7 @@ type VolumeMount struct {
 }
 
 type AceSettings struct {
+	CAProviderClass       string `json:"caProviderClass"`
 	AceSettingsSecretName `json:"secretName"`
 }
 

@@ -1,0 +1,13 @@
+{{- if (eq .Values.global.infra.tls.issuer "ca") }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "ace.fullname" . }}-ca
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+type: kubernetes.io/tls
+data:
+  tls.crt: {{ .Values.global.infra.tls.ca.encodedCrt }}
+  tls.key: {{ .Values.global.infra.tls.ca.encodedKey }}
+{{- end }}

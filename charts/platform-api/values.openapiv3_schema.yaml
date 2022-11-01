@@ -649,6 +649,8 @@ properties:
     type: object
   settings:
     properties:
+      caProviderClass:
+        type: string
       secretName:
         properties:
           grafanaConfig:
@@ -666,6 +668,7 @@ properties:
         - platformConfig
         type: object
     required:
+    - caProviderClass
     - secretName
     type: object
   tolerations:

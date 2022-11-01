@@ -110,7 +110,8 @@ type AceOptionsPlatformInfra struct {
 }
 
 type AceOptionsInfraTLS struct {
-	Email string `json:"email"`
+	Issuer TLSIssuerType `json:"issuer"`
+	Acme   TLSIssuerAcme `json:"acme"`
 }
 
 type AceOptionsInfraCloudServices struct {
