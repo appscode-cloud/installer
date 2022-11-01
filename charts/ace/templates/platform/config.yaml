@@ -35,7 +35,7 @@ stringData:
     AVATAR_UPLOAD_PATH      = /avatars
 
     [storage]
-    HOST = {{ .Values.global.storage.host }}
+    HOST = {{ .Values.global.infra.storage.host }}
     BUCKET_URL = {{ .Values.global.infra.storage.bucket }}
   {{- if eq .Values.global.infra.objstore.provider "Google" }}
     CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
@@ -177,30 +177,30 @@ stringData:
 {{- end }}
 
     [cluster_connector]
-  {{- if .Values.clusterConnector.registry }}
-    REGISTRY    = {{ .Values.clusterConnector.registry }}
-    REPOSITORY  = {{ .Values.clusterConnector.repository }}
-    TAG         = {{ .Values.clusterConnector.tag }}
-    PULL_POLICY = {{ .Values.clusterConnector.pullPolicy }}
+  {{- if .Values.settings.clusterConnector.registry }}
+    REGISTRY    = {{ .Values.settings.clusterConnector.registry }}
+    REPOSITORY  = {{ .Values.settings.clusterConnector.repository }}
+    TAG         = {{ .Values.settings.clusterConnector.tag }}
+    PULL_POLICY = {{ .Values.settings.clusterConnector.pullPolicy }}
   {{- end }}
-    HOST        = {{ .Values.clusterConnector.host }}
-    BUCKET      = {{ .Values.clusterConnector.bucket }}
-    PREFIX      = {{ .Values.clusterConnector.prefix }}
+    HOST        = {{ .Values.settings.clusterConnector.host }}
+    BUCKET      = {{ .Values.settings.clusterConnector.bucket }}
+    PREFIX      = {{ .Values.settings.clusterConnector.prefix }}
   {{- if eq .Values.global.infra.objstore.provider "Google" }}
     CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
   {{- end }}
 
     [contract]
-    BUCKET          = {{ .Values.contract.bucket }}
-    PREFIX          = {{ .Values.contract.prefix }}
+    BUCKET          = {{ .Values.settings.contract.bucket }}
+    PREFIX          = {{ .Values.settings.contract.prefix }}
   {{- if eq .Values.global.infra.objstore.provider "Google" }}
     CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
   {{- end }}
-    LICENSE_BUCKET  = {{ .Values.contract.licenseBucket }}
+    LICENSE_BUCKET  = {{ .Values.settings.contract.licenseBucket }}
 
     [firebase]
-    PROJECT   = {{ .Values.firebase.project }}
-    DATABASE  = {{ .Values.firebase.database }}
+    PROJECT   = {{ .Values.settings.firebase.project }}
+    DATABASE  = {{ .Values.settings.firebase.database }}
   {{- if eq .Values.global.infra.objstore.provider "Google" }}
     CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
   {{- end }}
