@@ -119,7 +119,7 @@ global:
       # acmeServer: https://acme-v02.api.letsencrypt.org/directory
       email: ops@appscode.com
     dns:
-      provider: "Cloudflare"
+      provider: "cloudflare"
       auth:
         token: xyz
     # KMS and Object Store services are required

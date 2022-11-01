@@ -18,7 +18,7 @@ spec:
     # An empty 'selector' means that this solver matches all domains
     - selector: {}
       dns01:
-      {{- if eq .Values.global.infra.dns.provider "Cloudflare" }}
+      {{- if eq .Values.global.infra.dns.provider "cloudflare" }}
         cloudflare:
           email: '{{ .Values.global.infra.tls.email }}'
           apiTokenSecretRef:

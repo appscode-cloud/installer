@@ -8,7 +8,7 @@ metadata:
     {{- include "ace.labels" . | nindent 4 }}
 type: Opaque
 stringData:
-{{- if eq .Values.global.infra.dns.provider "Cloudflare" }}
+{{- if eq .Values.global.infra.dns.provider "cloudflare" }}
   api-token: '{{ .Values.global.infra.dns.auth.token }}'
 {{- end }}
 
