@@ -186,9 +186,27 @@ type PlatformInfra struct {
 	Invoice      InfraInvoice         `json:"invoice"`
 }
 
+// +kubebuilder:validation:Enum=ca;letsencrypt;letsencrypt-staging
+type TLSIssuerType string
+
+const (
+	TLSIssuerTypeCA        TLSIssuerType = "ca"
+	TLSIssuerTypeLE        TLSIssuerType = "letsencrypt"
+	TLSIssuerTypeLEStaging TLSIssuerType = "letsencrypt-staging"
+)
+
 type InfraTLS struct {
-	AcmeServer string `json:"acmeServer"`
-	Email      string `json:"email"`
+	Issuer TLSIssuerType `json:"issuer"`
+	CA     TLSIssuerCA   `json:"ca"`
+	Acme   TLSIssuerAcme `json:"acme"`
+}
+
+type TLSIssuerCA struct {
+	EncodedCrt string `json:"encodedCrt"`
+	EncodedKey string `json:"encodedKey"`
+}
+type TLSIssuerAcme struct {
+	Email string `json:"email"`
 }
 
 type InfraDns struct {
