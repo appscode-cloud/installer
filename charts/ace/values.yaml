@@ -121,7 +121,6 @@ global:
     dns:
       provider: "Cloudflare"
       auth:
-        email: ops@appscode.com
         token: xyz
     # KMS and Object Store services are required
     # set provider to empty to disable this feature

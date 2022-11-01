@@ -2994,12 +2994,9 @@ properties:
             properties:
               auth:
                 properties:
-                  email:
-                    type: string
                   token:
                     type: string
                 required:
-                - email
                 - token
                 type: object
               provider:

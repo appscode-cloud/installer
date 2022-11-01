@@ -20,7 +20,7 @@ spec:
       dns01:
       {{- if eq .Values.global.infra.dns.provider "Cloudflare" }}
         cloudflare:
-          email: '{{ .Values.global.infra.dns.auth.email }}'
+          email: '{{ .Values.global.infra.tls.email }}'
           apiTokenSecretRef:
             name: {{ include "ace.fullname" . }}-dns-cred
             key: api-token
