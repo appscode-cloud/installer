@@ -15,6 +15,7 @@ spec:
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   podManagementPolicy: "Parallel"
+  serviceName: {{ include "platform-api.fullname" . }}-headless
   selector:
     matchLabels:
       {{- include "platform-api.selectorLabels" . | nindent 6 }}

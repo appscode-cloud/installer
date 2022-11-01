@@ -119,9 +119,8 @@ global:
       # acmeServer: https://acme-v02.api.letsencrypt.org/directory
       email: ops@appscode.com
     dns:
-      provider: "Cloudflare"
+      provider: "cloudflare"
       auth:
-        email: ops@appscode.com
         token: xyz
     # KMS and Object Store services are required
     # set provider to empty to disable this feature
@@ -139,12 +138,14 @@ global:
       # masterKeyURL: base64key://smGbjm71Nxd1Ig5FS0wj9SlbzAIrnolCz9bQQ6uAhl4=
       # provider: "Google"
       # masterKeyURL: gcpkms://projects/
-    avatars:
+    storage:
       # might be a file storage prefixed with file://
+      host: ""
       bucket: gs://bytebuilders-avatars
     kubepack:
       host: ""
       bucket: ""
+      prefix: ""
     badger:
       mountPath: /badger
       levels: 7
@@ -152,6 +153,7 @@ global:
       mountPath: /billing
       # host: https://console.cloud.google.com/storage/browser/invoice-storage-demo
       bucket: gs://invoice-storage-demo
+      prefix: ""
       trackerEmail: invoice-tracker@appscode.com
 
 settings:
@@ -314,11 +316,25 @@ settings:
     oauth2JWTSecret: ""
     csrfSecretKey: ""
 
-# Docker registry containing cluster connector images
-clusterConnector:
-  registry: ""
-  repository: ""
-  tag: ""
+  clusterConnector:
+    # Docker registry containing cluster connector images
+    registry: ""
+    repository: ""
+    tag: ""
+    pullPolicy: Always
+    # bucket to store cluster-connector yamls
+    host: ""
+    bucket: ""
+    prefix: ""
+
+  contract:
+    bucket: ""
+    prefix: ""
+    licenseBucket: ""
+
+  firebase:
+    project: ""
+    database: ""
 
 # Docker registry containing app images
 image:
