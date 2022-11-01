@@ -653,6 +653,8 @@ properties:
         type: object
       settings:
         properties:
+          caProviderClass:
+            type: string
           secretName:
             properties:
               grafanaConfig:
@@ -670,6 +672,7 @@ properties:
             - platformConfig
             type: object
         required:
+        - caProviderClass
         - secretName
         type: object
       tolerations:
@@ -1702,6 +1705,8 @@ properties:
         type: object
       settings:
         properties:
+          caProviderClass:
+            type: string
           secretName:
             properties:
               grafanaConfig:
@@ -1719,6 +1724,7 @@ properties:
             - platformConfig
             type: object
         required:
+        - caProviderClass
         - secretName
         type: object
       summary:
@@ -3078,13 +3084,33 @@ properties:
             type: object
           tls:
             properties:
-              acmeServer:
-                type: string
-              email:
+              acme:
+                properties:
+                  email:
+                    type: string
+                required:
+                - email
+                type: object
+              ca:
+                properties:
+                  encodedCrt:
+                    type: string
+                  encodedKey:
+                    type: string
+                required:
+                - encodedCrt
+                - encodedKey
+                type: object
+              issuer:
+                enum:
+                - ca
+                - letsencrypt
+                - letsencrypt-staging
                 type: string
             required:
-            - acmeServer
-            - email
+            - acme
+            - ca
+            - issuer
             type: object
         required:
         - badger
@@ -3827,6 +3853,8 @@ properties:
         type: object
       settings:
         properties:
+          caProviderClass:
+            type: string
           secretName:
             properties:
               grafanaConfig:
@@ -3844,6 +3872,7 @@ properties:
             - platformConfig
             type: object
         required:
+        - caProviderClass
         - secretName
         type: object
       tolerations:
@@ -13574,6 +13603,8 @@ properties:
         type: object
       settings:
         properties:
+          caProviderClass:
+            type: string
           secretName:
             properties:
               grafanaConfig:
@@ -13591,6 +13622,7 @@ properties:
             - platformConfig
             type: object
         required:
+        - caProviderClass
         - secretName
         type: object
       tolerations:
@@ -14950,6 +14982,8 @@ properties:
         type: object
       settings:
         properties:
+          caProviderClass:
+            type: string
           secretName:
             properties:
               grafanaConfig:
@@ -14967,6 +15001,7 @@ properties:
             - platformConfig
             type: object
         required:
+        - caProviderClass
         - secretName
         type: object
       tolerations:

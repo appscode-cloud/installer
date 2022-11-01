@@ -209,10 +209,22 @@ properties:
         type: object
       tls:
         properties:
-          email:
+          acme:
+            properties:
+              email:
+                type: string
+            required:
+            - email
+            type: object
+          issuer:
+            enum:
+            - ca
+            - letsencrypt
+            - letsencrypt-staging
             type: string
         required:
-        - email
+        - acme
+        - issuer
         type: object
     required:
     - cloudServices

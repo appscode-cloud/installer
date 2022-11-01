@@ -109,3 +109,7 @@ Returns the ServiceMonitor labels
 {{- define "settings.natsSecretName" -}}
 {{- .Values.settings.secretName.nats -}}
 {{- end }}
+
+{{- define "settings.caProviderClass" -}}
+{{- .Values.settings.caProviderClass -}}
+{{- end }}
