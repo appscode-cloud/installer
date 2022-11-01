@@ -69,6 +69,10 @@ spec:
             - name: objstore-cred
               mountPath: {{ $infra.objstore.mountPath }}
             {{- end }}
+            {{- if (include "settings.caProviderClass" .) }}
+            - name: cacerts
+              mountPath: /etc/ssl/certs
+            {{- end }}
       volumes:
         {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
         - name: config
@@ -87,6 +91,15 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: {{ include "accounts-ui.fullname" . }}-data
+        {{- end }}
+        {{- with $cpc := (include "settings.caProviderClass" .) }}
+        - name: cacerts
+          csi:
+            driver: cacerts.csi.cert-manager.io
+            readOnly: true
+            volumeAttributes:
+              os: debian
+              caProviderClasses: {{ $cpc }}
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

@@ -91,6 +91,7 @@ infra:
     mountPath: /billing
 
 settings:
+  caProviderClass: ""
   secretName:
     platformConfig: ""
     grafanaConfig: ""

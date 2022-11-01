@@ -115,9 +115,12 @@ global:
     storageClass:
       name: "standard"
     tls:
-      acmeServer: https://acme-staging-v02.api.letsencrypt.org/directory
-      # acmeServer: https://acme-v02.api.letsencrypt.org/directory
-      email: ops@appscode.com
+      issuer: "ca" # "ca" or "letsencrypt" or "letsencrypt-staging"
+      ca:
+        encodedCrt: ""
+        encodedKey: ""
+      acme:
+        email: ops@appscode.com
     dns:
       provider: "cloudflare"
       auth:
