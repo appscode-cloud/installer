@@ -115,7 +115,7 @@ type AceOptionsInfraTLS struct {
 }
 
 type AceOptionsInfraCloudServices struct {
-	Provider string                  `json:"provider"`
+	Provider ObjstoreProvider        `json:"provider"`
 	Auth     ObjstoreAuth            `json:"auth"`
 	Objstore AceOptionsInfraObjstore `json:"objstore"`
 	// +optional
