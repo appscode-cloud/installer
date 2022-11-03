@@ -159,10 +159,25 @@ properties:
         properties:
           auth:
             properties:
-              serviceAccountJson:
+              AWS_ACCESS_KEY_ID:
+                type: string
+              AWS_REGION:
+                type: string
+              AWS_SECRET_ACCESS_KEY:
+                type: string
+              CA_CERT_DATA:
+                type: string
+              GOOGLE_PROJECT_ID:
+                type: string
+              GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
                 type: string
             required:
-            - serviceAccountJson
+            - AWS_ACCESS_KEY_ID
+            - AWS_REGION
+            - AWS_SECRET_ACCESS_KEY
+            - CA_CERT_DATA
+            - GOOGLE_PROJECT_ID
+            - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
             type: object
           kms:
             properties:
@@ -179,6 +194,9 @@ properties:
             - bucket
             type: object
           provider:
+            enum:
+            - gcs
+            - s3
             type: string
         required:
         - auth
@@ -189,12 +207,24 @@ properties:
         properties:
           auth:
             properties:
+              AWS_ACCESS_KEY_ID:
+                type: string
+              AWS_REGION:
+                type: string
+              AWS_SECRET_ACCESS_KEY:
+                type: string
               token:
                 type: string
             required:
+            - AWS_ACCESS_KEY_ID
+            - AWS_REGION
+            - AWS_SECRET_ACCESS_KEY
             - token
             type: object
           provider:
+            enum:
+            - cloudflare
+            - route53
             type: string
         required:
         - auth

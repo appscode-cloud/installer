@@ -53,9 +53,28 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
-          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "Google") }}
+          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "gcs") }}
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: {{ $infra.objstore.mountPath }}/sa.json
+          {{- end }}
+          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "s3") }}
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "settings.objstoreSecretName" . }}
+                  key: AWS_ACCESS_KEY_ID
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "settings.objstoreSecretName" . }}
+                  key: AWS_SECRET_ACCESS_KEY
+            {{- if $infra.objstore.auth.AWS_REGION }}
+            - name: AWS_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "settings.objstoreSecretName" . }}
+                  key: AWS_REGION
+            {{- end }}
           {{- end }}
           volumeMounts:
             - name: data

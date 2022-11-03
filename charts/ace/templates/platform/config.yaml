@@ -37,9 +37,6 @@ stringData:
     [storage]
     HOST = {{ .Values.global.infra.storage.host }}
     BUCKET_URL = {{ .Values.global.infra.storage.bucket }}
-  {{- if eq .Values.global.infra.objstore.provider "Google" }}
-    CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
-  {{- end }}
 
     [database]
     DB_TYPE = "postgres"
@@ -162,18 +159,12 @@ stringData:
     BUCKET = {{ .Values.global.infra.invoice.bucket }}
     PREFIX = {{ .Values.global.infra.invoice.prefix }}
     TRACKER_EMAIL = {{ .Values.global.infra.invoice.trackerEmail }}
-  {{- if eq .Values.global.infra.objstore.provider "Google" }}
-    CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
-  {{- end }}
   {{- end }}
 
     [yaml_storage]
     HOST = {{ .Values.global.infra.kubepack.host }}
     BUCKET = {{ .Values.global.infra.kubepack.bucket }}
     PREFIX = {{ .Values.global.infra.kubepack.prefix }}
-  {{- if eq .Values.global.infra.objstore.provider "Google" }}
-    CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
-  {{- end }}
 {{- end }}
 
     [cluster_connector]
@@ -186,21 +177,12 @@ stringData:
     HOST        = {{ .Values.settings.clusterConnector.host }}
     BUCKET      = {{ .Values.settings.clusterConnector.bucket }}
     PREFIX      = {{ .Values.settings.clusterConnector.prefix }}
-  {{- if eq .Values.global.infra.objstore.provider "Google" }}
-    CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
-  {{- end }}
 
     [contract]
     BUCKET          = {{ .Values.settings.contract.bucket }}
     PREFIX          = {{ .Values.settings.contract.prefix }}
-  {{- if eq .Values.global.infra.objstore.provider "Google" }}
-    CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
-  {{- end }}
     LICENSE_BUCKET  = {{ .Values.settings.contract.licenseBucket }}
 
     [firebase]
     PROJECT   = {{ .Values.settings.firebase.project }}
     DATABASE  = {{ .Values.settings.firebase.database }}
-  {{- if eq .Values.global.infra.objstore.provider "Google" }}
-    CREDENTIAL = {{ .Values.global.infra.objstore.mountPath }}/sa.json
-  {{- end }}
