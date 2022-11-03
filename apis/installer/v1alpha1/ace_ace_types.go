@@ -179,6 +179,7 @@ type PlatformInfra struct {
 	TLS          InfraTLS             `json:"tls"`
 	DNS          InfraDns             `json:"dns"`
 	Objstore     InfraObjstore        `json:"objstore"`
+	Stash        InfraStash           `json:"stash"`
 	Kms          InfraKms             `json:"kms"`
 	Storage      InfraStorage         `json:"storage"`
 	Kubepack     InfraKubepack        `json:"kubepack"`
@@ -209,23 +210,52 @@ type TLSIssuerAcme struct {
 	Email string `json:"email"`
 }
 
+// +kubebuilder:validation:Enum=cloudflare;route53
+type DNSProvider string
+
+const (
+	DNSProviderCloudflare DNSProvider = "cloudflare"
+	DNSProviderRoute53    DNSProvider = "route53"
+)
+
 type InfraDns struct {
-	Provider string          `json:"provider"`
+	Provider DNSProvider     `json:"provider"`
 	Auth     DNSProviderAuth `json:"auth"`
 }
 
 type DNSProviderAuth struct {
-	Token string `json:"token"`
+	Token              string `json:"token"`
+	AwsAccessKeyID     string `json:"AWS_ACCESS_KEY_ID"`
+	AwsSecretAccessKey string `json:"AWS_SECRET_ACCESS_KEY"`
+	AwsRegion          string `json:"AWS_REGION"`
 }
 
+// +kubebuilder:validation:Enum=gcs;s3
+type ObjstoreProvider string
+
+const (
+	ObjstoreProviderGCS ObjstoreProvider = "gcs"
+	ObjstoreProviderS3  ObjstoreProvider = "s3"
+)
+
 type InfraObjstore struct {
-	Provider  string       `json:"provider"`
-	MountPath string       `json:"mountPath"`
-	Auth      ObjstoreAuth `json:"auth"`
+	Provider  ObjstoreProvider `json:"provider"`
+	MountPath string           `json:"mountPath"`
+	Auth      ObjstoreAuth     `json:"auth"`
 }
 
 type ObjstoreAuth struct {
-	ServiceAccountJson string `json:"serviceAccountJson"`
+	GoogleServiceAccountJsonKey string `json:"GOOGLE_SERVICE_ACCOUNT_JSON_KEY"`
+	GoogleProjectID             string `json:"GOOGLE_PROJECT_ID"`
+	AwsAccessKeyID              string `json:"AWS_ACCESS_KEY_ID"`
+	AwsSecretAccessKey          string `json:"AWS_SECRET_ACCESS_KEY"`
+	AwsRegion                   string `json:"AWS_REGION"`
+	CACertData                  string `json:"CA_CERT_DATA"`
+}
+
+type InfraStash struct {
+	BackupPassword  string `json:"backupPassword"`
+	RestorePassword string `json:"restorePassword"`
 }
 
 type InfraKms struct {

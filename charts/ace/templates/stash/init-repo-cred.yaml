@@ -7,6 +7,17 @@ metadata:
     {{- include "ace.labels" . | nindent 4 }}
 type: Opaque
 stringData:
-  AWS_ACCESS_KEY_ID: 'xyz'
-  AWS_SECRET_ACCESS_KEY: 'xyz'
-  RESTIC_PASSWORD: 'xyz'
+  RESTIC_PASSWORD: {{ .Values.global.infra.stash.restorePassword | quote }}
+{{- if eq .Values.global.infra.objstore.provider "gcs" }}
+  GOOGLE_SERVICE_ACCOUNT_JSON_KEY: '{{ .Values.global.infra.objstore.auth.GOOGLE_SERVICE_ACCOUNT_JSON_KEY }}'
+  {{- with .Values.global.infra.objstore.auth.GOOGLE_PROJECT_ID }}
+  GOOGLE_PROJECT_ID: '{{ . }}'
+  {{- end }}
+{{- end }}
+{{- if eq .Values.global.infra.objstore.provider "s3" }}
+  AWS_ACCESS_KEY_ID: '{{ .Values.global.infra.objstore.auth.AWS_ACCESS_KEY_ID }}'
+  AWS_SECRET_ACCESS_KEY: '{{ .Values.global.infra.objstore.auth.AWS_SECRET_ACCESS_KEY }}'
+  {{- with .Values.global.infra.objstore.auth.CA_CERT_DATA }}
+  CA_CERT_DATA: '{{ . }}'
+  {{- end }}
+{{- end }}

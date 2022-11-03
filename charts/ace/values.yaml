@@ -115,24 +115,35 @@ global:
     storageClass:
       name: "standard"
     tls:
-      issuer: "ca" # "ca" or "letsencrypt" or "letsencrypt-staging"
+      issuer: "ca" # ca,letsencrypt,letsencrypt-staging
       ca:
         encodedCrt: ""
         encodedKey: ""
       acme:
         email: ops@appscode.com
     dns:
-      provider: "cloudflare"
+      provider: "cloudflare" # cloudflare,route53
       auth:
         token: xyz
+        AWS_ACCESS_KEY_ID: ""
+        AWS_SECRET_ACCESS_KEY: ""
+        AWS_REGION: "" # optional
     # KMS and Object Store services are required
     # set provider to empty to disable this feature
     objstore:
-      provider: Google
+      provider: gcs # gcs, s3
       # credential : /data/credentials/sa.json
       mountPath: /data/credentials
       auth:
-        serviceAccountJson: "xyz"
+        GOOGLE_SERVICE_ACCOUNT_JSON_KEY: ""
+        GOOGLE_PROJECT_ID: "" # optional
+        AWS_ACCESS_KEY_ID: ""
+        AWS_SECRET_ACCESS_KEY: ""
+        AWS_REGION: "" # optional
+        CA_CERT_DATA: "" # optional
+    stash:
+      backupPassword: ""
+      restorePassword: ""
     kms:
       # location where the secret key resides
       masterKeyURL: ""
