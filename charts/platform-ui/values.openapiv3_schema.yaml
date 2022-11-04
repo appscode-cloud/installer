@@ -588,6 +588,30 @@ properties:
     required:
     - name
     type: object
+  settings:
+    properties:
+      caProviderClass:
+        type: string
+      secretName:
+        properties:
+          grafanaConfig:
+            type: string
+          nats:
+            type: string
+          objstore:
+            type: string
+          platformConfig:
+            type: string
+        required:
+        - grafanaConfig
+        - nats
+        - objstore
+        - platformConfig
+        type: object
+    required:
+    - caProviderClass
+    - secretName
+    type: object
   tolerations:
     items:
       properties:
@@ -611,4 +635,5 @@ required:
 - replicaCount
 - service
 - serviceAccount
+- settings
 type: object

@@ -74,6 +74,7 @@ type PlatformUiSpec struct {
 	// If specified, the pod's scheduling constraints
 	// +optional
 	Affinity *core.Affinity `json:"affinity"`
+	Settings AceSettings    `json:"settings"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

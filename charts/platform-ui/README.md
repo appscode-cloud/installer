@@ -72,6 +72,11 @@ The following table lists the configurable parameters of the `platform-ui` chart
 | nodeSelector                               |                                                                                                                                      | <code>{}</code>          |
 | tolerations                                |                                                                                                                                      | <code>[]</code>          |
 | affinity                                   |                                                                                                                                      | <code>{}</code>          |
+| settings.caProviderClass                   |                                                                                                                                      | <code>""</code>          |
+| settings.secretName.platformConfig         |                                                                                                                                      | <code>""</code>          |
+| settings.secretName.grafanaConfig          |                                                                                                                                      | <code>""</code>          |
+| settings.secretName.objstore               |                                                                                                                                      | <code>""</code>          |
+| settings.secretName.nats                   |                                                                                                                                      | <code>""</code>          |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
