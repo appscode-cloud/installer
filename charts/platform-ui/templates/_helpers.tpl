@@ -70,3 +70,7 @@ imagePullSecrets:
 {{- toYaml . | nindent 2 }}
 {{- end }}
 {{- end }}
+
+{{- define "settings.caProviderClass" -}}
+{{- .Values.settings.caProviderClass -}}
+{{- end }}

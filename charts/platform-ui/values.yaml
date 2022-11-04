@@ -70,3 +70,11 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+settings:
+  caProviderClass: ""
+  secretName:
+    platformConfig: ""
+    grafanaConfig: ""
+    objstore: ""
+    nats: ""
