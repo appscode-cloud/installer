@@ -3062,37 +3062,159 @@ properties:
             type: object
           objstore:
             properties:
-              auth:
+              azure:
                 properties:
-                  AWS_ACCESS_KEY_ID:
-                    type: string
-                  AWS_REGION:
-                    type: string
-                  AWS_SECRET_ACCESS_KEY:
-                    type: string
-                  CA_CERT_DATA:
-                    type: string
-                  GOOGLE_PROJECT_ID:
-                    type: string
-                  GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
-                    type: string
+                  auth:
+                    properties:
+                      AZURE_ACCOUNT_KEY:
+                        type: string
+                      AZURE_ACCOUNT_NAME:
+                        type: string
+                    required:
+                    - AZURE_ACCOUNT_KEY
+                    - AZURE_ACCOUNT_NAME
+                    type: object
+                  spec:
+                    properties:
+                      container:
+                        type: string
+                      maxConnections:
+                        format: int64
+                        type: integer
+                      prefix:
+                        type: string
+                    type: object
                 required:
-                - AWS_ACCESS_KEY_ID
-                - AWS_REGION
-                - AWS_SECRET_ACCESS_KEY
-                - CA_CERT_DATA
-                - GOOGLE_PROJECT_ID
-                - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                - spec
                 type: object
+              bucket:
+                type: string
+              gcs:
+                properties:
+                  auth:
+                    properties:
+                      GOOGLE_PROJECT_ID:
+                        type: string
+                      GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
+                        type: string
+                    required:
+                    - GOOGLE_PROJECT_ID
+                    - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                    type: object
+                  spec:
+                    properties:
+                      bucket:
+                        type: string
+                      maxConnections:
+                        format: int64
+                        type: integer
+                      prefix:
+                        type: string
+                    type: object
+                required:
+                - spec
+                type: object
+              host:
+                type: string
               mountPath:
                 type: string
               provider:
                 enum:
                 - gcs
                 - s3
+                - azure
+                - swift
                 type: string
+              s3:
+                properties:
+                  auth:
+                    properties:
+                      AWS_ACCESS_KEY_ID:
+                        type: string
+                      AWS_SECRET_ACCESS_KEY:
+                        type: string
+                      CA_CERT_DATA:
+                        type: string
+                    required:
+                    - AWS_ACCESS_KEY_ID
+                    - AWS_SECRET_ACCESS_KEY
+                    - CA_CERT_DATA
+                    type: object
+                  spec:
+                    properties:
+                      bucket:
+                        type: string
+                      endpoint:
+                        type: string
+                      prefix:
+                        type: string
+                      region:
+                        type: string
+                    type: object
+                required:
+                - spec
+                type: object
+              swift:
+                properties:
+                  auth:
+                    properties:
+                      OS_AUTH_TOKEN:
+                        type: string
+                      OS_AUTH_URL:
+                        type: string
+                      OS_PASSWORD:
+                        type: string
+                      OS_PROJECT_DOMAIN_NAME:
+                        type: string
+                      OS_PROJECT_NAME:
+                        type: string
+                      OS_REGION_NAME:
+                        type: string
+                      OS_STORAGE_URL:
+                        type: string
+                      OS_TENANT_ID:
+                        type: string
+                      OS_TENANT_NAME:
+                        type: string
+                      OS_USER_DOMAIN_NAME:
+                        type: string
+                      OS_USERNAME:
+                        type: string
+                      ST_AUTH:
+                        type: string
+                      ST_KEY:
+                        type: string
+                      ST_USER:
+                        type: string
+                    required:
+                    - OS_AUTH_TOKEN
+                    - OS_AUTH_URL
+                    - OS_PASSWORD
+                    - OS_PROJECT_DOMAIN_NAME
+                    - OS_PROJECT_NAME
+                    - OS_REGION_NAME
+                    - OS_STORAGE_URL
+                    - OS_TENANT_ID
+                    - OS_TENANT_NAME
+                    - OS_USERNAME
+                    - OS_USER_DOMAIN_NAME
+                    - ST_AUTH
+                    - ST_KEY
+                    - ST_USER
+                    type: object
+                  spec:
+                    properties:
+                      container:
+                        type: string
+                      prefix:
+                        type: string
+                    type: object
+                required:
+                - spec
+                type: object
             required:
-            - auth
+            - bucket
+            - host
             - mountPath
             - provider
             type: object
@@ -3100,21 +3222,8 @@ properties:
             properties:
               backupPassword:
                 type: string
-              restorePassword:
-                type: string
             required:
             - backupPassword
-            - restorePassword
-            type: object
-          storage:
-            properties:
-              bucket:
-                type: string
-              host:
-                type: string
-            required:
-            - bucket
-            - host
             type: object
           storageClass:
             properties:
@@ -3173,7 +3282,6 @@ properties:
         - kubepack
         - objstore
         - stash
-        - storage
         - storageClass
         - tls
         type: object
@@ -5631,12 +5739,21 @@ properties:
                   type: object
               type: object
               x-kubernetes-map-type: atomic
+            matchLabelKeys:
+              items:
+                type: string
+              type: array
+              x-kubernetes-list-type: atomic
             maxSkew:
               format: int32
               type: integer
             minDomains:
               format: int32
               type: integer
+            nodeAffinityPolicy:
+              type: string
+            nodeTaintsPolicy:
+              type: string
             topologyKey:
               type: string
             whenUnsatisfiable:
@@ -11173,12 +11290,21 @@ properties:
                   type: object
               type: object
               x-kubernetes-map-type: atomic
+            matchLabelKeys:
+              items:
+                type: string
+              type: array
+              x-kubernetes-list-type: atomic
             maxSkew:
               format: int32
               type: integer
             minDomains:
               format: int32
               type: integer
+            nodeAffinityPolicy:
+              type: string
+            nodeTaintsPolicy:
+              type: string
             topologyKey:
               type: string
             whenUnsatisfiable:
@@ -12934,12 +13060,21 @@ properties:
                   type: object
               type: object
               x-kubernetes-map-type: atomic
+            matchLabelKeys:
+              items:
+                type: string
+              type: array
+              x-kubernetes-list-type: atomic
             maxSkew:
               format: int32
               type: integer
             minDomains:
               format: int32
               type: integer
+            nodeAffinityPolicy:
+              type: string
+            nodeTaintsPolicy:
+              type: string
             topologyKey:
               type: string
             whenUnsatisfiable:

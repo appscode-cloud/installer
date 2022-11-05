@@ -134,19 +134,20 @@ global:
     # KMS and Object Store services are required
     # set provider to empty to disable this feature
     objstore:
-      provider: gcs # gcs, s3
-      # credential : /data/credentials/sa.json
+      provider: "" # s3,azure,gcs,swift
+      # might be a file storage prefixed with file://
+      host: ""
+      bucket: gs://ace-data
       mountPath: /data/credentials
-      auth:
-        GOOGLE_SERVICE_ACCOUNT_JSON_KEY: ""
-        GOOGLE_PROJECT_ID: "" # optional
-        AWS_ACCESS_KEY_ID: ""
-        AWS_SECRET_ACCESS_KEY: ""
-        AWS_REGION: "" # optional
-        CA_CERT_DATA: "" # optional
+      # gcs:
+      #   spec:
+      #     bucket: stash-backup
+      #     prefix: /demo/deployment/my-deploy
+      #   auth:
+      #     GOOGLE_SERVICE_ACCOUNT_JSON_KEY: ""
+      #     GOOGLE_PROJECT_ID: "" # optional
     stash:
       backupPassword: ""
-      restorePassword: ""
     kms:
       # location where the secret key resides
       masterKeyURL: ""
@@ -155,10 +156,6 @@ global:
       # masterKeyURL: base64key://smGbjm71Nxd1Ig5FS0wj9SlbzAIrnolCz9bQQ6uAhl4=
       # provider: "Google"
       # masterKeyURL: gcpkms://projects/
-    storage:
-      # might be a file storage prefixed with file://
-      host: ""
-      bucket: gs://bytebuilders-avatars
     kubepack:
       host: ""
       bucket: ""

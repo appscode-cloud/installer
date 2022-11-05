@@ -37,8 +37,8 @@ stringData:
     AVATAR_UPLOAD_PATH      = /avatars
 
     [storage]
-    HOST = {{ .Values.global.infra.storage.host }}
-    BUCKET_URL = {{ .Values.global.infra.storage.bucket }}
+    HOST = {{ .Values.global.infra.objstore.host }}
+    BUCKET_URL = {{ .Values.global.infra.objstore.bucket }}
 
     [database]
     DB_TYPE = "postgres"
