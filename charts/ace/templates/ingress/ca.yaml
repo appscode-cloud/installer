@@ -7,7 +7,5 @@ metadata:
   labels:
     {{- include "ace.labels" . | nindent 4 }}
 type: kubernetes.io/tls
-data:
-  tls.crt: {{ .Values.global.infra.tls.ca.encodedCrt }}
-  tls.key: {{ .Values.global.infra.tls.ca.encodedKey }}
+stringData: {{ dict "tls.crt" .Values.global.infra.tls.ca.cert "tls.key" .Values.global.infra.tls.ca.key | toJson }}
 {{- end }}

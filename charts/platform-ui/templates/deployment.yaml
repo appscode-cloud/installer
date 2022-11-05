@@ -35,17 +35,17 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- with $p.domain }}
           env:
+            {{- with $p.domain }}
             - name: PLATFORM_DOMAIN
               value: {{ . }}
+            {{- end }}
             # ref: https://github.com/axios/axios/issues/535#issuecomment-262299969
             # ref: https://stackoverflow.com/a/56406725
             {{- if (include "settings.caProviderClass" .) }}
             - name: NODE_TLS_REJECT_UNAUTHORIZED
               value: "0"
             {{- end }}
-          {{- end }}
           ports:
             - name: http
               containerPort: 5998

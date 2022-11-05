@@ -223,6 +223,7 @@ properties:
             type: object
           provider:
             enum:
+            - external
             - cloudflare
             - route53
             type: string
@@ -246,14 +247,26 @@ properties:
             required:
             - email
             type: object
+          certificate:
+            properties:
+              cert:
+                type: string
+              key:
+                type: string
+            required:
+            - cert
+            - key
+            type: object
           issuer:
             enum:
             - ca
             - letsencrypt
             - letsencrypt-staging
+            - external
             type: string
         required:
         - acme
+        - certificate
         - issuer
         type: object
     required:
@@ -269,6 +282,13 @@ properties:
         - LoadBalancer
         - HostPort
         type: string
+      managedRecordTypes:
+        items:
+          enum:
+          - A
+          - CNAME
+          type: string
+        type: array
       nodeSelector:
         additionalProperties:
           type: string
