@@ -1,3 +1,5 @@
+{{- if not (eq .Values.global.infra.dns.provider "external") }}
+
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
@@ -34,3 +36,4 @@ spec:
             key: api-token
       {{- end }}
   {{- end }}
+{{- end }}

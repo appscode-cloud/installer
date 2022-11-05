@@ -117,10 +117,13 @@ global:
     tls:
       issuer: "ca" # ca,letsencrypt,letsencrypt-staging
       ca:
-        encodedCrt: ""
-        encodedKey: ""
+        cert: ""
+        key: ""
       acme:
         email: ops@appscode.com
+      certificate:
+        cert: ""
+        key: ""
     dns:
       provider: "cloudflare" # external,cloudflare,route53
       auth:

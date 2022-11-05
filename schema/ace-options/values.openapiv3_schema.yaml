@@ -247,14 +247,26 @@ properties:
             required:
             - email
             type: object
+          certificate:
+            properties:
+              cert:
+                type: string
+              key:
+                type: string
+            required:
+            - cert
+            - key
+            type: object
           issuer:
             enum:
             - ca
             - letsencrypt
             - letsencrypt-staging
+            - external
             type: string
         required:
         - acme
+        - certificate
         - issuer
         type: object
     required:

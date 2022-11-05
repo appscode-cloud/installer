@@ -121,8 +121,9 @@ type AceOptionsPlatformInfra struct {
 }
 
 type AceOptionsInfraTLS struct {
-	Issuer TLSIssuerType `json:"issuer"`
-	Acme   TLSIssuerAcme `json:"acme"`
+	Issuer      TLSIssuerType `json:"issuer"`
+	Acme        TLSIssuerAcme `json:"acme"`
+	Certificate TLSData       `json:"certificate"`
 }
 
 type AceOptionsInfraCloudServices struct {
