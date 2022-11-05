@@ -3016,6 +3016,7 @@ properties:
                 type: object
               provider:
                 enum:
+                - external
                 - cloudflare
                 - route53
                 type: string

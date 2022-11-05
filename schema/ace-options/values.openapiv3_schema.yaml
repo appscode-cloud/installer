@@ -223,6 +223,7 @@ properties:
             type: object
           provider:
             enum:
+            - external
             - cloudflare
             - route53
             type: string
@@ -269,6 +270,13 @@ properties:
         - LoadBalancer
         - HostPort
         type: string
+      managedRecordTypes:
+        items:
+          enum:
+          - A
+          - CNAME
+          type: string
+        type: array
       nodeSelector:
         additionalProperties:
           type: string

@@ -122,7 +122,7 @@ global:
       acme:
         email: ops@appscode.com
     dns:
-      provider: "cloudflare" # cloudflare,route53
+      provider: "cloudflare" # external,cloudflare,route53
       auth:
         token: xyz
         AWS_ACCESS_KEY_ID: ""
