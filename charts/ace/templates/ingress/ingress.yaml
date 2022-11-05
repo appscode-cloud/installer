@@ -156,7 +156,7 @@ spec:
   {{- if (index .Values "marketplace-ui" "enabled") }}
     - 'marketplace.{{ .Values.global.platform.domain }}'
   {{- end }}
-  {{- if (and .Values.nats.enabled .Values.nats.nats.externalAccess) }}
+  {{- if .Values.nats.enabled }}
     - 'nats.{{ .Values.global.platform.domain }}'
   {{- end }}
   {{- if (index .Values "prom-proxy" "enabled") }}

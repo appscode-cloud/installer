@@ -86,8 +86,19 @@ const (
 	DefaultPasswordLength = 16
 )
 
+// ref: https://github.com/kubernetes-sigs/external-dns/blob/v0.13.1/pkg/apis/externaldns/types.go#L325
+// +kubebuilder:validation:Enum=A;CNAME
+type DNSRecordType string
+
+const (
+	DNSRecordTypeA     DNSRecordType = "A"
+	DNSRecordTypeCNAME DNSRecordType = "CNAME"
+)
+
 type AceOptionsIngressNginx struct {
 	ExposeVia ServiceType `json:"exposeVia"`
+	// DNS record types that will be considered for management
+	ManagedRecordTypes []DNSRecordType `json:"managedRecordTypes,omitempty"`
 	//+optional
 	Resources    core.ResourceRequirements `json:"resources"`
 	NodeSelector map[string]string         `json:"nodeSelector"`
@@ -110,8 +121,9 @@ type AceOptionsPlatformInfra struct {
 }
 
 type AceOptionsInfraTLS struct {
-	Issuer TLSIssuerType `json:"issuer"`
-	Acme   TLSIssuerAcme `json:"acme"`
+	Issuer      TLSIssuerType `json:"issuer"`
+	Acme        TLSIssuerAcme `json:"acme"`
+	Certificate TLSData       `json:"certificate"`
 }
 
 type AceOptionsInfraCloudServices struct {

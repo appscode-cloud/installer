@@ -187,33 +187,37 @@ type PlatformInfra struct {
 	Invoice      InfraInvoice         `json:"invoice"`
 }
 
-// +kubebuilder:validation:Enum=ca;letsencrypt;letsencrypt-staging
+// +kubebuilder:validation:Enum=ca;letsencrypt;letsencrypt-staging;external
 type TLSIssuerType string
 
 const (
 	TLSIssuerTypeCA        TLSIssuerType = "ca"
 	TLSIssuerTypeLE        TLSIssuerType = "letsencrypt"
 	TLSIssuerTypeLEStaging TLSIssuerType = "letsencrypt-staging"
+	TLSIssuerTypeExternal  TLSIssuerType = "external"
 )
 
 type InfraTLS struct {
-	Issuer TLSIssuerType `json:"issuer"`
-	CA     TLSIssuerCA   `json:"ca"`
-	Acme   TLSIssuerAcme `json:"acme"`
+	Issuer      TLSIssuerType `json:"issuer"`
+	CA          TLSData       `json:"ca"`
+	Acme        TLSIssuerAcme `json:"acme"`
+	Certificate TLSData       `json:"certificate"`
 }
 
-type TLSIssuerCA struct {
-	EncodedCrt string `json:"encodedCrt"`
-	EncodedKey string `json:"encodedKey"`
+type TLSData struct {
+	Cert string `json:"cert"`
+	Key  string `json:"key"`
 }
+
 type TLSIssuerAcme struct {
 	Email string `json:"email"`
 }
 
-// +kubebuilder:validation:Enum=cloudflare;route53
+// +kubebuilder:validation:Enum=external;cloudflare;route53
 type DNSProvider string
 
 const (
+	DNSProviderExternal   DNSProvider = "external"
 	DNSProviderCloudflare DNSProvider = "cloudflare"
 	DNSProviderRoute53    DNSProvider = "route53"
 )
