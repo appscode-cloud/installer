@@ -313,7 +313,12 @@ type SwiftAuth struct {
 }
 
 type InfraStash struct {
-	BackupPassword string `json:"backupPassword"`
+	Backup BackupSpec `json:"backup"`
+}
+
+type BackupSpec struct {
+	Password string `json:"password"`
+	Schedule string `json:"schedule"`
 }
 
 type InfraKms struct {

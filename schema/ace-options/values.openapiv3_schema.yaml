@@ -298,10 +298,18 @@ properties:
         type: object
       stash:
         properties:
-          backupPassword:
-            type: string
+          backup:
+            properties:
+              password:
+                type: string
+              schedule:
+                type: string
+            required:
+            - password
+            - schedule
+            type: object
         required:
-        - backupPassword
+        - backup
         type: object
       storageClass:
         properties:
