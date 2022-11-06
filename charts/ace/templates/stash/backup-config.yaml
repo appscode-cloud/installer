@@ -9,10 +9,10 @@ spec:
   repository:
     name: {{ include "ace.fullname" . }}-db-repo
   retentionPolicy:
-    keepLast: 5
-    name: keep-last-5
+    keepDaily: 30
+    name: keep-last-7d
     prune: true
-  schedule: '*/5 * * * *'
+  schedule: {{ .Values.global.infra.stash.backup.schedule | quote }}
   target:
     ref:
       apiVersion: appcatalog.appscode.com/v1alpha1

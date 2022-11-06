@@ -147,7 +147,9 @@ global:
       #     GOOGLE_SERVICE_ACCOUNT_JSON_KEY: ""
       #     GOOGLE_PROJECT_ID: "" # optional
     stash:
-      backupPassword: ""
+      backup:
+        password: ""
+        schedule: '0 */4 * * *'
     kms:
       # location where the secret key resides
       masterKeyURL: ""

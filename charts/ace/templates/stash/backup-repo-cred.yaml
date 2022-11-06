@@ -9,7 +9,7 @@ metadata:
     {{- include "ace.labels" . | nindent 4 }}
 type: Opaque
 stringData:
-  RESTIC_PASSWORD: {{ .Values.global.infra.stash.backupPassword | quote }}
+  RESTIC_PASSWORD: {{ .Values.global.infra.stash.backup.password | quote }}
 
 {{- if eq $objstore.provider "s3" }}
   {{- with $objstore.s3.auth }}
