@@ -157,28 +157,6 @@ properties:
     properties:
       cloudServices:
         properties:
-          auth:
-            properties:
-              AWS_ACCESS_KEY_ID:
-                type: string
-              AWS_REGION:
-                type: string
-              AWS_SECRET_ACCESS_KEY:
-                type: string
-              CA_CERT_DATA:
-                type: string
-              GOOGLE_PROJECT_ID:
-                type: string
-              GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
-                type: string
-            required:
-            - AWS_ACCESS_KEY_ID
-            - AWS_REGION
-            - AWS_SECRET_ACCESS_KEY
-            - CA_CERT_DATA
-            - GOOGLE_PROJECT_ID
-            - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
-            type: object
           kms:
             properties:
               masterKeyURL:
@@ -188,18 +166,105 @@ properties:
             type: object
           objstore:
             properties:
+              auth:
+                properties:
+                  azure:
+                    properties:
+                      AZURE_ACCOUNT_KEY:
+                        type: string
+                      AZURE_ACCOUNT_NAME:
+                        type: string
+                    required:
+                    - AZURE_ACCOUNT_KEY
+                    - AZURE_ACCOUNT_NAME
+                    type: object
+                  gcs:
+                    properties:
+                      GOOGLE_PROJECT_ID:
+                        type: string
+                      GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
+                        type: string
+                    required:
+                    - GOOGLE_PROJECT_ID
+                    - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                    type: object
+                  s3:
+                    properties:
+                      AWS_ACCESS_KEY_ID:
+                        type: string
+                      AWS_SECRET_ACCESS_KEY:
+                        type: string
+                      CA_CERT_DATA:
+                        type: string
+                    required:
+                    - AWS_ACCESS_KEY_ID
+                    - AWS_SECRET_ACCESS_KEY
+                    - CA_CERT_DATA
+                    type: object
+                  swift:
+                    properties:
+                      OS_AUTH_TOKEN:
+                        type: string
+                      OS_AUTH_URL:
+                        type: string
+                      OS_PASSWORD:
+                        type: string
+                      OS_PROJECT_DOMAIN_NAME:
+                        type: string
+                      OS_PROJECT_NAME:
+                        type: string
+                      OS_REGION_NAME:
+                        type: string
+                      OS_STORAGE_URL:
+                        type: string
+                      OS_TENANT_ID:
+                        type: string
+                      OS_TENANT_NAME:
+                        type: string
+                      OS_USER_DOMAIN_NAME:
+                        type: string
+                      OS_USERNAME:
+                        type: string
+                      ST_AUTH:
+                        type: string
+                      ST_KEY:
+                        type: string
+                      ST_USER:
+                        type: string
+                    required:
+                    - OS_AUTH_TOKEN
+                    - OS_AUTH_URL
+                    - OS_PASSWORD
+                    - OS_PROJECT_DOMAIN_NAME
+                    - OS_PROJECT_NAME
+                    - OS_REGION_NAME
+                    - OS_STORAGE_URL
+                    - OS_TENANT_ID
+                    - OS_TENANT_NAME
+                    - OS_USERNAME
+                    - OS_USER_DOMAIN_NAME
+                    - ST_AUTH
+                    - ST_KEY
+                    - ST_USER
+                    type: object
+                type: object
               bucket:
                 type: string
+              host:
+                type: string
             required:
+            - auth
             - bucket
+            - host
             type: object
           provider:
             enum:
             - gcs
             - s3
+            - azure
+            - swift
             type: string
         required:
-        - auth
         - objstore
         - provider
         type: object
@@ -230,6 +295,13 @@ properties:
         required:
         - auth
         - provider
+        type: object
+      stash:
+        properties:
+          backupPassword:
+            type: string
+        required:
+        - backupPassword
         type: object
       storageClass:
         properties:
@@ -272,6 +344,7 @@ properties:
     required:
     - cloudServices
     - dns
+    - stash
     - storageClass
     - tls
     type: object

@@ -19,6 +19,7 @@ package v1alpha1
 import (
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	store "kmodules.xyz/objectstore-api/api/v1"
 )
 
 const (
@@ -181,7 +182,6 @@ type PlatformInfra struct {
 	Objstore     InfraObjstore        `json:"objstore"`
 	Stash        InfraStash           `json:"stash"`
 	Kms          InfraKms             `json:"kms"`
-	Storage      InfraStorage         `json:"storage"`
 	Kubepack     InfraKubepack        `json:"kubepack"`
 	Badger       InfraBadger          `json:"badger"`
 	Invoice      InfraInvoice         `json:"invoice"`
@@ -234,41 +234,90 @@ type DNSProviderAuth struct {
 	AwsRegion          string `json:"AWS_REGION"`
 }
 
-// +kubebuilder:validation:Enum=gcs;s3
+// +kubebuilder:validation:Enum=gcs;s3;azure;swift
 type ObjstoreProvider string
 
 const (
-	ObjstoreProviderGCS ObjstoreProvider = "gcs"
-	ObjstoreProviderS3  ObjstoreProvider = "s3"
+	ObjstoreProviderS3    ObjstoreProvider = "s3"
+	ObjstoreProviderAzure ObjstoreProvider = "azure"
+	ObjstoreProviderGCS   ObjstoreProvider = "gcs"
+	ObjstoreProviderSwift ObjstoreProvider = "swift"
 )
 
 type InfraObjstore struct {
 	Provider  ObjstoreProvider `json:"provider"`
+	Host      string           `json:"host"`
+	Bucket    string           `json:"bucket"`
 	MountPath string           `json:"mountPath"`
-	Auth      ObjstoreAuth     `json:"auth"`
+	S3        *S3              `json:"s3,omitempty"`
+	Azure     *Azure           `json:"azure,omitempty"`
+	GCS       *GCS             `json:"gcs,omitempty"`
+	Swift     *Swift           `json:"swift,omitempty"`
 }
 
-type ObjstoreAuth struct {
-	GoogleServiceAccountJsonKey string `json:"GOOGLE_SERVICE_ACCOUNT_JSON_KEY"`
+type S3 struct {
+	Spec store.S3Spec `json:"spec"`
+	// +optional
+	Auth *S3Auth `json:"auth,omitempty"`
+}
+
+type S3Auth struct {
+	AwsAccessKeyID     string `json:"AWS_ACCESS_KEY_ID"`
+	AwsSecretAccessKey string `json:"AWS_SECRET_ACCESS_KEY"`
+	CaCertData         string `json:"CA_CERT_DATA"`
+}
+
+type Azure struct {
+	Spec store.AzureSpec `json:"spec"`
+	// +optional
+	Auth *AzureAuth `json:"auth,omitempty"`
+}
+
+type AzureAuth struct {
+	AzureAccountName string `json:"AZURE_ACCOUNT_NAME"`
+	AzureAccountKey  string `json:"AZURE_ACCOUNT_KEY"`
+}
+
+type GCS struct {
+	Spec store.GCSSpec `json:"spec"`
+	// +optional
+	Auth *GCSAuth `json:"auth,omitempty"`
+}
+
+type GCSAuth struct {
 	GoogleProjectID             string `json:"GOOGLE_PROJECT_ID"`
-	AwsAccessKeyID              string `json:"AWS_ACCESS_KEY_ID"`
-	AwsSecretAccessKey          string `json:"AWS_SECRET_ACCESS_KEY"`
-	AwsRegion                   string `json:"AWS_REGION"`
-	CACertData                  string `json:"CA_CERT_DATA"`
+	GoogleServiceAccountJSONKey string `json:"GOOGLE_SERVICE_ACCOUNT_JSON_KEY"`
+}
+
+type Swift struct {
+	Spec store.SwiftSpec `json:"spec"`
+	// +optional
+	Auth *SwiftAuth `json:"auth,omitempty"`
+}
+
+type SwiftAuth struct {
+	OsUsername          string `json:"OS_USERNAME"`
+	OsPassword          string `json:"OS_PASSWORD"`
+	OsRegionName        string `json:"OS_REGION_NAME"`
+	OsAuthURL           string `json:"OS_AUTH_URL"`
+	OsUserDomainName    string `json:"OS_USER_DOMAIN_NAME"`
+	OsProjectName       string `json:"OS_PROJECT_NAME"`
+	OsProjectDomainName string `json:"OS_PROJECT_DOMAIN_NAME"`
+	OsTenantID          string `json:"OS_TENANT_ID"`
+	OsTenantName        string `json:"OS_TENANT_NAME"`
+	StAuth              string `json:"ST_AUTH"`
+	StUser              string `json:"ST_USER"`
+	StKey               string `json:"ST_KEY"`
+	OsStorageURL        string `json:"OS_STORAGE_URL"`
+	OsAuthToken         string `json:"OS_AUTH_TOKEN"`
 }
 
 type InfraStash struct {
-	BackupPassword  string `json:"backupPassword"`
-	RestorePassword string `json:"restorePassword"`
+	BackupPassword string `json:"backupPassword"`
 }
 
 type InfraKms struct {
 	MasterKeyURL string `json:"masterKeyURL"`
-}
-
-type InfraStorage struct {
-	Host   string `json:"host"`
-	Bucket string `json:"bucket"`
 }
 
 type InfraKubepack struct {
