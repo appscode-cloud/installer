@@ -1,0 +1,54 @@
+{{ $objstore := .Values.global.infra.objstore }}
+
+apiVersion: stash.appscode.com/v1alpha1
+kind: Repository
+metadata:
+  name: {{ include "ace.fullname" . }}-db-repo
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+spec:
+  backend:
+    storageSecretName: {{ include "ace.fullname" . }}-repo-cred
+
+  {{- if eq $objstore.provider "s3" }}
+    {{- with $objstore.s3.spec }}
+    s3:
+      endpoint: {{ .endpoint }}
+      bucket: {{ .bucket }}
+      {{- with .region }}
+      region: {{ . }}
+      {{- end }}
+      prefix: {{ .prefix }}
+    {{- end }}
+  {{- end }}
+
+  {{- if eq $objstore.provider "azure" }}
+    {{- with $objstore.azure.spec }}
+    azure:
+      container: {{ .container }}
+      prefix: {{ .prefix }}
+      {{- with .maxConnections }}
+      maxConnections: {{ . }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+
+  {{- if eq $objstore.provider "gcs" }}
+    {{- with $objstore.gcs.spec }}
+    gcs:
+      bucket: {{ .bucket }}
+      prefix: {{ .prefix }}
+      {{- with .maxConnections }}
+      maxConnections: {{ . }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+
+  {{- if eq $objstore.provider "swift" }}
+    {{- with $objstore.swift.spec }}
+    swift:
+      container: {{ .container }}
+      prefix: {{ .prefix }}
+    {{- end }}
+  {{- end }}

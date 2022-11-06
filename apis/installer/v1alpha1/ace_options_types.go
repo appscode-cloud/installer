@@ -115,6 +115,7 @@ type AceOptionsNatsSettings struct {
 
 type AceOptionsPlatformInfra struct {
 	StorageClass  LocalObjectReference         `json:"storageClass"`
+	Stash         InfraStash                   `json:"stash"`
 	TLS           AceOptionsInfraTLS           `json:"tls"`
 	DNS           InfraDns                     `json:"dns"`
 	CloudServices AceOptionsInfraCloudServices `json:"cloudServices"`
@@ -128,14 +129,22 @@ type AceOptionsInfraTLS struct {
 
 type AceOptionsInfraCloudServices struct {
 	Provider ObjstoreProvider        `json:"provider"`
-	Auth     ObjstoreAuth            `json:"auth"`
 	Objstore AceOptionsInfraObjstore `json:"objstore"`
 	// +optional
 	Kms *AceOptionsInfraKms `json:"kms,omitempty"`
 }
 
 type AceOptionsInfraObjstore struct {
-	Bucket string `json:"bucket"`
+	Host   string       `json:"host"`
+	Bucket string       `json:"bucket"`
+	Auth   ObjstoreAuth `json:"auth"`
+}
+
+type ObjstoreAuth struct {
+	S3    *S3Auth    `json:"s3,omitempty"`
+	Azure *AzureAuth `json:"azure,omitempty"`
+	GCS   *GCSAuth   `json:"gcs,omitempty"`
+	Swift *SwiftAuth `json:"swift,omitempty"`
 }
 
 type AceOptionsInfraKms struct {

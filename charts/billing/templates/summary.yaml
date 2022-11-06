@@ -48,7 +48,7 @@ spec:
                     secretKeyRef:
                       name: {{ include "settings.objstoreSecretName" . }}
                       key: AWS_SECRET_ACCESS_KEY
-                {{- if $infra.objstore.auth.AWS_REGION }}
+                {{- if $infra.objstore.s3.auth.AWS_REGION }}
                 - name: AWS_REGION
                   valueFrom:
                     secretKeyRef:
