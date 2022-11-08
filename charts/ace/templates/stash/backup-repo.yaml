@@ -12,7 +12,7 @@ spec:
     storageSecretName: {{ include "ace.fullname" . }}-repo-cred
 
   {{- if eq $objstore.provider "s3" }}
-    {{- with $objstore.s3.spec }}
+    {{- with .Values.global.infra.stash.s3 }}
     s3:
       endpoint: {{ .endpoint }}
       bucket: {{ .bucket }}
@@ -24,7 +24,7 @@ spec:
   {{- end }}
 
   {{- if eq $objstore.provider "azure" }}
-    {{- with $objstore.azure.spec }}
+    {{- with .Values.global.infra.stash.azure }}
     azure:
       container: {{ .container }}
       prefix: {{ .prefix }}
@@ -35,7 +35,7 @@ spec:
   {{- end }}
 
   {{- if eq $objstore.provider "gcs" }}
-    {{- with $objstore.gcs.spec }}
+    {{- with .Values.global.infra.stash.gcs }}
     gcs:
       bucket: {{ .bucket }}
       prefix: {{ .prefix }}
@@ -46,7 +46,7 @@ spec:
   {{- end }}
 
   {{- if eq $objstore.provider "swift" }}
-    {{- with $objstore.swift.spec }}
+    {{- with .Values.global.infra.stash.swift }}
     swift:
       container: {{ .container }}
       prefix: {{ .prefix }}
