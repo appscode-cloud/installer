@@ -12,22 +12,22 @@ metadata:
 type: Opaque
 stringData:
 {{- if eq $objstore.provider "s3" }}
-  AWS_ACCESS_KEY_ID: '{{ $objstore.s3.auth.AWS_ACCESS_KEY_ID }}'
-  AWS_SECRET_ACCESS_KEY: '{{ $objstore.s3.auth.AWS_SECRET_ACCESS_KEY }}'
-  {{- with $objstore.s3.auth.AWS_REGION }}
+  AWS_ACCESS_KEY_ID: '{{ $objstore.s3.AWS_ACCESS_KEY_ID }}'
+  AWS_SECRET_ACCESS_KEY: '{{ $objstore.s3.AWS_SECRET_ACCESS_KEY }}'
+  {{- with $objstore.s3.AWS_REGION }}
   AWS_REGION: '{{ . }}'
   {{- end }}
 {{- end }}
 
 {{- if eq $objstore.provider "azure" }}
-  {{- with $objstore.azure.auth }}
+  {{- with $objstore.azure }}
   AZURE_ACCOUNT_NAME: '{{ .AZURE_ACCOUNT_NAME }}'
   AZURE_ACCOUNT_KEY: '{{ .AZURE_ACCOUNT_KEY }}'
   {{- end }}
 {{- end }}
 
 {{- if eq $objstore.provider "gcs" }}
-  sa.json: '{{ $objstore.gcs.auth.GOOGLE_SERVICE_ACCOUNT_JSON_KEY }}'
+  sa.json: '{{ $objstore.gcs.GOOGLE_SERVICE_ACCOUNT_JSON_KEY }}'
 {{- end }}
 
 {{- end }}

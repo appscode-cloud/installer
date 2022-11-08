@@ -3064,55 +3064,25 @@ properties:
             properties:
               azure:
                 properties:
-                  auth:
-                    properties:
-                      AZURE_ACCOUNT_KEY:
-                        type: string
-                      AZURE_ACCOUNT_NAME:
-                        type: string
-                    required:
-                    - AZURE_ACCOUNT_KEY
-                    - AZURE_ACCOUNT_NAME
-                    type: object
-                  spec:
-                    properties:
-                      container:
-                        type: string
-                      maxConnections:
-                        format: int64
-                        type: integer
-                      prefix:
-                        type: string
-                    type: object
+                  AZURE_ACCOUNT_KEY:
+                    type: string
+                  AZURE_ACCOUNT_NAME:
+                    type: string
                 required:
-                - spec
+                - AZURE_ACCOUNT_KEY
+                - AZURE_ACCOUNT_NAME
                 type: object
               bucket:
                 type: string
               gcs:
                 properties:
-                  auth:
-                    properties:
-                      GOOGLE_PROJECT_ID:
-                        type: string
-                      GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
-                        type: string
-                    required:
-                    - GOOGLE_PROJECT_ID
-                    - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
-                    type: object
-                  spec:
-                    properties:
-                      bucket:
-                        type: string
-                      maxConnections:
-                        format: int64
-                        type: integer
-                      prefix:
-                        type: string
-                    type: object
+                  GOOGLE_PROJECT_ID:
+                    type: string
+                  GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
+                    type: string
                 required:
-                - spec
+                - GOOGLE_PROJECT_ID
+                - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
                 type: object
               host:
                 type: string
@@ -3127,90 +3097,62 @@ properties:
                 type: string
               s3:
                 properties:
-                  auth:
-                    properties:
-                      AWS_ACCESS_KEY_ID:
-                        type: string
-                      AWS_SECRET_ACCESS_KEY:
-                        type: string
-                      CA_CERT_DATA:
-                        type: string
-                    required:
-                    - AWS_ACCESS_KEY_ID
-                    - AWS_SECRET_ACCESS_KEY
-                    - CA_CERT_DATA
-                    type: object
-                  spec:
-                    properties:
-                      bucket:
-                        type: string
-                      endpoint:
-                        type: string
-                      prefix:
-                        type: string
-                      region:
-                        type: string
-                    type: object
+                  AWS_ACCESS_KEY_ID:
+                    type: string
+                  AWS_SECRET_ACCESS_KEY:
+                    type: string
+                  CA_CERT_DATA:
+                    type: string
                 required:
-                - spec
+                - AWS_ACCESS_KEY_ID
+                - AWS_SECRET_ACCESS_KEY
+                - CA_CERT_DATA
                 type: object
               swift:
                 properties:
-                  auth:
-                    properties:
-                      OS_AUTH_TOKEN:
-                        type: string
-                      OS_AUTH_URL:
-                        type: string
-                      OS_PASSWORD:
-                        type: string
-                      OS_PROJECT_DOMAIN_NAME:
-                        type: string
-                      OS_PROJECT_NAME:
-                        type: string
-                      OS_REGION_NAME:
-                        type: string
-                      OS_STORAGE_URL:
-                        type: string
-                      OS_TENANT_ID:
-                        type: string
-                      OS_TENANT_NAME:
-                        type: string
-                      OS_USER_DOMAIN_NAME:
-                        type: string
-                      OS_USERNAME:
-                        type: string
-                      ST_AUTH:
-                        type: string
-                      ST_KEY:
-                        type: string
-                      ST_USER:
-                        type: string
-                    required:
-                    - OS_AUTH_TOKEN
-                    - OS_AUTH_URL
-                    - OS_PASSWORD
-                    - OS_PROJECT_DOMAIN_NAME
-                    - OS_PROJECT_NAME
-                    - OS_REGION_NAME
-                    - OS_STORAGE_URL
-                    - OS_TENANT_ID
-                    - OS_TENANT_NAME
-                    - OS_USERNAME
-                    - OS_USER_DOMAIN_NAME
-                    - ST_AUTH
-                    - ST_KEY
-                    - ST_USER
-                    type: object
-                  spec:
-                    properties:
-                      container:
-                        type: string
-                      prefix:
-                        type: string
-                    type: object
+                  OS_AUTH_TOKEN:
+                    type: string
+                  OS_AUTH_URL:
+                    type: string
+                  OS_PASSWORD:
+                    type: string
+                  OS_PROJECT_DOMAIN_NAME:
+                    type: string
+                  OS_PROJECT_NAME:
+                    type: string
+                  OS_REGION_NAME:
+                    type: string
+                  OS_STORAGE_URL:
+                    type: string
+                  OS_TENANT_ID:
+                    type: string
+                  OS_TENANT_NAME:
+                    type: string
+                  OS_USER_DOMAIN_NAME:
+                    type: string
+                  OS_USERNAME:
+                    type: string
+                  ST_AUTH:
+                    type: string
+                  ST_KEY:
+                    type: string
+                  ST_USER:
+                    type: string
                 required:
-                - spec
+                - OS_AUTH_TOKEN
+                - OS_AUTH_URL
+                - OS_PASSWORD
+                - OS_PROJECT_DOMAIN_NAME
+                - OS_PROJECT_NAME
+                - OS_REGION_NAME
+                - OS_STORAGE_URL
+                - OS_TENANT_ID
+                - OS_TENANT_NAME
+                - OS_USERNAME
+                - OS_USER_DOMAIN_NAME
+                - ST_AUTH
+                - ST_KEY
+                - ST_USER
                 type: object
             required:
             - bucket
@@ -3220,6 +3162,16 @@ properties:
             type: object
           stash:
             properties:
+              azure:
+                properties:
+                  container:
+                    type: string
+                  maxConnections:
+                    format: int64
+                    type: integer
+                  prefix:
+                    type: string
+                type: object
               backup:
                 properties:
                   password:
@@ -3229,6 +3181,34 @@ properties:
                 required:
                 - password
                 - schedule
+                type: object
+              gcs:
+                properties:
+                  bucket:
+                    type: string
+                  maxConnections:
+                    format: int64
+                    type: integer
+                  prefix:
+                    type: string
+                type: object
+              s3:
+                properties:
+                  bucket:
+                    type: string
+                  endpoint:
+                    type: string
+                  prefix:
+                    type: string
+                  region:
+                    type: string
+                type: object
+              swift:
+                properties:
+                  container:
+                    type: string
+                  prefix:
+                    type: string
                 type: object
             required:
             - backup
