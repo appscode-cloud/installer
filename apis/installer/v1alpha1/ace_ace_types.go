@@ -249,16 +249,10 @@ type InfraObjstore struct {
 	Host      string           `json:"host"`
 	Bucket    string           `json:"bucket"`
 	MountPath string           `json:"mountPath"`
-	S3        *S3              `json:"s3,omitempty"`
-	Azure     *Azure           `json:"azure,omitempty"`
-	GCS       *GCS             `json:"gcs,omitempty"`
-	Swift     *Swift           `json:"swift,omitempty"`
-}
-
-type S3 struct {
-	Spec store.S3Spec `json:"spec"`
-	// +optional
-	Auth *S3Auth `json:"auth,omitempty"`
+	S3        *S3Auth          `json:"s3,omitempty"`
+	Azure     *AzureAuth       `json:"azure,omitempty"`
+	GCS       *GCSAuth         `json:"gcs,omitempty"`
+	Swift     *SwiftAuth       `json:"swift,omitempty"`
 }
 
 type S3Auth struct {
@@ -267,32 +261,14 @@ type S3Auth struct {
 	CaCertData         string `json:"CA_CERT_DATA"`
 }
 
-type Azure struct {
-	Spec store.AzureSpec `json:"spec"`
-	// +optional
-	Auth *AzureAuth `json:"auth,omitempty"`
-}
-
 type AzureAuth struct {
 	AzureAccountName string `json:"AZURE_ACCOUNT_NAME"`
 	AzureAccountKey  string `json:"AZURE_ACCOUNT_KEY"`
 }
 
-type GCS struct {
-	Spec store.GCSSpec `json:"spec"`
-	// +optional
-	Auth *GCSAuth `json:"auth,omitempty"`
-}
-
 type GCSAuth struct {
 	GoogleProjectID             string `json:"GOOGLE_PROJECT_ID"`
 	GoogleServiceAccountJSONKey string `json:"GOOGLE_SERVICE_ACCOUNT_JSON_KEY"`
-}
-
-type Swift struct {
-	Spec store.SwiftSpec `json:"spec"`
-	// +optional
-	Auth *SwiftAuth `json:"auth,omitempty"`
 }
 
 type SwiftAuth struct {
@@ -313,7 +289,11 @@ type SwiftAuth struct {
 }
 
 type InfraStash struct {
-	Backup BackupSpec `json:"backup"`
+	Backup BackupSpec       `json:"backup"`
+	S3     *store.S3Spec    `json:"s3,omitempty"`
+	Azure  *store.AzureSpec `json:"azure,omitempty"`
+	GCS    *store.GCSSpec   `json:"gcs,omitempty"`
+	Swift  *store.SwiftSpec `json:"swift,omitempty"`
 }
 
 type BackupSpec struct {

@@ -12,7 +12,7 @@ stringData:
   RESTIC_PASSWORD: {{ .Values.global.infra.stash.backup.password | quote }}
 
 {{- if eq $objstore.provider "s3" }}
-  {{- with $objstore.s3.auth }}
+  {{- with $objstore.s3 }}
   AWS_ACCESS_KEY_ID: '{{ .AWS_ACCESS_KEY_ID }}'
   AWS_SECRET_ACCESS_KEY: '{{ .AWS_SECRET_ACCESS_KEY }}'
   {{- with .CA_CERT_DATA }}
@@ -22,14 +22,14 @@ stringData:
 {{- end }}
 
 {{- if eq $objstore.provider "azure" }}
-  {{- with $objstore.azure.auth }}
+  {{- with $objstore.azure }}
   AZURE_ACCOUNT_NAME: '{{ .AZURE_ACCOUNT_NAME }}'
   AZURE_ACCOUNT_KEY: '{{ .AZURE_ACCOUNT_KEY }}'
   {{- end }}
 {{- end }}
 
 {{- if eq $objstore.provider "gcs" }}
-  {{- with $objstore.gcs.auth }}
+  {{- with $objstore.gcs }}
   GOOGLE_SERVICE_ACCOUNT_JSON_KEY: '{{ .GOOGLE_SERVICE_ACCOUNT_JSON_KEY }}'
   {{- with .GOOGLE_PROJECT_ID }}
   GOOGLE_PROJECT_ID: '{{ . }}'
@@ -38,7 +38,7 @@ stringData:
 {{- end }}
 
 {{- if eq $objstore.provider "swift" }}
-  {{- with $objstore.swift.auth }}
+  {{- with $objstore.swift }}
   {{- with .OS_USERNAME }}
   OS_USERNAME: '{{ . }}'
   {{- end }}

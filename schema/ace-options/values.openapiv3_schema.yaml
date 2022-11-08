@@ -298,6 +298,16 @@ properties:
         type: object
       stash:
         properties:
+          azure:
+            properties:
+              container:
+                type: string
+              maxConnections:
+                format: int64
+                type: integer
+              prefix:
+                type: string
+            type: object
           backup:
             properties:
               password:
@@ -307,6 +317,34 @@ properties:
             required:
             - password
             - schedule
+            type: object
+          gcs:
+            properties:
+              bucket:
+                type: string
+              maxConnections:
+                format: int64
+                type: integer
+              prefix:
+                type: string
+            type: object
+          s3:
+            properties:
+              bucket:
+                type: string
+              endpoint:
+                type: string
+              prefix:
+                type: string
+              region:
+                type: string
+            type: object
+          swift:
+            properties:
+              container:
+                type: string
+              prefix:
+                type: string
             type: object
         required:
         - backup
