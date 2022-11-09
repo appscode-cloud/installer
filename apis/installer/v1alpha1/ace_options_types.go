@@ -46,8 +46,7 @@ type AceOptions struct {
 type AceOptionsSpec struct {
 	Release          ObjectReference         `json:"release"`
 	License          string                  `json:"license"`
-	Registry         string                  `json:"registry"`
-	RegistryFQDN     string                  `json:"registryFQDN"`
+	Registry         RegistrySpec            `json:"registry"`
 	ImagePullSecrets []string                `json:"imagePullSecrets"`
 	Monitoring       GlobalMonitoring        `json:"monitoring"`
 	Infra            AceOptionsPlatformInfra `json:"infra"`
@@ -64,6 +63,12 @@ type AceOptionsSpec struct {
 	PromProxy        AceOptionsComponentSpec `json:"prom-proxy"`
 	Ingress          AceOptionsIngressNginx  `json:"ingress"`
 	Nats             AceOptionsNatsSettings  `json:"nats"`
+}
+
+type RegistrySpec struct {
+	RegistryFQDN                   string `json:"registryFQDN"`
+	AllowNondistributableArtifacts bool   `json:"allowNondistributableArtifacts"`
+	Insecure                       bool   `json:"insecure"`
 }
 
 type AceOptionsComponentSpec struct {
