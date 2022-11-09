@@ -666,9 +666,18 @@ properties:
     - enabled
     type: object
   registry:
-    type: string
-  registryFQDN:
-    type: string
+    properties:
+      allowNondistributableArtifacts:
+        type: boolean
+      insecure:
+        type: boolean
+      registryFQDN:
+        type: string
+    required:
+    - allowNondistributableArtifacts
+    - insecure
+    - registryFQDN
+    type: object
   release:
     properties:
       name:
@@ -809,7 +818,6 @@ required:
 - platform-ui
 - prom-proxy
 - registry
-- registryFQDN
 - release
 - settings
 type: object
