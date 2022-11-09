@@ -137,14 +137,10 @@ stringData:
     ADMIN_CREDS = {{ .Values.settings.nats.mountPath }}/ADMIN.creds
     ADMIN_USER_CREDS = {{ .Values.settings.nats.mountPath }}/admin.creds
 
-    ; When TLS is not used, use cluster svc ip
-    ;ACCOUNT_RESOLVER = nats://{{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc:4222
-    ;SERVER = nats://{{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc:4222,nats://nats.{{ .Values.global.platform.domain }}:4222
+    INCLUSTER_ADDR = nats://{{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc:4222
+    EXTERNAL_ADDR = nats://nats.{{ .Values.global.platform.domain }}:4222
+    WEBSOCKET_ADDR = wss://nats.{{ .Values.global.platform.domain }}
 
-    ACCOUNT_RESOLVER = nats://nats.{{ .Values.global.platform.domain }}:4222
-    NATS_SERVER = wss://nats.{{ .Values.global.platform.domain }}
-    SERVER = nats://nats.{{ .Values.global.platform.domain }}:4222
-    WEBSOCKET_SERVER = wss://nats.{{ .Values.global.platform.domain }}
     SHARD_COUNT = {{ .Values.settings.nats.shardCount }}
     REPLICAS = {{ .Values.settings.nats.replicas }}
   {{- end }}
