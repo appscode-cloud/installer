@@ -67,6 +67,7 @@ type AceOptionsSpec struct {
 
 type RegistrySpec struct {
 	RegistryFQDN                   string `json:"registryFQDN"`
+	PreserveOrganization           bool   `json:"preserveOrganization"`
 	AllowNondistributableArtifacts bool   `json:"allowNondistributableArtifacts"`
 	Insecure                       bool   `json:"insecure"`
 }
