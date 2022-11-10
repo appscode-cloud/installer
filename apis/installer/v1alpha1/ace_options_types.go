@@ -44,33 +44,33 @@ type AceOptions struct {
 
 // AceOptionsSpec is the schema for AceOptions Operator values file
 type AceOptionsSpec struct {
-	Release          ObjectReference         `json:"release"`
-	License          string                  `json:"license"`
-	Registry         RegistrySpec            `json:"registry"`
-	ImagePullSecrets []string                `json:"imagePullSecrets"`
-	Monitoring       GlobalMonitoring        `json:"monitoring"`
-	Infra            AceOptionsPlatformInfra `json:"infra"`
-	Settings         AceOptionsSettings      `json:"settings"`
-	Billing          AceOptionsComponentSpec `json:"billing"`
-	PlatformUi       AceOptionsComponentSpec `json:"platform-ui"`
-	AccountsUi       AceOptionsComponentSpec `json:"accounts-ui"`
-	ClusterUi        AceOptionsComponentSpec `json:"cluster-ui"`
-	DeployUi         AceOptionsComponentSpec `json:"deploy-ui"`
-	Grafana          AceOptionsComponentSpec `json:"grafana"`
-	KubedbUi         AceOptionsComponentSpec `json:"kubedb-ui"`
-	MarketplaceUi    AceOptionsComponentSpec `json:"marketplace-ui"`
-	PlatformApi      AceOptionsComponentSpec `json:"platform-api"`
-	PromProxy        AceOptionsComponentSpec `json:"prom-proxy"`
-	Ingress          AceOptionsIngressNginx  `json:"ingress"`
-	Nats             AceOptionsNatsSettings  `json:"nats"`
+	Release       ObjectReference         `json:"release"`
+	License       string                  `json:"license"`
+	Registry      RegistrySpec            `json:"registry"`
+	Monitoring    GlobalMonitoring        `json:"monitoring"`
+	Infra         AceOptionsPlatformInfra `json:"infra"`
+	Settings      AceOptionsSettings      `json:"settings"`
+	Billing       AceOptionsComponentSpec `json:"billing"`
+	PlatformUi    AceOptionsComponentSpec `json:"platform-ui"`
+	AccountsUi    AceOptionsComponentSpec `json:"accounts-ui"`
+	ClusterUi     AceOptionsComponentSpec `json:"cluster-ui"`
+	DeployUi      AceOptionsComponentSpec `json:"deploy-ui"`
+	Grafana       AceOptionsComponentSpec `json:"grafana"`
+	KubedbUi      AceOptionsComponentSpec `json:"kubedb-ui"`
+	MarketplaceUi AceOptionsComponentSpec `json:"marketplace-ui"`
+	PlatformApi   AceOptionsComponentSpec `json:"platform-api"`
+	PromProxy     AceOptionsComponentSpec `json:"prom-proxy"`
+	Ingress       AceOptionsIngressNginx  `json:"ingress"`
+	Nats          AceOptionsNatsSettings  `json:"nats"`
 }
 
 type RegistrySpec struct {
-	RegistryFQDN                   string `json:"registryFQDN"`
-	Registry                       string `json:"registry"`
-	PreserveOrganization           bool   `json:"preserveOrganization"`
-	AllowNondistributableArtifacts bool   `json:"allowNondistributableArtifacts"`
-	Insecure                       bool   `json:"insecure"`
+	RegistryFQDN                   string   `json:"registryFQDN"`
+	Registry                       string   `json:"registry"`
+	PreserveOrganization           bool     `json:"preserveOrganization"`
+	AllowNondistributableArtifacts bool     `json:"allowNondistributableArtifacts"`
+	Insecure                       bool     `json:"insecure"`
+	ImagePullSecrets               []string `json:"imagePullSecrets"`
 }
 
 type AceOptionsComponentSpec struct {

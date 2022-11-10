@@ -149,10 +149,6 @@ properties:
     required:
     - enabled
     type: object
-  imagePullSecrets:
-    items:
-      type: string
-    type: array
   infra:
     properties:
       cloudServices:
@@ -669,6 +665,10 @@ properties:
     properties:
       allowNondistributableArtifacts:
         type: boolean
+      imagePullSecrets:
+        items:
+          type: string
+        type: array
       insecure:
         type: boolean
       preserveOrganization:
@@ -679,6 +679,7 @@ properties:
         type: string
     required:
     - allowNondistributableArtifacts
+    - imagePullSecrets
     - insecure
     - preserveOrganization
     - registry
@@ -812,7 +813,6 @@ required:
 - cluster-ui
 - deploy-ui
 - grafana
-- imagePullSecrets
 - infra
 - ingress
 - kubedb-ui
