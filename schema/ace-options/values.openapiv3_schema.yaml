@@ -673,12 +673,15 @@ properties:
         type: boolean
       preserveOrganization:
         type: boolean
+      registry:
+        type: string
       registryFQDN:
         type: string
     required:
     - allowNondistributableArtifacts
     - insecure
     - preserveOrganization
+    - registry
     - registryFQDN
     type: object
   release:
