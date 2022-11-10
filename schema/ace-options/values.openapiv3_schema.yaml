@@ -671,11 +671,14 @@ properties:
         type: boolean
       insecure:
         type: boolean
+      preserveOrganization:
+        type: boolean
       registryFQDN:
         type: string
     required:
     - allowNondistributableArtifacts
     - insecure
+    - preserveOrganization
     - registryFQDN
     type: object
   release:
