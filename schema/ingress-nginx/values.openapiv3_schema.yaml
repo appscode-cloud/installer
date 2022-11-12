@@ -1,12 +1,72 @@
 properties:
   controller:
     properties:
+      admissionWebhooks:
+        properties:
+          patch:
+            properties:
+              image:
+                properties:
+                  digest:
+                    type: string
+                  image:
+                    type: string
+                  pullPolicy:
+                    type: string
+                  registry:
+                    type: string
+                  tag:
+                    type: string
+                required:
+                - digest
+                - image
+                - pullPolicy
+                - registry
+                - tag
+                type: object
+            required:
+            - image
+            type: object
+        required:
+        - patch
+        type: object
       hostPort:
         properties:
           enabled:
             type: boolean
         required:
         - enabled
+        type: object
+      image:
+        properties:
+          allowPrivilegeEscalation:
+            type: boolean
+          chroot:
+            type: boolean
+          digest:
+            type: string
+          digestChroot:
+            type: string
+          image:
+            type: string
+          pullPolicy:
+            type: string
+          registry:
+            type: string
+          runAsUser:
+            type: integer
+          tag:
+            type: string
+        required:
+        - allowPrivilegeEscalation
+        - chroot
+        - digest
+        - digestChroot
+        - image
+        - pullPolicy
+        - registry
+        - runAsUser
+        - tag
         type: object
       ingressClassByName:
         type: boolean
@@ -61,6 +121,8 @@ properties:
         - external
         type: object
     required:
+    - admissionWebhooks
+    - image
     - ingressClassByName
     - ingressClassResource
     type: object
