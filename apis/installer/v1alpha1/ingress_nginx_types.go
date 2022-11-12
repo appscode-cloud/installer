@@ -50,6 +50,7 @@ type IngressNginxSpec struct {
 }
 
 type IngressNginxController struct {
+	Image                IngressNginxControllerImage                `json:"image"`
 	HostPort             *IngressNginxControllerHostPort            `json:"hostPort,omitempty"`
 	IngressClassByName   bool                                       `json:"ingressClassByName"`
 	IngressClassResource IngressNginxControllerIngressClassResource `json:"ingressClassResource"`
@@ -58,7 +59,20 @@ type IngressNginxController struct {
 	NodeSelector map[string]string              `json:"nodeSelector"`
 	Service      *IngressNginxControllerService `json:"service,omitempty"`
 	//+optional
-	Resources core.ResourceRequirements `json:"resources"`
+	Resources         core.ResourceRequirements     `json:"resources"`
+	AdmissionWebhooks IngressNginxAdmissionWebhooks `json:"admissionWebhooks"`
+}
+
+type IngressNginxControllerImage struct {
+	Chroot                   bool   `json:"chroot"`
+	Registry                 string `json:"registry"`
+	Image                    string `json:"image"`
+	Tag                      string `json:"tag"`
+	Digest                   string `json:"digest"`
+	DigestChroot             string `json:"digestChroot"`
+	PullPolicy               string `json:"pullPolicy"`
+	RunAsUser                int    `json:"runAsUser"`
+	AllowPrivilegeEscalation bool   `json:"allowPrivilegeEscalation"`
 }
 
 type IngressNginxControllerHostPort struct {
@@ -77,6 +91,22 @@ type IngressNginxControllerService struct {
 
 type IngressNginxControllerServiceExternal struct {
 	Enabled bool `json:"enabled"`
+}
+
+type IngressNginxAdmissionWebhooks struct {
+	Patch IngressNginxAdmissionWebhooksPatch `json:"patch"`
+}
+
+type IngressNginxAdmissionWebhooksPatch struct {
+	Image IngressNginxAdmissionWebhooksImage `json:"image"`
+}
+
+type IngressNginxAdmissionWebhooksImage struct {
+	Registry   string `json:"registry"`
+	Image      string `json:"image"`
+	Tag        string `json:"tag"`
+	Digest     string `json:"digest"`
+	PullPolicy string `json:"pullPolicy"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
