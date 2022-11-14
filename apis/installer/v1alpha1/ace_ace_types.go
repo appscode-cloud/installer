@@ -228,7 +228,15 @@ type InfraDns struct {
 }
 
 type DNSProviderAuth struct {
-	Token              string `json:"token"`
+	Cloudflare *CloudflareAuth `json:"cloudflare,omitempty"`
+	Route53    *Route53Auth    `json:"route53,omitempty"`
+}
+
+type CloudflareAuth struct {
+	Token string `json:"token"`
+}
+
+type Route53Auth struct {
 	AwsAccessKeyID     string `json:"AWS_ACCESS_KEY_ID"`
 	AwsSecretAccessKey string `json:"AWS_SECRET_ACCESS_KEY"`
 	AwsRegion          string `json:"AWS_REGION"`
