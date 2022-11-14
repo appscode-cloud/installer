@@ -9,11 +9,11 @@ metadata:
 type: Opaque
 stringData:
 {{- if eq .Values.global.infra.dns.provider "cloudflare" }}
-  api-token: '{{ .Values.global.infra.dns.auth.token }}'
+  api-token: '{{ .Values.global.infra.dns.auth.cloudflare.token }}'
 {{- end }}
 {{- if eq .Values.global.infra.dns.provider "route53" }}
-  AWS_ACCESS_KEY_ID: '{{ .Values.global.infra.dns.auth.AWS_ACCESS_KEY_ID }}'
-  AWS_SECRET_ACCESS_KEY: '{{ .Values.global.infra.dns.auth.AWS_SECRET_ACCESS_KEY }}'
-  AWS_REGION: '{{ .Values.global.infra.dns.auth.AWS_REGION }}'
+  AWS_ACCESS_KEY_ID: '{{ .Values.global.infra.dns.auth.route53.AWS_ACCESS_KEY_ID }}'
+  AWS_SECRET_ACCESS_KEY: '{{ .Values.global.infra.dns.auth.route53.AWS_SECRET_ACCESS_KEY }}'
+  AWS_REGION: '{{ .Values.global.infra.dns.auth.route53.AWS_REGION }}'
 {{- end }}
 {{- end }}
