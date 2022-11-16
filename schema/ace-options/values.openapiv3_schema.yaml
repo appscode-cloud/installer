@@ -468,8 +468,6 @@ properties:
     required:
     - enabled
     type: object
-  license:
-    type: string
   marketplace-ui:
     properties:
       enabled:
@@ -684,13 +682,6 @@ properties:
         type: string
       registryFQDN:
         type: string
-    required:
-    - allowNondistributableArtifacts
-    - imagePullSecrets
-    - insecure
-    - preserveOrganization
-    - registry
-    - registryFQDN
     type: object
   release:
     properties:
@@ -823,7 +814,6 @@ required:
 - infra
 - ingress
 - kubedb-ui
-- license
 - marketplace-ui
 - monitoring
 - nats
