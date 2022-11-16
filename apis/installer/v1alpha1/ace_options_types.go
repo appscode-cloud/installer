@@ -45,7 +45,6 @@ type AceOptions struct {
 // AceOptionsSpec is the schema for AceOptions Operator values file
 type AceOptionsSpec struct {
 	Release       ObjectReference         `json:"release"`
-	License       string                  `json:"license"`
 	Registry      RegistrySpec            `json:"registry"`
 	Monitoring    GlobalMonitoring        `json:"monitoring"`
 	Infra         AceOptionsPlatformInfra `json:"infra"`
@@ -65,12 +64,18 @@ type AceOptionsSpec struct {
 }
 
 type RegistrySpec struct {
-	RegistryFQDN                   string   `json:"registryFQDN"`
-	Registry                       string   `json:"registry"`
-	PreserveOrganization           bool     `json:"preserveOrganization"`
-	AllowNondistributableArtifacts bool     `json:"allowNondistributableArtifacts"`
-	Insecure                       bool     `json:"insecure"`
-	ImagePullSecrets               []string `json:"imagePullSecrets"`
+	//+optional
+	RegistryFQDN string `json:"registryFQDN"`
+	//+optional
+	Registry string `json:"registry"`
+	//+optional
+	PreserveOrganization bool `json:"preserveOrganization"`
+	//+optional
+	AllowNondistributableArtifacts bool `json:"allowNondistributableArtifacts"`
+	//+optional
+	Insecure bool `json:"insecure"`
+	//+optional
+	ImagePullSecrets []string `json:"imagePullSecrets"`
 }
 
 type AceOptionsComponentSpec struct {
