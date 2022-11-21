@@ -127,10 +127,8 @@ global:
     dns:
       provider: "cloudflare" # external,cloudflare,route53
       auth:
-        token: xyz
-        AWS_ACCESS_KEY_ID: ""
-        AWS_SECRET_ACCESS_KEY: ""
-        AWS_REGION: "" # optional
+        cloudflare:
+          token: xyz
     # KMS and Object Store services are required
     # set provider to empty to disable this feature
     objstore:
