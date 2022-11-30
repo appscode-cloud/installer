@@ -777,6 +777,16 @@ properties:
         - domain
         - hosted
         type: object
+      proxyServer:
+        properties:
+          baseURL:
+            type: string
+          token:
+            type: string
+        required:
+        - baseURL
+        - token
+        type: object
       smtp:
         properties:
           from:
@@ -803,6 +813,7 @@ properties:
     - cache
     - db
     - platform
+    - proxyServer
     - smtp
     type: object
 required:

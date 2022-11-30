@@ -164,10 +164,11 @@ type AceOptionsInfraKms struct {
 }
 
 type AceOptionsSettings struct {
-	DB       AceOptionsDBSettings       `json:"db"`
-	Cache    AceOptionsCacheSettings    `json:"cache"`
-	SMTP     AceOptionsSMTPSettings     `json:"smtp"`
-	Platform AceOptionsPlatformSettings `json:"platform"`
+	DB          AceOptionsDBSettings       `json:"db"`
+	Cache       AceOptionsCacheSettings    `json:"cache"`
+	SMTP        AceOptionsSMTPSettings     `json:"smtp"`
+	Platform    AceOptionsPlatformSettings `json:"platform"`
+	ProxyServer AceProxyServer             `json:"proxyServer"`
 }
 
 type AceOptionsDBSettings struct {
