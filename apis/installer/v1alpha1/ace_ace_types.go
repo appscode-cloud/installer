@@ -344,6 +344,7 @@ type Settings struct {
 	ClusterConnector ClusterConnectorSpec `json:"clusterConnector"`
 	Contract         ContractStorage      `json:"contract"`
 	Firebase         FirebaseSettings     `json:"firebase"`
+	ProxyServer      AceProxyServer       `json:"proxyServer"`
 }
 
 type DBSettings struct {
@@ -453,6 +454,11 @@ type ContractStorage struct {
 type FirebaseSettings struct {
 	Project  string `json:"project"`
 	Database string `json:"database"`
+}
+
+type AceProxyServer struct {
+	BaseURL string `json:"baseURL"`
+	Token   string `json:"token"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

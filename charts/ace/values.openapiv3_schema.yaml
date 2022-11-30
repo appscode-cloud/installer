@@ -16590,6 +16590,16 @@ properties:
         - serviceRegisterEmailConfirm
         - serviceRequireSignInView
         type: object
+      proxyServer:
+        properties:
+          baseURL:
+            type: string
+          token:
+            type: string
+        required:
+        - baseURL
+        - token
+        type: object
       searchlight:
         properties:
           alertmanagerAddr:
@@ -16663,6 +16673,7 @@ properties:
     - grafana
     - nats
     - platform
+    - proxyServer
     - searchlight
     - security
     - smtp
