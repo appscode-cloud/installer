@@ -1,0 +1,18 @@
+project:
+  name: Cloudflare DNS Proxy by AppsCode
+  shortName: Cloudflare DNS Proxy
+  url: https://github.com/bytebuilders
+  description: Cloudflare DNS Proxy
+  app: a Cloudflare DNS Proxy server
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: dns-proxy
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.19+
+release:
+  name: dns-proxy
+  namespace: ace-system
