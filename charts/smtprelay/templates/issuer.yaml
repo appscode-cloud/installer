@@ -1,0 +1,40 @@
+{{- if .Values.smtp.tls }}
+
+{{- if not .Values.smtp.issuer.name }}
+
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: {{ include "smtprelay.fullname" . }}-ca
+  namespace: {{ .Release.Namespace }}
+spec:
+  selfSigned: {}
+
+{{- end }}
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "smtprelay.fullname" . }}-cert
+  namespace: {{ .Release.Namespace }}
+spec:
+  isCA: true
+  secretName: {{ include "smtprelay.fullname" . }}-cert
+  # privateKey:
+  #   algorithm: ECDSA
+  #   size: 256
+  issuerRef:
+    group: cert-manager.io
+    kind: {{ default "Issuer" .Values.smtp.issuer.kind }}
+    name: {{ default (printf "%s-ca" (include "smtprelay.fullname" . )) .Values.smtp.issuer.name }}
+  commonName: localhost
+  dnsNames:
+  - localhost
+  - {{ include "smtprelay.fullname" . }}
+  - {{ include "smtprelay.fullname" . }}.{{ .Release.Namespace }}.svc
+  ipAddresses:
+  - 127.0.0.1
+
+{{- end }}

@@ -29,5 +29,8 @@ spec:
     name: {{ default (printf "%s-ca" (include "minio.fullname" . )) .Values.minio.issuer.name }}
   commonName: localhost
   dnsNames:
+  - localhost
   - {{ include "minio.fullname" . }}
   - {{ include "minio.fullname" . }}.{{ .Release.Namespace }}.svc
+  ipAddresses:
+  - 127.0.0.1

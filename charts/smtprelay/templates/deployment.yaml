@@ -1,0 +1,99 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "smtprelay.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "smtprelay.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "smtprelay.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "smtprelay.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "appscode.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+          {{- if .Values.smtp.tls }}
+            {{- $_ := set .Values.securityContext "runAsUser" 0 }}
+            {{- $_ := set .Values.securityContext "runAsGroup" 0 }}
+          {{- end }}
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args:
+          - -config
+          - /etc/smtprelay/smtprelay.ini
+          ports:
+          - name: http
+            containerPort: 8025
+            protocol: TCP
+          - name: metrics
+            containerPort: 8080
+            protocol: TCP
+         {{- if .Values.smtp.tls }}
+          - name: tls
+            containerPort: 465
+            protocol: TCP
+          - name: starttls
+            containerPort: 587
+            protocol: TCP
+         {{- end }}
+          livenessProbe:
+            httpGet:
+              path: /
+              port: metrics
+          readinessProbe:
+            httpGet:
+              path: /
+              port: metrics
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+          - name: config
+            mountPath: /etc/smtprelay
+            readOnly: true
+      volumes:
+      - name: config
+        projected:
+          sources:
+          - secret:
+              name: {{ include "smtprelay.fullname" . }}-config
+          {{- if .Values.smtp.tls }}
+          - secret:
+              name: {{ include "smtprelay.fullname" . }}-cert
+              items:
+              - key: tls.crt
+                path: pki/tls.crt
+              - key: tls.key
+                path: pki/tls.key
+          {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
