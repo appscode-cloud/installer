@@ -96,6 +96,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&UiPresets{},
 		&Minio{},
 		&MinioList{},
+		&Smtprelay{},
+		&SmtprelayList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

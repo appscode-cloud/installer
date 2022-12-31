@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "smtprelay.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "smtprelay.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+    - port: {{ .Values.monitoring.port }}
+      targetPort: metrics
+      protocol: TCP
+      name: metrics
+   {{- if .Values.smtp.tls }}
+    - port: 465
+      targetPort: tls
+      protocol: TCP
+      name: tls
+    - port: 587
+      targetPort: starttls
+      protocol: TCP
+      name: starttls
+   {{- end }}
+  selector:
+    {{- include "smtprelay.selectorLabels" . | nindent 4 }}

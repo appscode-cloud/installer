@@ -80,6 +80,9 @@ jobs:
           echo
           echo "install helm 3"
           curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+          echo
+          echo "install cert-manager"
+          kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.10.1/cert-manager.yaml
 
       - name: Issue License
         env:

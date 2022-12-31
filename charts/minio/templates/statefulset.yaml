@@ -54,13 +54,13 @@ spec:
         resources:
           {{- toYaml .Values.resources | nindent 10 }}
         volumeMounts:
-        - name: minio-volume
+        - name: storage
           mountPath: "/storage"
-        - name: minio-certificates
+        - name: certificates
           mountPath: "/root/certs"
           readOnly: true
       volumes:
-      - name: minio-certificates
+      - name: certificates
         secret:
           secretName: {{ include "minio.fullname" . }}-cert
           items:
@@ -93,7 +93,7 @@ spec:
     {{- end }}
   volumeClaimTemplates:
   - metadata:
-      name: minio-volume
+      name: storage
     spec:
       accessModes: [ "ReadWriteOnce" ]
       {{- with .Values.storageClass.name }}

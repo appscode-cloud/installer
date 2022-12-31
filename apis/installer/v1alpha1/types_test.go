@@ -43,6 +43,7 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.PlatformApiSpec{}},
 		sc.TestCase{Obj: v1alpha1.PlatformUiSpec{}},
 		sc.TestCase{Obj: v1alpha1.PromProxySpec{}},
+		sc.TestCase{Obj: v1alpha1.SmtprelaySpec{}},
 		sc.TestCase{Obj: v1alpha1.UiPresetsSpec{}},
 		sc.TestCase{Obj: v1alpha1.ExternalDnsSpec{}, File: "https://raw.githubusercontent.com/kubernetes-sigs/external-dns/198217981ffe3a6aebe957165459a47094a0212b/charts/external-dns/values.yaml"},
 		sc.TestCase{Obj: v1alpha1.NatsSpec{}, File: "https://github.com/nats-io/k8s/raw/nats-0.17.0/helm/charts/nats/values.yaml"},
