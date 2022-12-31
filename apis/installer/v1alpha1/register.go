@@ -64,6 +64,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&ClusterUi{},
 		&DeployUiList{},
 		&DeployUi{},
+		&DnsProxy{},
+		&DnsProxyList{},
 		&ExternalDnsList{},
 		&ExternalDns{},
 		&GrafanaList{},

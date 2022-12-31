@@ -50,6 +50,12 @@ type Monitoring struct {
 	ServiceMonitor *ServiceMonitorLabels `json:"serviceMonitor"`
 }
 
+type CustomMonitoring struct {
+	Agent          MonitoringAgent       `json:"agent"`
+	Port           int                   `json:"port"`
+	ServiceMonitor *ServiceMonitorLabels `json:"serviceMonitor"`
+}
+
 type ServiceMonitorLabels struct {
 	// +optional
 	Labels map[string]string `json:"labels"`
