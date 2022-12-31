@@ -1,0 +1,18 @@
+project:
+  name: MinIO
+  shortName: MinIO
+  url: https://github.com/bytebuilders
+  description: MinIO Demo Deployment
+  app: a MinIO
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: minio
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.19+
+release:
+  name: minio
+  namespace: ace-system

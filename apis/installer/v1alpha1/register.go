@@ -92,6 +92,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&Reloader{},
 		&UiPresetsList{},
 		&UiPresets{},
+		&Minio{},
+		&MinioList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

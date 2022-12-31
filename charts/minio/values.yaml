@@ -1,0 +1,71 @@
+# Default values for minio.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+# Docker registry fqdn used to pull app related images.
+# Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image}
+registryFQDN: ""
+
+# Docker registry containing app images
+image:
+  # Docker registry used to pull app container image
+  registry: minio
+  # App container image
+  repository: minio
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: RELEASE.2022-02-01T18-00-14Z
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+service:
+  type: ClusterIP
+  port: 9000
+
+storageClass:
+  name: ""
+
+persistence:
+  size: 10Gi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+minio:
+  issuer:
+    name: ""
+    kind: ""
+  accessKeyId: ""
+  secretAccessKey: ""
