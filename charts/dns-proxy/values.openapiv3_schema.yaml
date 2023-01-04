@@ -364,6 +364,11 @@ properties:
             type: array
         type: object
     type: object
+  auth:
+    properties:
+      domain:
+        type: string
+    type: object
   autoscaling:
     properties:
       enabled:
@@ -677,6 +682,7 @@ properties:
       type: object
     type: array
 required:
+- auth
 - autoscaling
 - cloudflare
 - image

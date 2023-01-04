@@ -83,6 +83,12 @@ type SMTPConfig struct {
 	Remotes   []string       `json:"remotes"`
 	TLS       bool           `json:"tls"`
 	Issuer    MinIOIssuerRef `json:"issuer"`
+	Auth      SmtpAuth       `json:"auth"`
+}
+
+type SmtpAuth struct {
+	// +optional
+	Domain string `json:"domain"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

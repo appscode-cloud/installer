@@ -17,9 +17,11 @@ limitations under the License.
 package v1alpha1
 
 import (
+	openviz_installer "go.openviz.dev/installer/apis/installer/v1alpha1"
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	store "kmodules.xyz/objectstore-api/api/v1"
+	kubeops_installer "kubeops.dev/installer/apis/installer/v1alpha1"
 )
 
 const (
@@ -45,28 +47,33 @@ type Ace struct {
 
 // AceSpec is the schema for Ace Operator values file
 type AceSpec struct {
-	Billing            AceBilling                `json:"billing"`
-	PlatformUi         AcePlatformUi             `json:"platform-ui"`
-	AccountsUi         AceAccountsUi             `json:"accounts-ui"`
-	ClusterUi          AceClusterUi              `json:"cluster-ui"`
-	DeployUi           AceDeployUi               `json:"deploy-ui"`
-	Grafana            AceGrafana                `json:"grafana"`
-	KubedbUi           AceKubedbUi               `json:"kubedb-ui"`
-	MarketplaceUi      AceMarketplaceUi          `json:"marketplace-ui"`
-	PlatformApi        AcePlatformApi            `json:"platform-api"`
-	PromProxy          AcePromProxy              `json:"prom-proxy"`
-	IngressNginx       AceIngressNginx           `json:"ingress-nginx"`
-	IngressDns         AceIngressDns             `json:"ingress-dns"`
-	Nats               AceNats                   `json:"nats"`
-	NatsDns            AceNatsDns                `json:"nats-dns"`
-	Reloader           AceReloader               `json:"reloader"`
-	Global             AceGlobalValues           `json:"global"`
-	Settings           Settings                  `json:"settings"`
-	Image              ImageReference            `json:"image"`
-	PodAnnotations     map[string]string         `json:"podAnnotations"`
-	PodSecurityContext *core.PodSecurityContext  `json:"podSecurityContext"`
-	SecurityContext    *core.SecurityContext     `json:"securityContext"`
-	Resources          core.ResourceRequirements `json:"resources"`
+	Billing             AceBilling                `json:"billing"`
+	PlatformUi          AcePlatformUi             `json:"platform-ui"`
+	AccountsUi          AceAccountsUi             `json:"accounts-ui"`
+	ClusterUi           AceClusterUi              `json:"cluster-ui"`
+	DeployUi            AceDeployUi               `json:"deploy-ui"`
+	Grafana             AceGrafana                `json:"grafana"`
+	KubedbUi            AceKubedbUi               `json:"kubedb-ui"`
+	MarketplaceUi       AceMarketplaceUi          `json:"marketplace-ui"`
+	PlatformApi         AcePlatformApi            `json:"platform-api"`
+	PromProxy           AcePromProxy              `json:"prom-proxy"`
+	IngressNginx        AceIngressNginx           `json:"ingress-nginx"`
+	IngressDns          AceIngressDns             `json:"ingress-dns"`
+	Nats                AceNats                   `json:"nats"`
+	NatsDns             AceNatsDns                `json:"nats-dns"`
+	Reloader            AceReloader               `json:"reloader"`
+	ExternalDnsOperator AceExternalDnsOperator    `json:"external-dns-operator"`
+	Trickster           AceTrickster              `json:"trickster"`
+	DNSProxy            AceDnsProxy               `json:"dns-proxy"`
+	SMTPRelay           AceSmtprelay              `json:"smtprelay"`
+	Minio               AceMinio                  `json:"minio"`
+	Global              AceGlobalValues           `json:"global"`
+	Settings            Settings                  `json:"settings"`
+	Image               ImageReference            `json:"image"`
+	PodAnnotations      map[string]string         `json:"podAnnotations"`
+	PodSecurityContext  *core.PodSecurityContext  `json:"podSecurityContext"`
+	SecurityContext     *core.SecurityContext     `json:"securityContext"`
+	Resources           core.ResourceRequirements `json:"resources"`
 	//+optional
 	NodeSelector map[string]string `json:"nodeSelector"`
 	Tolerations  []core.Toleration `json:"tolerations"`
@@ -146,6 +153,31 @@ type AceNatsDns struct {
 type AceReloader struct {
 	Enabled       bool `json:"enabled"`
 	*ReloaderSpec `json:",inline,omitempty"`
+}
+
+type AceExternalDnsOperator struct {
+	Enabled                                    bool `json:"enabled"`
+	*kubeops_installer.ExternalDnsOperatorSpec `json:",inline,omitempty"`
+}
+
+type AceTrickster struct {
+	Enabled                          bool `json:"enabled"`
+	*openviz_installer.TricksterSpec `json:",inline,omitempty"`
+}
+
+type AceDnsProxy struct {
+	Enabled       bool `json:"enabled"`
+	*DnsProxySpec `json:",inline,omitempty"`
+}
+
+type AceSmtprelay struct {
+	Enabled        bool `json:"enabled"`
+	*SmtprelaySpec `json:",inline,omitempty"`
+}
+
+type AceMinio struct {
+	Enabled    bool `json:"enabled"`
+	*MinioSpec `json:",inline,omitempty"`
 }
 
 type AceGlobalValues struct {

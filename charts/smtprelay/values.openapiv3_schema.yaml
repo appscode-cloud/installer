@@ -659,6 +659,11 @@ properties:
         items:
           type: string
         type: array
+      auth:
+        properties:
+          domain:
+            type: string
+        type: object
       issuer:
         properties:
           kind:
@@ -677,6 +682,7 @@ properties:
         type: boolean
     required:
     - addresses
+    - auth
     - issuer
     - remotes
     - tls

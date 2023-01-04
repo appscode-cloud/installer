@@ -22,12 +22,12 @@ import (
 )
 
 const (
-	ResourceKindDnsProxy = "DnsProxy"
-	ResourceDnsProxy     = "dnsproxy"
-	ResourceDnsProxys    = "dnsproxys"
+	ResourceKindTrickster = "Trickster"
+	ResourceTrickster     = "trickster"
+	ResourceTricksters    = "tricksters"
 )
 
-// DnsProxy defines the schama for DnsProxy Installer.
+// Trickster defines the schama for Trickster Installer.
 
 // +genclient
 // +genclient:skipVerbs=updateStatus
@@ -35,15 +35,15 @@ const (
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:path=dnsproxys,singular=dnsproxy,categories={kubeops,appscode}
-type DnsProxy struct {
+// +kubebuilder:resource:path=tricksters,singular=trickster,categories={kubeops,appscode}
+type Trickster struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              DnsProxySpec `json:"spec,omitempty"`
+	Spec              TricksterSpec `json:"spec,omitempty"`
 }
 
-// DnsProxySpec is the schema for DnsProxy Operator values file
-type DnsProxySpec struct {
+// TricksterSpec is the schema for Trickster Operator values file
+type TricksterSpec struct {
 	ReplicaCount int `json:"replicaCount"`
 	//+optional
 	RegistryFQDN string         `json:"registryFQDN"`
@@ -53,8 +53,8 @@ type DnsProxySpec struct {
 	//+optional
 	NameOverride string `json:"nameOverride"`
 	//+optional
-	FullnameOverride string               `json:"fullnameOverride"`
-	ServiceAccount   LocalObjectReference `json:"serviceAccount"`
+	FullnameOverride string             `json:"fullnameOverride"`
+	ServiceAccount   ServiceAccountSpec `json:"serviceAccount"`
 	//+optional
 	PodAnnotations map[string]string `json:"podAnnotations"`
 	//+optional
@@ -75,23 +75,44 @@ type DnsProxySpec struct {
 	Affinity   *core.Affinity   `json:"affinity"`
 	Monitoring CustomMonitoring `json:"monitoring"`
 	Ingress    AppIngress       `json:"ingress"`
-	Cloudflare CloudflareAuth   `json:"cloudflare"`
-	Auth       DNSProxyAuth     `json:"auth"`
 }
 
-type DNSProxyAuth struct {
+type ImageReference struct {
+	Registry   string `json:"registry"`
+	Repository string `json:"repository"`
+	Tag        string `json:"tag"`
+	PullPolicy string `json:"pullPolicy"`
+}
+
+type AceServiceSpec struct {
+	Type string `json:"type"`
+	Port int    `json:"port"`
+}
+
+type AutoscalingSpec struct {
+	Enabled     bool `json:"enabled"`
+	MinReplicas int  `json:"minReplicas"`
+	MaxReplicas int  `json:"maxReplicas"`
 	// +optional
-	Domain string `json:"domain"`
+	TargetCPUUtilizationPercentage int `json:"targetCPUUtilizationPercentage,omitempty"`
+	// +optional
+	TargetMemoryUtilizationPercentage int `json:"targetMemoryUtilizationPercentage,omitempty"`
+}
+
+type CustomMonitoring struct {
+	Agent          MonitoringAgent       `json:"agent"`
+	Port           int                   `json:"port"`
+	ServiceMonitor *ServiceMonitorLabels `json:"serviceMonitor"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// DnsProxyList is a list of DnsProxys
-type DnsProxyList struct {
+// TricksterList is a list of Tricksters
+type TricksterList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of DnsProxy CRD objects
-	Items []DnsProxy `json:"items,omitempty"`
+	// Items is a list of Trickster CRD objects
+	Items []Trickster `json:"items,omitempty"`
 }
 
 type AppIngress struct {

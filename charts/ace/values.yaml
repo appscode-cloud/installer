@@ -53,6 +53,21 @@ nats-dns:
 reloader:
   enabled: false
 
+external-dns-operator:
+  enabled: false
+
+trickster:
+  enabled: false
+
+minio:
+  enabled: false
+
+dns-proxy:
+  enabled: false
+
+smtprelay:
+  enabled: false
+
 # -------------
 
 global:

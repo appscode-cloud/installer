@@ -29,6 +29,18 @@ dependencies:
 - name: grafana
   repository: file://../grafana
   version: v2022.06.14
+- name: trickster
+  repository: https://charts.appscode.com/stable/
+  version: v2022.06.14
+- name: minio
+  repository: file://../minio
+  version: v2022.06.14
+- name: dns-proxy
+  repository: file://../dns-proxy
+  version: v2022.06.14
+- name: smtprelay
+  repository: file://../smtprelay
+  version: v2022.06.14
 - name: ingress-nginx
   repository: https://kubernetes.github.io/ingress-nginx
   version: 4.4.0
@@ -44,5 +56,5 @@ dependencies:
 - name: reloader
   repository: https://stakater.github.io/stakater-charts
   version: v0.0.124
-digest: sha256:f1e847b3eb05f49e85b0cda9b8d6ff48ca4f97ed13fe63ddfa2cdfc9db8ca513
-generated: "2022-11-12T23:46:55.078789+06:00"
+digest: sha256:529c8a014c6fd1f4d7ede4501aad2fddfd73c375a029d39bc12d5f569f8c79ce
+generated: "2023-01-04T15:07:47.654488+06:00"

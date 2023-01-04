@@ -411,13 +411,17 @@ properties:
     type: object
   platform:
     properties:
+      deploymentType:
+        enum:
+        - Hosted
+        - SelfHostedProduction
+        - SelfHostedDemo
+        type: string
       domain:
         type: string
-      hosted:
-        type: boolean
     required:
+    - deploymentType
     - domain
-    - hosted
     type: object
   podAnnotations:
     additionalProperties:

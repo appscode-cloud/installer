@@ -39,6 +39,9 @@ type Container struct {
 type CleanerRef struct {
 	ImageRef `json:",inline"`
 	Skip     bool `json:"skip"`
+	// Security options the pod should run with.
+	// +optional
+	SecurityContext *core.SecurityContext `json:"securityContext"`
 }
 
 type ServiceAccountSpec struct {
@@ -80,6 +83,15 @@ type ServiceMonitorLabels struct {
 type ApiserverSpec struct {
 	GroupPriorityMinimum       int32           `json:"groupPriorityMinimum"`
 	VersionPriority            int32           `json:"versionPriority"`
+	UseKubeapiserverFqdnForAks bool            `json:"useKubeapiserverFqdnForAks"`
+	Healthcheck                HealthcheckSpec `json:"healthcheck"`
+	ServingCerts               ServingCerts    `json:"servingCerts"`
+}
+
+type WebHookSpec struct {
+	GroupPriorityMinimum       int32           `json:"groupPriorityMinimum"`
+	VersionPriority            int32           `json:"versionPriority"`
+	EnableValidatingWebhook    bool            `json:"enableValidatingWebhook"`
 	UseKubeapiserverFqdnForAks bool            `json:"useKubeapiserverFqdnForAks"`
 	Healthcheck                HealthcheckSpec `json:"healthcheck"`
 	ServingCerts               ServingCerts    `json:"servingCerts"`

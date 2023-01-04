@@ -3,12 +3,12 @@ module go.bytebuilders.dev/installer
 go 1.18
 
 require (
-	go.openviz.dev/installer v0.0.0-20220604082341-49cce25117ff
-	k8s.io/api v0.25.1
-	k8s.io/apimachinery v0.25.1
+	go.openviz.dev/installer v0.0.0-20230104082956-b1c59b1b779d
+	k8s.io/api v0.25.2
+	k8s.io/apimachinery v0.25.2
 	kmodules.xyz/objectstore-api v0.25.0
 	kmodules.xyz/schema-checker v0.4.1
-	kubeops.dev/installer v0.0.0-20220627095147-82e789070444
+	kubeops.dev/installer v0.0.0-20230102190911-48de263490ae
 )
 
 require (
@@ -16,6 +16,7 @@ require (
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/emicklei/go-restful/v3 v3.8.0 // indirect
+	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/go-logr/logr v1.2.3 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
 	github.com/go-openapi/jsonreference v0.19.5 // indirect
@@ -31,7 +32,6 @@ require (
 	github.com/mailru/easyjson v0.7.6 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
-	github.com/nxadm/tail v1.4.8 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
@@ -41,6 +41,7 @@ require (
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
+	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	k8s.io/klog/v2 v2.80.1 // indirect
