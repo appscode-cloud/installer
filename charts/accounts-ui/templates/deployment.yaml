@@ -35,8 +35,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command:
-            - gitea
+          args:
             - accounts
           ports:
             - name: http
@@ -81,7 +80,7 @@ spec:
               mountPath: /data
             {{- if (include "settings.platformConfigSecretName" .) }}
             - name: config
-              mountPath: /data/gitea/conf/app.ini
+              mountPath: /data/b3/conf/app.ini
               subPath: app.ini
             {{- end }}
             {{- if (include "settings.objstoreSecretName" .) }}

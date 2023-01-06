@@ -238,7 +238,7 @@ settings:
     ##
     disableHttpGit: false
 
-    ## Lock the path /install to configure gitea
+    ## Lock the path /install to configure b3
     ##
     installLock: true
 
@@ -355,7 +355,7 @@ image:
   # Docker registry used to pull app container image
   registry: appscode
   # App container image
-  repository: gitea
+  repository: b3
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
   pullPolicy: Always
