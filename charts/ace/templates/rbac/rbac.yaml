@@ -1,5 +1,5 @@
 # TODO: Remove this once virtual-kubernetes is ready
-# This temporarily gives the s/a in gitea deployment permission on the BB crds.
+# This temporarily gives the s/a in b3 deployment permission on the BB crds.
 
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
