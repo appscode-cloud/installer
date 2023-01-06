@@ -31,6 +31,10 @@ crd-importer \
     --out=./charts/ace/crds
 
 crd-importer \
+    --input=https://github.com/kubeops/external-dns-operator/raw/v0.0.1/crds/external-dns.appscode.com_externaldns.yaml \
+    --out=./charts/ace/crds
+
+crd-importer \
     --input=https://github.com/prometheus-operator/prometheus-operator/raw/v0.54.1/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml \
     --out=./charts/license-proxyserver/crds
 
