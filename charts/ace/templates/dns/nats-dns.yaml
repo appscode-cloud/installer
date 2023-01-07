@@ -1,4 +1,4 @@
-{{ if (and (index .Values "ingress-nginx" "enabled") (and .Values.nats.enabled (not .Values.nats.nats.externalAccess))) }}
+{{ if index .Values "nats-dns" "enabled" }}
 
 apiVersion: external-dns.appscode.com/v1alpha1
 kind: ExternalDNS
@@ -8,22 +8,6 @@ metadata:
   labels:
     {{- include "ace.labels" . | nindent 4 }}
 spec:
-  providerSecretRef:
-    name: {{ include "ace.fullname" . }}-dns-cred
-  source:
-    type:
-      group: ""
-      version: v1
-      kind: Node
-    node:
-      labelFilter: app=demo-node
-      annotationFilter: lke.linode.com/wgip=0.0.0.0
-      fqdnTemplate: "{{.Name}}.example.com"
-  registry: txt
-  txtOwnerID: external-dns
-  txtPrefix: xyz
-  provider: cloudflare
-  domainFilter:
-    - example.com
+  {{- index .Values "nats-dns" "spec" | toYaml | nindent 2 }}
 
 {{- end }}

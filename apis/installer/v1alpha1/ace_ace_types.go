@@ -21,6 +21,7 @@ import (
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	store "kmodules.xyz/objectstore-api/api/v1"
+	dnsapi "kubeops.dev/external-dns-operator/apis/external/v1alpha1"
 )
 
 const (
@@ -57,7 +58,9 @@ type AceSpec struct {
 	PlatformApi        AcePlatformApi            `json:"platform-api"`
 	PromProxy          AcePromProxy              `json:"prom-proxy"`
 	IngressNginx       AceIngressNginx           `json:"ingress-nginx"`
+	IngressDns         AceIngressDns             `json:"ingress-dns"`
 	Nats               AceNats                   `json:"nats"`
+	NatsDns            AceNatsDns                `json:"nats-dns"`
 	Reloader           AceReloader               `json:"reloader"`
 	Trickster          AceTrickster              `json:"trickster"`
 	DNSProxy           AceDnsProxy               `json:"dns-proxy"`
@@ -131,9 +134,19 @@ type AceIngressNginx struct {
 	*IngressNginxSpec `json:",inline,omitempty"`
 }
 
+type AceIngressDns struct {
+	Enabled bool                    `json:"enabled"`
+	Spec    *dnsapi.ExternalDNSSpec `json:"spec,omitempty"`
+}
+
 type AceNats struct {
 	Enabled   bool `json:"enabled"`
 	*NatsSpec `json:",inline,omitempty"`
+}
+
+type AceNatsDns struct {
+	Enabled bool                    `json:"enabled"`
+	Spec    *dnsapi.ExternalDNSSpec `json:"spec,omitempty"`
 }
 
 type AceReloader struct {

@@ -4777,6 +4777,198 @@ properties:
     - repository
     - tag
     type: object
+  ingress-dns:
+    properties:
+      enabled:
+        type: boolean
+      spec:
+        properties:
+          aws:
+            properties:
+              apiRetries:
+                type: integer
+              assumeRole:
+                type: string
+              batchChangeInterval:
+                format: int64
+                type: integer
+              batchChangeSize:
+                type: integer
+              evaluateTargetHealth:
+                type: boolean
+              preferCNAME:
+                type: boolean
+              sdServiceCleanup:
+                type: boolean
+              zoneCacheDuration:
+                format: int64
+                type: integer
+              zoneTagFilter:
+                items:
+                  type: string
+                type: array
+              zoneType:
+                type: string
+            type: object
+          azure:
+            properties:
+              resourceGroup:
+                type: string
+              subscriptionId:
+                type: string
+              userAssignedIdentityClientID:
+                type: string
+            type: object
+          cloudflare:
+            properties:
+              proxied:
+                type: boolean
+              zonesPerPage:
+                type: integer
+            type: object
+          connectorSourceServer:
+            type: string
+          defaultTargets:
+            items:
+              type: string
+            type: array
+          domainFilter:
+            items:
+              type: string
+            type: array
+          excludeDomains:
+            items:
+              type: string
+            type: array
+          gatewayLabelFilter:
+            type: string
+          gatewayNamespace:
+            type: string
+          google:
+            properties:
+              batchChangeInterval:
+                format: int64
+                type: integer
+              batchChangeSize:
+                type: integer
+              project:
+                type: string
+              zoneVisibility:
+                type: string
+            type: object
+          manageDNSRecordTypes:
+            items:
+              type: string
+            type: array
+          ocRouterName:
+            type: string
+          policy:
+            type: string
+          provider:
+            type: string
+          providerSecretRef:
+            properties:
+              name:
+                type: string
+            type: object
+            x-kubernetes-map-type: atomic
+          registry:
+            type: string
+          requestTimeout:
+            format: int64
+            type: integer
+          source:
+            properties:
+              ingress:
+                properties:
+                  annotationFilter:
+                    type: string
+                  combineFQDNAndAnnotation:
+                    type: boolean
+                  fqdnTemplate:
+                    type: string
+                  ignoreHostnameAnnotation:
+                    type: boolean
+                  ignoreIngressRulesSpec:
+                    type: boolean
+                  ignoreIngressTLSSpec:
+                    type: boolean
+                  labelFilter:
+                    type: string
+                  namespace:
+                    type: string
+                type: object
+              node:
+                properties:
+                  annotationFilter:
+                    type: string
+                  fqdnTemplate:
+                    type: string
+                  labelFilter:
+                    type: string
+                type: object
+              service:
+                properties:
+                  alwaysPublishNotReadyAddresses:
+                    type: boolean
+                  annotationFilter:
+                    type: string
+                  combineFQDNAndAnnotation:
+                    type: boolean
+                  compatibility:
+                    type: string
+                  fqdnTemplate:
+                    type: string
+                  ignoreHostnameAnnotation:
+                    type: boolean
+                  labelFilter:
+                    type: string
+                  namespace:
+                    type: string
+                  publishHostIP:
+                    type: boolean
+                  publishInternal:
+                    type: boolean
+                  serviceTypeFilter:
+                    items:
+                      type: string
+                    type: array
+                type: object
+              type:
+                properties:
+                  group:
+                    type: string
+                  kind:
+                    type: string
+                  version:
+                    type: string
+                required:
+                - group
+                - kind
+                - version
+                type: object
+            required:
+            - type
+            type: object
+          txtOwnerID:
+            type: string
+          txtPrefix:
+            type: string
+          txtSuffix:
+            type: string
+          txtWildcardReplacement:
+            type: string
+          zoneIDFilter:
+            items:
+              type: string
+            type: array
+        required:
+        - provider
+        - source
+        type: object
+    required:
+    - enabled
+    type: object
   ingress-nginx:
     properties:
       controller:
@@ -11050,6 +11242,198 @@ properties:
     - useFQDN
     - websocket
     type: object
+  nats-dns:
+    properties:
+      enabled:
+        type: boolean
+      spec:
+        properties:
+          aws:
+            properties:
+              apiRetries:
+                type: integer
+              assumeRole:
+                type: string
+              batchChangeInterval:
+                format: int64
+                type: integer
+              batchChangeSize:
+                type: integer
+              evaluateTargetHealth:
+                type: boolean
+              preferCNAME:
+                type: boolean
+              sdServiceCleanup:
+                type: boolean
+              zoneCacheDuration:
+                format: int64
+                type: integer
+              zoneTagFilter:
+                items:
+                  type: string
+                type: array
+              zoneType:
+                type: string
+            type: object
+          azure:
+            properties:
+              resourceGroup:
+                type: string
+              subscriptionId:
+                type: string
+              userAssignedIdentityClientID:
+                type: string
+            type: object
+          cloudflare:
+            properties:
+              proxied:
+                type: boolean
+              zonesPerPage:
+                type: integer
+            type: object
+          connectorSourceServer:
+            type: string
+          defaultTargets:
+            items:
+              type: string
+            type: array
+          domainFilter:
+            items:
+              type: string
+            type: array
+          excludeDomains:
+            items:
+              type: string
+            type: array
+          gatewayLabelFilter:
+            type: string
+          gatewayNamespace:
+            type: string
+          google:
+            properties:
+              batchChangeInterval:
+                format: int64
+                type: integer
+              batchChangeSize:
+                type: integer
+              project:
+                type: string
+              zoneVisibility:
+                type: string
+            type: object
+          manageDNSRecordTypes:
+            items:
+              type: string
+            type: array
+          ocRouterName:
+            type: string
+          policy:
+            type: string
+          provider:
+            type: string
+          providerSecretRef:
+            properties:
+              name:
+                type: string
+            type: object
+            x-kubernetes-map-type: atomic
+          registry:
+            type: string
+          requestTimeout:
+            format: int64
+            type: integer
+          source:
+            properties:
+              ingress:
+                properties:
+                  annotationFilter:
+                    type: string
+                  combineFQDNAndAnnotation:
+                    type: boolean
+                  fqdnTemplate:
+                    type: string
+                  ignoreHostnameAnnotation:
+                    type: boolean
+                  ignoreIngressRulesSpec:
+                    type: boolean
+                  ignoreIngressTLSSpec:
+                    type: boolean
+                  labelFilter:
+                    type: string
+                  namespace:
+                    type: string
+                type: object
+              node:
+                properties:
+                  annotationFilter:
+                    type: string
+                  fqdnTemplate:
+                    type: string
+                  labelFilter:
+                    type: string
+                type: object
+              service:
+                properties:
+                  alwaysPublishNotReadyAddresses:
+                    type: boolean
+                  annotationFilter:
+                    type: string
+                  combineFQDNAndAnnotation:
+                    type: boolean
+                  compatibility:
+                    type: string
+                  fqdnTemplate:
+                    type: string
+                  ignoreHostnameAnnotation:
+                    type: boolean
+                  labelFilter:
+                    type: string
+                  namespace:
+                    type: string
+                  publishHostIP:
+                    type: boolean
+                  publishInternal:
+                    type: boolean
+                  serviceTypeFilter:
+                    items:
+                      type: string
+                    type: array
+                type: object
+              type:
+                properties:
+                  group:
+                    type: string
+                  kind:
+                    type: string
+                  version:
+                    type: string
+                required:
+                - group
+                - kind
+                - version
+                type: object
+            required:
+            - type
+            type: object
+          txtOwnerID:
+            type: string
+          txtPrefix:
+            type: string
+          txtSuffix:
+            type: string
+          txtWildcardReplacement:
+            type: string
+          zoneIDFilter:
+            items:
+              type: string
+            type: array
+        required:
+        - provider
+        - source
+        type: object
+    required:
+    - enabled
+    type: object
   nodeSelector:
     additionalProperties:
       type: string
@@ -15966,11 +16350,13 @@ required:
 - global
 - grafana
 - image
+- ingress-dns
 - ingress-nginx
 - kubedb-ui
 - marketplace-ui
 - minio
 - nats
+- nats-dns
 - platform-api
 - platform-ui
 - podAnnotations

@@ -1,25 +1,13 @@
+{{ if index .Values "ingress-dns" "enabled" }}
+
 apiVersion: external-dns.appscode.com/v1alpha1
 kind: ExternalDNS
 metadata:
-  name: {{ include "ace.fullname" . }}
+  name: {{ include "ace.fullname" . }}-ingress
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "ace.labels" . | nindent 4 }}
 spec:
-  providerSecretRef:
-    name: {{ include "ace.fullname" . }}-dns-cred
-  source:
-    type:
-      group: ""
-      version: v1
-      kind: Node
-    node:
-      labelFilter: app=demo-node
-      annotationFilter: lke.linode.com/wgip=0.0.0.0
-      fqdnTemplate: "{{.Name}}.example.com"
-  registry: txt
-  txtOwnerID: external-dns
-  txtPrefix: xyz
-  provider: cloudflare
-  domainFilter:
-    - example.com
+  {{- index .Values "ingress-dns" "spec" | toYaml | nindent 2 }}
+
+{{- end }}
