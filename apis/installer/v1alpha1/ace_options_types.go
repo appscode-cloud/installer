@@ -61,6 +61,10 @@ type AceOptionsSpec struct {
 	PromProxy     AceOptionsComponentSpec `json:"prom-proxy"`
 	Ingress       AceOptionsIngressNginx  `json:"ingress"`
 	Nats          AceOptionsNatsSettings  `json:"nats"`
+	Trickster     AceOptionsComponentSpec `json:"trickster"`
+	DNSProxy      AceOptionsComponentSpec `json:"dns-proxy"`
+	SMTPRelay     AceOptionsComponentSpec `json:"smtprelay"`
+	Minio         AceOptionsComponentSpec `json:"minio"`
 }
 
 type RegistrySpec struct {
@@ -199,12 +203,16 @@ const (
 	SelfHostedDemoDeployment       DeploymentType = "SelfHostedDemo"
 )
 
+func (dt DeploymentType) Hosted() bool {
+	return dt == HostedDeployment
+}
+
 func (dt DeploymentType) SelfHosted() bool {
 	return dt == SelfHostedProductionDeployment || dt == SelfHostedDemoDeployment
 }
 
-func (dt DeploymentType) Production() bool {
-	return dt == SelfHostedProductionDeployment || dt == HostedDeployment
+func (dt DeploymentType) Demo() bool {
+	return dt == SelfHostedDemoDeployment
 }
 
 type AceOptionsPlatformSettings struct {
