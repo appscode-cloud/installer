@@ -66,8 +66,6 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&DeployUi{},
 		&DnsProxy{},
 		&DnsProxyList{},
-		&ExternalDnsList{},
-		&ExternalDns{},
 		&GrafanaList{},
 		&Grafana{},
 		&IngressNginxList{},

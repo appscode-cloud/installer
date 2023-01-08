@@ -130,6 +130,30 @@ spec:
         path: /
         pathType: Prefix
 {{- end }}
+{{- if (index .Values "trickster" "enabled") }}
+  - host: trickster.{{ .Values.global.platform.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-trickster
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+{{- end }}
+{{- if (index .Values "dns-proxy" "enabled") }}
+  - host: dns-proxy.{{ .Values.global.platform.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-dns-proxy
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+{{- end }}
   tls:
   - secretName: {{ include "ace.fullname" . }}-cert
     hosts:
@@ -163,5 +187,13 @@ spec:
   {{- if (index .Values "prom-proxy" "enabled") }}
     - 'prometheus.{{ .Values.global.platform.domain }}'
   {{- end }}
-
+  {{- if (index .Values "trickster" "enabled") }}
+    - 'trickster.{{ .Values.global.platform.domain }}'
+  {{- end }}
+  {{- if (index .Values "dns-proxy" "enabled") }}
+    - 'dns-proxy.{{ .Values.global.platform.domain }}'
+  {{- end }}
+  {{- if (index .Values "smtprelay" "enabled") }}
+    - 'smtprelay.{{ .Values.global.platform.domain }}'
+  {{- end }}
 {{- end }}

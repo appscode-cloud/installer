@@ -36,6 +36,9 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
           - run
+        {{- if .Values.auth.domain }}
+          - --api-server-addr=https://{{ .Values.auth.domain }}
+        {{- end }}
           env:
           - name: CLOUDFLARE_API_TOKEN
             valueFrom:

@@ -83,6 +83,7 @@ The following table lists the configurable parameters of the `smtprelay` chart a
 | smtp.tls                                   |                                                                                                                                                                     | <code>true</code>                                                                                        |
 | smtp.issuer.name                           |                                                                                                                                                                     | <code>""</code>                                                                                          |
 | smtp.issuer.kind                           |                                                                                                                                                                     | <code>""</code>                                                                                          |
+| smtp.auth.domain                           |                                                                                                                                                                     | <code>""</code>                                                                                          |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

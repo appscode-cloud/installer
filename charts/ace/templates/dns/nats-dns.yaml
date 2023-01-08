@@ -1,0 +1,13 @@
+{{ if index .Values "nats-dns" "enabled" }}
+
+apiVersion: external-dns.appscode.com/v1alpha1
+kind: ExternalDNS
+metadata:
+  name: {{ include "ace.fullname" . }}-nats
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+spec:
+  {{- index .Values "nats-dns" "spec" | toYaml | nindent 2 }}
+
+{{- end }}

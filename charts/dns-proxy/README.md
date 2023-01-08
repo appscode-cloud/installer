@@ -79,6 +79,7 @@ The following table lists the configurable parameters of the `dns-proxy` chart a
 | monitoring.port                            |                                                                                                                                                                     | <code>8080</code>                                                                                        |
 | monitoring.serviceMonitor.labels           | Specify the labels for ServiceMonitor. Prometheus crd will select ServiceMonitor using these labels. Only usable when monitoring agent is `prometheus.io/operator`. | <code>{}</code>                                                                                          |
 | cloudflare.token                           |                                                                                                                                                                     | <code>xyz</code>                                                                                         |
+| auth.domain                                |                                                                                                                                                                     | <code>""</code>                                                                                          |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
