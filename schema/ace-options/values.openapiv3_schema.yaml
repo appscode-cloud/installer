@@ -300,6 +300,8 @@ properties:
             properties:
               cloudflare:
                 properties:
+                  baseURL:
+                    type: string
                   token:
                     type: string
                 required:

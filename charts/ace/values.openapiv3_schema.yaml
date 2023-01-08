@@ -3367,6 +3367,8 @@ properties:
         type: object
       cloudflare:
         properties:
+          baseURL:
+            type: string
           token:
             type: string
         required:
@@ -3700,6 +3702,8 @@ properties:
                 properties:
                   cloudflare:
                     properties:
+                      baseURL:
+                        type: string
                       token:
                         type: string
                     required:

@@ -9,7 +9,10 @@ metadata:
 type: Opaque
 stringData:
 {{- if eq .Values.global.infra.dns.provider "cloudflare" }}
-  api-token: '{{ .Values.global.infra.dns.auth.cloudflare.token }}'
+  {{- if .Values.global.infra.dns.auth.cloudflare.baseURL }}
+  CF_BASE_URL: '{{ .Values.global.infra.dns.auth.cloudflare.baseURL }}'
+  {{- end }}
+  CF_API_TOKEN: '{{ .Values.global.infra.dns.auth.cloudflare.token }}'
 {{- end }}
 {{- if eq .Values.global.infra.dns.provider "route53" }}
   AWS_ACCESS_KEY_ID: '{{ .Values.global.infra.dns.auth.route53.AWS_ACCESS_KEY_ID }}'

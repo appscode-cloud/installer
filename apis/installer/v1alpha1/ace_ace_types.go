@@ -259,7 +259,9 @@ type DNSProviderAuth struct {
 }
 
 type CloudflareAuth struct {
-	Token string `json:"token"`
+	// +optional
+	BaseURL string `json:"baseURL,omitempty"`
+	Token   string `json:"token"`
 }
 
 type Route53Auth struct {
