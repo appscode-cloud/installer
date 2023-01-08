@@ -54,7 +54,7 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{/*
 Returns the registry used for image docker image
 */}}
-{{- define "image.registry" -}}
+{{- define "minio.registry" -}}
 {{- list .Values.registryFQDN .Values.image.registry | compact | join "/" }}
 {{- end }}
 
