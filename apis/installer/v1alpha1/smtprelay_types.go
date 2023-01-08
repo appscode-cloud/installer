@@ -79,11 +79,16 @@ type SmtprelaySpec struct {
 }
 
 type SMTPConfig struct {
-	Addresses []string       `json:"addresses"`
-	Remotes   []string       `json:"remotes"`
-	TLS       bool           `json:"tls"`
-	Issuer    MinIOIssuerRef `json:"issuer"`
-	Auth      SmtpAuth       `json:"auth"`
+	Addresses []string `json:"addresses"`
+	Remotes   []string `json:"remotes"`
+	TLS       SmtpTLS  `json:"tls"`
+	Auth      SmtpAuth `json:"auth"`
+}
+
+type SmtpTLS struct {
+	Enable bool                 `json:"enable"`
+	Issuer CertificateIssuerRef `json:"issuer"`
+	Secret LocalObjectReference `json:"secret"`
 }
 
 type SmtpAuth struct {

@@ -53,9 +53,6 @@ nats-dns:
 reloader:
   enabled: false
 
-external-dns-operator:
-  enabled: false
-
 trickster:
   enabled: false
 
@@ -76,7 +73,7 @@ global:
 
   platform:
     domain: appscode.ninja
-    hosted: false
+    deploymentType: SelfHostedDemo
 
   # License for the product.
   # Example:

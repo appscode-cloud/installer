@@ -388,24 +388,42 @@ properties:
     type: array
   minio:
     properties:
-      accessKeyId:
-        type: string
-      issuer:
+      auth:
         properties:
-          kind:
+          accessKeyId:
             type: string
-          name:
+          secretAccessKey:
             type: string
         required:
-        - kind
-        - name
+        - accessKeyId
+        - secretAccessKey
         type: object
-      secretAccessKey:
-        type: string
+      tls:
+        properties:
+          issuer:
+            properties:
+              kind:
+                type: string
+              name:
+                type: string
+            required:
+            - kind
+            - name
+            type: object
+          secret:
+            properties:
+              name:
+                type: string
+            required:
+            - name
+            type: object
+        required:
+        - issuer
+        - secret
+        type: object
     required:
-    - accessKeyId
-    - issuer
-    - secretAccessKey
+    - auth
+    - tls
     type: object
   nameOverride:
     type: string

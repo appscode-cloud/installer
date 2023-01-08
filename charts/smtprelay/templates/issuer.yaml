@@ -1,6 +1,6 @@
-{{- if .Values.smtp.tls }}
+{{- if .Values.smtp.tls.enable }}
 
-{{- if not .Values.smtp.issuer.name }}
+{{- if not .Values.smtp.tls.issuer.name }}
 
 apiVersion: cert-manager.io/v1
 kind: Issuer
@@ -27,8 +27,8 @@ spec:
   #   size: 256
   issuerRef:
     group: cert-manager.io
-    kind: {{ default "Issuer" .Values.smtp.issuer.kind }}
-    name: {{ default (printf "%s-ca" (include "smtprelay.fullname" . )) .Values.smtp.issuer.name }}
+    kind: {{ default "Issuer" .Values.smtp.tls.issuer.kind }}
+    name: {{ default (printf "%s-ca" (include "smtprelay.fullname" . )) .Values.smtp.tls.issuer.name }}
   commonName: localhost
   dnsNames:
   - localhost
