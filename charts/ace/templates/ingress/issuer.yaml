@@ -23,7 +23,7 @@ spec:
     email: {{ .Values.global.infra.tls.acme.email }}
     # Name of a secret used to store the ACME account private key
     privateKeySecretRef:
-      name: {{ include "ace.fullname" . }}-cert-cred
+      name: {{ include "ace.fullname" . }}-acme-cred
     # ACME DNS-01 provider configurations
     solvers:
     # An empty 'selector' means that this solver matches all domains
@@ -31,9 +31,12 @@ spec:
       dns01:
       {{- if eq .Values.global.infra.dns.provider "cloudflare" }}
         cloudflare:
+        {{- if .Values.global.infra.dns.auth.cloudflare.baseURL }}
+          baseURL: '{{ .Values.global.infra.dns.auth.cloudflare.baseURL }}'
+        {{- end }}
           apiTokenSecretRef:
             name: {{ include "ace.fullname" . }}-dns-cred
-            key: api-token
+            key: CF_API_TOKEN
       {{- end }}
   {{- end }}
 {{- end }}

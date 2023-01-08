@@ -52,24 +52,30 @@ dependencies:
   repository: file://../grafana
   condition: grafana.enabled
   version: v2022.06.14
+- name: trickster
+  repository: https://charts.appscode.com/stable/
+  condition: trickster.enabled
+  version: v2022.06.14
+- name: minio
+  repository: file://../minio
+  condition: minio.enabled
+  version: v2022.06.14
+- name: dns-proxy
+  repository: file://../dns-proxy
+  condition: dns-proxy.enabled
+  version: v2022.06.14
+- name: smtprelay
+  repository: file://../smtprelay
+  condition: smtprelay.enabled
+  version: v2022.06.14
 - name: ingress-nginx
   repository: https://kubernetes.github.io/ingress-nginx
   condition: ingress-nginx.enabled
   version: 4.4.0
-- alias: ingress-dns
-  name: external-dns
-  repository: https://kubernetes-sigs.github.io/external-dns/
-  condition: ingress-dns.enabled
-  version: 1.11.0
 - name: nats
   repository: https://nats-io.github.io/k8s/helm/charts/
   condition: nats.enabled
   version: 0.18.2
-- alias: nats-dns
-  name: external-dns
-  repository: https://kubernetes-sigs.github.io/external-dns/
-  condition: nats-dns.enabled
-  version: 1.11.0
 - name: reloader
   repository: https://stakater.github.io/stakater-charts
   condition: reloader.enabled

@@ -17,9 +17,11 @@ limitations under the License.
 package v1alpha1
 
 import (
+	openviz_installer "go.openviz.dev/installer/apis/installer/v1alpha1"
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	store "kmodules.xyz/objectstore-api/api/v1"
+	dnsapi "kubeops.dev/external-dns-operator/apis/external/v1alpha1"
 )
 
 const (
@@ -60,6 +62,10 @@ type AceSpec struct {
 	Nats               AceNats                   `json:"nats"`
 	NatsDns            AceNatsDns                `json:"nats-dns"`
 	Reloader           AceReloader               `json:"reloader"`
+	Trickster          AceTrickster              `json:"trickster"`
+	DNSProxy           AceDnsProxy               `json:"dns-proxy"`
+	SMTPRelay          AceSmtprelay              `json:"smtprelay"`
+	Minio              AceMinio                  `json:"minio"`
 	Global             AceGlobalValues           `json:"global"`
 	Settings           Settings                  `json:"settings"`
 	Image              ImageReference            `json:"image"`
@@ -129,8 +135,8 @@ type AceIngressNginx struct {
 }
 
 type AceIngressDns struct {
-	Enabled          bool `json:"enabled"`
-	*ExternalDnsSpec `json:",inline,omitempty"`
+	Enabled bool                    `json:"enabled"`
+	Spec    *dnsapi.ExternalDNSSpec `json:"spec,omitempty"`
 }
 
 type AceNats struct {
@@ -139,13 +145,33 @@ type AceNats struct {
 }
 
 type AceNatsDns struct {
-	Enabled          bool `json:"enabled"`
-	*ExternalDnsSpec `json:",inline,omitempty"`
+	Enabled bool                    `json:"enabled"`
+	Spec    *dnsapi.ExternalDNSSpec `json:"spec,omitempty"`
 }
 
 type AceReloader struct {
 	Enabled       bool `json:"enabled"`
 	*ReloaderSpec `json:",inline,omitempty"`
+}
+
+type AceTrickster struct {
+	Enabled                          bool `json:"enabled"`
+	*openviz_installer.TricksterSpec `json:",inline,omitempty"`
+}
+
+type AceDnsProxy struct {
+	Enabled       bool `json:"enabled"`
+	*DnsProxySpec `json:",inline,omitempty"`
+}
+
+type AceSmtprelay struct {
+	Enabled        bool `json:"enabled"`
+	*SmtprelaySpec `json:",inline,omitempty"`
+}
+
+type AceMinio struct {
+	Enabled    bool `json:"enabled"`
+	*MinioSpec `json:",inline,omitempty"`
 }
 
 type AceGlobalValues struct {
@@ -233,7 +259,9 @@ type DNSProviderAuth struct {
 }
 
 type CloudflareAuth struct {
-	Token string `json:"token"`
+	// +optional
+	BaseURL string `json:"baseURL,omitempty"`
+	Token   string `json:"token"`
 }
 
 type Route53Auth struct {

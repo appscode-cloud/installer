@@ -95,3 +95,6 @@ monitoring:
 
 cloudflare:
   token: xyz
+
+auth:
+  domain: ""

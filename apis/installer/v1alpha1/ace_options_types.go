@@ -61,6 +61,10 @@ type AceOptionsSpec struct {
 	PromProxy     AceOptionsComponentSpec `json:"prom-proxy"`
 	Ingress       AceOptionsIngressNginx  `json:"ingress"`
 	Nats          AceOptionsNatsSettings  `json:"nats"`
+	Trickster     AceOptionsComponentSpec `json:"trickster"`
+	DNSProxy      AceOptionsComponentSpec `json:"dns-proxy"`
+	SMTPRelay     AceOptionsComponentSpec `json:"smtprelay"`
+	Minio         AceOptionsComponentSpec `json:"minio"`
 }
 
 type RegistrySpec struct {
@@ -190,9 +194,30 @@ type AceOptionsSMTPSettings struct {
 	SendAsPlainText bool `json:"sendAsPlainText"`
 }
 
+// +kubebuilder:validation:Enum=Hosted;SelfHostedProduction;SelfHostedDemo
+type DeploymentType string
+
+const (
+	HostedDeployment               DeploymentType = "Hosted"
+	SelfHostedProductionDeployment DeploymentType = "SelfHostedProduction"
+	SelfHostedDemoDeployment       DeploymentType = "SelfHostedDemo"
+)
+
+func (dt DeploymentType) Hosted() bool {
+	return dt == HostedDeployment
+}
+
+func (dt DeploymentType) SelfHosted() bool {
+	return dt == SelfHostedProductionDeployment || dt == SelfHostedDemoDeployment
+}
+
+func (dt DeploymentType) Demo() bool {
+	return dt == SelfHostedDemoDeployment
+}
+
 type AceOptionsPlatformSettings struct {
-	Domain string `json:"domain"`
-	Hosted bool   `json:"hosted"`
+	Domain         string         `json:"domain"`
+	DeploymentType DeploymentType `json:"deploymentType"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

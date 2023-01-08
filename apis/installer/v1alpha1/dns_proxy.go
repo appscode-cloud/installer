@@ -76,6 +76,12 @@ type DnsProxySpec struct {
 	Monitoring CustomMonitoring `json:"monitoring"`
 	Ingress    AppIngress       `json:"ingress"`
 	Cloudflare CloudflareAuth   `json:"cloudflare"`
+	Auth       DNSProxyAuth     `json:"auth"`
+}
+
+type DNSProxyAuth struct {
+	// +optional
+	Domain string `json:"domain"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

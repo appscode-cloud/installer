@@ -47,12 +47,13 @@ type PanopticonSpec struct {
 	//+optional
 	NameOverride string `json:"nameOverride"`
 	//+optional
-	FullnameOverride string     `json:"fullnameOverride"`
-	ReplicaCount     int32      `json:"replicaCount"`
-	RegistryFQDN     string     `json:"registryFQDN"`
-	Image            Container  `json:"image"`
-	Cleaner          CleanerRef `json:"cleaner"`
-	ImagePullPolicy  string     `json:"imagePullPolicy"`
+	FullnameOverride  string     `json:"fullnameOverride"`
+	ReplicaCount      int32      `json:"replicaCount"`
+	RegistryFQDN      string     `json:"registryFQDN"`
+	NamespaceSelector string     `json:"namespaceSelector"`
+	Image             Container  `json:"image"`
+	Cleaner           CleanerRef `json:"cleaner"`
+	ImagePullPolicy   string     `json:"imagePullPolicy"`
 	//+optional
 	ImagePullSecrets []string `json:"imagePullSecrets"`
 	//+optional
@@ -80,15 +81,6 @@ type PanopticonSpec struct {
 	Monitoring         Monitoring               `json:"monitoring"`
 	// +optional
 	License string `json:"license"`
-}
-
-type WebHookSpec struct {
-	GroupPriorityMinimum       int32           `json:"groupPriorityMinimum"`
-	VersionPriority            int32           `json:"versionPriority"`
-	EnableValidatingWebhook    bool            `json:"enableValidatingWebhook"`
-	UseKubeapiserverFqdnForAks bool            `json:"useKubeapiserverFqdnForAks"`
-	Healthcheck                HealthcheckSpec `json:"healthcheck"`
-	ServingCerts               ServingCerts    `json:"servingCerts"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

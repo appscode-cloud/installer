@@ -29,20 +29,26 @@ dependencies:
 - name: grafana
   repository: file://../grafana
   version: v2022.06.14
+- name: trickster
+  repository: https://charts.appscode.com/stable/
+  version: v2022.06.14
+- name: minio
+  repository: file://../minio
+  version: v2022.06.14
+- name: dns-proxy
+  repository: file://../dns-proxy
+  version: v2022.06.14
+- name: smtprelay
+  repository: file://../smtprelay
+  version: v2022.06.14
 - name: ingress-nginx
   repository: https://kubernetes.github.io/ingress-nginx
   version: 4.4.0
-- name: external-dns
-  repository: https://kubernetes-sigs.github.io/external-dns/
-  version: 1.11.0
 - name: nats
   repository: https://nats-io.github.io/k8s/helm/charts/
   version: 0.18.2
-- name: external-dns
-  repository: https://kubernetes-sigs.github.io/external-dns/
-  version: 1.11.0
 - name: reloader
   repository: https://stakater.github.io/stakater-charts
   version: v0.0.124
-digest: sha256:f1e847b3eb05f49e85b0cda9b8d6ff48ca4f97ed13fe63ddfa2cdfc9db8ca513
-generated: "2022-11-12T23:46:55.078789+06:00"
+digest: sha256:cd0b21f5448cab6a75f2e759234713a48e684785b251e4791e8fc813d289b099
+generated: "2023-01-07T00:25:21.876366+06:00"
