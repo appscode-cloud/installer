@@ -98,9 +98,12 @@ smtp:
     - 127.0.0.1:8025
     - '[::1]:8025'
   remotes: []
-  tls: true
-  issuer:
-    name: ""
-    kind: ""
+  tls:
+    enable: true
+    issuer:
+      name: ""
+      kind: ""
+    secret:
+      name: ""
   auth:
     domain: ""

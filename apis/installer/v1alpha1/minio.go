@@ -76,15 +76,24 @@ type MinioSpec struct {
 	Minio        MinIOCredentials     `json:"minio"`
 }
 
-type MinIOIssuerRef struct {
-	Name string `json:"name"`
-	Kind string `json:"kind"`
+type MinIOCredentials struct {
+	Auth MinioAuth `json:"auth"`
+	TLS  MinioTLS  `json:"tls"`
 }
 
-type MinIOCredentials struct {
-	Issuer          MinIOIssuerRef `json:"issuer"`
-	AccessKeyId     string         `json:"accessKeyId"`
-	SecretAccessKey string         `json:"secretAccessKey"`
+type MinioAuth struct {
+	AccessKeyId     string `json:"accessKeyId"`
+	SecretAccessKey string `json:"secretAccessKey"`
+}
+
+type MinioTLS struct {
+	Issuer CertificateIssuerRef `json:"issuer"`
+	Secret LocalObjectReference `json:"secret"`
+}
+
+type CertificateIssuerRef struct {
+	Name string `json:"name"`
+	Kind string `json:"kind"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

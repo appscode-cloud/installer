@@ -1,0 +1,161 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/issuer: bytebuilders
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"cert-manager.io/issuer":"bytebuilders"},"labels":{"app.kubernetes.io/instance":"bytebuilders","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"bytebuilders","helm.sh/chart":"bytebuilders-0.1.0"},"name":"nginx-ingress","namespace":"bb"},"spec":{"ingressClassName":"nginx-bb","rules":[{"host":"appscode.ninja","http":{"paths":[{"backend":{"service":{"name":"bytebuilders","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}},{"host":"accounts.appscode.ninja","http":{"paths":[{"backend":{"service":{"name":"bytebuilders-accounts","port":{"number":80}}},"path":"/login/oauth/|/user/settings/change_password|/user/(?!settings)(?!settings/).+|/404|/500|^(|\\/(?:index\\.php)?|\\s+)$","pathType":"Prefix"}]}},{"host":"api.appscode.ninja","http":{"paths":[{"backend":{"service":{"name":"bytebuilders-api","port":{"number":80}}},"path":"/api/","pathType":"Prefix"}]}},{"host":"grafana.appscode.ninja","http":{"paths":[{"backend":{"service":{"name":"bytebuilders-grafana","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}},{"host":"prometheus.appscode.ninja","http":{"paths":[{"backend":{"service":{"name":"bytebuilders-prom-proxy","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}},{"host":"console.appscode.ninja","http":{"paths":[{"backend":{"service":{"name":"bytebuilders-cluster-ui","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}},{"host":"kubedb.appscode.ninja","http":{"paths":[{"backend":{"service":{"name":"bytebuilders-kubedb-ui","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}},{"host":"deploy.appscode.ninja","http":{"paths":[{"backend":{"service":{"name":"bytebuilders-deploy-ui","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}},{"host":"marketplace.appscode.ninja","http":{"paths":[{"backend":{"service":{"name":"bytebuilders-marketplace-ui","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}],"tls":[{"hosts":["appscode.ninja","api.appscode.ninja","accounts.appscode.ninja","nats.appscode.ninja","grafana.appscode.ninja","prometheus.appscode.ninja","console.appscode.ninja","kubedb.appscode.ninja","deploy.appscode.ninja","marketplace.appscode.ninja"],"secretName":"bytebuilders-cert"}]}}
+  creationTimestamp: "2021-05-25T05:09:35Z"
+  generation: 11
+  labels:
+    app.kubernetes.io/instance: bytebuilders
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: bytebuilders
+    helm.sh/chart: bytebuilders-0.1.0
+  name: nginx-ingress
+  namespace: bb
+  resourceVersion: "195009396"
+  uid: 58bc54e8-2cbb-4cb4-ae3a-ad19a02e7210
+spec:
+  ingressClassName: nginx-bb
+  rules:
+  - host: appscode.ninja
+    http:
+      paths:
+      - backend:
+          service:
+            name: bytebuilders
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+      - backend:
+          service:
+            name: bytebuilders-api
+            port:
+              number: 80
+        path: /api/
+        pathType: Prefix
+  - host: accounts.appscode.ninja
+    http:
+      paths:
+      - backend:
+          service:
+            name: bytebuilders-accounts
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  - host: api.appscode.ninja
+    http:
+      paths:
+      - backend:
+          service:
+            name: bytebuilders-api
+            port:
+              number: 80
+        path: /api/
+        pathType: Prefix
+  - host: grafana.appscode.ninja
+    http:
+      paths:
+      - backend:
+          service:
+            name: bytebuilders-grafana
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  - host: prometheus.appscode.ninja
+    http:
+      paths:
+      - backend:
+          service:
+            name: bytebuilders-prom-proxy
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  - host: console.appscode.ninja
+    http:
+      paths:
+      - backend:
+          service:
+            name: bytebuilders-cluster-ui
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  - host: kubedb.appscode.ninja
+    http:
+      paths:
+      - backend:
+          service:
+            name: bytebuilders-kubedb-ui
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  - host: deploy.appscode.ninja
+    http:
+      paths:
+      - backend:
+          service:
+            name: bytebuilders-deploy-ui
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  - host: marketplace.appscode.ninja
+    http:
+      paths:
+      - backend:
+          service:
+            name: bytebuilders-marketplace-ui
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  - host: trickster.appscode.ninja
+    http:
+      paths:
+      - backend:
+          service:
+            name: trickster
+            port:
+              number: 9090
+        path: /
+        pathType: Prefix
+  - host: dns-proxy.appscode.ninja
+    http:
+      paths:
+      - backend:
+          service:
+            name: dns-proxy
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - appscode.ninja
+    - api.appscode.ninja
+    - accounts.appscode.ninja
+    - nats.appscode.ninja
+    - grafana.appscode.ninja
+    - prometheus.appscode.ninja
+    - console.appscode.ninja
+    - kubedb.appscode.ninja
+    - deploy.appscode.ninja
+    - marketplace.appscode.ninja
+    - trickster.appscode.ninja
+    - dns-proxy.appscode.ninja
+    - smtprelay.appscode.ninja
+    secretName: bytebuilders-cert
+status:
+  loadBalancer:
+    ingress:
+    - ip: 45.33.113.32
+    - ip: 45.79.54.117
+    - ip: 69.164.204.85
+    - ip: 96.126.116.170

@@ -196,4 +196,7 @@ spec:
   {{- if (index .Values "smtprelay" "enabled") }}
     - 'smtprelay.{{ .Values.global.platform.domain }}'
   {{- end }}
+  {{- if (index .Values "minio" "enabled") }}
+    - 's3.{{ .Values.global.platform.domain }}'
+  {{- end }}
 {{- end }}
