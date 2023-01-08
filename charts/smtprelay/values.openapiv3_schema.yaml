@@ -664,26 +664,39 @@ properties:
           domain:
             type: string
         type: object
-      issuer:
-        properties:
-          kind:
-            type: string
-          name:
-            type: string
-        required:
-        - kind
-        - name
-        type: object
       remotes:
         items:
           type: string
         type: array
       tls:
-        type: boolean
+        properties:
+          enable:
+            type: boolean
+          issuer:
+            properties:
+              kind:
+                type: string
+              name:
+                type: string
+            required:
+            - kind
+            - name
+            type: object
+          secret:
+            properties:
+              name:
+                type: string
+            required:
+            - name
+            type: object
+        required:
+        - enable
+        - issuer
+        - secret
+        type: object
     required:
     - addresses
     - auth
-    - issuer
     - remotes
     - tls
     type: object

@@ -16,7 +16,7 @@ spec:
       targetPort: metrics
       protocol: TCP
       name: metrics
-   {{- if .Values.smtp.tls }}
+   {{- if .Values.smtp.tls.enable }}
     - port: 465
       targetPort: tls
       protocol: TCP

@@ -1,4 +1,6 @@
-{{- if not .Values.minio.issuer.name }}
+{{- if not .Values.minio.tls.secret.name }}
+
+{{- if not .Values.minio.tls.issuer.name }}
 
 apiVersion: cert-manager.io/v1
 kind: Issuer
@@ -25,8 +27,8 @@ spec:
   #   size: 256
   issuerRef:
     group: cert-manager.io
-    kind: {{ default "Issuer" .Values.minio.issuer.kind }}
-    name: {{ default (printf "%s-ca" (include "minio.fullname" . )) .Values.minio.issuer.name }}
+    kind: {{ default "Issuer" .Values.minio.tls.issuer.kind }}
+    name: {{ default (printf "%s-ca" (include "minio.fullname" . )) .Values.minio.tls.issuer.name }}
   commonName: localhost
   dnsNames:
   - localhost
@@ -34,3 +36,5 @@ spec:
   - {{ include "minio.fullname" . }}.{{ .Release.Namespace }}.svc
   ipAddresses:
   - 127.0.0.1
+
+{{- end }}

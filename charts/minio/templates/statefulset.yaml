@@ -62,7 +62,7 @@ spec:
       volumes:
       - name: certificates
         secret:
-          secretName: {{ include "minio.fullname" . }}-cert
+          secretName: {{ default (printf "%s-cert" (include "minio.fullname" .)) .Values.minio.tls.secret.name }}
           items:
           - key: tls.crt
             path: public.crt
