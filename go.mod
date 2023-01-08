@@ -8,7 +8,7 @@ require (
 	k8s.io/apimachinery v0.25.3
 	kmodules.xyz/objectstore-api v0.25.0
 	kmodules.xyz/schema-checker v0.4.1
-	kubeops.dev/external-dns-operator v0.0.2-0.20230108080336-b495cd523a36
+	kubeops.dev/external-dns-operator v0.0.2
 	kubeops.dev/installer v0.0.0-20230102190911-48de263490ae
 )
 
@@ -39,7 +39,7 @@ require (
 	github.com/yudai/gojsondiff v1.0.0 // indirect
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 	golang.org/x/net v0.1.0 // indirect
-	golang.org/x/oauth2 v0.0.0-20220622183110-fd043fe589d2 // indirect
+	golang.org/x/oauth2 v0.1.0 // indirect
 	golang.org/x/sys v0.1.0 // indirect
 	golang.org/x/term v0.1.0 // indirect
 	golang.org/x/text v0.4.0 // indirect
@@ -53,7 +53,7 @@ require (
 	k8s.io/klog/v2 v2.80.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20220803164354-a70c9af30aea // indirect
 	k8s.io/utils v0.0.0-20220823124924-e9cbc92d1a73 // indirect
-	kmodules.xyz/client-go v0.25.9 // indirect
+	kmodules.xyz/client-go v0.25.15 // indirect
 	sigs.k8s.io/controller-runtime v0.13.1 // indirect
 	sigs.k8s.io/json v0.0.0-20220713155537-f223a00ba0e2 // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
