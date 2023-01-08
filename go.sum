@@ -512,8 +512,8 @@ kmodules.xyz/objectstore-api v0.25.0 h1:xT7+SXBqAMtVkfOdp4espHAfZ6MYUC4G1OgzTkUR
 kmodules.xyz/objectstore-api v0.25.0/go.mod h1:X5aCkyU91p9TOn4jcWw0cfcJL0HCKd/Z6FJHdzKz1ZU=
 kmodules.xyz/schema-checker v0.4.1 h1:V5UEjR6UMAXf307lTgw+9rDRfHLTNA8g/q9DngqYI9M=
 kmodules.xyz/schema-checker v0.4.1/go.mod h1:BRXLB3Osuc9raHRJxHOgZFGecZ2aZumLXCHAOa5NPdA=
-kubeops.dev/external-dns-operator v0.0.1 h1:AOEsZ0GHpZ7STXOlRLrY1xjgnGNkNWG+9TGT5e4kCzI=
-kubeops.dev/external-dns-operator v0.0.1/go.mod h1:mE0/i+wUkm4EGY91nPaFHZYONohHKSPARHPqq5ypB4w=
+kubeops.dev/external-dns-operator v0.0.2-0.20230108080336-b495cd523a36 h1:RNCkIpmvP0SVzLLKtWzBsW/4ALBLuXS2sTufGBE3XO8=
+kubeops.dev/external-dns-operator v0.0.2-0.20230108080336-b495cd523a36/go.mod h1:uCLxUWAuXrf2NffqnVg0K81IAJq2zKUUDPzZMPjxZNU=
 kubeops.dev/installer v0.0.0-20230102190911-48de263490ae h1:VuQwtO7u+iSZgityNyK1QJVUmdnlKzwxGPh9ROtF52I=
 kubeops.dev/installer v0.0.0-20230102190911-48de263490ae/go.mod h1:vD7WIZbLlbtvjkhjXvdc4AMu9RISGpz03uQPEsQinrs=
 rsc.io/binaryregexp v0.2.0/go.mod h1:qTv7/COck+e2FymRvadv62gMdZztPaShugOCi3I+8D8=
