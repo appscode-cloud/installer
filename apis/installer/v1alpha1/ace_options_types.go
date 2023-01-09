@@ -44,6 +44,7 @@ type AceOptions struct {
 
 // AceOptionsSpec is the schema for AceOptions Operator values file
 type AceOptionsSpec struct {
+	Context       AceDeploymentContext    `json:"context"`
 	Release       ObjectReference         `json:"release"`
 	Registry      RegistrySpec            `json:"registry"`
 	Monitoring    GlobalMonitoring        `json:"monitoring"`
@@ -168,10 +169,9 @@ type AceOptionsInfraKms struct {
 }
 
 type AceOptionsSettings struct {
-	DB       AceOptionsDBSettings       `json:"db"`
-	Cache    AceOptionsCacheSettings    `json:"cache"`
-	SMTP     AceOptionsSMTPSettings     `json:"smtp"`
-	Platform AceOptionsPlatformSettings `json:"platform"`
+	DB    AceOptionsDBSettings    `json:"db"`
+	Cache AceOptionsCacheSettings `json:"cache"`
+	SMTP  AceOptionsSMTPSettings  `json:"smtp"`
 }
 
 type AceOptionsDBSettings struct {
@@ -215,20 +215,15 @@ func (dt DeploymentType) Demo() bool {
 	return dt == SelfHostedDemoDeployment
 }
 
-type AceOptionsPlatformSettings struct {
-	Domain         string         `json:"domain"`
-	DeploymentType DeploymentType `json:"deploymentType"`
-	// +optional
-	DeploymentContext *AceDeploymentContext `json:"deploymentContext,omitempty"`
-}
-
 type AceDeploymentContext struct {
-	RequestedDomain    string `json:"requestedDomain"`
-	HostedDomain       string `json:"hostedDomain"`
-	RequesterName      string `json:"requesterName"`
-	RequesterEmail     string `json:"requesterEmail"`
-	ProxyServiceDomain string `json:"proxyServiceDomain"`
-	Token              string `json:"token"`
+	DeploymentType     DeploymentType `json:"deploymentType"`
+	RequestedDomain    string         `json:"requestedDomain"`
+	HostedDomain       string         `json:"hostedDomain,omitempty"`
+	RequesterName      string         `json:"requesterName,omitempty"`
+	RequesterEmail     string         `json:"requesterEmail,omitempty"`
+	ProxyServiceDomain string         `json:"proxyServiceDomain,omitempty"`
+	Token              string         `json:"token,omitempty"`
+	License            string         `json:"license,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

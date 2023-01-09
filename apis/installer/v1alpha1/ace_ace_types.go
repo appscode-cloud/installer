@@ -175,16 +175,21 @@ type AceMinio struct {
 }
 
 type AceGlobalValues struct {
-	NameOverride     string                     `json:"nameOverride"`
-	FullnameOverride string                     `json:"fullnameOverride"`
-	Platform         AceOptionsPlatformSettings `json:"platform"`
-	License          string                     `json:"license"`
-	Registry         string                     `json:"registry"`
-	RegistryFQDN     string                     `json:"registryFQDN"`
-	ImagePullSecrets []string                   `json:"imagePullSecrets"`
-	ServiceAccount   NatsServiceAccountSpec     `json:"serviceAccount"`
-	Monitoring       GlobalMonitoring           `json:"monitoring"`
-	Infra            PlatformInfra              `json:"infra"`
+	NameOverride     string                 `json:"nameOverride"`
+	FullnameOverride string                 `json:"fullnameOverride"`
+	Platform         AcePlatformSettings    `json:"platform"`
+	License          string                 `json:"license"`
+	Registry         string                 `json:"registry"`
+	RegistryFQDN     string                 `json:"registryFQDN"`
+	ImagePullSecrets []string               `json:"imagePullSecrets"`
+	ServiceAccount   NatsServiceAccountSpec `json:"serviceAccount"`
+	Monitoring       GlobalMonitoring       `json:"monitoring"`
+	Infra            PlatformInfra          `json:"infra"`
+}
+
+type AcePlatformSettings struct {
+	Domain         string         `json:"domain"`
+	DeploymentType DeploymentType `json:"deploymentType"`
 }
 
 type GlobalMonitoring struct {

@@ -89,6 +89,32 @@ properties:
     required:
     - enabled
     type: object
+  context:
+    properties:
+      deploymentType:
+        enum:
+        - Hosted
+        - SelfHostedProduction
+        - SelfHostedDemo
+        type: string
+      hostedDomain:
+        type: string
+      license:
+        type: string
+      proxyServiceDomain:
+        type: string
+      requestedDomain:
+        type: string
+      requesterEmail:
+        type: string
+      requesterName:
+        type: string
+      token:
+        type: string
+    required:
+    - deploymentType
+    - requestedDomain
+    type: object
   deploy-ui:
     properties:
       enabled:
@@ -829,42 +855,6 @@ properties:
         - persistence
         - resources
         type: object
-      platform:
-        properties:
-          deploymentContext:
-            properties:
-              hostedDomain:
-                type: string
-              proxyServiceDomain:
-                type: string
-              requestedDomain:
-                type: string
-              requesterEmail:
-                type: string
-              requesterName:
-                type: string
-              token:
-                type: string
-            required:
-            - hostedDomain
-            - proxyServiceDomain
-            - requestedDomain
-            - requesterEmail
-            - requesterName
-            - token
-            type: object
-          deploymentType:
-            enum:
-            - Hosted
-            - SelfHostedProduction
-            - SelfHostedDemo
-            type: string
-          domain:
-            type: string
-        required:
-        - deploymentType
-        - domain
-        type: object
       smtp:
         properties:
           from:
@@ -890,7 +880,6 @@ properties:
     required:
     - cache
     - db
-    - platform
     - smtp
     type: object
   smtprelay:
@@ -957,6 +946,7 @@ required:
 - accounts-ui
 - billing
 - cluster-ui
+- context
 - deploy-ui
 - dns-proxy
 - grafana
