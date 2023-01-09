@@ -53,9 +53,9 @@ type PlatformUiSpec struct {
 	//+optional
 	NameOverride string `json:"nameOverride"`
 	//+optional
-	FullnameOverride string                     `json:"fullnameOverride"`
-	Platform         AceOptionsPlatformSettings `json:"platform"`
-	ServiceAccount   LocalObjectReference       `json:"serviceAccount"`
+	FullnameOverride string               `json:"fullnameOverride"`
+	Platform         AcePlatformSettings  `json:"platform"`
+	ServiceAccount   LocalObjectReference `json:"serviceAccount"`
 	//+optional
 	PodAnnotations map[string]string `json:"podAnnotations"`
 	//+optional

@@ -4032,28 +4032,6 @@ properties:
         type: string
       platform:
         properties:
-          deploymentContext:
-            properties:
-              hostedDomain:
-                type: string
-              proxyServiceDomain:
-                type: string
-              requestedDomain:
-                type: string
-              requesterEmail:
-                type: string
-              requesterName:
-                type: string
-              token:
-                type: string
-            required:
-            - hostedDomain
-            - proxyServiceDomain
-            - requestedDomain
-            - requesterEmail
-            - requesterName
-            - token
-            type: object
           deploymentType:
             enum:
             - Hosted
@@ -12608,28 +12586,6 @@ properties:
         type: object
       platform:
         properties:
-          deploymentContext:
-            properties:
-              hostedDomain:
-                type: string
-              proxyServiceDomain:
-                type: string
-              requestedDomain:
-                type: string
-              requesterEmail:
-                type: string
-              requesterName:
-                type: string
-              token:
-                type: string
-            required:
-            - hostedDomain
-            - proxyServiceDomain
-            - requestedDomain
-            - requesterEmail
-            - requesterName
-            - token
-            type: object
           deploymentType:
             enum:
             - Hosted
