@@ -446,6 +446,8 @@ properties:
         - objstore
         - storageClass
         type: object
+      license:
+        type: string
       monitoring:
         properties:
           agent:
@@ -11931,6 +11933,8 @@ properties:
         - objstore
         - storageClass
         type: object
+      license:
+        type: string
       monitoring:
         properties:
           agent:
