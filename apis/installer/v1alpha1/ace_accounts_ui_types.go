@@ -45,6 +45,8 @@ type AccountsUi struct {
 // AccountsUiSpec is the schema for AccountsUi Operator values file
 type AccountsUiSpec struct {
 	ReplicaCount int `json:"replicaCount"`
+	// +optional
+	License string `json:"license"`
 	//+optional
 	RegistryFQDN string         `json:"registryFQDN"`
 	Image        ImageReference `json:"image"`

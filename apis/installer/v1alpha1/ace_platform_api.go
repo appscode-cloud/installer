@@ -45,6 +45,8 @@ type PlatformApi struct {
 // PlatformApiSpec is the schema for PlatformApi Operator values file
 type PlatformApiSpec struct {
 	ReplicaCount int `json:"replicaCount"`
+	// +optional
+	License string `json:"license"`
 	//+optional
 	RegistryFQDN string         `json:"registryFQDN"`
 	Image        ImageReference `json:"image"`

@@ -37,6 +37,9 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
             - accounts
+            {{- if include "appscode.license" . }}
+            - --license-file=/var/run/secrets/appscode/license/key.txt
+            {{- end }}
           ports:
             - name: http
               containerPort: 3000
@@ -91,6 +94,10 @@ spec:
             - name: cacerts
               mountPath: /etc/ssl/certs
             {{- end }}
+            {{- if include "appscode.license" . }}
+            - mountPath: /var/run/secrets/appscode/license
+              name: license
+            {{- end }}
       volumes:
         {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
         - name: config
@@ -109,6 +116,12 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: {{ include "accounts-ui.fullname" . }}-data
+        {{- end }}
+        {{- if include "appscode.license" . }}
+        - name: license
+          secret:
+            defaultMode: 420
+            secretName: {{ include "panopticon.fullname" . }}-license
         {{- end }}
         {{- with $cpc := (include "settings.caProviderClass" .) }}
         - name: cacerts
