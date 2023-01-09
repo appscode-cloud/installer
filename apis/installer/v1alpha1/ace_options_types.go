@@ -218,6 +218,16 @@ func (dt DeploymentType) Demo() bool {
 type AceOptionsPlatformSettings struct {
 	Domain         string         `json:"domain"`
 	DeploymentType DeploymentType `json:"deploymentType"`
+	// +optional
+	DeploymentContext *AceDeploymentContext `json:"deploymentContext,omitempty"`
+}
+
+type AceDeploymentContext struct {
+	HostedDomain       string `json:"hostedDomain"`
+	RequesterName      string `json:"requesterName"`
+	RequesterEmail     string `json:"requesterEmail"`
+	ProxyServiceDomain string `json:"proxyServiceDomain"`
+	Token              string `json:"token"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
