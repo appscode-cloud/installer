@@ -4036,6 +4036,8 @@ properties:
                 type: string
               proxyServiceDomain:
                 type: string
+              requestedDomain:
+                type: string
               requesterEmail:
                 type: string
               requesterName:
@@ -4045,6 +4047,7 @@ properties:
             required:
             - hostedDomain
             - proxyServiceDomain
+            - requestedDomain
             - requesterEmail
             - requesterName
             - token
@@ -12607,6 +12610,8 @@ properties:
                 type: string
               proxyServiceDomain:
                 type: string
+              requestedDomain:
+                type: string
               requesterEmail:
                 type: string
               requesterName:
@@ -12616,6 +12621,7 @@ properties:
             required:
             - hostedDomain
             - proxyServiceDomain
+            - requestedDomain
             - requesterEmail
             - requesterName
             - token

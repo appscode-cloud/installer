@@ -223,6 +223,7 @@ type AceOptionsPlatformSettings struct {
 }
 
 type AceDeploymentContext struct {
+	RequestedDomain    string `json:"requestedDomain"`
 	HostedDomain       string `json:"hostedDomain"`
 	RequesterName      string `json:"requesterName"`
 	RequesterEmail     string `json:"requesterEmail"`
