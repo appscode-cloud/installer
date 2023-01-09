@@ -8,5 +8,5 @@ roleRef:
   name: appscode:license-reader
 subjects:
 - kind: ServiceAccount
-  name: {{ include "accounts-ui.serviceAccountName" . }}
+  name: {{ include "appscode.serviceAccountName" . }}
   namespace: {{ .Release.Namespace }}
