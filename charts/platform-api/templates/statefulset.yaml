@@ -124,7 +124,7 @@ spec:
         - name: license
           secret:
             defaultMode: 420
-            secretName: {{ include "panopticon.fullname" . }}-license
+            secretName: {{ include "platform-api.fullname" . }}-license
         {{- end }}
         {{- with $cpc := (include "settings.caProviderClass" .) }}
         - name: cacerts

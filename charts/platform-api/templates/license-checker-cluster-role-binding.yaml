@@ -8,5 +8,5 @@ roleRef:
   name: appscode:license-checker
 subjects:
 - kind: ServiceAccount
-  name: {{ include "platform-api.serviceAccountName" . }}
+  name: {{ include "appscode.serviceAccountName" . }}
   namespace: {{ .Release.Namespace }}
