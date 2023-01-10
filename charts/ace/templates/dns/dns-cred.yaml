@@ -10,7 +10,7 @@ type: Opaque
 stringData:
 {{- if eq .Values.global.infra.dns.provider "cloudflare" }}
   {{- if .Values.global.infra.dns.auth.cloudflare.baseURL }}
-  CF_BASE_URL: '{{ .Values.global.infra.dns.auth.cloudflare.baseURL }}'
+  CF_BASE_URL: '{{ printf "https://%s/client/v4" .Values.global.infra.dns.auth.cloudflare.baseURL }}'
   {{- end }}
   CF_API_TOKEN: '{{ .Values.global.infra.dns.auth.cloudflare.token }}'
 {{- end }}
