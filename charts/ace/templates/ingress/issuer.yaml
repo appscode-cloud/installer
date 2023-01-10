@@ -32,7 +32,7 @@ spec:
       {{- if eq .Values.global.infra.dns.provider "cloudflare" }}
         cloudflare:
         {{- if .Values.global.infra.dns.auth.cloudflare.baseURL }}
-          baseURL: '{{ .Values.global.infra.dns.auth.cloudflare.baseURL }}'
+          baseURL: '{{ printf "https://%s/client/v4" .Values.global.infra.dns.auth.cloudflare.baseURL }}'
         {{- end }}
           apiTokenSecretRef:
             name: {{ include "ace.fullname" . }}-dns-cred
