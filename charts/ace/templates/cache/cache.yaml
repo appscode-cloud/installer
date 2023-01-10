@@ -22,6 +22,7 @@ spec:
   terminationPolicy: {{ .Values.settings.cache.terminationPolicy }}
   authSecret:
     name: {{ include "ace.fullname" . }}-cache-auth
+    externallyManaged: true
 {{- if .Values.global.monitoring }}
   monitor:
     agent: {{ .Values.global.monitoring.agent }}
