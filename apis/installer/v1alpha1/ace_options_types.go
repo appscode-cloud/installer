@@ -223,6 +223,7 @@ type AceDeploymentContext struct {
 	RequesterEmail     string         `json:"requesterEmail,omitempty"`
 	ProxyServiceDomain string         `json:"proxyServiceDomain,omitempty"`
 	Token              string         `json:"token,omitempty"`
+	ClusterID          string         `json:"clusterID"`
 	License            string         `json:"license,omitempty"`
 }
 
