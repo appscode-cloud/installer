@@ -78,7 +78,7 @@ spec:
               name: {{ include "smtprelay.fullname" . }}-config
           {{- if .Values.smtp.tls.enable }}
           - secret:
-              name: {{ default (printf "%s-cert" (include "smtprelay.fullname" .)) .Values.smtprelay.tls.secret.name }}
+              name: {{ default (printf "%s-cert" (include "smtprelay.fullname" .)) .Values.smtp.tls.secret.name }}
               items:
               - key: tls.crt
                 path: pki/tls.crt
