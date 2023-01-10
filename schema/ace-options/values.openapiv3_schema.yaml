@@ -91,6 +91,8 @@ properties:
     type: object
   context:
     properties:
+      clusterID:
+        type: string
       deploymentType:
         enum:
         - Hosted
@@ -112,6 +114,7 @@ properties:
       token:
         type: string
     required:
+    - clusterID
     - deploymentType
     - requestedDomain
     type: object
