@@ -23,6 +23,7 @@ spec:
   terminationPolicy: {{ .Values.settings.db.terminationPolicy }}
   authSecret:
     name: {{ include "ace.fullname" . }}-db-auth
+    externallyManaged: true
   configSecret:
     name: {{ include "ace.fullname" . }}-db-config
   init:

@@ -16,6 +16,11 @@ rules:
   resources:
   - "*"
   verbs: ["*"]
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs: ["get", "list", "watch"]
 
 ---
 
