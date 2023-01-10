@@ -94,7 +94,7 @@ monitoring:
     labels: {}
 
 cloudflare:
-  token: xyz
+  token: ""
 
 auth:
   domain: ""

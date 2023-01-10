@@ -72,4 +72,4 @@ minio:
       name: ""
       kind: ""
     secret:
-      name: "xyz"
+      name: ""
