@@ -1,4 +1,4 @@
-{{- if .Values.smtp.tls.enable }}
+{{- if and .Values.smtp.tls.enable (not .Values.smtp.tls.secret.name) }}
 
 {{- if not .Values.smtp.tls.issuer.name }}
 
