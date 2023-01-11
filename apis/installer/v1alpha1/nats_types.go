@@ -191,7 +191,7 @@ type JetstreamFileStorage struct {
 }
 
 type NatsServerTLSSpec struct {
-	AllowNonTLS bool                 `json:"allow_non_tls"`
+	AllowNonTLS bool                 `json:"allowNonTLS"`
 	Secret      LocalObjectReference `json:"secret"`
 	Ca          string               `json:"ca"`
 	Cert        string               `json:"cert"`
