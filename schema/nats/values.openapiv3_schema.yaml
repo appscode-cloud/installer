@@ -2505,7 +2505,7 @@ properties:
         type: integer
       tls:
         properties:
-          allow_non_tls:
+          allowNonTLS:
             type: boolean
           ca:
             type: string
@@ -2521,7 +2521,7 @@ properties:
             - name
             type: object
         required:
-        - allow_non_tls
+        - allowNonTLS
         - ca
         - cert
         - key
