@@ -15,7 +15,7 @@ stringData:
 
     DOMAIN   = {{ .Values.global.platform.domain }}
 
-    HOSTED   = {{ .Values.global.platform.hosted }}
+    HOSTED   = {{ eq .Values.global.platform.deploymentType "Hosted" }}
 
     [site_accounts]
     ; WHY http, not https?
