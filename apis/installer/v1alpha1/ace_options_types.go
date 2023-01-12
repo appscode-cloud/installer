@@ -223,8 +223,10 @@ type AceDeploymentContext struct {
 	RequesterEmail     string         `json:"requesterEmail,omitempty"`
 	ProxyServiceDomain string         `json:"proxyServiceDomain,omitempty"`
 	Token              string         `json:"token,omitempty"`
-	ClusterID          string         `json:"clusterID"`
-	License            string         `json:"license,omitempty"`
+	// ClusterID is used to uniquely identify a Kubernetes cluster.
+	// To find out, run: <code>kubectl get ns kube-system -o=jsonpath='{.metadata.uid}'</code>
+	ClusterID string `json:"clusterID"`
+	License   string `json:"license,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

@@ -200,6 +200,7 @@ gen-values-schema: $(BUILD_DIRS)
 
 .PHONY: gen-external-schema
 gen-external-schema: $(BUILD_DIRS)
+	@$(MAKE) gen-crds --no-print-directory CRD_OPTIONS=crd:generateEmbeddedObjectMeta=true,allowDangerousTypes=true
 	@for dir in schema/*/; do \
 		dir=$${dir%*/}; \
 		dir=$${dir##*/}; \
