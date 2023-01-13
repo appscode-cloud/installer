@@ -1,11 +1,21 @@
-{{- if (eq .Values.global.infra.tls.issuer "external") }}
-apiVersion: v1
-kind: Secret
+apiVersion: cert-manager.io/v1
+kind: Certificate
 metadata:
-  name: {{ include "ace.fullname" . }}-cert
+  name: {{ include "ace.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "ace.labels" . | nindent 4 }}
-type: kubernetes.io/tls
-stringData: {{ dict "tls.crt" .Values.global.infra.tls.certificate.cert "tls.key" .Values.global.infra.tls.certificate.key | toJson }}
-{{- end }}
+spec:
+  secretName: {{ include "ace.fullname" . }}-cert
+  issuerRef:
+    group: cert-manager.io
+    kind: Issuer
+    name: {{ include "ace.fullname" . }}
+  commonName: "{{ .Values.global.platform.domain }}"
+  dnsNames:
+    - "{{ .Values.global.platform.domain }}"
+    - "*.{{ .Values.global.platform.domain }}"
+  usages:
+    - key agreement
+    - digital signature
+    - server auth

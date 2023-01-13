@@ -7,9 +7,6 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "ace.labels" . | nindent 4 }}
-  annotations:
-    cert-manager.io/issuer: {{ include "ace.fullname" . }}
-    cert-manager.io/usages: "key agreement,digital signature,server auth"
 spec:
   ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
   rules:
