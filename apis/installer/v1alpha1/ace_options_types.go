@@ -221,8 +221,10 @@ type AceDeploymentContext struct {
 	HostedDomain         string         `json:"hostedDomain,omitempty"`
 	RequesterDisplayName string         `json:"requesterDisplayName,omitempty"`
 	RequesterUsername    string         `json:"requesterUsername,omitempty"`
-	RequesterEmail       string         `json:"requesterEmail,omitempty"`
+	AdminUsername        string         `json:"adminUsername,omitempty"`
 	AdminPassword        string         `json:"adminPassword,omitempty"`
+	AdminEmail           string         `json:"adminEmail,omitempty"`
+	AdminDisplayName     string         `json:"adminDisplayName,omitempty"`
 	ProxyServiceDomain   string         `json:"proxyServiceDomain,omitempty"`
 	Token                string         `json:"token,omitempty"`
 	// ClusterID is used to uniquely identify a Kubernetes cluster.
