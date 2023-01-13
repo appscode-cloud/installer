@@ -15421,6 +15421,8 @@ properties:
         - hosts
         - tls
         type: object
+      logLevel:
+        type: string
       monitoring:
         properties:
           agent:
@@ -15684,6 +15686,7 @@ properties:
     - enabled
     - image
     - ingress
+    - logLevel
     - monitoring
     - replicaCount
     - service
