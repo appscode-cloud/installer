@@ -1,4 +1,4 @@
-{{- if and .Values.minio.tls.enable (not .Values.minio.tls.secret.name) }}
+{{- if and .Values.minio.tls.enable .Values.minio.tls.mount (not .Values.minio.tls.secret.name) }}
 
 {{- if not .Values.minio.tls.issuer.name }}
 
