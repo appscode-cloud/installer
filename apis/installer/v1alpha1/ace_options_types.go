@@ -221,16 +221,21 @@ type AceDeploymentContext struct {
 	HostedDomain         string         `json:"hostedDomain,omitempty"`
 	RequesterDisplayName string         `json:"requesterDisplayName,omitempty"`
 	RequesterUsername    string         `json:"requesterUsername,omitempty"`
-	AdminUsername        string         `json:"adminUsername,omitempty"`
-	AdminPassword        string         `json:"adminPassword,omitempty"`
-	AdminEmail           string         `json:"adminEmail,omitempty"`
-	AdminDisplayName     string         `json:"adminDisplayName,omitempty"`
 	ProxyServiceDomain   string         `json:"proxyServiceDomain,omitempty"`
 	Token                string         `json:"token,omitempty"`
 	// ClusterID is used to uniquely identify a Kubernetes cluster.
 	// To find out, run: <code>kubectl get ns kube-system -o=jsonpath='{.metadata.uid}'</code>
 	ClusterID string `json:"clusterID"`
 	License   string `json:"license,omitempty"`
+	// +optional
+	Admin AcePlatformAdmin `json:"admin"`
+}
+
+type AcePlatformAdmin struct {
+	Username    string `json:"username,omitempty"`
+	Password    string `json:"password,omitempty"`
+	Email       string `json:"email,omitempty"`
+	DisplayName string `json:"displayName,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

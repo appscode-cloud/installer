@@ -4032,16 +4032,17 @@ properties:
         type: string
       platform:
         properties:
-          adminDisplayName:
-            type: string
-          adminEmail:
-            type: string
-          adminPassword:
-            type: string
-          adminUsername:
-            type: string
-          clusterID:
-            type: string
+          admin:
+            properties:
+              displayName:
+                type: string
+              email:
+                type: string
+              password:
+                type: string
+              username:
+                type: string
+            type: object
           deploymentType:
             enum:
             - Hosted
@@ -4050,25 +4051,9 @@ properties:
             type: string
           domain:
             type: string
-          hostedDomain:
-            type: string
-          license:
-            type: string
-          proxyServiceDomain:
-            type: string
-          requestedDomain:
-            type: string
-          requesterDisplayName:
-            type: string
-          requesterUsername:
-            type: string
-          token:
-            type: string
         required:
-        - clusterID
         - deploymentType
         - domain
-        - requestedDomain
         type: object
       registry:
         type: string
@@ -12637,16 +12622,17 @@ properties:
         type: object
       platform:
         properties:
-          adminDisplayName:
-            type: string
-          adminEmail:
-            type: string
-          adminPassword:
-            type: string
-          adminUsername:
-            type: string
-          clusterID:
-            type: string
+          admin:
+            properties:
+              displayName:
+                type: string
+              email:
+                type: string
+              password:
+                type: string
+              username:
+                type: string
+            type: object
           deploymentType:
             enum:
             - Hosted
@@ -12655,25 +12641,9 @@ properties:
             type: string
           domain:
             type: string
-          hostedDomain:
-            type: string
-          license:
-            type: string
-          proxyServiceDomain:
-            type: string
-          requestedDomain:
-            type: string
-          requesterDisplayName:
-            type: string
-          requesterUsername:
-            type: string
-          token:
-            type: string
         required:
-        - clusterID
         - deploymentType
         - domain
-        - requestedDomain
         type: object
       podAnnotations:
         additionalProperties:
