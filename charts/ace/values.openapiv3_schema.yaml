@@ -6734,6 +6734,8 @@ properties:
             type: object
           tls:
             properties:
+              enable:
+                type: boolean
               issuer:
                 properties:
                   kind:
@@ -6752,6 +6754,7 @@ properties:
                 - name
                 type: object
             required:
+            - enable
             - issuer
             - secret
             type: object

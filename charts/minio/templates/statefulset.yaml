@@ -37,9 +37,14 @@ spec:
           {{- toYaml .Values.securityContext | nindent 10 }}
         image: "{{ include "minio.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        command: ["sh", "-c", "mkdir -p /storage/backupbucket && mkdir -p /root/.minio/certs && ln -s /root/certs/private.key /root/.minio/certs/private.key && ln -s /root/certs/public.crt /root/.minio/certs/public.crt && exec minio server /storage"]
+        {{- if .Values.minio.tls.enable }}
+        command: ["sh", "-c", "mkdir -p /storage/backupbucket && mkdir -p /root/.minio/certs && ln -s /root/certs/private.key /root/.minio/certs/private.key && ln -s /root/certs/public.crt /root/.minio/certs/public.crt && exec minio server /storage --console-address=:9001"]
+        {{- else }}
+        command: ["sh", "-c", "mkdir -p /storage/backupbucket && exec minio server /storage --console-address=:9001"]
+        {{- end }}
         ports:
         - containerPort: 9000
+        - containerPort: 9001
         env:
         - name: MINIO_ROOT_USER
           valueFrom:
@@ -56,9 +61,12 @@ spec:
         volumeMounts:
         - name: storage
           mountPath: "/storage"
+        {{- if .Values.minio.tls.enable }}
         - name: certificates
           mountPath: "/root/certs"
           readOnly: true
+        {{- end }}
+      {{- if .Values.minio.tls.enable }}
       volumes:
       - name: certificates
         secret:
@@ -68,6 +76,7 @@ spec:
             path: public.crt
           - key: tls.key
             path: private.key
+      {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
     {{- if or .Values.tolerations $criticalAddon }}
