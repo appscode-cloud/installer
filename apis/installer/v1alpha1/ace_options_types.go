@@ -216,13 +216,15 @@ func (dt DeploymentType) Demo() bool {
 }
 
 type AceDeploymentContext struct {
-	DeploymentType     DeploymentType `json:"deploymentType"`
-	RequestedDomain    string         `json:"requestedDomain"`
-	HostedDomain       string         `json:"hostedDomain,omitempty"`
-	RequesterName      string         `json:"requesterName,omitempty"`
-	RequesterEmail     string         `json:"requesterEmail,omitempty"`
-	ProxyServiceDomain string         `json:"proxyServiceDomain,omitempty"`
-	Token              string         `json:"token,omitempty"`
+	DeploymentType       DeploymentType `json:"deploymentType"`
+	RequestedDomain      string         `json:"requestedDomain"`
+	HostedDomain         string         `json:"hostedDomain,omitempty"`
+	RequesterDisplayName string         `json:"requesterDisplayName,omitempty"`
+	RequesterUsername    string         `json:"requesterUsername,omitempty"`
+	RequesterEmail       string         `json:"requesterEmail,omitempty"`
+	AdminPassword        string         `json:"adminPassword,omitempty"`
+	ProxyServiceDomain   string         `json:"proxyServiceDomain,omitempty"`
+	Token                string         `json:"token,omitempty"`
 	// ClusterID is used to uniquely identify a Kubernetes cluster.
 	// To find out, run: <code>kubectl get ns kube-system -o=jsonpath='{.metadata.uid}'</code>
 	ClusterID string `json:"clusterID"`
