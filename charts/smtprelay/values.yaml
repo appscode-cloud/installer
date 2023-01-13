@@ -99,7 +99,7 @@ monitoring:
     # Only usable when monitoring agent is `prometheus.io/operator`.
     labels: {}
 
-logLevel: "trace"
+logLevel: ""
 
 smtp:
   addresses: # +doc-gen:break
