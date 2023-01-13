@@ -12,6 +12,10 @@ spec:
       targetPort: 9000
       protocol: TCP
       name: api
+    - port: 9001
+      targetPort: 9001
+      protocol: TCP
+      name: ui
   selector:
     {{- include "minio.selectorLabels" . | nindent 4 }}
   sessionAffinity: ClientIP
@@ -27,11 +31,15 @@ metadata:
     {{- include "minio.labels" . | nindent 4 }}
 spec:
   ports:
-  # port needed to create SRV records, SRV records have pod DNS name
-  - name: api
-    port: {{ .Values.service.port }}
-    targetPort: 9000
-    protocol: TCP
+    # port needed to create SRV records, SRV records have pod DNS name
+    - name: api
+      port: {{ .Values.service.port }}
+      targetPort: 9000
+      protocol: TCP
+    - name: ui
+      port: 9001
+      targetPort: 9001
+      protocol: TCP
   # for headless service
   clusterIP: None
   # selector needed to create pods dns name

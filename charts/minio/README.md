@@ -69,6 +69,7 @@ The following table lists the configurable parameters of the `minio` chart and t
 | affinity                   |                                                                                                                                      | <code>{}</code>                           |
 | minio.auth.accessKeyId     |                                                                                                                                      | <code>""</code>                           |
 | minio.auth.secretAccessKey |                                                                                                                                      | <code>""</code>                           |
+| minio.tls.enable           |                                                                                                                                      | <code>true</code>                         |
 | minio.tls.issuer.name      |                                                                                                                                      | <code>""</code>                           |
 | minio.tls.issuer.kind      |                                                                                                                                      | <code>""</code>                           |
 | minio.tls.secret.name      |                                                                                                                                      | <code>""</code>                           |

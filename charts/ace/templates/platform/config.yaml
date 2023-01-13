@@ -159,10 +159,12 @@ stringData:
     TRACKER_EMAIL = {{ .Values.global.infra.invoice.trackerEmail }}
   {{- end }}
 
+  {{- if eq .Values.global.platform.deploymentType "Hosted" }}
     [yaml_storage]
     HOST = {{ .Values.global.infra.kubepack.host }}
     BUCKET = {{ .Values.global.infra.kubepack.bucket }}
     PREFIX = {{ .Values.global.infra.kubepack.prefix }}
+  {{- end }}
 {{- end }}
 
     [cluster_connector]
@@ -172,6 +174,8 @@ stringData:
     TAG         = {{ .Values.settings.clusterConnector.tag }}
     PULL_POLICY = {{ .Values.settings.clusterConnector.pullPolicy }}
   {{- end }}
+
+  {{- if eq .Values.global.platform.deploymentType "Hosted" }}
     HOST        = {{ .Values.settings.clusterConnector.host }}
     BUCKET      = {{ .Values.settings.clusterConnector.bucket }}
     PREFIX      = {{ .Values.settings.clusterConnector.prefix }}
@@ -184,3 +188,4 @@ stringData:
     [firebase]
     PROJECT   = {{ .Values.settings.firebase.project }}
     DATABASE  = {{ .Values.settings.firebase.database }}
+  {{- end }}

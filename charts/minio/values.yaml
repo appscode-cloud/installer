@@ -68,6 +68,7 @@ minio:
     accessKeyId: ""
     secretAccessKey: ""
   tls:
+    enable: true
     issuer:
       name: ""
       kind: ""

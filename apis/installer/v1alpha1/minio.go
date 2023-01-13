@@ -78,17 +78,12 @@ type MinioSpec struct {
 
 type MinIOCredentials struct {
 	Auth MinioAuth `json:"auth"`
-	TLS  MinioTLS  `json:"tls"`
+	TLS  ProxyTLS  `json:"tls"`
 }
 
 type MinioAuth struct {
 	AccessKeyId     string `json:"accessKeyId"`
 	SecretAccessKey string `json:"secretAccessKey"`
-}
-
-type MinioTLS struct {
-	Issuer CertificateIssuerRef `json:"issuer"`
-	Secret LocalObjectReference `json:"secret"`
 }
 
 type CertificateIssuerRef struct {
