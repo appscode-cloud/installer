@@ -85,11 +85,11 @@ type SmtprelaySpec struct {
 type SMTPConfig struct {
 	Addresses []string `json:"addresses"`
 	Remotes   []string `json:"remotes"`
-	TLS       ProxyTLS `json:"tls"`
+	TLS       SmtpTLS  `json:"tls"`
 	Auth      SmtpAuth `json:"auth"`
 }
 
-type ProxyTLS struct {
+type SmtpTLS struct {
 	Enable bool                 `json:"enable"`
 	Issuer CertificateIssuerRef `json:"issuer"`
 	Secret LocalObjectReference `json:"secret"`

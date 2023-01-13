@@ -6720,6 +6720,24 @@ properties:
         items:
           type: string
         type: array
+      ingress:
+        properties:
+          annotations:
+            additionalProperties:
+              type: string
+            type: object
+          className:
+            type: string
+          domain:
+            type: string
+          enabled:
+            type: boolean
+        required:
+        - annotations
+        - className
+        - domain
+        - enabled
+        type: object
       minio:
         properties:
           auth:
@@ -6746,6 +6764,8 @@ properties:
                 - kind
                 - name
                 type: object
+              mount:
+                type: boolean
               secret:
                 properties:
                   name:
@@ -6756,6 +6776,7 @@ properties:
             required:
             - enable
             - issuer
+            - mount
             - secret
             type: object
         required:
@@ -6967,6 +6988,7 @@ properties:
     required:
     - enabled
     - image
+    - ingress
     - minio
     - persistence
     - replicaCount

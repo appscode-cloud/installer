@@ -37,7 +37,7 @@ spec:
           {{- toYaml .Values.securityContext | nindent 10 }}
         image: "{{ include "minio.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        {{- if .Values.minio.tls.enable }}
+        {{- if .Values.minio.tls.mount }}
         command: ["sh", "-c", "mkdir -p /storage/backupbucket && mkdir -p /root/.minio/certs && ln -s /root/certs/private.key /root/.minio/certs/private.key && ln -s /root/certs/public.crt /root/.minio/certs/public.crt && exec minio server /storage --console-address=:9001"]
         {{- else }}
         command: ["sh", "-c", "mkdir -p /storage/backupbucket && exec minio server /storage --console-address=:9001"]
@@ -61,12 +61,12 @@ spec:
         volumeMounts:
         - name: storage
           mountPath: "/storage"
-        {{- if .Values.minio.tls.enable }}
+        {{- if .Values.minio.tls.mount }}
         - name: certificates
           mountPath: "/root/certs"
           readOnly: true
         {{- end }}
-      {{- if .Values.minio.tls.enable }}
+      {{- if .Values.minio.tls.mount }}
       volumes:
       - name: certificates
         secret:
