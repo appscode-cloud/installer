@@ -154,6 +154,28 @@ spec:
         path: /
         pathType: Prefix
 {{- end }}
+{{- if (index .Values "minio" "enabled") }}
+  - host: s3.{{ .Values.global.platform.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-minio
+            port:
+              number: 9000
+        path: /
+        pathType: Prefix
+  - host: minio.{{ .Values.global.platform.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-minio
+            port:
+              number: 9001
+        path: /
+        pathType: Prefix
+{{- end }}
   tls:
   - secretName: {{ include "ace.fullname" . }}-cert
     hosts:
@@ -198,5 +220,6 @@ spec:
   {{- end }}
   {{- if (index .Values "minio" "enabled") }}
     - 's3.{{ .Values.global.platform.domain }}'
+    - 'minio.{{ .Values.global.platform.domain }}'
   {{- end }}
 {{- end }}
