@@ -112,6 +112,8 @@ properties:
     type: object
   context:
     properties:
+      adminPassword:
+        type: string
       clusterID:
         description: 'ClusterID is used to uniquely identify a Kubernetes cluster.
           To find out, run: <code>kubectl get ns kube-system -o=jsonpath=''{.metadata.uid}''</code>'
@@ -130,9 +132,11 @@ properties:
         type: string
       requestedDomain:
         type: string
+      requesterDisplayName:
+        type: string
       requesterEmail:
         type: string
-      requesterName:
+      requesterUsername:
         type: string
       token:
         type: string
