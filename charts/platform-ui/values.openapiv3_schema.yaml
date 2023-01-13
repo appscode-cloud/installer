@@ -411,6 +411,16 @@ properties:
     type: object
   platform:
     properties:
+      adminDisplayName:
+        type: string
+      adminEmail:
+        type: string
+      adminPassword:
+        type: string
+      adminUsername:
+        type: string
+      clusterID:
+        type: string
       deploymentType:
         enum:
         - Hosted
@@ -419,9 +429,25 @@ properties:
         type: string
       domain:
         type: string
+      hostedDomain:
+        type: string
+      license:
+        type: string
+      proxyServiceDomain:
+        type: string
+      requestedDomain:
+        type: string
+      requesterDisplayName:
+        type: string
+      requesterUsername:
+        type: string
+      token:
+        type: string
     required:
+    - clusterID
     - deploymentType
     - domain
+    - requestedDomain
     type: object
   podAnnotations:
     additionalProperties:

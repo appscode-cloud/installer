@@ -74,6 +74,10 @@ global:
   platform:
     domain: appscode.ninja
     deploymentType: SelfHostedDemo
+    adminUsername: admin
+    adminPassword: secr3t
+    adminEmail: admin@example.com
+    adminDisplayName: "Ace Admin"
 
   # License for the product.
   # Example:

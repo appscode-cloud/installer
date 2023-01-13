@@ -21,7 +21,7 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-    {{- if .Values.global.platform.hosted }}
+    {{- if eq .Values.global.platform.deploymentType "Hosted" }}
       - backend:
           service:
             name: {{ include "ace.fullname" . }}-platform-api
