@@ -38,6 +38,13 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+controller:
+  # kind: Deployment
+  kind: DaemonSet
+
+hostPort:
+  enabled: true
+
 service:
   type: ClusterIP
   port: 8025
@@ -86,7 +93,6 @@ affinity: {}
 monitoring:
   # Name of monitoring agent (eg "prometheus.io/operator")
   agent: ""
-  port: 8080
   serviceMonitor:
     # Specify the labels for ServiceMonitor.
     # Prometheus crd will select ServiceMonitor using these labels.
@@ -95,7 +101,6 @@ monitoring:
 
 smtp:
   addresses: # +doc-gen:break
-    - 127.0.0.1:8025
     - '[::1]:8025'
   remotes: []
   tls:

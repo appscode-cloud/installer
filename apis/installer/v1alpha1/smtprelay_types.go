@@ -59,6 +59,9 @@ type SmtprelaySpec struct {
 	PodAnnotations map[string]string `json:"podAnnotations"`
 	//+optional
 	PodSecurityContext *core.PodSecurityContext `json:"podSecurityContext"`
+	Controller         SmtpController           `json:"controller"`
+	//+optional
+	HostPort *IngressNginxControllerHostPort `json:"hostPort"`
 	//+optional
 	SecurityContext *core.SecurityContext `json:"securityContext"`
 	Service         AceServiceSpec        `json:"service"`
@@ -72,10 +75,10 @@ type SmtprelaySpec struct {
 	Tolerations []core.Toleration `json:"tolerations"`
 	// If specified, the pod's scheduling constraints
 	// +optional
-	Affinity   *core.Affinity   `json:"affinity"`
-	Monitoring CustomMonitoring `json:"monitoring"`
-	Ingress    AppIngress       `json:"ingress"`
-	Smtp       SMTPConfig       `json:"smtp"`
+	Affinity   *core.Affinity `json:"affinity"`
+	Monitoring Monitoring     `json:"monitoring"`
+	Ingress    AppIngress     `json:"ingress"`
+	Smtp       SMTPConfig     `json:"smtp"`
 }
 
 type SMTPConfig struct {
@@ -94,6 +97,18 @@ type SmtpTLS struct {
 type SmtpAuth struct {
 	// +optional
 	Domain string `json:"domain"`
+}
+
+// +kubebuilder:validation:Enum=Deployment;DaemonSet
+type AppController string
+
+const (
+	Deployment AppController = "Deployment"
+	DaemonSet  AppController = "DaemonSet"
+)
+
+type SmtpController struct {
+	Kind AppController `json:"kind"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

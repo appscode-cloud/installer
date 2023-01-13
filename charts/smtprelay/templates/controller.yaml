@@ -1,12 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: {{ .Values.controller.kind }}
 metadata:
   name: {{ include "smtprelay.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "smtprelay.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
+  {{- if and (eq .Values.controller.kind "Deployment") (not .Values.autoscaling.enabled) }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
@@ -43,8 +43,11 @@ spec:
           - /etc/smtprelay/smtprelay.ini
           ports:
           - name: http
-            containerPort: 8025
+            containerPort: {{ .Values.service.port }}
             protocol: TCP
+            {{- if .Values.hostPort.enabled }}
+            hostPort: {{ .Values.service.port }}
+            {{- end }}
           - name: metrics
             containerPort: 8080
             protocol: TCP
@@ -52,9 +55,15 @@ spec:
           - name: tls
             containerPort: 465
             protocol: TCP
+            {{- if .Values.hostPort.enabled }}
+            hostPort: 465
+            {{- end }}
           - name: starttls
             containerPort: 587
             protocol: TCP
+            {{- if .Values.hostPort.enabled }}
+            hostPort: 587
+            {{- end }}
          {{- end }}
           livenessProbe:
             httpGet:

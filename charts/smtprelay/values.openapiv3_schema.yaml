@@ -381,8 +381,25 @@ properties:
     - maxReplicas
     - minReplicas
     type: object
+  controller:
+    properties:
+      kind:
+        enum:
+        - Deployment
+        - DaemonSet
+        type: string
+    required:
+    - kind
+    type: object
   fullnameOverride:
     type: string
+  hostPort:
+    properties:
+      enabled:
+        type: boolean
+    required:
+    - enabled
+    type: object
   image:
     properties:
       pullPolicy:
@@ -464,8 +481,6 @@ properties:
         - prometheus.io/operator
         - prometheus.io/builtin
         type: string
-      port:
-        type: integer
       serviceMonitor:
         properties:
           labels:
@@ -475,7 +490,6 @@ properties:
         type: object
     required:
     - agent
-    - port
     - serviceMonitor
     type: object
   nameOverride:
@@ -718,6 +732,7 @@ properties:
     type: array
 required:
 - autoscaling
+- controller
 - image
 - ingress
 - monitoring

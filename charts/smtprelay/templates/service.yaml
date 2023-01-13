@@ -12,7 +12,7 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
-    - port: {{ .Values.monitoring.port }}
+    - port: 8080
       targetPort: metrics
       protocol: TCP
       name: metrics
