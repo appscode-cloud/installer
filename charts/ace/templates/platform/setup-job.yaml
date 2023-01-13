@@ -32,7 +32,7 @@ spec:
             # - "sleep 120; b3 dev --reload-nats-accounts"
             - dev
             - --reload-nats-accounts
-            - --exim
+            - --exports
             {{ if .Values.global.platform.hosted }}
             - --create-nats-stream
             {{ end }}
