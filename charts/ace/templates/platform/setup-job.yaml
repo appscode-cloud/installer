@@ -27,18 +27,15 @@ spec:
           image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
-            # - sh
-            # - -c
-            # - "sleep 120; b3 dev --reload-nats-accounts"
             - dev
-            - --reload-nats-accounts
+            - --admin={{ .Values.global.platform.adminUsername }}
+            - --password={{ .Values.global.platform.adminPassword }}
+            - --email=={{ .Values.global.platform.adminEmail }}
             - --exports
-            {{ if .Values.global.platform.hosted }}
+            - --reload-nats-accounts
+            {{- if eq .Values.global.platform.deploymentType "Hosted" }}
             - --create-nats-stream
-            {{ end }}
-            # - --register-crds
-            # - --create-products
-            # - --migrate
+            {{- end }}
           # ports:
           #   - name: http
           #     containerPort: 3000

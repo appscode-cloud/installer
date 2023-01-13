@@ -188,8 +188,8 @@ type AceGlobalValues struct {
 }
 
 type AcePlatformSettings struct {
-	Domain         string         `json:"domain"`
-	DeploymentType DeploymentType `json:"deploymentType"`
+	Domain               string `json:"domain"`
+	AceDeploymentContext `json:",inline,omitempty"`
 }
 
 type GlobalMonitoring struct {

@@ -112,7 +112,13 @@ properties:
     type: object
   context:
     properties:
+      adminDisplayName:
+        type: string
+      adminEmail:
+        type: string
       adminPassword:
+        type: string
+      adminUsername:
         type: string
       clusterID:
         description: 'ClusterID is used to uniquely identify a Kubernetes cluster.
@@ -133,8 +139,6 @@ properties:
       requestedDomain:
         type: string
       requesterDisplayName:
-        type: string
-      requesterEmail:
         type: string
       requesterUsername:
         type: string
