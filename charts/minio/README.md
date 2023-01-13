@@ -59,6 +59,10 @@ The following table lists the configurable parameters of the `minio` chart and t
 | podAnnotations             |                                                                                                                                      | <code>{}</code>                           |
 | podSecurityContext         |                                                                                                                                      | <code>{}</code>                           |
 | securityContext            |                                                                                                                                      | <code>{}</code>                           |
+| ingress.enabled            |                                                                                                                                      | <code>true</code>                         |
+| ingress.className          |                                                                                                                                      | <code>""</code>                           |
+| ingress.annotations        |                                                                                                                                      | <code>{}</code>                           |
+| ingress.domain             | kubernetes.io/ingress.class: nginx kubernetes.io/tls-acme: "true"                                                                    | <code>""</code>                           |
 | resources                  |                                                                                                                                      | <code>{}</code>                           |
 | service.type               |                                                                                                                                      | <code>ClusterIP</code>                    |
 | service.port               |                                                                                                                                      | <code>9000</code>                         |
@@ -70,6 +74,7 @@ The following table lists the configurable parameters of the `minio` chart and t
 | minio.auth.accessKeyId     |                                                                                                                                      | <code>""</code>                           |
 | minio.auth.secretAccessKey |                                                                                                                                      | <code>""</code>                           |
 | minio.tls.enable           |                                                                                                                                      | <code>true</code>                         |
+| minio.tls.mount            |                                                                                                                                      | <code>false</code>                        |
 | minio.tls.issuer.name      |                                                                                                                                      | <code>""</code>                           |
 | minio.tls.issuer.kind      |                                                                                                                                      | <code>""</code>                           |
 | minio.tls.secret.name      |                                                                                                                                      | <code>""</code>                           |
