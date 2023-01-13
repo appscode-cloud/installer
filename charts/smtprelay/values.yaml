@@ -99,9 +99,11 @@ monitoring:
     # Only usable when monitoring agent is `prometheus.io/operator`.
     labels: {}
 
+logLevel: "trace"
+
 smtp:
   addresses: # +doc-gen:break
-    - '[::1]:8025'
+    - ':8025'
   remotes: []
   tls:
     enable: true

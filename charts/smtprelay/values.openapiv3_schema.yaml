@@ -473,6 +473,8 @@ properties:
     - hosts
     - tls
     type: object
+  logLevel:
+    type: string
   monitoring:
     properties:
       agent:
@@ -735,6 +737,7 @@ required:
 - controller
 - image
 - ingress
+- logLevel
 - monitoring
 - replicaCount
 - service
