@@ -3,7 +3,7 @@ name: minio
 description: A Helm chart for MinIO Demo Deployment
 type: application
 version: v2022.06.14
-appVersion: RELEASE.2022-02-01T18-00-14Z
+appVersion: RELEASE.2023-01-12T02-06-16Z
 home: https://github.com/bytebuilders
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:

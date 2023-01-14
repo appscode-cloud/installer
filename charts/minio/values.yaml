@@ -15,7 +15,7 @@ image:
   # App container image
   repository: minio
   # Overrides the image tag whose default is the chart appVersion.
-  tag: RELEASE.2022-02-01T18-00-14Z
+  tag: ""
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
