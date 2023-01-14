@@ -45,39 +45,39 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `minio` chart and their default values.
 
-|         Parameter          |                                                             Description                                                              |                  Default                  |
-|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------|
-| replicaCount               |                                                                                                                                      | <code>1</code>                            |
-| registryFQDN               | Docker registry fqdn used to pull app related images. Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image} | <code>""</code>                           |
-| image.registry             | Docker registry used to pull app container image                                                                                     | <code>minio</code>                        |
-| image.repository           | App container image                                                                                                                  | <code>minio</code>                        |
-| image.tag                  | Overrides the image tag whose default is the chart appVersion.                                                                       | <code>RELEASE.2022-02-01T18-00-14Z</code> |
-| image.pullPolicy           |                                                                                                                                      | <code>IfNotPresent</code>                 |
-| imagePullSecrets           |                                                                                                                                      | <code>[]</code>                           |
-| nameOverride               |                                                                                                                                      | <code>""</code>                           |
-| fullnameOverride           |                                                                                                                                      | <code>""</code>                           |
-| podAnnotations             |                                                                                                                                      | <code>{}</code>                           |
-| podSecurityContext         |                                                                                                                                      | <code>{}</code>                           |
-| securityContext            |                                                                                                                                      | <code>{}</code>                           |
-| ingress.enabled            |                                                                                                                                      | <code>true</code>                         |
-| ingress.className          |                                                                                                                                      | <code>""</code>                           |
-| ingress.annotations        |                                                                                                                                      | <code>{}</code>                           |
-| ingress.domain             | kubernetes.io/ingress.class: nginx kubernetes.io/tls-acme: "true"                                                                    | <code>""</code>                           |
-| resources                  |                                                                                                                                      | <code>{}</code>                           |
-| service.type               |                                                                                                                                      | <code>ClusterIP</code>                    |
-| service.port               |                                                                                                                                      | <code>9000</code>                         |
-| storageClass.name          |                                                                                                                                      | <code>""</code>                           |
-| persistence.size           |                                                                                                                                      | <code>10Gi</code>                         |
-| nodeSelector               |                                                                                                                                      | <code>{}</code>                           |
-| tolerations                |                                                                                                                                      | <code>[]</code>                           |
-| affinity                   |                                                                                                                                      | <code>{}</code>                           |
-| minio.auth.accessKeyId     |                                                                                                                                      | <code>""</code>                           |
-| minio.auth.secretAccessKey |                                                                                                                                      | <code>""</code>                           |
-| minio.tls.enable           |                                                                                                                                      | <code>true</code>                         |
-| minio.tls.mount            |                                                                                                                                      | <code>false</code>                        |
-| minio.tls.issuer.name      |                                                                                                                                      | <code>""</code>                           |
-| minio.tls.issuer.kind      |                                                                                                                                      | <code>""</code>                           |
-| minio.tls.secret.name      |                                                                                                                                      | <code>""</code>                           |
+|         Parameter          |                                                             Description                                                              |          Default          |
+|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| replicaCount               |                                                                                                                                      | <code>1</code>            |
+| registryFQDN               | Docker registry fqdn used to pull app related images. Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image} | <code>""</code>           |
+| image.registry             | Docker registry used to pull app container image                                                                                     | <code>minio</code>        |
+| image.repository           | App container image                                                                                                                  | <code>minio</code>        |
+| image.tag                  | Overrides the image tag whose default is the chart appVersion.                                                                       | <code>""</code>           |
+| image.pullPolicy           |                                                                                                                                      | <code>IfNotPresent</code> |
+| imagePullSecrets           |                                                                                                                                      | <code>[]</code>           |
+| nameOverride               |                                                                                                                                      | <code>""</code>           |
+| fullnameOverride           |                                                                                                                                      | <code>""</code>           |
+| podAnnotations             |                                                                                                                                      | <code>{}</code>           |
+| podSecurityContext         |                                                                                                                                      | <code>{}</code>           |
+| securityContext            |                                                                                                                                      | <code>{}</code>           |
+| ingress.enabled            |                                                                                                                                      | <code>true</code>         |
+| ingress.className          |                                                                                                                                      | <code>""</code>           |
+| ingress.annotations        |                                                                                                                                      | <code>{}</code>           |
+| ingress.domain             | kubernetes.io/ingress.class: nginx kubernetes.io/tls-acme: "true"                                                                    | <code>""</code>           |
+| resources                  |                                                                                                                                      | <code>{}</code>           |
+| service.type               |                                                                                                                                      | <code>ClusterIP</code>    |
+| service.port               |                                                                                                                                      | <code>9000</code>         |
+| storageClass.name          |                                                                                                                                      | <code>""</code>           |
+| persistence.size           |                                                                                                                                      | <code>10Gi</code>         |
+| nodeSelector               |                                                                                                                                      | <code>{}</code>           |
+| tolerations                |                                                                                                                                      | <code>[]</code>           |
+| affinity                   |                                                                                                                                      | <code>{}</code>           |
+| minio.auth.accessKeyId     |                                                                                                                                      | <code>""</code>           |
+| minio.auth.secretAccessKey |                                                                                                                                      | <code>""</code>           |
+| minio.tls.enable           |                                                                                                                                      | <code>true</code>         |
+| minio.tls.mount            |                                                                                                                                      | <code>false</code>        |
+| minio.tls.issuer.name      |                                                                                                                                      | <code>""</code>           |
+| minio.tls.issuer.kind      |                                                                                                                                      | <code>""</code>           |
+| minio.tls.secret.name      |                                                                                                                                      | <code>""</code>           |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
