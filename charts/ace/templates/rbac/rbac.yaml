@@ -13,6 +13,7 @@ rules:
   - cloud.bytebuilders.dev
   - cluster.bytebuilders.dev
   - kubepack.com
+  - trickstercache.org
   resources:
   - "*"
   verbs: ["*"]
