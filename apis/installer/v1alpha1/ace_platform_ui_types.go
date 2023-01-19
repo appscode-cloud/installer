@@ -53,9 +53,9 @@ type PlatformUiSpec struct {
 	//+optional
 	NameOverride string `json:"nameOverride"`
 	//+optional
-	FullnameOverride string               `json:"fullnameOverride"`
-	Platform         AcePlatformSettings  `json:"platform"`
-	ServiceAccount   LocalObjectReference `json:"serviceAccount"`
+	FullnameOverride string                `json:"fullnameOverride"`
+	Platform         AcePlatformUISettings `json:"platform"`
+	ServiceAccount   LocalObjectReference  `json:"serviceAccount"`
 	//+optional
 	PodAnnotations map[string]string `json:"podAnnotations"`
 	//+optional
@@ -75,6 +75,11 @@ type PlatformUiSpec struct {
 	// +optional
 	Affinity *core.Affinity `json:"affinity"`
 	Settings AceSettings    `json:"settings"`
+}
+
+type AcePlatformUISettings struct {
+	Domain         string         `json:"domain"`
+	DeploymentType DeploymentType `json:"deploymentType"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
