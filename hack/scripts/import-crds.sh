@@ -35,12 +35,12 @@ crd-importer \
     --out=./charts/ace/crds
 
 crd-importer \
-    --input=https://github.com/open-viz/trickster-config/raw/master/config/crd/bases/trickstercache.org_caches.yaml \
+    --input=https://github.com/open-viz/trickster-config/raw/master/config/crd/bases/trickstercache.org_trickstercaches.yaml \
     --input=https://github.com/open-viz/trickster-config/raw/master/config/crd/bases/trickstercache.org_tricksters.yaml \
     --out=./charts/ace/crds
 
 crd-importer \
-    --input=https://github.com/prometheus-operator/prometheus-operator/raw/v0.54.1/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml \
+    --input=https://github.com/prometheus-operator/prometheus-operator/raw/v0.59.1/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml \
     --out=./charts/license-proxyserver/crds
 
 KMODULES_RESOURCE_METADATA_TAG=${KMODULES_RESOURCE_METADATA_TAG:-v0.12.1}
