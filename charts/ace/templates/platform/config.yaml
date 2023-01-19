@@ -189,3 +189,9 @@ stringData:
     PROJECT   = {{ .Values.settings.firebase.project }}
     DATABASE  = {{ .Values.settings.firebase.database }}
   {{- end }}
+
+  {{- if (index .Values "trickster" "enabled") }}
+    [trickster]
+    NAMESPACE = {{ .Release.Namespace }}
+    LABELS = trickstercache.org/metadata.name={{ include "ace.fullname" . }}
+  {{- end }}

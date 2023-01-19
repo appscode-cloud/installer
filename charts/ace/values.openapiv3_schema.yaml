@@ -12622,17 +12622,6 @@ properties:
         type: object
       platform:
         properties:
-          admin:
-            properties:
-              displayName:
-                type: string
-              email:
-                type: string
-              password:
-                type: string
-              username:
-                type: string
-            type: object
           deploymentType:
             enum:
             - Hosted

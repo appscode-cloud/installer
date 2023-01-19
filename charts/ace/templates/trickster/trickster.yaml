@@ -1,0 +1,29 @@
+{{- if (index .Values "trickster" "enabled") }}
+apiVersion: trickstercache.org/v1alpha1
+kind: Trickster
+metadata:
+  name: {{ include "ace.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+spec:
+  frontend:
+    listen_port: 9090
+  backend_selector:
+    matchLabels:
+      trickstercache.org/metadata.name: {{ include "ace.fullname" . }}
+  metrics:
+    listen_port: 8481
+  logging:
+    log_level: 'info'
+  {{- if .Values.nats.enabled }}
+  nats:
+    address: nats://{{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc:4222
+    credPath: /tmp/trickster/nats/creds/admin.creds
+  secretRef:
+    name: {{ include "settings.natsSecretName" . }}
+    items:
+    - key: admin.creds
+      path: nats/creds/admin.creds
+  {{- end }}
+{{- end }}
