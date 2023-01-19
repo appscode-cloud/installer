@@ -246,8 +246,8 @@ kmodules.xyz/objectstore-api v0.25.0 h1:xT7+SXBqAMtVkfOdp4espHAfZ6MYUC4G1OgzTkUR
 kmodules.xyz/objectstore-api v0.25.0/go.mod h1:X5aCkyU91p9TOn4jcWw0cfcJL0HCKd/Z6FJHdzKz1ZU=
 kmodules.xyz/schema-checker v0.4.1 h1:V5UEjR6UMAXf307lTgw+9rDRfHLTNA8g/q9DngqYI9M=
 kmodules.xyz/schema-checker v0.4.1/go.mod h1:BRXLB3Osuc9raHRJxHOgZFGecZ2aZumLXCHAOa5NPdA=
-kubeops.dev/external-dns-operator v0.0.2 h1:6e2vSpScuRLPdwGFggPp1OI6XIWZPfZBILrhH+ccwZ4=
-kubeops.dev/external-dns-operator v0.0.2/go.mod h1:upvgyjjEPxgGqVoHRhfBYtIZwQ3u3Fl2fJzJGRNcMEU=
+kubeops.dev/external-dns-operator v0.0.4 h1:Q4d2pgTlRrqfErscpUKntyIhwAytHCNlmhXMY59+DZg=
+kubeops.dev/external-dns-operator v0.0.4/go.mod h1:RheuZw7SiCwxi176KS2/vtP8j7B5oUlROmMxqm9QbrE=
 kubeops.dev/installer v0.0.0-20230102190911-48de263490ae h1:VuQwtO7u+iSZgityNyK1QJVUmdnlKzwxGPh9ROtF52I=
 kubeops.dev/installer v0.0.0-20230102190911-48de263490ae/go.mod h1:vD7WIZbLlbtvjkhjXvdc4AMu9RISGpz03uQPEsQinrs=
 sigs.k8s.io/controller-runtime v0.13.1 h1:tUsRCSJVM1QQOOeViGeX3GMT3dQF1eePPw6sEE3xSlg=
