@@ -8,7 +8,7 @@ require (
 	k8s.io/apimachinery v0.25.3
 	kmodules.xyz/objectstore-api v0.25.0
 	kmodules.xyz/schema-checker v0.4.1
-	kubeops.dev/external-dns-operator v0.0.2
+	kubeops.dev/external-dns-operator v0.0.4
 	kubeops.dev/installer v0.0.0-20230102190911-48de263490ae
 )
 
