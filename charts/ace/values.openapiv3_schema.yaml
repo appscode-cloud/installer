@@ -4817,6 +4817,16 @@ properties:
                 type: boolean
               sdServiceCleanup:
                 type: boolean
+              secretRef:
+                properties:
+                  credentialKey:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - credentialKey
+                - name
+                type: object
               zoneCacheDuration:
                 format: int64
                 type: integer
@@ -4831,6 +4841,16 @@ properties:
             properties:
               resourceGroup:
                 type: string
+              secretRef:
+                properties:
+                  credentialKey:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - credentialKey
+                - name
+                type: object
               subscriptionId:
                 type: string
               userAssignedIdentityClientID:
@@ -4838,8 +4858,23 @@ properties:
             type: object
           cloudflare:
             properties:
+              baseURL:
+                type: string
               proxied:
                 type: boolean
+              secretRef:
+                properties:
+                  apiEmailKey:
+                    type: string
+                  apiKey:
+                    type: string
+                  apiTokenKey:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - name
+                type: object
               zonesPerPage:
                 type: integer
             type: object
@@ -4870,6 +4905,16 @@ properties:
                 type: integer
               project:
                 type: string
+              secretRef:
+                properties:
+                  credentialKey:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - credentialKey
+                - name
+                type: object
               zoneVisibility:
                 type: string
             type: object
@@ -4880,16 +4925,9 @@ properties:
           ocRouterName:
             type: string
           policy:
-            default: sync
             type: string
           provider:
             type: string
-          providerSecretRef:
-            properties:
-              name:
-                type: string
-            type: object
-            x-kubernetes-map-type: atomic
           registry:
             type: string
           requestTimeout:
@@ -11326,6 +11364,16 @@ properties:
                 type: boolean
               sdServiceCleanup:
                 type: boolean
+              secretRef:
+                properties:
+                  credentialKey:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - credentialKey
+                - name
+                type: object
               zoneCacheDuration:
                 format: int64
                 type: integer
@@ -11340,6 +11388,16 @@ properties:
             properties:
               resourceGroup:
                 type: string
+              secretRef:
+                properties:
+                  credentialKey:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - credentialKey
+                - name
+                type: object
               subscriptionId:
                 type: string
               userAssignedIdentityClientID:
@@ -11347,8 +11405,23 @@ properties:
             type: object
           cloudflare:
             properties:
+              baseURL:
+                type: string
               proxied:
                 type: boolean
+              secretRef:
+                properties:
+                  apiEmailKey:
+                    type: string
+                  apiKey:
+                    type: string
+                  apiTokenKey:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - name
+                type: object
               zonesPerPage:
                 type: integer
             type: object
@@ -11379,6 +11452,16 @@ properties:
                 type: integer
               project:
                 type: string
+              secretRef:
+                properties:
+                  credentialKey:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - credentialKey
+                - name
+                type: object
               zoneVisibility:
                 type: string
             type: object
@@ -11389,16 +11472,9 @@ properties:
           ocRouterName:
             type: string
           policy:
-            default: sync
             type: string
           provider:
             type: string
-          providerSecretRef:
-            properties:
-              name:
-                type: string
-            type: object
-            x-kubernetes-map-type: atomic
           registry:
             type: string
           requestTimeout:

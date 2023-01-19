@@ -332,7 +332,7 @@ kmodules.xyz/objectstore-api/api/v1
 # kmodules.xyz/schema-checker v0.4.1
 ## explicit; go 1.17
 kmodules.xyz/schema-checker
-# kubeops.dev/external-dns-operator v0.0.2
+# kubeops.dev/external-dns-operator v0.0.4
 ## explicit; go 1.18
 kubeops.dev/external-dns-operator/apis/external
 kubeops.dev/external-dns-operator/apis/external/v1alpha1
