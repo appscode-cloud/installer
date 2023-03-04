@@ -96,7 +96,7 @@ github.com/yudai/golcs
 ## explicit; go 1.18
 go.openviz.dev/installer/apis/installer
 go.openviz.dev/installer/apis/installer/v1alpha1
-# golang.org/x/net v0.1.0
+# golang.org/x/net v0.7.0
 ## explicit; go 1.17
 golang.org/x/net/context
 golang.org/x/net/context/ctxhttp
@@ -108,16 +108,16 @@ golang.org/x/net/idna
 ## explicit; go 1.17
 golang.org/x/oauth2
 golang.org/x/oauth2/internal
-# golang.org/x/sys v0.1.0
+# golang.org/x/sys v0.5.0
 ## explicit; go 1.17
 golang.org/x/sys/internal/unsafeheader
 golang.org/x/sys/plan9
 golang.org/x/sys/unix
 golang.org/x/sys/windows
-# golang.org/x/term v0.1.0
+# golang.org/x/term v0.5.0
 ## explicit; go 1.17
 golang.org/x/term
-# golang.org/x/text v0.4.0
+# golang.org/x/text v0.7.0
 ## explicit; go 1.17
 golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
@@ -332,11 +332,11 @@ kmodules.xyz/objectstore-api/api/v1
 # kmodules.xyz/schema-checker v0.4.1
 ## explicit; go 1.17
 kmodules.xyz/schema-checker
-# kubeops.dev/external-dns-operator v0.0.4
+# kubeops.dev/external-dns-operator v0.0.5-0.20230303042940-7577544216ef
 ## explicit; go 1.18
 kubeops.dev/external-dns-operator/apis/external
 kubeops.dev/external-dns-operator/apis/external/v1alpha1
-# kubeops.dev/installer v0.0.0-20230102190911-48de263490ae
+# kubeops.dev/installer v0.0.0-20230303063133-1dc14bca3e62
 ## explicit; go 1.18
 kubeops.dev/installer/apis/installer
 kubeops.dev/installer/apis/installer/v1alpha1
