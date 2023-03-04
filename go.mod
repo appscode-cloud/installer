@@ -8,8 +8,8 @@ require (
 	k8s.io/apimachinery v0.25.3
 	kmodules.xyz/objectstore-api v0.25.0
 	kmodules.xyz/schema-checker v0.4.1
-	kubeops.dev/external-dns-operator v0.0.4
-	kubeops.dev/installer v0.0.0-20230102190911-48de263490ae
+	kubeops.dev/external-dns-operator v0.0.5-0.20230303042940-7577544216ef
+	kubeops.dev/installer v0.0.0-20230303063133-1dc14bca3e62
 )
 
 require (
@@ -38,11 +38,11 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/yudai/gojsondiff v1.0.0 // indirect
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
-	golang.org/x/net v0.1.0 // indirect
+	golang.org/x/net v0.7.0 // indirect
 	golang.org/x/oauth2 v0.1.0 // indirect
-	golang.org/x/sys v0.1.0 // indirect
-	golang.org/x/term v0.1.0 // indirect
-	golang.org/x/text v0.4.0 // indirect
+	golang.org/x/sys v0.5.0 // indirect
+	golang.org/x/term v0.5.0 // indirect
+	golang.org/x/text v0.7.0 // indirect
 	golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
