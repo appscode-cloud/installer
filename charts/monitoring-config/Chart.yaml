@@ -1,6 +1,6 @@
 apiVersion: v2
-name: opscenter-config
-description: ByteBuilders Opscenter Configuration
+name: monitoring-config
+description: ByteBuilders Opscenter Monitoring Configuration
 type: application
 version: v2022.06.14
 appVersion: v2022.06.14

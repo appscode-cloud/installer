@@ -1,0 +1,29 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: kubedb
+spec:
+  title: KubeDB
+  description: |
+    Production grade operator for managing databases in Kubernetes.
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-datastore
+  required: true
+  requirements:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: kubedb-provisioner
+  chart:
+    name: kubedb
+    namespace: kubedb
+    version: "v2023.02.28"
+    sourceRef:
+      kind: HelmRepository
+      name: kubedb
+      namespace: {{ .Release.Namespace }}

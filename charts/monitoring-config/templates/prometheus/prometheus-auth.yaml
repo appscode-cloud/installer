@@ -1,0 +1,20 @@
+# if basic auth or bearer token is provided, then create a secret for auth
+{{- if or .Values.prometheus.basicAuth.password .Values.prometheus.bearerToken }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "monitoring-config.fullname" . }}-prometheus-auth
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "monitoring-config.labels" . | nindent 4 }}
+stringData:
+{{- with .Values.prometheus.basicAuth.username }}
+  username: {{ . | quote }}
+{{- end }}
+{{- with .Values.prometheus.basicAuth.password }}
+  password: {{ . | quote }}
+{{- end }}
+{{- with .Values.prometheus.bearerToken }}
+  token: {{ . | quote }}
+{{- end }}
+{{- end }}

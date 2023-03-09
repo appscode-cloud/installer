@@ -1,0 +1,20 @@
+grafana:
+  default: true
+  service:
+    scheme: "http"
+    name: "kube-prometheus-stack-grafana"
+    namespace: "monitoring"
+    port: "80"
+  basicAuth:
+    username: "admin"
+    password: "prom-operator"
+  dashboard:
+    datasource: "Prometheus"
+
+prometheus:
+  default: true
+  service:
+    scheme: "http"
+    name: "kube-prometheus-stack-prometheus"
+    namespace: "monitoring"
+    port: "9090"

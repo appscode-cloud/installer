@@ -1,0 +1,19 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: FeatureSet
+metadata:
+  name: opscenter-monitoring
+spec:
+  title: Monitoring
+  description: |
+    Monitor your Kubernetes resources with Prometheus and Grafana.
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  required: false
+  requiredFeatures:
+  - kube-prometheus-stack
+  - panopticon
+  chart:
+    name: uik8sappscodecom-featureset-opscenter-monitoring-editor
+    url: https://charts.appscode.com/stable/
+    version: v2022.06.14
