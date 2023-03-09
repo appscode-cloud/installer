@@ -23,7 +23,7 @@ package v1alpha1
 
 import (
 	installerv1alpha1 "go.openviz.dev/installer/apis/installer/v1alpha1"
-	"k8s.io/api/core/v1"
+	v1 "k8s.io/api/core/v1"
 	networkingv1 "k8s.io/api/networking/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	apiv1 "kmodules.xyz/objectstore-api/api/v1"
