@@ -1,0 +1,19 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: FeatureSet
+metadata:
+  name: opscenter-security
+spec:
+  title: Security
+  description: |
+    Manage TLS Certificates, Secrets and scan for vulnerability in images.
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  required: false
+  requiredFeatures:
+  - cert-manager
+  - scanner
+  chart:
+    name: uik8sappscodecom-featureset-opscenter-security-editor
+    url: https://charts.appscode.com/stable/
+    version: v2022.06.14

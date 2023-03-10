@@ -1,0 +1,21 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: monitoring-config
+spec:
+  title: Monitoring Configuration
+  description: |
+    Specify the information about default Prometheus and Grafana instances.
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-monitoring
+  required: true
+  chart:
+    name: monitoring-config
+    namespace: monitoring
+    version: "v2022.06.14"
+    sourceRef:
+      kind: HelmRepository
+      name: bytebuilders
+      namespace: {{ .Release.Namespace }}

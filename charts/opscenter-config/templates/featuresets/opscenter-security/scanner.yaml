@@ -1,0 +1,29 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: scanner
+spec:
+  title: Scanner
+  description: |
+    Scan docker image vulnerability and generate security report.
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-security
+  required: true
+  requirements:
+    workloads:
+      - group: apps
+        version: v1
+        kind: StatefulSet
+        selector:
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: scanner
+  chart:
+    name: scanner
+    namespace: kubeops
+    version: "v2022.06.14"
+    sourceRef:
+      kind: HelmRepository
+      name: kubeops
+      namespace: {{ .Release.Namespace }}

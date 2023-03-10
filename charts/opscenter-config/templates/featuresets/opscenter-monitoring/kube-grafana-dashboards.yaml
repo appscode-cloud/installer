@@ -1,0 +1,24 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: kube-grafana-dashboards
+spec:
+  title: Kube Grafana Dashboards
+  description: |
+    Collection of grafana dashboards for official Kubernetes resources.
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-monitoring
+  required: false
+  requirements:
+    features:
+    - grafana-operator
+  chart:
+    name: kube-grafana-dashboards
+    namespace: monitoring
+    version: "v2022.06.14"
+    sourceRef:
+      kind: HelmRepository
+      name: appscode
+      namespace: {{ .Release.Namespace }}
