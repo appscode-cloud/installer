@@ -80,8 +80,6 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&Nats{},
 		&OpscenterConfigList{},
 		&OpscenterConfig{},
-		&OpscenterCoreList{},
-		&OpscenterCore{},
 		&PlatformApiList{},
 		&PlatformApi{},
 		&PlatformUiList{},

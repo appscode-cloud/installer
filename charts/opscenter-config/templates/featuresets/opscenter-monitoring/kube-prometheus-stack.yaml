@@ -1,0 +1,33 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: kube-prometheus-stack
+spec:
+  title: Kube Prometheus Stack
+  description: |
+    Collection of components to monitor Kubernetes native applications with Prometheus and Grafana.
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-monitoring
+  required: true
+  requirements:
+    resources:
+    - group: monitoring.coreos.com
+      version: v1
+      kind: Prometheus
+    workloads:
+      - group: apps
+        version: v1
+        kind: StatefulSet
+        selector:
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/part-of: kube-prometheus-stack
+  chart:
+    name: kube-prometheus-stack
+    namespace: monitoring
+    version: "45.0.0"
+    sourceRef:
+      kind: HelmRepository
+      name: prometheus-community
+      namespace: {{ .Release.Namespace }}

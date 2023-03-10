@@ -1,0 +1,18 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: FeatureSet
+metadata:
+  name: opscenter-core
+spec:
+  title: Opscenter Core
+  description: |
+    Collection of mandatory features that are necessary for providing basic UI functionalities.
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  required: true
+  requiredFeatures:
+  - kube-ui-server
+  chart:
+    name: uik8sappscodecom-featureset-opscenter-core-editor
+    url: https://charts.appscode.com/stable/
+    version: v2022.06.14

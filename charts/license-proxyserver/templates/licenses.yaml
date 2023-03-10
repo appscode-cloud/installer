@@ -1,4 +1,4 @@
-{{- with .Values.licenses }}
+{{- if .Values.licenses }}
 apiVersion: v1
 kind: Secret
 metadata:
@@ -8,7 +8,7 @@ metadata:
     {{- include "license-proxyserver.labels" . | nindent 4 }}
 type: Opaque
 stringData:
-{{- range $k, $v := . }}
+{{- range $k, $v := .Values.licenses }}
   {{ $k }}: {{ $v | quote }}
 {{- end }}
 {{- end }}

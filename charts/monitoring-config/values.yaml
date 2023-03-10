@@ -1,9 +1,9 @@
-# Default values for opscenter-config.
+# Default values for monitoring-config.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 nameOverride: ""
-fullnameOverride: ""
+fullnameOverride: opscenter
 
 global:
   # License for the product.
@@ -21,7 +21,7 @@ global:
 
   # Docker registry fqdn used to pull KubeDB related images.
   # Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image}
-  registryFQDN: ghcr.io
+  registryFQDN: ""
 
   # Specify an array of imagePullSecrets.
   # Secrets must be manually created in the namespace.
