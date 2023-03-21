@@ -32,7 +32,7 @@ TMP_DIR="${SCRIPT_ROOT}/tmp"
 GIT_BRANCH=${GIT_BRANCH:-master}
 
 REPO_DIR=${REPO_DIR:-stable}
-REPO_URL=https://raw.githubusercontent.com/kubeops/installer/${GIT_BRANCH}/${REPO_DIR}/
+REPO_URL=https://raw.githubusercontent.com/bytebuilders/installer/${GIT_BRANCH}/${REPO_DIR}/
 
 # create temporary charts folder
 mkdir -p $TMP_DIR/$CHARTS_DIR
