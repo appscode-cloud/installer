@@ -22,12 +22,12 @@ import (
 )
 
 const (
-	ResourceKindOpscenterConfig = "OpscenterConfig"
-	ResourceOpscenterConfig     = "opscenterconfig"
-	ResourceOpscenterConfigs    = "opscenterconfigs"
+	ResourceKindOpscenterFeatures = "OpscenterFeatures"
+	ResourceOpscenterFeatures     = "opscenterfeatures"
+	ResourceOpscenterFeaturess    = "opscenterfeaturess"
 )
 
-// OpscenterConfig defines the schama for OpscenterConfig Installer.
+// OpscenterFeatures defines the schama for OpscenterFeatures Installer.
 
 // +genclient
 // +genclient:skipVerbs=updateStatus
@@ -35,25 +35,25 @@ const (
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:path=opscenterconfigs,singular=opscenterconfig,categories={kubeops,appscode}
-type OpscenterConfig struct {
+// +kubebuilder:resource:path=opscenterfeaturess,singular=opscenterfeatures,categories={kubeops,appscode}
+type OpscenterFeatures struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              OpscenterConfigSpec `json:"spec,omitempty"`
+	Spec              OpscenterFeaturesSpec `json:"spec,omitempty"`
 }
 
-// OpscenterConfigSpec is the schema for OpscenterConfig Operator values file
-type OpscenterConfigSpec struct {
-	NameOverride     string                      `json:"nameOverride"`
-	FullnameOverride string                      `json:"fullnameOverride"`
-	Global           OpscenterConfigGlobalValues `json:"global"`
-	Panopticon       PanopticonSpec              `json:"panopticon"`
-	UiPreset         EmbeddedUiPresetsSpec       `json:"ui-presets"`
-	Grafana          GrafanaConfig               `json:"grafana"`
-	Prometheus       PrometheusConfig            `json:"prometheus"`
+// OpscenterFeaturesSpec is the schema for OpscenterFeatures Operator values file
+type OpscenterFeaturesSpec struct {
+	NameOverride     string                        `json:"nameOverride"`
+	FullnameOverride string                        `json:"fullnameOverride"`
+	Global           OpscenterFeaturesGlobalValues `json:"global"`
+	Panopticon       PanopticonSpec                `json:"panopticon"`
+	UiPreset         EmbeddedUiPresetsSpec         `json:"ui-presets"`
+	Grafana          GrafanaConfig                 `json:"grafana"`
+	Prometheus       PrometheusConfig              `json:"prometheus"`
 }
 
-type OpscenterConfigGlobalValues struct {
+type OpscenterFeaturesGlobalValues struct {
 	License          string            `json:"license"`
 	Registry         string            `json:"registry"`
 	RegistryFQDN     string            `json:"registryFQDN"`
@@ -125,10 +125,10 @@ type TLSConfig struct {
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// OpscenterConfigList is a list of OpscenterConfigs
-type OpscenterConfigList struct {
+// OpscenterFeaturesList is a list of OpscenterFeaturess
+type OpscenterFeaturesList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of OpscenterConfig CRD objects
-	Items []OpscenterConfig `json:"items,omitempty"`
+	// Items is a list of OpscenterFeatures CRD objects
+	Items []OpscenterFeatures `json:"items,omitempty"`
 }

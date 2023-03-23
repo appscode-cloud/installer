@@ -19,7 +19,7 @@ KUBEPACK_KUBEPACK_TAG=${KUBEPACK_KUBEPACK_TAG:-master}
 
 crd-importer \
     --input=https://github.com/kmodules/custom-resources/raw/kubernetes-1.21.1/crds/appcatalog.appscode.com_appbindings.yaml \
-    --out=./charts/opscenter-config/crds
+    --out=./charts/opscenter-features/crds
 
 crd-importer \
     --input=https://github.com/bytebuilders/resource-model/raw/${BYTEBUILDERS_RESOURCE_MODEL_TAG}/crds/cloud.bytebuilders.dev_credentials.yaml \
