@@ -37,7 +37,6 @@ _testmain.go
 /.crds
 
 /charts/ace/charts
-/charts/opscenter-core/charts
-/charts/opscenter-config/charts
+/charts/opscenter-features/charts
 
 ace.yaml
