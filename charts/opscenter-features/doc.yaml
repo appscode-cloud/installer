@@ -8,11 +8,11 @@ repository:
   url: https://charts.appscode.com/stable/
   name: appscode
 chart:
-  name: opscenter-config
+  name: opscenter-features
   values: -- generate from values file --
   valuesExample: -- generate from values file --
 prerequisites:
 - Kubernetes 1.16+
 release:
-  name: opscenter-config
+  name: opscenter-features
   namespace: kubeops

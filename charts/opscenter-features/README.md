@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm search repo appscode/opscenter-config --version=v2022.06.14
-$ helm upgrade -i opscenter-config appscode/opscenter-config -n kubeops --create-namespace --version=v2022.06.14
+$ helm search repo appscode/opscenter-features --version=v2022.06.14
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2022.06.14
 ```
 
 ## Introduction
@@ -21,10 +21,10 @@ This chart deploys a ByteBuilders Opscenter Configurator on a [Kubernetes](http:
 
 ## Installing the Chart
 
-To install/upgrade the chart with the release name `opscenter-config`:
+To install/upgrade the chart with the release name `opscenter-features`:
 
 ```bash
-$ helm upgrade -i opscenter-config appscode/opscenter-config -n kubeops --create-namespace --version=v2022.06.14
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2022.06.14
 ```
 
 The command deploys a ByteBuilders Opscenter Configurator on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -33,17 +33,17 @@ The command deploys a ByteBuilders Opscenter Configurator on the Kubernetes clus
 
 ## Uninstalling the Chart
 
-To uninstall the `opscenter-config`:
+To uninstall the `opscenter-features`:
 
 ```bash
-$ helm uninstall opscenter-config -n kubeops
+$ helm uninstall opscenter-features -n kubeops
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
 
 ## Configuration
 
-The following table lists the configurable parameters of the `opscenter-config` chart and their default values.
+The following table lists the configurable parameters of the `opscenter-features` chart and their default values.
 
 |                Parameter                |                                                                                                                                                                              Description                                                                                                                                                                              |       Default        |
 |-----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
@@ -97,12 +97,12 @@ The following table lists the configurable parameters of the `opscenter-config` 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i opscenter-config appscode/opscenter-config -n kubeops --create-namespace --version=v2022.06.14 --set global.registryFQDN=ghcr.io
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2022.06.14 --set global.registryFQDN=ghcr.io
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i opscenter-config appscode/opscenter-config -n kubeops --create-namespace --version=v2022.06.14 --values values.yaml
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2022.06.14 --values values.yaml
 ```
