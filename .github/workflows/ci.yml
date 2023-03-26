@@ -80,18 +80,7 @@ jobs:
           curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
           echo
           echo "install cert-manager"
-          kubectl apply --validate=false -f https://github.com/cert-manager/cert-manager/releases/download/v1.10.1/cert-manager.yaml
-
-      - name: Issue License
-        env:
-          BYTEBUILDERS_LICENSE_TOKEN: ${{ secrets.BYTEBUILDERS_LICENSE_TOKEN }}
-        run: |
-          export KUBECONFIG="${HOME}/.kube/config"
-          CLUSTER_UID=$(kubectl get ns kube-system -o=jsonpath='{.metadata.uid}')
-          echo "issuing panopticon license"
-          LICENSE_KEY=$(curl -X POST -d "name=1gtm&email=1gtm@appscode.com&product=panopticon-enterprise&cluster=${CLUSTER_UID}&tos=true&token=${BYTEBUILDERS_LICENSE_TOKEN}" https://license-issuer.appscode.com/issue-license)
-          # ref: https://github.com/mikefarah/yq/issues/230#issuecomment-487458629
-          yqq w -i ./charts/opscenter-features/ci/ci-values.yaml panopticon.license --tag '!!str' -- "${LICENSE_KEY}"
+          kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
 
       - name: Test charts
         run: |

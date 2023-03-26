@@ -1,46 +1,46 @@
 dependencies:
 - name: platform-ui
   repository: file://../platform-ui
-  version: v2022.06.14
+  version: v2023.03.23
 - name: accounts-ui
   repository: file://../accounts-ui
-  version: v2022.06.14
+  version: v2023.03.23
 - name: cluster-ui
   repository: file://../cluster-ui
-  version: v2022.06.14
+  version: v2023.03.23
 - name: deploy-ui
   repository: file://../deploy-ui
-  version: v2022.06.14
+  version: v2023.03.23
 - name: kubedb-ui
   repository: file://../kubedb-ui
-  version: v2022.06.14
+  version: v2023.03.23
 - name: marketplace-ui
   repository: file://../marketplace-ui
-  version: v2022.06.14
+  version: v2023.03.23
 - name: platform-api
   repository: file://../platform-api
-  version: v2022.06.14
+  version: v2023.03.23
 - name: prom-proxy
   repository: file://../prom-proxy
-  version: v2022.06.14
+  version: v2023.03.23
 - name: billing
   repository: file://../billing
-  version: v2022.06.14
+  version: v2023.03.23
 - name: grafana
   repository: file://../grafana
-  version: v2022.06.14
+  version: v2023.03.23
 - name: trickster
   repository: https://charts.appscode.com/stable/
-  version: v2022.06.14
+  version: v2023.03.23
 - name: minio
   repository: file://../minio
-  version: v2022.06.14
+  version: v2023.03.23
 - name: dns-proxy
   repository: file://../dns-proxy
-  version: v2022.06.14
+  version: v2023.03.23
 - name: smtprelay
   repository: file://../smtprelay
-  version: v2022.06.14
+  version: v2023.03.23
 - name: ingress-nginx
   repository: https://kubernetes.github.io/ingress-nginx
   version: 4.4.0
@@ -50,5 +50,5 @@ dependencies:
 - name: reloader
   repository: https://stakater.github.io/stakater-charts
   version: v1.0.15
-digest: sha256:c5036ab5a64a4e4b380faa0433d0765cc2f9e60f5a77ce4dfd4cf6a1bfc2401f
-generated: "2023-03-26T03:03:47.001514-07:00"
+digest: sha256:a1d530ecc1a38dcae1ee33ad24b0cadc45d88996a9c1d7756a40903f2d2d5429
+generated: "2023-03-26T03:05:36.962185-07:00"
