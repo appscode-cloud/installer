@@ -1,3 +1,6 @@
+# github.com/PuerkitoBio/purell v1.2.0
+## explicit; go 1.19
+github.com/PuerkitoBio/purell
 # github.com/davecgh/go-spew v1.1.1
 ## explicit
 github.com/davecgh/go-spew/spew
@@ -14,11 +17,10 @@ github.com/go-logr/logr
 # github.com/go-openapi/jsonpointer v0.19.5
 ## explicit; go 1.13
 github.com/go-openapi/jsonpointer
-# github.com/go-openapi/jsonreference v0.20.0
+# github.com/go-openapi/jsonreference v0.19.5
 ## explicit; go 1.13
 github.com/go-openapi/jsonreference
-github.com/go-openapi/jsonreference/internal
-# github.com/go-openapi/swag v0.19.15
+# github.com/go-openapi/swag v0.19.14
 ## explicit; go 1.11
 github.com/go-openapi/swag
 # github.com/gobeam/stringy v0.0.5
@@ -92,7 +94,7 @@ github.com/yudai/gojsondiff/formatter
 # github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82
 ## explicit
 github.com/yudai/golcs
-# go.openviz.dev/installer v0.0.0-20230104082956-b1c59b1b779d
+# go.openviz.dev/installer v0.0.0-20230324072410-214895b6c84b
 ## explicit; go 1.18
 go.openviz.dev/installer/apis/installer
 go.openviz.dev/installer/apis/installer/v1alpha1
@@ -123,6 +125,7 @@ golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
+golang.org/x/text/width
 # golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9
 ## explicit
 golang.org/x/time/rate
@@ -272,7 +275,7 @@ k8s.io/apimachinery/pkg/version
 k8s.io/apimachinery/pkg/watch
 k8s.io/apimachinery/third_party/forked/golang/json
 k8s.io/apimachinery/third_party/forked/golang/reflect
-# k8s.io/client-go v0.25.3
+# k8s.io/client-go v0.25.2
 ## explicit; go 1.19
 k8s.io/client-go/discovery
 k8s.io/client-go/dynamic
@@ -304,7 +307,7 @@ k8s.io/klog/v2/internal/clock
 k8s.io/klog/v2/internal/dbg
 k8s.io/klog/v2/internal/serialize
 k8s.io/klog/v2/internal/severity
-# k8s.io/kube-openapi v0.0.0-20220803164354-a70c9af30aea
+# k8s.io/kube-openapi v0.0.0-20220803162953-67bda5d908f1
 ## explicit; go 1.18
 k8s.io/kube-openapi/pkg/builder3/util
 k8s.io/kube-openapi/pkg/common
@@ -332,14 +335,10 @@ kmodules.xyz/objectstore-api/api/v1
 # kmodules.xyz/schema-checker v0.4.1
 ## explicit; go 1.17
 kmodules.xyz/schema-checker
-# kubeops.dev/external-dns-operator v0.0.5-0.20230303042940-7577544216ef
+# kubeops.dev/external-dns-operator v0.0.5
 ## explicit; go 1.18
 kubeops.dev/external-dns-operator/apis/external
 kubeops.dev/external-dns-operator/apis/external/v1alpha1
-# kubeops.dev/installer v0.0.0-20230303063133-1dc14bca3e62
-## explicit; go 1.18
-kubeops.dev/installer/apis/installer
-kubeops.dev/installer/apis/installer/v1alpha1
 # sigs.k8s.io/controller-runtime v0.13.1
 ## explicit; go 1.17
 sigs.k8s.io/controller-runtime/pkg/client
