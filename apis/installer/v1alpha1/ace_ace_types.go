@@ -399,11 +399,6 @@ type CacheSettings struct {
 	Auth              BasicAuth                 `json:"auth"`
 }
 
-type BasicAuth struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
-}
-
 type SmtpSettings struct {
 	Host            string `json:"host"`
 	TlsEnabled      bool   `json:"tlsEnabled"`

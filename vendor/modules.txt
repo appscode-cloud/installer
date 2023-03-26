@@ -94,7 +94,7 @@ github.com/yudai/gojsondiff/formatter
 # github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82
 ## explicit
 github.com/yudai/golcs
-# go.openviz.dev/installer v0.0.0-20230324072410-214895b6c84b
+# go.openviz.dev/installer v0.0.0-20230326020900-eaec08452d0a
 ## explicit; go 1.18
 go.openviz.dev/installer/apis/installer
 go.openviz.dev/installer/apis/installer/v1alpha1

@@ -3,7 +3,7 @@ module go.bytebuilders.dev/installer
 go 1.18
 
 require (
-	go.openviz.dev/installer v0.0.0-20230324072410-214895b6c84b
+	go.openviz.dev/installer v0.0.0-20230326020900-eaec08452d0a
 	k8s.io/api v0.25.3
 	k8s.io/apimachinery v0.25.3
 	kmodules.xyz/objectstore-api v0.25.0
