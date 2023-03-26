@@ -38,6 +38,7 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.LicenseProxyserverSpec{}},
 		sc.TestCase{Obj: v1alpha1.MarketplaceUiSpec{}},
 		sc.TestCase{Obj: v1alpha1.MinioSpec{}},
+		sc.TestCase{Obj: v1alpha1.MonitoringConfigSpec{}},
 		sc.TestCase{Obj: v1alpha1.OpscenterFeaturesSpec{}},
 		sc.TestCase{Obj: v1alpha1.PlatformApiSpec{}},
 		sc.TestCase{Obj: v1alpha1.PlatformUiSpec{}},
