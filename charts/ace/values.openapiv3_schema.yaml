@@ -8374,6 +8374,13 @@ properties:
           - name
           type: object
         type: array
+      advertiseconfigVolume:
+        properties:
+          emptyDir:
+            type: object
+        required:
+        - emptyDir
+        type: object
       affinity:
         properties:
           nodeAffinity:
@@ -8739,13 +8746,6 @@ properties:
                 type: array
             type: object
         type: object
-      appProtocol:
-        properties:
-          enabled:
-            type: boolean
-        required:
-        - enabled
-        type: object
       auth:
         properties:
           enabled:
@@ -8814,9 +8814,20 @@ properties:
       bootconfig:
         properties:
           image:
-            type: string
-          pullPolicy:
-            type: string
+            properties:
+              pullPolicy:
+                type: string
+              registry:
+                type: string
+              repository:
+                type: string
+              tag:
+                type: string
+            required:
+            - pullPolicy
+            - repository
+            - tag
+            type: object
           securityContext:
             properties:
               allowPrivilegeEscalation:
@@ -8880,7 +8891,6 @@ properties:
             type: object
         required:
         - image
-        - pullPolicy
         - securityContext
         type: object
       cluster:
@@ -8944,11 +8954,28 @@ properties:
         type: boolean
       exporter:
         properties:
+          args:
+            items:
+              type: string
+            type: array
           enabled:
             type: boolean
           image:
-            type: string
-          pullPolicy:
+            properties:
+              pullPolicy:
+                type: string
+              registry:
+                type: string
+              repository:
+                type: string
+              tag:
+                type: string
+            required:
+            - pullPolicy
+            - repository
+            - tag
+            type: object
+          portName:
             type: string
           resources:
             properties:
@@ -9056,9 +9083,10 @@ properties:
             - labels
             type: object
         required:
+        - args
         - enabled
         - image
-        - pullPolicy
+        - portName
         - resources
         - securityContext
         - serviceMonitor
@@ -9230,13 +9258,21 @@ properties:
             type: boolean
           connectRetries:
             type: integer
+          dnsPolicy:
+            type: string
           externalAccess:
             type: boolean
+          extraEnv:
+            items:
+              type: string
+            type: array
           healthcheck:
             properties:
               detectHealthz:
                 type: boolean
               enableHealthz:
+                type: boolean
+              enableHealthzLivenessReadiness:
                 type: boolean
               liveness:
                 properties:
@@ -9261,7 +9297,6 @@ properties:
                 - initialDelaySeconds
                 - periodSeconds
                 - successThreshold
-                - terminationGracePeriodSeconds
                 - timeoutSeconds
                 type: object
               readiness:
@@ -9311,12 +9346,28 @@ properties:
             required:
             - detectHealthz
             - enableHealthz
+            - enableHealthzLivenessReadiness
             - liveness
             - readiness
             - startup
             type: object
+          hostNetwork:
+            type: boolean
           image:
-            type: string
+            properties:
+              pullPolicy:
+                type: string
+              registry:
+                type: string
+              repository:
+                type: string
+              tag:
+                type: string
+            required:
+            - pullPolicy
+            - repository
+            - tag
+            type: object
           jetstream:
             properties:
               domain:
@@ -9355,6 +9406,8 @@ properties:
                 - size
                 - storageDirectory
                 type: object
+              max_outstanding_catchup:
+                type: string
               memStorage:
                 properties:
                   enabled:
@@ -9376,6 +9429,7 @@ properties:
             - enabled
             - encryption
             - fileStorage
+            - max_outstanding_catchup
             - memStorage
             - uniqueTag
             type: object
@@ -9432,6 +9486,8 @@ properties:
             - reconnectErrorReports
             - trace
             type: object
+          mappings:
+            type: object
           profiling:
             properties:
               enabled:
@@ -9442,8 +9498,6 @@ properties:
             - enabled
             - port
             type: object
-          pullPolicy:
-            type: string
           resources:
             properties:
               limits:
@@ -9581,14 +9635,17 @@ properties:
         - client
         - configChecksumAnnotation
         - connectRetries
+        - dnsPolicy
         - externalAccess
+        - extraEnv
         - healthcheck
+        - hostNetwork
         - image
         - jetstream
         - limits
         - logging
+        - mappings
         - profiling
-        - pullPolicy
         - resources
         - securityContext
         - selectorLabels
@@ -10706,7 +10763,20 @@ properties:
               type: object
             type: array
           image:
-            type: string
+            properties:
+              pullPolicy:
+                type: string
+              registry:
+                type: string
+              repository:
+                type: string
+              tag:
+                type: string
+            required:
+            - pullPolicy
+            - repository
+            - tag
+            type: object
           imagePullSecrets:
             items:
               type: string
@@ -10723,8 +10793,6 @@ properties:
             additionalProperties:
               type: string
             type: object
-          pullPolicy:
-            type: string
           securityContext:
             properties:
               allowPrivilegeEscalation:
@@ -10812,7 +10880,6 @@ properties:
         - imagePullSecrets
         - podAnnotations
         - podLabels
-        - pullPolicy
         - securityContext
         - tolerations
         type: object
@@ -11012,6 +11079,13 @@ properties:
         additionalProperties:
           type: string
         type: object
+      pidVolume:
+        properties:
+          emptyDir:
+            type: object
+        required:
+        - emptyDir
+        type: object
       podAnnotations:
         additionalProperties:
           type: string
@@ -11021,6 +11095,8 @@ properties:
           enabled:
             type: boolean
           maxUnavailable:
+            type: integer
+          minAvailable:
             type: integer
         required:
         - enabled
@@ -11039,9 +11115,20 @@ properties:
               type: string
             type: array
           image:
-            type: string
-          pullPolicy:
-            type: string
+            properties:
+              pullPolicy:
+                type: string
+              registry:
+                type: string
+              repository:
+                type: string
+              tag:
+                type: string
+            required:
+            - pullPolicy
+            - repository
+            - tag
+            type: object
           securityContext:
             properties:
               allowPrivilegeEscalation:
@@ -11107,7 +11194,6 @@ properties:
         - enabled
         - extraConfigs
         - image
-        - pullPolicy
         - securityContext
         type: object
       securityContext:
@@ -11307,8 +11393,8 @@ properties:
     - additionalContainers
     - additionalVolumeMounts
     - additionalVolumes
+    - advertiseconfigVolume
     - affinity
-    - appProtocol
     - auth
     - bootconfig
     - cluster
@@ -11326,6 +11412,7 @@ properties:
     - natsbox
     - networkPolicy
     - nodeSelector
+    - pidVolume
     - podAnnotations
     - podDisruptionBudget
     - podManagementPolicy
@@ -13693,6 +13780,8 @@ properties:
     properties:
       enabled:
         type: boolean
+      fullnameOverride:
+        type: string
       global:
         properties:
           imagePullSecrets:
@@ -13709,6 +13798,8 @@ properties:
         required:
         - host
         type: object
+      nameOverride:
+        type: string
       reloader:
         properties:
           custom_annotations:
@@ -14149,40 +14240,27 @@ properties:
                 type: object
               env:
                 properties:
+                  existing:
+                    properties:
+                      existing_secret_name:
+                        additionalProperties:
+                          type: string
+                        type: object
+                    type: object
                   field:
-                    items:
-                      properties:
-                        name:
-                          type: string
-                        value:
-                          type: string
-                      required:
-                      - name
-                      type: object
-                    type: array
+                    additionalProperties:
+                      type: string
+                    type: object
                   open:
-                    items:
-                      properties:
-                        name:
-                          type: string
-                        value:
-                          type: string
-                      required:
-                      - name
-                      type: object
-                    type: array
+                    additionalProperties:
+                      type: string
+                    type: object
                   secret:
-                    items:
-                      properties:
-                        name:
-                          type: string
-                        value:
-                          type: string
-                      required:
-                      - name
-                      type: object
-                    type: array
+                    additionalProperties:
+                      type: string
+                    type: object
                 required:
+                - existing
                 - field
                 - open
                 - secret
@@ -14501,6 +14579,8 @@ properties:
             - securityContext
             - tolerations
             type: object
+          enableHA:
+            type: boolean
           ignoreConfigMaps:
             type: boolean
           ignoreNamespaces:
@@ -14524,12 +14604,49 @@ properties:
             additionalProperties:
               type: string
             type: object
-          podMonitor:
+          namespaceSelector:
+            type: string
+          podDisruptionBudget:
             properties:
               enabled:
                 type: boolean
             required:
             - enabled
+            type: object
+          podMonitor:
+            properties:
+              annotations:
+                additionalProperties:
+                  type: string
+                type: object
+              enabled:
+                type: boolean
+              honorLabels:
+                type: boolean
+              labels:
+                additionalProperties:
+                  type: string
+                type: object
+              metricRelabelings:
+                items:
+                  type: string
+                type: array
+              podTargetLabels:
+                items:
+                  type: string
+                type: array
+              relabelings:
+                items:
+                  type: string
+                type: array
+            required:
+            - annotations
+            - enabled
+            - honorLabels
+            - labels
+            - metricRelabelings
+            - podTargetLabels
+            - relabelings
             type: object
           rbac:
             properties:
@@ -14584,16 +14701,47 @@ properties:
             type: object
           serviceMonitor:
             properties:
+              annotations:
+                additionalProperties:
+                  type: string
+                type: object
               enabled:
                 type: boolean
+              honorLabels:
+                type: boolean
+              labels:
+                additionalProperties:
+                  type: string
+                type: object
+              metricRelabelings:
+                items:
+                  type: string
+                type: array
+              relabelings:
+                items:
+                  type: string
+                type: array
+              targetLabels:
+                items:
+                  type: string
+                type: array
             required:
+            - annotations
             - enabled
+            - honorLabels
+            - labels
+            - metricRelabelings
+            - relabelings
+            - targetLabels
             type: object
+          syncAfterRestart:
+            type: boolean
           watchGlobally:
             type: boolean
         required:
         - custom_annotations
         - deployment
+        - enableHA
         - ignoreConfigMaps
         - ignoreNamespaces
         - ignoreSecrets
@@ -14602,6 +14750,8 @@ properties:
         - legacy
         - logFormat
         - matchLabels
+        - namespaceSelector
+        - podDisruptionBudget
         - podMonitor
         - rbac
         - readOnlyRootFileSystem
@@ -14610,6 +14760,7 @@ properties:
         - service
         - serviceAccount
         - serviceMonitor
+        - syncAfterRestart
         - watchGlobally
         type: object
     required:
