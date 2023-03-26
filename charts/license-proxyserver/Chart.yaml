@@ -1,7 +1,7 @@
 apiVersion: v1
 description: Kubernetes license-proxyserver by AppsCode
 name: license-proxyserver
-version: v2022.06.14
+version: v2023.03.23
 appVersion: v0.0.3
 home: https://github.com/bytebuilders/license-proxyserver
 icon: https://cdn.appscode.com/images/products/searchlight/icons/android-icon-192x192.png
