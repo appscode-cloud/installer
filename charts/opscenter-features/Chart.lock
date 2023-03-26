@@ -1,9 +1,0 @@
-dependencies:
-- name: panopticon
-  repository: https://charts.appscode.com/stable/
-  version: v2023.03.23
-- name: ui-presets
-  repository: file://../ui-presets
-  version: v2023.03.23
-digest: sha256:cb336fc1d9ed04d0f468dbdc3711f242af12da6e9e761770f14050e6cdad9aca
-generated: "2022-06-16T15:25:12.024048-07:00"
