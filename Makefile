@@ -368,7 +368,7 @@ ct: $(BUILD_DIRS)
 	    /bin/sh -c "                                            \
 	      set -x; \
 	      kubectl delete crds --all; \
-	      kubectl apply --validate=false -f https://github.com/cert-manager/cert-manager/releases/download/v1.10.1/cert-manager.yaml; \
+	      kubectl apply --validate=false -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml; \
 	      ./hack/scripts/update-chart-dependencies.sh; \
 	      ct $(CT_COMMAND) --debug --validate-maintainers=false $(CT_ARGS) \
 	    "
