@@ -18,7 +18,6 @@ package v1alpha1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	kubeops_installer "kubeops.dev/installer/apis/installer/v1alpha1"
 )
 
 const (
@@ -44,83 +43,8 @@ type OpscenterFeatures struct {
 
 // OpscenterFeaturesSpec is the schema for OpscenterFeatures Operator values file
 type OpscenterFeaturesSpec struct {
-	NameOverride     string                        `json:"nameOverride"`
-	FullnameOverride string                        `json:"fullnameOverride"`
-	Global           OpscenterFeaturesGlobalValues `json:"global"`
-	Panopticon       PanopticonSpec                `json:"panopticon"`
-	UiPreset         EmbeddedUiPresetsSpec         `json:"ui-presets"`
-	Grafana          GrafanaConfig                 `json:"grafana"`
-	Prometheus       PrometheusConfig              `json:"prometheus"`
-}
-
-type OpscenterFeaturesGlobalValues struct {
-	License          string            `json:"license"`
-	Registry         string            `json:"registry"`
-	RegistryFQDN     string            `json:"registryFQDN"`
-	ImagePullSecrets []string          `json:"imagePullSecrets"`
-	Monitoring       ClusterMonitoring `json:"monitoring"`
-}
-
-type ClusterMonitoring struct {
-	Agent          MonitoringAgent       `json:"agent"`
-	ServiceMonitor *ServiceMonitorLabels `json:"serviceMonitor"`
-	Alert          *ServiceMonitorLabels `json:"alert"`
-}
-
-type PanopticonSpec struct {
-	Enabled                           *bool `json:"enabled"`
-	*kubeops_installer.PanopticonSpec `json:",inline,omitempty"`
-}
-
-type EmbeddedUiPresetsSpec struct {
-	Enabled        *bool `json:"enabled"`
-	*UiPresetsSpec `json:",inline,omitempty"`
-}
-
-type GrafanaConfig struct {
-	Default     bool          `json:"default"`
-	URL         string        `json:"url"`
-	Service     ServiceSpec   `json:"service"`
-	BasicAuth   BasicAuth     `json:"basicAuth"`
-	BearerToken string        `json:"bearerToken"`
-	TLS         TLSConfig     `json:"tls"`
-	Dashboard   DashboardSpec `json:"dashboard"`
-}
-
-type PrometheusConfig struct {
-	Default     bool        `json:"default"`
-	URL         string      `json:"url"`
-	Service     ServiceSpec `json:"service"`
-	BasicAuth   BasicAuth   `json:"basicAuth"`
-	BearerToken string      `json:"bearerToken"`
-	TLS         TLSConfig   `json:"tls"`
-}
-
-type ServiceSpec struct {
-	Scheme    string `json:"scheme"`
-	Name      string `json:"name"`
-	Namespace string `json:"namespace"`
-	Port      string `json:"port"`
-	Path      string `json:"path"`
-	Query     string `json:"query"`
-}
-
-type DashboardSpec struct {
-	Datasource string `json:"datasource"`
-	FolderID   int    `json:"folderID"`
-}
-
-type BasicAuth struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
-}
-
-type TLSConfig struct {
-	Ca                    string `json:"ca"`
-	Cert                  string `json:"cert"`
-	Key                   string `json:"key"`
-	ServerName            string `json:"serverName"`
-	InsecureSkipTLSVerify bool   `json:"insecureSkipTLSVerify"`
+	NameOverride     string `json:"nameOverride"`
+	FullnameOverride string `json:"fullnameOverride"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
