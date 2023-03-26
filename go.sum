@@ -127,8 +127,8 @@ github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82/go.mod h1:lgjkn3NuSvDf
 github.com/yudai/pp v2.0.1+incompatible h1:Q4//iY4pNF6yPLZIigmvcl7k/bPgrcTPIFIcmawg5bI=
 github.com/yuin/goldmark v1.1.27/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
 github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
-go.openviz.dev/installer v0.0.0-20230324072410-214895b6c84b h1:GYgFihfb8mFb3ci6fiaJAsRZACZ4O+5EHZ3bSarHne8=
-go.openviz.dev/installer v0.0.0-20230324072410-214895b6c84b/go.mod h1:rkNqU7+sBwCiIFjLfYMPHT/UyxjV2PXOii9YoxSCRuQ=
+go.openviz.dev/installer v0.0.0-20230326020900-eaec08452d0a h1:hTcwRNcTnd62YKL9prZQ5/hjyGN2Tmfqxkec1Y6MzAI=
+go.openviz.dev/installer v0.0.0-20230326020900-eaec08452d0a/go.mod h1:kC3TEo+NqZPmxlpiIOcMkg2w4516gFFVYmo2rjwjslg=
 go.uber.org/atomic v1.7.0 h1:ADUqmZGgLDDfbSL9ZmPxKTybcoEYHgpYfELNoN+7hsw=
 go.uber.org/multierr v1.6.0 h1:y6IPFStTAIT5Ytl7/XYmHvzXQ7S3g/IeZW9hyZ5thw4=
 go.uber.org/zap v1.21.0 h1:WefMeulhovoZ2sYXz7st6K0sLj7bBhpiFaud4r4zST8=
