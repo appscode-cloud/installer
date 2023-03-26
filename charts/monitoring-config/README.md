@@ -17,7 +17,7 @@ This chart deploys a ByteBuilders Opscenter Monitoring Configurator on a [Kubern
 
 ## Prerequisites
 
-- Kubernetes 1.16+
+- Kubernetes 1.21+
 
 ## Installing the Chart
 

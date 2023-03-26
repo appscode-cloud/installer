@@ -17,7 +17,7 @@ This chart deploys a ByteBuilders Opscenter Configurator on a [Kubernetes](http:
 
 ## Prerequisites
 
-- Kubernetes 1.16+
+- Kubernetes 1.21+
 
 ## Installing the Chart
 
