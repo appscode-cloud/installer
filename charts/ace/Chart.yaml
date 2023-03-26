@@ -75,8 +75,8 @@ dependencies:
 - name: nats
   repository: https://nats-io.github.io/k8s/helm/charts/
   condition: nats.enabled
-  version: 0.18.2
+  version: 0.19.12
 - name: reloader
   repository: https://stakater.github.io/stakater-charts
   condition: reloader.enabled
-  version: v0.0.124
+  version: v1.0.15

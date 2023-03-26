@@ -2549,6 +2549,13 @@ properties:
       - name
       type: object
     type: array
+  advertiseconfigVolume:
+    properties:
+      emptyDir:
+        type: object
+    required:
+    - emptyDir
+    type: object
   affinity:
     description: Affinity is a group of affinity scheduling rules.
     properties:
@@ -3300,13 +3307,6 @@ properties:
             type: array
         type: object
     type: object
-  appProtocol:
-    properties:
-      enabled:
-        type: boolean
-    required:
-    - enabled
-    type: object
   auth:
     properties:
       enabled:
@@ -3375,9 +3375,20 @@ properties:
   bootconfig:
     properties:
       image:
-        type: string
-      pullPolicy:
-        type: string
+        properties:
+          pullPolicy:
+            type: string
+          registry:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - pullPolicy
+        - repository
+        - tag
+        type: object
       securityContext:
         description: SecurityContext holds security configuration that will be applied
           to a container. Some fields are present in both SecurityContext and PodSecurityContext.  When
@@ -3531,7 +3542,6 @@ properties:
         type: object
     required:
     - image
-    - pullPolicy
     - securityContext
     type: object
   cluster:
@@ -3593,11 +3603,28 @@ properties:
     type: object
   exporter:
     properties:
+      args:
+        items:
+          type: string
+        type: array
       enabled:
         type: boolean
       image:
-        type: string
-      pullPolicy:
+        properties:
+          pullPolicy:
+            type: string
+          registry:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - pullPolicy
+        - repository
+        - tag
+        type: object
+      portName:
         type: string
       resources:
         description: ResourceRequirements describes the compute resource requirements.
@@ -3802,9 +3829,10 @@ properties:
         - labels
         type: object
     required:
+    - args
     - enabled
     - image
-    - pullPolicy
+    - portName
     - resources
     - securityContext
     - serviceMonitor
@@ -3976,13 +4004,21 @@ properties:
         type: boolean
       connectRetries:
         type: integer
+      dnsPolicy:
+        type: string
       externalAccess:
         type: boolean
+      extraEnv:
+        items:
+          type: string
+        type: array
       healthcheck:
         properties:
           detectHealthz:
             type: boolean
           enableHealthz:
+            type: boolean
+          enableHealthzLivenessReadiness:
             type: boolean
           liveness:
             properties:
@@ -4007,7 +4043,6 @@ properties:
             - initialDelaySeconds
             - periodSeconds
             - successThreshold
-            - terminationGracePeriodSeconds
             - timeoutSeconds
             type: object
           readiness:
@@ -4057,12 +4092,28 @@ properties:
         required:
         - detectHealthz
         - enableHealthz
+        - enableHealthzLivenessReadiness
         - liveness
         - readiness
         - startup
         type: object
+      hostNetwork:
+        type: boolean
       image:
-        type: string
+        properties:
+          pullPolicy:
+            type: string
+          registry:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - pullPolicy
+        - repository
+        - tag
+        type: object
       jetstream:
         properties:
           domain:
@@ -4101,6 +4152,8 @@ properties:
             - size
             - storageDirectory
             type: object
+          max_outstanding_catchup:
+            type: string
           memStorage:
             properties:
               enabled:
@@ -4122,6 +4175,7 @@ properties:
         - enabled
         - encryption
         - fileStorage
+        - max_outstanding_catchup
         - memStorage
         - uniqueTag
         type: object
@@ -4178,6 +4232,8 @@ properties:
         - reconnectErrorReports
         - trace
         type: object
+      mappings:
+        type: object
       profiling:
         properties:
           enabled:
@@ -4188,8 +4244,6 @@ properties:
         - enabled
         - port
         type: object
-      pullPolicy:
-        type: string
       resources:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
@@ -4424,14 +4478,17 @@ properties:
     - client
     - configChecksumAnnotation
     - connectRetries
+    - dnsPolicy
     - externalAccess
+    - extraEnv
     - healthcheck
+    - hostNetwork
     - image
     - jetstream
     - limits
     - logging
+    - mappings
     - profiling
-    - pullPolicy
     - resources
     - securityContext
     - selectorLabels
@@ -6685,7 +6742,20 @@ properties:
           type: object
         type: array
       image:
-        type: string
+        properties:
+          pullPolicy:
+            type: string
+          registry:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - pullPolicy
+        - repository
+        - tag
+        type: object
       imagePullSecrets:
         items:
           type: string
@@ -6702,8 +6772,6 @@ properties:
         additionalProperties:
           type: string
         type: object
-      pullPolicy:
-        type: string
       securityContext:
         description: SecurityContext holds security configuration that will be applied
           to a container. Some fields are present in both SecurityContext and PodSecurityContext.  When
@@ -6902,7 +6970,6 @@ properties:
     - imagePullSecrets
     - podAnnotations
     - podLabels
-    - pullPolicy
     - securityContext
     - tolerations
     type: object
@@ -7284,6 +7351,13 @@ properties:
     additionalProperties:
       type: string
     type: object
+  pidVolume:
+    properties:
+      emptyDir:
+        type: object
+    required:
+    - emptyDir
+    type: object
   podAnnotations:
     additionalProperties:
       type: string
@@ -7293,6 +7367,8 @@ properties:
       enabled:
         type: boolean
       maxUnavailable:
+        type: integer
+      minAvailable:
         type: integer
     required:
     - enabled
@@ -7311,9 +7387,20 @@ properties:
           type: string
         type: array
       image:
-        type: string
-      pullPolicy:
-        type: string
+        properties:
+          pullPolicy:
+            type: string
+          registry:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - pullPolicy
+        - repository
+        - tag
+        type: object
       securityContext:
         description: SecurityContext holds security configuration that will be applied
           to a container. Some fields are present in both SecurityContext and PodSecurityContext.  When
@@ -7469,7 +7556,6 @@ properties:
     - enabled
     - extraConfigs
     - image
-    - pullPolicy
     - securityContext
     type: object
   securityContext:
@@ -7868,8 +7954,8 @@ required:
 - additionalContainers
 - additionalVolumeMounts
 - additionalVolumes
+- advertiseconfigVolume
 - affinity
-- appProtocol
 - auth
 - bootconfig
 - cluster
@@ -7886,6 +7972,7 @@ required:
 - natsbox
 - networkPolicy
 - nodeSelector
+- pidVolume
 - podAnnotations
 - podDisruptionBudget
 - podManagementPolicy
