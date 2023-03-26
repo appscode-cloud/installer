@@ -16,8 +16,8 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/accounts-ui/accounts-ui-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/accounts-ui/accounts-ui-v2023.03.23.tgz
+    version: v2023.03.23
   ace:
   - apiVersion: v2
     appVersion: v2023.01.14-2
@@ -26,59 +26,59 @@ entries:
     - condition: platform-ui.enabled
       name: platform-ui
       repository: file://../platform-ui
-      version: v2022.06.14
+      version: v2023.03.23
     - condition: accounts-ui.enabled
       name: accounts-ui
       repository: file://../accounts-ui
-      version: v2022.06.14
+      version: v2023.03.23
     - condition: cluster-ui.enabled
       name: cluster-ui
       repository: file://../cluster-ui
-      version: v2022.06.14
+      version: v2023.03.23
     - condition: deploy-ui.enabled
       name: deploy-ui
       repository: file://../deploy-ui
-      version: v2022.06.14
+      version: v2023.03.23
     - condition: kubedb-ui.enabled
       name: kubedb-ui
       repository: file://../kubedb-ui
-      version: v2022.06.14
+      version: v2023.03.23
     - condition: marketplace-ui.enabled
       name: marketplace-ui
       repository: file://../marketplace-ui
-      version: v2022.06.14
+      version: v2023.03.23
     - condition: platform-api.enabled
       name: platform-api
       repository: file://../platform-api
-      version: v2022.06.14
+      version: v2023.03.23
     - condition: prom-proxy.enabled
       name: prom-proxy
       repository: file://../prom-proxy
-      version: v2022.06.14
+      version: v2023.03.23
     - condition: billing.enabled
       name: billing
       repository: file://../billing
-      version: v2022.06.14
+      version: v2023.03.23
     - condition: grafana.enabled
       name: grafana
       repository: file://../grafana
-      version: v2022.06.14
+      version: v2023.03.23
     - condition: trickster.enabled
       name: trickster
       repository: https://charts.appscode.com/stable/
-      version: v2022.06.14
+      version: v2023.03.23
     - condition: minio.enabled
       name: minio
       repository: file://../minio
-      version: v2022.06.14
+      version: v2023.03.23
     - condition: dns-proxy.enabled
       name: dns-proxy
       repository: file://../dns-proxy
-      version: v2022.06.14
+      version: v2023.03.23
     - condition: smtprelay.enabled
       name: smtprelay
       repository: file://../smtprelay
-      version: v2022.06.14
+      version: v2023.03.23
     - condition: ingress-nginx.enabled
       name: ingress-nginx
       repository: https://kubernetes.github.io/ingress-nginx
@@ -103,8 +103,8 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/ace/ace-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/ace/ace-v2023.03.23.tgz
+    version: v2023.03.23
   billing:
   - apiVersion: v2
     appVersion: v2023.01.14-2
@@ -121,8 +121,8 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/billing/billing-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/billing/billing-v2023.03.23.tgz
+    version: v2023.03.23
   cluster-ui:
   - apiVersion: v2
     appVersion: 0.4.21
@@ -139,8 +139,8 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/cluster-ui/cluster-ui-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/cluster-ui/cluster-ui-v2023.03.23.tgz
+    version: v2023.03.23
   deploy-ui:
   - apiVersion: v2
     appVersion: 0.3.4
@@ -157,8 +157,8 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/deploy-ui/deploy-ui-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/deploy-ui/deploy-ui-v2023.03.23.tgz
+    version: v2023.03.23
   dns-proxy:
   - apiVersion: v2
     appVersion: v0.0.1
@@ -175,8 +175,8 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/dns-proxy/dns-proxy-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/dns-proxy/dns-proxy-v2023.03.23.tgz
+    version: v2023.03.23
   grafana:
   - apiVersion: v2
     appVersion: v2022.05.27
@@ -193,8 +193,8 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/grafana/grafana-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/grafana/grafana-v2023.03.23.tgz
+    version: v2023.03.23
   kubedb-ui:
   - apiVersion: v2
     appVersion: 0.3.26
@@ -211,8 +211,8 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/kubedb-ui/kubedb-ui-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/kubedb-ui/kubedb-ui-v2023.03.23.tgz
+    version: v2023.03.23
   license-proxyserver:
   - apiVersion: v1
     appVersion: v0.0.3
@@ -228,8 +228,8 @@ entries:
     sources:
     - https://github.com/bytebuilders/license-proxyserver
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/license-proxyserver/license-proxyserver-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/license-proxyserver/license-proxyserver-v2023.03.23.tgz
+    version: v2023.03.23
   marketplace-ui:
   - apiVersion: v2
     appVersion: 2021.4.29
@@ -246,8 +246,8 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/marketplace-ui/marketplace-ui-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/marketplace-ui/marketplace-ui-v2023.03.23.tgz
+    version: v2023.03.23
   minio:
   - apiVersion: v2
     appVersion: RELEASE.2023-01-12T02-06-16Z
@@ -264,11 +264,11 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/minio/minio-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/minio/minio-v2023.03.23.tgz
+    version: v2023.03.23
   monitoring-config:
   - apiVersion: v2
-    appVersion: v2022.06.14
+    appVersion: v2023.03.23
     created: "2023-03-25T18:24:48.518833-07:00"
     description: ByteBuilders Opscenter Monitoring Configuration
     digest: 97a4fcb332c9f873cde1f10f2c7da830af4859727f7355807be973ff6b2a61d5
@@ -282,11 +282,11 @@ entries:
     - https://github.com/bytebuilders/installer
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/monitoring-config/monitoring-config-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/monitoring-config/monitoring-config-v2023.03.23.tgz
+    version: v2023.03.23
   opscenter-features:
   - apiVersion: v2
-    appVersion: v2022.06.14
+    appVersion: v2023.03.23
     created: "2023-03-25T18:24:48.519283-07:00"
     description: ByteBuilders Opscenter Configuration
     digest: e5d0c03af67276736a9848c89ebd116a190c0388d98a34ba10e4821a64581a12
@@ -300,8 +300,8 @@ entries:
     - https://github.com/bytebuilders/installer
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/opscenter-features/opscenter-features-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/opscenter-features/opscenter-features-v2023.03.23.tgz
+    version: v2023.03.23
   platform-api:
   - apiVersion: v2
     appVersion: v2023.01.14-2
@@ -318,8 +318,8 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/platform-api/platform-api-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/platform-api/platform-api-v2023.03.23.tgz
+    version: v2023.03.23
   platform-ui:
   - apiVersion: v2
     appVersion: 0.3.23
@@ -336,8 +336,8 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/platform-ui/platform-ui-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/platform-ui/platform-ui-v2023.03.23.tgz
+    version: v2023.03.23
   prom-proxy:
   - apiVersion: v2
     appVersion: v2023.01.14-2
@@ -354,8 +354,8 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/prom-proxy/prom-proxy-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/prom-proxy/prom-proxy-v2023.03.23.tgz
+    version: v2023.03.23
   smtprelay:
   - apiVersion: v2
     appVersion: v0.0.1
@@ -372,11 +372,11 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/smtprelay/smtprelay-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/smtprelay/smtprelay-v2023.03.23.tgz
+    version: v2023.03.23
   ui-presets:
   - apiVersion: v2
-    appVersion: v2022.06.14
+    appVersion: v2023.03.23
     created: "2023-03-25T18:24:48.520885-07:00"
     description: ACE UI Presets by AppsCode
     digest: c5d4971fbf9f4a1fee73e6c1087503e83a64262ec2e3ccfe23e3ed77ff00895f
@@ -390,6 +390,6 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/ui-presets/ui-presets-v2022.06.14.tgz
-    version: v2022.06.14
+    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/ui-presets/ui-presets-v2023.03.23.tgz
+    version: v2023.03.23
 generated: "2023-03-25T18:24:48.504664-07:00"
