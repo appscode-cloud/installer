@@ -1,4 +1,6 @@
 properties:
+  fullnameOverride:
+    type: string
   global:
     properties:
       imagePullSecrets:
@@ -15,6 +17,8 @@ properties:
     required:
     - host
     type: object
+  nameOverride:
+    type: string
   reloader:
     properties:
       custom_annotations:
@@ -977,49 +981,27 @@ properties:
             type: object
           env:
             properties:
+              existing:
+                properties:
+                  existing_secret_name:
+                    additionalProperties:
+                      type: string
+                    type: object
+                type: object
               field:
-                items:
-                  description: EnvVar represents an environment variable present in
-                    a Container.
-                  properties:
-                    name:
-                      description: Name of the environment variable. Must be a C_IDENTIFIER.
-                      type: string
-                    value:
-                      type: string
-                  required:
-                  - name
-                  type: object
-                type: array
+                additionalProperties:
+                  type: string
+                type: object
               open:
-                items:
-                  description: EnvVar represents an environment variable present in
-                    a Container.
-                  properties:
-                    name:
-                      description: Name of the environment variable. Must be a C_IDENTIFIER.
-                      type: string
-                    value:
-                      type: string
-                  required:
-                  - name
-                  type: object
-                type: array
+                additionalProperties:
+                  type: string
+                type: object
               secret:
-                items:
-                  description: EnvVar represents an environment variable present in
-                    a Container.
-                  properties:
-                    name:
-                      description: Name of the environment variable. Must be a C_IDENTIFIER.
-                      type: string
-                    value:
-                      type: string
-                  required:
-                  - name
-                  type: object
-                type: array
+                additionalProperties:
+                  type: string
+                type: object
             required:
+            - existing
             - field
             - open
             - secret
@@ -1589,6 +1571,8 @@ properties:
         - securityContext
         - tolerations
         type: object
+      enableHA:
+        type: boolean
       ignoreConfigMaps:
         type: boolean
       ignoreNamespaces:
@@ -1612,12 +1596,51 @@ properties:
         additionalProperties:
           type: string
         type: object
-      podMonitor:
+      namespaceSelector:
+        type: string
+      podDisruptionBudget:
         properties:
           enabled:
             type: boolean
         required:
         - enabled
+        type: object
+      podMonitor:
+        properties:
+          annotations:
+            additionalProperties:
+              type: string
+            type: object
+          enabled:
+            type: boolean
+          honorLabels:
+            type: boolean
+          labels:
+            additionalProperties:
+              type: string
+            type: object
+          metricRelabelings:
+            description: 'TODO(tamal): simplified, intentionally wrong'
+            items:
+              type: string
+            type: array
+          podTargetLabels:
+            items:
+              type: string
+            type: array
+          relabelings:
+            description: 'TODO(tamal): simplified, intentionally wrong'
+            items:
+              type: string
+            type: array
+        required:
+        - annotations
+        - enabled
+        - honorLabels
+        - labels
+        - metricRelabelings
+        - podTargetLabels
+        - relabelings
         type: object
       rbac:
         properties:
@@ -1672,16 +1695,49 @@ properties:
         type: object
       serviceMonitor:
         properties:
+          annotations:
+            additionalProperties:
+              type: string
+            type: object
           enabled:
             type: boolean
+          honorLabels:
+            type: boolean
+          labels:
+            additionalProperties:
+              type: string
+            type: object
+          metricRelabelings:
+            description: 'TODO(tamal): simplified, intentionally wrong'
+            items:
+              type: string
+            type: array
+          relabelings:
+            description: 'TODO(tamal): simplified, intentionally wrong'
+            items:
+              type: string
+            type: array
+          targetLabels:
+            items:
+              type: string
+            type: array
         required:
+        - annotations
         - enabled
+        - honorLabels
+        - labels
+        - metricRelabelings
+        - relabelings
+        - targetLabels
         type: object
+      syncAfterRestart:
+        type: boolean
       watchGlobally:
         type: boolean
     required:
     - custom_annotations
     - deployment
+    - enableHA
     - ignoreConfigMaps
     - ignoreNamespaces
     - ignoreSecrets
@@ -1690,6 +1746,8 @@ properties:
     - legacy
     - logFormat
     - matchLabels
+    - namespaceSelector
+    - podDisruptionBudget
     - podMonitor
     - rbac
     - readOnlyRootFileSystem
@@ -1698,6 +1756,7 @@ properties:
     - service
     - serviceAccount
     - serviceMonitor
+    - syncAfterRestart
     - watchGlobally
     type: object
 required:
