@@ -59,7 +59,7 @@ The following table lists the configurable parameters of the `minio` chart and t
 | podAnnotations             |                                                                                                                                      | <code>{}</code>           |
 | podSecurityContext         |                                                                                                                                      | <code>{}</code>           |
 | securityContext            |                                                                                                                                      | <code>{}</code>           |
-| ingress.enabled            |                                                                                                                                      | <code>true</code>         |
+| ingress.enabled            |                                                                                                                                      | <code>false</code>        |
 | ingress.className          |                                                                                                                                      | <code>""</code>           |
 | ingress.annotations        |                                                                                                                                      | <code>{}</code>           |
 | ingress.domain             | kubernetes.io/ingress.class: nginx kubernetes.io/tls-acme: "true"                                                                    | <code>""</code>           |
