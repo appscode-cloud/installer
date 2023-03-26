@@ -3,23 +3,23 @@ module go.bytebuilders.dev/installer
 go 1.18
 
 require (
-	go.openviz.dev/installer v0.0.0-20230104082956-b1c59b1b779d
+	go.openviz.dev/installer v0.0.0-20230324072410-214895b6c84b
 	k8s.io/api v0.25.3
 	k8s.io/apimachinery v0.25.3
 	kmodules.xyz/objectstore-api v0.25.0
 	kmodules.xyz/schema-checker v0.4.1
-	kubeops.dev/external-dns-operator v0.0.5-0.20230303042940-7577544216ef
-	kubeops.dev/installer v0.0.0-20230303063133-1dc14bca3e62
+	kubeops.dev/external-dns-operator v0.0.5
 )
 
 require (
+	github.com/PuerkitoBio/purell v1.2.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/emicklei/go-restful/v3 v3.8.0 // indirect
 	github.com/evanphx/json-patch/v5 v5.6.0 // indirect
 	github.com/go-logr/logr v1.2.3 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
-	github.com/go-openapi/jsonreference v0.20.0 // indirect
-	github.com/go-openapi/swag v0.19.15 // indirect
+	github.com/go-openapi/jsonreference v0.19.5 // indirect
+	github.com/go-openapi/swag v0.19.14 // indirect
 	github.com/gobeam/stringy v0.0.5 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
@@ -49,9 +49,9 @@ require (
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	k8s.io/client-go v0.25.3 // indirect
+	k8s.io/client-go v0.25.2 // indirect
 	k8s.io/klog/v2 v2.80.1 // indirect
-	k8s.io/kube-openapi v0.0.0-20220803164354-a70c9af30aea // indirect
+	k8s.io/kube-openapi v0.0.0-20220803162953-67bda5d908f1 // indirect
 	k8s.io/utils v0.0.0-20220823124924-e9cbc92d1a73 // indirect
 	kmodules.xyz/client-go v0.25.15 // indirect
 	sigs.k8s.io/controller-runtime v0.13.1 // indirect
