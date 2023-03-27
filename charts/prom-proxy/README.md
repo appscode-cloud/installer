@@ -17,7 +17,7 @@ This chart deploys a Prometheus Proxy on a [Kubernetes](http://kubernetes.io) cl
 
 ## Prerequisites
 
-- Kubernetes 1.19+
+- Kubernetes 1.21+
 
 ## Installing the Chart
 

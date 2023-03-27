@@ -21,12 +21,12 @@ import (
 )
 
 const (
-	ResourceKindUiPresets = "UiPresets"
-	ResourceUiPresets     = "uipresets"
-	ResourceUiPresetss    = "uipresetss"
+	ResourceKindMonitoringUiPresets = "MonitoringUiPresets"
+	ResourceMonitoringUiPresets     = "monitoringuipresets"
+	ResourceMonitoringUiPresetss    = "monitoringuipresetss"
 )
 
-// UiPresets defines the schama for UiPresets Installer.
+// MonitoringUiPresets defines the schama for MonitoringUiPresets Installer.
 
 // +genclient
 // +genclient:skipVerbs=updateStatus
@@ -34,15 +34,15 @@ const (
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:path=uipresetss,singular=uipresets,categories={kubeops,appscode}
-type UiPresets struct {
+// +kubebuilder:resource:path=monitoringuipresetss,singular=monitoringuipresets,categories={kubeops,appscode}
+type MonitoringUiPresets struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              UiPresetsSpec `json:"spec,omitempty"`
+	Spec              MonitoringUiPresetsSpec `json:"spec,omitempty"`
 }
 
-// UiPresetsSpec is the schema for UiPresets Operator values file
-type UiPresetsSpec struct {
+// MonitoringUiPresetsSpec is the schema for MonitoringUiPresets Operator values file
+type MonitoringUiPresetsSpec struct {
 	Monitoring ServiceMonitorPreset `json:"monitoring"`
 }
 
@@ -53,10 +53,10 @@ type ServiceMonitorPreset struct {
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// UiPresetsList is a list of UiPresetss
-type UiPresetsList struct {
+// MonitoringUiPresetsList is a list of MonitoringUiPresetss
+type MonitoringUiPresetsList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of UiPresets CRD objects
-	Items []UiPresets `json:"items,omitempty"`
+	// Items is a list of MonitoringUiPresets CRD objects
+	Items []MonitoringUiPresets `json:"items,omitempty"`
 }

@@ -17,7 +17,7 @@ This chart deploys a ACE Platform apiserver on a [Kubernetes](http://kubernetes.
 
 ## Prerequisites
 
-- Kubernetes 1.19+
+- Kubernetes 1.21+
 
 ## Installing the Chart
 

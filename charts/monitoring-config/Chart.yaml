@@ -11,3 +11,9 @@ sources:
 maintainers:
 - name: appscode
   email: support@appscode.com
+dependencies:
+- name: monitoring-ui-presets
+  repository: file://../monitoring-ui-presets
+  condition: presets.enabled
+  version: v2023.03.23
+  alias: presets
