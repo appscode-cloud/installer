@@ -1,18 +1,18 @@
 project:
-  name: ACE UI Presets by AppsCode
-  shortName: ACE UI Presets
+  name: ACE UI Presets for Monitoring by AppsCode
+  shortName: ACE UI Presets for Monitoring
   url: https://github.com/bytebuilders
-  description: ACE UI presets
-  app: ACE UI presets
+  description: ACE UI presets for Monitoring
+  app: ACE UI presets for Monitoring
 repository:
   url: https://charts.appscode.com/stable/
   name: appscode
 chart:
-  name: ui-presets
+  name: monitoring-ui-presets
   values: -- generate from values file --
   valuesExample: -- generate from values file --
 prerequisites:
-- Kubernetes 1.19+
+- Kubernetes 1.21+
 release:
-  name: ui-presets
+  name: monitoring-ui-presets
   namespace: kubeops

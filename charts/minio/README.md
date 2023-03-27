@@ -17,7 +17,7 @@ This chart deploys a MinIO on a [Kubernetes](http://kubernetes.io) cluster using
 
 ## Prerequisites
 
-- Kubernetes 1.19+
+- Kubernetes 1.21+
 
 ## Installing the Chart
 

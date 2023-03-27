@@ -17,7 +17,7 @@ This chart deploys a billing backend on a [Kubernetes](http://kubernetes.io) clu
 
 ## Prerequisites
 
-- Kubernetes 1.19+
+- Kubernetes 1.21+
 
 ## Installing the Chart
 

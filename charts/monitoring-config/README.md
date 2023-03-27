@@ -83,6 +83,7 @@ The following table lists the configurable parameters of the `monitoring-config`
 | prometheus.tls.key                   | The client key to use for communicating with the Prometheus server.         | <code>""</code>        |
 | prometheus.tls.serverName            | The server name which will be used to verify the Prometheus server address. | <code>""</code>        |
 | prometheus.tls.insecureSkipTLSVerify | To skip tls verification when communicating with the Prometheus server.     | <code>false</code>     |
+| presets.enable                       |                                                                             | <code>true</code>      |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

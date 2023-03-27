@@ -51,4 +51,4 @@ crd-importer \
     --input=https://github.com/kubepack/preset/raw/${KUBEPACK_PRESET_TAG}/crds/charts.x-helm.dev_chartpresets.yaml \
     --input=https://github.com/kubepack/preset/raw/${KUBEPACK_PRESET_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
     --input=https://github.com/kubepack/preset/raw/${KUBEPACK_PRESET_TAG}/crds/charts.x-helm.dev_vendorchartpresets.yaml \
-    --out=./charts/ui-presets/crds
+    --out=./charts/monitoring-ui-presets/crds
