@@ -67,3 +67,6 @@ prometheus:
     serverName: ""
     # To skip tls verification when communicating with the Prometheus server.
     insecureSkipTLSVerify: false
+
+presets:
+  enable: true

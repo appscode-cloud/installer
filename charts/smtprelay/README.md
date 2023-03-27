@@ -17,7 +17,7 @@ This chart deploys a SMTP relay server on a [Kubernetes](http://kubernetes.io) c
 
 ## Prerequisites
 
-- Kubernetes 1.19+
+- Kubernetes 1.21+
 
 ## Installing the Chart
 
