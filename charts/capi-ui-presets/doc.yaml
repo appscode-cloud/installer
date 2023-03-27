@@ -1,0 +1,18 @@
+project:
+  name: ACE UI Presets for CAPI by AppsCode
+  shortName: ACE UI Presets for CAPI
+  url: https://github.com/bytebuilders
+  description: ACE UI presets for Monitoring
+  app: ACE UI presets for Monitoring
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: capi-ui-presets
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: capi-ui-presets
+  namespace: kubeops

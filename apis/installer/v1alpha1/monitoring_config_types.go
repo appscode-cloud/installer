@@ -43,10 +43,11 @@ type MonitoringConfig struct {
 
 // MonitoringConfigSpec is the schema for MonitoringConfig Operator values file
 type MonitoringConfigSpec struct {
-	NameOverride     string           `json:"nameOverride"`
-	FullnameOverride string           `json:"fullnameOverride"`
-	Grafana          GrafanaConfig    `json:"grafana"`
-	Prometheus       PrometheusConfig `json:"prometheus"`
+	NameOverride     string                    `json:"nameOverride"`
+	FullnameOverride string                    `json:"fullnameOverride"`
+	Grafana          GrafanaConfig             `json:"grafana"`
+	Prometheus       PrometheusConfig          `json:"prometheus"`
+	Presets          MonitoringUiPresetsValues `json:"presets"`
 }
 
 type ClusterMonitoring struct {
@@ -99,6 +100,11 @@ type TLSConfig struct {
 	Key                   string `json:"key"`
 	ServerName            string `json:"serverName"`
 	InsecureSkipTLSVerify bool   `json:"insecureSkipTLSVerify"`
+}
+
+type MonitoringUiPresetsValues struct {
+	Enable                   bool `json:"enable"`
+	*MonitoringUiPresetsSpec `json:",inline,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

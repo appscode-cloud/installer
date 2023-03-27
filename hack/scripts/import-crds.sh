@@ -51,4 +51,11 @@ crd-importer \
     --input=https://github.com/kubepack/preset/raw/${KUBEPACK_PRESET_TAG}/crds/charts.x-helm.dev_chartpresets.yaml \
     --input=https://github.com/kubepack/preset/raw/${KUBEPACK_PRESET_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
     --input=https://github.com/kubepack/preset/raw/${KUBEPACK_PRESET_TAG}/crds/charts.x-helm.dev_vendorchartpresets.yaml \
+    --out=./charts/capi-ui-presets/crds
+
+crd-importer \
+    --input=https://github.com/kmodules/resource-metadata/raw/${KMODULES_RESOURCE_METADATA_TAG}/crds/ui.k8s.appscode.com_resourceeditors.yaml \
+    --input=https://github.com/kubepack/preset/raw/${KUBEPACK_PRESET_TAG}/crds/charts.x-helm.dev_chartpresets.yaml \
+    --input=https://github.com/kubepack/preset/raw/${KUBEPACK_PRESET_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
+    --input=https://github.com/kubepack/preset/raw/${KUBEPACK_PRESET_TAG}/crds/charts.x-helm.dev_vendorchartpresets.yaml \
     --out=./charts/monitoring-ui-presets/crds
