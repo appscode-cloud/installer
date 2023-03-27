@@ -1,0 +1,13 @@
+apiVersion: v2
+name: capi-ui-presets
+description: ACE UI Presets for CAPI by AppsCode
+type: application
+version: v2023.03.23
+appVersion: v2023.03.23
+home: https://github.com/bytebuilders
+icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
+sources:
+- https://github.com/bytebuilders
+maintainers:
+- name: appscode
+  email: support@appscode.com

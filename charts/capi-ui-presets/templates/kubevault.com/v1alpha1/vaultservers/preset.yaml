@@ -1,0 +1,34 @@
+{{ $m := .Values.monitoring }}
+{{- if .Values.global }}
+{{- $m = .Values.global.monitoring }}
+{{- end }}
+
+apiVersion: charts.x-helm.dev/v1alpha1
+kind: ClusterChartPreset
+metadata:
+  name: kubevault.com-v1alpha1-vaultservers
+spec:
+  selector: {}
+  values:
+    spec:
+      monitoring:
+        {{- with $m.serviceMonitor.labels }}
+        agent: prometheus.io/operator
+        serviceMonitor:
+          labels:
+            {{- toYaml . | nindent 12 }}
+        {{- else }}
+        agent: ""
+        serviceMonitor:
+          labels: {}
+        {{- end }}
+    form:
+      alert:
+      {{- with $m.alert.labels }}
+        enabled: true
+        labels:
+          {{- toYaml . | nindent 10 }}
+      {{- else }}
+        enabled: false
+        labels: {}
+      {{- end }}
