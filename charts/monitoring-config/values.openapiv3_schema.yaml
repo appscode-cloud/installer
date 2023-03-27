@@ -81,6 +81,34 @@ properties:
     type: object
   nameOverride:
     type: string
+  presets:
+    properties:
+      enable:
+        type: boolean
+      monitoring:
+        properties:
+          alert:
+            properties:
+              labels:
+                additionalProperties:
+                  type: string
+                type: object
+            type: object
+          serviceMonitor:
+            properties:
+              labels:
+                additionalProperties:
+                  type: string
+                type: object
+            type: object
+        required:
+        - alert
+        - serviceMonitor
+        type: object
+    required:
+    - enable
+    - monitoring
+    type: object
   prometheus:
     properties:
       basicAuth:
@@ -152,5 +180,6 @@ required:
 - fullnameOverride
 - grafana
 - nameOverride
+- presets
 - prometheus
 type: object

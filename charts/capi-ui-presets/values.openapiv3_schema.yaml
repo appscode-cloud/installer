@@ -1,0 +1,24 @@
+properties:
+  monitoring:
+    properties:
+      alert:
+        properties:
+          labels:
+            additionalProperties:
+              type: string
+            type: object
+        type: object
+      serviceMonitor:
+        properties:
+          labels:
+            additionalProperties:
+              type: string
+            type: object
+        type: object
+    required:
+    - alert
+    - serviceMonitor
+    type: object
+required:
+- monitoring
+type: object
