@@ -1,0 +1,37 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: gatekeeper
+spec:
+  title: Gatekeeper
+  description: |
+    Policy Controller for Kubernetes.
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-security
+  required: false
+  requirements:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/managed-by: Helm
+          app: gatekeeper
+          control-plane: audit-controller
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/managed-by: Helm
+          app: gatekeeper
+          control-plane: controller-manager
+  chart:
+    name: gatekeeper
+    namespace: gatekeeper-system
+    # version: "v2023.03.03"
+    sourceRef:
+      kind: HelmRepository
+      name: gatekeeper
+      namespace: {{ .Release.Namespace }}

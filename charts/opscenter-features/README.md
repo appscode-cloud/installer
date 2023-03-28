@@ -45,31 +45,33 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `opscenter-features` chart and their default values.
 
-|                 Parameter                  | Description |                             Default                             |
-|--------------------------------------------|-------------|-----------------------------------------------------------------|
-| nameOverride                               |             | <code>""</code>                                                 |
-| fullnameOverride                           |             | <code>""</code>                                                 |
-| repositories.appscode.interval             |             | <code>30m0s</code>                                              |
-| repositories.appscode.url                  |             | <code>https://charts.appscode.com/stable/</code>                |
-| repositories.bytebuilders-ui.interval      |             | <code>30m0s</code>                                              |
-| repositories.bytebuilders-ui.url           |             | <code>https://bundles.byte.builders/ui/</code>                  |
-| repositories.bytebuilders.interval         |             | <code>30m0s</code>                                              |
-| repositories.bytebuilders.url              |             | <code>https://charts.appscode.com/stable/</code>                |
-| repositories.jetstack.interval             |             | <code>30m0s</code>                                              |
-| repositories.jetstack.url                  |             | <code>https://charts.jetstack.io</code>                         |
-| repositories.kubedb.interval               |             | <code>30m0s</code>                                              |
-| repositories.kubedb.url                    |             | <code>https://charts.appscode.com/stable/</code>                |
-| repositories.kubeops.interval              |             | <code>30m0s</code>                                              |
-| repositories.kubeops.url                   |             | <code>https://charts.appscode.com/stable/</code>                |
-| repositories.kubevault.interval            |             | <code>30m0s</code>                                              |
-| repositories.kubevault.url                 |             | <code>https://charts.appscode.com/stable/</code>                |
-| repositories.nats.interval                 |             | <code>30m0s</code>                                              |
-| repositories.nats.url                      |             | <code>https://nats-io.github.io/k8s/helm/charts/</code>         |
-| repositories.prometheus-community.interval |             | <code>30m0s</code>                                              |
-| repositories.prometheus-community.url      |             | <code>https://prometheus-community.github.io/helm-charts</code> |
-| repositories.stashed.interval              |             | <code>30m0s</code>                                              |
-| repositories.stashed.url                   |             | <code>https://charts.appscode.com/stable/</code>                |
-| repositoryCredentials                      |             | <code>{}</code>                                                 |
+|                 Parameter                  | Description |                              Default                               |
+|--------------------------------------------|-------------|--------------------------------------------------------------------|
+| nameOverride                               |             | <code>""</code>                                                    |
+| fullnameOverride                           |             | <code>""</code>                                                    |
+| repositories.appscode.interval             |             | <code>30m0s</code>                                                 |
+| repositories.appscode.url                  |             | <code>https://charts.appscode.com/stable/</code>                   |
+| repositories.bytebuilders-ui.interval      |             | <code>30m0s</code>                                                 |
+| repositories.bytebuilders-ui.url           |             | <code>https://bundles.byte.builders/ui/</code>                     |
+| repositories.bytebuilders.interval         |             | <code>30m0s</code>                                                 |
+| repositories.bytebuilders.url              |             | <code>https://charts.appscode.com/stable/</code>                   |
+| repositories.gatekeeper.interval           |             | <code>30m0s</code>                                                 |
+| repositories.gatekeeper.url                |             | <code>https://open-policy-agent.github.io/gatekeeper/charts</code> |
+| repositories.jetstack.interval             |             | <code>30m0s</code>                                                 |
+| repositories.jetstack.url                  |             | <code>https://charts.jetstack.io</code>                            |
+| repositories.kubedb.interval               |             | <code>30m0s</code>                                                 |
+| repositories.kubedb.url                    |             | <code>https://charts.appscode.com/stable/</code>                   |
+| repositories.kubeops.interval              |             | <code>30m0s</code>                                                 |
+| repositories.kubeops.url                   |             | <code>https://charts.appscode.com/stable/</code>                   |
+| repositories.kubevault.interval            |             | <code>30m0s</code>                                                 |
+| repositories.kubevault.url                 |             | <code>https://charts.appscode.com/stable/</code>                   |
+| repositories.nats.interval                 |             | <code>30m0s</code>                                                 |
+| repositories.nats.url                      |             | <code>https://nats-io.github.io/k8s/helm/charts/</code>            |
+| repositories.prometheus-community.interval |             | <code>30m0s</code>                                                 |
+| repositories.prometheus-community.url      |             | <code>https://prometheus-community.github.io/helm-charts</code>    |
+| repositories.stashed.interval              |             | <code>30m0s</code>                                                 |
+| repositories.stashed.url                   |             | <code>https://charts.appscode.com/stable/</code>                   |
+| repositoryCredentials                      |             | <code>{}</code>                                                    |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
