@@ -29,9 +29,10 @@ fullnameOverride: ""
 serviceAccount:
   # If true, create a new service account
   create: true
-
   # Service account to be used. If not set and serviceAccount.create is true, a name is generated using the fullname template
   name:
+  # Annotations to add to the service account
+  annotations: {}
 
 certManager:
   # cert-manager's namespace
@@ -45,6 +46,8 @@ service:
   type: ClusterIP
   # port for the webhook API server
   port: 443
+
+podAnnotations: {}
 
 # Optional pod context. The yaml block should adhere to the [PodSecurityContext spec](https://v1-18.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#securitycontext-v1-core)
 podSecurityContext: {}

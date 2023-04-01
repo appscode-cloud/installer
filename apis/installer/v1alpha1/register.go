@@ -62,6 +62,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&BillingList{},
 		&CapiUiPresets{},
 		&CapiUiPresetsList{},
+		&CertManagerWebhookAce{},
+		&CertManagerWebhookAceList{},
 		&ClusterUi{},
 		&ClusterUiList{},
 		&DeployUi{},
