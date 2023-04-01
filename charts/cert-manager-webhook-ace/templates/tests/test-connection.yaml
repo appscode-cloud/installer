@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "cert-manager-webhook-ace.fullname" . }}-test-connection"
+  namespace: {{ .Release.Namespace }}
+  labels:
+{{ include "cert-manager-webhook-ace.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: curl
+      image: ghcr.io/appscode/curl:alpine
+      command:
+      - curl
+      - --retry
+      - 5
+      - --retry-max-time
+      - 120
+      - -k
+      - 'https://{{ include "cert-manager-webhook-ace.fullname" . }}:{{ .Values.service.port }}'
+  restartPolicy: Never
