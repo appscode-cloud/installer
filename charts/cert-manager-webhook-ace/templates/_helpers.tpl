@@ -78,3 +78,16 @@ Create the name of the service account to use
 {{ printf "%s-selfsign" (include "cert-manager-webhook-ace.fullname" .) }}
 {{- end -}}
 
+{{/*
+Returns the registry used for image docker image
+*/}}
+{{- define "image.registry" -}}
+{{- list .Values.registryFQDN .Values.image.registry | compact | join "/" }}
+{{- end }}
+
+{{- define "appscode.imagePullSecrets" -}}
+{{- with .Values.imagePullSecrets -}}
+imagePullSecrets:
+{{- toYaml . | nindent 2 }}
+{{- end }}
+{{- end }}

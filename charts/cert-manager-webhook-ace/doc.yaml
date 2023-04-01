@@ -1,0 +1,18 @@
+project:
+  name: cert-manager webhook for AppsCode DNS Proxy
+  shortName: cert-manager webhook
+  url: https://github.com/bytebuilders
+  description: A webhook to use AppsCode DNS Proxy for Cloudfare as a DNS issuer for cert-manager
+  app: a cert-manager webhook
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: cert-manager-webhook-ace
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: cert-manager-webhook-ace
+  namespace: cert-manager
