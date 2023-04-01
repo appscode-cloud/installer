@@ -14,9 +14,9 @@ spec:
       command:
       - curl
       - --retry
-      - 5
+      - '5'
       - --retry-max-time
-      - 120
+      - '120'
       - -k
       - 'https://{{ include "cert-manager-webhook-ace.fullname" . }}:{{ .Values.service.port }}'
   restartPolicy: Never
