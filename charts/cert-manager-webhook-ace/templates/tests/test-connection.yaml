@@ -9,8 +9,14 @@ metadata:
     "helm.sh/hook": test-success
 spec:
   containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args:  ['{{ include "cert-manager-webhook-ace.fullname" . }}:{{ .Values.service.port }}']
+    - name: curl
+      image: ghcr.io/appscode/curl:alpine
+      command:
+      - curl
+      - --retry
+      - 5
+      - --retry-max-time
+      - 120
+      - -k
+      - 'https://{{ include "cert-manager-webhook-ace.fullname" . }}:{{ .Values.service.port }}'
   restartPolicy: Never
