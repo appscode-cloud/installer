@@ -350,7 +350,7 @@ endif
 
 ifeq ($(CT_COMMAND),lint-and-install)
 	ct_namespace = --namespace=$(KUBE_NAMESPACE)
-	CT_ARGS := $(CT_ARGS) --helm-extra-args='--timeout 1200s'
+	CT_ARGS := $(CT_ARGS) --helm-extra-args='--timeout 300s'
 endif
 
 .PHONY: ct
@@ -375,6 +375,7 @@ ct: $(BUILD_DIRS)
 	      set -x; \
 	      kubectl delete crds --all; \
 	      kubectl apply --validate=false -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml; \
+	      kubectl wait --for=condition=Ready pods -n cert-manager --all --timeout=5m; \
 	      ./hack/scripts/update-chart-dependencies.sh; \
 	      ct $(CT_COMMAND) --debug --validate-maintainers=false $(CT_ARGS) \
 	    "
