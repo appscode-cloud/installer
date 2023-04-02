@@ -58,6 +58,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&AccountsUiList{},
 		&Ace{},
 		&AceList{},
+		&Appcatalog{},
+		&AppcatalogList{},
 		&Billing{},
 		&BillingList{},
 		&CapiUiPresets{},

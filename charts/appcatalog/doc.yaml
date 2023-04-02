@@ -1,0 +1,18 @@
+project:
+  name: Appcatalog by AppsCode
+  shortName: Appcatalog
+  url: https://github.com/bytebuilders/appcatalog
+  description: Appcatalog for Kubernetes
+  app: an Appcatalog
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: appcatalog
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: appcatalog
+  namespace: kubeops

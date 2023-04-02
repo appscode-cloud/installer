@@ -29,6 +29,7 @@ func TestDefaultValues(t *testing.T) {
 	checker := sc.New(os.DirFS("../../.."),
 		sc.TestCase{Obj: v1alpha1.AccountsUiSpec{}},
 		sc.TestCase{Obj: v1alpha1.AceSpec{}},
+		sc.TestCase{Obj: v1alpha1.AppcatalogSpec{}},
 		sc.TestCase{Obj: v1alpha1.BillingSpec{}},
 		sc.TestCase{Obj: v1alpha1.CapiUiPresetsSpec{}},
 		sc.TestCase{Obj: v1alpha1.CertManagerWebhookAceSpec{}},
