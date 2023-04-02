@@ -1,0 +1,19 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "appcatalog.fullname" . }}
+  labels:
+    {{- include "appcatalog.labels" . | nindent 4 }}
+rules:
+- apiGroups:
+  - appcatalog.appscode.com
+  resources: ["*"]
+  verbs: ["*"]
+- apiGroups:
+  - kubedb.com
+  resources: ["*"]
+  verbs: ["get", "list", "watch"]
+- apiGroups:
+  - kubevault.com
+  resources: ["*"]
+  verbs: ["get", "list", "watch"]
