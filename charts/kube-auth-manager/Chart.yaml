@@ -1,0 +1,13 @@
+apiVersion: v2
+name: kube-auth-manager
+description: A Helm chart for Kubernetes Auth Manager by AppsCode
+type: application
+version: v2023.03.23
+appVersion: v0.0.2
+home: https://github.com/bytebuilders/kube-auth-manager
+icon: https://cdn.appscode.com/images/products/searchlight/icons/android-icon-192x192.png
+sources:
+- https://github.com/bytebuilders/kube-auth-manager
+maintainers:
+- name: appscode
+  email: support@appscode.com
