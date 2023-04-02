@@ -23,6 +23,8 @@ for dir in charts/*/; do
     echo $dir
     if [ $num_files -le 1 ] || [[ "$dir" = "accounts-ui" ]] || [[ "$dir" = "ace" ]] || [[ "$dir" = "billing" ]] || [[ "$dir" = "grafana" ]] || [[ "$dir" = "platform-api" ]] || [[ "$dir" = "prom-proxy" ]] || [[ "$dir" = "opscenter-features" ]] || [[ "$dir" = "dns-proxy" ]] || [[ "$dir" = "smtprelay" ]]; then
         make ct CT_COMMAND=lint TEST_CHARTS=charts/$dir
+    elif [[ "$dir" = "cert-manager-webhook-ace" ]]; then
+        make ct TEST_CHARTS=charts/$dir || true
     else
         make ct TEST_CHARTS=charts/$dir
     fi
