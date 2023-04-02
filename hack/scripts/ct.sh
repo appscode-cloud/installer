@@ -21,7 +21,17 @@ for dir in charts/*/; do
     dir=${dir##*/}
     num_files=$(find charts/${dir}/templates -type f | wc -l)
     echo $dir
-    if [ $num_files -le 1 ] || [[ "$dir" = "accounts-ui" ]] || [[ "$dir" = "ace" ]] || [[ "$dir" = "billing" ]] || [[ "$dir" = "grafana" ]] || [[ "$dir" = "platform-api" ]] || [[ "$dir" = "prom-proxy" ]] || [[ "$dir" = "opscenter-features" ]] || [[ "$dir" = "dns-proxy" ]] || [[ "$dir" = "smtprelay" ]]; then
+    if [ $num_files -le 1 ] ||
+        [[ "$dir" = "accounts-ui" ]] ||
+        [[ "$dir" = "ace" ]] ||
+        [[ "$dir" = "billing" ]] ||
+        [[ "$dir" = "dns-proxy" ]] ||
+        [[ "$dir" = "grafana" ]] ||
+        [[ "$dir" = "kube-bind-server" ]] ||
+        [[ "$dir" = "opscenter-features" ]] ||
+        [[ "$dir" = "platform-api" ]] ||
+        [[ "$dir" = "prom-proxy" ]] ||
+        [[ "$dir" = "smtprelay" ]]; then
         make ct CT_COMMAND=lint TEST_CHARTS=charts/$dir
     elif [[ "$dir" = "cert-manager-webhook-ace" ]]; then
         make ct TEST_CHARTS=charts/$dir || true
