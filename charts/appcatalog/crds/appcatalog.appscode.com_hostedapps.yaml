@@ -2,6 +2,8 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   creationTimestamp: null
+  labels:
+    kube-bind.io/exported: "true"
   name: hostedapps.appcatalog.appscode.com
 spec:
   group: appcatalog.appscode.com
