@@ -371,7 +371,7 @@ ct: $(BUILD_DIRS)
 	      kubectl delete crds --all; \
 	      kubectl apply --validate=false -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml; \
 	      ./hack/scripts/update-chart-dependencies.sh; \
-	      ct $(CT_COMMAND) --debug --validate-maintainers=false $(CT_ARGS) \
+	      ct $(CT_COMMAND) --debug --validate-maintainers=false --helm-extra-args='--timeout 500s' $(CT_ARGS) \
 	    "
 
 ADDTL_LINTERS   := goconst,gofmt,goimports,unparam
