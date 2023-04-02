@@ -338,14 +338,15 @@ CT_COMMAND     ?= lint-and-install
 TEST_CHARTS    ?=
 KUBE_NAMESPACE ?=
 
-ifeq ($(CT_COMMAND),lint-and-install)
-	ct_namespace = --namespace=$(KUBE_NAMESPACE)
-endif
-
 ifeq ($(strip $(TEST_CHARTS)),)
 	CT_ARGS = --all $(ct_namespace)
 else
 	CT_ARGS = --charts=$(TEST_CHARTS) $(ct_namespace)
+endif
+
+ifeq ($(CT_COMMAND),lint-and-install)
+	ct_namespace = --namespace=$(KUBE_NAMESPACE)
+	CT_ARGS := $(CT_ARGS) --helm-extra-args='--timeout 1200s'
 endif
 
 .PHONY: ct
