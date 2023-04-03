@@ -4,5 +4,25 @@ metadata:
   name: jetstack
   namespace: {{ .Release.Namespace }}
 spec:
-  interval: 30m
-  url: https://charts.jetstack.io
+{{- with (index .Values "repositories" "jetstack") }}
+  {{- with .url }}
+  url: {{ . }}
+  {{- end }}
+
+  {{- with .interval }}
+  interval: {{ . }}
+  {{- end }}
+
+  {{- with .type }}
+  type: {{ . }}
+  {{- end }}
+
+  {{- with .provider }}
+  provider: {{ . }}
+  {{- end }}
+
+  {{- with .secretName }}
+  secretRef:
+    name: {{ include "opscenter-features.fullname" $ }}-{{ . }}
+  {{- end }}
+{{- end }}

@@ -4,5 +4,25 @@ metadata:
   name: prometheus-community
   namespace: {{ .Release.Namespace }}
 spec:
-  interval: 30m
-  url: https://prometheus-community.github.io/helm-charts
+{{- with (index .Values "repositories" "prometheus-community") }}
+  {{- with .url }}
+  url: {{ . }}
+  {{- end }}
+
+  {{- with .interval }}
+  interval: {{ . }}
+  {{- end }}
+
+  {{- with .type }}
+  type: {{ . }}
+  {{- end }}
+
+  {{- with .provider }}
+  provider: {{ . }}
+  {{- end }}
+
+  {{- with .secretName }}
+  secretRef:
+    name: {{ include "opscenter-features.fullname" $ }}-{{ . }}
+  {{- end }}
+{{- end }}
