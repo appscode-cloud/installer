@@ -16,7 +16,7 @@ image:
   # Docker registry used to pull operator image
   registry: appscode
   # Name of operator container image
-  repository: kube-auth-proxy
+  repository: kube-auth-manager
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
   # Compute Resources required by the operator container

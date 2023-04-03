@@ -27,8 +27,6 @@ jobs:
 
       - name: Prepare Host
         run: |
-          sudo apt-get -qq update || true
-          sudo apt-get install -y bzr
           # install yq
           curl -fsSL -o yqq https://github.com/mikefarah/yq/releases/download/3.3.0/yq_linux_amd64
           chmod +x yqq
@@ -78,9 +76,6 @@ jobs:
           echo
           echo "install helm 3"
           curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
-          echo
-          echo "install cert-manager"
-          kubectl apply -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml
 
       - name: Test charts
         run: |

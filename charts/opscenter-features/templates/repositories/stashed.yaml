@@ -4,5 +4,25 @@ metadata:
   name: stashed
   namespace: {{ .Release.Namespace }}
 spec:
-  interval: 30m
-  url: https://charts.appscode.com/stable/
+{{- with (index .Values "repositories" "stashed") }}
+  {{- with .url }}
+  url: {{ . }}
+  {{- end }}
+
+  {{- with .interval }}
+  interval: {{ . }}
+  {{- end }}
+
+  {{- with .type }}
+  type: {{ . }}
+  {{- end }}
+
+  {{- with .provider }}
+  provider: {{ . }}
+  {{- end }}
+
+  {{- with .secretName }}
+  secretRef:
+    name: {{ include "opscenter-features.fullname" $ }}-{{ . }}
+  {{- end }}
+{{- end }}
