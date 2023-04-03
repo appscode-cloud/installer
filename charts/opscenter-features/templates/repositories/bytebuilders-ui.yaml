@@ -4,5 +4,25 @@ metadata:
   name: bytebuilders-ui
   namespace: {{ .Release.Namespace }}
 spec:
-  interval: 30m
-  url: https://bundles.byte.builders/ui/
+{{- with (index .Values "repositories" "bytebuilders-ui") }}
+  {{- with .url }}
+  url: {{ . }}
+  {{- end }}
+
+  {{- with .interval }}
+  interval: {{ . }}
+  {{- end }}
+
+  {{- with .type }}
+  type: {{ . }}
+  {{- end }}
+
+  {{- with .provider }}
+  provider: {{ . }}
+  {{- end }}
+
+  {{- with .secretName }}
+  secretRef:
+    name: {{ include "opscenter-features.fullname" $ }}-{{ . }}
+  {{- end }}
+{{- end }}
