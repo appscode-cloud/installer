@@ -15,5 +15,5 @@ spec:
   - kubedb-opscenter
   chart:
     name: uik8sappscodecom-featureset-opscenter-datastore-editor
-    url: https://charts.appscode.com/stable/
-    version: v2023.03.23
+    url: https://bundles.byte.builders/ui/
+    version: v0.4.14
