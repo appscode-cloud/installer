@@ -1,0 +1,14 @@
+{{- with .Values }}
+
+apiVersion: charts.x-helm.dev/v1alpha1
+kind: ClusterChartPreset
+metadata:
+  name: capi-preset
+  labels:
+    cluster.x-k8s.io/is-default-preset: "true"
+spec:
+  displayName: capi-preset
+  values:
+    {{- toYaml . | nindent 4 }}
+
+{{- end }}
