@@ -14,5 +14,9 @@ spec:
   - kube-ui-server
   chart:
     name: uik8sappscodecom-featureset-opscenter-core-editor
-    url: https://bundles.byte.builders/ui/
-    version: v0.4.14
+    version: {{ .Chart.AppVersion }}
+    sourceRef:
+      apiGroup: source.toolkit.fluxcd.io
+      kind: HelmRepository
+      name: bytebuilders-ui
+      namespace: {{ .Release.Namespace }}
