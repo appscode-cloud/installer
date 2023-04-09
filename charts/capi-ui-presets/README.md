@@ -41,25 +41,4 @@ $ helm uninstall capi-ui-presets -n kubeops
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
 
-## Configuration
 
-The following table lists the configurable parameters of the `capi-ui-presets` chart and their default values.
-
-|            Parameter             |                                                                                Description                                                                                |     Default     |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| monitoring.serviceMonitor.labels | Specify the labels for ServiceMonitor. Prometheus crd will select ServiceMonitor using these labels. Only usable when monitoring agent is `prometheus.io/webhook server`. | <code>{}</code> |
-| monitoring.alert.labels          | # Labels for default rules                                                                                                                                                | <code>{}</code> |
-
-
-Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
-
-```bash
-$ helm upgrade -i capi-ui-presets appscode/capi-ui-presets -n kubeops --create-namespace --version=v2023.03.23 --set -- generate from values file --
-```
-
-Alternatively, a YAML file that specifies the values for the parameters can be provided while
-installing the chart. For example:
-
-```bash
-$ helm upgrade -i capi-ui-presets appscode/capi-ui-presets -n kubeops --create-namespace --version=v2023.03.23 --values values.yaml
-```

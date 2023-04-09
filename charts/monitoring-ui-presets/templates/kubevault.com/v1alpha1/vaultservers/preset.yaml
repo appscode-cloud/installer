@@ -8,7 +8,13 @@ kind: ClusterChartPreset
 metadata:
   name: kubevault.com-v1alpha1-vaultservers
 spec:
-  selector: {}
+  displayName: "Vault Server"
+  usePresets:
+  - apiGroup: charts.x-helm.dev
+    kind: ClusterChartPreset
+    selector:
+      matchLabels:
+        cluster.x-k8s.io/is-default-preset: "true"
   values:
     spec:
       monitoring:

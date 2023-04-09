@@ -31,7 +31,6 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.AceSpec{}},
 		sc.TestCase{Obj: v1alpha1.AppcatalogSpec{}},
 		sc.TestCase{Obj: v1alpha1.BillingSpec{}},
-		sc.TestCase{Obj: v1alpha1.CapiUiPresetsSpec{}},
 		sc.TestCase{Obj: v1alpha1.CertManagerWebhookAceSpec{}},
 		sc.TestCase{Obj: v1alpha1.ClusterUiSpec{}},
 		sc.TestCase{Obj: v1alpha1.DeployUiSpec{}},

@@ -18,6 +18,7 @@ package v1alpha1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/runtime"
 )
 
 const (
@@ -38,12 +39,7 @@ const (
 type CapiUiPresets struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              CapiUiPresetsSpec `json:"spec,omitempty"`
-}
-
-// CapiUiPresetsSpec is the schema for CapiUiPresets Operator values file
-type CapiUiPresetsSpec struct {
-	Monitoring ServiceMonitorPreset `json:"monitoring"`
+	Spec              runtime.RawExtension `json:"spec,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

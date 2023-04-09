@@ -9,7 +9,12 @@ metadata:
   name: kubedb.com-v1alpha2-mariadbs
 spec:
   displayName: MariaDB
-  selector: {}
+  usePresets:
+  - apiGroup: charts.x-helm.dev
+    kind: ClusterChartPreset
+    selector:
+      matchLabels:
+        cluster.x-k8s.io/is-default-preset: "true"
   values:
     spec:
       monitoring:
