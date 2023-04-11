@@ -1,0 +1,18 @@
+project:
+  name: CAPA VPC Peering Operator by AppsCode
+  shortName: capa-vpc-peering-operator
+  url: https://github.com/bytebuilders/capa-vpc-peering-operator
+  description: CAPA VPC Peering Operator for Kubernetes
+  app: an CAPA VPC Peering Operator
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: capa-vpc-peering-operator
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: capa-vpc-peering-operator
+  namespace: kubeops
