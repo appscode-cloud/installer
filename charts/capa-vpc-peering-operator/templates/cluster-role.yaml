@@ -8,19 +8,21 @@ rules:
 - apiGroups:
   - infrastructure.cluster.x-k8s.io
   resources:
-  - AWSManagedControlPlane
-  - AWSManagedMachinePool
+  - awsmanagedmachinepools
   verbs: ["get", "list", "watch"]
-
+- apiGroups:
+  - controlplane.cluster.x-k8s.io
+  resources:
+  - awsmanagedcontrolplanes
+  verbs: ["get", "list", "watch"]
 - apiGroups:
   - ec2.aws.upbound.io
   resources:
-  - VPCPeeringConnection
+  - vpcpeeringconnections
   verbs: ["get", "list", "watch"]
-
 - apiGroups:
   - ec2.aws.upbound.io
   resources:
-  - Route
-  - SecurityGroupRule
-  verbs: ["create", "patch", "get", "list", "update"]
+  - routes
+  - securitygrouprules
+  verbs: ["create", "patch", "get", "list", "update","watch"]
