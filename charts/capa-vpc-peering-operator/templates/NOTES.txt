@@ -1,0 +1,3 @@
+To verify that capa-vpc-peering-operator has started, run:
+
+  kubectl get deployment --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "capa-vpc-peering-operator.name" . }},app.kubernetes.io/instance={{ .Release.Name }}"

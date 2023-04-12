@@ -62,6 +62,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&AppcatalogList{},
 		&Billing{},
 		&BillingList{},
+		&CapaVpcPeeringOperator{},
+		&CapaVpcPeeringOperatorList{},
 		&CapiUiPresets{},
 		&CapiUiPresetsList{},
 		&CertManagerWebhookAce{},
