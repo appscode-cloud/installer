@@ -80,3 +80,6 @@ dependencies:
   repository: https://stakater.github.io/stakater-charts
   condition: reloader.enabled
   version: v1.0.15
+- name: cert-manager-webhook-ace
+  reposigory: file://../cert-manager-webhook-ace
+  condition: cert-manager-webhook-ace.enabled

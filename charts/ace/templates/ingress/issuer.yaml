@@ -30,13 +30,21 @@ spec:
     - selector: {}
       dns01:
       {{- if eq .Values.global.infra.dns.provider "cloudflare" }}
+      {{- if .Values.global.infra.dns.auth.cloudflare.baseURL }}
+        webhook:
+          solverName: "ace"
+          groupName: webhook.dns.appscode.com
+          config:
+            baseURL: '{{ printf "https://%s" .Values.global.infra.dns.auth.cloudflare.baseURL }}'
+            apiToken:
+              name: {{ include "ace.fullname" . }}-dns-cred
+              key: CF_API_TOKEN
+      {{- else }}
         cloudflare:
-        {{- if .Values.global.infra.dns.auth.cloudflare.baseURL }}
-          baseURL: '{{ printf "https://%s" .Values.global.infra.dns.auth.cloudflare.baseURL }}'
-        {{- end }}
           apiTokenSecretRef:
             name: {{ include "ace.fullname" . }}-dns-cred
             key: CF_API_TOKEN
+      {{- end }}
       {{- end }}
   {{- end }}
 {{- end }}
