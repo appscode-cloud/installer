@@ -176,8 +176,8 @@ type AceMinio struct {
 }
 
 type AceCertManagerWebhook struct {
-	Enabled                bool `json:"enabled"`
-	*CertManagerWebhookAce `json:",inline,omitempty"`
+	Enabled                    bool `json:"enabled"`
+	*CertManagerWebhookAceSpec `json:",inline,omitempty"`
 }
 
 type AceGlobalValues struct {
@@ -186,7 +186,7 @@ type AceGlobalValues struct {
 	Platform         AcePlatformSettings    `json:"platform"`
 	License          string                 `json:"license"`
 	Registry         string                 `json:"registry"`
-	RegistryFQDN     string                 `json:"registryFQDN,omitempty"`
+	RegistryFQDN     string                 `json:"registryFQDN"`
 	ImagePullSecrets []string               `json:"imagePullSecrets"`
 	ServiceAccount   NatsServiceAccountSpec `json:"serviceAccount"`
 	Monitoring       GlobalMonitoring       `json:"monitoring"`
