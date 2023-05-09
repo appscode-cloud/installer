@@ -54,7 +54,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.bytebuilders-ui.interval      |             | <code>30m0s</code>                                              |
 | repositories.bytebuilders-ui.url           |             | <code>https://bundles.byte.builders/ui/</code>                  |
 | repositories.bytebuilders.interval         |             | <code>30m0s</code>                                              |
-| repositories.bytebuilders.url              |             | <code>https://bundles.byte.builders/stable/</code>              |
+| repositories.bytebuilders.url              |             | <code>https://charts.appscode.com/stable/</code>                |
 | repositories.jetstack.interval             |             | <code>30m0s</code>                                              |
 | repositories.jetstack.url                  |             | <code>https://charts.jetstack.io</code>                         |
 | repositories.kubedb.interval               |             | <code>30m0s</code>                                              |
