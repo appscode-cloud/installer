@@ -30,11 +30,10 @@ spec:
         {{- end }}
     form:
       alert:
+        enabled: {{ .Values.monitoring.alert.enabled }}
       {{- with $m.alert.labels }}
-        enabled: true
         labels:
           {{- toYaml . | nindent 10 }}
       {{- else }}
-        enabled: false
         labels: {}
       {{- end }}

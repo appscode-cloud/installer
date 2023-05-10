@@ -45,16 +45,17 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `monitoring-ui-presets` chart and their default values.
 
-|            Parameter             |                                                                                Description                                                                                |     Default     |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| monitoring.serviceMonitor.labels | Specify the labels for ServiceMonitor. Prometheus crd will select ServiceMonitor using these labels. Only usable when monitoring agent is `prometheus.io/webhook server`. | <code>{}</code> |
-| monitoring.alert.labels          | # Labels for default rules                                                                                                                                                | <code>{}</code> |
+|            Parameter             |                                                                                Description                                                                                |       Default        |
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
+| monitoring.serviceMonitor.labels | Specify the labels for ServiceMonitor. Prometheus crd will select ServiceMonitor using these labels. Only usable when monitoring agent is `prometheus.io/webhook server`. | <code>{}</code>      |
+| monitoring.alert.enabled         | Enable PrometheusRule alerts                                                                                                                                              | <code>warning</code> |
+| monitoring.alert.labels          | Labels for default rules                                                                                                                                                  | <code>{}</code>      |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i monitoring-ui-presets appscode/monitoring-ui-presets -n kubeops --create-namespace --version=v2023.03.23 --set -- generate from values file --
+$ helm upgrade -i monitoring-ui-presets appscode/monitoring-ui-presets -n kubeops --create-namespace --version=v2023.03.23 --set monitoring.alert.enabled=warning
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while

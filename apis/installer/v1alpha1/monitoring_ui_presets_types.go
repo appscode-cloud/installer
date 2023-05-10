@@ -17,6 +17,7 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"go.appscode.dev/alerts/apis/alerts/v1alpha1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -48,7 +49,15 @@ type MonitoringUiPresetsSpec struct {
 
 type ServiceMonitorPreset struct {
 	ServiceMonitor ServiceMonitorLabels `json:"serviceMonitor"`
-	Alert          ServiceMonitorLabels `json:"alert"`
+	Alert          AlertPreset          `json:"alert"`
+
+	// enabled: string
+}
+
+type AlertPreset struct {
+	Enabled v1alpha1.SeverityFlag `json:"enabled"`
+	// +optional
+	Labels map[string]string `json:"labels"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
