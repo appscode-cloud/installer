@@ -100,8 +100,6 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&PlatformApiList{},
 		&PlatformUi{},
 		&PlatformUiList{},
-		&PromProxy{},
-		&PromProxyList{},
 		&Smtprelay{},
 		&SmtprelayList{},
 		&Nats{},

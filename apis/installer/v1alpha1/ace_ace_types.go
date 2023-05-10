@@ -56,7 +56,6 @@ type AceSpec struct {
 	KubedbUi              AceKubedbUi               `json:"kubedb-ui"`
 	MarketplaceUi         AceMarketplaceUi          `json:"marketplace-ui"`
 	PlatformApi           AcePlatformApi            `json:"platform-api"`
-	PromProxy             AcePromProxy              `json:"prom-proxy"`
 	IngressNginx          AceIngressNginx           `json:"ingress-nginx"`
 	IngressDns            AceIngressDns             `json:"ingress-dns"`
 	Nats                  AceNats                   `json:"nats"`
@@ -123,11 +122,6 @@ type AceMarketplaceUi struct {
 type AcePlatformApi struct {
 	Enabled          bool `json:"enabled"`
 	*PlatformApiSpec `json:",inline,omitempty"`
-}
-
-type AcePromProxy struct {
-	Enabled        bool `json:"enabled"`
-	*PromProxySpec `json:",inline,omitempty"`
 }
 
 type AceIngressNginx struct {
