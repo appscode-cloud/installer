@@ -62,9 +62,6 @@ dns-proxy:
 smtprelay:
   enabled: false
 
-cert-manager-webhook-ace:
-  enabled: false
-
 # -------------
 
 global:
