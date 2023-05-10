@@ -60,7 +60,6 @@ type AceSpec struct {
 	IngressDns    AceIngressDns    `json:"ingress-dns"`
 	Nats          AceNats          `json:"nats"`
 	NatsDns       AceNatsDns       `json:"nats-dns"`
-	Reloader      AceReloader      `json:"reloader"`
 	Trickster     AceTrickster     `json:"trickster"`
 	DNSProxy      AceDnsProxy      `json:"dns-proxy"`
 	SMTPRelay     AceSmtprelay     `json:"smtprelay"`

@@ -44,11 +44,5 @@ dependencies:
 - name: nats
   repository: https://nats-io.github.io/k8s/helm/charts/
   version: 0.19.12
-- name: reloader
-  repository: https://stakater.github.io/stakater-charts
-  version: v1.0.15
-- name: cert-manager-webhook-ace
-  repository: file://../cert-manager-webhook-ace
-  version: v2023.03.23
-digest: sha256:aa3209e12a8d5022df0c3799122706717d744c6945432b52c5c10f9be829762e
-generated: "2023-05-09T17:52:27.362635-07:00"
+digest: sha256:5c1ead17ecffea3af24f7ee32e4f5904c79b3aa0c541fd34cf6c9220766d7bc4
+generated: "2023-05-10T14:57:38.788068-07:00"

@@ -1,0 +1,3 @@
+To verify that ByteBuilders Opscenter Configuration is setup, run:
+
+  kubectl get helmreleases --namespace {{ .Release.Namespace }} -l app.kubernetes.io/name={{ include "ace-deps.name" . }},app.kubernetes.io/instance={{ .Release.Name }}"
