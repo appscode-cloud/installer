@@ -48,7 +48,6 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.OpscenterFeaturesSpec{}},
 		sc.TestCase{Obj: v1alpha1.PlatformApiSpec{}},
 		sc.TestCase{Obj: v1alpha1.PlatformUiSpec{}},
-		sc.TestCase{Obj: v1alpha1.PromProxySpec{}},
 		sc.TestCase{Obj: v1alpha1.SmtprelaySpec{}},
 		sc.TestCase{Obj: v1alpha1.NatsSpec{}, File: "https://github.com/nats-io/k8s/raw/nats-0.19.12/helm/charts/nats/values.yaml"},
 		sc.TestCase{Obj: v1alpha1.ReloaderSpec{}, File: "https://github.com/stakater/Reloader/raw/v1.0.15/deployments/kubernetes/chart/reloader/values.yaml"},
