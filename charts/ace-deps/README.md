@@ -72,6 +72,7 @@ The following table lists the configurable parameters of the `ace-deps` chart an
 | repositories.stakater.interval             |             | <code>30m0s</code>                                              |
 | repositories.stakater.url                  |             | <code>https://stakater.github.io/stakater-charts</code>         |
 | repositoryCredentials                      |             | <code>{}</code>                                                 |
+| releases                                   |             | <code>{}</code>                                                 |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

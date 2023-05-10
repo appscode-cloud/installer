@@ -47,9 +47,6 @@ nats:
 nats-dns:
   enabled: false
 
-reloader:
-  enabled: false
-
 trickster:
   enabled: false
 

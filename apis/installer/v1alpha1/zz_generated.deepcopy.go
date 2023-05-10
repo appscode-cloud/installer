@@ -1146,7 +1146,6 @@ func (in *AceSpec) DeepCopyInto(out *AceSpec) {
 	in.IngressDns.DeepCopyInto(&out.IngressDns)
 	in.Nats.DeepCopyInto(&out.Nats)
 	in.NatsDns.DeepCopyInto(&out.NatsDns)
-	in.Reloader.DeepCopyInto(&out.Reloader)
 	in.Trickster.DeepCopyInto(&out.Trickster)
 	in.DNSProxy.DeepCopyInto(&out.DNSProxy)
 	in.SMTPRelay.DeepCopyInto(&out.SMTPRelay)
