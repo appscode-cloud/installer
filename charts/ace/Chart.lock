@@ -20,9 +20,6 @@ dependencies:
 - name: platform-api
   repository: file://../platform-api
   version: v2023.03.23
-- name: prom-proxy
-  repository: file://../prom-proxy
-  version: v2023.03.23
 - name: billing
   repository: file://../billing
   version: v2023.03.23
@@ -53,5 +50,5 @@ dependencies:
 - name: cert-manager-webhook-ace
   repository: file://../cert-manager-webhook-ace
   version: v2023.03.23
-digest: sha256:275c4761251c218335d7048dc137d873ed9168a411f84ae2d5ad3c5299b7258d
-generated: "2023-05-05T10:05:57.143309234+06:00"
+digest: sha256:aa3209e12a8d5022df0c3799122706717d744c6945432b52c5c10f9be829762e
+generated: "2023-05-09T17:52:27.362635-07:00"
