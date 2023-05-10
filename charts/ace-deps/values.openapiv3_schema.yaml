@@ -1,0 +1,51 @@
+properties:
+  fullnameOverride:
+    type: string
+  nameOverride:
+    type: string
+  releases:
+    additionalProperties:
+      type: object
+      x-kubernetes-preserve-unknown-fields: true
+    type: object
+  repositories:
+    additionalProperties:
+      properties:
+        interval:
+          pattern: ^([0-9]+(\.[0-9]+)?(ms|s|m|h))+$
+          type: string
+        provider:
+          default: generic
+          enum:
+          - generic
+          - aws
+          - azure
+          - gcp
+          type: string
+        secretName:
+          type: string
+        type:
+          enum:
+          - default
+          - oci
+          type: string
+        url:
+          type: string
+      required:
+      - interval
+      - url
+      type: object
+    type: object
+  repositoryCredentials:
+    additionalProperties:
+      additionalProperties:
+        type: string
+      type: object
+    type: object
+required:
+- fullnameOverride
+- nameOverride
+- releases
+- repositories
+- repositoryCredentials
+type: object

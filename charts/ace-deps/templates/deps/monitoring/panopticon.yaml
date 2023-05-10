@@ -1,0 +1,27 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: panopticon
+  namespace: {{ .Release.Namespace }}
+spec:
+  interval: 60m
+  releaseName: panopticon
+  targetNamespace: monitoring
+  storageNamespace: monitoring
+  install:
+    createNamespace: true
+  chart:
+    spec:
+      chart: panopticon
+      version: "v2023.03.23"
+      sourceRef:
+        kind: HelmRepository
+        name: kubeops
+        namespace: {{ .Release.Namespace }}
+  values:
+    monitoring:
+      enabled: true
+      agent: prometheus.io/operator
+      serviceMonitor:
+        labels:
+          release: kube-prometheus-stack

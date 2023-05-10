@@ -1,0 +1,18 @@
+project:
+  name: Prerequisites for ACE
+  shortName: Prerequisites for ACE
+  url: https://github.com/bytebuilders/installer
+  description: Prerequisites for ACE
+  app: prerequisite charts for ACE
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: ace-deps
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: ace-deps
+  namespace: kubeops

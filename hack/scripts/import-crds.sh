@@ -24,6 +24,11 @@ crd-importer \
     --out=./charts/opscenter-features/crds
 
 crd-importer \
+    --input=https://github.com/fluxcd/source-controller/raw/v0.30.1/config/crd/bases/source.toolkit.fluxcd.io_helmrepositories.yaml \
+    --input=https://github.com/fluxcd/helm-controller/raw/v0.32.2/config/crd/bases/helm.toolkit.fluxcd.io_helmreleases.yaml \
+    --out=./charts/ace-deps/crds
+
+crd-importer \
     --input=https://github.com/bytebuilders/resource-model/raw/${BYTEBUILDERS_RESOURCE_MODEL_TAG}/crds/cloud.bytebuilders.dev_credentials.yaml \
     --input=https://github.com/bytebuilders/resource-model/raw/${BYTEBUILDERS_RESOURCE_MODEL_TAG}/crds/cluster.bytebuilders.dev_clusterauthinfotemplates.yaml \
     --input=https://github.com/bytebuilders/resource-model/raw/${BYTEBUILDERS_RESOURCE_MODEL_TAG}/crds/cluster.bytebuilders.dev_clusterinfos.yaml \
