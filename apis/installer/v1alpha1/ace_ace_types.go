@@ -47,32 +47,33 @@ type Ace struct {
 
 // AceSpec is the schema for Ace Operator values file
 type AceSpec struct {
-	Billing            AceBilling                `json:"billing"`
-	PlatformUi         AcePlatformUi             `json:"platform-ui"`
-	AccountsUi         AceAccountsUi             `json:"accounts-ui"`
-	ClusterUi          AceClusterUi              `json:"cluster-ui"`
-	DeployUi           AceDeployUi               `json:"deploy-ui"`
-	Grafana            AceGrafana                `json:"grafana"`
-	KubedbUi           AceKubedbUi               `json:"kubedb-ui"`
-	MarketplaceUi      AceMarketplaceUi          `json:"marketplace-ui"`
-	PlatformApi        AcePlatformApi            `json:"platform-api"`
-	PromProxy          AcePromProxy              `json:"prom-proxy"`
-	IngressNginx       AceIngressNginx           `json:"ingress-nginx"`
-	IngressDns         AceIngressDns             `json:"ingress-dns"`
-	Nats               AceNats                   `json:"nats"`
-	NatsDns            AceNatsDns                `json:"nats-dns"`
-	Reloader           AceReloader               `json:"reloader"`
-	Trickster          AceTrickster              `json:"trickster"`
-	DNSProxy           AceDnsProxy               `json:"dns-proxy"`
-	SMTPRelay          AceSmtprelay              `json:"smtprelay"`
-	Minio              AceMinio                  `json:"minio"`
-	Global             AceGlobalValues           `json:"global"`
-	Settings           Settings                  `json:"settings"`
-	Image              ImageReference            `json:"image"`
-	PodAnnotations     map[string]string         `json:"podAnnotations"`
-	PodSecurityContext *core.PodSecurityContext  `json:"podSecurityContext"`
-	SecurityContext    *core.SecurityContext     `json:"securityContext"`
-	Resources          core.ResourceRequirements `json:"resources"`
+	Billing               AceBilling                `json:"billing"`
+	PlatformUi            AcePlatformUi             `json:"platform-ui"`
+	AccountsUi            AceAccountsUi             `json:"accounts-ui"`
+	ClusterUi             AceClusterUi              `json:"cluster-ui"`
+	DeployUi              AceDeployUi               `json:"deploy-ui"`
+	Grafana               AceGrafana                `json:"grafana"`
+	KubedbUi              AceKubedbUi               `json:"kubedb-ui"`
+	MarketplaceUi         AceMarketplaceUi          `json:"marketplace-ui"`
+	PlatformApi           AcePlatformApi            `json:"platform-api"`
+	PromProxy             AcePromProxy              `json:"prom-proxy"`
+	IngressNginx          AceIngressNginx           `json:"ingress-nginx"`
+	IngressDns            AceIngressDns             `json:"ingress-dns"`
+	Nats                  AceNats                   `json:"nats"`
+	NatsDns               AceNatsDns                `json:"nats-dns"`
+	Reloader              AceReloader               `json:"reloader"`
+	Trickster             AceTrickster              `json:"trickster"`
+	DNSProxy              AceDnsProxy               `json:"dns-proxy"`
+	SMTPRelay             AceSmtprelay              `json:"smtprelay"`
+	Minio                 AceMinio                  `json:"minio"`
+	CertManagerWebhookAce AceCertManagerWebhook     `json:"cert-manager-webhook-ace"`
+	Global                AceGlobalValues           `json:"global"`
+	Settings              Settings                  `json:"settings"`
+	Image                 ImageReference            `json:"image"`
+	PodAnnotations        map[string]string         `json:"podAnnotations"`
+	PodSecurityContext    *core.PodSecurityContext  `json:"podSecurityContext"`
+	SecurityContext       *core.SecurityContext     `json:"securityContext"`
+	Resources             core.ResourceRequirements `json:"resources"`
 	//+optional
 	NodeSelector map[string]string `json:"nodeSelector"`
 	Tolerations  []core.Toleration `json:"tolerations"`
@@ -172,6 +173,11 @@ type AceSmtprelay struct {
 type AceMinio struct {
 	Enabled    bool `json:"enabled"`
 	*MinioSpec `json:",inline,omitempty"`
+}
+
+type AceCertManagerWebhook struct {
+	Enabled                    bool `json:"enabled"`
+	*CertManagerWebhookAceSpec `json:",inline,omitempty"`
 }
 
 type AceGlobalValues struct {
