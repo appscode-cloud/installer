@@ -29,9 +29,6 @@ marketplace-ui:
 platform-api:
   enabled: false
 
-prom-proxy:
-  enabled: false
-
 ingress-nginx:
   enabled: false
   # controller:

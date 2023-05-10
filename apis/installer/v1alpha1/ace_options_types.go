@@ -59,7 +59,6 @@ type AceOptionsSpec struct {
 	KubedbUi           AceOptionsComponentSpec `json:"kubedb-ui"`
 	MarketplaceUi      AceOptionsComponentSpec `json:"marketplace-ui"`
 	PlatformApi        AceOptionsComponentSpec `json:"platform-api"`
-	PromProxy          AceOptionsComponentSpec `json:"prom-proxy"`
 	Ingress            AceOptionsIngressNginx  `json:"ingress"`
 	Nats               AceOptionsNatsSettings  `json:"nats"`
 	Trickster          AceOptionsComponentSpec `json:"trickster"`
