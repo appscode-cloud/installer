@@ -1,0 +1,51 @@
+# Default values for ace-deps.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+nameOverride: ""
+fullnameOverride: ""
+
+repositories:
+  appscode:
+    interval: 30m0s
+    url: https://charts.appscode.com/stable/
+  bytebuilders-ui:
+    interval: 30m0s
+    url: https://bundles.byte.builders/ui/
+  bytebuilders:
+    interval: 30m0s
+    url: https://charts.appscode.com/stable/
+  jetstack:
+    interval: 30m0s
+    url: https://charts.jetstack.io
+  kubedb:
+    interval: 30m0s
+    url: https://charts.appscode.com/stable/
+  kubeops:
+    interval: 30m0s
+    url: https://charts.appscode.com/stable/
+  kubevault:
+    interval: 30m0s
+    url: https://charts.appscode.com/stable/
+  nats:
+    interval: 30m0s
+    url: https://nats-io.github.io/k8s/helm/charts/
+  prometheus-community:
+    interval: 30m0s
+    url: https://prometheus-community.github.io/helm-charts
+  stashed:
+    interval: 30m0s
+    url: https://charts.appscode.com/stable/
+  stakater:
+    interval: 30m0s
+    url: https://stakater.github.io/stakater-charts
+
+repositoryCredentials: {}
+  # dockerhub:
+  #   username: "abc"
+  #   password: "xyz"
+  # ghcr:
+  #   username: "gh_abc"
+  #   password: "gh_xyz"
+
+releases: {}
