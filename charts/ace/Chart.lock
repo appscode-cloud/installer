@@ -50,5 +50,8 @@ dependencies:
 - name: reloader
   repository: https://stakater.github.io/stakater-charts
   version: v1.0.15
-digest: sha256:a1d530ecc1a38dcae1ee33ad24b0cadc45d88996a9c1d7756a40903f2d2d5429
-generated: "2023-03-26T03:05:36.962185-07:00"
+- name: cert-manager-webhook-ace
+  repository: file://../cert-manager-webhook-ace
+  version: v2023.03.23
+digest: sha256:275c4761251c218335d7048dc137d873ed9168a411f84ae2d5ad3c5299b7258d
+generated: "2023-05-05T10:05:57.143309234+06:00"
