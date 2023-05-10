@@ -89,10 +89,19 @@ properties:
         properties:
           alert:
             properties:
+              enabled:
+                enum:
+                - none
+                - critical
+                - warning
+                - info
+                type: string
               labels:
                 additionalProperties:
                   type: string
                 type: object
+            required:
+            - enabled
             type: object
           serviceMonitor:
             properties:
