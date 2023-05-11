@@ -4,7 +4,7 @@ metadata:
   name: kubedb
   namespace: {{ .Release.Namespace }}
 spec:
-  interval: 60m
+  interval: 5m
   releaseName: kubedb
   targetNamespace: kubedb
   storageNamespace: kubedb
@@ -14,6 +14,7 @@ spec:
     spec:
       chart: kubedb
       version: "v2023.04.10"
+      interval: 60m
       sourceRef:
         kind: HelmRepository
         name: kubedb

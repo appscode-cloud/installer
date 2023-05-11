@@ -4,7 +4,7 @@ metadata:
   name: license-proxyserver
   namespace: {{ .Release.Namespace }}
 spec:
-  interval: 60m
+  interval: 5m
   releaseName: license-proxyserver
   targetNamespace: kubeops
   storageNamespace: kubeops
@@ -13,11 +13,14 @@ spec:
   chart:
     spec:
       chart: license-proxyserver
-      # version: "v2023.03.23"
+      version: "v2023.03.23"
+      interval: 60m
       sourceRef:
         kind: HelmRepository
         name: bytebuilders
         namespace: {{ .Release.Namespace }}
   {{- with (index .Values "releases" "license-proxyserver") }}
-    {{- dict "values" . | toYaml | nindent 4 }}
+  {{- with (index . "values") }}
+    {{- dict "values" . | toYaml | nindent 2 }}
+  {{- end }}
   {{- end }}

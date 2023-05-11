@@ -5,8 +5,11 @@ properties:
     type: string
   releases:
     additionalProperties:
+      properties:
+        values:
+          type: object
+          x-kubernetes-preserve-unknown-fields: true
       type: object
-      x-kubernetes-preserve-unknown-fields: true
     type: object
   repositories:
     additionalProperties:
