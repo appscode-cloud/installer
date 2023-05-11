@@ -1,0 +1,35 @@
+{{- with (index .Values "releases" "kubedb") }}
+{{- if (dig "enabled" true .) }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kubedb
+  namespace: {{ $.Release.Namespace }}
+spec:
+  interval: 5m
+  releaseName: kubedb
+  targetNamespace: kubedb
+  storageNamespace: kubedb
+  install:
+    createNamespace: true
+  dependsOn:
+  - name: license-proxyserver
+    namespace: {{ $.Release.Namespace }}
+  - name: cert-manager
+    namespace: {{ $.Release.Namespace }}
+  chart:
+    spec:
+      chart: kubedb
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: kubedb
+        namespace: {{ $.Release.Namespace }}
+{{- with (dig "values" dict .) }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}

@@ -39,5 +39,3 @@ _testmain.go
 /charts/ace/charts
 /charts/opscenter-features/charts
 /charts/monitoring-config/charts
-
-ace.yaml

@@ -1,0 +1,30 @@
+{{- with (index .Values "releases" "cert-manager") }}
+{{- if (dig "enabled" true .) }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: cert-manager
+  namespace: {{ $.Release.Namespace }}
+spec:
+  interval: 5m
+  releaseName: cert-manager
+  targetNamespace: cert-manager
+  storageNamespace: cert-manager
+  install:
+    createNamespace: true
+  chart:
+    spec:
+      chart: cert-manager
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: jetstack
+        namespace: {{ $.Release.Namespace }}
+{{- with (dig "values" dict .) }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}

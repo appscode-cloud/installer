@@ -1,0 +1,33 @@
+{{- with (index .Values "releases" "cert-manager-csi-driver-cacerts") }}
+{{- if (dig "enabled" true .) }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: cert-manager-csi-driver-cacerts
+  namespace: {{ $.Release.Namespace }}
+spec:
+  interval: 5m
+  releaseName: cert-manager-csi-driver-cacerts
+  targetNamespace: cert-manager
+  storageNamespace: cert-manager
+  install:
+    createNamespace: true
+  dependsOn:
+  - name: cert-manager
+    namespace: {{ $.Release.Namespace }}
+  chart:
+    spec:
+      chart: cert-manager-csi-driver-cacerts
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: kubeops
+        namespace: {{ $.Release.Namespace }}
+{{- with (dig "values" dict .) }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}

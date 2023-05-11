@@ -1,0 +1,100 @@
+# Default values for ace-installer.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+nameOverride: ""
+fullnameOverride: ""
+
+repositories:
+  appscode:
+    interval: 1h0m0s
+    url: https://charts.appscode.com/stable/
+  bytebuilders-ui:
+    interval: 1h0m0s
+    url: https://bundles.byte.builders/ui/
+  bytebuilders:
+    interval: 1h0m0s
+    url: https://charts.appscode.com/stable/
+  jetstack:
+    interval: 1h0m0s
+    url: https://charts.jetstack.io
+  kubedb:
+    interval: 1h0m0s
+    url: https://charts.appscode.com/stable/
+  kubeops:
+    interval: 1h0m0s
+    url: https://charts.appscode.com/stable/
+  kubevault:
+    interval: 1h0m0s
+    url: https://charts.appscode.com/stable/
+  nats:
+    interval: 1h0m0s
+    url: https://nats-io.github.io/k8s/helm/charts/
+  prometheus-community:
+    interval: 1h0m0s
+    url: https://prometheus-community.github.io/helm-charts
+  stashed:
+    interval: 1h0m0s
+    url: https://charts.appscode.com/stable/
+  stakater:
+    interval: 1h0m0s
+    url: https://stakater.github.io/stakater-charts
+
+repositoryCredentials: {}
+  # dockerhub:
+  #   username: "abc"
+  #   password: "xyz"
+  # ghcr:
+  #   username: "gh_abc"
+  #   password: "gh_xyz"
+
+releases:
+  ace:
+    version: "v2023.03.23"
+  cert-manager-csi-driver-cacerts:
+    version: "v2023.03.23"
+  cert-manager-webhook-ace:
+    version: "v2023.03.23"
+  cert-manager:
+    version: "v1.11.0"
+    values:
+      installCRDs: true
+  kubedb:
+    version: "v2023.04.10"
+    values:
+      kubedb-provisioner:
+        enabled: true
+      kubedb-catalog:
+        enabled: true
+      kubedb-ops-manager:
+        enabled: false
+      kubedb-autoscaler:
+        enabled: false
+      kubedb-dashboard:
+        enabled: false
+      kubedb-schema-manager:
+        enabled: false
+      kubedb-metrics:
+        enabled: false
+  external-dns-operator:
+    version: "v2023.03.23"
+  license-proxyserver:
+    version: "v2023.03.23"
+  reloader:
+    version: "v1.0.24"
+  kube-prometheus-stack:
+    version: ""
+  panopticon:
+    version: "v2023.03.23"
+    values:
+      monitoring:
+        enabled: true
+        agent: prometheus.io/operator
+        serviceMonitor:
+          labels:
+            release: kube-prometheus-stack
+  stash:
+    version: "v2023.04.30"
+    values:
+      features:
+        enterprise: true

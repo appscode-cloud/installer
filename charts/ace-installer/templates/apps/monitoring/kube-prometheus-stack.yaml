@@ -1,0 +1,29 @@
+{{- with (index .Values "releases" "kube-prometheus-stack") }}
+{{- if (dig "enabled" true .) }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: {{ $.Release.Namespace }}
+spec:
+  interval: 5m
+  releaseName: kube-prometheus-stack
+  targetNamespace: monitoring
+  storageNamespace: monitoring
+  install:
+    createNamespace: true
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      version: {{ .version | quote }}
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community
+        namespace: {{ $.Release.Namespace }}
+{{- with (dig "values" dict .) }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}

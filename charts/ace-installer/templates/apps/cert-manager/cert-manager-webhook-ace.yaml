@@ -1,0 +1,33 @@
+{{- with (index .Values "releases" "cert-manager-webhook-ace") }}
+{{- if (dig "enabled" true .) }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: cert-manager-webhook-ace
+  namespace: {{ $.Release.Namespace }}
+spec:
+  interval: 5m
+  releaseName: cert-manager-webhook-ace
+  targetNamespace: cert-manager
+  storageNamespace: cert-manager
+  install:
+    createNamespace: true
+  dependsOn:
+  - name: cert-manager
+    namespace: {{ $.Release.Namespace }}
+  chart:
+    spec:
+      chart: cert-manager-webhook-ace
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: bytebuilders
+        namespace: {{ $.Release.Namespace }}
+{{- with (dig "values" dict .) }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}
