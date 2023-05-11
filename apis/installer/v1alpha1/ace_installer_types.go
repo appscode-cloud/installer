@@ -53,7 +53,7 @@ type AceInstallerSpec struct {
 }
 
 type HelmRelease struct {
-	Enabled bool                  `json:"enabled,omitempty"`
+	Enabled bool                  `json:"enabled"`
 	Version string                `json:"version"`
 	Values  *runtime.RawExtension `json:"values,omitempty"`
 }

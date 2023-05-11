@@ -1,5 +1,5 @@
 {{- with (index .Values "releases" "stash") }}
-{{- if (dig "enabled" true .) }}
+{{- if .enabled }}
 
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
