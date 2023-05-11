@@ -4,7 +4,7 @@ metadata:
   name: cert-manager-csi-driver-cacerts
   namespace: {{ .Release.Namespace }}
 spec:
-  interval: 60m
+  interval: 5m
   releaseName: cert-manager-csi-driver-cacerts
   targetNamespace: cert-manager
   storageNamespace: cert-manager
@@ -14,6 +14,7 @@ spec:
     spec:
       chart: cert-manager-csi-driver-cacerts
       # version: "v1.11.0"
+      interval: 60m
       sourceRef:
         kind: HelmRepository
         name: kubeops

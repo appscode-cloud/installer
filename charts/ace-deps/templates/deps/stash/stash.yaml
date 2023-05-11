@@ -4,7 +4,7 @@ metadata:
   name: stash
   namespace: {{ .Release.Namespace }}
 spec:
-  interval: 60m
+  interval: 5m
   releaseName: stash
   targetNamespace: stash
   storageNamespace: stash
