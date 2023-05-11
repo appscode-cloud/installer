@@ -18,6 +18,8 @@ spec:
     namespace: {{ $.Release.Namespace }}
   - name: reloader
     namespace: {{ $.Release.Namespace }}
+  - name: stash
+    namespace: {{ $.Release.Namespace }}
   chart:
     spec:
       chart: ace
