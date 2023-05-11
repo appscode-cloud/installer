@@ -4,7 +4,7 @@ metadata:
   name: external-dns-operator
   namespace: {{ .Release.Namespace }}
 spec:
-  interval: 60m
+  interval: 5m
   releaseName: external-dns-operator
   targetNamespace: kubeops
   storageNamespace: kubeops
@@ -13,7 +13,8 @@ spec:
   chart:
     spec:
       chart: external-dns-operator
-      # version: "v2023.04.10"
+      version: "v2023.03.23"
+      interval: 60m
       sourceRef:
         kind: HelmRepository
         name: kubeops

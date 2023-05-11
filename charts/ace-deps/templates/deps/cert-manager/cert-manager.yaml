@@ -4,7 +4,7 @@ metadata:
   name: cert-manager
   namespace: {{ .Release.Namespace }}
 spec:
-  interval: 60m
+  interval: 5m
   releaseName: cert-manager
   targetNamespace: cert-manager
   storageNamespace: cert-manager
@@ -14,7 +14,10 @@ spec:
     spec:
       chart: cert-manager
       version: "v1.11.0"
+      interval: 60m
       sourceRef:
         kind: HelmRepository
         name: jetstack
         namespace: {{ .Release.Namespace }}
+  values:
+    installCRDs: true

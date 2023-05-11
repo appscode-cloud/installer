@@ -4,7 +4,7 @@ metadata:
   name: panopticon
   namespace: {{ .Release.Namespace }}
 spec:
-  interval: 60m
+  interval: 5m
   releaseName: panopticon
   targetNamespace: monitoring
   storageNamespace: monitoring

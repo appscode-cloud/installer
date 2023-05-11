@@ -4,7 +4,7 @@ metadata:
   name: reloader
   namespace: {{ .Release.Namespace }}
 spec:
-  interval: 60m
+  interval: 5m
   releaseName: reloader
   targetNamespace: kubeops
   storageNamespace: kubeops
@@ -13,7 +13,8 @@ spec:
   chart:
     spec:
       chart: reloader
-      # version: "v2023.04.10"
+      version: "v1.0.24"
+      interval: 60m
       sourceRef:
         kind: HelmRepository
         name: stakater

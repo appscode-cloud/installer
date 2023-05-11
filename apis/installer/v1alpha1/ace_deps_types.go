@@ -49,7 +49,11 @@ type AceDepsSpec struct {
 
 	Repositories          map[string]HelmRepository       `json:"repositories"`
 	RepositoryCredentials map[string]RepositoryCredential `json:"repositoryCredentials"`
-	Releases              map[string]runtime.RawExtension `json:"releases"`
+	Releases              map[string]HelmRelease          `json:"releases"`
+}
+
+type HelmRelease struct {
+	Values *runtime.RawExtension `json:"values,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
