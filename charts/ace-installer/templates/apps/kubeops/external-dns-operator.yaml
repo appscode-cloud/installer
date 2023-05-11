@@ -1,0 +1,30 @@
+{{- with (index .Values "releases" "external-dns-operator") }}
+{{- if (dig "enabled" true .) }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: external-dns-operator
+  namespace: {{ $.Release.Namespace }}
+spec:
+  interval: 5m
+  releaseName: external-dns-operator
+  targetNamespace: kubeops
+  storageNamespace: kubeops
+  install:
+    createNamespace: true
+  chart:
+    spec:
+      chart: external-dns-operator
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: kubeops
+        namespace: {{ $.Release.Namespace }}
+{{- with (dig "values" dict .) }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}

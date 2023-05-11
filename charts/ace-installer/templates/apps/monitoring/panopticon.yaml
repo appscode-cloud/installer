@@ -1,0 +1,32 @@
+{{- with (index .Values "releases" "panopticon") }}
+{{- if (dig "enabled" true .) }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: panopticon
+  namespace: {{ $.Release.Namespace }}
+spec:
+  interval: 5m
+  releaseName: panopticon
+  targetNamespace: monitoring
+  storageNamespace: monitoring
+  install:
+    createNamespace: true
+  dependsOn:
+  - name: license-proxyserver
+    namespace: {{ $.Release.Namespace }}
+  chart:
+    spec:
+      chart: panopticon
+      version: {{ .version | quote }}
+      sourceRef:
+        kind: HelmRepository
+        name: kubeops
+        namespace: {{ $.Release.Namespace }}
+{{- with (dig "values" dict .) }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}

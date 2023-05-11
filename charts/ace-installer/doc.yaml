@@ -1,0 +1,18 @@
+project:
+  name: ACE Installer
+  shortName: ACE Installer
+  url: https://github.com/bytebuilders/installer
+  description: ACE Installer
+  app: charts for ACE
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: ace-installer
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: ace-installer
+  namespace: kubeops

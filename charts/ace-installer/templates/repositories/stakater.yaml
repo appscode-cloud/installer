@@ -1,0 +1,28 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: stakater
+  namespace: {{ $.Release.Namespace }}
+spec:
+{{- with (index .Values "repositories" "stakater") }}
+  {{- with .url }}
+  url: {{ . }}
+  {{- end }}
+
+  {{- with .interval }}
+  interval: {{ . }}
+  {{- end }}
+
+  {{- with .type }}
+  type: {{ . }}
+  {{- end }}
+
+  {{- with .provider }}
+  provider: {{ . }}
+  {{- end }}
+
+  {{- with .secretName }}
+  secretRef:
+    name: {{ include "ace-installer.fullname" $ }}-{{ . }}
+  {{- end }}
+{{- end }}
