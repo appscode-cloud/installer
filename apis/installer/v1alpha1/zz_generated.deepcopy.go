@@ -461,9 +461,17 @@ func (in *AceInstallerSpec) DeepCopyInto(out *AceInstallerSpec) {
 	*out = *in
 	if in.Repositories != nil {
 		in, out := &in.Repositories, &out.Repositories
-		*out = make(map[string]HelmRepository, len(*in))
+		*out = make(map[string]*HelmRepository, len(*in))
 		for key, val := range *in {
-			(*out)[key] = val
+			var outVal *HelmRepository
+			if val == nil {
+				(*out)[key] = nil
+			} else {
+				in, out := &val, &outVal
+				*out = new(HelmRepository)
+				**out = **in
+			}
+			(*out)[key] = outVal
 		}
 	}
 	if in.RepositoryCredentials != nil {
@@ -485,9 +493,17 @@ func (in *AceInstallerSpec) DeepCopyInto(out *AceInstallerSpec) {
 	}
 	if in.Releases != nil {
 		in, out := &in.Releases, &out.Releases
-		*out = make(map[string]HelmRelease, len(*in))
+		*out = make(map[string]*HelmRelease, len(*in))
 		for key, val := range *in {
-			(*out)[key] = *val.DeepCopy()
+			var outVal *HelmRelease
+			if val == nil {
+				(*out)[key] = nil
+			} else {
+				in, out := &val, &outVal
+				*out = new(HelmRelease)
+				(*in).DeepCopyInto(*out)
+			}
+			(*out)[key] = outVal
 		}
 	}
 }
@@ -5519,9 +5535,17 @@ func (in *OpscenterFeaturesSpec) DeepCopyInto(out *OpscenterFeaturesSpec) {
 	*out = *in
 	if in.Repositories != nil {
 		in, out := &in.Repositories, &out.Repositories
-		*out = make(map[string]HelmRepository, len(*in))
+		*out = make(map[string]*HelmRepository, len(*in))
 		for key, val := range *in {
-			(*out)[key] = val
+			var outVal *HelmRepository
+			if val == nil {
+				(*out)[key] = nil
+			} else {
+				in, out := &val, &outVal
+				*out = new(HelmRepository)
+				**out = **in
+			}
+			(*out)[key] = outVal
 		}
 	}
 	if in.RepositoryCredentials != nil {
