@@ -50,16 +50,21 @@ repositoryCredentials: {}
 
 releases:
   ace:
+    enabled: true
     version: "v2023.03.23"
   cert-manager-csi-driver-cacerts:
+    enabled: true
     version: "v2023.03.23"
   cert-manager-webhook-ace:
+    enabled: true
     version: "v2023.03.23"
   cert-manager:
+    enabled: true
     version: "v1.11.0"
     values:
       installCRDs: true
   kubedb:
+    enabled: true
     version: "v2023.04.10"
     values:
       kubedb-provisioner:
@@ -77,14 +82,19 @@ releases:
       kubedb-metrics:
         enabled: false
   external-dns-operator:
+    enabled: true
     version: "v2023.03.23"
   license-proxyserver:
+    enabled: true
     version: "v2023.03.23"
   reloader:
+    enabled: true
     version: "v1.0.24"
   kube-prometheus-stack:
+    enabled: true
     version: ""
   panopticon:
+    enabled: true
     version: "v2023.03.23"
     values:
       monitoring:
@@ -94,6 +104,7 @@ releases:
           labels:
             release: kube-prometheus-stack
   stash:
+    enabled: true
     version: "v2023.04.30"
     values:
       features:

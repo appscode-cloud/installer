@@ -14,6 +14,7 @@ properties:
         version:
           type: string
       required:
+      - enabled
       - version
       type: object
     type: object
