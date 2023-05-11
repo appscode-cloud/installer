@@ -13,10 +13,19 @@ spec:
   storageNamespace: kubedb
   install:
     createNamespace: true
+    # crds: CreateReplace
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
   dependsOn:
   - name: license-proxyserver
     namespace: {{ $.Release.Namespace }}
   - name: cert-manager
+    namespace: {{ $.Release.Namespace }}
+  - name: panopticon
     namespace: {{ $.Release.Namespace }}
   chart:
     spec:

@@ -72,7 +72,7 @@ The following table lists the configurable parameters of the `ace-installer` cha
 | repositories.stakater.interval                                      |             | <code>1h0m0s</code>                                             |
 | repositories.stakater.url                                           |             | <code>https://stakater.github.io/stakater-charts</code>         |
 | repositoryCredentials                                               |             | <code>{}</code>                                                 |
-| releases.ace.enabled                                                |             | <code>true</code>                                               |
+| releases.ace.enabled                                                |             | <code>false</code>                                              |
 | releases.ace.version                                                |             | <code>"v2023.03.23"</code>                                      |
 | releases.cert-manager-csi-driver-cacerts.enabled                    |             | <code>true</code>                                               |
 | releases.cert-manager-csi-driver-cacerts.version                    |             | <code>"v2023.03.23"</code>                                      |
@@ -89,7 +89,7 @@ The following table lists the configurable parameters of the `ace-installer` cha
 | releases.kubedb.values.kubedb-autoscaler.enabled                    |             | <code>false</code>                                              |
 | releases.kubedb.values.kubedb-dashboard.enabled                     |             | <code>false</code>                                              |
 | releases.kubedb.values.kubedb-schema-manager.enabled                |             | <code>false</code>                                              |
-| releases.kubedb.values.kubedb-metrics.enabled                       |             | <code>false</code>                                              |
+| releases.kubedb.values.kubedb-metrics.enabled                       |             | <code>true</code>                                               |
 | releases.external-dns-operator.enabled                              |             | <code>true</code>                                               |
 | releases.external-dns-operator.version                              |             | <code>"v2023.03.23"</code>                                      |
 | releases.license-proxyserver.enabled                                |             | <code>true</code>                                               |

@@ -13,6 +13,13 @@ spec:
   storageNamespace: kubeops
   install:
     createNamespace: true
+    # crds: CreateReplace
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
   chart:
     spec:
       chart: external-dns-operator
