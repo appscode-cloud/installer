@@ -28,9 +28,9 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
             - dev
-            - --admin={{ .Values.global.platform.adminUsername }}
-            - --password={{ .Values.global.platform.adminPassword }}
-            - --email=={{ .Values.global.platform.adminEmail }}
+            - --admin='{{ .Values.global.platform.admin.username }}'
+            - --password={{ .Values.global.platform.admin.password }}
+            - --email={{ .Values.global.platform.admin.email }}
             - --exports
             - --reload-nats-accounts
             {{- if eq .Values.global.platform.deploymentType "Hosted" }}
