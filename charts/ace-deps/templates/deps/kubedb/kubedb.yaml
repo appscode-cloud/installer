@@ -10,6 +10,11 @@ spec:
   storageNamespace: kubedb
   install:
     createNamespace: true
+  dependsOn:
+  - name: license-proxyserver
+    namespace: {{ .Release.Namespace }}
+  - name: cert-manager
+    namespace: {{ .Release.Namespace }}
   chart:
     spec:
       chart: kubedb

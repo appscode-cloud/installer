@@ -10,6 +10,9 @@ spec:
   storageNamespace: monitoring
   install:
     createNamespace: true
+  dependsOn:
+  - name: license-proxyserver
+    namespace: {{ .Release.Namespace }}
   chart:
     spec:
       chart: panopticon

@@ -10,6 +10,9 @@ spec:
   storageNamespace: cert-manager
   install:
     createNamespace: true
+  dependsOn:
+  - name: cert-manager
+    namespace: {{ .Release.Namespace }}
   chart:
     spec:
       chart: cert-manager-webhook-ace
