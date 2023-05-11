@@ -28,7 +28,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
             - dev
-            - --admin='{{ .Values.global.platform.admin.username }}'
+            - --admin={{ .Values.global.platform.admin.username }}
             - --password={{ .Values.global.platform.admin.password }}
             - --email={{ .Values.global.platform.admin.email }}
             - --exports
