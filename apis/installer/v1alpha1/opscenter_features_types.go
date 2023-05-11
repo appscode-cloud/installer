@@ -46,7 +46,7 @@ type OpscenterFeaturesSpec struct {
 	NameOverride     string `json:"nameOverride"`
 	FullnameOverride string `json:"fullnameOverride"`
 
-	Repositories          map[string]HelmRepository       `json:"repositories"`
+	Repositories          map[string]*HelmRepository      `json:"repositories"`
 	RepositoryCredentials map[string]RepositoryCredential `json:"repositoryCredentials"`
 }
 
