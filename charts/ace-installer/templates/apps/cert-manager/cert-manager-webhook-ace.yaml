@@ -8,6 +8,7 @@ metadata:
   namespace: {{ $.Release.Namespace }}
 spec:
   interval: 5m
+  timeout: 10m
   releaseName: cert-manager-webhook-ace
   targetNamespace: cert-manager
   storageNamespace: cert-manager
