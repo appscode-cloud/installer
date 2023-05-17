@@ -29,7 +29,7 @@ spec:
           args:
             - dev
             - --admin={{ .Values.global.platform.admin.username }}
-            - --password={{ .Values.global.platform.admin.password }}
+            - --password=$(ADMIN_PASSWORD)
             - --email={{ .Values.global.platform.admin.email }}
             - --exports
             - --reload-nats-accounts
@@ -51,6 +51,11 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
+            - name: ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "ace.fullname" . }}-admin-auth
+                  key: password
           {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "gcs") }}
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: {{ $infra.objstore.mountPath }}/sa.json
