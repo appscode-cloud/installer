@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "ace.fullname" . }}-admin-auth
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.offshootLabels" . | nindent 4 }}
+type: kubernetes.io/basic-auth
+stringData:
+  username: '{{ .Values.global.platform.admin.username }}'
+  password: '{{ .Values.global.platform.admin.password }}'
