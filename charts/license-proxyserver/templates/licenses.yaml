@@ -1,4 +1,4 @@
-{{- if .Values.licenses }}
+{{- if (or .Values.licenses .Values.encodedLicenses) }}
 apiVersion: v1
 kind: Secret
 metadata:
@@ -7,8 +7,11 @@ metadata:
   labels:
     {{- include "license-proxyserver.labels" . | nindent 4 }}
 type: Opaque
-stringData:
+data:
 {{- range $k, $v := .Values.licenses }}
-  {{ $k }}: {{ $v | quote }}
+  r_{{ $k }}: {{ $v | b64enc | quote }}
+{{- end }}
+{{- range $k, $v := .Values.encodedLicenses }}
+  e_{{ $k }}: {{ $v | quote }}
 {{- end }}
 {{- end }}

@@ -48,7 +48,7 @@ spec:
         - --use-kubeapiserver-fqdn-for-aks={{ .Values.apiserver.useKubeapiserverFqdnForAks }}
         - --baseURL={{ .Values.platform.baseURL }}
         - --token=$(PLATFORM_API_TOKEN)
-        {{- if .Values.licenses }}
+        {{- if (or .Values.licenses .Values.encodedLicenses) }}
         - --license-dir=/var/run/secrets/appscode/license
         {{- end }}
         ports:
@@ -89,7 +89,7 @@ spec:
         volumeMounts:
         - mountPath: /var/serving-cert
           name: serving-cert
-        {{- if .Values.licenses }}
+        {{- if (or .Values.licenses .Values.encodedLicenses) }}
         - mountPath: /var/run/secrets/appscode/license
           name: licenses
         {{- end }}
@@ -98,7 +98,7 @@ spec:
         secret:
           defaultMode: 420
           secretName: {{ include "license-proxyserver.fullname" . }}-apiserver-cert
-      {{- if .Values.licenses }}
+      {{- if (or .Values.licenses .Values.encodedLicenses) }}
       - name: licenses
         secret:
           defaultMode: 420

@@ -97,9 +97,11 @@ monitoring:
     # Prometheus crd will select ServiceMonitor using these labels.
     # Only usable when monitoring agent is `prometheus.io/operator`.
     labels: {}
+
 platform:
   baseURL: ""
   token: ""
+
 # Offline licenses for various products.
 # Get a license by following the steps from [here](https://license-issuer.appscode.com/).
 # Example:
@@ -107,3 +109,11 @@ platform:
 #   --set-file licenses.key1=/path/to/license/file1 \
 #   --set-file licenses.key2=/path/to/license/file2
 licenses: {}
+
+# Offline licenses for various products.
+# Get a license by following the steps from [here](https://license-issuer.appscode.com/).
+# Example:
+# helm install appscode/license-proxyserver \
+#   --set licenses.key1=base64_encoded(/path/to/license/file1) \
+#   --set licenses.key2=base64_encoded(/path/to/license/file2)
+encodedLicenses: {}

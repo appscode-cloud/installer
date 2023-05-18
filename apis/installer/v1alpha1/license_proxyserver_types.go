@@ -80,6 +80,8 @@ type LicenseProxyserverSpec struct {
 	Platform           PlatformSpec             `json:"platform"`
 	// +optional
 	Licenses map[string]string `json:"licenses"`
+	// +optional
+	EncodedLicenses map[string]string `json:"encodedLicenses"`
 }
 
 type PlatformSpec struct {
