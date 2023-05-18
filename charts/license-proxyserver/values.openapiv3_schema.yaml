@@ -405,6 +405,10 @@ properties:
     type: object
   criticalAddon:
     type: boolean
+  encodedLicenses:
+    additionalProperties:
+      type: string
+    type: object
   fullnameOverride:
     type: string
   image:
