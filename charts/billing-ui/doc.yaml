@@ -1,0 +1,18 @@
+project:
+  name: Cluster UI by AppsCode
+  shortName: Cluster UI
+  url: https://github.com/bytebuilders
+  description: ByteBuilders Cluster UI
+  app: a Cluster UI
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: billing-ui
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: billing-ui
+  namespace: ace-system
