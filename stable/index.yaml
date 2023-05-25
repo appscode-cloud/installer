@@ -2,10 +2,10 @@ apiVersion: v1
 entries:
   accounts-ui:
   - apiVersion: v2
-    appVersion: v2023.03.23
-    created: "2023-04-06T12:05:50.686226373+06:00"
+    appVersion: v2023.05.12
+    created: "2023-05-25T16:42:05.279887172+06:00"
     description: A Helm chart for Kubernetes
-    digest: 9610852f1a865bbe31773f36f2acd0cf1cfa4f3c71d821733e1f15b23162a5f8
+    digest: e306d867e9bf37278c3fd587d583bde79ab39a9dcc504cb564db2d738dfed8db
     home: https://github.com/bytebuilders
     icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
     maintainers:
@@ -16,7 +16,7 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/accounts-ui/accounts-ui-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/accounts-ui/accounts-ui-v2023.03.23.tgz
     version: v2023.03.23
   ace:
   - apiVersion: v2
@@ -105,12 +105,30 @@ entries:
     urls:
     - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/ace/ace-v2023.03.23.tgz
     version: v2023.03.23
+  ace-installer:
+  - apiVersion: v2
+    appVersion: v0.4.14
+    created: "2023-05-25T16:42:05.280592389+06:00"
+    description: ACE Installer
+    digest: 0f7627e3bfa367aee51f8d0f21b3d6b35d165db5cd8f8970a560e74cde5c306a
+    home: https://github.com/bytebuilders
+    icon: https://cdn.appscode.com/images/products/kubeops/icons/android-icon-192x192.png
+    maintainers:
+    - email: support@appscode.com
+      name: appscode
+    name: ace-installer
+    sources:
+    - https://github.com/bytebuilders/installer
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/ace-installer/ace-installer-v2023.03.23.tgz
+    version: v2023.03.23
   appcatalog:
   - apiVersion: v2
     appVersion: v0.0.1
-    created: "2023-04-06T12:05:50.703533041+06:00"
+    created: "2023-05-25T16:42:05.292298298+06:00"
     description: A Helm chart for Appcatalog Operator by AppsCode
-    digest: bf42a61f573017a59d47deb3d755cf4b23ee994bd8bea2be54d53dc657c07070
+    digest: 262db097cabdfffce95333026b8eee26a5a24829824c46022430da5df6042f93
     home: https://github.com/bytebuilders/appcatalog
     icon: https://cdn.appscode.com/images/products/searchlight/icons/android-icon-192x192.png
     maintainers:
@@ -121,14 +139,14 @@ entries:
     - https://github.com/bytebuilders/appcatalog
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/appcatalog/appcatalog-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/appcatalog/appcatalog-v2023.03.23.tgz
     version: v2023.03.23
   billing:
   - apiVersion: v2
-    appVersion: v2023.03.23
-    created: "2023-04-06T12:05:50.704193808+06:00"
+    appVersion: v2023.05.12
+    created: "2023-05-25T16:42:05.292867976+06:00"
     description: A Helm chart for Kubernetes
-    digest: b8eb799069390f401ee051494eb53c2d1d12446726eb23ab69894d636e398b4e
+    digest: 0a9949b5d2b9a0568d266ea11cfe337fc8f1d956b079e695f4d905c721c0e91e
     home: https://github.com/bytebuilders
     icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
     maintainers:
@@ -139,14 +157,50 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/billing/billing-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/billing/billing-v2023.03.23.tgz
+    version: v2023.03.23
+  billing-ui:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-05-25T16:42:05.293295985+06:00"
+    description: A Helm chart for Kubernetes
+    digest: 2e972996fd99434824a7d999ccf4b55d58770a6a42a592d663fbeae9b4af62b8
+    home: https://github.com/bytebuilders
+    icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
+    maintainers:
+    - email: support@appscode.com
+      name: appscode
+    name: billing-ui
+    sources:
+    - https://github.com/bytebuilders
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/billing-ui/billing-ui-v2023.03.23.tgz
+    version: v2023.03.23
+  capa-vpc-peering-operator:
+  - apiVersion: v2
+    appVersion: v0.0.1
+    created: "2023-05-25T16:42:05.293769713+06:00"
+    description: A Helm chart for CAPA VPC Peering Operator by AppsCode
+    digest: 57cfbcb991b9cc72d9920f43fcac4b2723c68b3ebb316177b36a342d864a8513
+    home: https://github.com/bytebuilders/capa-vpc-peering-operator
+    icon: https://cdn.appscode.com/images/products/searchlight/icons/android-icon-192x192.png
+    maintainers:
+    - email: support@appscode.com
+      name: appscode
+    name: capa-vpc-peering-operator
+    sources:
+    - https://github.com/bytebuilders/capa-vpc-peering-operator
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/capa-vpc-peering-operator/capa-vpc-peering-operator-v2023.03.23.tgz
     version: v2023.03.23
   capi-ui-presets:
   - apiVersion: v2
     appVersion: v2023.03.23
-    created: "2023-04-06T12:05:50.704833554+06:00"
+    created: "2023-05-25T16:42:05.294050632+06:00"
     description: ACE UI Presets for CAPI by AppsCode
-    digest: 728866807121d8f01351d6b180643a8af2106453c96e8dc8b29954657b9c4202
+    digest: 462fbd36f02da748a0100976049cbe38dc042f522f1089680a87966f64263513
     home: https://github.com/bytebuilders
     icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
     maintainers:
@@ -157,15 +211,15 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/capi-ui-presets/capi-ui-presets-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/capi-ui-presets/capi-ui-presets-v2023.03.23.tgz
     version: v2023.03.23
   cert-manager-webhook-ace:
   - apiVersion: v2
     appVersion: v0.0.1
-    created: "2023-04-06T12:05:50.705457976+06:00"
+    created: "2023-05-25T16:42:05.294532851+06:00"
     description: A webhook to use AppsCode DNS Proxy for Cloudfare as a DNS issuer
       for cert-manager
-    digest: 27eeaab01c05c7c7a2c93919c6ce16082bfd215312a90acad3b0b4c2b8cd1048
+    digest: ed67ea9f6f1ccf6bb0f2397ce6e25c829aa25213129e75ec0baa882f1d6e4c77
     home: https://github.com/bytebuilders/cert-manager-webhook-ace
     keywords:
     - cert-manager
@@ -179,14 +233,14 @@ entries:
     - https://github.com/bytebuilders/cert-manager-webhook-ace
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/cert-manager-webhook-ace/cert-manager-webhook-ace-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/cert-manager-webhook-ace/cert-manager-webhook-ace-v2023.03.23.tgz
     version: v2023.03.23
   cluster-ui:
   - apiVersion: v2
     appVersion: 0.4.32
-    created: "2023-04-06T12:05:50.706018677+06:00"
+    created: "2023-05-25T16:42:05.294983979+06:00"
     description: A Helm chart for Kubernetes
-    digest: cf9c24ea8385c6397cffeb4adb8b31234617dc231f4763f030705ab7de366505
+    digest: fb45c18e9028b4e6271175fb16ead2c0b3f954e340486dd4024a4ea01c59ef7a
     home: https://github.com/bytebuilders
     icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
     maintainers:
@@ -197,14 +251,14 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/cluster-ui/cluster-ui-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/cluster-ui/cluster-ui-v2023.03.23.tgz
     version: v2023.03.23
   deploy-ui:
   - apiVersion: v2
     appVersion: 0.3.5
-    created: "2023-04-06T12:05:50.706576537+06:00"
+    created: "2023-05-25T16:42:05.295490488+06:00"
     description: A Helm chart for Kubernetes
-    digest: 686224ad516cc7a6a01e06f931362df670796ab50e3a9f3f8941c7a28825af21
+    digest: 195559097c047dabc9b6d9ab5f731da70dca1f03a433927457bda1c9140dc9c5
     home: https://github.com/bytebuilders
     icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
     maintainers:
@@ -215,14 +269,14 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/deploy-ui/deploy-ui-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/deploy-ui/deploy-ui-v2023.03.23.tgz
     version: v2023.03.23
   dns-proxy:
   - apiVersion: v2
     appVersion: v0.0.2
-    created: "2023-04-06T12:05:50.707245892+06:00"
+    created: "2023-05-25T16:42:05.296038556+06:00"
     description: A Helm chart for Kubernetes
-    digest: 69da7f9f8f3feac727634e31023973a4222db094b4072208e87e419c5731adda
+    digest: 830acc3e22dd6449804b5379fe778162595fbdc9984e06feb2040a481dfe2d1e
     home: https://github.com/bytebuilders
     icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
     maintainers:
@@ -233,14 +287,14 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/dns-proxy/dns-proxy-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/dns-proxy/dns-proxy-v2023.03.23.tgz
     version: v2023.03.23
   grafana:
   - apiVersion: v2
     appVersion: v2022.05.27
-    created: "2023-04-06T12:05:50.707824792+06:00"
+    created: "2023-05-25T16:42:05.297029792+06:00"
     description: A Helm chart for Kubernetes
-    digest: 90454b6ebb881a6bf11a68129ff9acd13054d95e875ab04f00dcb98385ef2551
+    digest: 28324aa39651f5b3bb3059d07135df9f7e750aa586e07f21293f0d2dd373280d
     home: https://github.com/bytebuilders
     icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
     maintainers:
@@ -251,14 +305,14 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/grafana/grafana-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/grafana/grafana-v2023.03.23.tgz
     version: v2023.03.23
   kube-auth-manager:
   - apiVersion: v2
     appVersion: v0.0.1
-    created: "2023-04-06T12:05:50.710586764+06:00"
+    created: "2023-05-25T16:42:05.298318558+06:00"
     description: A Helm chart for Kubernetes Auth Manager by AppsCode
-    digest: d568b5764cc9d32d652b2f04a4007f83014e09bfc2b2c1569af82f0c8a7e2b5e
+    digest: d2c82b27eb0268368155d0737fcd42be232dc45a12bab03b640a6d5bb30f0069
     home: https://github.com/bytebuilders/kube-auth-manager
     icon: https://cdn.appscode.com/images/products/searchlight/icons/android-icon-192x192.png
     maintainers:
@@ -269,14 +323,14 @@ entries:
     - https://github.com/bytebuilders/kube-auth-manager
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/kube-auth-manager/kube-auth-manager-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/kube-auth-manager/kube-auth-manager-v2023.03.23.tgz
     version: v2023.03.23
   kube-auth-proxy:
   - apiVersion: v2
     appVersion: v0.0.1
-    created: "2023-04-06T12:05:50.71415079+06:00"
+    created: "2023-05-25T16:42:05.299739673+06:00"
     description: A Helm chart for Kubernetes Auth Proxy by AppsCode
-    digest: 4f88203a3b73f53f7d963478ed32abbf988fa640daac45cb8896d60a1ccdc040
+    digest: 055d5d50d677fd95ec7a84a3f4c242baafc79dab82eec48178150bcc85f9342a
     home: https://github.com/bytebuilders/kube-auth-proxy
     icon: https://cdn.appscode.com/images/products/searchlight/icons/android-icon-192x192.png
     maintainers:
@@ -287,14 +341,32 @@ entries:
     - https://github.com/bytebuilders/kube-auth-proxy
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/kube-auth-proxy/kube-auth-proxy-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/kube-auth-proxy/kube-auth-proxy-v2023.03.23.tgz
+    version: v2023.03.23
+  kube-bind-manager:
+  - apiVersion: v2
+    appVersion: v0.0.1
+    created: "2023-05-25T16:42:05.309639408+06:00"
+    description: A Helm chart for kube-bind Server by AppsCode
+    digest: 5ca9ded8d28baee71b2e6408182e42594bec20bb7e40ccd437b1374dc0d5754c
+    home: https://github.com/bytebuilders/kube-bind-server
+    icon: https://cdn.appscode.com/images/products/searchlight/icons/android-icon-192x192.png
+    maintainers:
+    - email: support@appscode.com
+      name: appscode
+    name: kube-bind-manager
+    sources:
+    - https://github.com/bytebuilders/kube-bind-server
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/kube-bind-manager/kube-bind-manager-v2023.03.23.tgz
     version: v2023.03.23
   kube-bind-server:
   - apiVersion: v2
     appVersion: v0.0.1
-    created: "2023-04-06T12:05:50.728985655+06:00"
+    created: "2023-05-25T16:42:05.319720583+06:00"
     description: A Helm chart for kube-bind Server by AppsCode
-    digest: d6af9c80e3bf581557656a3afef4a12f38781462f377f28b4dd995982124e6de
+    digest: 3b63d8f816eee77dbe4e69ce93ee86de5ebd6e4a83210f16c3cdd18a28b9ca2c
     home: https://github.com/bytebuilders/kube-bind-server
     icon: https://cdn.appscode.com/images/products/searchlight/icons/android-icon-192x192.png
     maintainers:
@@ -305,14 +377,14 @@ entries:
     - https://github.com/bytebuilders/kube-bind-server
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/kube-bind-server/kube-bind-server-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/kube-bind-server/kube-bind-server-v2023.03.23.tgz
     version: v2023.03.23
   kubedb-ui:
   - apiVersion: v2
     appVersion: 0.3.28
-    created: "2023-04-06T12:05:50.729653867+06:00"
+    created: "2023-05-25T16:42:05.320035201+06:00"
     description: A Helm chart for Kubernetes
-    digest: 621f835a589e400e3b993c67eddc851444678f8d21dcb5e12b57405722c32939
+    digest: 6730fc287e6a6d143bb4b2845918f213513a2320ff4f2988e78ac8beb8c79803
     home: https://github.com/bytebuilders
     icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
     maintainers:
@@ -323,14 +395,14 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/kubedb-ui/kubedb-ui-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/kubedb-ui/kubedb-ui-v2023.03.23.tgz
     version: v2023.03.23
   license-proxyserver:
   - apiVersion: v1
     appVersion: v0.0.4
-    created: "2023-04-06T12:05:50.730849619+06:00"
+    created: "2023-05-25T16:42:05.32059421+06:00"
     description: Kubernetes license-proxyserver by AppsCode
-    digest: 5806dd5603b03939a53a7cc47d0135c1710e3790f2a686122e4a25ae50640d4e
+    digest: 2729a69ac8a93a11968af3f12026e646bb7f1480df31fab3fe094b011524f410
     home: https://github.com/bytebuilders/license-proxyserver
     icon: https://cdn.appscode.com/images/products/searchlight/icons/android-icon-192x192.png
     maintainers:
@@ -340,14 +412,14 @@ entries:
     sources:
     - https://github.com/bytebuilders/license-proxyserver
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/license-proxyserver/license-proxyserver-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/license-proxyserver/license-proxyserver-v2023.03.23.tgz
     version: v2023.03.23
   marketplace-ui:
   - apiVersion: v2
     appVersion: 0.3.0
-    created: "2023-04-06T12:05:50.731648876+06:00"
+    created: "2023-05-25T16:42:05.320870589+06:00"
     description: A Helm chart for Kubernetes
-    digest: e09f05cee56415c4fd6dd148365b1a7af62e265b3faaf376ecf2bf6d53afc854
+    digest: 476cfe13efddf00aae32ac112396ecf0fc7e7a188516589c32ef5a3430aa6ac7
     home: https://github.com/bytebuilders
     icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
     maintainers:
@@ -358,14 +430,14 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/marketplace-ui/marketplace-ui-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/marketplace-ui/marketplace-ui-v2023.03.23.tgz
     version: v2023.03.23
   minio:
   - apiVersion: v2
     appVersion: RELEASE.2023-01-12T02-06-16Z
-    created: "2023-04-06T12:05:50.732284585+06:00"
+    created: "2023-05-25T16:42:05.321251167+06:00"
     description: A Helm chart for MinIO Demo Deployment
-    digest: 16437184070280e2ee8ff9019b2ab116204213746614a3a2a7c094514c623cfb
+    digest: 560ee6a60df6b1f799da2eb09d7467374b32be0461f59dd776b47296fd689209
     home: https://github.com/bytebuilders
     icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
     maintainers:
@@ -376,7 +448,7 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/minio/minio-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/minio/minio-v2023.03.23.tgz
     version: v2023.03.23
   monitoring-config:
   - apiVersion: v2
@@ -399,9 +471,9 @@ entries:
   monitoring-ui-presets:
   - apiVersion: v2
     appVersion: v2023.03.23
-    created: "2023-04-06T12:05:50.732847554+06:00"
+    created: "2023-05-25T16:42:05.321561636+06:00"
     description: ACE UI Presets for Monitoring by AppsCode
-    digest: 617b0775df55938fdb9f72c8bda07e8c684a1247b2a6e9fbc282af1ed358686e
+    digest: f80e5a700bad420ff567c2ae72c4b2b8cee4ae4a248c4503c9311b38ce00a5e3
     home: https://github.com/bytebuilders
     icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
     maintainers:
@@ -412,14 +484,14 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/monitoring-ui-presets/monitoring-ui-presets-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/monitoring-ui-presets/monitoring-ui-presets-v2023.03.23.tgz
     version: v2023.03.23
   opscenter-features:
   - apiVersion: v2
-    appVersion: v2023.03.23
-    created: "2023-04-06T12:05:50.733642493+06:00"
+    appVersion: v0.4.16
+    created: "2023-05-25T16:42:05.322045345+06:00"
     description: ByteBuilders Opscenter Configuration
-    digest: 37a37bfca3364c5ac83f6de2a3284bb33231abda8e594449cd61a231cb5f432d
+    digest: 8850973bda2bb1aa40ee772e38073fdf6b2d6594844eae4d154ee6d6a8571f0c
     home: https://github.com/bytebuilders
     icon: https://cdn.appscode.com/images/products/kubeops/icons/android-icon-192x192.png
     maintainers:
@@ -430,14 +502,14 @@ entries:
     - https://github.com/bytebuilders/installer
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/opscenter-features/opscenter-features-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/opscenter-features/opscenter-features-v2023.03.23.tgz
     version: v2023.03.23
   platform-api:
   - apiVersion: v2
-    appVersion: v2023.03.23
-    created: "2023-04-06T12:05:50.734306575+06:00"
+    appVersion: v2023.05.12
+    created: "2023-05-25T16:42:05.322438253+06:00"
     description: A Helm chart for Kubernetes
-    digest: 9ff20a7f6340c6de625490839fb3ef8b51c6c987f58bc813f0b1f0cad7591fb2
+    digest: 106642c12bdb2f2bb736be7806b156ea09c9c6b8bf206de7786b1b52bfe445c1
     home: https://github.com/bytebuilders
     icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
     maintainers:
@@ -448,14 +520,14 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/platform-api/platform-api-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/platform-api/platform-api-v2023.03.23.tgz
     version: v2023.03.23
   platform-ui:
   - apiVersion: v2
     appVersion: 0.3.26
-    created: "2023-04-06T12:05:50.734860716+06:00"
+    created: "2023-05-25T16:42:05.32338643+06:00"
     description: A Helm chart for Kubernetes
-    digest: c3aedb822f4f491f7616868139405703779d8f65a269cb75f141d9094f294c3e
+    digest: ce41427587cf3704042a7ea6a0729d55f0845eeae226329f48cd6bd3a596cc25
     home: https://github.com/bytebuilders
     icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
     maintainers:
@@ -466,7 +538,7 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/platform-ui/platform-ui-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/platform-ui/platform-ui-v2023.03.23.tgz
     version: v2023.03.23
   prom-proxy:
   - apiVersion: v2
@@ -489,9 +561,9 @@ entries:
   smtprelay:
   - apiVersion: v2
     appVersion: v0.0.2
-    created: "2023-04-06T12:05:50.736210322+06:00"
+    created: "2023-05-25T16:42:05.323898078+06:00"
     description: A Helm chart for Kubernetes
-    digest: c2e656a9d0416933fd5030f7680caad292432f39af0d1f2858782f92cd81c614
+    digest: 867a75bf5463e5b7b46c77711e06e7f874751cebb4812b17b370af124f3b0205
     home: https://github.com/bytebuilders
     icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
     maintainers:
@@ -502,7 +574,7 @@ entries:
     - https://github.com/bytebuilders
     type: application
     urls:
-    - https://raw.githubusercontent.com/bytebuilders/installer/master/stable/smtprelay/smtprelay-v2023.03.23.tgz
+    - https://raw.githubusercontent.com/bytebuilders/installer/stash/stable/smtprelay/smtprelay-v2023.03.23.tgz
     version: v2023.03.23
   ui-presets:
   - apiVersion: v2
@@ -522,4 +594,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/bytebuilders/installer/masud/stable/ui-presets/ui-presets-v2023.03.23.tgz
     version: v2023.03.23
-generated: "2023-04-06T12:05:50.685235309+06:00"
+generated: "2023-05-25T16:42:05.279390893+06:00"
