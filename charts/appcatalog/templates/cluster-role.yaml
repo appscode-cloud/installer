@@ -12,8 +12,12 @@ rules:
 - apiGroups:
   - kubedb.com
   resources: ["*"]
-  verbs: ["get", "list", "watch"]
+  verbs: ["*"]
 - apiGroups:
   - kubevault.com
   resources: ["*"]
-  verbs: ["get", "list", "watch"]
+  verbs: ["*"]
+- apiGroups:
+  - engine.kubevault.com
+  resources: ["*"]
+  verbs: ["*"]
