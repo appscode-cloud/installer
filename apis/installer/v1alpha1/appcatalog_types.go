@@ -70,6 +70,19 @@ type AppcatalogSpec struct {
 	// +optional
 	Affinity   *core.Affinity `json:"affinity"`
 	Monitoring Monitoring     `json:"monitoring"`
+
+	// +optional
+	VaultServer vaultServer `json:"vaultserver"`
+	// +optional
+	Serviceaccount serviceAccount `json:"serviceaccount"`
+}
+type vaultServer struct {
+	name      string `json:"name"`
+	namespace string `json:"namespace"`
+}
+type serviceAccount struct {
+	name      string `json:"name"`
+	namespace string `json:"namespace"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
