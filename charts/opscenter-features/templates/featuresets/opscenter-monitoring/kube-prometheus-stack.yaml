@@ -10,8 +10,9 @@ spec:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
   featureSet: opscenter-monitoring
+  featureBlock: kube-prometheus-stack
   required: true
-  requirements:
+  readinessChecks:
     resources:
     - group: monitoring.coreos.com
       version: v1

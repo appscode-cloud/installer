@@ -10,8 +10,9 @@ spec:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
   featureSet: opscenter-monitoring
+  featureBlock: panopticon
   required: true
-  requirements:
+  readinessChecks:
     resources:
     - group: metrics.appscode.com
       version: v1alpha1

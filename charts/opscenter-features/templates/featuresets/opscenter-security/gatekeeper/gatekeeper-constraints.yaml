@@ -10,13 +10,12 @@ spec:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   featureSet: opscenter-security
+  featureBlock: gatekeeper
   required: false
   requirements:
     features:
+      - gatekeeper
       - gatekeeper-templates
-  dependsOn:
-    - name: opscenter-security-gatekeeper
-    - name: opscenter-security-gatekeeper-templates
   chart:
     name: gatekeeper-library
     namespace: gatekeeper-system
@@ -25,3 +24,5 @@ spec:
       kind: HelmRepository
       name: kubeops
       namespace: {{ .Release.Namespace }}
+  values:
+    enable: constraints

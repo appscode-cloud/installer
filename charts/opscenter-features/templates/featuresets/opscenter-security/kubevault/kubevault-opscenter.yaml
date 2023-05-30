@@ -10,10 +10,12 @@ spec:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   featureSet: opscenter-security
+  featureBlock: kubevault
   required: false
   requirements:
     features:
     - kubevault
+  readinessChecks:
     workloads:
       - group: apps
         version: v1
