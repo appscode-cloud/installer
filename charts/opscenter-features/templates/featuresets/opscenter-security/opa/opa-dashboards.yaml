@@ -1,0 +1,25 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: gatekeeper-grafana-dashboards
+spec:
+  title: GateKeeper Policy Grafana Dashboards
+  description: |
+    GateKeeper Policy Grafana Dashboards
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-security
+  required: false
+  requirements:
+    features:
+      - gatekeeper
+      - grafana-opscenter
+  chart:
+    name: gatekeeper-grafana-dashboards
+    namespace: kubeops
+    version: "v2023.03.23"
+    sourceRef:
+      kind: HelmRepository
+      name: kubeops
+      namespace: {{ .Release.Namespace }}

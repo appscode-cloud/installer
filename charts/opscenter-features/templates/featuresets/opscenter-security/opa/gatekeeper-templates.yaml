@@ -1,0 +1,33 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: gatekeeper-templates
+spec:
+  title: Gatekeeper Templates
+  description: |
+    The OPA Gatekeeper Policy Template Library.
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-security
+  required: false
+  requirements:
+    features:
+      - gatekeeper
+    resources:
+      - group: constraints.gatekeeper.sh
+        version: v1beta1
+        kind: K8sAllowedRepos
+      - group: constraints.gatekeeper.sh
+        version: v1beta1
+        kind: K8sReplicaLimits
+  dependsOn:
+    - name: opscenter-security-gatekeeper
+  chart:
+    name: gatekeeper-library
+    namespace: gatekeeper-system
+    version: "v2023.03.03"
+    sourceRef:
+      kind: HelmRepository
+      name: kubeops
+      namespace: {{ .Release.Namespace }}
