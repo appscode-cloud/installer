@@ -11,7 +11,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-monitoring
   required: true
-  requirements:
+  readinessChecks:
     resources:
     - group: monitoring.coreos.com
       version: v1

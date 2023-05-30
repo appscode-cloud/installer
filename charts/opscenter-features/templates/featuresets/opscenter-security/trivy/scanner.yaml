@@ -11,7 +11,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-security
   required: true
-  requirements:
+  readinessChecks:
     workloads:
       - group: apps
         version: v1
