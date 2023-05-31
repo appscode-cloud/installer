@@ -1,2 +1,45 @@
-Error: unknown command ".spec.versions[0].schema.openAPIV3Schema.properties.spec | del(.description)" for "yq"
-Run 'yq --help' for usage.
+properties:
+  fullnameOverride:
+    type: string
+  nameOverride:
+    type: string
+  repositories:
+    additionalProperties:
+      properties:
+        interval:
+          pattern: ^([0-9]+(\.[0-9]+)?(ms|s|m|h))+$
+          type: string
+        provider:
+          default: generic
+          enum:
+          - generic
+          - aws
+          - azure
+          - gcp
+          type: string
+        secretName:
+          type: string
+        type:
+          enum:
+          - default
+          - oci
+          type: string
+        url:
+          type: string
+      required:
+      - interval
+      - url
+      type: object
+    type: object
+  repositoryCredentials:
+    additionalProperties:
+      additionalProperties:
+        type: string
+      type: object
+    type: object
+required:
+- fullnameOverride
+- nameOverride
+- repositories
+- repositoryCredentials
+type: object

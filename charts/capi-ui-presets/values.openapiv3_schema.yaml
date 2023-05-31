@@ -1,2 +1,2 @@
-Error: unknown command ".spec.versions[0].schema.openAPIV3Schema.properties.spec | del(.description)" for "yq"
-Run 'yq --help' for usage.
+type: object
+x-kubernetes-preserve-unknown-fields: true

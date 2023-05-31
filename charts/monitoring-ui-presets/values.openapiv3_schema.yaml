@@ -1,2 +1,33 @@
-Error: unknown command ".spec.versions[0].schema.openAPIV3Schema.properties.spec | del(.description)" for "yq"
-Run 'yq --help' for usage.
+properties:
+  monitoring:
+    properties:
+      alert:
+        properties:
+          enabled:
+            enum:
+            - none
+            - critical
+            - warning
+            - info
+            type: string
+          labels:
+            additionalProperties:
+              type: string
+            type: object
+        required:
+        - enabled
+        type: object
+      serviceMonitor:
+        properties:
+          labels:
+            additionalProperties:
+              type: string
+            type: object
+        type: object
+    required:
+    - alert
+    - serviceMonitor
+    type: object
+required:
+- monitoring
+type: object

@@ -21,3 +21,6 @@ rules:
   - engine.kubevault.com
   resources: ["*"]
   verbs: ["*"]
+- apiGroups: [""]
+  resources: ["serviceaccounts"]
+  verbs: ["get", "list", "watch"]

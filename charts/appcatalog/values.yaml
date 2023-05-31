@@ -70,9 +70,9 @@ monitoring:
     # Only usable when monitoring agent is `prometheus.io/operator`.
     labels: {}
 
-vaultserver:
-  name: "vault"
-  namespace: "demo"
+vaultServer:
+  name: "vault2"
+  namespace: "kubeops"
 
 serviceaccount:
   name: "hostedapp-serviceaccount"
