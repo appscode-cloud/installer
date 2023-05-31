@@ -12,9 +12,6 @@ spec:
   featureSet: opscenter-backup
   featureBlock: stash
   required: true
-  requirements:
-    features:
-      - stash
   readinessChecks:
     workloads:
       - group: apps
