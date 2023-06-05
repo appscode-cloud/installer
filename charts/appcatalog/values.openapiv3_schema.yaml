@@ -364,6 +364,16 @@ properties:
             type: array
         type: object
     type: object
+  databaseServiceAccount:
+    properties:
+      name:
+        type: string
+      namespace:
+        type: string
+    required:
+    - name
+    - namespace
+    type: object
   fullnameOverride:
     type: string
   image:
@@ -574,16 +584,6 @@ properties:
         type: string
     required:
     - create
-    type: object
-  serviceaccount:
-    properties:
-      name:
-        type: string
-      namespace:
-        type: string
-    required:
-    - name
-    - namespace
     type: object
   tolerations:
     items:

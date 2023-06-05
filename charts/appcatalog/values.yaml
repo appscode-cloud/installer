@@ -71,9 +71,9 @@ monitoring:
     labels: {}
 
 vaultServer:
-  name: "vault2"
+  name: "vault"
   namespace: "kubeops"
 
-serviceaccount:
+databaseServiceAccount:
   name: "hostedapp-serviceaccount"
   namespace: "kubeops"

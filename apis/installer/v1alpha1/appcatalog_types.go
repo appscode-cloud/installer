@@ -74,14 +74,14 @@ type AppcatalogSpec struct {
 	// +optional
 	VaultServer vaultServer `json:"vaultServer"`
 	// +optional
-	Serviceaccount serviceAccount `json:"serviceaccount"`
+	DatabaseServiceAccount databaseServiceAccount `json:"databaseServiceAccount"`
 }
 
 type vaultServer struct {
 	name      string `json:"name"`
 	namespace string `json:"namespace"`
 }
-type serviceAccount struct {
+type databaseServiceAccount struct {
 	name      string `json:"name"`
 	namespace string `json:"namespace"`
 }
