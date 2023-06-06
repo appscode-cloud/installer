@@ -15,6 +15,9 @@ repositories:
   bytebuilders:
     interval: 30m0s
     url: https://charts.appscode.com/stable/
+  falcosecurity:
+    interval: 30m0s
+    url: https://falcosecurity.github.io/charts
   gatekeeper:
     interval: 30m0s
     url: https://open-policy-agent.github.io/gatekeeper/charts
