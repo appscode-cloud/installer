@@ -36,6 +36,3 @@ spec:
       kind: HelmRepository
       name: gatekeeper
       namespace: {{ .Release.Namespace }}
-  values:
-    disableMutation: true
-    disableValidatingWebhook: true
