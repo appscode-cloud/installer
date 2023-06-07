@@ -36,3 +36,5 @@ spec:
       kind: HelmRepository
       name: gatekeeper
       namespace: {{ .Release.Namespace }}
+  values:
+    constraintViolationsLimit: 100
