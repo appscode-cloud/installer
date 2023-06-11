@@ -5,7 +5,7 @@ metadata:
 spec:
   title: Falco
   description: |
-    Container Native Runtime Security.
+    Container Native Runtime Security
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
@@ -43,7 +43,12 @@ spec:
     falco:
       modern_bpf:
         cpus_for_each_syscall_buffer: 1
-    falcosidekick:
-      enabled: true
-      webui:
+      json_output: true
+      json_include_output_property: true
+      http_output:
         enabled: true
+        url: http://falco-ui-server:8080/falcoevents
+    falcosidekick:
+      enabled: false
+      webui:
+        enabled: false

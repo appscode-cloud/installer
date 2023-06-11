@@ -1,0 +1,31 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: falco-ui-server
+spec:
+  title: Falco UI Server
+  description: |
+    Falco UI Server
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-security
+  featureBlock: falco
+  required: false
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: falco-ui-server
+          app.kubernetes.io/instance: falco-ui-server
+  chart:
+    name: falco-ui-server
+    namespace: falco
+    version: "v2023.03.23"
+    sourceRef:
+      kind: HelmRepository
+      name: kubeops
+      namespace: {{ .Release.Namespace }}
