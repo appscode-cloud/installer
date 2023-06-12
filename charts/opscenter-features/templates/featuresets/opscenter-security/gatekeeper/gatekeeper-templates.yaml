@@ -23,8 +23,6 @@ spec:
       - group: constraints.gatekeeper.sh
         version: v1beta1
         kind: K8sReplicaLimits
-  dependsOn:
-    - name: opscenter-security-gatekeeper
   chart:
     name: gatekeeper-library
     namespace: gatekeeper-system

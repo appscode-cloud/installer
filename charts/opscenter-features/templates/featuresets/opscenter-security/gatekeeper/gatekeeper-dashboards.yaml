@@ -15,7 +15,7 @@ spec:
   requirements:
     features:
       - gatekeeper
-      - grafana-opscenter
+      - grafana-operator
   chart:
     name: gatekeeper-grafana-dashboards
     namespace: kubeops
