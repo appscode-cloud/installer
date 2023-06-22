@@ -13,6 +13,7 @@ spec:
   requiredFeatures:
     - crossplane
     - external-dns-operator
+    - capi-ui-presets
   chart:
     name: uik8sappscodecom-featureset-opscenter-manageddb-editor
     version: {{ .Chart.AppVersion }}
