@@ -12,6 +12,7 @@ spec:
   required: false
   requiredFeatures:
     - crossplane
+    - external-dns-operator
   chart:
     name: uik8sappscodecom-featureset-opscenter-manageddb-editor
     version: {{ .Chart.AppVersion }}

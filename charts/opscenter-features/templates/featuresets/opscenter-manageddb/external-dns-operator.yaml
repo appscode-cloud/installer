@@ -4,7 +4,8 @@ metadata:
   name: external-dns-operator
 spec:
   title: External DNS Operator
-  description: Necessary Component for providing Managed Database Solution.
+  description: |
+    Necessary Component for providing Managed Database Solution.
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
@@ -18,11 +19,12 @@ spec:
         kind: Deployment
         selector:
           app.kubernetes.io/name: external-dns-operator
+          app.kubernetes.io/managed-by: Helm
   chart:
     name: external-dns-operator
     namespace: kubeops
     version: "v2022.06.14"
     sourceRef:
       kind: HelmRepository
-      name: external-dns-operator
+      name: appscode
       namespace: {{ .Release.Namespace }}
