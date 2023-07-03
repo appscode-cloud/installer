@@ -31,10 +31,10 @@ spec:
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           args:
             - run
-            - --vaultserver-name={{ .Values.vaultServer.name }}
-            - --vaultserver-namespace={{ .Values.vaultServer.namespace }}
-            - --serviceaccount-name={{ .Values.databaseServiceAccount.name }}
-            - --serviceaccount-namespace={{ .Values.databaseServiceAccount.namespace }}
+            - --vault-server-name={{ .Values.vaultServer.name }}
+            - --vault-server-namespace={{ .Values.vaultServer.namespace }}
+            - --db-service-account-name={{ .Values.databaseServiceAccount.name }}
+            - --db-service-account-namespace={{ .Values.databaseServiceAccount.namespace }}
           ports:
             - name: metrics
               containerPort: 8080
