@@ -72,3 +72,7 @@ dependencies:
   repository: https://nats-io.github.io/k8s/helm/charts/
   condition: nats.enabled
   version: 0.19.12
+- name: kube-bind-server
+  repository: file://../kube-bind-server
+  condition: kube-bind-server.enabled
+  version: v2023.03.23

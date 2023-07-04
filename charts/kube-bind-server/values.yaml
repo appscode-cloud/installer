@@ -71,3 +71,35 @@ monitoring:
     # Prometheus crd will select ServiceMonitor using these labels.
     # Only usable when monitoring agent is `prometheus.io/operator`.
     labels: {}
+
+
+server:
+  oidc:
+    # issuer client ID
+    clientID: ""
+    # issuer client Secret
+    clientSecret: ""
+    issuerURL: "https://accounts.appscode.ninja/"
+    callbackURL: "https://bind.appscode.ninja/callback"
+
+  # the sync namespace created in the provider side will be named like bb-<some-hash>
+  namespacePrefix: "bb-"
+  # the name of the provider
+  providerPrettyName: "Appscode"
+  # How consumers access the service provider cluster. In Kubernetes, "namespaced" allows namespace isolation.
+  # In kcp, "cluster" allows workspace isolation, and with that allows cluster-scoped resources to bind, and it is generally more performant.
+  consumerScope: "Namespaced"
+
+  external:
+    # The external address for the service provider cluster, including https:// and port. If not specified, service account's hosts are used.
+    address: ""
+    # The external (TLS) server name used by consumers to talk to the service provider cluster. This can be useful to select the right certificate via SNI.
+    serverName: ""
+    # The external CA file for the service provider cluster. If not specified, service account's CA is used.
+    CAFile: ""
+
+  cookie:
+    # The key which is used to sign cookies, base64 encoded. Valid lengths are 32 or 64 bytes.
+    signingKey: ""
+    # The key which is used to encrypt cookies, base64 encoded, optional. Valid lengths are 16, 24, or 32 bytes selecting AES-128, AES-192, or AES-256.
+    encryptionKey: ""
