@@ -78,12 +78,12 @@ type AppcatalogSpec struct {
 }
 
 type vaultServer struct {
-	name      string `json:"name"`
-	namespace string `json:"namespace"`
+	Name      string `json:"name"`
+	Namespace string `json:"namespace"`
 }
 type databaseServiceAccount struct {
-	name      string `json:"name"`
-	namespace string `json:"namespace"`
+	Name      string `json:"name"`
+	Namespace string `json:"namespace"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
