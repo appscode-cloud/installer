@@ -72,16 +72,16 @@ type AppcatalogSpec struct {
 	Monitoring Monitoring     `json:"monitoring"`
 
 	// +optional
-	VaultServer vaultServer `json:"vaultServer"`
+	VaultServer VaultServer `json:"vaultServer"`
 	// +optional
-	DatabaseServiceAccount databaseServiceAccount `json:"databaseServiceAccount"`
+	DatabaseServiceAccount DatabaseServiceAccount `json:"databaseServiceAccount"`
 }
 
-type vaultServer struct {
+type VaultServer struct {
 	Name      string `json:"name"`
 	Namespace string `json:"namespace"`
 }
-type databaseServiceAccount struct {
+type DatabaseServiceAccount struct {
 	Name      string `json:"name"`
 	Namespace string `json:"namespace"`
 }
