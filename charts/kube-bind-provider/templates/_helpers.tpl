@@ -2,7 +2,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "kube-bind-manager.name" -}}
+{{- define "kube-bind-provider.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -11,7 +11,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "kube-bind-manager.fullname" -}}
+{{- define "kube-bind-provider.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -27,16 +27,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "kube-bind-manager.chart" -}}
+{{- define "kube-bind-provider.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "kube-bind-manager.labels" -}}
-helm.sh/chart: {{ include "kube-bind-manager.chart" . }}
-{{ include "kube-bind-manager.selectorLabels" . }}
+{{- define "kube-bind-provider.labels" -}}
+helm.sh/chart: {{ include "kube-bind-provider.chart" . }}
+{{ include "kube-bind-provider.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -46,17 +46,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "kube-bind-manager.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "kube-bind-manager.name" . }}
+{{- define "kube-bind-provider.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "kube-bind-provider.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "kube-bind-manager.serviceAccountName" -}}
+{{- define "kube-bind-provider.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "kube-bind-manager.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "kube-bind-provider.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

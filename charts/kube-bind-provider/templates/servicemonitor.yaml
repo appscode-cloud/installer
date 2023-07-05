@@ -2,13 +2,13 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: {{ include "kube-bind-manager.fullname" . }}
+  name: {{ include "kube-bind-provider.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
   {{- if eq "true" ( include "monitoring.apply-servicemonitor-label" . ) }}
     {{- include "monitoring.servicemonitor-label" . | nindent 4 }}
   {{- else }}
-    {{- include "kube-bind-manager.selectorLabels" . | nindent 4 }}
+    {{- include "kube-bind-provider.selectorLabels" . | nindent 4 }}
   {{- end }}
 spec:
   namespaceSelector:
@@ -16,7 +16,7 @@ spec:
     - {{ .Release.Namespace }}
   selector:
     matchLabels:
-      {{- include "kube-bind-manager.selectorLabels" . | nindent 6 }}
+      {{- include "kube-bind-provider.selectorLabels" . | nindent 6 }}
   endpoints:
   - port: api
     bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
@@ -24,7 +24,7 @@ spec:
     tlsConfig:
       ca:
         secret:
-          name: {{ include "kube-bind-manager.fullname" . }}-apiserver-cert
+          name: {{ include "kube-bind-provider.fullname" . }}-apiserver-cert
           key: tls.crt
-      serverName: "{{ include "kube-bind-manager.fullname" . }}.{{ .Release.Namespace }}.svc"
+      serverName: "{{ include "kube-bind-provider.fullname" . }}.{{ .Release.Namespace }}.svc"
 {{- end }}

@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "kube-bind-manager.fullname" . }}
+  name: {{ include "kube-bind-provider.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "kube-bind-manager.labels" . | nindent 4 }}
+    {{- include "kube-bind-provider.labels" . | nindent 4 }}
 {{- if eq "prometheus.io/builtin" ( include "monitoring.agent" . ) }}
   annotations:
     prometheus.io/scrape: "true"
@@ -19,4 +19,4 @@ spec:
     port: 443
     targetPort: 8443
   selector:
-    {{- include "kube-bind-manager.selectorLabels" . | nindent 4 }}
+    {{- include "kube-bind-provider.selectorLabels" . | nindent 4 }}

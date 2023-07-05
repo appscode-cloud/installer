@@ -4,9 +4,9 @@ metadata:
   creationTimestamp: null
   labels:
     kube-bind.io/exported: "true"
-  name: hostedapps.kube-bind-manager.appscode.com
+  name: hostedapps.kube-bind-provider.appscode.com
 spec:
-  group: kube-bind-manager.appscode.com
+  group: kube-bind-provider.appscode.com
   names:
     kind: HostedApp
     listKind: HostedAppList

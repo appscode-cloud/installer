@@ -1,6 +1,6 @@
 apiVersion: v2
-name: kube-bind-manager
-description: A Helm chart for kube-bind Server by AppsCode
+name: kube-bind-provider
+description: A Helm chart for kube-bind provider by AppsCode
 type: application
 version: v2023.03.23
 appVersion: v0.0.1
