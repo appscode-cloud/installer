@@ -1,4 +1,4 @@
-# Default values for kube-bind-manager.
+# Default values for kube-bind-provider.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -16,7 +16,7 @@ image:
   # Docker registry used to pull operator image
   registry: appscode
   # Name of operator container image
-  repository: kube-bind-manager
+  repository: kube-bind-provider
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
   # Compute Resources required by the operator container
