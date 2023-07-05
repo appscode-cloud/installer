@@ -22,12 +22,12 @@ import (
 )
 
 const (
-	ResourceKindKubeBindManager = "KubeBindManager"
-	ResourceKubeBindManager     = "kubebindmanager"
-	ResourceKubeBindManagers    = "kubebindmanagers"
+	ResourceKindKubeBindProvider = "KubeBindProvider"
+	ResourceKubeBindProvider     = "kubebindprovider"
+	ResourceKubeBindProviders    = "kubebindproviders"
 )
 
-// KubeBindManager defines the schama for KubeBindManager operator installer.
+// KubeBindProvider defines the schama for KubeBindProvider operator installer.
 
 // +genclient
 // +genclient:skipVerbs=updateStatus
@@ -35,15 +35,15 @@ const (
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:path=kubebindmanagers,singular=kubebindmanager,categories={kubeops,appscode}
-type KubeBindManager struct {
+// +kubebuilder:resource:path=kubebindproviders,singular=kubebindprovider,categories={kubeops,appscode}
+type KubeBindProvider struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              KubeBindManagerSpec `json:"spec,omitempty"`
+	Spec              KubeBindProviderSpec `json:"spec,omitempty"`
 }
 
-// KubeBindManagerSpec is the schema for Identity Server values file
-type KubeBindManagerSpec struct {
+// KubeBindProviderSpec is the schema for Identity Server values file
+type KubeBindProviderSpec struct {
 	//+optional
 	NameOverride string `json:"nameOverride"`
 	//+optional
@@ -74,10 +74,10 @@ type KubeBindManagerSpec struct {
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// KubeBindManagerList is a list of KubeBindManagers
-type KubeBindManagerList struct {
+// KubeBindProviderList is a list of KubeBindProviders
+type KubeBindProviderList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of KubeBindManager CRD objects
-	Items []KubeBindManager `json:"items,omitempty"`
+	// Items is a list of KubeBindProvider CRD objects
+	Items []KubeBindProvider `json:"items,omitempty"`
 }

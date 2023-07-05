@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "kube-bind-manager.fullname" . }}
+  name: {{ include "kube-bind-provider.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "kube-bind-manager.labels" . | nindent 4 }}
+    {{- include "kube-bind-provider.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "kube-bind-manager.selectorLabels" . | nindent 6 }}
+      {{- include "kube-bind-provider.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -17,10 +17,10 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "kube-bind-manager.selectorLabels" . | nindent 8 }}
+        {{- include "kube-bind-provider.selectorLabels" . | nindent 8 }}
     spec:
       {{- include "appscode.imagePullSecrets" . | nindent 6 }}
-      serviceAccountName: {{ include "kube-bind-manager.serviceAccountName" . }}
+      serviceAccountName: {{ include "kube-bind-provider.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

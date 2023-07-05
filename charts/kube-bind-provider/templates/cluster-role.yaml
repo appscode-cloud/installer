@@ -1,12 +1,12 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: {{ include "kube-bind-manager.fullname" . }}
+  name: {{ include "kube-bind-provider.fullname" . }}
   labels:
-    {{- include "kube-bind-manager.labels" . | nindent 4 }}
+    {{- include "kube-bind-provider.labels" . | nindent 4 }}
 rules:
 - apiGroups:
-  - kube-bind-manager.appscode.com
+  - kube-bind-provider.appscode.com
   resources: ["*"]
   verbs: ["*"]
 - apiGroups:

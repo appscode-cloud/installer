@@ -42,7 +42,7 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.KubedbUiSpec{}},
 		sc.TestCase{Obj: v1alpha1.KubeAuthManagerSpec{}},
 		sc.TestCase{Obj: v1alpha1.KubeAuthProxySpec{}},
-		sc.TestCase{Obj: v1alpha1.KubeBindManagerSpec{}},
+		sc.TestCase{Obj: v1alpha1.KubeBindProviderSpec{}},
 		sc.TestCase{Obj: v1alpha1.KubeBindServerSpec{}},
 		sc.TestCase{Obj: v1alpha1.LicenseProxyserverSpec{}},
 		sc.TestCase{Obj: v1alpha1.MarketplaceUiSpec{}},
