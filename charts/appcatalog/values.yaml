@@ -74,6 +74,6 @@ vaultServer:
   name: "vault"
   namespace: "kubeops"
 
-databaseServiceAccount:
+secretReaderServiceAccount:
   name: "hostedapp-serviceaccount"
   namespace: "kubeops"

@@ -72,18 +72,9 @@ type AppcatalogSpec struct {
 	Monitoring Monitoring     `json:"monitoring"`
 
 	// +optional
-	VaultServer VaultServer `json:"vaultServer"`
+	VaultServer ObjectReference `json:"vaultServer"`
 	// +optional
-	DatabaseServiceAccount DatabaseServiceAccount `json:"databaseServiceAccount"`
-}
-
-type VaultServer struct {
-	Name      string `json:"name"`
-	Namespace string `json:"namespace"`
-}
-type DatabaseServiceAccount struct {
-	Name      string `json:"name"`
-	Namespace string `json:"namespace"`
+	SecretReaderServiceAccount ObjectReference `json:"secretReaderServiceAccount"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
