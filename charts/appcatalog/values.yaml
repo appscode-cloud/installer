@@ -69,3 +69,11 @@ monitoring:
     # Prometheus crd will select ServiceMonitor using these labels.
     # Only usable when monitoring agent is `prometheus.io/operator`.
     labels: {}
+
+vaultServer:
+  name: ""
+  namespace: ""
+
+secretReaderServiceAccount:
+  name: ""
+  namespace: ""

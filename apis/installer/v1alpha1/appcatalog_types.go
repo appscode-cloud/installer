@@ -70,6 +70,11 @@ type AppcatalogSpec struct {
 	// +optional
 	Affinity   *core.Affinity `json:"affinity"`
 	Monitoring Monitoring     `json:"monitoring"`
+
+	// +optional
+	VaultServer ObjectReference `json:"vaultServer"`
+	// +optional
+	SecretReaderServiceAccount ObjectReference `json:"secretReaderServiceAccount"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
