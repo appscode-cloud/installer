@@ -31,6 +31,10 @@ spec:
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           args:
             - run
+            - --vault-server-name={{ .Values.vaultServer.name }}
+            - --vault-server-namespace={{ .Values.vaultServer.namespace }}
+            - --secret-reader-service-account-name={{ .Values.secretReaderServiceAccount.name }}
+            - --secret-reader-service-account-namespace={{ .Values.secretReaderServiceAccount.namespace }}
           ports:
             - name: metrics
               containerPort: 8080

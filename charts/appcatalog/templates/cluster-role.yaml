@@ -7,13 +7,47 @@ metadata:
 rules:
 - apiGroups:
   - appcatalog.appscode.com
-  resources: ["*"]
-  verbs: ["*"]
+  resources:
+  - hostedapps
+  - hostedapps/status
+  verbs: ["get", "list", "watch", "patch"]
 - apiGroups:
   - kubedb.com
-  resources: ["*"]
+  resources:
+  - elasticsearches
+  - kafkas
+  - mariadbs
+  - memcacheds
+  - mongodbs
+  - mysqls
+  - perconaxtradbs
+  - pgbouncers
+  - postgreses
+  - proxysqls
+  - redises
   verbs: ["get", "list", "watch"]
 - apiGroups:
-  - kubevault.com
-  resources: ["*"]
+    - kubevault.com
+  resources:
+    - vaultservers
+  verbs: ["get", "list", "watch"]
+- apiGroups:
+  - engine.kubevault.com
+  resources:
+  - elasticsearchroles
+  - mariadbroles
+  - mongodbroles
+  - mysqlroles
+  - postgresroles
+  - redisroles
+  - secretaccessrequests
+  - secretengines
+  verbs: ["get", "list", "watch", "create", "patch", "delete"]
+- apiGroups:
+  - engine.kubevault.com
+  resources:
+  - secretaccessrequests/status
+  verbs: ["get", "list", "patch"]
+- apiGroups: [""]
+  resources: ["serviceaccounts"]
   verbs: ["get", "list", "watch"]
