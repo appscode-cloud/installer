@@ -52,8 +52,16 @@ podAnnotations: {}
 # Optional pod context. The yaml block should adhere to the [PodSecurityContext spec](https://v1-18.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#securitycontext-v1-core)
 podSecurityContext: {}
 
-# Optional security context. The yaml block should adhere to the [SecurityContext spec](https://v1-18.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#podsecuritycontext-v1-core)
-securityContext: {}
+# Security options this container should run with
+securityContext: # +doc-gen:break
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["ALL"]
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 65534
+  seccompProfile:
+    type: RuntimeDefault
 
 # CPU/memory resource requests/limits
 resources: {}
