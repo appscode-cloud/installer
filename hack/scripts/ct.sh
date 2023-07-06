@@ -28,6 +28,7 @@ for dir in charts/*/; do
         [[ "$dir" = "dns-proxy" ]] ||
         [[ "$dir" = "grafana" ]] ||
         [[ "$dir" = "kube-bind-server" ]] ||
+        [[ "$dir" = "kube-bind-provider" ]] ||
         [[ "$dir" = "opscenter-features" ]] ||
         [[ "$dir" = "platform-api" ]] ||
         [[ "$dir" = "prom-proxy" ]] ||
