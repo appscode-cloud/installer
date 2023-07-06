@@ -71,9 +71,9 @@ monitoring:
     labels: {}
 
 vaultServer:
-  name: "vault"
-  namespace: "kubeops"
+  name: ""
+  namespace: ""
 
 secretReaderServiceAccount:
-  name: "hostedapp-serviceaccount"
-  namespace: "kubeops"
+  name: ""
+  namespace: ""

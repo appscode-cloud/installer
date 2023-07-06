@@ -14,17 +14,17 @@ rules:
 - apiGroups:
   - kubedb.com
   resources:
-  - mariadbs
-  - mongodbs
-  - mysqls
-  - postgreses
-  - redises
   - elasticsearches
   - kafkas
+  - mariadbs
   - memcacheds
+  - mongodbs
+  - mysqls
   - perconaxtradbs
   - pgbouncers
+  - postgreses
   - proxysqls
+  - redises
   verbs: ["get", "list", "watch"]
 - apiGroups:
     - kubevault.com
@@ -34,14 +34,14 @@ rules:
 - apiGroups:
   - engine.kubevault.com
   resources:
-  - mongodbroles
   - elasticsearchroles
-  - redisroles
   - mariadbroles
+  - mongodbroles
   - mysqlroles
   - postgresroles
-  - secretengines
+  - redisroles
   - secretaccessrequests
+  - secretengines
   verbs: ["get", "list", "watch", "create", "patch", "delete"]
 - apiGroups:
   - engine.kubevault.com
