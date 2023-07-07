@@ -27,8 +27,8 @@ for dir in charts/*/; do
         [[ "$dir" = "billing" ]] ||
         [[ "$dir" = "dns-proxy" ]] ||
         [[ "$dir" = "grafana" ]] ||
-        [[ "$dir" = "kube-bind-server" ]] ||
         [[ "$dir" = "kube-bind-provider" ]] ||
+        [[ "$dir" = "kube-bind-server" ]] ||
         [[ "$dir" = "opscenter-features" ]] ||
         [[ "$dir" = "platform-api" ]] ||
         [[ "$dir" = "prom-proxy" ]] ||
@@ -37,6 +37,10 @@ for dir in charts/*/; do
     elif [[ "$dir" = "cert-manager-webhook-ace" ]]; then
         make ct TEST_CHARTS=charts/$dir || true
     else
-        make ct TEST_CHARTS=charts/$dir
+        ns=app-$(date +%s | head -c 6)
+        kubectl create ns $ns
+        kubectl label ns $ns pod-security.kubernetes.io/enforce=restricted
+        make ct TEST_CHARTS=charts/$dir KUBE_NAMESPACE=$ns
+        kubectl delete ns $ns || true
     fi
 done
