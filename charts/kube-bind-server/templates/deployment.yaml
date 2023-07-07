@@ -45,7 +45,7 @@ spec:
             - --external-ca-file={{ .Values.server.external.CAFile }}
           env:
           - name: BIND_BACKEND_IMAGE
-            value: { include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
+            value: {{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
           ports:
           - containerPort: 3003
             name: http
