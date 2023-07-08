@@ -10,5 +10,5 @@ roleRef:
   name: {{ include "kube-bind-server.fullname" . }}
 subjects:
 - kind: ServiceAccount
-  name: {{ include "kube-bind-server.fullname" . }}
+  name: {{ include "kube-bind-server.serviceAccountName" . }}
   namespace: {{ .Release.Namespace }}

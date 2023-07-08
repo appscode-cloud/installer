@@ -47,25 +47,26 @@ type Ace struct {
 
 // AceSpec is the schema for Ace Operator values file
 type AceSpec struct {
-	Billing       AceBilling       `json:"billing"`
-	PlatformUi    AcePlatformUi    `json:"platform-ui"`
-	AccountsUi    AceAccountsUi    `json:"accounts-ui"`
-	ClusterUi     AceClusterUi     `json:"cluster-ui"`
-	DeployUi      AceDeployUi      `json:"deploy-ui"`
-	Grafana       AceGrafana       `json:"grafana"`
-	KubedbUi      AceKubedbUi      `json:"kubedb-ui"`
-	MarketplaceUi AceMarketplaceUi `json:"marketplace-ui"`
-	PlatformApi   AcePlatformApi   `json:"platform-api"`
-	IngressNginx  AceIngressNginx  `json:"ingress-nginx"`
-	IngressDns    AceIngressDns    `json:"ingress-dns"`
-	Nats          AceNats          `json:"nats"`
-	NatsDns       AceNatsDns       `json:"nats-dns"`
-	Trickster     AceTrickster     `json:"trickster"`
-	DNSProxy      AceDnsProxy      `json:"dns-proxy"`
-	SMTPRelay     AceSmtprelay     `json:"smtprelay"`
-	Minio         AceMinio         `json:"minio"`
-	Global        AceGlobalValues  `json:"global"`
-	Settings      Settings         `json:"settings"`
+	Billing        AceBilling        `json:"billing"`
+	PlatformUi     AcePlatformUi     `json:"platform-ui"`
+	AccountsUi     AceAccountsUi     `json:"accounts-ui"`
+	ClusterUi      AceClusterUi      `json:"cluster-ui"`
+	DeployUi       AceDeployUi       `json:"deploy-ui"`
+	Grafana        AceGrafana        `json:"grafana"`
+	KubedbUi       AceKubedbUi       `json:"kubedb-ui"`
+	MarketplaceUi  AceMarketplaceUi  `json:"marketplace-ui"`
+	PlatformApi    AcePlatformApi    `json:"platform-api"`
+	IngressNginx   AceIngressNginx   `json:"ingress-nginx"`
+	IngressDns     AceIngressDns     `json:"ingress-dns"`
+	Nats           AceNats           `json:"nats"`
+	NatsDns        AceNatsDns        `json:"nats-dns"`
+	Trickster      AceTrickster      `json:"trickster"`
+	DNSProxy       AceDnsProxy       `json:"dns-proxy"`
+	SMTPRelay      AceSmtprelay      `json:"smtprelay"`
+	Minio          AceMinio          `json:"minio"`
+	KubeBindServer AceKubeBindServer `json:"kube-bind-server"`
+	Global         AceGlobalValues   `json:"global"`
+	Settings       Settings          `json:"settings"`
 	//+optional
 	RegistryFQDN       string                    `json:"registryFQDN"`
 	Image              ImageReference            `json:"image"`
@@ -167,6 +168,11 @@ type AceSmtprelay struct {
 type AceMinio struct {
 	Enabled    bool `json:"enabled"`
 	*MinioSpec `json:",inline,omitempty"`
+}
+
+type AceKubeBindServer struct {
+	Enabled             bool `json:"enabled"`
+	*KubeBindServerSpec `json:",inline,omitempty"`
 }
 
 type AceGlobalValues struct {

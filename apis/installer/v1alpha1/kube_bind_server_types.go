@@ -70,6 +70,34 @@ type KubeBindServerSpec struct {
 	// +optional
 	Affinity   *core.Affinity `json:"affinity"`
 	Monitoring Monitoring     `json:"monitoring"`
+	Server     ServerConfig   `json:"server"`
+}
+
+type ServerConfig struct {
+	OIDC               OIDC     `json:"oidc"`
+	NamespacePrefix    string   `json:"namespacePrefix"`
+	ProviderPrettyName string   `json:"providerPrettyName"`
+	ConsumerScope      string   `json:"consumerScope"`
+	External           External `json:"external"`
+	Cookie             Cookie   `json:"cookie"`
+}
+
+type OIDC struct {
+	ClientID     string `json:"clientID"`
+	ClientSecret string `json:"clientSecret"`
+	IssuerURL    string `json:"issuerURL"`
+	CallbackURL  string `json:"callbackURL"`
+}
+
+type External struct {
+	Address    string `json:"address"`
+	ServerName string `json:"serverName"`
+	CAFile     string `json:"CAFile"`
+}
+
+type Cookie struct {
+	SigningKey    string `json:"signingKey"`
+	EncryptionKey string `json:"encryptionKey"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
