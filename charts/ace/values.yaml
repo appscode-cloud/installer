@@ -59,8 +59,8 @@ dns-proxy:
 smtprelay:
   enabled: false
 
-kube-bind-server:
-  enabled: false
+# kube-bind-server:
+#   enabled: false
 
 # -------------
 
