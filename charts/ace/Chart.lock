@@ -44,8 +44,5 @@ dependencies:
 - name: nats
   repository: https://nats-io.github.io/k8s/helm/charts/
   version: 0.19.12
-- name: kube-bind-server
-  repository: file://../kube-bind-server
-  version: v2023.03.23
-digest: sha256:318a9cd81cce8c5e3a4ce8f3badcdff75fab1b3f61e1261cdd6ede43e160fc14
-generated: "2023-07-04T10:21:31.838494372Z"
+digest: sha256:5c1ead17ecffea3af24f7ee32e4f5904c79b3aa0c541fd34cf6c9220766d7bc4
+generated: "2023-07-07T19:00:09.324582-07:00"
