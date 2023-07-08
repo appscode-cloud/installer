@@ -80,6 +80,8 @@ spec:
             {{- end }}
           {{- end }}
           volumeMounts:
+            - name: tmp
+              mountPath: /tmp
             - name: data
               mountPath: /data
             {{- if (include "settings.platformConfigSecretName" .) }}
@@ -100,6 +102,8 @@ spec:
               name: license
             {{- end }}
       volumes:
+        - name: tmp
+          emptyDir: {}
         {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
         - name: config
           secret:

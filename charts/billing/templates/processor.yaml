@@ -87,6 +87,8 @@ spec:
             {{- end }}
           {{- end }}
           volumeMounts:
+            - name: tmp
+              mountPath: /tmp
             - name: data
               mountPath: /data
             {{- if (include "settings.platformConfigSecretName" .) }}
@@ -105,6 +107,8 @@ spec:
               mountPath: /etc/ssl/certs
             {{- end }}
       volumes:
+        - name: tmp
+          emptyDir: {}
         - name: data
           emptyDir: {}
         {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
