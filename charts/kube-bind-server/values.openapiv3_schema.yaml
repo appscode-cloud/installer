@@ -562,6 +562,61 @@ properties:
     type: string
   replicaCount:
     type: integer
+  server:
+    properties:
+      consumerScope:
+        type: string
+      cookie:
+        properties:
+          encryptionKey:
+            type: string
+          signingKey:
+            type: string
+        required:
+        - encryptionKey
+        - signingKey
+        type: object
+      external:
+        properties:
+          CAFile:
+            type: string
+          address:
+            type: string
+          serverName:
+            type: string
+        required:
+        - CAFile
+        - address
+        - serverName
+        type: object
+      namespacePrefix:
+        type: string
+      oidc:
+        properties:
+          callbackURL:
+            type: string
+          clientID:
+            type: string
+          clientSecret:
+            type: string
+          issuerURL:
+            type: string
+        required:
+        - callbackURL
+        - clientID
+        - clientSecret
+        - issuerURL
+        type: object
+      providerPrettyName:
+        type: string
+    required:
+    - consumerScope
+    - cookie
+    - external
+    - namespacePrefix
+    - oidc
+    - providerPrettyName
+    type: object
   serviceAccount:
     properties:
       annotations:
@@ -597,5 +652,6 @@ required:
 - monitoring
 - registryFQDN
 - replicaCount
+- server
 - serviceAccount
 type: object
