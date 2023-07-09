@@ -17,6 +17,12 @@ stringData:
 
     HOSTED   = {{ eq .Values.global.platform.deploymentType "Hosted" }}
 
+{{- if not (eq .Values.global.platform.deploymentType "Hosted") }}
+    [licensor]
+    DOMAIN = {{ .Values.global.platform.proxyServiceDomain }}
+    TOKEN = {{ .Values.global.platform.token }}
+{{- end }}
+
     [site_accounts]
     ; WHY http, not https?
     PROTOCOL = http

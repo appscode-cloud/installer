@@ -4051,6 +4051,10 @@ properties:
             type: string
           domain:
             type: string
+          proxyServiceDomain:
+            type: string
+          token:
+            type: string
         required:
         - deploymentType
         - domain
