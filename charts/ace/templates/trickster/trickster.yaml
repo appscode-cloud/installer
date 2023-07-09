@@ -22,7 +22,7 @@ spec:
   {{- if .Values.nats.enabled }}
   nats:
     address: nats://{{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc:4222
-    credPath: /tmp/trickster/nats/creds/admin.creds
+    credPath: /etc/trickster/nats/creds/admin.creds
   secret:
     name: {{ include "settings.natsSecretName" . }}
     items:
