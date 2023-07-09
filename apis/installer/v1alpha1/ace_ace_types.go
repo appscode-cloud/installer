@@ -194,7 +194,9 @@ type AcePlatformSettings struct {
 	Domain         string         `json:"domain"`
 	DeploymentType DeploymentType `json:"deploymentType"`
 	// +optional
-	Admin AcePlatformAdmin `json:"admin"`
+	Admin              AcePlatformAdmin `json:"admin"`
+	ProxyServiceDomain string           `json:"proxyServiceDomain,omitempty"`
+	Token              string           `json:"token,omitempty"`
 }
 
 type GlobalMonitoring struct {
