@@ -12,6 +12,9 @@ spec:
   backend_selector:
     matchLabels:
       trickstercache.org/metadata.name: {{ include "ace.fullname" . }}
+  request_rewriter_selector:
+    matchLabels:
+      trickstercache.org/metadata.name: {{ include "ace.fullname" . }}
   metrics:
     listen_port: 8481
   logging:
