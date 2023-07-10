@@ -12,7 +12,7 @@ rules:
 - apiGroups:
   - cloud.bytebuilders.dev
   - cluster.bytebuilders.dev
-  - kubepack.com
+  - products.x-helm.dev
   - trickstercache.org
   resources:
   - "*"
