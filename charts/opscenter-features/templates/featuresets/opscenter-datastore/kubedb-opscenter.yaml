@@ -28,7 +28,7 @@ spec:
   chart:
     name: kubedb-opscenter
     namespace: kubedb
-    version: "v2023.04.10"
+    version: "v2023.06.19"
     sourceRef:
       kind: HelmRepository
       name: kubedb
