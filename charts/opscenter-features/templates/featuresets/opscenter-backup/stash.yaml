@@ -23,7 +23,7 @@ spec:
   chart:
     name: stash
     namespace: stash
-    version: "v2023.04.30"
+    version: "v2023.05.31"
     sourceRef:
       kind: HelmRepository
       name: stashed
