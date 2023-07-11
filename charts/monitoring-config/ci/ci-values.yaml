@@ -18,3 +18,6 @@ prometheus:
     name: "kube-prometheus-stack-prometheus"
     namespace: "monitoring"
     port: "9090"
+
+trickster:
+  createNamespace: true
