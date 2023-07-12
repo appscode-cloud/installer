@@ -71,6 +71,7 @@ global:
   platform:
     domain: appscode.ninja
     deploymentType: SelfHostedDemo
+    publicIPs: []
     admin:
       username: admin
       password: secr3t

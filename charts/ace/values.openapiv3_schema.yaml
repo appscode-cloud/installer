@@ -4053,6 +4053,10 @@ properties:
             type: string
           proxyServiceDomain:
             type: string
+          publicIPs:
+            items:
+              type: string
+            type: array
           token:
             type: string
         required:
@@ -5062,6 +5066,10 @@ properties:
             required:
             - patch
             type: object
+          config:
+            additionalProperties:
+              type: string
+            type: object
           hostPort:
             properties:
               enabled:
@@ -5154,6 +5162,7 @@ properties:
             type: object
         required:
         - admissionWebhooks
+        - config
         - image
         - ingressClassByName
         - ingressClassResource
