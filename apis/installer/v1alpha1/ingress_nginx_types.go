@@ -51,6 +51,7 @@ type IngressNginxSpec struct {
 
 type IngressNginxController struct {
 	Image                IngressNginxControllerImage                `json:"image"`
+	Config               map[string]string                          `json:"config"`
 	HostPort             *IngressNginxControllerHostPort            `json:"hostPort,omitempty"`
 	IngressClassByName   bool                                       `json:"ingressClassByName"`
 	IngressClassResource IngressNginxControllerIngressClassResource `json:"ingressClassResource"`
