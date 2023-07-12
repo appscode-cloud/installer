@@ -224,8 +224,11 @@ type AceDeploymentContext struct {
 	Token                string         `json:"token,omitempty"`
 	// ClusterID is used to uniquely identify a Kubernetes cluster.
 	// To find out, run: <code>kubectl get ns kube-system -o=jsonpath='{.metadata.uid}'</code>
+	// +optional
 	ClusterID string `json:"clusterID"`
-	License   string `json:"license,omitempty"`
+	// +optional
+	PublicIPs []string `json:"publicIPs"`
+	License   string   `json:"license,omitempty"`
 	// +optional
 	Admin AcePlatformAdmin `json:"admin"`
 }
