@@ -47,6 +47,7 @@ type MonitoringConfigSpec struct {
 	FullnameOverride string                    `json:"fullnameOverride"`
 	Grafana          GrafanaConfig             `json:"grafana"`
 	Prometheus       PrometheusConfig          `json:"prometheus"`
+	Trickster        TricksterConfig           `json:"trickster"`
 	Presets          MonitoringUiPresetsValues `json:"presets"`
 }
 
@@ -73,6 +74,10 @@ type PrometheusConfig struct {
 	BasicAuth   BasicAuth   `json:"basicAuth"`
 	BearerToken string      `json:"bearerToken"`
 	TLS         TLSConfig   `json:"tls"`
+}
+
+type TricksterConfig struct {
+	CreateNamespace bool `json:"createNamespace"`
 }
 
 type ServiceSpec struct {
