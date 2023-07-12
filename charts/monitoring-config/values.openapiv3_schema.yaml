@@ -185,10 +185,18 @@ properties:
     - tls
     - url
     type: object
+  trickster:
+    properties:
+      createNamespace:
+        type: boolean
+    required:
+    - createNamespace
+    type: object
 required:
 - fullnameOverride
 - grafana
 - nameOverride
 - presets
 - prometheus
+- trickster
 type: object
