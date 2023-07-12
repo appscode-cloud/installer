@@ -139,6 +139,10 @@ properties:
         type: string
       proxyServiceDomain:
         type: string
+      publicIPs:
+        items:
+          type: string
+        type: array
       requestedDomain:
         type: string
       requesterDisplayName:
@@ -148,7 +152,6 @@ properties:
       token:
         type: string
     required:
-    - clusterID
     - deploymentType
     - requestedDomain
     type: object
