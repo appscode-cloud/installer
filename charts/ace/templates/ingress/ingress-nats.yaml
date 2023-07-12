@@ -11,6 +11,9 @@ metadata:
     {{- include "ace.labels" . | nindent 4 }}
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+{{- with .Values.global.platform.publicIPs }}
+    external-dns.alpha.kubernetes.io/target: {{ join "," . | quote }}
+{{- end }}
 spec:
   ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
   rules:
