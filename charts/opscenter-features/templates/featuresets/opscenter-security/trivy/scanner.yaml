@@ -14,6 +14,9 @@ spec:
   featureSet: opscenter-security
   featureBlock: scanner
   required: true
+  requirements:
+    features:
+      - license-proxyserver
   readinessChecks:
     workloads:
       - group: apps

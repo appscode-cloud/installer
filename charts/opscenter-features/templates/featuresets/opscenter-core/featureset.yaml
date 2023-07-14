@@ -12,6 +12,7 @@ spec:
   required: true
   requiredFeatures:
   - kube-ui-server
+  - license-proxyserver
   chart:
     name: uik8sappscodecom-featureset-opscenter-core-editor
     version: {{ .Chart.AppVersion }}
