@@ -13,7 +13,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-monitoring
   featureBlock: grafana-opscenter
-  required: false
+  required: true
   requirements:
     features:
       - grafana-operator
