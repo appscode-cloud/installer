@@ -15,6 +15,9 @@ repositories:
   bytebuilders:
     interval: 30m0s
     url: https://charts.appscode.com/stable/
+  crossplane:
+    interval: 30m0s
+    url: https://charts.crossplane.io/stable
   falcosecurity:
     interval: 30m0s
     url: https://falcosecurity.github.io/charts
@@ -27,6 +30,9 @@ repositories:
   kubedb:
     interval: 30m0s
     url: https://charts.appscode.com/stable/
+  kubedb-gateway:
+    interval: 30m0s
+    url: https://github.com/voyagermesh/installer
   kubeops:
     interval: 30m0s
     url: https://charts.appscode.com/stable/
