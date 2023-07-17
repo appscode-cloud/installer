@@ -55,6 +55,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.bytebuilders-ui.url           |             | <code>https://bundles.byte.builders/ui/</code>                     |
 | repositories.bytebuilders.interval         |             | <code>30m0s</code>                                                 |
 | repositories.bytebuilders.url              |             | <code>https://charts.appscode.com/stable/</code>                   |
+| repositories.crossplane.interval           |             | <code>30m0s</code>                                                 |
+| repositories.crossplane.url                |             | <code>https://charts.crossplane.io/stable</code>                   |
 | repositories.falcosecurity.interval        |             | <code>30m0s</code>                                                 |
 | repositories.falcosecurity.url             |             | <code>https://falcosecurity.github.io/charts</code>                |
 | repositories.gatekeeper.interval           |             | <code>30m0s</code>                                                 |
@@ -63,6 +65,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.jetstack.url                  |             | <code>https://charts.jetstack.io</code>                            |
 | repositories.kubedb.interval               |             | <code>30m0s</code>                                                 |
 | repositories.kubedb.url                    |             | <code>https://charts.appscode.com/stable/</code>                   |
+| repositories.kubedb-gateway.interval       |             | <code>30m0s</code>                                                 |
+| repositories.kubedb-gateway.url            |             | <code>https://github.com/voyagermesh/installer</code>              |
 | repositories.kubeops.interval              |             | <code>30m0s</code>                                                 |
 | repositories.kubeops.url                   |             | <code>https://charts.appscode.com/stable/</code>                   |
 | repositories.kubevault.interval            |             | <code>30m0s</code>                                                 |
