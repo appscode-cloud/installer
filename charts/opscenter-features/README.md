@@ -65,8 +65,6 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.jetstack.url                  |             | <code>https://charts.jetstack.io</code>                            |
 | repositories.kubedb.interval               |             | <code>30m0s</code>                                                 |
 | repositories.kubedb.url                    |             | <code>https://charts.appscode.com/stable/</code>                   |
-| repositories.kubedb-gateway.interval       |             | <code>30m0s</code>                                                 |
-| repositories.kubedb-gateway.url            |             | <code>https://github.com/voyagermesh/installer</code>              |
 | repositories.kubeops.interval              |             | <code>30m0s</code>                                                 |
 | repositories.kubeops.url                   |             | <code>https://charts.appscode.com/stable/</code>                   |
 | repositories.kubevault.interval            |             | <code>30m0s</code>                                                 |
