@@ -12,13 +12,6 @@ spec:
   featureSet: opscenter-manageddb
   featureBlock: capi-ui-presets
   required: true
-  #readinessChecks:
-  #  workloads:
-  #   - group: apps
-  #      version: v1
-  #      kind: CustomResourceDefinition
-  #      selector:
-  #        helm.toolkit.fluxcd.io/name: kubeops
   chart:
     name: capi-ui-presets
     namespace: kubeops

@@ -23,7 +23,8 @@ spec:
   chart:
     name: charts/gateway-helm
     namespace: kubeops
+    version: "v0.0.0-latest"
     sourceRef:
-      kind: GitRepository
-      name: kubedb-gateway
+      kind: HelmRepository
+      name: appscode
       namespace: {{ .Release.Namespace }}

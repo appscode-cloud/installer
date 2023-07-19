@@ -30,9 +30,6 @@ repositories:
   kubedb:
     interval: 30m0s
     url: https://charts.appscode.com/stable/
-  kubedb-gateway:
-    interval: 30m0s
-    url: https://github.com/voyagermesh/installer
   kubeops:
     interval: 30m0s
     url: https://charts.appscode.com/stable/
