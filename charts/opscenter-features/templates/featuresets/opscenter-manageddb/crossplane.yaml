@@ -1,0 +1,30 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: crossplane
+spec:
+  title: Crossplane
+  description: |
+    Necessary Peering Component for providing Managed Database Solution.
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-manageddb
+  featureBlock: crossplane
+  required: true
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: crossplane
+  chart:
+    name: crossplane
+    namespace: crossplane-system
+    version: "1.12.2"
+    sourceRef:
+      kind: HelmRepository
+      name: crossplane
+      namespace: {{ .Release.Namespace }}

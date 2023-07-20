@@ -55,6 +55,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.bytebuilders-ui.url           |             | <code>https://bundles.byte.builders/ui/</code>                     |
 | repositories.bytebuilders.interval         |             | <code>30m0s</code>                                                 |
 | repositories.bytebuilders.url              |             | <code>https://charts.appscode.com/stable/</code>                   |
+| repositories.crossplane.interval           |             | <code>30m0s</code>                                                 |
+| repositories.crossplane.url                |             | <code>https://charts.crossplane.io/stable</code>                   |
 | repositories.falcosecurity.interval        |             | <code>30m0s</code>                                                 |
 | repositories.falcosecurity.url             |             | <code>https://falcosecurity.github.io/charts</code>                |
 | repositories.gatekeeper.interval           |             | <code>30m0s</code>                                                 |
