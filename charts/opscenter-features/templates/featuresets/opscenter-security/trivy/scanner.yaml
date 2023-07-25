@@ -17,6 +17,7 @@ spec:
   requirements:
     features:
       - license-proxyserver
+      - grafana-operator
   readinessChecks:
     workloads:
       - group: apps
