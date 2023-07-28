@@ -127,7 +127,7 @@ spec:
           service:
             name: {{ include "ace.fullname" . }}-trickster
             port:
-              number: 9090
+              number: 4000
         path: /
         pathType: Prefix
 {{- end }}
