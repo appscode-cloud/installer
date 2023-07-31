@@ -2,6 +2,8 @@ apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
   name: kubedb-gateway
+  labels:
+    byte.builders/feature-set: opscenter-manageddb
 spec:
   title: KubeDB Gateway
   description: |
