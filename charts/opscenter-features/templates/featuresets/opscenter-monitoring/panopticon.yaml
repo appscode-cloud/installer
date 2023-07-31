@@ -2,6 +2,8 @@ apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
   name: panopticon
+  labels:
+    byte.builders/feature-set: opscenter-monitoring
 spec:
   title: Panopticon
   description: |

@@ -2,6 +2,8 @@ apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
   name: capi-ui-presets
+  labels:
+    byte.builders/feature-set: opscenter-manageddb
 spec:
   title: CAPI UI Presets
   description: |
