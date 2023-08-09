@@ -16,7 +16,8 @@ spec:
   required: false
   requirements:
     features:
-    - kubevault
+      - kubevault
+      - grafana-operator
   chart:
     name: kubevault-opscenter
     namespace: kubevault

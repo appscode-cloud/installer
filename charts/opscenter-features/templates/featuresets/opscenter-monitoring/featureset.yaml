@@ -12,7 +12,10 @@ spec:
   required: false
   requiredFeatures:
   - kube-prometheus-stack
+  - monitoring-config
   - panopticon
+  - grafana-operator
+  - grafana-opscenter
   chart:
     name: uik8sappscodecom-featureset-opscenter-monitoring-editor
     version: {{ .Chart.AppVersion }}
