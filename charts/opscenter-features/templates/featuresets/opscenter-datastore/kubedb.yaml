@@ -28,7 +28,7 @@ spec:
   chart:
     name: kubedb
     namespace: kubedb
-    version: "v2023.06.19"
+    version: "v2023.08.18"
     sourceRef:
       kind: HelmRepository
       name: kubedb
