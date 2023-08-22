@@ -1,0 +1,30 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: capa-vpc-peering-operator
+spec:
+  title: AWS VPC Peering Operator
+  description: |
+    Necessary Component for providing Managed Database Solution.
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-manageddb
+  featureBlock: capa-vpc-peering-operator
+  required: false
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/name: capa-vpc-peering-operator
+          app.kubernetes.io/managed-by: Helm
+  chart:
+    name: capa-vpc-peering-operator
+    namespace: corssplane-system
+    version: "v2023.03.23"
+    sourceRef:
+      kind: HelmRepository
+      name: appscode
+      namespace: {{ .Release.Namespace }}
