@@ -1,28 +1,29 @@
+{{ range $name, $cfg := .Values.repositories }}
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: kubeops
-  namespace: {{ .Release.Namespace }}
+  name: {{ $name }}
+  namespace: {{ $.Release.Namespace }}
 spec:
-{{- with (index .Values "repositories" "kubeops") }}
-  {{- with .url }}
+  {{- with $cfg.url }}
   url: {{ . }}
   {{- end }}
 
-  {{- with .interval }}
+  {{- with $cfg.interval }}
   interval: {{ . }}
   {{- end }}
 
-  {{- with .type }}
-  type: {{ . }}
+  {{- if hasPrefix "oci://" $cfg.url }}
+  type: oci
   {{- end }}
 
-  {{- with .provider }}
+  {{- with $cfg.provider }}
   provider: {{ . }}
   {{- end }}
 
-  {{- with .secretName }}
+  {{- with $cfg.secretName }}
   secretRef:
     name: {{ include "opscenter-features.fullname" $ }}-{{ . }}
   {{- end }}
+---
 {{- end }}

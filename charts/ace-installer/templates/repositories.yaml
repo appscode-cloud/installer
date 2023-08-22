@@ -1,28 +1,29 @@
+{{ range $name, $cfg := .Values.repositories }}
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: stakater
+  name: {{ $name }}
   namespace: {{ $.Release.Namespace }}
 spec:
-{{- with (index .Values "repositories" "stakater") }}
-  {{- with .url }}
+  {{- with $cfg.url }}
   url: {{ . }}
   {{- end }}
 
-  {{- with .interval }}
+  {{- with $cfg.interval }}
   interval: {{ . }}
   {{- end }}
 
-  {{- with .type }}
-  type: {{ . }}
+  {{- if hasPrefix "oci://" $cfg.url }}
+  type: oci
   {{- end }}
 
-  {{- with .provider }}
+  {{- with $cfg.provider }}
   provider: {{ . }}
   {{- end }}
 
-  {{- with .secretName }}
+  {{- with $cfg.secretName }}
   secretRef:
     name: {{ include "ace-installer.fullname" $ }}-{{ . }}
   {{- end }}
+---
 {{- end }}
