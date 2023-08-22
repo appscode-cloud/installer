@@ -14,6 +14,9 @@ spec:
   featureSet: opscenter-manageddb
   featureBlock: kubeform-provider-gcp
   required: false
+  requirements:
+    features:
+      - crossplane
   readinessChecks:
     workloads:
       - group: apps
