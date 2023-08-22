@@ -52,7 +52,7 @@ The following table lists the configurable parameters of the `ace-installer` cha
 | repositories.appscode.interval                                      |             | <code>1h0m0s</code>                                             |
 | repositories.appscode.url                                           |             | <code>https://charts.appscode.com/stable/</code>                |
 | repositories.bytebuilders-ui.interval                               |             | <code>1h0m0s</code>                                             |
-| repositories.bytebuilders-ui.url                                    |             | <code>oci://r.byte.builders/charts/</code>                      |
+| repositories.bytebuilders-ui.url                                    |             | <code>https://bundles.byte.builders/ui/</code>                  |
 | repositories.bytebuilders.interval                                  |             | <code>1h0m0s</code>                                             |
 | repositories.bytebuilders.url                                       |             | <code>https://charts.appscode.com/stable/</code>                |
 | repositories.jetstack.interval                                      |             | <code>1h0m0s</code>                                             |

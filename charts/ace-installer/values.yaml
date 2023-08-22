@@ -11,7 +11,7 @@ repositories:
     url: https://charts.appscode.com/stable/
   bytebuilders-ui:
     interval: 1h0m0s
-    url: oci://r.byte.builders/charts/
+    url: https://bundles.byte.builders/ui/
   bytebuilders:
     interval: 1h0m0s
     url: https://charts.appscode.com/stable/
