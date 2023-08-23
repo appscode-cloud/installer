@@ -1,34 +1,31 @@
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: kubeform-provider-azure
+  name: capa-vpc-peering-operator
   labels:
     byte.builders/feature-set: opscenter-manageddb
 spec:
-  title: Kubeform Azure Provider
+  title: AWS VPC Peering Operator
   description: |
-    Necessary Peering Component for providing Managed Database Solution.
+    Necessary Component for providing Managed Database Solution.
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   featureSet: opscenter-manageddb
-  featureBlock: kubeform-provider-azure
+  featureBlock: capa-vpc-peering-operator
   required: false
-  requirements:
-    features:
-      - crossplane
   readinessChecks:
     workloads:
       - group: apps
         version: v1
         kind: Deployment
         selector:
-          app.kubernetes.io/name: kubeform-provider-azure
+          app.kubernetes.io/name: capa-vpc-peering-operator
           app.kubernetes.io/managed-by: Helm
   chart:
-    name: kubeform-provider-azure
+    name: capa-vpc-peering-operator
     namespace: corssplane-system
-    version: "v2023.06.27"
+    version: "v2023.03.23"
     sourceRef:
       kind: HelmRepository
       name: appscode
