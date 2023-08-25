@@ -23,13 +23,6 @@ spec:
           app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: falco
           app.kubernetes.io/instance: falco
-      - group: apps
-        version: v1
-        kind: Deployment
-        selector:
-          app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: falcosidekick
-          app.kubernetes.io/instance: falco
   chart:
     name: falco
     namespace: falco
