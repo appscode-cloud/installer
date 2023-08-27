@@ -52,7 +52,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.appscode.interval             |             | <code>30m0s</code>                                                 |
 | repositories.appscode.url                  |             | <code>https://charts.appscode.com/stable</code>                    |
 | repositories.bytebuilders-ui.interval      |             | <code>30m0s</code>                                                 |
-| repositories.bytebuilders-ui.url           |             | <code>oci://r.byte.builders/charts/</code>                         |
+| repositories.bytebuilders-ui.url           |             | <code>oci://r.byte.builders/charts</code>                          |
 | repositories.bytebuilders.interval         |             | <code>30m0s</code>                                                 |
 | repositories.bytebuilders.url              |             | <code>https://charts.appscode.com/stable</code>                    |
 | repositories.crossplane.interval           |             | <code>30m0s</code>                                                 |
@@ -72,7 +72,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.nats.interval                 |             | <code>30m0s</code>                                                 |
 | repositories.nats.url                      |             | <code>https://nats-io.github.io/k8s/helm/charts/</code>            |
 | repositories.opencost.interval             |             | <code>30m0s</code>                                                 |
-| repositories.opencost.url                  |             | <code>https://opencost.github.io/opencost-helm-chart</code>        |
+| repositories.opencost.url                  |             | <code>oci://r.byte.builders/charts</code>                          |
 | repositories.prometheus-community.interval |             | <code>30m0s</code>                                                 |
 | repositories.prometheus-community.url      |             | <code>https://prometheus-community.github.io/helm-charts</code>    |
 | repositories.stashed.interval              |             | <code>30m0s</code>                                                 |
