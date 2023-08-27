@@ -1,13 +1,13 @@
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: falco
+  name: falco-exporter
   labels:
     byte.builders/feature-set: opscenter-security
 spec:
-  title: Falco
+  title: Falco Exporter
   description: |
-    Container Native Runtime Security
+    Falco Prometheus Exporter
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
@@ -21,10 +21,10 @@ spec:
         kind: DaemonSet
         selector:
           app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: falco
-          app.kubernetes.io/instance: falco
+          app.kubernetes.io/name: falco-exporter
+          app.kubernetes.io/instance: falco-exporter
   chart:
-    name: falco
+    name: falco-exporter
     namespace: falco
     # version: "v2023.03.23"
     sourceRef:
@@ -32,23 +32,11 @@ spec:
       name: falcosecurity
       namespace: {{ .Release.Namespace }}
   values:
-    driver:
-      kind: modern-bpf
-    falco:
-      grpc:
-        enabled: true
-      grpc_output:
-        enabled: true
-      http_output:
-        enabled: true
-        insecure: true
-        url: http://falco-ui-server:8080/falcoevents
-      json_include_output_property: true
-      json_output: true
-      modern_bpf:
-        cpus_for_each_syscall_buffer: 1
-    falcosidekick:
-      enabled: false
-      webui:
-        enabled: false
-    tty: true
+    prometheusRules:
+      enabled: true
+    service:
+      annotations: null
+    serviceMonitor:
+      additionalLabels:
+        release: kube-prometheus-stack
+      enabled: true
