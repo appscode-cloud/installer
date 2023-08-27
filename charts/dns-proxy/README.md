@@ -5,7 +5,7 @@
 ## TL;DR;
 
 ```bash
-$ helm repo add appscode https://charts.appscode.com/stable/
+$ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
 $ helm search repo appscode/dns-proxy --version=v2023.03.23
 $ helm upgrade -i dns-proxy appscode/dns-proxy -n ace-system --create-namespace --version=v2023.03.23

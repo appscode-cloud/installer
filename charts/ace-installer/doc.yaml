@@ -5,7 +5,7 @@ project:
   description: ACE Installer
   app: charts for ACE
 repository:
-  url: https://charts.appscode.com/stable/
+  url: https://charts.appscode.com/stable
   name: appscode
 chart:
   name: ace-installer

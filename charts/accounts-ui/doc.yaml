@@ -5,7 +5,7 @@ project:
   description: Accounts UI
   app: a Accounts UI
 repository:
-  url: https://charts.appscode.com/stable/
+  url: https://charts.appscode.com/stable
   name: appscode
 chart:
   name: accounts-ui

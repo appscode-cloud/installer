@@ -5,7 +5,7 @@ project:
   description: ByteBuilders Marketplace UI
   app: a Marketplace UI
 repository:
-  url: https://charts.appscode.com/stable/
+  url: https://charts.appscode.com/stable
   name: appscode
 chart:
   name: marketplace-ui

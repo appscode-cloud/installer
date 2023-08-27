@@ -8,13 +8,13 @@ fullnameOverride: ""
 repositories:
   appscode:
     interval: 30m0s
-    url: https://charts.appscode.com/stable/
+    url: https://charts.appscode.com/stable
   bytebuilders-ui:
     interval: 30m0s
     url: oci://r.byte.builders/charts/
   bytebuilders:
     interval: 30m0s
-    url: https://charts.appscode.com/stable/
+    url: https://charts.appscode.com/stable
   crossplane:
     interval: 30m0s
     url: https://charts.crossplane.io/stable
@@ -29,22 +29,25 @@ repositories:
     url: https://charts.jetstack.io
   kubedb:
     interval: 30m0s
-    url: https://charts.appscode.com/stable/
+    url: https://charts.appscode.com/stable
   kubeops:
     interval: 30m0s
-    url: https://charts.appscode.com/stable/
+    url: https://charts.appscode.com/stable
   kubevault:
     interval: 30m0s
-    url: https://charts.appscode.com/stable/
+    url: https://charts.appscode.com/stable
   nats:
     interval: 30m0s
     url: https://nats-io.github.io/k8s/helm/charts/
+  opencost:
+    interval: 30m0s
+    url: https://opencost.github.io/opencost-helm-chart
   prometheus-community:
     interval: 30m0s
     url: https://prometheus-community.github.io/helm-charts
   stashed:
     interval: 30m0s
-    url: https://charts.appscode.com/stable/
+    url: https://charts.appscode.com/stable
 
 repositoryCredentials: {}
   # dockerhub:

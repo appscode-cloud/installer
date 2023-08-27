@@ -5,7 +5,7 @@ project:
   description: Kubernetes Auth Manager for Kubernetes
   app: a Kubernetes Auth Manager
 repository:
-  url: https://charts.appscode.com/stable/
+  url: https://charts.appscode.com/stable
   name: appscode
 chart:
   name: kube-auth-manager
