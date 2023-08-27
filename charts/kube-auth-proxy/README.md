@@ -5,7 +5,7 @@
 ## TL;DR;
 
 ```bash
-$ helm repo add appscode https://charts.appscode.com/stable/
+$ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
 $ helm search repo appscode/kube-auth-proxy --version=v2023.03.23
 $ helm upgrade -i kube-auth-proxy appscode/kube-auth-proxy -n kubeops --create-namespace --version=v2023.03.23

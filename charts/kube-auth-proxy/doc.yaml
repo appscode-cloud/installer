@@ -5,7 +5,7 @@ project:
   description: Kubernetes Auth Proxy for Kubernetes
   app: a Kubernetes Auth Proxy
 repository:
-  url: https://charts.appscode.com/stable/
+  url: https://charts.appscode.com/stable
   name: appscode
 chart:
   name: kube-auth-proxy

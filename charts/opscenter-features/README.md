@@ -5,7 +5,7 @@
 ## TL;DR;
 
 ```bash
-$ helm repo add appscode https://charts.appscode.com/stable/
+$ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
 $ helm search repo appscode/opscenter-features --version=v2023.03.23
 $ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2023.03.23
@@ -50,11 +50,11 @@ The following table lists the configurable parameters of the `opscenter-features
 | nameOverride                               |             | <code>""</code>                                                    |
 | fullnameOverride                           |             | <code>""</code>                                                    |
 | repositories.appscode.interval             |             | <code>30m0s</code>                                                 |
-| repositories.appscode.url                  |             | <code>https://charts.appscode.com/stable/</code>                   |
+| repositories.appscode.url                  |             | <code>https://charts.appscode.com/stable</code>                    |
 | repositories.bytebuilders-ui.interval      |             | <code>30m0s</code>                                                 |
 | repositories.bytebuilders-ui.url           |             | <code>oci://r.byte.builders/charts/</code>                         |
 | repositories.bytebuilders.interval         |             | <code>30m0s</code>                                                 |
-| repositories.bytebuilders.url              |             | <code>https://charts.appscode.com/stable/</code>                   |
+| repositories.bytebuilders.url              |             | <code>https://charts.appscode.com/stable</code>                    |
 | repositories.crossplane.interval           |             | <code>30m0s</code>                                                 |
 | repositories.crossplane.url                |             | <code>https://charts.crossplane.io/stable</code>                   |
 | repositories.falcosecurity.interval        |             | <code>30m0s</code>                                                 |
@@ -64,17 +64,19 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.jetstack.interval             |             | <code>30m0s</code>                                                 |
 | repositories.jetstack.url                  |             | <code>https://charts.jetstack.io</code>                            |
 | repositories.kubedb.interval               |             | <code>30m0s</code>                                                 |
-| repositories.kubedb.url                    |             | <code>https://charts.appscode.com/stable/</code>                   |
+| repositories.kubedb.url                    |             | <code>https://charts.appscode.com/stable</code>                    |
 | repositories.kubeops.interval              |             | <code>30m0s</code>                                                 |
-| repositories.kubeops.url                   |             | <code>https://charts.appscode.com/stable/</code>                   |
+| repositories.kubeops.url                   |             | <code>https://charts.appscode.com/stable</code>                    |
 | repositories.kubevault.interval            |             | <code>30m0s</code>                                                 |
-| repositories.kubevault.url                 |             | <code>https://charts.appscode.com/stable/</code>                   |
+| repositories.kubevault.url                 |             | <code>https://charts.appscode.com/stable</code>                    |
 | repositories.nats.interval                 |             | <code>30m0s</code>                                                 |
 | repositories.nats.url                      |             | <code>https://nats-io.github.io/k8s/helm/charts/</code>            |
+| repositories.opencost.interval             |             | <code>30m0s</code>                                                 |
+| repositories.opencost.url                  |             | <code>https://opencost.github.io/opencost-helm-chart</code>        |
 | repositories.prometheus-community.interval |             | <code>30m0s</code>                                                 |
 | repositories.prometheus-community.url      |             | <code>https://prometheus-community.github.io/helm-charts</code>    |
 | repositories.stashed.interval              |             | <code>30m0s</code>                                                 |
-| repositories.stashed.url                   |             | <code>https://charts.appscode.com/stable/</code>                   |
+| repositories.stashed.url                   |             | <code>https://charts.appscode.com/stable</code>                    |
 | repositoryCredentials                      |             | <code>{}</code>                                                    |
 
 

@@ -5,7 +5,7 @@
 ## TL;DR;
 
 ```bash
-$ helm repo add appscode https://charts.appscode.com/stable/
+$ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
 $ helm search repo appscode/capi-ui-presets --version=v2023.03.23
 $ helm upgrade -i capi-ui-presets appscode/capi-ui-presets -n kubeops --create-namespace --version=v2023.03.23

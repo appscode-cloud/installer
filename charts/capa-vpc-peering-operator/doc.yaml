@@ -5,7 +5,7 @@ project:
   description: CAPA VPC Peering Operator for Kubernetes
   app: an CAPA VPC Peering Operator
 repository:
-  url: https://charts.appscode.com/stable/
+  url: https://charts.appscode.com/stable
   name: appscode
 chart:
   name: capa-vpc-peering-operator

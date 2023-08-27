@@ -5,7 +5,7 @@
 ## TL;DR;
 
 ```bash
-$ helm repo add appscode https://charts.appscode.com/stable/
+$ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
 $ helm search repo appscode/smtprelay --version=v2023.03.23
 $ helm upgrade -i smtprelay appscode/smtprelay -n ace-system --create-namespace --version=v2023.03.23

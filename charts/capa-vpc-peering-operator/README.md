@@ -5,7 +5,7 @@
 ## TL;DR;
 
 ```bash
-$ helm repo add appscode https://charts.appscode.com/stable/
+$ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
 $ helm search repo appscode/capa-vpc-peering-operator --version=v2023.03.23
 $ helm upgrade -i capa-vpc-peering-operator appscode/capa-vpc-peering-operator -n kubeops --create-namespace --version=v2023.03.23

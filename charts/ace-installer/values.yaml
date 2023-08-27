@@ -8,25 +8,25 @@ fullnameOverride: ""
 repositories:
   appscode:
     interval: 1h0m0s
-    url: https://charts.appscode.com/stable/
+    url: https://charts.appscode.com/stable
   bytebuilders-ui:
     interval: 1h0m0s
     url: oci://r.byte.builders/charts/
   bytebuilders:
     interval: 1h0m0s
-    url: https://charts.appscode.com/stable/
+    url: https://charts.appscode.com/stable
   jetstack:
     interval: 1h0m0s
     url: https://charts.jetstack.io
   kubedb:
     interval: 1h0m0s
-    url: https://charts.appscode.com/stable/
+    url: https://charts.appscode.com/stable
   kubeops:
     interval: 1h0m0s
-    url: https://charts.appscode.com/stable/
+    url: https://charts.appscode.com/stable
   kubevault:
     interval: 1h0m0s
-    url: https://charts.appscode.com/stable/
+    url: https://charts.appscode.com/stable
   nats:
     interval: 1h0m0s
     url: https://nats-io.github.io/k8s/helm/charts/
@@ -35,7 +35,7 @@ repositories:
     url: https://prometheus-community.github.io/helm-charts
   stashed:
     interval: 1h0m0s
-    url: https://charts.appscode.com/stable/
+    url: https://charts.appscode.com/stable
   stakater:
     interval: 1h0m0s
     url: https://stakater.github.io/stakater-charts

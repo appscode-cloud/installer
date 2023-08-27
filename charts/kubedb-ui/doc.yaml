@@ -5,7 +5,7 @@ project:
   description: ByteBuilders KubeDB UI
   app: a KubeDB UI
 repository:
-  url: https://charts.appscode.com/stable/
+  url: https://charts.appscode.com/stable
   name: appscode
 chart:
   name: kubedb-ui

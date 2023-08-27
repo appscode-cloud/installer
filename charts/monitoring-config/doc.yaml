@@ -5,7 +5,7 @@ project:
   description: ByteBuilders Opscenter Monitoring Configurator
   app: a ByteBuilders Opscenter Monitoring Configurator
 repository:
-  url: https://charts.appscode.com/stable/
+  url: https://charts.appscode.com/stable
   name: appscode
 chart:
   name: monitoring-config
