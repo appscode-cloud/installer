@@ -33,3 +33,6 @@ spec:
       kind: HelmRepository
       name: stashed
       namespace: {{ .Release.Namespace }}
+  values:
+    features:
+      enterprise: true

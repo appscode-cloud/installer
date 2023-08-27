@@ -30,3 +30,5 @@ spec:
       kind: HelmRepository
       name: jetstack
       namespace: {{ .Release.Namespace }}
+  values:
+    installCRDs: true
