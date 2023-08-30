@@ -40,6 +40,10 @@ dependencies:
   repository: file://../platform-api
   condition: platform-api.enabled
   version: v2023.03.23
+- name: platform-links
+  repository: file://../platform-links
+  condition: platform-links.enabled
+  version: v2023.03.23
 - name: billing
   repository: file://../billing
   condition: billing.enabled

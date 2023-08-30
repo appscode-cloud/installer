@@ -59,6 +59,18 @@ spec:
         path: /api/
         pathType: Prefix
 {{- end }}
+{{- if (index .Values "platform-links" "enabled") }}
+  - host: links.{{ .Values.global.platform.domain }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-platform-links
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+{{- end }}
 {{- if (index .Values "cluster-ui" "enabled") }}
   - host: console.{{ .Values.global.platform.domain }}
     http:
@@ -154,6 +166,9 @@ spec:
   {{- end }}
   {{- if (index .Values "platform-api" "enabled") }}
     - 'api.{{ .Values.global.platform.domain }}'
+  {{- end }}
+  {{- if (index .Values "platform-links" "enabled") }}
+    - 'links.{{ .Values.global.platform.domain }}'
   {{- end }}
   {{- if (index .Values "cluster-ui" "enabled") }}
     - 'console.{{ .Values.global.platform.domain }}'
