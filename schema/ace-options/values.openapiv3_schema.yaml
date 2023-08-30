@@ -312,7 +312,6 @@ properties:
                     required:
                     - AWS_ACCESS_KEY_ID
                     - AWS_SECRET_ACCESS_KEY
-                    - CA_CERT_DATA
                     type: object
                   swift:
                     properties:
@@ -363,12 +362,19 @@ properties:
                 type: object
               bucket:
                 type: string
+              endpoint:
+                type: string
               host:
+                type: string
+              prefix:
+                type: string
+              region:
                 type: string
             required:
             - auth
             - bucket
             - host
+            - region
             type: object
           provider:
             enum:
