@@ -43,7 +43,7 @@ spec:
             {{- end }}
           ports:
             - name: http
-              containerPort: 3000
+              containerPort: 3006
               protocol: TCP
           startupProbe:
             httpGet:
