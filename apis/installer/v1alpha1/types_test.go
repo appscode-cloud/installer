@@ -48,6 +48,7 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.MonitoringUiPresetsSpec{}},
 		sc.TestCase{Obj: v1alpha1.OpscenterFeaturesSpec{}},
 		sc.TestCase{Obj: v1alpha1.PlatformApiSpec{}},
+		sc.TestCase{Obj: v1alpha1.PlatformLinksSpec{}},
 		sc.TestCase{Obj: v1alpha1.PlatformUiSpec{}},
 		sc.TestCase{Obj: v1alpha1.SmtprelaySpec{}},
 		sc.TestCase{Obj: v1alpha1.NatsSpec{}, File: "https://github.com/nats-io/k8s/raw/nats-0.19.12/helm/charts/nats/values.yaml"},

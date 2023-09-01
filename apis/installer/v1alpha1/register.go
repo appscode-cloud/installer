@@ -100,6 +100,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&OpscenterFeaturesList{},
 		&PlatformApi{},
 		&PlatformApiList{},
+		&PlatformLinks{},
+		&PlatformLinksList{},
 		&PlatformUi{},
 		&PlatformUiList{},
 		&Smtprelay{},
