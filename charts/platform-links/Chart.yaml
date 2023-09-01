@@ -1,5 +1,5 @@
 apiVersion: v2
-name: accounts-ui
+name: platform-links
 description: A Helm chart for Kubernetes
 type: application
 version: v2023.03.23
