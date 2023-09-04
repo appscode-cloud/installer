@@ -82,7 +82,7 @@ The following table lists the configurable parameters of the `ace-installer` cha
 | releases.cert-manager.version                                       |             | <code>"v1.11.0"</code>                                          |
 | releases.cert-manager.values.installCRDs                            |             | <code>true</code>                                               |
 | releases.kubedb.enabled                                             |             | <code>true</code>                                               |
-| releases.kubedb.version                                             |             | <code>"v2023.04.10"</code>                                      |
+| releases.kubedb.version                                             |             | <code>"v2023.08.18"</code>                                      |
 | releases.kubedb.values.kubedb-provisioner.enabled                   |             | <code>true</code>                                               |
 | releases.kubedb.values.kubedb-catalog.enabled                       |             | <code>true</code>                                               |
 | releases.kubedb.values.kubedb-ops-manager.enabled                   |             | <code>false</code>                                              |
@@ -90,6 +90,8 @@ The following table lists the configurable parameters of the `ace-installer` cha
 | releases.kubedb.values.kubedb-dashboard.enabled                     |             | <code>false</code>                                              |
 | releases.kubedb.values.kubedb-schema-manager.enabled                |             | <code>false</code>                                              |
 | releases.kubedb.values.kubedb-metrics.enabled                       |             | <code>true</code>                                               |
+| releases.docker-machine-operator.enabled                            |             | <code>true</code>                                               |
+| releases.docker-machine-operator.version                            |             | <code>"v2023.9.1"</code>                                        |
 | releases.external-dns-operator.enabled                              |             | <code>true</code>                                               |
 | releases.external-dns-operator.version                              |             | <code>"v2023.03.23"</code>                                      |
 | releases.license-proxyserver.enabled                                |             | <code>true</code>                                               |
@@ -104,7 +106,7 @@ The following table lists the configurable parameters of the `ace-installer` cha
 | releases.panopticon.values.monitoring.agent                         |             | <code>prometheus.io/operator</code>                             |
 | releases.panopticon.values.monitoring.serviceMonitor.labels.release |             | <code>kube-prometheus-stack</code>                              |
 | releases.stash.enabled                                              |             | <code>true</code>                                               |
-| releases.stash.version                                              |             | <code>"v2023.04.30"</code>                                      |
+| releases.stash.version                                              |             | <code>"v2023.08.18"</code>                                      |
 | releases.stash.values.features.enterprise                           |             | <code>true</code>                                               |
 
 

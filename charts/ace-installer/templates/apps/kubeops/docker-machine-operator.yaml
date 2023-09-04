@@ -1,0 +1,38 @@
+{{- with (index .Values "releases" "docker-machine-operator") }}
+{{- if .enabled }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: docker-machine-operator
+  namespace: {{ $.Release.Namespace }}
+spec:
+  interval: 5m
+  timeout: 30m
+  releaseName: docker-machine-operator
+  targetNamespace: kubeops
+  storageNamespace: kubeops
+  install:
+    createNamespace: true
+    # crds: CreateReplace
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
+  chart:
+    spec:
+      chart: docker-machine-operator
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: kubeops
+        namespace: {{ $.Release.Namespace }}
+{{- with (dig "values" dict .) }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}
