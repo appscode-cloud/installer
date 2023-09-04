@@ -961,6 +961,7 @@ func (in *AceOptionsSpec) DeepCopyInto(out *AceOptionsSpec) {
 	in.KubedbUi.DeepCopyInto(&out.KubedbUi)
 	in.MarketplaceUi.DeepCopyInto(&out.MarketplaceUi)
 	in.PlatformApi.DeepCopyInto(&out.PlatformApi)
+	in.PlatformLinks.DeepCopyInto(&out.PlatformLinks)
 	in.Ingress.DeepCopyInto(&out.Ingress)
 	in.Nats.DeepCopyInto(&out.Nats)
 	in.Trickster.DeepCopyInto(&out.Trickster)
