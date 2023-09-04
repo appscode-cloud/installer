@@ -40,7 +40,7 @@ stringData:
     [picture]
     DISABLE_GRAVATAR        = false
     ENABLE_FEDERATED_AVATAR = true
-    AVATAR_UPLOAD_PATH      = /avatars
+    AVATAR_UPLOAD_PATH      = avatars
 
     [storage]
     HOST = {{ .Values.global.infra.objstore.host }}
