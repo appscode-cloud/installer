@@ -1,2 +1,15 @@
+properties:
+  clusterName:
+    type: string
+  namespace:
+    type: string
+  provider:
+    enum:
+    - capa
+    - capg
+    - capz
+    type: string
+required:
+- clusterName
+- namespace
 type: object
-x-kubernetes-preserve-unknown-fields: true

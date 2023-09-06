@@ -1,6 +1,6 @@
 apiVersion: v2
 name: capi-ui-presets
-description: ACE UI Presets for CAPI by AppsCode
+description: ACE UI Presets for CAPI Cluster by AppsCode
 type: application
 version: v2023.03.23
 appVersion: v2023.03.23

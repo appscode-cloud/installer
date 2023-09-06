@@ -1,14 +1,15 @@
-{{- with .Values }}
+{{ $m := .Values.capi }}
+{{- if .Values.global }}
+{{- $m = .Values.global.capi }}
+{{- end }}
 
 apiVersion: charts.x-helm.dev/v1alpha1
 kind: ClusterChartPreset
 metadata:
-  name: capi-preset
+  name: capi-presets
   labels:
     cluster.x-k8s.io/is-default-preset: "true"
 spec:
-  displayName: capi-preset
   values:
-    {{- toYaml . | nindent 4 }}
-
-{{- end }}
+    form:
+      {{- toYaml .Values | nindent 6 }}

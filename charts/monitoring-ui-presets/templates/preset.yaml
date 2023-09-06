@@ -6,15 +6,10 @@
 apiVersion: charts.x-helm.dev/v1alpha1
 kind: ClusterChartPreset
 metadata:
-  name: kubedb.com-v1alpha2-pgbouncers
+  name: monitoring-presets
+  labels:
+    cluster.x-k8s.io/is-default-preset: "true"
 spec:
-  displayName: PgBouncer
-  usePresets:
-  - apiGroup: charts.x-helm.dev
-    kind: ClusterChartPreset
-    selector:
-      matchLabels:
-        cluster.x-k8s.io/is-default-preset: "true"
   values:
     spec:
       monitoring:
@@ -28,13 +23,12 @@ spec:
         serviceMonitor:
           labels: {}
         {{- end }}
-    # form:
-    #   alert:
-    #   {{- with $m.alert.labels }}
-    #     enabled: true
-    #     labels:
-    #       {{- toYaml . | nindent 10 }}
-    #   {{- else }}
-    #     enabled: false
-    #     labels: {}
-    #   {{- end }}
+    form:
+      alert:
+        enabled: {{ .Values.monitoring.alert.enabled }}
+      {{- with $m.alert.labels }}
+        labels:
+          {{- toYaml . | nindent 10 }}
+      {{- else }}
+        labels: {}
+      {{- end }}

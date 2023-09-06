@@ -55,32 +55,9 @@ KUBEPACK_PRESET_TAG=${KUBEPACK_PRESET_TAG:-v0.0.2}
 HELM_X_APIMACHINERY_TAG=${HELM_X_APIMACHINERY_TAG:-master}
 
 crd-importer \
-    --input=https://github.com/x-helm/apimachinery/raw/${HELM_X_APIMACHINERY_TAG}/crds/charts.x-helm.dev_chartpresets.yaml \
     --input=https://github.com/x-helm/apimachinery/raw/${HELM_X_APIMACHINERY_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
     --out=./charts/capi-ui-presets/crds
 
 crd-importer \
-    --input=https://github.com/kmodules/resource-metadata/raw/${KMODULES_RESOURCE_METADATA_TAG}/crds/ui.k8s.appscode.com_resourceeditors.yaml \
-    --input=https://github.com/x-helm/apimachinery/raw/${HELM_X_APIMACHINERY_TAG}/crds/charts.x-helm.dev_chartpresets.yaml \
     --input=https://github.com/x-helm/apimachinery/raw/${HELM_X_APIMACHINERY_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
     --out=./charts/monitoring-ui-presets/crds
-
-BYTEBUILDERS_APPCATALOG_TAG=${BYTEBUILDERS_APPCATALOG_TAG:-v0.0.1}
-KUBEDB_APIMACHINERY_TAG=${KUBEDB_APIMACHINERY_TAG:-v0.32.0}
-KUBEVAULT_APIMACHINERY_TAG=${KUBEVAULT_APIMACHINERY_TAG:-v0.14.0}
-
-crd-importer \
-    --input=https://github.com/bytebuilders/appcatalog/raw/${BYTEBUILDERS_APPCATALOG_TAG}/crds/appcatalog.appscode.com_hostedapps.yaml \
-    --input=https://github.com/kubedb/apimachinery/raw/${KUBEDB_APIMACHINERY_TAG}/crds/kubedb.com_elasticsearches.yaml \
-    --input=https://github.com/kubedb/apimachinery/raw/${KUBEDB_APIMACHINERY_TAG}/crds/kubedb.com_kafkas.yaml \
-    --input=https://github.com/kubedb/apimachinery/raw/${KUBEDB_APIMACHINERY_TAG}/crds/kubedb.com_mariadbs.yaml \
-    --input=https://github.com/kubedb/apimachinery/raw/${KUBEDB_APIMACHINERY_TAG}/crds/kubedb.com_memcacheds.yaml \
-    --input=https://github.com/kubedb/apimachinery/raw/${KUBEDB_APIMACHINERY_TAG}/crds/kubedb.com_mongodbs.yaml \
-    --input=https://github.com/kubedb/apimachinery/raw/${KUBEDB_APIMACHINERY_TAG}/crds/kubedb.com_mysqls.yaml \
-    --input=https://github.com/kubedb/apimachinery/raw/${KUBEDB_APIMACHINERY_TAG}/crds/kubedb.com_perconaxtradbs.yaml \
-    --input=https://github.com/kubedb/apimachinery/raw/${KUBEDB_APIMACHINERY_TAG}/crds/kubedb.com_pgbouncers.yaml \
-    --input=https://github.com/kubedb/apimachinery/raw/${KUBEDB_APIMACHINERY_TAG}/crds/kubedb.com_postgreses.yaml \
-    --input=https://github.com/kubedb/apimachinery/raw/${KUBEDB_APIMACHINERY_TAG}/crds/kubedb.com_proxysqls.yaml \
-    --input=https://github.com/kubedb/apimachinery/raw/${KUBEDB_APIMACHINERY_TAG}/crds/kubedb.com_redises.yaml \
-    --input=https://github.com/kubevault/apimachinery/raw/${KUBEVAULT_APIMACHINERY_TAG}/crds/kubevault.com_vaultservers.yaml \
-    --out=./charts/appcatalog/crds
