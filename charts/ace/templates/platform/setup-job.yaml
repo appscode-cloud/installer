@@ -36,6 +36,7 @@ spec:
             {{- if eq .Values.global.platform.deploymentType "Hosted" }}
             - --create-nats-stream
             {{- end }}
+            # - --importer-service-account={{ include "appscode.serviceAccountName" . }}-importer
           # ports:
           #   - name: http
           #     containerPort: 3000
