@@ -18,7 +18,6 @@ package v1alpha1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	"k8s.io/apimachinery/pkg/runtime"
 )
 
 const (
@@ -39,8 +38,25 @@ const (
 type CapiUiPresets struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              runtime.RawExtension `json:"spec,omitempty"`
+	Spec              CapiUiPresetsSpec `json:"spec,omitempty"`
 }
+
+type CapiUiPresetsSpec struct {
+	// +optional
+	Provider    CAPIProvider `json:"provider"`
+	Namespace   string       `json:"namespace"`
+	ClusterName string       `json:"clusterName"`
+}
+
+// +kubebuilder:validation:Enum=capa;capg;capz
+type CAPIProvider string
+
+const (
+	CAPIProviderDisabled CAPIProvider = ""
+	CAPIProviderCAPA     CAPIProvider = "capa"
+	CAPIProviderCAPG     CAPIProvider = "capg"
+	CAPIProviderCAPZ     CAPIProvider = "capz"
+)
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
