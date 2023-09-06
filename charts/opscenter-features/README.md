@@ -71,6 +71,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.kubevault.url                 |             | <code>https://charts.appscode.com/stable</code>                    |
 | repositories.nats.interval                 |             | <code>30m0s</code>                                                 |
 | repositories.nats.url                      |             | <code>https://nats-io.github.io/k8s/helm/charts/</code>            |
+| repositories.ocm.interval                  |             | <code>30m0s</code>                                                 |
+| repositories.ocm.url                       |             | <code>oci://r.byte.builders/charts</code>                          |
 | repositories.opencost.interval             |             | <code>30m0s</code>                                                 |
 | repositories.opencost.url                  |             | <code>oci://r.byte.builders/charts</code>                          |
 | repositories.prometheus-community.interval |             | <code>30m0s</code>                                                 |

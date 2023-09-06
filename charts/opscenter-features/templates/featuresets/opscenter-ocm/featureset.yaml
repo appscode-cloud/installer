@@ -1,0 +1,22 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: FeatureSet
+metadata:
+  name: opscenter-ocm
+spec:
+  title: Open Cluster Management
+  description: |
+    Hub & Spoke model for Managing Many Kubernetes Clusters
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  required: false
+  requiredFeatures:
+  - multicluster-controlplane
+  chart:
+    name: uik8sappscodecom-featureset-opscenter-ocm-editor
+    version: {{ .Chart.AppVersion }}
+    sourceRef:
+      apiGroup: source.toolkit.fluxcd.io
+      kind: HelmRepository
+      name: bytebuilders-ui
+      namespace: {{ .Release.Namespace }}
