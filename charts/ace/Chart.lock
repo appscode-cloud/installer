@@ -20,6 +20,9 @@ dependencies:
 - name: platform-api
   repository: file://../platform-api
   version: v2023.03.23
+- name: platform-links
+  repository: file://../platform-links
+  version: v2023.03.23
 - name: billing
   repository: file://../billing
   version: v2023.03.23
@@ -44,5 +47,5 @@ dependencies:
 - name: nats
   repository: https://nats-io.github.io/k8s/helm/charts/
   version: 0.19.12
-digest: sha256:5c1ead17ecffea3af24f7ee32e4f5904c79b3aa0c541fd34cf6c9220766d7bc4
-generated: "2023-07-07T19:00:09.324582-07:00"
+digest: sha256:b0006c87ed8916d57e6fe79ca492ca2301b4f938d00990f653ca63080cf0ad9c
+generated: "2023-09-06T04:54:29.719092-07:00"
