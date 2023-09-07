@@ -39,6 +39,9 @@ repositories:
   nats:
     interval: 30m0s
     url: https://nats-io.github.io/k8s/helm/charts/
+  ocm:
+    interval: 30m0s
+    url: oci://r.byte.builders/charts
   opencost:
     interval: 30m0s
     url: oci://r.byte.builders/charts
