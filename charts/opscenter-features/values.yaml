@@ -35,7 +35,7 @@ repositories:
     url: https://charts.appscode.com/stable
   kubevault:
     interval: 30m0s
-    url: https://charts.appscode.com/stable
+    url: oci://r.byte.builders/charts
   nats:
     interval: 30m0s
     url: https://nats-io.github.io/k8s/helm/charts/
