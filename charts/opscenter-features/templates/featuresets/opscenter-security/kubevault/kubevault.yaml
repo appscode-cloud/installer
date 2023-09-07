@@ -28,7 +28,7 @@ spec:
   chart:
     name: kubevault
     namespace: kubevault
-    version: "v2023.03.03"
+    version: "v2023.9.7"
     sourceRef:
       kind: HelmRepository
       name: kubevault
