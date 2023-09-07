@@ -20,9 +20,8 @@ spec:
         version: v1
         kind: Deployment
         selector:
-          app.kubernetes.io/instance: opencost
+          app: multicluster-controlplane
           app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: opencost
   chart:
     name: multicluster-controlplane
     namespace: multicluster-controlplane
