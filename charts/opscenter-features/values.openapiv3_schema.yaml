@@ -3,6 +3,18 @@ properties:
     type: string
   nameOverride:
     type: string
+  release:
+    properties:
+      channel:
+        default: dev
+        enum:
+        - stable
+        - testing
+        - dev
+        type: string
+    required:
+    - channel
+    type: object
   repositories:
     additionalProperties:
       properties:
@@ -40,6 +52,7 @@ properties:
 required:
 - fullnameOverride
 - nameOverride
+- release
 - repositories
 - repositoryCredentials
 type: object

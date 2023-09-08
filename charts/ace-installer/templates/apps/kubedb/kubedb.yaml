@@ -22,6 +22,8 @@ spec:
     remediation:
       retries: -1
   dependsOn:
+  - name: opscenter-features
+    namespace: {{ $.Release.Namespace }}
   - name: license-proxyserver
     namespace: {{ $.Release.Namespace }}
   - name: cert-manager

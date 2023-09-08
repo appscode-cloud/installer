@@ -18,5 +18,5 @@ spec:
     sourceRef:
       apiGroup: source.toolkit.fluxcd.io
       kind: HelmRepository
-      name: bytebuilders-ui
+      name: {{ ternary .Values.release.channel "bytebuilders-ui" (has .Values.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}

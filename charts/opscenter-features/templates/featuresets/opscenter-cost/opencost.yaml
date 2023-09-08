@@ -33,7 +33,7 @@ spec:
     version: "1.18.1"
     sourceRef:
       kind: HelmRepository
-      name: opencost
+      name: {{ ternary .Values.release.channel "opencost" (has .Values.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
   values:
     opencost:
