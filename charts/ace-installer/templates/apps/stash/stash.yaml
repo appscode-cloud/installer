@@ -22,6 +22,8 @@ spec:
     remediation:
       retries: -1
   dependsOn:
+  - name: opscenter-features
+    namespace: {{ $.Release.Namespace }}
   - name: license-proxyserver
     namespace: {{ $.Release.Namespace }}
   - name: cert-manager
@@ -31,7 +33,7 @@ spec:
   chart:
     spec:
       chart: stash
-      version: "v2023.04.30"
+      version: {{ .version | quote }}
       sourceRef:
         kind: HelmRepository
         name: stashed

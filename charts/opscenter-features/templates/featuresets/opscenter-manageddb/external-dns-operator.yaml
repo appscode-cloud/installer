@@ -28,5 +28,5 @@ spec:
     version: "v2022.06.14"
     sourceRef:
       kind: HelmRepository
-      name: appscode
+      name: {{ ternary .Values.release.channel "appscode" (has .Values.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}

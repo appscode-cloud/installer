@@ -5,7 +5,17 @@
 nameOverride: ""
 fullnameOverride: ""
 
+release:
+  # Release channel used for charts. Possible values: stable, testing, dev
+  channel: dev
+
 repositories:
+  stable:
+    interval: 30m0s
+    url: oci://ghcr.io/appscode-charts/stable
+  testing:
+    interval: 30m0s
+    url: oci://ghcr.io/appscode-charts/testing
   appscode:
     interval: 30m0s
     url: https://charts.appscode.com/stable

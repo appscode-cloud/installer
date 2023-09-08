@@ -1,17 +1,17 @@
-{{- with (index .Values "releases" "kube-prometheus-stack") }}
+{{- with (index .Values "releases" "opscenter-features") }}
 {{- if .enabled }}
 
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: kube-prometheus-stack
+  name: opscenter-features
   namespace: {{ $.Release.Namespace }}
 spec:
   interval: 5m
   timeout: 30m
-  releaseName: kube-prometheus-stack
-  targetNamespace: monitoring
-  storageNamespace: monitoring
+  releaseName: opscenter-features
+  targetNamespace: kubeops
+  storageNamespace: kubeops
   install:
     createNamespace: true
     # crds: CreateReplace
@@ -21,16 +21,13 @@ spec:
     crds: CreateReplace
     remediation:
       retries: -1
-  dependsOn:
-  - name: opscenter-features
-    namespace: {{ $.Release.Namespace }}
   chart:
     spec:
-      chart: kube-prometheus-stack
+      chart: opscenter-features
       version: {{ .version | quote }}
       sourceRef:
         kind: HelmRepository
-        name: prometheus-community
+        name: bootstrap
         namespace: {{ $.Release.Namespace }}
 {{- with (dig "values" dict .) }}
   {{- dict "values" . | toYaml | nindent 2 }}
@@ -38,3 +35,4 @@ spec:
 
 {{- end }}
 {{- end }}
+
