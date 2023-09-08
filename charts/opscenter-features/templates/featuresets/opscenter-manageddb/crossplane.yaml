@@ -28,5 +28,5 @@ spec:
     version: "1.12.2"
     sourceRef:
       kind: HelmRepository
-      name: crossplane
+      name: {{ ternary .Values.release.channel "crossplane" (has .Values.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}

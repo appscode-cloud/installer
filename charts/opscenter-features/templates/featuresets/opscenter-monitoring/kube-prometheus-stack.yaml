@@ -32,5 +32,5 @@ spec:
     version: "45.0.0"
     sourceRef:
       kind: HelmRepository
-      name: prometheus-community
+      name: {{ ternary .Values.release.channel "prometheus-community" (has .Values.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
