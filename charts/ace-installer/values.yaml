@@ -9,6 +9,9 @@ repositories:
   bootstrap:
     interval: 1h0m0s
     url: https://charts.appscode.com/stable
+  stakater:
+    interval: 1h0m0s
+    url: https://stakater.github.io/stakater-charts
 
 repositoryCredentials: {}
   # dockerhub:
