@@ -56,7 +56,7 @@ HELM_X_APIMACHINERY_TAG=${HELM_X_APIMACHINERY_TAG:-master}
 
 crd-importer \
     --input=https://github.com/x-helm/apimachinery/raw/${HELM_X_APIMACHINERY_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
-    --out=./charts/capi-ui-presets/crds
+    --out=./charts/capi-cluster-presets/crds
 
 crd-importer \
     --input=https://github.com/x-helm/apimachinery/raw/${HELM_X_APIMACHINERY_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \

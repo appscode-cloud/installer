@@ -68,6 +68,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.gatekeeper.url                |                                                                        | <code>https://open-policy-agent.github.io/gatekeeper/charts</code> |
 | repositories.jetstack.interval             |                                                                        | <code>30m0s</code>                                                 |
 | repositories.jetstack.url                  |                                                                        | <code>https://charts.jetstack.io</code>                            |
+| repositories.kedacore.interval             |                                                                        | <code>30m0s</code>                                                 |
+| repositories.kedacore.url                  |                                                                        | <code>https://kedacore.github.io/charts</code>                     |
 | repositories.kubedb.interval               |                                                                        | <code>30m0s</code>                                                 |
 | repositories.kubedb.url                    |                                                                        | <code>https://charts.appscode.com/stable</code>                    |
 | repositories.kubeops.interval              |                                                                        | <code>30m0s</code>                                                 |
@@ -85,6 +87,9 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.stashed.interval              |                                                                        | <code>30m0s</code>                                                 |
 | repositories.stashed.url                   |                                                                        | <code>https://charts.appscode.com/stable</code>                    |
 | repositoryCredentials                      |                                                                        | <code>{}</code>                                                    |
+| capi.provider                              |                                                                        | <code>""</code>                                                    |
+| capi.namespace                             |                                                                        | <code>""</code>                                                    |
+| capi.clusterName                           |                                                                        | <code>""</code>                                                    |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

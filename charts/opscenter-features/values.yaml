@@ -37,6 +37,9 @@ repositories:
   jetstack:
     interval: 30m0s
     url: https://charts.jetstack.io
+  kedacore:
+    interval: 30m0s
+    url: https://kedacore.github.io/charts
   kubedb:
     interval: 30m0s
     url: https://charts.appscode.com/stable
@@ -69,3 +72,8 @@ repositoryCredentials: {}
   # ghcr:
   #   username: "gh_abc"
   #   password: "gh_xyz"
+
+capi:
+  provider: ""
+  namespace: ""
+  clusterName: ""
