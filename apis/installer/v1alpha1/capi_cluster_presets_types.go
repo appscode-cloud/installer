@@ -21,12 +21,12 @@ import (
 )
 
 const (
-	ResourceKindCapiUiPresets = "CapiUiPresets"
-	ResourceCapiUiPresets     = "capiuipresets"
-	ResourceCapiUiPresetss    = "capiuipresetss"
+	ResourceKindCapiClusterPresets = "CapiClusterPresets"
+	ResourceCapiClusterPresets     = "capiclusterpresets"
+	ResourceCapiClusterPresetss    = "capiclusterpresetss"
 )
 
-// CapiUiPresets defines the schama for CapiUiPresets Installer.
+// CapiClusterPresets defines the schama for CapiClusterPresets Installer.
 
 // +genclient
 // +genclient:skipVerbs=updateStatus
@@ -34,14 +34,18 @@ const (
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:path=capiuipresetss,singular=capiuipresets,categories={kubeops,appscode}
-type CapiUiPresets struct {
+// +kubebuilder:resource:path=capiclusterpresetss,singular=capiclusterpresets,categories={kubeops,appscode}
+type CapiClusterPresets struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              CapiUiPresetsSpec `json:"spec,omitempty"`
+	Spec              CapiClusterPresetsSpec `json:"spec,omitempty"`
 }
 
-type CapiUiPresetsSpec struct {
+type CapiClusterPresetsSpec struct {
+	CAPI CapiPresetsSpec `json:"capi"`
+}
+
+type CapiPresetsSpec struct {
 	// +optional
 	Provider    CAPIProvider `json:"provider"`
 	Namespace   string       `json:"namespace"`
@@ -60,10 +64,10 @@ const (
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// CapiUiPresetsList is a list of CapiUiPresetss
-type CapiUiPresetsList struct {
+// CapiClusterPresetsList is a list of CapiClusterPresetss
+type CapiClusterPresetsList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of CapiUiPresets CRD objects
-	Items []CapiUiPresets `json:"items,omitempty"`
+	// Items is a list of CapiClusterPresets CRD objects
+	Items []CapiClusterPresets `json:"items,omitempty"`
 }

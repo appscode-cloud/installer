@@ -1,0 +1,29 @@
+{{- if eq .Values.capi.provider "capa" }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: FeatureSet
+metadata:
+  name: dbaas-capa
+spec:
+  title: KubeDB Managed DBaaS
+  description: |
+    Turn A CAPZ Cluster Into DBaaS
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  required: {{ if eq .Values.capi.provider "capa" }}true{{ else }}false{{ end }}
+  requiredFeatures:
+    - capa-vpc-peering-operator
+    - capi-cluster-presets
+    - crossplane
+    - kubeform-provider-aws
+  chart:
+    name: uik8sappscodecom-featureset-dbaas-capa-editor
+    version: {{ .Chart.AppVersion }}
+    sourceRef:
+      apiGroup: source.toolkit.fluxcd.io
+      kind: HelmRepository
+      name: {{ ternary .Values.release.channel "bytebuilders-ui" (has .Values.release.channel (list "stable" "testing")) }}
+      namespace: {{ .Release.Namespace }}
+
+{{- end }}
