@@ -13,7 +13,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-cost
   featureBlock: opencost
-  required: true
+  required: false
   requirements:
     features:
       - kube-prometheus-stack

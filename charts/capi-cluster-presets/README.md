@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/capi-ui-presets --version=v2023.03.23
-$ helm upgrade -i capi-ui-presets appscode/capi-ui-presets -n kubeops --create-namespace --version=v2023.03.23
+$ helm search repo appscode/capi-cluster-presets --version=v2023.03.23
+$ helm upgrade -i capi-cluster-presets appscode/capi-cluster-presets -n kubeops --create-namespace --version=v2023.03.23
 ```
 
 ## Introduction
@@ -21,10 +21,10 @@ This chart deploys ACE UI presets for Monitoring on a [Kubernetes](http://kubern
 
 ## Installing the Chart
 
-To install/upgrade the chart with the release name `capi-ui-presets`:
+To install/upgrade the chart with the release name `capi-cluster-presets`:
 
 ```bash
-$ helm upgrade -i capi-ui-presets appscode/capi-ui-presets -n kubeops --create-namespace --version=v2023.03.23
+$ helm upgrade -i capi-cluster-presets appscode/capi-cluster-presets -n kubeops --create-namespace --version=v2023.03.23
 ```
 
 The command deploys ACE UI presets for Monitoring on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -33,17 +33,17 @@ The command deploys ACE UI presets for Monitoring on the Kubernetes cluster in t
 
 ## Uninstalling the Chart
 
-To uninstall the `capi-ui-presets`:
+To uninstall the `capi-cluster-presets`:
 
 ```bash
-$ helm uninstall capi-ui-presets -n kubeops
+$ helm uninstall capi-cluster-presets -n kubeops
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
 
 ## Configuration
 
-The following table lists the configurable parameters of the `capi-ui-presets` chart and their default values.
+The following table lists the configurable parameters of the `capi-cluster-presets` chart and their default values.
 
 |    Parameter     | Description |     Default     |
 |------------------|-------------|-----------------|
@@ -55,12 +55,12 @@ The following table lists the configurable parameters of the `capi-ui-presets` c
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i capi-ui-presets appscode/capi-ui-presets -n kubeops --create-namespace --version=v2023.03.23 --set -- generate from values file --
+$ helm upgrade -i capi-cluster-presets appscode/capi-cluster-presets -n kubeops --create-namespace --version=v2023.03.23 --set -- generate from values file --
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i capi-ui-presets appscode/capi-ui-presets -n kubeops --create-namespace --version=v2023.03.23 --values values.yaml
+$ helm upgrade -i capi-cluster-presets appscode/capi-cluster-presets -n kubeops --create-namespace --version=v2023.03.23 --values values.yaml
 ```

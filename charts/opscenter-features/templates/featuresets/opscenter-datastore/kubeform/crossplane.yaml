@@ -1,19 +1,21 @@
+{{- if not .Values.capi.provider }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
   name: crossplane
   labels:
-    byte.builders/feature-set: opscenter-manageddb
+    byte.builders/feature-set: opscenter-datastore
 spec:
   title: Crossplane
   description: |
-    Necessary Peering Component for providing Managed Database Solution.
+    The cloud native control plane framework
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  featureSet: opscenter-manageddb
+  featureSet: opscenter-datastore
   featureBlock: crossplane
-  required: true
+  required: false
   readinessChecks:
     workloads:
       - group: apps
@@ -30,3 +32,5 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.release.channel "crossplane" (has .Values.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
+
+{{- end }}

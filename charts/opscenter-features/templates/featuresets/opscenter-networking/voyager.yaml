@@ -1,34 +1,32 @@
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: kubeform-provider-aws
+  name: voyager
   labels:
-    byte.builders/feature-set: opscenter-manageddb
+    byte.builders/feature-set: opscenter-networking
 spec:
-  title: Kubeform AWS Provider
+  title: Voyager Ingress
   description: |
-    Necessary Peering Component for providing Managed Database Solution.
+    Secure HAProxy Ingress Controller for Kubernetes
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  featureSet: opscenter-manageddb
-  featureBlock: kubeform-provider-aws
+  featureSet: opscenter-networking
+  featureBlock: voyager
   required: false
-  requirements:
-    features:
-      - crossplane
   readinessChecks:
     workloads:
       - group: apps
         version: v1
         kind: Deployment
         selector:
-          app.kubernetes.io/name: kubeform-provider-aws
+          app.kubernetes.io/instance: voyager
           app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: voyager
   chart:
-    name: kubeform-provider-aws
-    namespace: corssplane-system
-    version: "v2023.06.27"
+    name: voyager
+    namespace: voyager
+    version: "v2023.05.16"
     sourceRef:
       kind: HelmRepository
       name: {{ ternary .Values.release.channel "appscode" (has .Values.release.channel (list "stable" "testing")) }}

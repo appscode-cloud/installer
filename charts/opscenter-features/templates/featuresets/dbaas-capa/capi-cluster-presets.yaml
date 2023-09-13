@@ -1,0 +1,33 @@
+{{- if eq .Values.capi.provider "capa" }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: capi-cluster-presets
+  labels:
+    byte.builders/feature-set: dbaas-capa
+spec:
+  title: CAPI Cluster Presets
+  description: |
+    CAPI Cluster Presets
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: dbaas-capa
+  featureBlock: capi-cluster-presets
+  required: {{ if eq .Values.capi.provider "capa" }}true{{ else }}false{{ end }}
+  chart:
+    name: capi-cluster-presets
+    namespace: kubeops
+    version: "v2023.03.23"
+    sourceRef:
+      kind: HelmRepository
+      name: {{ ternary .Values.release.channel "appscode" (has .Values.release.channel (list "stable" "testing")) }}
+      namespace: {{ .Release.Namespace }}
+  values:
+    capi:
+      provider: {{ .Values.capi.provider }}
+      namespace: {{ .Values.capi.namespace }}
+      clusterName: {{ .Values.capi.clusterName }}
+
+{{- end }}

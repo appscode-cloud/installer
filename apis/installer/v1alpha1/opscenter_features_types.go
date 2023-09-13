@@ -49,6 +49,7 @@ type OpscenterFeaturesSpec struct {
 	Release               ReleaseInfo                     `json:"release"`
 	Repositories          map[string]*HelmRepository      `json:"repositories"`
 	RepositoryCredentials map[string]RepositoryCredential `json:"repositoryCredentials"`
+	CAPI                  CapiPresetsSpec                 `json:"capi"`
 }
 
 type ReleaseInfo struct {
