@@ -15,7 +15,7 @@ spec:
       type: image/svg+xml
   featureSet: dbaas-capa
   featureBlock: crossplane
-  required: {{ if eq .Values.capi.provider "capa" }}true{{ else }}false{{ end }}
+  required: true
   readinessChecks:
     workloads:
       - group: apps
