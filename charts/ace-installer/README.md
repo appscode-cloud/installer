@@ -53,7 +53,7 @@ The following table lists the configurable parameters of the `ace-installer` cha
 | repositories.bootstrap.url                                          |             | <code>https://charts.appscode.com/stable</code>         |
 | repositories.stakater.interval                                      |             | <code>1h0m0s</code>                                     |
 | repositories.stakater.url                                           |             | <code>https://stakater.github.io/stakater-charts</code> |
-| repositoryCredentials                                               |             | <code>{}</code>                                         |
+| registry.credentials                                                |             | <code>{}</code>                                         |
 | releases.ace.enabled                                                |             | <code>false</code>                                      |
 | releases.ace.version                                                |             | <code>"v2023.03.23"</code>                              |
 | releases.cert-manager-csi-driver-cacerts.enabled                    |             | <code>true</code>                                       |
