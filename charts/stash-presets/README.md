@@ -47,6 +47,11 @@ The following table lists the configurable parameters of the `stash-presets` cha
 
 |                       Parameter                        | Description |                 Default                 |
 |--------------------------------------------------------|-------------|-----------------------------------------|
+| stash.schedule                                         |             | <code>"0 */2 * * *"</code>              |
+| stash.retentionPolicy.name                             |             | <code>keep-last-30d</code>              |
+| stash.retentionPolicy.keepHourly                       |             | <code>24</code>                         |
+| stash.retentionPolicy.keepDaily                        |             | <code>30</code>                         |
+| stash.retentionPolicy.prune                            |             | <code>true</code>                       |
 | stash.authSecret.name                                  |             | <code>""</code>                         |
 | stash.authSecret.password                              |             | <code>""</code>                         |
 | stash.backend.provider                                 |             | <code>"" # s3,gcs,azure,swift,b2</code> |
@@ -84,7 +89,7 @@ The following table lists the configurable parameters of the `stash-presets` cha
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i stash-presets appscode/stash-presets -n kubeops --create-namespace --version=v2023.03.23 --set stash.backend.provider="" # s3,gcs,azure,swift,b2
+$ helm upgrade -i stash-presets appscode/stash-presets -n kubeops --create-namespace --version=v2023.03.23 --set stash.schedule="0 */2 * * *"
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while

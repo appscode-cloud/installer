@@ -47,6 +47,11 @@ The following table lists the configurable parameters of the `kubestash-presets`
 
 |                         Parameter                          | Description |                 Default                 |
 |------------------------------------------------------------|-------------|-----------------------------------------|
+| kubestash.schedule                                         |             | <code>"0 */2 * * *"</code>              |
+| kubestash.retentionPolicy.name                             |             | <code>keep-last-30d</code>              |
+| kubestash.retentionPolicy.keepHourly                       |             | <code>24</code>                         |
+| kubestash.retentionPolicy.keepDaily                        |             | <code>30</code>                         |
+| kubestash.retentionPolicy.prune                            |             | <code>true</code>                       |
 | kubestash.authSecret.name                                  |             | <code>""</code>                         |
 | kubestash.authSecret.password                              |             | <code>""</code>                         |
 | kubestash.backend.provider                                 |             | <code>"" # s3,gcs,azure,swift,b2</code> |
@@ -84,7 +89,7 @@ The following table lists the configurable parameters of the `kubestash-presets`
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i kubestash-presets appscode/kubestash-presets -n kubeops --create-namespace --version=v2023.03.23 --set kubestash.backend.provider="" # s3,gcs,azure,swift,b2
+$ helm upgrade -i kubestash-presets appscode/kubestash-presets -n kubeops --create-namespace --version=v2023.03.23 --set kubestash.schedule="0 */2 * * *"
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while

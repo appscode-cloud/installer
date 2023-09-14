@@ -13,7 +13,7 @@ spec:
       type: image/svg+xml
   featureSet: opscenter-backup
   featureBlock: stash
-  required: true
+  required: false
   requirements:
     features:
       - stash
