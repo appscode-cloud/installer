@@ -1,0 +1,27 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: stash-presets
+  labels:
+    byte.builders/feature-set: opscenter-backup
+spec:
+  title: Stash Presets
+  description: |
+    Stash Presets
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-backup
+  # featureBlock: stash
+  required: false
+  requirements:
+    features:
+      - stash
+  chart:
+    name: stash-presets
+    namespace: stash
+    version: "v2023.03.23"
+    sourceRef:
+      kind: HelmRepository
+      name: {{ ternary .Values.release.channel "appscode" (has .Values.release.channel (list "stable" "testing")) }}
+      namespace: {{ .Release.Namespace }}

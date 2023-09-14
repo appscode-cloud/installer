@@ -19,6 +19,7 @@ package v1alpha1
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	store "kmodules.xyz/objectstore-api/api/v1"
+	stashv1alpha1 "stash.appscode.dev/apimachinery/apis/stash/v1alpha1"
 )
 
 const (
@@ -47,8 +48,13 @@ type StashPresetsSpec struct {
 }
 
 type StashInfo struct {
-	AuthSecret AuthSecret        `json:"authSecret"`
-	Backend    RepositoryBackend `json:"backend"`
+	// Schedule specifies the schedule for invoking backup sessions
+	// +optional
+	Schedule string `json:"schedule,omitempty"`
+	// RetentionPolicy indicates the policy to follow to clean old backup snapshots
+	RetentionPolicy stashv1alpha1.RetentionPolicy `json:"retentionPolicy"`
+	AuthSecret      AuthSecret                    `json:"authSecret"`
+	Backend         RepositoryBackend             `json:"backend"`
 }
 
 type AuthSecret struct {
