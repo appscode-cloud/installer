@@ -72,9 +72,17 @@ type TricksterSpec struct {
 	Tolerations []core.Toleration `json:"tolerations"`
 	// If specified, the pod's scheduling constraints
 	// +optional
-	Affinity   *core.Affinity   `json:"affinity"`
-	Monitoring CustomMonitoring `json:"monitoring"`
-	Ingress    AppIngress       `json:"ingress"`
+	Affinity   *core.Affinity    `json:"affinity"`
+	Monitoring CustomMonitoring  `json:"monitoring"`
+	Ingress    AppIngress        `json:"ingress"`
+	Sidecars   TricksterSidecars `json:"sidecars"`
+}
+
+type TricksterSidecars struct {
+	// +optional
+	Spec []core.Container `json:"spec"`
+	// +optional
+	Volumes []core.Volume `json:"volumes"`
 }
 
 type ImageReference struct {

@@ -42,6 +42,7 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.KubeAuthManagerSpec{}},
 		sc.TestCase{Obj: v1alpha1.KubeAuthProxySpec{}},
 		sc.TestCase{Obj: v1alpha1.KubedbUiSpec{}},
+		sc.TestCase{Obj: v1alpha1.KubestashPresetsSpec{}},
 		sc.TestCase{Obj: v1alpha1.LicenseProxyserverSpec{}},
 		sc.TestCase{Obj: v1alpha1.MarketplaceUiSpec{}},
 		sc.TestCase{Obj: v1alpha1.MinioSpec{}},
@@ -52,6 +53,7 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.PlatformLinksSpec{}},
 		sc.TestCase{Obj: v1alpha1.PlatformUiSpec{}},
 		sc.TestCase{Obj: v1alpha1.SmtprelaySpec{}},
+		sc.TestCase{Obj: v1alpha1.StashPresetsSpec{}},
 		sc.TestCase{Obj: v1alpha1.NatsSpec{}, File: "https://github.com/nats-io/k8s/raw/nats-0.19.12/helm/charts/nats/values.yaml"},
 		sc.TestCase{Obj: v1alpha1.ReloaderSpec{}, File: "https://github.com/stakater/Reloader/raw/v1.0.15/deployments/kubernetes/chart/reloader/values.yaml"},
 	)
