@@ -15,9 +15,6 @@ spec:
   dnsNames:
     - "{{ .Values.global.platform.domain }}"
     - "*.{{ .Values.global.platform.domain }}"
-  {{- if (index .Values "minio" "enabled") }}
-    - "*.s3.{{ .Values.global.platform.domain }}"
-  {{- end }}
   usages:
     - key agreement
     - digital signature

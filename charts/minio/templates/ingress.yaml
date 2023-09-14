@@ -64,23 +64,12 @@ spec:
   {{- if .Values.minio.tls.enable }}
   tls:
     - hosts:
-        - "s3.{{ .Values.ingress.domain }}"
-        - "*.s3.{{ .Values.ingress.domain }}"
-        - "minio.{{ .Values.ingress.domain }}"
+        - 's3.{{ .Values.ingress.domain }}'
+        - 'minio.{{ .Values.ingress.domain }}'
       secretName: {{ default (printf "%s-cert" (include "minio.fullname" .)) .Values.minio.tls.secret.name }}
   {{- end }}
   rules:
     - host: s3.{{ .Values.ingress.domain }}
-      http:
-        paths:
-        - backend:
-            service:
-              name: {{ include "minio.fullname" . }}
-              port:
-                number: {{ .Values.service.port }}
-          path: /
-          pathType: Prefix
-    - host: "*.s3.{{ .Values.ingress.domain }}"
       http:
         paths:
         - backend:
