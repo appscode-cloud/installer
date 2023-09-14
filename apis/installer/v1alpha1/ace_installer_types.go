@@ -47,9 +47,9 @@ type AceInstallerSpec struct {
 	NameOverride     string `json:"nameOverride"`
 	FullnameOverride string `json:"fullnameOverride"`
 
-	Repositories          map[string]*HelmRepository      `json:"repositories"`
-	RepositoryCredentials map[string]RepositoryCredential `json:"repositoryCredentials"`
-	Releases              map[string]*HelmRelease         `json:"releases"`
+	Repositories map[string]*HelmRepository `json:"repositories"`
+	Registry     RegistryInfo               `json:"registry"`
+	Releases     map[string]*HelmRelease    `json:"releases"`
 }
 
 type HelmRelease struct {

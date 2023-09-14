@@ -3,6 +3,15 @@ properties:
     type: string
   nameOverride:
     type: string
+  registry:
+    properties:
+      credentials:
+        additionalProperties:
+          type: string
+        type: object
+    required:
+    - credentials
+    type: object
   releases:
     additionalProperties:
       properties:
@@ -46,16 +55,10 @@ properties:
       - url
       type: object
     type: object
-  repositoryCredentials:
-    additionalProperties:
-      additionalProperties:
-        type: string
-      type: object
-    type: object
 required:
 - fullnameOverride
 - nameOverride
+- registry
 - releases
 - repositories
-- repositoryCredentials
 type: object

@@ -46,10 +46,10 @@ type OpscenterFeaturesSpec struct {
 	NameOverride     string `json:"nameOverride"`
 	FullnameOverride string `json:"fullnameOverride"`
 
-	Release               ReleaseInfo                     `json:"release"`
-	Repositories          map[string]*HelmRepository      `json:"repositories"`
-	RepositoryCredentials map[string]RepositoryCredential `json:"repositoryCredentials"`
-	CAPI                  CapiPresetsSpec                 `json:"capi"`
+	Release      ReleaseInfo                `json:"release"`
+	Repositories map[string]*HelmRepository `json:"repositories"`
+	Registry     RegistryInfo               `json:"registry"`
+	CAPI         CapiPresetsSpec            `json:"capi"`
 }
 
 type ReleaseInfo struct {
@@ -103,6 +103,10 @@ type HelmRepository struct {
 }
 
 type RepositoryCredential map[string]string
+
+type RegistryInfo struct {
+	Credentials RepositoryCredential `json:"credentials"`
+}
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
