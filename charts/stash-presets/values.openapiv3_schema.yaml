@@ -189,9 +189,46 @@ properties:
         required:
         - provider
         type: object
+      retentionPolicy:
+        properties:
+          dryRun:
+            type: boolean
+          keepDaily:
+            format: int64
+            type: integer
+          keepHourly:
+            format: int64
+            type: integer
+          keepLast:
+            format: int64
+            type: integer
+          keepMonthly:
+            format: int64
+            type: integer
+          keepTags:
+            items:
+              type: string
+            type: array
+          keepWeekly:
+            format: int64
+            type: integer
+          keepYearly:
+            format: int64
+            type: integer
+          name:
+            type: string
+          prune:
+            type: boolean
+        required:
+        - name
+        - prune
+        type: object
+      schedule:
+        type: string
     required:
     - authSecret
     - backend
+    - retentionPolicy
     type: object
 required:
 - stash

@@ -74,6 +74,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.kubedb.url                    |                                                                        | <code>https://charts.appscode.com/stable</code>                    |
 | repositories.kubeops.interval              |                                                                        | <code>30m0s</code>                                                 |
 | repositories.kubeops.url                   |                                                                        | <code>https://charts.appscode.com/stable</code>                    |
+| repositories.kubestash.interval            |                                                                        | <code>30m0s</code>                                                 |
+| repositories.kubestash.url                 |                                                                        | <code>https://charts.appscode.com/stable</code>                    |
 | repositories.kubevault.interval            |                                                                        | <code>30m0s</code>                                                 |
 | repositories.kubevault.url                 |                                                                        | <code>oci://r.byte.builders/charts</code>                          |
 | repositories.nats.interval                 |                                                                        | <code>30m0s</code>                                                 |

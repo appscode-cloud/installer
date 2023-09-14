@@ -18,7 +18,7 @@ spec:
   required: true
   chart:
     name: capi-cluster-presets
-    namespace: kubeops
+    namespace: capi-cluster
     version: "v2023.03.23"
     sourceRef:
       kind: HelmRepository

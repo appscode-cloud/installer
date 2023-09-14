@@ -46,6 +46,9 @@ repositories:
   kubeops:
     interval: 30m0s
     url: https://charts.appscode.com/stable
+  kubestash:
+    interval: 30m0s
+    url: https://charts.appscode.com/stable
   kubevault:
     interval: 30m0s
     url: oci://r.byte.builders/charts
