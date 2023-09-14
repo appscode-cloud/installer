@@ -17,7 +17,6 @@ github.com/emicklei/go-restful/v3 v3.8.0 h1:eCZ8ulSerjdAiaNpF7GxXIE7ZCMo1moN1qX+
 github.com/emicklei/go-restful/v3 v3.8.0/go.mod h1:6n3XBCmQQb25CM2LCACGz8ukIrRry+4bhvbpWn3mrbc=
 github.com/envoyproxy/go-control-plane v0.9.1-0.20191026205805-5f8ba28d4473/go.mod h1:YTl/9mNaCwkRvm6d1a2C3ymFceY/DCBVvsKhRF0iEA4=
 github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7+kN2VEUnK/pcBlmesArF7c=
-github.com/evanphx/json-patch v0.5.2/go.mod h1:ZWS5hhDbVDyob71nXKNL0+PWn6ToqBHMikGIFbs31qQ=
 github.com/evanphx/json-patch v4.12.0+incompatible h1:4onqiflcdA9EOZ4RxV643DvftH5pOlLGNtQ5lPWQu84=
 github.com/evanphx/json-patch v4.12.0+incompatible/go.mod h1:50XU6AFN0ol/bzJsmQLiYLvXMP4fmwYFNcr97nuDLSk=
 github.com/evanphx/json-patch/v5 v5.6.0 h1:b91NhWfaz02IuVxO9faSllyAtNXHMPkC5J8sJCLunww=
@@ -136,8 +135,8 @@ github.com/yuin/goldmark v1.1.27/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9de
 github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
 go.appscode.dev/alerts v0.2.0 h1:YTwrLxqph09uMqrczMav28roJGLjTf1ahIsqNulhQ5o=
 go.appscode.dev/alerts v0.2.0/go.mod h1:1u5X8iY+EMIvuHtnteeMj2RB2jQOj/uCkv6Y9BTE9co=
-go.openviz.dev/installer v0.0.0-20230326020900-eaec08452d0a h1:hTcwRNcTnd62YKL9prZQ5/hjyGN2Tmfqxkec1Y6MzAI=
-go.openviz.dev/installer v0.0.0-20230326020900-eaec08452d0a/go.mod h1:kC3TEo+NqZPmxlpiIOcMkg2w4516gFFVYmo2rjwjslg=
+go.openviz.dev/installer v0.0.0-20230802073927-bc7c337886e9 h1:1JgvOtxky9aqaLA+yzrszl+m4ymF96dK18J++sa/C5c=
+go.openviz.dev/installer v0.0.0-20230802073927-bc7c337886e9/go.mod h1:kC3TEo+NqZPmxlpiIOcMkg2w4516gFFVYmo2rjwjslg=
 go.uber.org/atomic v1.7.0 h1:ADUqmZGgLDDfbSL9ZmPxKTybcoEYHgpYfELNoN+7hsw=
 go.uber.org/multierr v1.6.0 h1:y6IPFStTAIT5Ytl7/XYmHvzXQ7S3g/IeZW9hyZ5thw4=
 go.uber.org/zap v1.21.0 h1:WefMeulhovoZ2sYXz7st6K0sLj7bBhpiFaud4r4zST8=
@@ -197,8 +196,8 @@ golang.org/x/xerrors v0.0.0-20190717185122-a985d3407aa7/go.mod h1:I/5z698sn9Ka8T
 golang.org/x/xerrors v0.0.0-20191011141410-1b5146add898/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
 golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
 golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
-gomodules.xyz/jsonpatch/v2 v2.2.0 h1:4pT439QV83L+G9FkcCriY6EkpcK6r6bK+A5FBUMI7qY=
-gomodules.xyz/jsonpatch/v2 v2.2.0/go.mod h1:WXp+iVDkoLQqPudfQ9GBlwB2eZ5DKOnjQZCYdOS8GPY=
+gomodules.xyz/jsonpatch/v2 v2.4.0 h1:Ci3iUJyx9UeRx7CeFN8ARgGbkESwJK+KB9lLcWxY/Zw=
+gomodules.xyz/jsonpatch/v2 v2.4.0/go.mod h1:AH3dM2RI6uoBZxn3LVrfvJ3E0/9dG4cSrbuBJT4moAY=
 gomodules.xyz/pointer v0.1.0 h1:sG2UKrYVSo6E3r4itAjXfPfe4fuXMi0KdyTHpR3vGCg=
 google.golang.org/appengine v1.1.0/go.mod h1:EbEs0AVv82hx2wNQdGPgUI5lhzA/G0D9YwlJXL52JkM=
 google.golang.org/appengine v1.4.0/go.mod h1:xpcJRLb0r/rnEns0DIKYYv+WjYCduHsrkT7/EB5XEv4=
@@ -257,10 +256,10 @@ k8s.io/kube-openapi v0.0.0-20220803162953-67bda5d908f1 h1:MQ8BAZPZlWk3S9K4a9NCkI
 k8s.io/kube-openapi v0.0.0-20220803162953-67bda5d908f1/go.mod h1:C/N6wCaBHeBHkHUesQOQy2/MZqGgMAFPqGsGQLdbZBU=
 k8s.io/utils v0.0.0-20220823124924-e9cbc92d1a73 h1:H9TCJUUx+2VA0ZiD9lvtaX8fthFsMoD+Izn93E/hm8U=
 k8s.io/utils v0.0.0-20220823124924-e9cbc92d1a73/go.mod h1:jPW/WVKK9YHAvNhRxK0md/EJ228hCsBRufyofKtW8HA=
-kmodules.xyz/client-go v0.25.21 h1:AMceuEeOl4hoh4p3rtGcrcrbwHg9j5IpnHTUd4vjecc=
-kmodules.xyz/client-go v0.25.21/go.mod h1:KWVpgjAj/VNzCzj/BihpJkY39aWIqe8qMp5RuPsuSJA=
-kmodules.xyz/objectstore-api v0.25.0 h1:xT7+SXBqAMtVkfOdp4espHAfZ6MYUC4G1OgzTkURNnU=
-kmodules.xyz/objectstore-api v0.25.0/go.mod h1:X5aCkyU91p9TOn4jcWw0cfcJL0HCKd/Z6FJHdzKz1ZU=
+kmodules.xyz/client-go v0.25.32 h1:nHS7Pjmw79d0KI7xSuIJvAl2ZEEDkCjnYuxweAdAtb8=
+kmodules.xyz/client-go v0.25.32/go.mod h1:r/Va2Y6t1G8X1sPRjrQC6FWB3oh/i6rjssmlfJnbCmg=
+kmodules.xyz/objectstore-api v0.25.1 h1:lYQlxk+edgZYakhq+OoRBXTbHbZTGKhatGZWnKixgEQ=
+kmodules.xyz/objectstore-api v0.25.1/go.mod h1:6wBtktN7/EXyE429OTCB9nwEe+d0ADaoCtm6+IZnJso=
 kmodules.xyz/schema-checker v0.4.1 h1:V5UEjR6UMAXf307lTgw+9rDRfHLTNA8g/q9DngqYI9M=
 kmodules.xyz/schema-checker v0.4.1/go.mod h1:BRXLB3Osuc9raHRJxHOgZFGecZ2aZumLXCHAOa5NPdA=
 kubeops.dev/external-dns-operator v0.0.5 h1:Q+CB0jBaxqqNlpI+ln234G1V7altvWUuQVtOT+AbnoY=
@@ -273,5 +272,5 @@ sigs.k8s.io/structured-merge-diff/v4 v4.2.3 h1:PRbqxJClWWYMNV1dhaG4NsibJbArud9kF
 sigs.k8s.io/structured-merge-diff/v4 v4.2.3/go.mod h1:qjx8mGObPmV2aSZepjQjbmb2ihdVs8cGKBraizNC69E=
 sigs.k8s.io/yaml v1.3.0 h1:a2VclLzOGrwOHDiV8EfBGhvjHvP46CtW5j6POvhYGGo=
 sigs.k8s.io/yaml v1.3.0/go.mod h1:GeOyir5tyXNByN85N/dRIT9es5UQNerPYEKK56eTBm8=
-x-helm.dev/apimachinery v0.0.8 h1:/ovK/ilRf6sS40/WWRP1C/8Fqap8cVn3n/iwTphhwu0=
-x-helm.dev/apimachinery v0.0.8/go.mod h1:+e17beHh5V931ak0a8SgAH6DnT1NOlPpWEYKnLMucAU=
+x-helm.dev/apimachinery v0.0.10 h1:B73Ys9ckv6Uml3nVnQvrYqV10tMOpoLvQTq9ezz9vZI=
+x-helm.dev/apimachinery v0.0.10/go.mod h1:SWmuuxD+AYBSBctBksMpxrvAkFC57lbV5np2oEPibuI=

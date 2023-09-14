@@ -311,39 +311,6 @@ type InfraObjstore struct {
 	Swift     *SwiftAuth       `json:"swift,omitempty"`
 }
 
-type S3Auth struct {
-	AwsAccessKeyID     string `json:"AWS_ACCESS_KEY_ID"`
-	AwsSecretAccessKey string `json:"AWS_SECRET_ACCESS_KEY"`
-	CaCertData         string `json:"CA_CERT_DATA"`
-}
-
-type AzureAuth struct {
-	AzureAccountName string `json:"AZURE_ACCOUNT_NAME"`
-	AzureAccountKey  string `json:"AZURE_ACCOUNT_KEY"`
-}
-
-type GCSAuth struct {
-	GoogleProjectID             string `json:"GOOGLE_PROJECT_ID"`
-	GoogleServiceAccountJSONKey string `json:"GOOGLE_SERVICE_ACCOUNT_JSON_KEY"`
-}
-
-type SwiftAuth struct {
-	OsUsername          string `json:"OS_USERNAME"`
-	OsPassword          string `json:"OS_PASSWORD"`
-	OsRegionName        string `json:"OS_REGION_NAME"`
-	OsAuthURL           string `json:"OS_AUTH_URL"`
-	OsUserDomainName    string `json:"OS_USER_DOMAIN_NAME"`
-	OsProjectName       string `json:"OS_PROJECT_NAME"`
-	OsProjectDomainName string `json:"OS_PROJECT_DOMAIN_NAME"`
-	OsTenantID          string `json:"OS_TENANT_ID"`
-	OsTenantName        string `json:"OS_TENANT_NAME"`
-	StAuth              string `json:"ST_AUTH"`
-	StUser              string `json:"ST_USER"`
-	StKey               string `json:"ST_KEY"`
-	OsStorageURL        string `json:"OS_STORAGE_URL"`
-	OsAuthToken         string `json:"OS_AUTH_TOKEN"`
-}
-
 type InfraStash struct {
 	Backup BackupSpec       `json:"backup"`
 	S3     *store.S3Spec    `json:"s3,omitempty"`

@@ -4,10 +4,10 @@ go 1.18
 
 require (
 	go.appscode.dev/alerts v0.2.0
-	go.openviz.dev/installer v0.0.0-20230326020900-eaec08452d0a
+	go.openviz.dev/installer v0.0.0-20230802073927-bc7c337886e9
 	k8s.io/api v0.25.3
 	k8s.io/apimachinery v0.25.3
-	kmodules.xyz/objectstore-api v0.25.0
+	kmodules.xyz/objectstore-api v0.25.1
 	kmodules.xyz/schema-checker v0.4.1
 	kubeops.dev/external-dns-operator v0.0.5
 )
@@ -48,7 +48,7 @@ require (
 	golang.org/x/term v0.5.0 // indirect
 	golang.org/x/text v0.7.0 // indirect
 	golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9 // indirect
-	gomodules.xyz/jsonpatch/v2 v2.2.0 // indirect
+	gomodules.xyz/jsonpatch/v2 v2.4.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
@@ -59,12 +59,12 @@ require (
 	k8s.io/klog/v2 v2.80.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20220803162953-67bda5d908f1 // indirect
 	k8s.io/utils v0.0.0-20220823124924-e9cbc92d1a73 // indirect
-	kmodules.xyz/client-go v0.25.21 // indirect
+	kmodules.xyz/client-go v0.25.32 // indirect
 	sigs.k8s.io/controller-runtime v0.13.1 // indirect
 	sigs.k8s.io/json v0.0.0-20220713155537-f223a00ba0e2 // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
-	x-helm.dev/apimachinery v0.0.8 // indirect
+	x-helm.dev/apimachinery v0.0.10 // indirect
 )
 
 replace github.com/imdario/mergo => github.com/imdario/mergo v0.3.6
