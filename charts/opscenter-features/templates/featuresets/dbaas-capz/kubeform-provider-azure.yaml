@@ -15,7 +15,7 @@ spec:
       type: image/svg+xml
   featureSet: dbaas-capz
   featureBlock: crossplane
-  required: {{ if eq .Values.capi.provider "capz" }}true{{ else }}false{{ end }}
+  required: true
   requirements:
     features:
       - crossplane

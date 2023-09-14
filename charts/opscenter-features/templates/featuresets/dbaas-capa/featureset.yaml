@@ -11,7 +11,7 @@ spec:
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  required: {{ if eq .Values.capi.provider "capa" }}true{{ else }}false{{ end }}
+  required: true
   requiredFeatures:
     - capa-vpc-peering-operator
     - capi-cluster-presets
