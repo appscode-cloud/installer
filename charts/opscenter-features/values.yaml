@@ -65,13 +65,14 @@ repositories:
     interval: 30m0s
     url: https://charts.appscode.com/stable
 
-repositoryCredentials: {}
-  # dockerhub:
-  #   username: "abc"
-  #   password: "xyz"
-  # ghcr:
-  #   username: "gh_abc"
-  #   password: "gh_xyz"
+registry:
+  credentials: {}
+    # dockerhub:
+    #   username: "abc"
+    #   password: "xyz"
+    # ghcr:
+    #   username: "gh_abc"
+    #   password: "gh_xyz"
 
 capi:
   provider: ""

@@ -86,7 +86,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.prometheus-community.url      |                                                                        | <code>https://prometheus-community.github.io/helm-charts</code>    |
 | repositories.stashed.interval              |                                                                        | <code>30m0s</code>                                                 |
 | repositories.stashed.url                   |                                                                        | <code>https://charts.appscode.com/stable</code>                    |
-| repositoryCredentials                      |                                                                        | <code>{}</code>                                                    |
+| registry.credentials                       |                                                                        | <code>{}</code>                                                    |
 | capi.provider                              |                                                                        | <code>""</code>                                                    |
 | capi.namespace                             |                                                                        | <code>""</code>                                                    |
 | capi.clusterName                           |                                                                        | <code>""</code>                                                    |

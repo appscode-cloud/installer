@@ -13,13 +13,14 @@ repositories:
     interval: 1h0m0s
     url: https://stakater.github.io/stakater-charts
 
-repositoryCredentials: {}
-  # dockerhub:
-  #   username: "abc"
-  #   password: "xyz"
-  # ghcr:
-  #   username: "gh_abc"
-  #   password: "gh_xyz"
+registry:
+  credentials: {}
+    # dockerhub:
+    #   username: "abc"
+    #   password: "xyz"
+    # ghcr:
+    #   username: "gh_abc"
+    #   password: "gh_xyz"
 
 releases:
   ace:
