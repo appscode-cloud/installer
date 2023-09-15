@@ -10,8 +10,6 @@ spec:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
   required: false
-  requiredFeatures:
-  - opencost
   chart:
     name: uik8sappscodecom-featureset-opscenter-cost-editor
     version: {{ .Chart.AppVersion }}
