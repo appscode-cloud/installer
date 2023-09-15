@@ -12,7 +12,7 @@ spec:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   featureSet: opscenter-backup
-  # featureBlock: stash
+  featureBlock: stash-presets
   required: false
   requirements:
     features:
