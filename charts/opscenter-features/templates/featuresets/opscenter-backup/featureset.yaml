@@ -10,9 +10,6 @@ spec:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   required: false
-  requiredFeatures:
-    - stash
-    - stash-opscenter
   chart:
     name: uik8sappscodecom-featureset-opscenter-backup-editor
     version: {{ .Chart.AppVersion }}
