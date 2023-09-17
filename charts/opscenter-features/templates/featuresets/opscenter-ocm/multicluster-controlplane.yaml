@@ -36,7 +36,7 @@ spec:
     enableSelfManagement: true
     autoApprovalBootstrapUsers: "system:admin"
     features: DefaultClusterSet=true,ManagedClusterAutoApproval=true,ManifestWorkReplicaSet=true
-    image: ghcr.io/kluster-management/multicluster-controlplane:latest
+    image: ghcr.io/kluster-management/multicluster-controlplane:eas
     imagePullPolicy: Always
     loadbalancer:
       enabled: true
