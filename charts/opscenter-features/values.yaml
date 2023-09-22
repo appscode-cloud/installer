@@ -19,12 +19,18 @@ repositories:
   appscode:
     interval: 30m0s
     url: https://charts.appscode.com/stable
+  aws-ebs-csi-driver:
+    interval: 30m0s
+    url: https://kubernetes-sigs.github.io/aws-ebs-csi-driver
   bytebuilders-ui:
     interval: 30m0s
     url: oci://r.byte.builders/charts
   bytebuilders:
     interval: 30m0s
     url: https://charts.appscode.com/stable
+  cluster-autoscaler:
+    interval: 30m0s
+    url: https://kubernetes.github.io/autoscaler
   crossplane:
     interval: 30m0s
     url: https://charts.crossplane.io/stable
