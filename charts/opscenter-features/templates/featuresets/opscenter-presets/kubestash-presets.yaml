@@ -3,7 +3,7 @@ kind: Feature
 metadata:
   name: kubestash-presets
   labels:
-    byte.builders/feature-set: opscenter-backup
+    byte.builders/feature-set: opscenter-presets
 spec:
   title: KubeStash Presets
   description: |
@@ -11,7 +11,7 @@ spec:
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  featureSet: opscenter-backup
+  featureSet: opscenter-presets
   featureBlock: kubestash-presets
   required: false
   requirements:
