@@ -12,8 +12,8 @@ spec:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
   featureSet: opscenter-monitoring
-  featureBlock: grafana-opscenter
-  required: true
+  featureBlock: monitoring-operator
+  required: false
   readinessChecks:
     workloads:
       - group: apps
@@ -25,7 +25,7 @@ spec:
   chart:
     name: grafana-operator
     namespace: monitoring
-    version: "v0.0.2"
+    version: "v0.0.3"
     sourceRef:
       kind: HelmRepository
       name: {{ ternary .Values.release.channel "appscode" (has .Values.release.channel (list "stable" "testing")) }}

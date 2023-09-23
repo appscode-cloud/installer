@@ -1,3 +1,5 @@
+{{- if not (has "Rancher" .Values.clusterManagers) }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -13,7 +15,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-monitoring
   featureBlock: kube-prometheus-stack
-  required: true
+  required: false
   readinessChecks:
     resources:
     - group: monitoring.coreos.com
@@ -34,3 +36,5 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.release.channel "prometheus-community" (has .Values.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
+
+{{- end }}

@@ -1,24 +1,27 @@
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: monitoring-config
+  name: kube-grafana-dashboards
   labels:
     byte.builders/feature-set: opscenter-monitoring
 spec:
-  title: Monitoring Configuration
+  title: Kubernetes Grafana Dashboards
   description: |
-    Specify the information about default Prometheus and Grafana instances.
+    Kubernetes Grafana Dashboards
   icons:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
   featureSet: opscenter-monitoring
-  featureBlock: monitoring-config
-  required: true
+  featureBlock: monitoring-operator
+  required: false
+  requirements:
+    features:
+      - grafana-operator
   chart:
-    name: monitoring-config
+    name: kube-grafana-dashboards
     namespace: monitoring
     version: "v2023.03.23"
     sourceRef:
       kind: HelmRepository
-      name: {{ ternary .Values.release.channel "bytebuilders" (has .Values.release.channel (list "stable" "testing")) }}
+      name: {{ ternary .Values.release.channel "appscode" (has .Values.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}

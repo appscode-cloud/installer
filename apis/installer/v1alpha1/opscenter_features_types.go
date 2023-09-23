@@ -46,10 +46,11 @@ type OpscenterFeaturesSpec struct {
 	NameOverride     string `json:"nameOverride"`
 	FullnameOverride string `json:"fullnameOverride"`
 
-	Release      ReleaseInfo                `json:"release"`
-	Repositories map[string]*HelmRepository `json:"repositories"`
-	Registry     RegistryInfo               `json:"registry"`
-	CAPI         CapiPresetsSpec            `json:"capi"`
+	Release         ReleaseInfo                `json:"release"`
+	Repositories    map[string]*HelmRepository `json:"repositories"`
+	Registry        RegistryInfo               `json:"registry"`
+	ClusterManagers []string                   `json:"clusterManagers"`
+	CAPI            CapiPresetsSpec            `json:"capi"`
 }
 
 type ReleaseInfo struct {
