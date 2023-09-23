@@ -3,7 +3,6 @@ module go.bytebuilders.dev/installer
 go 1.18
 
 require (
-	go.appscode.dev/alerts v0.2.0
 	go.openviz.dev/installer v0.0.0-20230802073927-bc7c337886e9
 	k8s.io/api v0.25.3
 	k8s.io/apimachinery v0.25.3
@@ -34,6 +33,8 @@ require (
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/mailru/easyjson v0.7.6 // indirect
+	github.com/mattn/go-colorable v0.1.13 // indirect
+	github.com/mattn/go-isatty v0.0.18 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
@@ -65,7 +66,6 @@ require (
 	sigs.k8s.io/json v0.0.0-20220713155537-f223a00ba0e2 // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
-	x-helm.dev/apimachinery v0.0.10 // indirect
 )
 
 replace github.com/imdario/mergo => github.com/imdario/mergo v0.3.6

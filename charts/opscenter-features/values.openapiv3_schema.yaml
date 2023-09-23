@@ -15,6 +15,10 @@ properties:
     - clusterName
     - namespace
     type: object
+  clusterManagers:
+    items:
+      type: string
+    type: array
   fullnameOverride:
     type: string
   nameOverride:
@@ -70,6 +74,7 @@ properties:
     type: object
 required:
 - capi
+- clusterManagers
 - fullnameOverride
 - nameOverride
 - registry

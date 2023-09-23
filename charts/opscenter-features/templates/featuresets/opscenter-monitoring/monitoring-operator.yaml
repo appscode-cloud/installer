@@ -1,19 +1,19 @@
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: grafana-opscenter
+  name: monitoring-operator
   labels:
     byte.builders/feature-set: opscenter-monitoring
 spec:
   title: Grafana Opscenter
   description: |
-    Manage Grafana dashboards in Kubernetes native way.
+    Cluster Monitoring Operator by AppsCode
   icons:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
   featureSet: opscenter-monitoring
-  featureBlock: grafana-opscenter
-  required: true
+  featureBlock: monitoring-operator
+  required: false
   requirements:
     features:
       - grafana-operator
@@ -24,11 +24,11 @@ spec:
         kind: Deployment
         selector:
           app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: grafana-ui-server
+          app.kubernetes.io/name: monitoring-operator
   chart:
-    name: grafana-opscenter
+    name: monitoring-operator
     namespace: monitoring
-    version: "v2023.03.23"
+    version: "v0.0.3"
     sourceRef:
       kind: HelmRepository
       name: {{ ternary .Values.release.channel "appscode" (has .Values.release.channel (list "stable" "testing")) }}

@@ -77,6 +77,8 @@ registry:
     #   username: "gh_abc"
     #   password: "gh_xyz"
 
+clusterManagers: []
+
 capi:
   provider: ""
   namespace: ""

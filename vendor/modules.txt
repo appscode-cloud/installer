@@ -75,6 +75,10 @@ github.com/json-iterator/go
 github.com/mailru/easyjson/buffer
 github.com/mailru/easyjson/jlexer
 github.com/mailru/easyjson/jwriter
+# github.com/mattn/go-colorable v0.1.13
+## explicit; go 1.15
+# github.com/mattn/go-isatty v0.0.18
+## explicit; go 1.15
 # github.com/mitchellh/mapstructure v1.5.0
 ## explicit; go 1.14
 github.com/mitchellh/mapstructure
@@ -103,10 +107,6 @@ github.com/yudai/gojsondiff/formatter
 # github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82
 ## explicit
 github.com/yudai/golcs
-# go.appscode.dev/alerts v0.2.0
-## explicit; go 1.18
-go.appscode.dev/alerts/apis/alerts
-go.appscode.dev/alerts/apis/alerts/v1alpha1
 # go.openviz.dev/installer v0.0.0-20230802073927-bc7c337886e9
 ## explicit; go 1.18
 go.openviz.dev/installer/apis/installer
@@ -487,9 +487,4 @@ sigs.k8s.io/yaml
 stash.appscode.dev/apimachinery/apis/stash
 stash.appscode.dev/apimachinery/apis/stash/v1alpha1
 stash.appscode.dev/apimachinery/crds
-# x-helm.dev/apimachinery v0.0.10
-## explicit; go 1.19
-x-helm.dev/apimachinery/apis/releases/v1alpha1
-x-helm.dev/apimachinery/apis/shared
-x-helm.dev/apimachinery/crds
 # github.com/imdario/mergo => github.com/imdario/mergo v0.3.6
