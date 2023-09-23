@@ -1,0 +1,20 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: FeatureSet
+metadata:
+  name: opscenter-presets
+spec:
+  title: Cluster Presets
+  description: |
+    Cluster wide Presets
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  required: false
+  chart:
+    name: uik8sappscodecom-featureset-opscenter-presets-editor
+    version: {{ .Chart.AppVersion }}
+    sourceRef:
+      apiGroup: source.toolkit.fluxcd.io
+      kind: HelmRepository
+      name: {{ ternary .Values.release.channel "bytebuilders-ui" (has .Values.release.channel (list "stable" "testing")) }}
+      namespace: {{ .Release.Namespace }}
