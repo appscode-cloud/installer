@@ -23,5 +23,4 @@ helm repo add nats https://nats-io.github.io/k8s/helm/charts/ || true
 helm repo add stakater https://stakater.github.io/stakater-charts || true
 
 helm dependency update charts/ace
-helm dependency update charts/monitoring-config
 helm dependency update charts/opscenter-features
