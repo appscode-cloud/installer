@@ -89,6 +89,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.stashed.interval              |                                                                        | <code>30m0s</code>                                                 |
 | repositories.stashed.url                   |                                                                        | <code>https://charts.appscode.com/stable</code>                    |
 | registry.credentials                       |                                                                        | <code>{}</code>                                                    |
+| clusterManagers                            |                                                                        | <code>[]</code>                                                    |
 | capi.provider                              |                                                                        | <code>""</code>                                                    |
 | capi.namespace                             |                                                                        | <code>""</code>                                                    |
 | capi.clusterName                           |                                                                        | <code>""</code>                                                    |

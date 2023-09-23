@@ -1,6 +1,0 @@
-dependencies:
-- name: monitoring-ui-presets
-  repository: file://../monitoring-ui-presets
-  version: v2023.03.23
-digest: sha256:a82db2755888eb12ff5925fb45fc0cfcbdc41cc352c0bbe72baf46987e5378ac
-generated: "2023-03-27T10:52:55.932817-07:00"
