@@ -27,7 +27,7 @@ spec:
   chart:
     name: capa-vpc-peering-operator
     namespace: corssplane-system
-    version: "v2023.03.23"
+    version: "v2023.10.1"
     sourceRef:
       kind: HelmRepository
       name: {{ ternary .Values.release.channel "appscode" (has .Values.release.channel (list "stable" "testing")) }}

@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/ace-installer --version=v2023.03.23
-$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.03.23
+$ helm search repo appscode/ace-installer --version=v2023.10.1
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.10.1
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys charts for ACE on a [Kubernetes](http://kubernetes.io) cluste
 To install/upgrade the chart with the release name `ace-installer`:
 
 ```bash
-$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.03.23
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.10.1
 ```
 
 The command deploys charts for ACE on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -55,11 +55,11 @@ The following table lists the configurable parameters of the `ace-installer` cha
 | repositories.stakater.url                                           |             | <code>https://stakater.github.io/stakater-charts</code> |
 | registry.credentials                                                |             | <code>{}</code>                                         |
 | releases.ace.enabled                                                |             | <code>false</code>                                      |
-| releases.ace.version                                                |             | <code>"v2023.03.23"</code>                              |
+| releases.ace.version                                                |             | <code>"v2023.10.1"</code>                               |
 | releases.cert-manager-csi-driver-cacerts.enabled                    |             | <code>true</code>                                       |
-| releases.cert-manager-csi-driver-cacerts.version                    |             | <code>"v2023.03.23"</code>                              |
+| releases.cert-manager-csi-driver-cacerts.version                    |             | <code>"v2023.10.1"</code>                               |
 | releases.cert-manager-webhook-ace.enabled                           |             | <code>true</code>                                       |
-| releases.cert-manager-webhook-ace.version                           |             | <code>"v2023.03.23"</code>                              |
+| releases.cert-manager-webhook-ace.version                           |             | <code>"v2023.10.1"</code>                               |
 | releases.cert-manager.enabled                                       |             | <code>true</code>                                       |
 | releases.cert-manager.version                                       |             | <code>"v1.11.0"</code>                                  |
 | releases.cert-manager.values.installCRDs                            |             | <code>true</code>                                       |
@@ -75,17 +75,17 @@ The following table lists the configurable parameters of the `ace-installer` cha
 | releases.docker-machine-operator.enabled                            |             | <code>true</code>                                       |
 | releases.docker-machine-operator.version                            |             | <code>"v2023.9.1"</code>                                |
 | releases.external-dns-operator.enabled                              |             | <code>true</code>                                       |
-| releases.external-dns-operator.version                              |             | <code>"v2023.03.23"</code>                              |
+| releases.external-dns-operator.version                              |             | <code>"v2023.10.1"</code>                               |
 | releases.license-proxyserver.enabled                                |             | <code>true</code>                                       |
-| releases.license-proxyserver.version                                |             | <code>"v2023.03.23"</code>                              |
+| releases.license-proxyserver.version                                |             | <code>"v2023.10.1"</code>                               |
 | releases.reloader.enabled                                           |             | <code>true</code>                                       |
 | releases.reloader.version                                           |             | <code>"v1.0.24"</code>                                  |
 | releases.kube-prometheus-stack.enabled                              |             | <code>true</code>                                       |
 | releases.kube-prometheus-stack.version                              |             | <code>""</code>                                         |
 | releases.opscenter-features.enabled                                 |             | <code>true</code>                                       |
-| releases.opscenter-features.version                                 |             | <code>"v2023.03.23"</code>                              |
+| releases.opscenter-features.version                                 |             | <code>"v2023.10.1"</code>                               |
 | releases.panopticon.enabled                                         |             | <code>true</code>                                       |
-| releases.panopticon.version                                         |             | <code>"v2023.03.23"</code>                              |
+| releases.panopticon.version                                         |             | <code>"v2023.10.1"</code>                               |
 | releases.panopticon.values.monitoring.enabled                       |             | <code>true</code>                                       |
 | releases.panopticon.values.monitoring.agent                         |             | <code>prometheus.io/operator</code>                     |
 | releases.panopticon.values.monitoring.serviceMonitor.labels.release |             | <code>kube-prometheus-stack</code>                      |
@@ -97,12 +97,12 @@ The following table lists the configurable parameters of the `ace-installer` cha
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.03.23 --set repositories.bootstrap.interval=1h0m0s
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.10.1 --set repositories.bootstrap.interval=1h0m0s
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.03.23 --values values.yaml
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.10.1 --values values.yaml
 ```
