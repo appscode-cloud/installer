@@ -3,7 +3,7 @@ name: cert-manager-webhook-ace
 description: A webhook to use AppsCode DNS Proxy for Cloudfare as a DNS issuer for cert-manager
 home: https://github.com/bytebuilders/cert-manager-webhook-ace
 type: application
-version: v2023.03.23
+version: v2023.10.1
 appVersion: v0.0.1
 keywords:
 - cert-manager

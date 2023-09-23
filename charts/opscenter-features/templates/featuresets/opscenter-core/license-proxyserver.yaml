@@ -25,7 +25,7 @@ spec:
   chart:
     name: license-proxyserver
     namespace: kubeops
-    version: "v2023.03.23"
+    version: "v2023.10.1"
     sourceRef:
       kind: HelmRepository
       name: {{ ternary .Values.release.channel "bytebuilders" (has .Values.release.channel (list "stable" "testing")) }}

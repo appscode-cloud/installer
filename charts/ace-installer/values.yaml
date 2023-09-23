@@ -25,13 +25,13 @@ registry:
 releases:
   ace:
     enabled: false
-    version: "v2023.03.23"
+    version: "v2023.10.1"
   cert-manager-csi-driver-cacerts:
     enabled: true
-    version: "v2023.03.23"
+    version: "v2023.10.1"
   cert-manager-webhook-ace:
     enabled: true
-    version: "v2023.03.23"
+    version: "v2023.10.1"
   cert-manager:
     enabled: true
     version: "v1.11.0"
@@ -60,10 +60,10 @@ releases:
     version: "v2023.9.1"
   external-dns-operator:
     enabled: true
-    version: "v2023.03.23"
+    version: "v2023.10.1"
   license-proxyserver:
     enabled: true
-    version: "v2023.03.23"
+    version: "v2023.10.1"
   reloader:
     enabled: true
     version: "v1.0.24"
@@ -72,10 +72,10 @@ releases:
     version: ""
   opscenter-features:
     enabled: true
-    version: "v2023.03.23"
+    version: "v2023.10.1"
   panopticon:
     enabled: true
-    version: "v2023.03.23"
+    version: "v2023.10.1"
     values:
       monitoring:
         enabled: true

@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/cluster-ui --version=v2023.03.23
-$ helm upgrade -i cluster-ui appscode/cluster-ui -n ace-system --create-namespace --version=v2023.03.23
+$ helm search repo appscode/cluster-ui --version=v2023.10.1
+$ helm upgrade -i cluster-ui appscode/cluster-ui -n ace-system --create-namespace --version=v2023.10.1
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys a Cluster UI on a [Kubernetes](http://kubernetes.io) cluster 
 To install/upgrade the chart with the release name `cluster-ui`:
 
 ```bash
-$ helm upgrade -i cluster-ui appscode/cluster-ui -n ace-system --create-namespace --version=v2023.03.23
+$ helm upgrade -i cluster-ui appscode/cluster-ui -n ace-system --create-namespace --version=v2023.10.1
 ```
 
 The command deploys a Cluster UI on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -75,12 +75,12 @@ The following table lists the configurable parameters of the `cluster-ui` chart 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i cluster-ui appscode/cluster-ui -n ace-system --create-namespace --version=v2023.03.23 --set replicaCount=1
+$ helm upgrade -i cluster-ui appscode/cluster-ui -n ace-system --create-namespace --version=v2023.10.1 --set replicaCount=1
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i cluster-ui appscode/cluster-ui -n ace-system --create-namespace --version=v2023.03.23 --values values.yaml
+$ helm upgrade -i cluster-ui appscode/cluster-ui -n ace-system --create-namespace --version=v2023.10.1 --values values.yaml
 ```
