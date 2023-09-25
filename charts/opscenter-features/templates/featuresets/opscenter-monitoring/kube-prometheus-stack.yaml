@@ -15,7 +15,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-monitoring
   featureBlock: kube-prometheus-stack
-  required: false
+  required: true
   readinessChecks:
     resources:
     - group: monitoring.coreos.com
