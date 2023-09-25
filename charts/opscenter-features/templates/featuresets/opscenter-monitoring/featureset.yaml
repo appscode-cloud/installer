@@ -10,6 +10,14 @@ spec:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
   required: false
+  requiredFeatures:
+{{- if not (has "Rancher" .Values.clusterManagers) }}
+  - kube-prometheus-stack
+{{- end }}
+  - grafana-operator
+  - kube-grafana-dashboards
+  - monitoring-operator
+  - panopticon
   chart:
     name: uik8sappscodecom-featureset-opscenter-monitoring-editor
     version: {{ .Chart.AppVersion }}
