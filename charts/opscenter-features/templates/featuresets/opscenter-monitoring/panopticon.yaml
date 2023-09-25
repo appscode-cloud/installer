@@ -13,7 +13,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-monitoring
   featureBlock: panopticon
-  required: false
+  required: true
   requirements:
     features:
       - license-proxyserver
