@@ -7,7 +7,7 @@ metadata:
 spec:
   title: KubeDB Managed DBaaS
   description: |
-    Turn A CAPZ Cluster Into DBaaS
+    Turn A CAPG Cluster Into DBaaS
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml

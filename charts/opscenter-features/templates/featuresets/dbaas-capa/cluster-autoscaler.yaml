@@ -33,4 +33,4 @@ spec:
       name: {{ ternary .Values.release.channel "cluster-autoscaler" (has .Values.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
 
-  {{- end }}
+{{- end }}

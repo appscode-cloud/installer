@@ -3,7 +3,7 @@
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: ebs-csi-driver
+  name: aws-ebs-csi-driver
   labels:
     byte.builders/feature-set: dbaas-capa
 spec:
@@ -33,4 +33,4 @@ spec:
       name: {{ ternary .Values.release.channel "aws-ebs-csi-driver" (has .Values.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
 
-  {{- end }}
+{{- end }}
