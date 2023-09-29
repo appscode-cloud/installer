@@ -11,7 +11,7 @@ spec:
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  required: true
+  recommended: true
   requiredFeatures:
     - capi-cluster-presets
     - crossplane

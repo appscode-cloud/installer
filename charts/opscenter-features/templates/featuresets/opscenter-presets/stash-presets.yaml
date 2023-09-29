@@ -13,7 +13,7 @@ spec:
       type: image/svg+xml
   featureSet: opscenter-presets
   featureBlock: stash-presets
-  required: false
+  recommended: true
   requirements:
     features:
       - stash

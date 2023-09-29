@@ -9,9 +9,7 @@ spec:
   icons:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
-  required: false
-  requiredFeatures:
-  - scanner
+  recommended: false
   chart:
     name: uik8sappscodecom-featureset-opscenter-security-editor
     version: {{ .Chart.AppVersion }}

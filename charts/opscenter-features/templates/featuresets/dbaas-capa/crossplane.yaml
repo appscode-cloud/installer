@@ -15,7 +15,7 @@ spec:
       type: image/svg+xml
   featureSet: dbaas-capa
   featureBlock: crossplane
-  required: true
+  recommended: true
   readinessChecks:
     workloads:
       - group: apps
