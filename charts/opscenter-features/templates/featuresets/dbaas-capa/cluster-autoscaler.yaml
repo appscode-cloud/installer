@@ -32,5 +32,11 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.release.channel "cluster-autoscaler" (has .Values.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
+  values:
+    autoscalingGroups:
+      - name: asg1
+        maxSize: 6
+        minSize: 1
+
 
 {{- end }}
