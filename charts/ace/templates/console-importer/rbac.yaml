@@ -1,64 +1,13 @@
-# This gives necessary permission to self-import cluster
-
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: {{ include "ace.fullname" . }}-importer
-  # namespace: {{ .Release.Namespace }}
-  labels:
-    {{- include "ace.labels" . | nindent 4 }}
-rules:
-- apiGroups:
-  - cloud.bytebuilders.dev
-  - cluster.bytebuilders.dev
-  - products.x-helm.dev
-  - trickstercache.org
-  resources:
-  - '*'
-  verbs:
-  - '*'
-- apiGroups:
-  - '*'
-  resources:
-  - '*'
-  verbs:
-  - '*'
-- apiGroups:
-  - ""
-  resources:
-  - nodes
-  - namespaces
-  - pods
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - ""
-  resources:
-  - secrets
-  verbs:
-  - '*'
-- apiGroups:
-  - apps
-  resources:
-  - deployments
-  verbs:
-  - list
-  - get
----
-
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: {{ include "ace.fullname" . }}-importer
-  # namespace: {{ .Release.Namespace }}
   labels:
     {{- include "ace.labels" . | nindent 4 }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: {{ include "ace.fullname" . }}-importer
+  name: cluster-admin
 subjects:
 - kind: ServiceAccount
   name: {{ include "appscode.serviceAccountName" . }}-importer
