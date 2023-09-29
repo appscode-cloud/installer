@@ -13,7 +13,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-core
   featureBlock: kube-ui-server
-  required: true
+  recommended: true
   readinessChecks:
     workloads:
     - group: apps

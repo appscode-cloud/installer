@@ -13,7 +13,7 @@ spec:
       type: image/svg+xml
   featureSet: opscenter-networking
   featureBlock: voyager
-  required: false
+  recommended: false
   readinessChecks:
     workloads:
       - group: apps

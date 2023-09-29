@@ -13,7 +13,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-security
   featureBlock: scanner
-  required: true
+  recommended: true
   requirements:
     features:
       - license-proxyserver

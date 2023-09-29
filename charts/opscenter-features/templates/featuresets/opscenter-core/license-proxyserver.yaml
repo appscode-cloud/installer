@@ -13,7 +13,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-core
   featureBlock: license-proxyserver
-  required: true
+  recommended: true
   readinessChecks:
     workloads:
     - group: apps

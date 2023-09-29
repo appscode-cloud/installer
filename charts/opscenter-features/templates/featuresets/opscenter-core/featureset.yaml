@@ -9,10 +9,9 @@ spec:
   icons:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
-  required: true
+  recommended: true
   requiredFeatures:
   - kube-ui-server
-  - license-proxyserver
   chart:
     name: uik8sappscodecom-featureset-opscenter-core-editor
     version: {{ .Chart.AppVersion }}

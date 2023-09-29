@@ -13,7 +13,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-cost
   featureBlock: keda
-  required: false
+  recommended: false
   readinessChecks:
     workloads:
       - group: apps

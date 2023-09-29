@@ -13,7 +13,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-datastore
   featureBlock: kubedb
-  required: true
+  recommended: true
   requirements:
     features:
       - license-proxyserver

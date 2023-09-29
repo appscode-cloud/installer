@@ -15,7 +15,7 @@ spec:
       type: image/svg+xml
   featureSet: dbaas-capa
   featureBlock: capa-vpc-peering-operator
-  required: true
+  recommended: true
   readinessChecks:
     workloads:
       - group: apps

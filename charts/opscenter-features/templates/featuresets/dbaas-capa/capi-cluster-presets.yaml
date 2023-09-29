@@ -15,7 +15,7 @@ spec:
       type: image/svg+xml
   featureSet: dbaas-capa
   featureBlock: capi-cluster-presets
-  required: true
+  recommended: true
   chart:
     name: capi-cluster-presets
     namespace: capi-cluster
