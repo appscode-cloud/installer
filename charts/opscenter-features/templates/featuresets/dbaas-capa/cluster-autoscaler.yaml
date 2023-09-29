@@ -33,10 +33,14 @@ spec:
       name: {{ ternary .Values.release.channel "cluster-autoscaler" (has .Values.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
   values:
+    cloudProvider: clusterapi
     autoscalingGroups:
-      - name: asg1
-        maxSize: 6
+      - name: default
         minSize: 1
-
+        maxSize: 6
+    extraArgs:
+      logtostderr: null
+      stderrthreshold: null
+      v: null
 
 {{- end }}

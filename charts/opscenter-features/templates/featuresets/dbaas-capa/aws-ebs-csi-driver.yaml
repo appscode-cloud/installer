@@ -27,7 +27,7 @@ spec:
   chart:
     name: aws-ebs-csi-driver
     namespace: kube-system
-    version: "1.23.0"
+    version: "2.23.0"
     sourceRef:
       kind: HelmRepository
       name: {{ ternary .Values.release.channel "aws-ebs-csi-driver" (has .Values.release.channel (list "stable" "testing")) }}
