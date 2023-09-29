@@ -13,7 +13,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-security
   featureBlock: cert-manager
-  required: false
+  recommended: false
   readinessChecks:
     workloads:
       - group: apps

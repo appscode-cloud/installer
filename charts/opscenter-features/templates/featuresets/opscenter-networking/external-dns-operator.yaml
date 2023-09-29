@@ -13,7 +13,7 @@ spec:
       type: image/svg+xml
   featureSet: opscenter-networking
   featureBlock: external-dns-operator
-  required: false
+  recommended: false
   readinessChecks:
     workloads:
       - group: apps

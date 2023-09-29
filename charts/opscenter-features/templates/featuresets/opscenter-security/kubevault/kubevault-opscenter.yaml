@@ -13,7 +13,7 @@ spec:
       type: image/svg+xml
   featureSet: opscenter-security
   featureBlock: kubevault
-  required: false
+  recommended: false
   requirements:
     features:
       - kubevault

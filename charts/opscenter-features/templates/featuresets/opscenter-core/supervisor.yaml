@@ -13,7 +13,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-core
   featureBlock: supervisor
-  required: false
+  recommended: false
   readinessChecks:
     workloads:
       - group: apps

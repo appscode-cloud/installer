@@ -13,7 +13,7 @@ spec:
       type: image/svg+xml
   featureSet: opscenter-presets
   featureBlock: kubestash-presets
-  required: false
+  recommended: false
   requirements:
     features:
       - kubestash

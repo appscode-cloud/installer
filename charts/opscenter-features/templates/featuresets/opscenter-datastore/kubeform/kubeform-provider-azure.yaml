@@ -15,7 +15,7 @@ spec:
       type: image/svg+xml
   featureSet: opscenter-datastore
   featureBlock: crossplane
-  required: false
+  recommended: false
   requirements:
     features:
       - crossplane

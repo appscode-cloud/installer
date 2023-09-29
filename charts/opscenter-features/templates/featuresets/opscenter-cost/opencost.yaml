@@ -13,7 +13,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-cost
   featureBlock: opencost
-  required: false
+  recommended: false
   requirements:
     features:
     {{- if not (has "Rancher" .Values.clusterManagers) }}
