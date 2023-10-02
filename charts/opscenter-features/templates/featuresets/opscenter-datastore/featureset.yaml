@@ -9,10 +9,7 @@ spec:
   icons:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
-  recommended: true
-  requiredFeatures:
-  - kubedb
-  - kubedb-opscenter
+  recommended: false
   chart:
     name: uik8sappscodecom-featureset-opscenter-datastore-editor
     version: {{ .Chart.AppVersion }}

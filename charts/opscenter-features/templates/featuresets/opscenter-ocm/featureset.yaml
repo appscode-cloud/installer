@@ -3,15 +3,13 @@ kind: FeatureSet
 metadata:
   name: opscenter-ocm
 spec:
-  title: Open Cluster Management
+  title: Cluster Management
   description: |
-    Hub & Spoke model for Managing Many Kubernetes Clusters
+    Managing Many Kubernetes Clusters
   icons:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
   recommended: false
-  requiredFeatures:
-  - multicluster-controlplane
   chart:
     name: uik8sappscodecom-featureset-opscenter-ocm-editor
     version: {{ .Chart.AppVersion }}
