@@ -26,6 +26,7 @@ rules:
 - apiGroups:
   - ""
   resources:
+  - serviceaccounts
   - secrets
   # - namespaces
   # - pods
