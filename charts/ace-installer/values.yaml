@@ -54,7 +54,7 @@ releases:
       kubedb-schema-manager:
         enabled: false
       kubedb-metrics:
-        enabled: true
+        enabled: false
   docker-machine-operator:
     enabled: true
     version: "v2023.9.1"

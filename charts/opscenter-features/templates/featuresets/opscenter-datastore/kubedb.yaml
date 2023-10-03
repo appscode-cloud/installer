@@ -36,11 +36,15 @@ spec:
   values:
     kubedb-provisioner:
       enabled: true
+    kubedb-catalog:
+      enabled: true
     kubedb-ops-manager:
       enabled: true
     kubedb-autoscaler:
       enabled: true
-    kubedb-schema-manager:
-      enabled: true
     kubedb-dashboard:
       enabled: true
+    kubedb-schema-manager:
+      enabled: true
+    kubedb-metrics:
+      enabled: false
