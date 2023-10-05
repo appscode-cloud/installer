@@ -56,10 +56,14 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.testing.url                   |                                                                        | <code>oci://ghcr.io/appscode-charts/testing</code>                 |
 | repositories.appscode.interval             |                                                                        | <code>30m0s</code>                                                 |
 | repositories.appscode.url                  |                                                                        | <code>https://charts.appscode.com/stable</code>                    |
+| repositories.aws-ebs-csi-driver.interval   |                                                                        | <code>30m0s</code>                                                 |
+| repositories.aws-ebs-csi-driver.url        |                                                                        | <code>https://kubernetes-sigs.github.io/aws-ebs-csi-driver</code>  |
 | repositories.bytebuilders-ui.interval      |                                                                        | <code>30m0s</code>                                                 |
-| repositories.bytebuilders-ui.url           |                                                                        | <code>oci://r.byte.builders/charts</code>                          |
+| repositories.bytebuilders-ui.url           |                                                                        | <code>https://charts.appscode.com/stable</code>                    |
 | repositories.bytebuilders.interval         |                                                                        | <code>30m0s</code>                                                 |
 | repositories.bytebuilders.url              |                                                                        | <code>https://charts.appscode.com/stable</code>                    |
+| repositories.cluster-autoscaler.interval   |                                                                        | <code>30m0s</code>                                                 |
+| repositories.cluster-autoscaler.url        |                                                                        | <code>https://kubernetes.github.io/autoscaler</code>               |
 | repositories.crossplane.interval           |                                                                        | <code>30m0s</code>                                                 |
 | repositories.crossplane.url                |                                                                        | <code>https://charts.crossplane.io/stable</code>                   |
 | repositories.falcosecurity.interval        |                                                                        | <code>30m0s</code>                                                 |
