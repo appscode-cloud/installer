@@ -26,7 +26,7 @@ spec:
           app.kubernetes.io/name: aws-ebs-csi-driver
   chart:
     name: aws-ebs-csi-driver
-    namespace: kube-system
+    namespace: capa-system
     version: "2.23.0"
     sourceRef:
       kind: HelmRepository
