@@ -7,14 +7,16 @@ metadata:
 spec:
   title: KubeDB Managed DBaaS
   description: |
-    Turn A CAPZ Cluster Into DBaaS
+    Turn A CAPA Cluster Into DBaaS
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   recommended: true
   requiredFeatures:
+    - aws-ebs-csi-driver
     - capa-vpc-peering-operator
     - capi-cluster-presets
+    - cluster-autoscaler
     - crossplane
     - kubeform-provider-aws
   chart:
