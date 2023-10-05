@@ -3785,6 +3785,8 @@ properties:
                 type: object
               bucket:
                 type: string
+              endpoint:
+                type: string
               gcs:
                 properties:
                   GOOGLE_PROJECT_ID:
@@ -3795,9 +3797,9 @@ properties:
                 - GOOGLE_PROJECT_ID
                 - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
                 type: object
-              host:
-                type: string
               mountPath:
+                type: string
+              prefix:
                 type: string
               provider:
                 enum:
@@ -3805,6 +3807,8 @@ properties:
                 - s3
                 - azure
                 - swift
+                type: string
+              region:
                 type: string
               s3:
                 properties:
@@ -3866,7 +3870,6 @@ properties:
                 type: object
             required:
             - bucket
-            - host
             - mountPath
             - provider
             type: object

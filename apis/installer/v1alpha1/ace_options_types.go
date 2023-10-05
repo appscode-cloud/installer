@@ -152,12 +152,13 @@ type AceOptionsInfraCloudServices struct {
 }
 
 type AceOptionsInfraObjstore struct {
-	Host     string       `json:"host"`
-	Bucket   string       `json:"bucket"`
-	Prefix   string       `json:"prefix,omitempty"`
-	Endpoint string       `json:"endpoint,omitempty"`
-	Region   string       `json:"region"`
-	Auth     ObjstoreAuth `json:"auth"`
+	Bucket string `json:"bucket"`
+	Prefix string `json:"prefix,omitempty"`
+	// Required for s3 type buckets other than AWS s3 buckets
+	Endpoint string `json:"endpoint,omitempty"`
+	// Required for s3 buckets
+	Region string       `json:"region,omitempty"`
+	Auth   ObjstoreAuth `json:"auth"`
 }
 
 type ObjstoreAuth struct {
