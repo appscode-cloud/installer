@@ -64,8 +64,6 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&BillingList{},
 		&BillingUi{},
 		&BillingUiList{},
-		&CapaVpcPeeringOperator{},
-		&CapaVpcPeeringOperatorList{},
 		&CapiClusterPresets{},
 		&CapiClusterPresetsList{},
 		&CertManagerWebhookAce{},
