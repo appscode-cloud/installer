@@ -15,7 +15,7 @@ spec:
       type: image/svg+xml
   featureSet: dbaas-capa
   featureBlock: cluster-autoscaler
-  required: false
+  recommended: true
   readinessChecks:
     workloads:
       - group: apps

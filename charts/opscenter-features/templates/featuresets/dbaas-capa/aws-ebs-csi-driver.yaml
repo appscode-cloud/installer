@@ -15,7 +15,7 @@ spec:
       type: image/svg+xml
   featureSet: dbaas-capa
   featureBlock: aws-ebs-csi-driver
-  required: false
+  recommended: true
   readinessChecks:
     workloads:
       - group: apps

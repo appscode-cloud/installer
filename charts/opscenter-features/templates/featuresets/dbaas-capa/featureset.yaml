@@ -13,8 +13,10 @@ spec:
       type: image/svg+xml
   recommended: true
   requiredFeatures:
+    - aws-ebs-csi-driver
     - capa-vpc-peering-operator
     - capi-cluster-presets
+    - cluster-autoscaler
     - crossplane
     - kubeform-provider-aws
   chart:
