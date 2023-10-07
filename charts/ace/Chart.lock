@@ -46,6 +46,6 @@ dependencies:
   version: 4.4.0
 - name: nats
   repository: https://nats-io.github.io/k8s/helm/charts/
-  version: 0.19.12
-digest: sha256:7b33d79f76dfc29847caca4c6a8888d3bfa69352824dd1172d2891e7f7209c91
-generated: "2023-09-23T03:28:07.175365-07:00"
+  version: 0.19.17
+digest: sha256:4c773d5171903caaf5e37da4f20a713f2cc46179750500032ca5b7c42c8b5174
+generated: "2023-10-06T22:40:11.639969-07:00"
