@@ -59,7 +59,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | repositories.aws-ebs-csi-driver.interval   |                                                                        | <code>30m0s</code>                                                 |
 | repositories.aws-ebs-csi-driver.url        |                                                                        | <code>https://kubernetes-sigs.github.io/aws-ebs-csi-driver</code>  |
 | repositories.bytebuilders-ui.interval      |                                                                        | <code>30m0s</code>                                                 |
-| repositories.bytebuilders-ui.url           |                                                                        | <code>https://charts.appscode.com/stable</code>                    |
+| repositories.bytebuilders-ui.url           |                                                                        | <code>oci://r.byte.builders/charts</code>                          |
 | repositories.bytebuilders.interval         |                                                                        | <code>30m0s</code>                                                 |
 | repositories.bytebuilders.url              |                                                                        | <code>https://charts.appscode.com/stable</code>                    |
 | repositories.cluster-autoscaler.interval   |                                                                        | <code>30m0s</code>                                                 |
