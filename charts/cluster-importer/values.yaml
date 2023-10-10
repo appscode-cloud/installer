@@ -20,10 +20,10 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-args:
-  - "cluster"
-  - "import"
-  - "-h"
+args: []
+  # - "cluster"
+  # - "import"
+  # - "-h"
 
 podAnnotations: {}
 
