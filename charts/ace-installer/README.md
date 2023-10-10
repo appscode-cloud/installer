@@ -73,7 +73,7 @@ The following table lists the configurable parameters of the `ace-installer` cha
 | releases.kubedb.values.kubedb-schema-manager.enabled                |             | <code>false</code>                                      |
 | releases.kubedb.values.kubedb-metrics.enabled                       |             | <code>false</code>                                      |
 | releases.docker-machine-operator.enabled                            |             | <code>true</code>                                       |
-| releases.docker-machine-operator.version                            |             | <code>"v2023.9.1"</code>                                |
+| releases.docker-machine-operator.version                            |             | <code>"v2023.10.1"</code>                               |
 | releases.external-dns-operator.enabled                              |             | <code>true</code>                                       |
 | releases.external-dns-operator.version                              |             | <code>"v2023.10.1"</code>                               |
 | releases.license-proxyserver.enabled                                |             | <code>true</code>                                       |
