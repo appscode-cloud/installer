@@ -59,7 +59,6 @@ The following table lists the configurable parameters of the `kubestash-presets`
 | kubestash.backend.s3.spec.bucket                           |             | <code>""</code>                         |
 | kubestash.backend.s3.auth.AWS_ACCESS_KEY_ID                |             | <code>""</code>                         |
 | kubestash.backend.s3.auth.AWS_SECRET_ACCESS_KEY            |             | <code>""</code>                         |
-| kubestash.backend.s3.auth.CA_CERT_DATA                     |             | <code>""</code>                         |
 | kubestash.backend.azure.spec.container                     |             | <code>""</code>                         |
 | kubestash.backend.azure.auth.AZURE_ACCOUNT_NAME            |             | <code>""</code>                         |
 | kubestash.backend.azure.auth.AZURE_ACCOUNT_KEY             |             | <code>""</code>                         |
