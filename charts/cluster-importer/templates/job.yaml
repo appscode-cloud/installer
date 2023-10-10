@@ -42,11 +42,13 @@ spec:
           env:
             - name: ACECONFIG
               value: /var/run/aceconfig/config.yaml
+            {{- if .Values.kubeconfigSecretKeyRef.name }}
             - name: KUBECONFIG
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.kubeconfigSecretKeyRef.name }}
                   key: {{ .Values.kubeconfigSecretKeyRef.key }}
+            {{- end }}
           volumeMounts:
             - name: tmp
               mountPath: /tmp
