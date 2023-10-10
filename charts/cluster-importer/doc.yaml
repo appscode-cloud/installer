@@ -1,0 +1,18 @@
+project:
+  name: Cluster Importer by AppsCode
+  shortName: Cluster Importer
+  url: https://github.com/bytebuilders
+  description: ByteBuilders Cluster Importer
+  app: a Cluster Importer
+repository:
+  url: https://charts.appscode.com/stable
+  name: appscode
+chart:
+  name: cluster-importer
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: cluster-importer
+  namespace: ace-system

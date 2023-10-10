@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "cluster-importer.fullname" . }}-aceconfig
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "cluster-importer.labels" . | nindent 4 }}
+stringData:
+  config.yaml: |
+    contexts:
+    - name: ctx
+      endpoint: {{ .Values.platform.baseURL | quote }}
+      token: {{ .Values.platform.token | quote }}
+    current-context: ctx
+    version: v1
