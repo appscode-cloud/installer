@@ -57,7 +57,7 @@ releases:
         enabled: false
   docker-machine-operator:
     enabled: true
-    version: "v2023.9.1"
+    version: "v2023.10.1"
   external-dns-operator:
     enabled: true
     version: "v2023.10.1"
