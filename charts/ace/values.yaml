@@ -152,7 +152,6 @@ global:
     objstore:
       provider: "" # s3,azure,gcs,swift
       # might be a file storage prefixed with file://
-      host: ""
       bucket: gs://ace-data
       mountPath: /data/credentials
       # gcs:

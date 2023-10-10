@@ -59,7 +59,6 @@ The following table lists the configurable parameters of the `stash-presets` cha
 | stash.backend.s3.spec.bucket                           |             | <code>""</code>                         |
 | stash.backend.s3.auth.AWS_ACCESS_KEY_ID                |             | <code>""</code>                         |
 | stash.backend.s3.auth.AWS_SECRET_ACCESS_KEY            |             | <code>""</code>                         |
-| stash.backend.s3.auth.CA_CERT_DATA                     |             | <code>""</code>                         |
 | stash.backend.azure.spec.container                     |             | <code>""</code>                         |
 | stash.backend.azure.auth.AZURE_ACCOUNT_NAME            |             | <code>""</code>                         |
 | stash.backend.azure.auth.AZURE_ACCOUNT_KEY             |             | <code>""</code>                         |

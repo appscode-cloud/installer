@@ -86,6 +86,18 @@ spec:
                   key: AWS_REGION
             {{- end }}
           {{- end }}
+          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "azure") }}
+            - name: AZURE_STORAGE_ACCOUNT
+              valueFrom:
+                secretRef:
+                  name: {{ include "settings.objstoreSecretName" . }}
+                  key: AZURE_ACCOUNT_NAME
+            - name: AZURE_STORAGE_KEY
+              valueFrom:
+                secretRef:
+                  name: {{ include "settings.objstoreSecretName" . }}
+                  key: AZURE_ACCOUNT_KEY
+          {{- end }}
           volumeMounts:
             - name: tmp
               mountPath: /tmp
