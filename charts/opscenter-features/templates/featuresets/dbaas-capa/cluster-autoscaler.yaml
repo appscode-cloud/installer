@@ -22,11 +22,11 @@ spec:
         version: v1
         kind: Deployment
         selector:
-          app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: cluster-autoscaler
+          app.kubernetes.io/instance: cluster-autoscaler
+          app.kubernetes.io/name: clusterapi-cluster-autoscaler
   chart:
     name: cluster-autoscaler
-    namespace: capi-cluster
+    namespace: capi-system
     version: "9.29.0"
     sourceRef:
       kind: HelmRepository
