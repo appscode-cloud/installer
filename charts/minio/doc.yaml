@@ -15,4 +15,4 @@ prerequisites:
 - Kubernetes 1.21+
 release:
   name: minio
-  namespace: ace-system
+  namespace: ace

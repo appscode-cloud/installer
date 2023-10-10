@@ -15,4 +15,4 @@ prerequisites:
 - Kubernetes 1.21+
 release:
   name: ace
-  namespace: ace-system
+  namespace: ace

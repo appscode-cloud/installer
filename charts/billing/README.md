@@ -8,7 +8,7 @@
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
 $ helm search repo appscode/billing --version=v2023.10.1
-$ helm upgrade -i billing appscode/billing -n ace-system --create-namespace --version=v2023.10.1
+$ helm upgrade -i billing appscode/billing -n ace --create-namespace --version=v2023.10.1
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys a billing backend on a [Kubernetes](http://kubernetes.io) clu
 To install/upgrade the chart with the release name `billing`:
 
 ```bash
-$ helm upgrade -i billing appscode/billing -n ace-system --create-namespace --version=v2023.10.1
+$ helm upgrade -i billing appscode/billing -n ace --create-namespace --version=v2023.10.1
 ```
 
 The command deploys a billing backend on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -36,7 +36,7 @@ The command deploys a billing backend on the Kubernetes cluster in the default c
 To uninstall the `billing`:
 
 ```bash
-$ helm uninstall billing -n ace-system
+$ helm uninstall billing -n ace
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -85,12 +85,12 @@ The following table lists the configurable parameters of the `billing` chart and
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i billing appscode/billing -n ace-system --create-namespace --version=v2023.10.1 --set replicaCount=3
+$ helm upgrade -i billing appscode/billing -n ace --create-namespace --version=v2023.10.1 --set replicaCount=3
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i billing appscode/billing -n ace-system --create-namespace --version=v2023.10.1 --values values.yaml
+$ helm upgrade -i billing appscode/billing -n ace --create-namespace --version=v2023.10.1 --values values.yaml
 ```
