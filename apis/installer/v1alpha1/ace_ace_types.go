@@ -331,7 +331,6 @@ type InfraKms struct {
 }
 
 type InfraKubepack struct {
-	Host   string `json:"host"`
 	Bucket string `json:"bucket"`
 	Prefix string `json:"prefix"`
 }
@@ -461,7 +460,6 @@ type GrafanaSettings struct {
 type ClusterConnectorSpec struct {
 	ImageReference `json:",inline,omitempty"`
 
-	Host   string `json:"host"`
 	Bucket string `json:"bucket"`
 	Prefix string `json:"prefix"`
 }

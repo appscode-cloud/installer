@@ -43,8 +43,10 @@ stringData:
     AVATAR_UPLOAD_PATH      = avatars
 
     [storage]
-    HOST = {{ .Values.global.infra.objstore.host }}
-    BUCKET_URL = {{ .Values.global.infra.objstore.bucket }}
+    BUCKET_URL      = {{ .Values.global.infra.objstore.bucket }}
+    BUCKET_ENDPOINT = {{ .Values.global.infra.objstore.endpoint }}
+    BUCKET_REGION   = {{ .Values.global.infra.objstore.region }}
+    BUCKET_PREFIX   = {{ .Values.global.infra.objstore.prefix }}
 
     [database]
     DB_TYPE = "postgres"
@@ -159,7 +161,6 @@ stringData:
 
     [invoice]
     PATH = {{ .Values.global.infra.invoice.mountPath }}
-    HOST = {{ .Values.global.infra.invoice.host }}
     BUCKET = {{ .Values.global.infra.invoice.bucket }}
     PREFIX = {{ .Values.global.infra.invoice.prefix }}
     TRACKER_EMAIL = {{ .Values.global.infra.invoice.trackerEmail }}
@@ -167,7 +168,6 @@ stringData:
 
   {{- if eq .Values.global.platform.deploymentType "Hosted" }}
     [yaml_storage]
-    HOST = {{ .Values.global.infra.kubepack.host }}
     BUCKET = {{ .Values.global.infra.kubepack.bucket }}
     PREFIX = {{ .Values.global.infra.kubepack.prefix }}
   {{- end }}
@@ -182,7 +182,6 @@ stringData:
   {{- end }}
 
   {{- if eq .Values.global.platform.deploymentType "Hosted" }}
-    HOST        = {{ .Values.settings.clusterConnector.host }}
     BUCKET      = {{ .Values.settings.clusterConnector.bucket }}
     PREFIX      = {{ .Values.settings.clusterConnector.prefix }}
 
