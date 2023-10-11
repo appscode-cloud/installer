@@ -3762,13 +3762,10 @@ properties:
             properties:
               bucket:
                 type: string
-              host:
-                type: string
               prefix:
                 type: string
             required:
             - bucket
-            - host
             - prefix
             type: object
           objstore:
@@ -13958,8 +13955,6 @@ properties:
         properties:
           bucket:
             type: string
-          host:
-            type: string
           prefix:
             type: string
           pullPolicy:
@@ -13972,7 +13967,6 @@ properties:
             type: string
         required:
         - bucket
-        - host
         - prefix
         - pullPolicy
         - registry

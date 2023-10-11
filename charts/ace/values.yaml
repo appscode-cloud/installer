@@ -174,7 +174,6 @@ global:
       # provider: "Google"
       # masterKeyURL: gcpkms://projects/
     kubepack:
-      host: ""
       bucket: ""
       prefix: ""
     badger:
@@ -182,7 +181,6 @@ global:
       levels: 7
     invoice:
       mountPath: /billing
-      # host: https://console.cloud.google.com/storage/browser/invoice-storage-demo
       bucket: gs://invoice-storage-demo
       prefix: ""
       trackerEmail: invoice-tracker@appscode.com
@@ -354,7 +352,6 @@ settings:
     tag: ""
     pullPolicy: Always
     # bucket to store cluster-connector yamls
-    host: ""
     bucket: ""
     prefix: ""
 
