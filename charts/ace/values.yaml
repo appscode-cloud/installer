@@ -143,10 +143,13 @@ global:
         cert: ""
         key: ""
     dns:
-      provider: "cloudflare" # external,cloudflare,route53
-      auth:
-        cloudflare:
-          token: xyz
+      provider: "external" # external,cloudflare,route53,cloudDNS
+      auth: {}
+        # cloudflare:
+          # token: xyz
+        # cloudDNS:
+          # GOOGLE_PROJECT_ID: "project-id"
+          # GOOGLE_SERVICE_ACCOUNT_JSON_KEY: xyz
     # KMS and Object Store services are required
     # set provider to empty to disable this feature
     objstore:

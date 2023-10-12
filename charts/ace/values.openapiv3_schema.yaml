@@ -3702,6 +3702,16 @@ properties:
             properties:
               auth:
                 properties:
+                  cloudDNS:
+                    properties:
+                      GOOGLE_PROJECT_ID:
+                        type: string
+                      GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
+                        type: string
+                    required:
+                    - GOOGLE_PROJECT_ID
+                    - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                    type: object
                   cloudflare:
                     properties:
                       baseURL:
@@ -3730,6 +3740,7 @@ properties:
                 - external
                 - cloudflare
                 - route53
+                - cloudDNS
                 type: string
             required:
             - auth
