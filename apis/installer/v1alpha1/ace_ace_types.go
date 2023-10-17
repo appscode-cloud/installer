@@ -259,7 +259,7 @@ type TLSIssuerAcme struct {
 	Email string `json:"email"`
 }
 
-// +kubebuilder:validation:Enum=external;cloudflare;route53;cloudDNS
+// +kubebuilder:validation:Enum=external;cloudflare;route53;cloudDNS;azureDNS
 type DNSProvider string
 
 const (
@@ -267,6 +267,7 @@ const (
 	DNSProviderCloudflare DNSProvider = "cloudflare"
 	DNSProviderRoute53    DNSProvider = "route53"
 	DNSProviderCloudDNS   DNSProvider = "cloudDNS"
+	DNSProviderAzureDNS   DNSProvider = "azureDNS"
 )
 
 type InfraDns struct {
@@ -278,6 +279,7 @@ type DNSProviderAuth struct {
 	Cloudflare *CloudflareAuth `json:"cloudflare,omitempty"`
 	Route53    *Route53Auth    `json:"route53,omitempty"`
 	CloudDNS   *CloudDNSAuth   `json:"cloudDNS,omitempty"`
+	AzureDNS   *AzureDNSAuth   `json:"azureDNS,omitempty"`
 }
 
 type CloudflareAuth struct {
@@ -295,6 +297,17 @@ type Route53Auth struct {
 type CloudDNSAuth struct {
 	GoogleProjectID             string `json:"GOOGLE_PROJECT_ID"`
 	GoogleServiceAccountJSONKey string `json:"GOOGLE_SERVICE_ACCOUNT_JSON_KEY"`
+}
+
+type AzureDNSAuth struct {
+	SubscriptionID              string `json:"subscriptionID"`
+	TenantID                    string `json:"tenantID"`
+	ResourceGroupName           string `json:"resourceGroupName"`
+	HostedZoneName              string `json:"hostedZoneName"`
+	ServicePrincipalAppID       string `json:"servicePrincipalAppID"`
+	ServicePrincipalAppPassword string `json:"servicePrincipalAppPassword"`
+	// +optional
+	Environment string `json:"environment,omitempty"`
 }
 
 // +kubebuilder:validation:Enum=gcs;s3;azure;swift
