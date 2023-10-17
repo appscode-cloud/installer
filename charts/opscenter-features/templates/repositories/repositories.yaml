@@ -13,6 +13,10 @@ spec:
   interval: {{ . }}
   {{- end }}
 
+  {{- with $cfg.timeout }}
+  timeout: {{ . }}
+  {{- end }}
+
   {{- if hasPrefix "oci://" $cfg.url }}
   type: oci
   {{- end }}
