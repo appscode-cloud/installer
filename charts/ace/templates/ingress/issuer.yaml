@@ -61,7 +61,7 @@ spec:
             name: {{ include "ace.fullname" . }}-dns-cred
             key: AWS_SECRET_ACCESS_KEY
       {{- end }}
-      {{- if eq.global.infra.dns.provider "azureDNS" }}
+      {{- if eq .Values.global.infra.dns.provider "azureDNS" }}
         azureDNS:
           clientID: {{ .Values.global.infra.dns.auth.azureDNS.servicePrincipalAppID }}
           clientSecretSecretRef:
