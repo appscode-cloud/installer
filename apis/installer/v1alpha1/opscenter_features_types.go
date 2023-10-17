@@ -88,6 +88,10 @@ type HelmRepository struct {
 	// +required
 	Interval metav1.Duration `json:"interval"`
 
+	// The timeout of index downloading, defaults to 60s.
+	// +optional
+	Timeout *metav1.Duration `json:"timeout,omitempty"`
+
 	// Type of the HelmRepository.
 	// When this field is set to  "oci", the URL field value must be prefixed with "oci://".
 	// +kubebuilder:validation:Enum=default;oci
