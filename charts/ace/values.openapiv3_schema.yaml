@@ -3702,6 +3702,30 @@ properties:
             properties:
               auth:
                 properties:
+                  azureDNS:
+                    properties:
+                      environment:
+                        type: string
+                      hostedZoneName:
+                        type: string
+                      resourceGroupName:
+                        type: string
+                      servicePrincipalAppID:
+                        type: string
+                      servicePrincipalAppPassword:
+                        type: string
+                      subscriptionID:
+                        type: string
+                      tenantID:
+                        type: string
+                    required:
+                    - hostedZoneName
+                    - resourceGroupName
+                    - servicePrincipalAppID
+                    - servicePrincipalAppPassword
+                    - subscriptionID
+                    - tenantID
+                    type: object
                   cloudDNS:
                     properties:
                       GOOGLE_PROJECT_ID:
@@ -3741,6 +3765,7 @@ properties:
                 - cloudflare
                 - route53
                 - cloudDNS
+                - azureDNS
                 type: string
             required:
             - auth
