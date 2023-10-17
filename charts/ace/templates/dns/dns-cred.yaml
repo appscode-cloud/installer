@@ -24,4 +24,16 @@ stringData:
 {{- if eq .Values.global.infra.dns.provider "cloudDNS" }}
   GOOGLE_SERVICE_ACCOUNT_JSON_KEY: '{{ .Values.global.infra.dns.auth.cloudDNS.GOOGLE_SERVICE_ACCOUNT_JSON_KEY }}'
 {{- end }}
+{{- if eq .Values.global.infra.dns.provider "azureDNS" }}
+  SERVICE_PRINCIPAL_PASSWORD: {{ .Values.global.infra.dns.auth.azureDNS.servicePrincipalAppSecret }}
+  # https://github.com/kubeops/external-dns-operator/blob/master/examples/azure-credential.md
+  AZURE_CREDENTIAL_FILE: |
+    {
+      "tenantId": {{ .Values.global.infra.dns.auth.azureDNS.tenantID | quote }},
+      "subscriptionId": {{ .Values.global.infra.dns.auth.azureDNS.subscriptionID | quote }},
+      "resourceGroup": {{ .Values.global.infra.dns.auth.azureDNS.resourceGroupName | quote }},
+      "aadClientId": {{ .Values.global.infra.dns.auth.azureDNS.servicePrincipalAppID | quote }},
+      "aadClientSecret": {{ .Values.global.infra.dns.auth.azureDNS.servicePrincipalAppSecret | quote }}
+    }
+{{- end }}
 {{- end }}
