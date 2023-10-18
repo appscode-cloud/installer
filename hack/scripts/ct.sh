@@ -29,7 +29,7 @@ for dir in charts/*/; do
         [[ "$dir" = "grafana" ]] ||
         [[ "$dir" = "opscenter-features" ]] ||
         [[ "$dir" = "platform-api" ]] ||
-        [[ "$dir" = "prom-proxy" ]] ||
+        [[ "$dir" = "platform-links" ]] ||
         [[ "$dir" = "smtprelay" ]]; then
         make ct CT_COMMAND=lint TEST_CHARTS=charts/$dir
     elif [[ "$dir" = "cert-manager-webhook-ace" ]]; then
