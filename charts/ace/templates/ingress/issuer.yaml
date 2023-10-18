@@ -35,7 +35,7 @@ spec:
           solverName: "ace"
           groupName: webhook.dns.appscode.com
           config:
-            baseURL: '{{ printf "https://%s" .Values.global.infra.dns.auth.cloudflare.baseURL }}'
+            baseURL: '{{ .Values.global.infra.dns.auth.cloudflare.baseURL }}'
             apiToken:
               name: {{ include "ace.fullname" . }}-dns-cred
               key: CF_API_TOKEN
