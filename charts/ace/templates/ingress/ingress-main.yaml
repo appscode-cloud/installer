@@ -108,7 +108,7 @@ spec:
         pathType: Prefix
 {{- end }}
 {{- if (index .Values "kubedb-ui" "enabled") }}
-  - host: kubedb.{{ .Values.global.platform.domain }}
+  - host: db.{{ .Values.global.platform.domain }}
     http:
       paths:
       - backend:
@@ -180,7 +180,7 @@ spec:
     - 'grafana.{{ .Values.global.platform.domain }}'
   {{- end }}
   {{- if (index .Values "kubedb-ui" "enabled") }}
-    - 'kubedb.{{ .Values.global.platform.domain }}'
+    - 'db.{{ .Values.global.platform.domain }}'
   {{- end }}
   {{- if (index .Values "marketplace-ui" "enabled") }}
     - 'marketplace.{{ .Values.global.platform.domain }}'
