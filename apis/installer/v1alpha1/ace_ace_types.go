@@ -276,6 +276,20 @@ type InfraDns struct {
 }
 
 type DNSProviderAuth struct {
+	/*
+		## Cloudflare
+
+		To use Cloudflare as your DNS provider, you need to create a API Token some specified permissions.
+
+		Tokens can be created at `User Profile` > `API Tokens` > `API Tokens`. The following settings are recommended:
+		- Permissions:
+		    - `Zone` - `DNS` - `Edit`
+		    - `Zone` - `Zone` - `Read`
+		- Zone Resources:
+		    - `Include` - `All zones` </br>
+		    or
+		    - `Include` - `Specific zone` - `Your desired zone`
+	*/
 	Cloudflare *CloudflareAuth `json:"cloudflare,omitempty"`
 	/*
 		## Route53
@@ -327,7 +341,34 @@ type DNSProviderAuth struct {
 		    aws iam create-access-key --user-name "route53"
 		    ```
 	*/
-	Route53  *Route53Auth  `json:"route53,omitempty"`
+	Route53 *Route53Auth `json:"route53,omitempty"`
+	/*
+		## Google CloudDNS
+
+		To use Google CloudDNS as your DNS provider, you need to create a GCP service account with the dns.admin role.
+
+		- Set Project id, service account name
+		    ```sh
+		    # Set the project ID where you registered your Domain
+		    PROJECT_ID="myproject-id"
+		    DNS_SA_NAME="clouddns-sa"
+		    DNS_SA_EMAIL="$DNS_SA_NAME@${PROJECT_ID}.iam.gserviceaccount.com"
+		    ```
+		- Create Service account and Assign permission
+		    ```sh
+		    gcloud iam service-accounts create $DNS_SA_NAME --display-name $DNS_SA_NAME
+
+		    # assign google service account to dns.admin role in cloud-dns project
+		    gcloud projects add-iam-policy-binding $PROJECT_ID \
+		    --member serviceAccount:$DNS_SA_EMAIL --role "roles/dns.admin"
+		    ```
+		- Create a Service Account Secret
+		    ```sh
+		    # download static credentials
+		    gcloud iam service-accounts keys create $DNS_SA_NAME-credentials.json \
+		    --iam-account $DNS_SA_EMAIL
+		    ```
+	*/
 	CloudDNS *CloudDNSAuth `json:"cloudDNS,omitempty"`
 	/*
 		## AzureDNS
