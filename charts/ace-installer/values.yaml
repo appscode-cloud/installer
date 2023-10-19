@@ -25,13 +25,13 @@ registry:
 releases:
   ace:
     enabled: false
-    version: "v2023.10.1"
+    version: "v2023.10.18"
   cert-manager-csi-driver-cacerts:
     enabled: true
     version: "v2023.10.1"
   cert-manager-webhook-ace:
     enabled: true
-    version: "v2023.10.1"
+    version: "v2023.10.18"
   cert-manager:
     enabled: true
     version: "v1.11.0"
@@ -39,7 +39,7 @@ releases:
       installCRDs: true
   kubedb:
     enabled: true
-    version: "v2023.08.18"
+    version: "v2023.10.9"
     values:
       kubedb-provisioner:
         enabled: true
@@ -63,7 +63,7 @@ releases:
     version: "v2023.10.1"
   license-proxyserver:
     enabled: true
-    version: "v2023.10.1"
+    version: "v2023.10.18"
   reloader:
     enabled: true
     version: "v1.0.24"
@@ -72,7 +72,7 @@ releases:
     version: ""
   opscenter-features:
     enabled: true
-    version: "v2023.10.1"
+    version: "v2023.10.18"
   panopticon:
     enabled: true
     version: "v2023.10.1"
@@ -85,7 +85,7 @@ releases:
             release: kube-prometheus-stack
   stash:
     enabled: true
-    version: "v2023.08.18"
+    version: "v2023.10.9"
     values:
       features:
         enterprise: true

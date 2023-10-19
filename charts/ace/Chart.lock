@@ -1,46 +1,46 @@
 dependencies:
 - name: platform-ui
   repository: file://../platform-ui
-  version: v2023.10.1
+  version: v2023.10.18
 - name: accounts-ui
   repository: file://../accounts-ui
-  version: v2023.10.1
+  version: v2023.10.18
 - name: cluster-ui
   repository: file://../cluster-ui
-  version: v2023.10.1
+  version: v2023.10.18
 - name: deploy-ui
   repository: file://../deploy-ui
-  version: v2023.10.1
+  version: v2023.10.18
 - name: kubedb-ui
   repository: file://../kubedb-ui
-  version: v2023.10.1
+  version: v2023.10.18
 - name: marketplace-ui
   repository: file://../marketplace-ui
-  version: v2023.10.1
+  version: v2023.10.18
 - name: platform-api
   repository: file://../platform-api
-  version: v2023.10.1
+  version: v2023.10.18
 - name: platform-links
   repository: file://../platform-links
-  version: v2023.10.1
+  version: v2023.10.18
 - name: billing
   repository: file://../billing
-  version: v2023.10.1
+  version: v2023.10.18
 - name: grafana
   repository: file://../grafana
-  version: v2023.10.1
+  version: v2023.10.18
 - name: trickster
   repository: https://charts.appscode.com/stable
-  version: v2023.10.1
+  version: v2023.10.18
 - name: minio
   repository: file://../minio
-  version: v2023.10.1
+  version: v2023.10.18
 - name: dns-proxy
   repository: file://../dns-proxy
-  version: v2023.10.1
+  version: v2023.10.18
 - name: smtprelay
   repository: file://../smtprelay
-  version: v2023.10.1
+  version: v2023.10.18
 - name: ingress-nginx
   repository: https://kubernetes.github.io/ingress-nginx
   version: 4.4.0
