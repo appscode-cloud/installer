@@ -277,9 +277,92 @@ type InfraDns struct {
 
 type DNSProviderAuth struct {
 	Cloudflare *CloudflareAuth `json:"cloudflare,omitempty"`
-	Route53    *Route53Auth    `json:"route53,omitempty"`
-	CloudDNS   *CloudDNSAuth   `json:"cloudDNS,omitempty"`
-	AzureDNS   *AzureDNSAuth   `json:"azureDNS,omitempty"`
+	/*
+		## Route53
+
+		To use Route53 as your DNS provider, you need to run the following commands and provide us the generated `AccessKeyID` and `SecretAccessKey`.
+		- Create a policy
+		    ```sh
+		    echo '{
+		        "Version": "2012-10-17",
+		        "Statement": [
+		            {
+		                "Effect": "Allow",
+		                "Action": "route53:GetChange",
+		                "Resource": "arn:aws:route53:::change/*"
+		            },
+		            {
+		                "Effect": "Allow",
+		                "Action": [
+		                    "route53:ChangeResourceRecordSets",
+		                    "route53:ListResourceRecordSets"
+		                ],
+		                "Resource": "arn:aws:route53:::hostedzone/*"
+		            },
+		            {
+		                "Effect": "Allow",
+		                "Action": [
+		                    "route53:ListHostedZones",
+		                    "route53:ListHostedZonesByName",
+		                    "route53:ListResourceRecordSets",
+		                    "route53:ListTagsForResource"
+		                ],
+		                "Resource": "*"
+		            }
+		        ]
+		    }' > route53-policy.json
+		    ```
+		    ```sh
+		    aws iam create-policy --policy-name route53-policy --policy-document file://route53-policy.json
+
+		    POLICY_ARN=$(aws iam list-policies --query 'Policies[?PolicyName==`route53-policy`].Arn' --output text)
+		    ```
+		- Create a user and attach this policy to that user
+		    ```sh
+		    aws iam create-user --user-name "route53"
+		    aws iam attach-user-policy --user-name "route53" --policy-arn $POLICY_ARN
+		    ```
+		- Create Access Token for the user
+		    ```sh
+		    aws iam create-access-key --user-name "route53"
+		    ```
+	*/
+	Route53  *Route53Auth  `json:"route53,omitempty"`
+	CloudDNS *CloudDNSAuth `json:"cloudDNS,omitempty"`
+	/*
+		## AzureDNS
+
+		To use AzureDNS as your DNS provider, run the following commands
+		- Set the following ENVs with the preferred `Service Principal`, `Resource Group` and `DNS Zone`
+		    ```sh
+		    NEW_SERVICE_PRINCIPAL_NAME=azuredns-sp
+		    DNS_ZONE=<your-preferred-domain> # DNS_ZONE=appscode.com
+		    # Resource Group where you created the zone
+		    DNS_ZONE_RESOURCE_GROUP=<resource-group-name>
+		    ```
+		- Create a Service Principal RBAC
+		    ```sh
+		    DNS_SP=$(az ad sp create-for-rbac --name $NEW_SERVICE_PRINCIPAL_NAME)
+		    ```
+		- Assign required roles for the Service Principal
+		    ```sh
+		    SERVICE_PRINCIPAL_APP_ID=$(echo $DNS_SP | jq -r '.appId')
+		    DNS_ID=$(az network dns zone show --name $DNS_ZONE --resource-group $DNS_ZONE_RESOURCE_GROUP --query "id" --output tsv)
+
+		    az role assignment create --assignee $SERVICE_PRINCIPAL_APP_ID --role "DNS Zone Contributor" --scope $DNS_ID
+		    az role assignment create --assignee $SERVICE_PRINCIPAL_APP_ID --role "Reader" --scope $DNS_ID
+		    ```
+		- Print and provide us the following data
+		    ```sh
+		    echo "SERVICE_PRINCIPAL_APP_ID: $(echo $DNS_SP | jq -r '.appId')"
+		    echo "SERVICE_PRINCIPAL_APP_PASSWORD: $(echo $DNS_SP | jq -r '.password')"
+		    echo "SUBSCRIPTION_ID: $(az account show | jq -r '.id')"
+		    echo "TENANT_ID: $(echo $DNS_SP | jq -r '.tenant')"
+		    echo "DNS_ZONE: $DNS_ZONE"
+		    echo "DNS_ZONE_RESOURCE_GROUP: $DNS_ZONE_RESOURCE_GROUP"
+		    ```
+	*/
+	AzureDNS *AzureDNSAuth `json:"azureDNS,omitempty"`
 }
 
 type CloudflareAuth struct {
