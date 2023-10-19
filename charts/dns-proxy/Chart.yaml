@@ -2,7 +2,7 @@ apiVersion: v2
 name: dns-proxy
 description: A Helm chart for Kubernetes
 type: application
-version: v2023.10.1
+version: v2023.10.18
 appVersion: v0.0.3
 home: https://github.com/bytebuilders
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png

@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/smtprelay --version=v2023.10.1
-$ helm upgrade -i smtprelay appscode/smtprelay -n ace --create-namespace --version=v2023.10.1
+$ helm search repo appscode/smtprelay --version=v2023.10.18
+$ helm upgrade -i smtprelay appscode/smtprelay -n ace --create-namespace --version=v2023.10.18
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys a SMTP relay server on a [Kubernetes](http://kubernetes.io) c
 To install/upgrade the chart with the release name `smtprelay`:
 
 ```bash
-$ helm upgrade -i smtprelay appscode/smtprelay -n ace --create-namespace --version=v2023.10.1
+$ helm upgrade -i smtprelay appscode/smtprelay -n ace --create-namespace --version=v2023.10.18
 ```
 
 The command deploys a SMTP relay server on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -92,12 +92,12 @@ The following table lists the configurable parameters of the `smtprelay` chart a
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i smtprelay appscode/smtprelay -n ace --create-namespace --version=v2023.10.1 --set replicaCount=1
+$ helm upgrade -i smtprelay appscode/smtprelay -n ace --create-namespace --version=v2023.10.18 --set replicaCount=1
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i smtprelay appscode/smtprelay -n ace --create-namespace --version=v2023.10.1 --values values.yaml
+$ helm upgrade -i smtprelay appscode/smtprelay -n ace --create-namespace --version=v2023.10.18 --values values.yaml
 ```
