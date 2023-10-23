@@ -5169,6 +5169,13 @@ properties:
             type: object
           kind:
             type: string
+          networkPolicy:
+            properties:
+              enabled:
+                type: boolean
+            required:
+            - enabled
+            type: object
           nodeSelector:
             additionalProperties:
               type: string
@@ -5210,6 +5217,7 @@ properties:
         - image
         - ingressClassByName
         - ingressClassResource
+        - networkPolicy
         type: object
       enabled:
         type: boolean
@@ -8885,6 +8893,25 @@ properties:
             - repository
             - tag
             type: object
+          resources:
+            properties:
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
           securityContext:
             properties:
               allowPrivilegeEscalation:
@@ -10082,6 +10109,10 @@ properties:
                     type: array
                 type: object
             type: object
+          annotations:
+            additionalProperties:
+              type: string
+            type: object
           enabled:
             type: boolean
           extraVolumeMounts:
@@ -10850,6 +10881,25 @@ properties:
             additionalProperties:
               type: string
             type: object
+          resources:
+            properties:
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
           securityContext:
             properties:
               allowPrivilegeEscalation:
@@ -10930,6 +10980,7 @@ properties:
         required:
         - additionalLabels
         - affinity
+        - annotations
         - enabled
         - extraVolumeMounts
         - extraVolumes
@@ -11186,6 +11237,25 @@ properties:
             - repository
             - tag
             type: object
+          resources:
+            properties:
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
           securityContext:
             properties:
               allowPrivilegeEscalation:
@@ -11251,6 +11321,7 @@ properties:
         - enabled
         - extraConfigs
         - image
+        - resources
         - securityContext
         type: object
       securityContext:

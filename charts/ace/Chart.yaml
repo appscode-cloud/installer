@@ -71,7 +71,7 @@ dependencies:
 - name: ingress-nginx
   repository: https://kubernetes.github.io/ingress-nginx
   condition: ingress-nginx.enabled
-  version: 4.4.0
+  version: 4.8.2
 - name: nats
   repository: https://nats-io.github.io/k8s/helm/charts/
   condition: nats.enabled
