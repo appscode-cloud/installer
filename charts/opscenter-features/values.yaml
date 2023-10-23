@@ -28,7 +28,7 @@ repositories:
     timeout: 1m0s
   bytebuilders-ui:
     interval: 30m0s
-    url: oci://r.byte.builders/charts
+    url: oci://r.appscode.com/charts
     timeout: 1m0s
   bytebuilders:
     interval: 30m0s
@@ -72,7 +72,7 @@ repositories:
     timeout: 1m0s
   kubevault:
     interval: 30m0s
-    url: oci://r.byte.builders/charts
+    url: oci://r.appscode.com/charts
     timeout: 1m0s
   nats:
     interval: 30m0s
@@ -80,11 +80,11 @@ repositories:
     timeout: 1m0s
   ocm:
     interval: 30m0s
-    url: oci://r.byte.builders/charts
+    url: oci://r.appscode.com/charts
     timeout: 1m0s
   opencost:
     interval: 30m0s
-    url: oci://r.byte.builders/charts
+    url: oci://r.appscode.com/charts
     timeout: 1m0s
   prometheus-community:
     interval: 30m0s
