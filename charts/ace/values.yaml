@@ -202,7 +202,7 @@ global:
 
 settings:
   db:
-    version: "13.2"
+    version: "15.3"
     databaseName: bb
     terminationPolicy: Delete
     persistence:
@@ -215,7 +215,7 @@ settings:
       username: postgres
       password: "xyz"
   cache:
-    version: "6.0.6"
+    version: "6.2.11"
     cacheInterval: 60
     persistence:
       size: 10Gi
