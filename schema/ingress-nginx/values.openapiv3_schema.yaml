@@ -89,6 +89,13 @@ properties:
         type: object
       kind:
         type: string
+      networkPolicy:
+        properties:
+          enabled:
+            type: boolean
+        required:
+        - enabled
+        type: object
       nodeSelector:
         additionalProperties:
           type: string
@@ -137,6 +144,7 @@ properties:
     - image
     - ingressClassByName
     - ingressClassResource
+    - networkPolicy
     type: object
   tcp:
     additionalProperties:

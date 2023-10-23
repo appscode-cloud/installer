@@ -60,8 +60,13 @@ type IngressNginxController struct {
 	NodeSelector map[string]string              `json:"nodeSelector"`
 	Service      *IngressNginxControllerService `json:"service,omitempty"`
 	//+optional
-	Resources         core.ResourceRequirements     `json:"resources"`
-	AdmissionWebhooks IngressNginxAdmissionWebhooks `json:"admissionWebhooks"`
+	Resources         core.ResourceRequirements           `json:"resources"`
+	AdmissionWebhooks IngressNginxAdmissionWebhooks       `json:"admissionWebhooks"`
+	NetworkPolicy     IngressNginxControllerNetworkPolicy `json:"networkPolicy"`
+}
+
+type IngressNginxControllerNetworkPolicy struct {
+	Enabled bool `json:"enabled"`
 }
 
 type IngressNginxControllerImage struct {
