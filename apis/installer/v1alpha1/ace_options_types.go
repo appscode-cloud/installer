@@ -72,15 +72,31 @@ type RegistrySpec struct {
 	//+optional
 	RegistryFQDN string `json:"registryFQDN"`
 	//+optional
-	Registry string `json:"registry"`
-	//+optional
-	PreserveOrganization bool `json:"preserveOrganization"`
+	Proxies RegistryProxies `json:"proxies"`
 	//+optional
 	AllowNondistributableArtifacts bool `json:"allowNondistributableArtifacts"`
 	//+optional
 	Insecure bool `json:"insecure"`
 	//+optional
 	ImagePullSecrets []string `json:"imagePullSecrets"`
+}
+
+type RegistryProxies struct {
+	// company/bin:1.23
+	//+optional
+	DockerHub string `json:"dockerHub"`
+	// alpine, nginx etc.
+	//+optional
+	DockerLibrary string `json:"dockerLibrary"`
+	// ghcr.io
+	//+optional
+	GHCR string `json:"ghcr"`
+	// registry.k8s.io
+	//+optional
+	Kubernetes string `json:"kubernetes"`
+	// r.appscode.com
+	//+optional
+	AppsCode string `json:"appscode"`
 }
 
 type AceOptionsComponentSpec struct {
