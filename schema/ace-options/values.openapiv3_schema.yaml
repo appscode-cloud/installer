@@ -13,8 +13,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -23,8 +23,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -34,7 +34,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   billing:
     properties:
@@ -50,8 +50,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -60,8 +60,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -71,7 +71,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   cluster-ui:
     properties:
@@ -87,8 +87,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -97,8 +97,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -108,7 +108,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   context:
     properties:
@@ -129,9 +129,9 @@ properties:
         type: string
       deploymentType:
         enum:
-        - Hosted
-        - SelfHostedProduction
-        - SelfHostedDemo
+          - Hosted
+          - SelfHostedProduction
+          - SelfHostedDemo
         type: string
       hostedDomain:
         type: string
@@ -152,8 +152,8 @@ properties:
       token:
         type: string
     required:
-    - deploymentType
-    - requestedDomain
+      - deploymentType
+      - requestedDomain
     type: object
   deploy-ui:
     properties:
@@ -169,8 +169,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -179,8 +179,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -190,7 +190,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   dns-proxy:
     properties:
@@ -206,8 +206,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -216,8 +216,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -227,7 +227,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   grafana:
     properties:
@@ -243,8 +243,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -253,8 +253,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -264,7 +264,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   infra:
     properties:
@@ -275,7 +275,7 @@ properties:
               masterKeyURL:
                 type: string
             required:
-            - masterKeyURL
+              - masterKeyURL
             type: object
           objstore:
             properties:
@@ -288,8 +288,8 @@ properties:
                       AZURE_ACCOUNT_NAME:
                         type: string
                     required:
-                    - AZURE_ACCOUNT_KEY
-                    - AZURE_ACCOUNT_NAME
+                      - AZURE_ACCOUNT_KEY
+                      - AZURE_ACCOUNT_NAME
                     type: object
                   gcs:
                     properties:
@@ -298,8 +298,8 @@ properties:
                       GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
                         type: string
                     required:
-                    - GOOGLE_PROJECT_ID
-                    - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                      - GOOGLE_PROJECT_ID
+                      - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
                     type: object
                   s3:
                     properties:
@@ -310,8 +310,8 @@ properties:
                       CA_CERT_DATA:
                         type: string
                     required:
-                    - AWS_ACCESS_KEY_ID
-                    - AWS_SECRET_ACCESS_KEY
+                      - AWS_ACCESS_KEY_ID
+                      - AWS_SECRET_ACCESS_KEY
                     type: object
                   swift:
                     properties:
@@ -344,20 +344,20 @@ properties:
                       ST_USER:
                         type: string
                     required:
-                    - OS_AUTH_TOKEN
-                    - OS_AUTH_URL
-                    - OS_PASSWORD
-                    - OS_PROJECT_DOMAIN_NAME
-                    - OS_PROJECT_NAME
-                    - OS_REGION_NAME
-                    - OS_STORAGE_URL
-                    - OS_TENANT_ID
-                    - OS_TENANT_NAME
-                    - OS_USERNAME
-                    - OS_USER_DOMAIN_NAME
-                    - ST_AUTH
-                    - ST_KEY
-                    - ST_USER
+                      - OS_AUTH_TOKEN
+                      - OS_AUTH_URL
+                      - OS_PASSWORD
+                      - OS_PROJECT_DOMAIN_NAME
+                      - OS_PROJECT_NAME
+                      - OS_REGION_NAME
+                      - OS_STORAGE_URL
+                      - OS_TENANT_ID
+                      - OS_TENANT_NAME
+                      - OS_USERNAME
+                      - OS_USER_DOMAIN_NAME
+                      - ST_AUTH
+                      - ST_KEY
+                      - ST_USER
                     type: object
                 type: object
               bucket:
@@ -371,45 +371,48 @@ properties:
                 description: Required for s3 buckets
                 type: string
             required:
-            - auth
-            - bucket
+              - auth
+              - bucket
             type: object
           provider:
             enum:
-            - gcs
-            - s3
-            - azure
-            - swift
+              - gcs
+              - s3
+              - azure
+              - swift
             type: string
         required:
-        - objstore
-        - provider
+          - objstore
+          - provider
         type: object
       dns:
         properties:
           auth:
             properties:
               azureDNS:
-                description: "## AzureDNS \n To use AzureDNS as your DNS provider,\
-                  \ run the following commands - Set the following ENVs with the preferred\
-                  \ `Service Principal`, `Resource Group` and `DNS Zone` ```sh NEW_SERVICE_PRINCIPAL_NAME=azuredns-sp\
-                  \ DNS_ZONE=<your-preferred-domain> # DNS_ZONE=appscode.com # Resource\
-                  \ Group where you created the zone DNS_ZONE_RESOURCE_GROUP=<resource-group-name>\
-                  \ ``` - Create a Service Principal RBAC ```sh DNS_SP=$(az ad sp\
-                  \ create-for-rbac --name $NEW_SERVICE_PRINCIPAL_NAME) ``` - Assign\
-                  \ required roles for the Service Principal ```sh SERVICE_PRINCIPAL_APP_ID=$(echo\
-                  \ $DNS_SP | jq -r '.appId') DNS_ID=$(az network dns zone show --name\
-                  \ $DNS_ZONE --resource-group $DNS_ZONE_RESOURCE_GROUP --query \"\
-                  id\" --output tsv) \n az role assignment create --assignee $SERVICE_PRINCIPAL_APP_ID\
-                  \ --role \"DNS Zone Contributor\" --scope $DNS_ID az role assignment\
+                description: "## AzureDNS\n\nTo use AzureDNS as your DNS provider,\
+                  \ run the following commands\n- Set the following ENVs with the\
+                  \ preferred `Service Principal`, `Resource Group` and `DNS Zone`\n\
+                  \    ```sh\n    NEW_SERVICE_PRINCIPAL_NAME=azuredns-sp\n    DNS_ZONE=<your-preferred-domain>\
+                  \ # DNS_ZONE=appscode.com\n    # Resource Group where you created\
+                  \ the zone\n    DNS_ZONE_RESOURCE_GROUP=<resource-group-name>\n\
+                  \    ```\n- Create a Service Principal RBAC\n    ```sh\n    DNS_SP=$(az\
+                  \ ad sp create-for-rbac --name $NEW_SERVICE_PRINCIPAL_NAME)\n  \
+                  \  ```\n- Assign required roles for the Service Principal\n    ```sh\n\
+                  \    SERVICE_PRINCIPAL_APP_ID=$(echo $DNS_SP | jq -r '.appId')\n\
+                  \    DNS_ID=$(az network dns zone show --name $DNS_ZONE --resource-group\
+                  \ $DNS_ZONE_RESOURCE_GROUP --query \"id\" --output tsv)\n\n    az\
+                  \ role assignment create --assignee $SERVICE_PRINCIPAL_APP_ID --role\
+                  \ \"DNS Zone Contributor\" --scope $DNS_ID\n    az role assignment\
                   \ create --assignee $SERVICE_PRINCIPAL_APP_ID --role \"Reader\"\
-                  \ --scope $DNS_ID ``` - Print and provide us the following data\
-                  \ ```sh echo \"SERVICE_PRINCIPAL_APP_ID: $(echo $DNS_SP | jq -r\
-                  \ '.appId')\" echo \"SERVICE_PRINCIPAL_APP_PASSWORD: $(echo $DNS_SP\
-                  \ | jq -r '.password')\" echo \"SUBSCRIPTION_ID: $(az account show\
-                  \ | jq -r '.id')\" echo \"TENANT_ID: $(echo $DNS_SP | jq -r '.tenant')\"\
-                  \ echo \"DNS_ZONE: $DNS_ZONE\" echo \"DNS_ZONE_RESOURCE_GROUP: $DNS_ZONE_RESOURCE_GROUP\"\
-                  \ ```"
+                  \ --scope $DNS_ID\n    ```\n- Print and provide us the following\
+                  \ data\n    ```sh\n    echo \"SERVICE_PRINCIPAL_APP_ID: $(echo $DNS_SP\
+                  \ | jq -r '.appId')\"\n    echo \"SERVICE_PRINCIPAL_APP_PASSWORD:\
+                  \ $(echo $DNS_SP | jq -r '.password')\"\n    echo \"SUBSCRIPTION_ID:\
+                  \ $(az account show | jq -r '.id')\"\n    echo \"TENANT_ID: $(echo\
+                  \ $DNS_SP | jq -r '.tenant')\"\n    echo \"DNS_ZONE: $DNS_ZONE\"\
+                  \n    echo \"DNS_ZONE_RESOURCE_GROUP: $DNS_ZONE_RESOURCE_GROUP\"\
+                  \n    ```\n"
                 properties:
                   environment:
                     type: string
@@ -426,72 +429,82 @@ properties:
                   tenantID:
                     type: string
                 required:
-                - hostedZoneName
-                - resourceGroupName
-                - servicePrincipalAppID
-                - servicePrincipalAppPassword
-                - subscriptionID
-                - tenantID
+                  - hostedZoneName
+                  - resourceGroupName
+                  - servicePrincipalAppID
+                  - servicePrincipalAppPassword
+                  - subscriptionID
+                  - tenantID
                 type: object
               cloudDNS:
-                description: "## Google CloudDNS \n To use Google CloudDNS as your\
+                description: "## Google CloudDNS\n\nTo use Google CloudDNS as your\
                   \ DNS provider, you need to create a GCP service account with the\
-                  \ dns.admin role. \n - Set Project id, service account name ```sh\
-                  \ # Set the project ID where you registered your Domain PROJECT_ID=\"\
-                  myproject-id\" DNS_SA_NAME=\"clouddns-sa\" DNS_SA_EMAIL=\"$DNS_SA_NAME@${PROJECT_ID}.iam.gserviceaccount.com\"\
-                  \ ``` - Create Service account and Assign permission ```sh gcloud\
-                  \ iam service-accounts create $DNS_SA_NAME --display-name $DNS_SA_NAME\
-                  \ \n # assign google service account to dns.admin role in cloud-dns\
-                  \ project gcloud projects add-iam-policy-binding $PROJECT_ID \\\
-                  \ --member serviceAccount:$DNS_SA_EMAIL --role \"roles/dns.admin\"\
-                  \ ``` - Create a Service Account Secret ```sh # download static\
-                  \ credentials gcloud iam service-accounts keys create $DNS_SA_NAME-credentials.json\
-                  \ \\ --iam-account $DNS_SA_EMAIL ```"
+                  \ dns.admin role.\n\n- Set Project id, service account name\n  \
+                  \  ```sh\n    # Set the project ID where you registered your Domain\n\
+                  \    PROJECT_ID=\"myproject-id\"\n    DNS_SA_NAME=\"clouddns-sa\"\
+                  \n    DNS_SA_EMAIL=\"$DNS_SA_NAME@${PROJECT_ID}.iam.gserviceaccount.com\"\
+                  \n    ```\n- Create Service account and Assign permission\n    ```sh\n\
+                  \    gcloud iam service-accounts create $DNS_SA_NAME --display-name\
+                  \ $DNS_SA_NAME\n\n    # assign google service account to dns.admin\
+                  \ role in cloud-dns project\n    gcloud projects add-iam-policy-binding\
+                  \ $PROJECT_ID \\\n    --member serviceAccount:$DNS_SA_EMAIL --role\
+                  \ \"roles/dns.admin\"\n    ```\n- Create a Service Account Secret\n\
+                  \    ```sh\n    # download static credentials\n    gcloud iam service-accounts\
+                  \ keys create $DNS_SA_NAME-credentials.json \\\n    --iam-account\
+                  \ $DNS_SA_EMAIL\n    ```\n"
                 properties:
                   GOOGLE_PROJECT_ID:
                     type: string
                   GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
                     type: string
                 required:
-                - GOOGLE_PROJECT_ID
-                - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                  - GOOGLE_PROJECT_ID
+                  - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
                 type: object
               cloudflare:
-                description: "## Cloudflare \n To use Cloudflare as your DNS provider,\
-                  \ you need to create a API Token some specified permissions. \n\
-                  \ Tokens can be created at `User Profile` > `API Tokens` > `API\
-                  \ Tokens`. The following settings are recommended: - Permissions:\
-                  \ - `Zone` - `DNS` - `Edit` - `Zone` - `Zone` - `Read` - Zone Resources:\
-                  \ - `Include` - `All zones` </br> or - `Include` - `Specific zone`\
-                  \ - `Your desired zone`"
+                description: "## Cloudflare\n\nTo use Cloudflare as your DNS provider,\
+                  \ you need to create a API Token some specified permissions.\n\n\
+                  Tokens can be created at `User Profile` > `API Tokens` > `API Tokens`.\
+                  \ The following settings are recommended:\n- Permissions:\n    -\
+                  \ `Zone` - `DNS` - `Edit`\n    - `Zone` - `Zone` - `Read`\n- Zone\
+                  \ Resources:\n    - `Include` - `All zones` </br>\n    or\n    -\
+                  \ `Include` - `Specific zone` - `Your desired zone`\n"
                 properties:
                   baseURL:
                     type: string
                   token:
                     type: string
                 required:
-                - token
+                  - token
                 type: object
               route53:
-                description: "## Route53 \n To use Route53 as your DNS provider, you\
+                description: "## Route53\n\nTo use Route53 as your DNS provider, you\
                   \ need to run the following commands and provide us the generated\
-                  \ `AccessKeyID` and `SecretAccessKey`. - Create a policy ```sh echo\
-                  \ '{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Effect\"\
-                  : \"Allow\", \"Action\": \"route53:GetChange\", \"Resource\": \"\
-                  arn:aws:route53:::change/*\" }, { \"Effect\": \"Allow\", \"Action\"\
-                  : [ \"route53:ChangeResourceRecordSets\", \"route53:ListResourceRecordSets\"\
-                  \ ], \"Resource\": \"arn:aws:route53:::hostedzone/*\" }, { \"Effect\"\
-                  : \"Allow\", \"Action\": [ \"route53:ListHostedZones\", \"route53:ListHostedZonesByName\"\
-                  , \"route53:ListResourceRecordSets\", \"route53:ListTagsForResource\"\
-                  \ ], \"Resource\": \"*\" } ] }' > route53-policy.json ``` ```sh\
+                  \ `AccessKeyID` and `SecretAccessKey`.\n- Create a policy\n    ```sh\n\
+                  \    echo '{\n        \"Version\": \"2012-10-17\",\n        \"Statement\"\
+                  : [\n            {\n                \"Effect\": \"Allow\",\n   \
+                  \             \"Action\": \"route53:GetChange\",\n             \
+                  \   \"Resource\": \"arn:aws:route53:::change/*\"\n            },\n\
+                  \            {\n                \"Effect\": \"Allow\",\n       \
+                  \         \"Action\": [\n                    \"route53:ChangeResourceRecordSets\"\
+                  ,\n                    \"route53:ListResourceRecordSets\"\n    \
+                  \            ],\n                \"Resource\": \"arn:aws:route53:::hostedzone/*\"\
+                  \n            },\n            {\n                \"Effect\": \"\
+                  Allow\",\n                \"Action\": [\n                    \"\
+                  route53:ListHostedZones\",\n                    \"route53:ListHostedZonesByName\"\
+                  ,\n                    \"route53:ListResourceRecordSets\",\n   \
+                  \                 \"route53:ListTagsForResource\"\n            \
+                  \    ],\n                \"Resource\": \"*\"\n            }\n  \
+                  \      ]\n    }' > route53-policy.json\n    ```\n    ```sh\n   \
                   \ aws iam create-policy --policy-name route53-policy --policy-document\
-                  \ file://route53-policy.json \n POLICY_ARN=$(aws iam list-policies\
+                  \ file://route53-policy.json\n\n    POLICY_ARN=$(aws iam list-policies\
                   \ --query 'Policies[?PolicyName==`route53-policy`].Arn' --output\
-                  \ text) ``` - Create a user and attach this policy to that user\
-                  \ ```sh aws iam create-user --user-name \"route53\" aws iam attach-user-policy\
-                  \ --user-name \"route53\" --policy-arn $POLICY_ARN ``` - Create\
-                  \ Access Token for the user ```sh aws iam create-access-key --user-name\
-                  \ \"route53\" ```"
+                  \ text)\n    ```\n- Create a user and attach this policy to that\
+                  \ user\n    ```sh\n    aws iam create-user --user-name \"route53\"\
+                  \n    aws iam attach-user-policy --user-name \"route53\" --policy-arn\
+                  \ $POLICY_ARN\n    ```\n- Create Access Token for the user\n   \
+                  \ ```sh\n    aws iam create-access-key --user-name \"route53\"\n\
+                  \    ```\n"
                 properties:
                   AWS_ACCESS_KEY_ID:
                     type: string
@@ -500,22 +513,22 @@ properties:
                   AWS_SECRET_ACCESS_KEY:
                     type: string
                 required:
-                - AWS_ACCESS_KEY_ID
-                - AWS_REGION
-                - AWS_SECRET_ACCESS_KEY
+                  - AWS_ACCESS_KEY_ID
+                  - AWS_REGION
+                  - AWS_SECRET_ACCESS_KEY
                 type: object
             type: object
           provider:
             enum:
-            - external
-            - cloudflare
-            - route53
-            - cloudDNS
-            - azureDNS
+              - external
+              - cloudflare
+              - route53
+              - cloudDNS
+              - azureDNS
             type: string
         required:
-        - auth
-        - provider
+          - auth
+          - provider
         type: object
       stash:
         properties:
@@ -529,7 +542,7 @@ properties:
               prefix:
                 type: string
             required:
-            - container
+              - container
             type: object
           backup:
             properties:
@@ -538,8 +551,8 @@ properties:
               schedule:
                 type: string
             required:
-            - password
-            - schedule
+              - password
+              - schedule
             type: object
           gcs:
             properties:
@@ -551,7 +564,7 @@ properties:
               prefix:
                 type: string
             required:
-            - bucket
+              - bucket
             type: object
           s3:
             properties:
@@ -564,8 +577,8 @@ properties:
               region:
                 type: string
             required:
-            - bucket
-            - endpoint
+              - bucket
+              - endpoint
             type: object
           swift:
             properties:
@@ -574,17 +587,17 @@ properties:
               prefix:
                 type: string
             required:
-            - container
+              - container
             type: object
         required:
-        - backup
+          - backup
         type: object
       storageClass:
         properties:
           name:
             type: string
         required:
-        - name
+          - name
         type: object
       tls:
         properties:
@@ -593,7 +606,7 @@ properties:
               email:
                 type: string
             required:
-            - email
+              - email
             type: object
           certificate:
             properties:
@@ -602,42 +615,42 @@ properties:
               key:
                 type: string
             required:
-            - cert
-            - key
+              - cert
+              - key
             type: object
           issuer:
             enum:
-            - ca
-            - letsencrypt
-            - letsencrypt-staging
-            - external
+              - ca
+              - letsencrypt
+              - letsencrypt-staging
+              - external
             type: string
         required:
-        - acme
-        - certificate
-        - issuer
+          - acme
+          - certificate
+          - issuer
         type: object
     required:
-    - cloudServices
-    - dns
-    - stash
-    - storageClass
-    - tls
+      - cloudServices
+      - dns
+      - stash
+      - storageClass
+      - tls
     type: object
   ingress:
     properties:
       exposeVia:
         enum:
-        - LoadBalancer
-        - HostPort
+          - LoadBalancer
+          - HostPort
         type: string
       managedRecordTypes:
         description: DNS record types that will be considered for management
         items:
           description: 'ref: https://github.com/kubernetes-sigs/external-dns/blob/v0.13.1/pkg/apis/externaldns/types.go#L325'
           enum:
-          - A
-          - CNAME
+            - A
+            - CNAME
           type: string
         type: array
       nodeSelector:
@@ -650,8 +663,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -660,8 +673,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -671,8 +684,8 @@ properties:
             type: object
         type: object
     required:
-    - exposeVia
-    - nodeSelector
+      - exposeVia
+      - nodeSelector
     type: object
   kubedb-ui:
     properties:
@@ -688,8 +701,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -698,8 +711,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -709,7 +722,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   marketplace-ui:
     properties:
@@ -725,8 +738,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -735,8 +748,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -746,7 +759,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   minio:
     properties:
@@ -762,8 +775,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -772,8 +785,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -783,7 +796,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   monitoring:
     properties:
@@ -797,8 +810,8 @@ properties:
               limits:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Limits describes the maximum amount of compute resources
@@ -807,8 +820,8 @@ properties:
               requests:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Requests describes the minimum amount of compute resources
@@ -818,7 +831,7 @@ properties:
                 type: object
             type: object
         required:
-        - resources
+          - resources
         type: object
       serviceMonitor:
         properties:
@@ -827,19 +840,19 @@ properties:
               type: string
             type: object
         required:
-        - labels
+          - labels
         type: object
     required:
-    - agent
-    - exporter
-    - serviceMonitor
+      - agent
+      - exporter
+      - serviceMonitor
     type: object
   nats:
     properties:
       exposeVia:
         enum:
-        - LoadBalancer
-        - HostPort
+          - LoadBalancer
+          - HostPort
         type: string
       nodeSelector:
         additionalProperties:
@@ -853,8 +866,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -863,8 +876,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -874,8 +887,8 @@ properties:
             type: object
         type: object
     required:
-    - exposeVia
-    - replicas
+      - exposeVia
+      - replicas
     type: object
   platform-api:
     properties:
@@ -891,8 +904,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -901,8 +914,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -912,7 +925,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   platform-links:
     properties:
@@ -928,8 +941,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -938,8 +951,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -949,7 +962,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   platform-ui:
     properties:
@@ -965,8 +978,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -975,8 +988,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -986,7 +999,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   registry:
     properties:
@@ -1016,8 +1029,8 @@ properties:
         description: 'Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/'
         type: string
     required:
-    - name
-    - namespace
+      - name
+      - namespace
     type: object
   settings:
     properties:
@@ -1027,12 +1040,12 @@ properties:
             properties:
               size:
                 anyOf:
-                - type: integer
-                - type: string
+                  - type: integer
+                  - type: string
                 pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                 x-kubernetes-int-or-string: true
             required:
-            - size
+              - size
             type: object
           resources:
             description: ResourceRequirements describes the compute resource requirements.
@@ -1040,8 +1053,8 @@ properties:
               limits:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Limits describes the maximum amount of compute resources
@@ -1050,8 +1063,8 @@ properties:
               requests:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Requests describes the minimum amount of compute resources
@@ -1061,8 +1074,8 @@ properties:
                 type: object
             type: object
         required:
-        - persistence
-        - resources
+          - persistence
+          - resources
         type: object
       db:
         properties:
@@ -1070,12 +1083,12 @@ properties:
             properties:
               size:
                 anyOf:
-                - type: integer
-                - type: string
+                  - type: integer
+                  - type: string
                 pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                 x-kubernetes-int-or-string: true
             required:
-            - size
+              - size
             type: object
           resources:
             description: ResourceRequirements describes the compute resource requirements.
@@ -1083,8 +1096,8 @@ properties:
               limits:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Limits describes the maximum amount of compute resources
@@ -1093,8 +1106,8 @@ properties:
               requests:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Requests describes the minimum amount of compute resources
@@ -1104,8 +1117,8 @@ properties:
                 type: object
             type: object
         required:
-        - persistence
-        - resources
+          - persistence
+          - resources
         type: object
       smtp:
         properties:
@@ -1125,18 +1138,18 @@ properties:
           username:
             type: string
         required:
-        - enabled
-        - from
-        - host
-        - password
-        - sendAsPlainText
-        - tlsEnabled
-        - username
+          - enabled
+          - from
+          - host
+          - password
+          - sendAsPlainText
+          - tlsEnabled
+          - username
         type: object
     required:
-    - cache
-    - db
-    - smtp
+      - cache
+      - db
+      - smtp
     type: object
   smtprelay:
     properties:
@@ -1152,8 +1165,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -1162,8 +1175,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -1173,7 +1186,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   trickster:
     properties:
@@ -1189,8 +1202,8 @@ properties:
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -1199,8 +1212,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -1210,29 +1223,29 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
 required:
-- accounts-ui
-- billing
-- cluster-ui
-- context
-- deploy-ui
-- dns-proxy
-- grafana
-- infra
-- ingress
-- kubedb-ui
-- marketplace-ui
-- minio
-- monitoring
-- nats
-- platform-api
-- platform-links
-- platform-ui
-- registry
-- release
-- settings
-- smtprelay
-- trickster
+  - accounts-ui
+  - billing
+  - cluster-ui
+  - context
+  - deploy-ui
+  - dns-proxy
+  - grafana
+  - infra
+  - ingress
+  - kubedb-ui
+  - marketplace-ui
+  - minio
+  - monitoring
+  - nats
+  - platform-api
+  - platform-links
+  - platform-ui
+  - registry
+  - release
+  - settings
+  - smtprelay
+  - trickster
 type: object
