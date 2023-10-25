@@ -530,6 +530,7 @@ type BasicAuth struct {
 }
 
 type SmtpSettings struct {
+	Enabled         bool   `json:"enabled"`
 	Host            string `json:"host"`
 	TlsEnabled      bool   `json:"tlsEnabled"`
 	From            string `json:"from"`
