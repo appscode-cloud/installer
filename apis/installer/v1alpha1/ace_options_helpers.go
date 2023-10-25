@@ -16,6 +16,61 @@ limitations under the License.
 
 package v1alpha1
 
+import "strings"
+
 func (r RegistrySpec) Configured() bool {
-	return r.RegistryFQDN != "" || r.Registry != ""
+	return r.RegistryFQDN != ""
+}
+
+func (r RegistrySpec) DockerHubProxy() string {
+	addr := r.Proxies.DockerHub
+	if addr == "" {
+		addr = r.RegistryFQDN
+	}
+	addr = strings.TrimSpace(addr)
+	addr = strings.TrimSuffix(addr, "/")
+	return addr
+}
+
+func (r RegistrySpec) DockerLibraryProxy() string {
+	addr := r.Proxies.DockerLibrary
+	if addr == "" {
+		addr = r.Proxies.DockerHub
+	}
+	if addr == "" {
+		addr = r.RegistryFQDN
+	}
+	addr = strings.TrimSpace(addr)
+	addr = strings.TrimSuffix(addr, "/")
+	return addr
+}
+
+func (r RegistrySpec) GHCRProxy() string {
+	addr := r.Proxies.GHCR
+	if addr == "" {
+		addr = r.RegistryFQDN
+	}
+	addr = strings.TrimSpace(addr)
+	addr = strings.TrimSuffix(addr, "/")
+	return addr
+}
+
+func (r RegistrySpec) KubernetesRegistryProxy() string {
+	addr := r.Proxies.Kubernetes
+	if addr == "" {
+		addr = r.RegistryFQDN
+	}
+	addr = strings.TrimSpace(addr)
+	addr = strings.TrimSuffix(addr, "/")
+	return addr
+}
+
+func (r RegistrySpec) AppsCodeRegistryProxy() string {
+	addr := r.Proxies.AppsCode
+	if addr == "" {
+		addr = r.RegistryFQDN
+	}
+	addr = strings.TrimSpace(addr)
+	addr = strings.TrimSuffix(addr, "/")
+	return addr
 }
