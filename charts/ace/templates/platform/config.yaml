@@ -68,7 +68,7 @@ stringData:
 
 {{- with .Values.settings.smtp }}
     [mailer]
-    ENABLED = true
+    ENABLED = {{ .enabled }}
     MAILER_TYPE = smtp
     HOST    = {{ .host }}
     IS_TLS_ENABLED = {{ .tlsEnabled }}

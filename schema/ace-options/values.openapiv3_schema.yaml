@@ -1109,6 +1109,8 @@ properties:
         type: object
       smtp:
         properties:
+          enabled:
+            type: boolean
           from:
             type: string
           host:
@@ -1123,6 +1125,7 @@ properties:
           username:
             type: string
         required:
+        - enabled
         - from
         - host
         - password
