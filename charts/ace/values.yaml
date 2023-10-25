@@ -229,8 +229,8 @@ settings:
     terminationPolicy: Delete
   # Mail service
   smtp:
-    # enableMailerService: true
     # mailerServiceType: smtp
+    enabled: false
     host: smtp.mailgun.org:465
     tlsEnabled: false
     from: no-reply@example.com
