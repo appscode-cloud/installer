@@ -18,6 +18,8 @@ image:
     ghcr: ""
     # registry.k8s.io/bin:tag
     kubernetes: ""
+    # quay.io/company/bin:tag
+    quay: ""
 
 registry:
   credentials: {}
