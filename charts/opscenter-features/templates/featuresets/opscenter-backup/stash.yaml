@@ -1,3 +1,16 @@
+{{ $overrides := printf `
+global:
+  registryFQDN: %s
+stash-enterprise:
+  pushgateway:
+    registry: %s` (include "registry.ghcr" $) (include "image.dockerLibrary" (merge (dict "_repo" "prom") $)) | fromYaml }}
+
+{{ $vals := `
+features:
+  enterprise: true
+` | fromYaml }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -33,6 +46,6 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.helm.release.channel "stashed" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
-  values:
-    features:
-      enterprise: true
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

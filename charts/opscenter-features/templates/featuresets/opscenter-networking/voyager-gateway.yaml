@@ -1,3 +1,16 @@
+{{ $overrides := printf `
+deployment:
+  envoyGateway:
+    image:
+      repository: %s
+  kubeRbacProxy:
+    image:
+      repository: %s
+` (include "image.ghcr" (merge (dict "_repo" "voyagermesh/gateway") $)) (include "image.ghcr" (merge (dict "_repo" "appscode/kube-rbac-proxy") $)) | fromYaml }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -30,3 +43,6 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.helm.release.channel "bytebuilders-ui" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

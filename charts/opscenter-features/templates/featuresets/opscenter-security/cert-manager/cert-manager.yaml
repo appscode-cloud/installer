@@ -1,3 +1,15 @@
+{{ $overrides := printf `
+image:
+  repository: %s
+webhook:
+  image:
+    repository: %s` (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-controller") $)) (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-webhook") $)) | fromYaml }}
+
+{{ $vals := `
+installCRDs: true
+` | fromYaml }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -30,5 +42,6 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.helm.release.channel "jetstack" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
-  values:
-    installCRDs: true
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

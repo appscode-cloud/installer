@@ -1,3 +1,27 @@
+{{ $overrides := printf `
+global:
+  registryFQDN: %q
+  ` (include "registry.ghcr" $) | fromYaml }}
+{{ $_ := set $overrides.global "kubedb-catalog" $.Values.image }}
+
+{{ $vals := `
+kubedb-provisioner:
+  enabled: true
+kubedb-catalog:
+  enabled: true
+kubedb-ops-manager:
+  enabled: true
+kubedb-autoscaler:
+  enabled: true
+kubedb-dashboard:
+  enabled: true
+kubedb-schema-manager:
+  enabled: true
+kubedb-metrics:
+  enabled: false
+` | fromYaml }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -33,18 +57,6 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.helm.release.channel "kubedb" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
-  values:
-    kubedb-provisioner:
-      enabled: true
-    kubedb-catalog:
-      enabled: true
-    kubedb-ops-manager:
-      enabled: true
-    kubedb-autoscaler:
-      enabled: true
-    kubedb-dashboard:
-      enabled: true
-    kubedb-schema-manager:
-      enabled: true
-    kubedb-metrics:
-      enabled: false
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
