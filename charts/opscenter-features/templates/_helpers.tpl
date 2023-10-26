@@ -49,3 +49,57 @@ Selector labels
 app.kubernetes.io/name: {{ include "opscenter-features.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
+
+{{/*
+Registry Proxy Templates
+*/}}
+{{- define "registry.dockerHub" -}}
+{{ prepend (list ._repo) (list .Values.image.proxies.dockerHub .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{- end }}
+
+{{- define "registry.dockerLibrary" -}}
+{{ prepend (list ._repo) (list .Values.image.proxies.dockerLibrary .Values.image.proxies.dockerHub .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{- end }}
+
+{{- define "registry.ghcr" -}}
+{{ prepend (list ._repo) (list .Values.image.proxies.ghcr .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{- end }}
+
+{{- define "registry.quay" -}}
+{{ prepend (list ._repo) (list .Values.image.proxies.quay .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{- end }}
+
+{{- define "registry.kubernetes" -}}
+{{ prepend (list ._repo) (list .Values.image.proxies.kubernetes .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{- end }}
+
+{{- define "registry.appscode" -}}
+{{ prepend (list ._repo) (list .Values.image.proxies.appscode .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{- end }}
+
+{{/*
+Image Templates
+*/}}
+{{- define "image.dockerHub" -}}
+{{ prepend (list ._repo) (list .Values.image.proxies.dockerHub .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{- end }}
+
+{{- define "image.dockerLibrary" -}}
+{{ prepend (list ._repo) (list .Values.image.proxies.dockerLibrary .Values.image.proxies.dockerHub .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{- end }}
+
+{{- define "image.ghcr" -}}
+{{ prepend (list ._repo) (list .Values.image.proxies.ghcr .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{- end }}
+
+{{- define "image.quay" -}}
+{{ prepend (list ._repo) (list .Values.image.proxies.quay .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{- end }}
+
+{{- define "image.kubernetes" -}}
+{{ prepend (list ._repo) (list .Values.image.proxies.kubernetes .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{- end }}
+
+{{- define "image.appscode" -}}
+{{ prepend (list ._repo) (list .Values.image.proxies.appscode .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{- end }}

@@ -1,3 +1,41 @@
+{{ $overrides := printf `
+
+image:
+  repository: %s
+  crdRepository: %s
+# preInstall:
+#   crdRepository:
+#     image:
+#       repository: null
+postUpgrade:
+  labelNamespace:
+    image:
+      repository: %s
+postInstall:
+  labelNamespace:
+    image:
+      repository: %s
+  probeWebhook:
+    image:
+      repository: %s
+preUninstall:
+  deleteWebhookConfigurations:
+    image:
+      repository: %s
+`
+  (include "image.dockerHub" (merge (dict "_repo" "openpolicyagent/gatekeeper") $))
+  (include "image.dockerHub" (merge (dict "_repo" "openpolicyagent/gatekeeper-crds") $))
+  (include "image.dockerHub" (merge (dict "_repo" "openpolicyagent/gatekeeper-crds") $))
+  (include "image.dockerHub" (merge (dict "_repo" "openpolicyagent/gatekeeper-crds") $))
+  (include "image.dockerHub" (merge (dict "_repo" "curlimages/curl") $))
+  (include "image.dockerHub" (merge (dict "_repo" "openpolicyagent/gatekeeper-crds") $))
+  | fromYaml }}
+
+{{ $vals := `
+constraintViolationsLimit: 100
+` | fromYaml }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -38,5 +76,6 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.helm.release.channel "gatekeeper" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
-  values:
-    constraintViolationsLimit: 100
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

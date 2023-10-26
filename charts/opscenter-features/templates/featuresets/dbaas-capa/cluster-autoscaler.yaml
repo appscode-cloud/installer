@@ -1,5 +1,23 @@
 {{- if eq .Values.capi.provider "capa" }}
 
+{{ $overrides := printf `
+image:
+  repository: %s
+` (include "image.kubernetes" (merge (dict "_repo" "autoscaling/cluster-autoscaler") $)) | fromYaml }}
+
+{{ $vals := `
+cloudProvider: clusterapi
+autoscalingGroups:
+  - name: default
+    minSize: 1
+    maxSize: 6
+extraArgs:
+  logtostderr: null
+  stderrthreshold: null
+  v: null
+` | fromYaml }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -32,15 +50,7 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.helm.release.channel "cluster-autoscaler" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
-  values:
-    cloudProvider: clusterapi
-    autoscalingGroups:
-      - name: default
-        minSize: 1
-        maxSize: 6
-    extraArgs:
-      logtostderr: null
-      stderrthreshold: null
-      v: null
-
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
 {{- end }}

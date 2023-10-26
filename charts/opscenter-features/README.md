@@ -49,13 +49,13 @@ The following table lists the configurable parameters of the `opscenter-features
 |-------------------------------------------------|------------------------------------------------------------------------|--------------------------------------------------------------------|
 | nameOverride                                    |                                                                        | <code>""</code>                                                    |
 | fullnameOverride                                |                                                                        | <code>""</code>                                                    |
-| image.registryFQDN                              |                                                                        | <code>""</code>                                                    |
-| image.proxies.appscode                          | r.appscode.com                                                         | <code>""</code>                                                    |
-| image.proxies.dockerHub                         | company/bin:tag                                                        | <code>""</code>                                                    |
-| image.proxies.dockerLibrary                     | alpine, nginx etc.                                                     | <code>""</code>                                                    |
-| image.proxies.ghcr                              | ghcr.io/company/bin:tag                                                | <code>""</code>                                                    |
-| image.proxies.kubernetes                        | registry.k8s.io/bin:tag                                                | <code>""</code>                                                    |
-| image.proxies.quay                              | quay.io/company/bin:tag                                                | <code>""</code>                                                    |
+| image.registryFQDN                              |                                                                        | <code>harbor.appscode.ninja</code>                                 |
+| image.proxies.dockerHub                         |                                                                        | <code>harbor.appscode.ninja/dockerhub</code>                       |
+| image.proxies.dockerLibrary                     |                                                                        | <code>""</code>                                                    |
+| image.proxies.ghcr                              |                                                                        | <code>harbor.appscode.ninja/ghcr</code>                            |
+| image.proxies.quay                              |                                                                        | <code>harbor.appscode.ninja/quay</code>                            |
+| image.proxies.kubernetes                        |                                                                        | <code>harbor.appscode.ninja/k8s</code>                             |
+| image.proxies.appscode                          |                                                                        | <code>harbor.appscode.ninja/ac</code>                              |
 | registry.credentials                            |                                                                        | <code>{}</code>                                                    |
 | helm.release.channel                            | Release channel used for charts. Possible values: stable, testing, dev | <code>dev</code>                                                   |
 | helm.repositories.stable.interval               |                                                                        | <code>30m0s</code>                                                 |
@@ -130,7 +130,7 @@ The following table lists the configurable parameters of the `opscenter-features
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2023.10.18 --set helm.release.channel=dev
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2023.10.18 --set image.registryFQDN=harbor.appscode.ninja
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while

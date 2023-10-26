@@ -1,3 +1,16 @@
+{{ $overrides := printf `
+
+images:
+  operator: %s
+  interceptor: %s
+  scaler: %s
+  kubeRbacProxy:
+    name: %s
+` (include "image.ghcr" (merge (dict "_repo" "kedacore/http-add-on-operator") $)) (include "image.ghcr" (merge (dict "_repo" "kedacore/http-add-on-interceptor") $))  (include "image.ghcr" (merge (dict "_repo" "kedacore/http-add-on-scaler") $))  (include "image.ghcr" (merge (dict "_repo" "appscode/kube-rbac-proxy") $)) | fromYaml }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -54,3 +67,6 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.helm.release.channel "keda" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
