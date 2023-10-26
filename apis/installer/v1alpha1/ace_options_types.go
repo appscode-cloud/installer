@@ -91,6 +91,9 @@ type RegistryProxies struct {
 	// ghcr.io
 	//+optional
 	GHCR string `json:"ghcr"`
+	// quay.io
+	//+optional
+	Quay string `json:"quay"`
 	// registry.k8s.io
 	//+optional
 	Kubernetes string `json:"kubernetes"`
