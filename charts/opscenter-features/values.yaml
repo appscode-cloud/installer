@@ -5,31 +5,31 @@
 nameOverride: ""
 fullnameOverride: ""
 
-# image:
-#   registryFQDN: ""
-#   proxies:
-#     # r.appscode.com
-#     appscode: r.appscode.com
-#     # company/bin:tag
-#     dockerHub: ""
-#     # alpine, nginx etc.
-#     dockerLibrary: ""
-#     # ghcr.io/company/bin:tag
-#     ghcr: ghcr.io
-#     # quay.io/company/bin:tag
-#     quay: quay.io
-#     # registry.k8s.io/bin:tag
-#     kubernetes: registry.k8s.io
-
 image:
-  registryFQDN: harbor.appscode.ninja
+  registryFQDN: ""
   proxies:
-    dockerHub: harbor.appscode.ninja/dockerhub
+    # r.appscode.com
+    appscode: r.appscode.com
+    # company/bin:tag
+    dockerHub: ""
+    # alpine, nginx etc.
     dockerLibrary: ""
-    ghcr: harbor.appscode.ninja/ghcr
-    quay: harbor.appscode.ninja/quay
-    kubernetes: harbor.appscode.ninja/k8s
-    appscode: harbor.appscode.ninja/ac
+    # ghcr.io/company/bin:tag
+    ghcr: ghcr.io
+    # quay.io/company/bin:tag
+    quay: quay.io
+    # registry.k8s.io/bin:tag
+    kubernetes: registry.k8s.io
+
+# image:
+#   registryFQDN: harbor.appscode.ninja
+#   proxies:
+#     dockerHub: harbor.appscode.ninja/dockerhub
+#     dockerLibrary: ""
+#     ghcr: harbor.appscode.ninja/ghcr
+#     quay: harbor.appscode.ninja/quay
+#     kubernetes: harbor.appscode.ninja/k8s
+#     appscode: harbor.appscode.ninja/ac
 
 registry:
   credentials: {}
