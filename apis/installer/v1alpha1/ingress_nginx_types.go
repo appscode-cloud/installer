@@ -47,6 +47,18 @@ type IngressNginxSpec struct {
 	Controller IngressNginxController `json:"controller"`
 	// +optional
 	TCP map[string]string `json:"tcp,omitempty"`
+	// +optional
+	DefaultBackend IngressNginxDefaultBackend `json:"defaultBackend"`
+}
+
+type IngressNginxDefaultBackend struct {
+	Enabled bool                            `json:"enabled"`
+	Name    string                          `json:"name"`
+	Image   IngressNginxDefaultBackendImage `json:"image"`
+}
+
+type IngressNginxDefaultBackendImage struct {
+	Registry string `json:"registry"`
 }
 
 type IngressNginxController struct {

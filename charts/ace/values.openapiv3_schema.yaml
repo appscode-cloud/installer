@@ -5219,6 +5219,24 @@ properties:
         - ingressClassResource
         - networkPolicy
         type: object
+      defaultBackend:
+        properties:
+          enabled:
+            type: boolean
+          image:
+            properties:
+              registry:
+                type: string
+            required:
+            - registry
+            type: object
+          name:
+            type: string
+        required:
+        - enabled
+        - image
+        - name
+        type: object
       enabled:
         type: boolean
       tcp:
