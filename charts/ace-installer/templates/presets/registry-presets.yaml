@@ -1,0 +1,11 @@
+{{ $vals := dict "image" $.Values.image "registry" $.Values.registry "helm" dict }}
+{{ $_ := set $vals.helm "repositories" (dig "repositories" dict $.Values.helm) }}
+{{ $_ := mergeOverwrite $vals.helm.repositories (dig "releases" "opscenter-features" "values" "helm" "repositories" dict $.Values.helm) }}
+
+apiVersion: charts.x-helm.dev/v1alpha1
+kind: ClusterChartPreset
+metadata:
+  name: registry-presets
+spec:
+  values:
+    {{- toYaml $vals | nindent 4 }}
