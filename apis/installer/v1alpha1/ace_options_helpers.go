@@ -18,10 +18,6 @@ package v1alpha1
 
 import "strings"
 
-func (r RegistrySpec) Configured() bool {
-	return r.RegistryFQDN != ""
-}
-
 func (r RegistrySpec) DockerHubProxy() string {
 	addr := r.Proxies.DockerHub
 	if addr == "" {
