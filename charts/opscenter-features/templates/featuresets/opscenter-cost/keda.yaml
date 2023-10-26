@@ -40,5 +40,5 @@ spec:
     # version: ""
     sourceRef:
       kind: HelmRepository
-      name: {{ ternary .Values.release.channel "keda" (has .Values.release.channel (list "stable" "testing")) }}
+      name: {{ ternary .Values.helm.release.channel "keda" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}

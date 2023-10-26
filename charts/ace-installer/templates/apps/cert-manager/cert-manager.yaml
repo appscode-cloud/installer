@@ -1,4 +1,4 @@
-{{- with (index .Values "releases" "cert-manager") }}
+{{- with (index .Values "helm" "releases" "cert-manager") }}
 {{- if .enabled }}
 
 apiVersion: helm.toolkit.fluxcd.io/v2beta1

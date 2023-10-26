@@ -1,4 +1,4 @@
-{{- with (index .Values "releases" "reloader") }}
+{{- with (index .Values "helm" "releases" "reloader") }}
 {{- if .enabled }}
 
 apiVersion: helm.toolkit.fluxcd.io/v2beta1

@@ -24,5 +24,5 @@ spec:
     version: "v2023.9.7"
     sourceRef:
       kind: HelmRepository
-      name: {{ ternary .Values.release.channel "kubevault" (has .Values.release.channel (list "stable" "testing")) }}
+      name: {{ ternary .Values.helm.release.channel "kubevault" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}

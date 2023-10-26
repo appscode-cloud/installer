@@ -1,4 +1,4 @@
-{{ range $name, $cfg := .Values.repositories }}
+{{ range $name, $cfg := .Values.helm.repositories }}
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:

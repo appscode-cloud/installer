@@ -1,4 +1,4 @@
-{{- with (index .Values "releases" "docker-machine-operator") }}
+{{- with (index .Values "helm" "releases" "docker-machine-operator") }}
 {{- if .enabled }}
 
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
