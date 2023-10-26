@@ -1,6 +1,11 @@
 {{- with (index .Values "helm" "releases" "cert-manager-csi-driver-cacerts") }}
 {{- if .enabled }}
 
+{{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -35,7 +40,7 @@ spec:
         kind: HelmRepository
         name: kubeops
         namespace: {{ $.Release.Namespace }}
-{{- with (dig "values" dict .) }}
+{{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
 

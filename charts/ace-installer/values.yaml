@@ -6,18 +6,14 @@ nameOverride: ""
 fullnameOverride: ""
 
 image:
-  registryFQDN: ""
+  registryFQDN: harbor.appscode.ninja
   proxies:
-    # r.appscode.com
-    appscode: ""
-    # company/bin:tag
-    dockerHub: ""
-    # alpine, nginx etc.
+    dockerHub: harbor.appscode.ninja/dockerhub
     dockerLibrary: ""
-    # ghcr.io/company/bin:tag
-    ghcr: ""
-    # registry.k8s.io/bin:tag
-    kubernetes: ""
+    ghcr: harbor.appscode.ninja/ghcr
+    quay: harbor.appscode.ninja/quay
+    kubernetes: harbor.appscode.ninja/k8s
+    appscode: harbor.appscode.ninja/ac
 
 registry:
   credentials: {}

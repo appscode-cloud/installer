@@ -55,6 +55,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | image.proxies.dockerLibrary                     | alpine, nginx etc.                                                     | <code>""</code>                                                    |
 | image.proxies.ghcr                              | ghcr.io/company/bin:tag                                                | <code>""</code>                                                    |
 | image.proxies.kubernetes                        | registry.k8s.io/bin:tag                                                | <code>""</code>                                                    |
+| image.proxies.quay                              | quay.io/company/bin:tag                                                | <code>""</code>                                                    |
 | registry.credentials                            |                                                                        | <code>{}</code>                                                    |
 | helm.release.channel                            | Release channel used for charts. Possible values: stable, testing, dev | <code>dev</code>                                                   |
 | helm.repositories.stable.interval               |                                                                        | <code>30m0s</code>                                                 |
