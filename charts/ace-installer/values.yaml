@@ -5,13 +5,19 @@
 nameOverride: ""
 fullnameOverride: ""
 
-repositories:
-  bootstrap:
-    interval: 1h0m0s
-    url: https://charts.appscode.com/stable
-  stakater:
-    interval: 1h0m0s
-    url: https://stakater.github.io/stakater-charts
+image:
+  registryFQDN: ""
+  proxies:
+    # r.appscode.com
+    appscode: ""
+    # company/bin:tag
+    dockerHub: ""
+    # alpine, nginx etc.
+    dockerLibrary: ""
+    # ghcr.io/company/bin:tag
+    ghcr: ""
+    # registry.k8s.io/bin:tag
+    kubernetes: ""
 
 registry:
   credentials: {}
@@ -22,70 +28,79 @@ registry:
     #   username: "gh_abc"
     #   password: "gh_xyz"
 
-releases:
-  ace:
-    enabled: false
-    version: "v2023.10.18"
-  cert-manager-csi-driver-cacerts:
-    enabled: true
-    version: "v2023.10.1"
-  cert-manager-webhook-ace:
-    enabled: true
-    version: "v2023.10.18"
-  cert-manager:
-    enabled: true
-    version: "v1.11.0"
-    values:
-      installCRDs: true
-  kubedb:
-    enabled: true
-    version: "v2023.10.9"
-    values:
-      kubedb-provisioner:
-        enabled: true
-      kubedb-catalog:
-        enabled: true
-      kubedb-ops-manager:
-        enabled: true
-      kubedb-autoscaler:
-        enabled: false
-      kubedb-dashboard:
-        enabled: false
-      kubedb-schema-manager:
-        enabled: false
-      kubedb-metrics:
-        enabled: false
-  docker-machine-operator:
-    enabled: true
-    version: "v2023.10.18"
-  external-dns-operator:
-    enabled: true
-    version: "v2023.10.1"
-  license-proxyserver:
-    enabled: true
-    version: "v2023.10.18"
-  reloader:
-    enabled: true
-    version: "v1.0.24"
-  kube-prometheus-stack:
-    enabled: true
-    version: ""
-  opscenter-features:
-    enabled: true
-    version: "v2023.10.18"
-  panopticon:
-    enabled: true
-    version: "v2023.10.1"
-    values:
-      monitoring:
-        enabled: true
-        agent: prometheus.io/operator
-        serviceMonitor:
-          labels:
-            release: kube-prometheus-stack
-  stash:
-    enabled: true
-    version: "v2023.10.9"
-    values:
-      features:
-        enterprise: true
+helm:
+  repositories:
+    bootstrap:
+      interval: 1h0m0s
+      url: https://charts.appscode.com/stable
+    stakater:
+      interval: 1h0m0s
+      url: https://stakater.github.io/stakater-charts
+
+  releases:
+    ace:
+      enabled: false
+      version: "v2023.10.18"
+    cert-manager-csi-driver-cacerts:
+      enabled: true
+      version: "v2023.10.1"
+    cert-manager-webhook-ace:
+      enabled: true
+      version: "v2023.10.18"
+    cert-manager:
+      enabled: true
+      version: "v1.11.0"
+      values:
+        installCRDs: true
+    kubedb:
+      enabled: true
+      version: "v2023.10.9"
+      values:
+        kubedb-provisioner:
+          enabled: true
+        kubedb-catalog:
+          enabled: true
+        kubedb-ops-manager:
+          enabled: true
+        kubedb-autoscaler:
+          enabled: false
+        kubedb-dashboard:
+          enabled: false
+        kubedb-schema-manager:
+          enabled: false
+        kubedb-metrics:
+          enabled: false
+    docker-machine-operator:
+      enabled: true
+      version: "v2023.10.18"
+    external-dns-operator:
+      enabled: true
+      version: "v2023.10.1"
+    license-proxyserver:
+      enabled: true
+      version: "v2023.10.18"
+    reloader:
+      enabled: true
+      version: "v1.0.24"
+    kube-prometheus-stack:
+      enabled: true
+      version: ""
+    opscenter-features:
+      enabled: true
+      version: "v2023.10.18"
+    panopticon:
+      enabled: true
+      version: "v2023.10.1"
+      values:
+        monitoring:
+          enabled: true
+          agent: prometheus.io/operator
+          serviceMonitor:
+            labels:
+              release: kube-prometheus-stack
+    stash:
+      enabled: true
+      version: "v2023.10.9"
+      values:
+        features:
+          enterprise: true

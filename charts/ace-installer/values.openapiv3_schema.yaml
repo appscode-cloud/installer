@@ -1,6 +1,78 @@
 properties:
   fullnameOverride:
     type: string
+  helm:
+    properties:
+      releases:
+        additionalProperties:
+          properties:
+            enabled:
+              type: boolean
+            values:
+              type: object
+              x-kubernetes-preserve-unknown-fields: true
+            version:
+              type: string
+          required:
+          - enabled
+          - version
+          type: object
+        type: object
+      repositories:
+        additionalProperties:
+          properties:
+            interval:
+              pattern: ^([0-9]+(\.[0-9]+)?(ms|s|m|h))+$
+              type: string
+            provider:
+              default: generic
+              enum:
+              - generic
+              - aws
+              - azure
+              - gcp
+              type: string
+            secretName:
+              type: string
+            timeout:
+              type: string
+            type:
+              enum:
+              - default
+              - oci
+              type: string
+            url:
+              type: string
+          required:
+          - interval
+          - url
+          type: object
+        type: object
+    required:
+    - releases
+    - repositories
+    type: object
+  image:
+    properties:
+      proxies:
+        properties:
+          appscode:
+            type: string
+          dockerHub:
+            type: string
+          dockerLibrary:
+            type: string
+          ghcr:
+            type: string
+          kubernetes:
+            type: string
+        type: object
+      registryFQDN:
+        type: string
+    required:
+    - proxies
+    - registryFQDN
+    type: object
   nameOverride:
     type: string
   registry:
@@ -12,55 +84,10 @@ properties:
     required:
     - credentials
     type: object
-  releases:
-    additionalProperties:
-      properties:
-        enabled:
-          type: boolean
-        values:
-          type: object
-          x-kubernetes-preserve-unknown-fields: true
-        version:
-          type: string
-      required:
-      - enabled
-      - version
-      type: object
-    type: object
-  repositories:
-    additionalProperties:
-      properties:
-        interval:
-          pattern: ^([0-9]+(\.[0-9]+)?(ms|s|m|h))+$
-          type: string
-        provider:
-          default: generic
-          enum:
-          - generic
-          - aws
-          - azure
-          - gcp
-          type: string
-        secretName:
-          type: string
-        timeout:
-          type: string
-        type:
-          enum:
-          - default
-          - oci
-          type: string
-        url:
-          type: string
-      required:
-      - interval
-      - url
-      type: object
-    type: object
 required:
 - fullnameOverride
+- helm
+- image
 - nameOverride
 - registry
-- releases
-- repositories
 type: object
