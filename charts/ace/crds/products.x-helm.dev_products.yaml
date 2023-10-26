@@ -2,15 +2,10 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   creationTimestamp: null
-  labels:
-    app.kubernetes.io/name: kubepack
-  name: products.kubepack.com
+  name: products.products.x-helm.dev
 spec:
-  group: kubepack.com
+  group: products.x-helm.dev
   names:
-    categories:
-    - kubepack
-    - appscode
     kind: Product
     listKind: ProductList
     plural: products

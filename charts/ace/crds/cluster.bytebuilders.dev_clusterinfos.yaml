@@ -88,9 +88,9 @@ spec:
             type: object
           status:
             properties:
-              capiClusterInfo:
-                description: CAPIClusterInfo contains capi cluster information if
-                  the cluster is created by cluster-api
+              clusterAPI:
+                description: ClusterAPI contains capi cluster information if the cluster
+                  is created by cluster-api
                 properties:
                   clusterName:
                     type: string
@@ -107,18 +107,24 @@ spec:
                 description: Message specifies additional information regarding the
                   possible actions for the user
                 type: string
-              observedGeneration:
-                description: ObservedGeneration is the most recent generation observed
-                  for this resource. It corresponds to the resource's generation,
-                  which is updated on mutation by the API Server.
-                format: int64
-                type: integer
               phase:
                 description: Phase represents current status of the cluster
+                enum:
+                - Active
+                - Inactive
+                - NotReady
+                - NotConnected
+                - Registered
+                - NotImported
                 type: string
               reason:
                 description: Reason explains the reason behind the cluster current
                   phase
+                enum:
+                - Unknown
+                - ClusterNotFound
+                - AuthIssue
+                - MissingComponent
                 type: string
             type: object
         type: object

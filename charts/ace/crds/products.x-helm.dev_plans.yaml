@@ -2,15 +2,10 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   creationTimestamp: null
-  labels:
-    app.kubernetes.io/name: kubepack
-  name: plans.kubepack.com
+  name: plans.products.x-helm.dev
 spec:
-  group: kubepack.com
+  group: products.x-helm.dev
   names:
-    categories:
-    - kubepack
-    - appscode
     kind: Plan
     listKind: PlanList
     plural: plans
@@ -49,11 +44,26 @@ spec:
                 properties:
                   name:
                     type: string
-                  url:
-                    type: string
+                  sourceRef:
+                    description: TypedObjectReference represents an typed namespaced
+                      object.
+                    properties:
+                      apiGroup:
+                        type: string
+                      kind:
+                        type: string
+                      name:
+                        description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names'
+                        type: string
+                      namespace:
+                        description: 'Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/'
+                        type: string
+                    required:
+                    - name
+                    type: object
                 required:
                 - name
-                - url
+                - sourceRef
                 type: object
               currency:
                 type: string
