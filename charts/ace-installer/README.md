@@ -70,7 +70,7 @@ The following table lists the configurable parameters of the `ace-installer` cha
 | helm.releases.cert-manager.version                                       |                         | <code>"v1.11.0"</code>                                  |
 | helm.releases.cert-manager.values.installCRDs                            |                         | <code>true</code>                                       |
 | helm.releases.kubedb.enabled                                             |                         | <code>true</code>                                       |
-| helm.releases.kubedb.version                                             |                         | <code>"v2023.10.9"</code>                               |
+| helm.releases.kubedb.version                                             |                         | <code>"v2023.10.26-rc.0"</code>                         |
 | helm.releases.kubedb.values.kubedb-provisioner.enabled                   |                         | <code>true</code>                                       |
 | helm.releases.kubedb.values.kubedb-catalog.enabled                       |                         | <code>true</code>                                       |
 | helm.releases.kubedb.values.kubedb-ops-manager.enabled                   |                         | <code>true</code>                                       |

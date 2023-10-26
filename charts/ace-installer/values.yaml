@@ -54,7 +54,7 @@ helm:
         installCRDs: true
     kubedb:
       enabled: true
-      version: "v2023.10.9"
+      version: "v2023.10.26-rc.0"
       values:
         kubedb-provisioner:
           enabled: true
