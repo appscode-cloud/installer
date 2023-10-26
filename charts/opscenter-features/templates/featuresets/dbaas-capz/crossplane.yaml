@@ -1,5 +1,12 @@
 {{- if eq .Values.capi.provider "capz" }}
 
+{{ $overrides := printf `
+image:
+  repository: %s` (include "image.dockerHub" (merge (dict "_repo" "crossplane/crossplane") $)) | fromYaml }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -32,5 +39,8 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.helm.release.channel "crossplane" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
 
 {{- end }}

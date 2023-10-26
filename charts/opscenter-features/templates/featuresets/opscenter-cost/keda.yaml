@@ -1,3 +1,16 @@
+{{ $overrides := printf `
+image:
+  keda:
+    repository: %s
+  metricsApiServer:
+    repository: %s
+  webhooks:
+    repository: %s
+` (include "image.ghcr" (merge (dict "_repo" "kedacore/keda") $)) (include "image.ghcr" (merge (dict "_repo" "kedacore/keda-metrics-apiserver") $)) (include "image.ghcr" (merge (dict "_repo" "kedacore/keda-admission-webhooks") $)) | fromYaml }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -42,3 +55,6 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.helm.release.channel "keda" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

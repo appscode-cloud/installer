@@ -1,3 +1,68 @@
+{{ $overrides := printf `
+opencost:
+  exporter:
+    image:
+      registry: %s
+  ui:
+    image:
+      registry: %s
+` (include "registry.quay" $) (include "registry.quay" $) | fromYaml }}
+
+{{ $vals := `
+opencost:
+  exporter:
+    defaultClusterId: f7be0e17-c658-456c-ae00-1dcaf033a781
+    # -- The GCP Pricing API requires a key. This is supplied just for evaluation.
+    # https://raw.githubusercontent.com/opencost/opencost/develop/kubernetes/opencost.yaml
+    cloudProviderApiKey: "AIzaSyD29bGxmHAVEOBYtgd8sYM2gM2ekfxQX4U"
+    extraEnv:
+      # https://docs.kubecost.com/architecture/ksm-metrics#disabling-kubecost-cost-models-ksm-emission
+      EMIT_KSM_V1_METRICS: false
+      EMIT_KSM_V1_METRICS_ONLY: true
+      # https://github.com/opencost/opencost/blob/6f411d69287859326f43c5f6d48bbca820455d03/pkg/costmodel/router.go#L1673
+      CLUSTER_INFO_FILE_ENABLED: true
+    image:
+      tag: latest
+
+  metrics:
+    serviceMonitor:
+      # -- Create ServiceMonitor resource for scraping metrics using PrometheusOperator
+      enabled: true
+      # -- Additional labels to add to the ServiceMonitor
+      additionalLabels:
+        monitoring.appscode.com/prometheus: federated
+  prometheus:
+    # -- Secret name that contains credentials for Prometheus
+    secret_name: ""
+    internal:
+      # -- Use in-cluster Prometheus
+      enabled: true
+      # -- Service name of in-cluster Prometheus
+      serviceName: prometheus-operated
+      # -- Namespace of in-cluster Prometheus
+      namespaceName: monitoring
+  ui:
+    # -- Enable OpenCost UI
+    enabled: true
+
+configs:
+  clusterInfo:
+    name: "kind"
+
+  # configuration for metrics emitted by Opencost
+  metricsConfigs:
+    # https://docs.kubecost.com/architecture/ksm-metrics#external-ksm-deployments-resulting-in-duplicated-metrics
+    disabledMetrics:
+      - kube_node_status_capacity
+      - kube_node_status_allocatable
+      - kube_node_labels
+      - kube_node_status_condition
+      - kube_namespace_labels
+      - kube_pod_labels
+      - kube_pod_owner
+` | fromYaml }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -37,55 +102,6 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.helm.release.channel "opencost" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
-  values:
-    opencost:
-      exporter:
-        defaultClusterId: f7be0e17-c658-456c-ae00-1dcaf033a781
-        # -- The GCP Pricing API requires a key. This is supplied just for evaluation.
-        # https://raw.githubusercontent.com/opencost/opencost/develop/kubernetes/opencost.yaml
-        cloudProviderApiKey: "AIzaSyD29bGxmHAVEOBYtgd8sYM2gM2ekfxQX4U"
-        extraEnv:
-          # https://docs.kubecost.com/architecture/ksm-metrics#disabling-kubecost-cost-models-ksm-emission
-          EMIT_KSM_V1_METRICS: false
-          EMIT_KSM_V1_METRICS_ONLY: true
-          # https://github.com/opencost/opencost/blob/6f411d69287859326f43c5f6d48bbca820455d03/pkg/costmodel/router.go#L1673
-          CLUSTER_INFO_FILE_ENABLED: true
-        image:
-          tag: latest
-
-      metrics:
-        serviceMonitor:
-          # -- Create ServiceMonitor resource for scraping metrics using PrometheusOperator
-          enabled: true
-          # -- Additional labels to add to the ServiceMonitor
-          additionalLabels:
-            monitoring.appscode.com/prometheus: federated
-      prometheus:
-        # -- Secret name that contains credentials for Prometheus
-        secret_name: ""
-        internal:
-          # -- Use in-cluster Prometheus
-          enabled: true
-          # -- Service name of in-cluster Prometheus
-          serviceName: prometheus-operated
-          # -- Namespace of in-cluster Prometheus
-          namespaceName: monitoring
-      ui:
-        # -- Enable OpenCost UI
-        enabled: true
-
-    configs:
-      clusterInfo:
-        name: "kind"
-
-      # configuration for metrics emitted by Opencost
-      metricsConfigs:
-        # https://docs.kubecost.com/architecture/ksm-metrics#external-ksm-deployments-resulting-in-duplicated-metrics
-        disabledMetrics:
-          - kube_node_status_capacity
-          - kube_node_status_allocatable
-          - kube_node_labels
-          - kube_node_status_condition
-          - kube_namespace_labels
-          - kube_pod_labels
-          - kube_pod_owner
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

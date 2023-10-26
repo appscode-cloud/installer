@@ -1,3 +1,10 @@
+{{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
+
+{{ $vals := `
+kubeconfigSecretName: multicluster-controlplane-svc-kubeconfig
+` | fromYaml }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -31,5 +38,6 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.helm.release.channel "kubeops" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
-  values:
-    kubeconfigSecretName: multicluster-controlplane-svc-kubeconfig
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

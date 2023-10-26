@@ -1,3 +1,25 @@
+{{ $overrides := dict "image" (include "image.ghcr" (merge (dict "_repo" "kluster-management/multicluster-controlplane:eas") $)) (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-webhook") $)) }}
+
+{{ $vals := `
+apiserver:
+  generateCA: true
+enableSelfManagement: true
+autoApprovalBootstrapUsers: "system:admin"
+features: DefaultClusterSet=true,ManagedClusterAutoApproval=true,ManifestWorkReplicaSet=true
+imagePullPolicy: Always
+loadbalancer:
+  enabled: true
+pvc:
+  storageClassName: ""
+route:
+  enabled: false
+securityContext:
+  fsGroup: 10001
+  runAsGroup: 10001
+  runAsUser: 10001
+` | fromYaml }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -30,21 +52,6 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.helm.release.channel "ocm" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
-  values:
-    apiserver:
-      generateCA: true
-    enableSelfManagement: true
-    autoApprovalBootstrapUsers: "system:admin"
-    features: DefaultClusterSet=true,ManagedClusterAutoApproval=true,ManifestWorkReplicaSet=true
-    image: ghcr.io/kluster-management/multicluster-controlplane:eas
-    imagePullPolicy: Always
-    loadbalancer:
-      enabled: true
-    pvc:
-      storageClassName: ""
-    route:
-      enabled: false
-    securityContext:
-      fsGroup: 10001
-      runAsGroup: 10001
-      runAsUser: 10001
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

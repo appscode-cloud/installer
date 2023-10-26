@@ -1,5 +1,68 @@
 {{- if not (has "Rancher" .Values.clusterManagers) }}
 
+{{ $alertmanager := printf `
+alertmanager:
+  alertmanagerSpec:
+    image:
+      repository: %s` (include "image.quay" (merge (dict "_repo" "prometheus/alertmanager") $)) | fromYaml }}
+
+{{ $prometheusOperator := printf `
+prometheusOperator:
+  image:
+    repository: %s
+  prometheusConfigReloader:
+    image:
+      repository: %s
+  thanosImage:
+    repository: %s` (include "image.quay" (merge (dict "_repo" "prometheus-operator/prometheus-operator") $)) (include "image.quay" (merge (dict "_repo" "prometheus-operator/prometheus-config-reloader") $)) (include "image.quay" (merge (dict "_repo" "thanos/thanos") $)) | fromYaml }}
+
+{{ $prometheus := printf `
+prometheus:
+  prometheusSpec:
+    image:
+      repository: %s` (include "image.quay" (merge (dict "_repo" "prometheus/prometheus") $)) | fromYaml }}
+
+{{ $ksm := printf `
+kube-state-metrics:
+  image:
+    repository: %s` (include "image.kubernetes" (merge (dict "_repo" "kube-state-metrics/kube-state-metrics") $)) | fromYaml }}
+
+{{ $node := printf `
+prometheus-node-exporter:
+  image:
+    repository: %s` (include "image.quay" (merge (dict "_repo" "prometheus/node-exporter") $)) | fromYaml }}
+
+# https://github.com/grafana/helm-charts/blob/main/charts/grafana/README.md
+{{ $grafana := printf `
+grafana:
+  # docker
+  image:
+    registry: %s
+  initChownData:
+    image:
+      registry: %s
+  testFramework:
+    image:
+      registry: %s
+  downloadDashboardsImage:
+    registry: %s
+  imageRenderer:
+    image:
+      registry: %s
+  # quay.io
+  sidecar:
+    image:
+      registry: %s`
+  (include "image.dockerHub" $)
+  (include "image.dockerHub" $)
+  (include "image.dockerHub" $)
+  (include "image.dockerHub" $)
+  (include "image.dockerHub" $)
+  (include "image.quay" $) | fromYaml }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $alertmanager $prometheusOperator $prometheus $ksm $node $grafana }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -36,5 +99,8 @@ spec:
       kind: HelmRepository
       name: {{ ternary .Values.helm.release.channel "prometheus-community" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
 
 {{- end }}
