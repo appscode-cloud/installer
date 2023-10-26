@@ -28,5 +28,5 @@ spec:
     version: "v0.0.0-latest"
     sourceRef:
       kind: HelmRepository
-      name: {{ ternary .Values.release.channel "bytebuilders-ui" (has .Values.release.channel (list "stable" "testing")) }}
+      name: {{ ternary .Values.helm.release.channel "bytebuilders-ui" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}

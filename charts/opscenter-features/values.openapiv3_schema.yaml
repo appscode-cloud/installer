@@ -21,6 +21,75 @@ properties:
     type: array
   fullnameOverride:
     type: string
+  helm:
+    properties:
+      release:
+        properties:
+          channel:
+            default: dev
+            enum:
+            - stable
+            - testing
+            - dev
+            type: string
+        required:
+        - channel
+        type: object
+      repositories:
+        additionalProperties:
+          properties:
+            interval:
+              pattern: ^([0-9]+(\.[0-9]+)?(ms|s|m|h))+$
+              type: string
+            provider:
+              default: generic
+              enum:
+              - generic
+              - aws
+              - azure
+              - gcp
+              type: string
+            secretName:
+              type: string
+            timeout:
+              type: string
+            type:
+              enum:
+              - default
+              - oci
+              type: string
+            url:
+              type: string
+          required:
+          - interval
+          - url
+          type: object
+        type: object
+    required:
+    - release
+    - repositories
+    type: object
+  image:
+    properties:
+      proxies:
+        properties:
+          appscode:
+            type: string
+          dockerHub:
+            type: string
+          dockerLibrary:
+            type: string
+          ghcr:
+            type: string
+          kubernetes:
+            type: string
+        type: object
+      registryFQDN:
+        type: string
+    required:
+    - proxies
+    - registryFQDN
+    type: object
   nameOverride:
     type: string
   registry:
@@ -32,54 +101,12 @@ properties:
     required:
     - credentials
     type: object
-  release:
-    properties:
-      channel:
-        default: dev
-        enum:
-        - stable
-        - testing
-        - dev
-        type: string
-    required:
-    - channel
-    type: object
-  repositories:
-    additionalProperties:
-      properties:
-        interval:
-          pattern: ^([0-9]+(\.[0-9]+)?(ms|s|m|h))+$
-          type: string
-        provider:
-          default: generic
-          enum:
-          - generic
-          - aws
-          - azure
-          - gcp
-          type: string
-        secretName:
-          type: string
-        timeout:
-          type: string
-        type:
-          enum:
-          - default
-          - oci
-          type: string
-        url:
-          type: string
-      required:
-      - interval
-      - url
-      type: object
-    type: object
 required:
 - capi
 - clusterManagers
 - fullnameOverride
+- helm
+- image
 - nameOverride
 - registry
-- release
-- repositories
 type: object

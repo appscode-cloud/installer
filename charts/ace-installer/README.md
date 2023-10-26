@@ -45,59 +45,65 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `ace-installer` chart and their default values.
 
-|                              Parameter                              | Description |                         Default                         |
-|---------------------------------------------------------------------|-------------|---------------------------------------------------------|
-| nameOverride                                                        |             | <code>""</code>                                         |
-| fullnameOverride                                                    |             | <code>""</code>                                         |
-| repositories.bootstrap.interval                                     |             | <code>1h0m0s</code>                                     |
-| repositories.bootstrap.url                                          |             | <code>https://charts.appscode.com/stable</code>         |
-| repositories.stakater.interval                                      |             | <code>1h0m0s</code>                                     |
-| repositories.stakater.url                                           |             | <code>https://stakater.github.io/stakater-charts</code> |
-| registry.credentials                                                |             | <code>{}</code>                                         |
-| releases.ace.enabled                                                |             | <code>false</code>                                      |
-| releases.ace.version                                                |             | <code>"v2023.10.18"</code>                              |
-| releases.cert-manager-csi-driver-cacerts.enabled                    |             | <code>true</code>                                       |
-| releases.cert-manager-csi-driver-cacerts.version                    |             | <code>"v2023.10.1"</code>                               |
-| releases.cert-manager-webhook-ace.enabled                           |             | <code>true</code>                                       |
-| releases.cert-manager-webhook-ace.version                           |             | <code>"v2023.10.18"</code>                              |
-| releases.cert-manager.enabled                                       |             | <code>true</code>                                       |
-| releases.cert-manager.version                                       |             | <code>"v1.11.0"</code>                                  |
-| releases.cert-manager.values.installCRDs                            |             | <code>true</code>                                       |
-| releases.kubedb.enabled                                             |             | <code>true</code>                                       |
-| releases.kubedb.version                                             |             | <code>"v2023.10.9"</code>                               |
-| releases.kubedb.values.kubedb-provisioner.enabled                   |             | <code>true</code>                                       |
-| releases.kubedb.values.kubedb-catalog.enabled                       |             | <code>true</code>                                       |
-| releases.kubedb.values.kubedb-ops-manager.enabled                   |             | <code>true</code>                                       |
-| releases.kubedb.values.kubedb-autoscaler.enabled                    |             | <code>false</code>                                      |
-| releases.kubedb.values.kubedb-dashboard.enabled                     |             | <code>false</code>                                      |
-| releases.kubedb.values.kubedb-schema-manager.enabled                |             | <code>false</code>                                      |
-| releases.kubedb.values.kubedb-metrics.enabled                       |             | <code>false</code>                                      |
-| releases.docker-machine-operator.enabled                            |             | <code>true</code>                                       |
-| releases.docker-machine-operator.version                            |             | <code>"v2023.10.18"</code>                              |
-| releases.external-dns-operator.enabled                              |             | <code>true</code>                                       |
-| releases.external-dns-operator.version                              |             | <code>"v2023.10.1"</code>                               |
-| releases.license-proxyserver.enabled                                |             | <code>true</code>                                       |
-| releases.license-proxyserver.version                                |             | <code>"v2023.10.18"</code>                              |
-| releases.reloader.enabled                                           |             | <code>true</code>                                       |
-| releases.reloader.version                                           |             | <code>"v1.0.24"</code>                                  |
-| releases.kube-prometheus-stack.enabled                              |             | <code>true</code>                                       |
-| releases.kube-prometheus-stack.version                              |             | <code>""</code>                                         |
-| releases.opscenter-features.enabled                                 |             | <code>true</code>                                       |
-| releases.opscenter-features.version                                 |             | <code>"v2023.10.18"</code>                              |
-| releases.panopticon.enabled                                         |             | <code>true</code>                                       |
-| releases.panopticon.version                                         |             | <code>"v2023.10.1"</code>                               |
-| releases.panopticon.values.monitoring.enabled                       |             | <code>true</code>                                       |
-| releases.panopticon.values.monitoring.agent                         |             | <code>prometheus.io/operator</code>                     |
-| releases.panopticon.values.monitoring.serviceMonitor.labels.release |             | <code>kube-prometheus-stack</code>                      |
-| releases.stash.enabled                                              |             | <code>true</code>                                       |
-| releases.stash.version                                              |             | <code>"v2023.10.9"</code>                               |
-| releases.stash.values.features.enterprise                           |             | <code>true</code>                                       |
+|                                Parameter                                 |       Description       |                         Default                         |
+|--------------------------------------------------------------------------|-------------------------|---------------------------------------------------------|
+| nameOverride                                                             |                         | <code>""</code>                                         |
+| fullnameOverride                                                         |                         | <code>""</code>                                         |
+| image.registryFQDN                                                       |                         | <code>""</code>                                         |
+| image.proxies.appscode                                                   | r.appscode.com          | <code>""</code>                                         |
+| image.proxies.dockerHub                                                  | company/bin:tag         | <code>""</code>                                         |
+| image.proxies.dockerLibrary                                              | alpine, nginx etc.      | <code>""</code>                                         |
+| image.proxies.ghcr                                                       | ghcr.io/company/bin:tag | <code>""</code>                                         |
+| image.proxies.kubernetes                                                 | registry.k8s.io/bin:tag | <code>""</code>                                         |
+| registry.credentials                                                     |                         | <code>{}</code>                                         |
+| helm.repositories.bootstrap.interval                                     |                         | <code>1h0m0s</code>                                     |
+| helm.repositories.bootstrap.url                                          |                         | <code>https://charts.appscode.com/stable</code>         |
+| helm.repositories.stakater.interval                                      |                         | <code>1h0m0s</code>                                     |
+| helm.repositories.stakater.url                                           |                         | <code>https://stakater.github.io/stakater-charts</code> |
+| helm.releases.ace.enabled                                                |                         | <code>false</code>                                      |
+| helm.releases.ace.version                                                |                         | <code>"v2023.10.18"</code>                              |
+| helm.releases.cert-manager-csi-driver-cacerts.enabled                    |                         | <code>true</code>                                       |
+| helm.releases.cert-manager-csi-driver-cacerts.version                    |                         | <code>"v2023.10.1"</code>                               |
+| helm.releases.cert-manager-webhook-ace.enabled                           |                         | <code>true</code>                                       |
+| helm.releases.cert-manager-webhook-ace.version                           |                         | <code>"v2023.10.18"</code>                              |
+| helm.releases.cert-manager.enabled                                       |                         | <code>true</code>                                       |
+| helm.releases.cert-manager.version                                       |                         | <code>"v1.11.0"</code>                                  |
+| helm.releases.cert-manager.values.installCRDs                            |                         | <code>true</code>                                       |
+| helm.releases.kubedb.enabled                                             |                         | <code>true</code>                                       |
+| helm.releases.kubedb.version                                             |                         | <code>"v2023.10.9"</code>                               |
+| helm.releases.kubedb.values.kubedb-provisioner.enabled                   |                         | <code>true</code>                                       |
+| helm.releases.kubedb.values.kubedb-catalog.enabled                       |                         | <code>true</code>                                       |
+| helm.releases.kubedb.values.kubedb-ops-manager.enabled                   |                         | <code>true</code>                                       |
+| helm.releases.kubedb.values.kubedb-autoscaler.enabled                    |                         | <code>false</code>                                      |
+| helm.releases.kubedb.values.kubedb-dashboard.enabled                     |                         | <code>false</code>                                      |
+| helm.releases.kubedb.values.kubedb-schema-manager.enabled                |                         | <code>false</code>                                      |
+| helm.releases.kubedb.values.kubedb-metrics.enabled                       |                         | <code>false</code>                                      |
+| helm.releases.docker-machine-operator.enabled                            |                         | <code>true</code>                                       |
+| helm.releases.docker-machine-operator.version                            |                         | <code>"v2023.10.18"</code>                              |
+| helm.releases.external-dns-operator.enabled                              |                         | <code>true</code>                                       |
+| helm.releases.external-dns-operator.version                              |                         | <code>"v2023.10.1"</code>                               |
+| helm.releases.license-proxyserver.enabled                                |                         | <code>true</code>                                       |
+| helm.releases.license-proxyserver.version                                |                         | <code>"v2023.10.18"</code>                              |
+| helm.releases.reloader.enabled                                           |                         | <code>true</code>                                       |
+| helm.releases.reloader.version                                           |                         | <code>"v1.0.24"</code>                                  |
+| helm.releases.kube-prometheus-stack.enabled                              |                         | <code>true</code>                                       |
+| helm.releases.kube-prometheus-stack.version                              |                         | <code>""</code>                                         |
+| helm.releases.opscenter-features.enabled                                 |                         | <code>true</code>                                       |
+| helm.releases.opscenter-features.version                                 |                         | <code>"v2023.10.18"</code>                              |
+| helm.releases.panopticon.enabled                                         |                         | <code>true</code>                                       |
+| helm.releases.panopticon.version                                         |                         | <code>"v2023.10.1"</code>                               |
+| helm.releases.panopticon.values.monitoring.enabled                       |                         | <code>true</code>                                       |
+| helm.releases.panopticon.values.monitoring.agent                         |                         | <code>prometheus.io/operator</code>                     |
+| helm.releases.panopticon.values.monitoring.serviceMonitor.labels.release |                         | <code>kube-prometheus-stack</code>                      |
+| helm.releases.stash.enabled                                              |                         | <code>true</code>                                       |
+| helm.releases.stash.version                                              |                         | <code>"v2023.10.9"</code>                               |
+| helm.releases.stash.values.features.enterprise                           |                         | <code>true</code>                                       |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.10.18 --set repositories.bootstrap.interval=1h0m0s
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.10.18 --set helm.repositories.bootstrap.interval=1h0m0s
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while

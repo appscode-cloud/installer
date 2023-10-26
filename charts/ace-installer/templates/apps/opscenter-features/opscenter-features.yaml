@@ -1,4 +1,4 @@
-{{- with (index .Values "releases" "opscenter-features") }}
+{{- with (index .Values "helm" "releases" "opscenter-features") }}
 {{- if .enabled }}
 
 apiVersion: helm.toolkit.fluxcd.io/v2beta1

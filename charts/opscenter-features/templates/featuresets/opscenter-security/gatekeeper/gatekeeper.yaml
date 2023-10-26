@@ -36,7 +36,7 @@ spec:
     # version: "v2023.10.1"
     sourceRef:
       kind: HelmRepository
-      name: {{ ternary .Values.release.channel "gatekeeper" (has .Values.release.channel (list "stable" "testing")) }}
+      name: {{ ternary .Values.helm.release.channel "gatekeeper" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
   values:
     constraintViolationsLimit: 100

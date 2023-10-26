@@ -31,7 +31,7 @@ spec:
     version: "v2023.10.9"
     sourceRef:
       kind: HelmRepository
-      name: {{ ternary .Values.release.channel "stashed" (has .Values.release.channel (list "stable" "testing")) }}
+      name: {{ ternary .Values.helm.release.channel "stashed" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
   values:
     features:
