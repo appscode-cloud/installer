@@ -62,7 +62,7 @@ helm:
       interval: 30m0s
       url: https://kubernetes-sigs.github.io/aws-ebs-csi-driver
       timeout: 1m0s
-    bytebuilders-ui:
+    appscode-charts-oci:
       interval: 30m0s
       url: oci://r.appscode.com/charts
       timeout: 1m0s

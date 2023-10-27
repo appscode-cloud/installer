@@ -70,9 +70,9 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.repositories.aws-ebs-csi-driver.interval   |                                                                        | <code>30m0s</code>                                                 |
 | helm.repositories.aws-ebs-csi-driver.url        |                                                                        | <code>https://kubernetes-sigs.github.io/aws-ebs-csi-driver</code>  |
 | helm.repositories.aws-ebs-csi-driver.timeout    |                                                                        | <code>1m0s</code>                                                  |
-| helm.repositories.bytebuilders-ui.interval      |                                                                        | <code>30m0s</code>                                                 |
-| helm.repositories.bytebuilders-ui.url           |                                                                        | <code>oci://r.appscode.com/charts</code>                           |
-| helm.repositories.bytebuilders-ui.timeout       |                                                                        | <code>1m0s</code>                                                  |
+| helm.repositories.appscode-charts-oci.interval      |                                                                        | <code>30m0s</code>                                                 |
+| helm.repositories.appscode-charts-oci.url           |                                                                        | <code>oci://r.appscode.com/charts</code>                           |
+| helm.repositories.appscode-charts-oci.timeout       |                                                                        | <code>1m0s</code>                                                  |
 | helm.repositories.bytebuilders.interval         |                                                                        | <code>30m0s</code>                                                 |
 | helm.repositories.bytebuilders.url              |                                                                        | <code>https://charts.appscode.com/stable</code>                    |
 | helm.repositories.bytebuilders.timeout          |                                                                        | <code>1m0s</code>                                                  |
