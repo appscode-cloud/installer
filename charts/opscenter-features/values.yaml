@@ -54,21 +54,17 @@ helm:
       interval: 30m0s
       url: oci://ghcr.io/appscode-charts/testing
       timeout: 1m0s
-    appscode:
+    appscode-charts-oci:
+      interval: 30m0s
+      url: oci://r.appscode.com/charts
+      timeout: 1m0s
+    appscode-charts-legacy:
       interval: 30m0s
       url: https://charts.appscode.com/stable
       timeout: 1m0s
     aws-ebs-csi-driver:
       interval: 30m0s
       url: https://kubernetes-sigs.github.io/aws-ebs-csi-driver
-      timeout: 1m0s
-    appscode-charts-oci:
-      interval: 30m0s
-      url: oci://r.appscode.com/charts
-      timeout: 1m0s
-    bytebuilders:
-      interval: 30m0s
-      url: https://charts.appscode.com/stable
       timeout: 1m0s
     cluster-autoscaler:
       interval: 30m0s
