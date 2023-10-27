@@ -5,33 +5,33 @@
 alertmanager:
   alertmanagerSpec:
     image:
-      repository: %s` (include "image.quay" (merge (dict "_repo" "prometheus/alertmanager") $)) | fromYaml }}
+      registry: %s` (include "registry.quay" $) | fromYaml }}
 
 {{ $prometheusOperator := printf `
 prometheusOperator:
   image:
-    repository: %s
+    registry: %s
   prometheusConfigReloader:
     image:
-      repository: %s
+      registry: %s
   thanosImage:
-    repository: %s` (include "image.quay" (merge (dict "_repo" "prometheus-operator/prometheus-operator") $)) (include "image.quay" (merge (dict "_repo" "prometheus-operator/prometheus-config-reloader") $)) (include "image.quay" (merge (dict "_repo" "thanos/thanos") $)) | fromYaml }}
+    registry: %s` (include "registry.quay" $) (include "registry.quay" $) (include "registry.quay" $) | fromYaml }}
 
 {{ $prometheus := printf `
 prometheus:
   prometheusSpec:
     image:
-      repository: %s` (include "image.quay" (merge (dict "_repo" "prometheus/prometheus") $)) | fromYaml }}
+      registry: %s` (include "registry.quay" $) | fromYaml }}
 
 {{ $ksm := printf `
 kube-state-metrics:
   image:
-    repository: %s` (include "image.kubernetes" (merge (dict "_repo" "kube-state-metrics/kube-state-metrics") $)) | fromYaml }}
+    registry: %s` (include "registry.kubernetes" $) | fromYaml }}
 
 {{ $node := printf `
 prometheus-node-exporter:
   image:
-    repository: %s` (include "image.quay" (merge (dict "_repo" "prometheus/node-exporter") $)) | fromYaml }}
+    registry: %s` (include "registry.quay" $) | fromYaml }}
 
 # https://github.com/grafana/helm-charts/blob/main/charts/grafana/README.md
 {{ $grafana := printf `
@@ -53,13 +53,15 @@ grafana:
   # quay.io
   sidecar:
     image:
-      registry: %s`
+      registry: %s
+`
   (include "image.dockerHub" $)
   (include "image.dockerHub" $)
   (include "image.dockerHub" $)
   (include "image.dockerHub" $)
   (include "image.dockerHub" $)
-  (include "image.quay" $) | fromYaml }}
+  (include "image.quay" $)
+  | fromYaml }}
 
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $vals $alertmanager $prometheusOperator $prometheus $ksm $node $grafana }}
