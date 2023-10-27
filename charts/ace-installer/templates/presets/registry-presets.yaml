@@ -6,6 +6,8 @@ apiVersion: charts.x-helm.dev/v1alpha1
 kind: ClusterChartPreset
 metadata:
   name: registry-presets
+  labels:
+    ace.appscode.com/managed: "true"
 spec:
   values:
     {{- toYaml $vals | nindent 4 }}
