@@ -2,7 +2,8 @@
 
 {{ $overrides := printf `
 image:
-  repository: %s` (include "image.dockerHub" (merge (dict "_repo" "crossplane/crossplane") $)) | fromYaml }}
+  repository: %s
+` (include "image.dockerHub" (merge (dict "_repo" "crossplane/crossplane") $)) | fromYaml }}
 
 {{ $vals := dict }}
 {{ $vals = mergeOverwrite $vals $overrides }}

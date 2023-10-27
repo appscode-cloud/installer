@@ -9,7 +9,11 @@ driver:
 falcoctl:
   image:
     registry: %s
-` (include "registry.dockerHub" $) (include "registry.dockerHub" $) (include "registry.dockerHub" $) | fromYaml }}
+`
+  (include "registry.dockerHub" $)
+  (include "registry.dockerHub" $)
+  (include "registry.dockerHub" $)
+  | fromYaml }}
 
 {{ $vals := `
 driver:

@@ -4,7 +4,8 @@
 alertmanager:
   alertmanagerSpec:
     image:
-      registry: %s` (include "registry.quay" $) | fromYaml }}
+      registry: %s
+` (include "registry.quay" $) | fromYaml }}
 
 {{ $prometheusOperator := printf `
 prometheusOperator:
@@ -14,23 +15,31 @@ prometheusOperator:
     image:
       registry: %s
   thanosImage:
-    registry: %s` (include "registry.quay" $) (include "registry.quay" $) (include "registry.quay" $) | fromYaml }}
+    registry: %s
+`
+  (include "registry.quay" $)
+  (include "registry.quay" $)
+  (include "registry.quay" $)
+  | fromYaml }}
 
 {{ $prometheus := printf `
 prometheus:
   prometheusSpec:
     image:
-      registry: %s` (include "registry.quay" $) | fromYaml }}
+      registry: %s
+` (include "registry.quay" $) | fromYaml }}
 
 {{ $ksm := printf `
 kube-state-metrics:
   image:
-    registry: %s` (include "registry.kubernetes" $) | fromYaml }}
+    registry: %s
+` (include "registry.kubernetes" $) | fromYaml }}
 
 {{ $node := printf `
 prometheus-node-exporter:
   image:
-    registry: %s` (include "registry.quay" $) | fromYaml }}
+    registry: %s
+` (include "registry.quay" $) | fromYaml }}
 
 # https://github.com/grafana/helm-charts/blob/main/charts/grafana/README.md
 {{ $grafana := printf `

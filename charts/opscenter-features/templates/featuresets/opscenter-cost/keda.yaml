@@ -6,7 +6,11 @@ image:
     repository: %s
   webhooks:
     repository: %s
-` (include "image.ghcr" (merge (dict "_repo" "kedacore/keda") $)) (include "image.ghcr" (merge (dict "_repo" "kedacore/keda-metrics-apiserver") $)) (include "image.ghcr" (merge (dict "_repo" "kedacore/keda-admission-webhooks") $)) | fromYaml }}
+`
+  (include "image.ghcr" (merge (dict "_repo" "kedacore/keda") $))
+  (include "image.ghcr" (merge (dict "_repo" "kedacore/keda-metrics-apiserver") $))
+  (include "image.ghcr" (merge (dict "_repo" "kedacore/keda-admission-webhooks") $))
+  | fromYaml }}
 
 {{ $vals := dict }}
 {{ $vals = mergeOverwrite $vals $overrides }}
