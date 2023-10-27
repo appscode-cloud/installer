@@ -1,7 +1,7 @@
 {{ $overrides := printf `
 global:
   registryFQDN: %q
-  ` (include "registry.ghcr" $) | fromYaml }}
+` (include "registry.ghcr" $) | fromYaml }}
 {{ $_ := set $overrides.global "kubevault-catalog" $.Values.image }}
 
 {{ $vals := dict }}

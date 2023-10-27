@@ -5,7 +5,8 @@
 reloader:
   deployment:
     image:
-      name: %s` (include "image.ghcr" (merge (dict "_repo" "stakater/reloader") $)) | fromYaml }}
+      name: %s
+` (include "image.ghcr" (merge (dict "_repo" "stakater/reloader") $)) | fromYaml }}
 
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $vals $overrides }}

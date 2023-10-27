@@ -6,7 +6,10 @@ opencost:
   ui:
     image:
       registry: %s
-` (include "registry.quay" $) (include "registry.quay" $) | fromYaml }}
+`
+  (include "registry.quay" $)
+  (include "registry.quay" $)
+  | fromYaml }}
 
 {{ $vals := `
 opencost:

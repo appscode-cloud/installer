@@ -1,7 +1,7 @@
 {{ $overrides := printf `
 global:
   registryFQDN: %q
-  ` (include "registry.ghcr" $) | fromYaml }}
+` (include "registry.ghcr" $) | fromYaml }}
 
 {{ $vals := dict }}
 {{ $vals = mergeOverwrite $vals $overrides }}

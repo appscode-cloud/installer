@@ -6,7 +6,12 @@ images:
   scaler: %s
   kubeRbacProxy:
     name: %s
-` (include "image.ghcr" (merge (dict "_repo" "kedacore/http-add-on-operator") $)) (include "image.ghcr" (merge (dict "_repo" "kedacore/http-add-on-interceptor") $))  (include "image.ghcr" (merge (dict "_repo" "kedacore/http-add-on-scaler") $))  (include "image.ghcr" (merge (dict "_repo" "appscode/kube-rbac-proxy") $)) | fromYaml }}
+`
+  (include "image.ghcr" (merge (dict "_repo" "kedacore/http-add-on-operator") $))
+  (include "image.ghcr" (merge (dict "_repo" "kedacore/http-add-on-interceptor") $))
+  (include "image.ghcr" (merge (dict "_repo" "kedacore/http-add-on-scaler") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode/kube-rbac-proxy") $))
+  | fromYaml }}
 
 {{ $vals := dict }}
 {{ $vals = mergeOverwrite $vals $overrides }}

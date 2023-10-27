@@ -3,7 +3,11 @@ global:
   registryFQDN: %s
 stash-enterprise:
   pushgateway:
-    registry: %s` (include "registry.ghcr" $) (include "image.dockerLibrary" (merge (dict "_repo" "prom") $)) | fromYaml }}
+    registry: %s
+`
+  (include "registry.ghcr" $)
+  (include "image.dockerLibrary" (merge (dict "_repo" "prom") $))
+  | fromYaml }}
 
 {{ $vals := `
 features:
