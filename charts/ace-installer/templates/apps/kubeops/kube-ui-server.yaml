@@ -36,7 +36,7 @@ spec:
       interval: 60m
       sourceRef:
         kind: HelmRepository
-        name: bytebuilders
+        name: appscode-charts-oci
         namespace: {{ $.Release.Namespace }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}

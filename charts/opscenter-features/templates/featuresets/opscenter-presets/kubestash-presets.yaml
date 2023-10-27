@@ -23,5 +23,5 @@ spec:
     version: "v2023.10.18"
     sourceRef:
       kind: HelmRepository
-      name: {{ ternary .Values.helm.release.channel "appscode" (has .Values.helm.release.channel (list "stable" "testing")) }}
+      name: {{ ternary .Values.helm.release.channel "appscode-charts-oci" (has .Values.helm.release.channel (list "stable" "testing")) }}
       namespace: {{ .Release.Namespace }}
