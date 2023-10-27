@@ -46,7 +46,7 @@ spec:
       version: {{ .version | quote }}
       sourceRef:
         kind: HelmRepository
-        name: stashed
+        name: appscode-charts-oci
         namespace: {{ $.Release.Namespace }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
