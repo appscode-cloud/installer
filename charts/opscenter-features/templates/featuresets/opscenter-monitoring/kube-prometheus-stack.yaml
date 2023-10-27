@@ -52,14 +52,14 @@ grafana:
   # quay.io
   sidecar:
     image:
-      registry: %s
+      repository: %s
 `
   (include "image.dockerHub" $)
   (include "image.dockerHub" $)
   (include "image.dockerHub" $)
   (include "image.dockerHub" $)
   (include "image.dockerHub" $)
-  (include "image.quay" $)
+  (include "image.quay" (merge (dict "_repo" "kiwigrid/k8s-sidecar") $))
   | fromYaml }}
 
 {{ $vals := dict }}
