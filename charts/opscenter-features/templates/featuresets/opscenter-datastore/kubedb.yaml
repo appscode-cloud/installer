@@ -2,7 +2,7 @@
 global:
   registryFQDN: %q
   ` (include "registry.ghcr" $) | fromYaml }}
-{{ $_ := set $overrides.global "kubedb-catalog" $.Values.image }}
+{{ $_ := set $overrides "kubedb-catalog" $.Values.image }}
 
 {{ $vals := `
 kubedb-provisioner:
