@@ -6,7 +6,15 @@ image:
   repository: %s
 webhook:
   image:
-    repository: %s` (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-controller") $)) (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-webhook") $)) | fromYaml }}
+    repository: %s
+cainjector:
+  image:
+    repository: %s
+`
+  (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-controller") $))
+  (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-webhook") $))
+  (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-cainjector") $))
+  | fromYaml }}
 
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $vals $overrides }}
