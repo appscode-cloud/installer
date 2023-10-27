@@ -8,6 +8,7 @@ kind: ClusterChartPreset
 metadata:
   name: stash-presets
   labels:
+    ace.appscode.com/managed: "true"
     charts.x-helm.dev/is-default-preset: "true"
 spec:
   values:
