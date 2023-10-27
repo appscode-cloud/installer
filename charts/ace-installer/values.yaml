@@ -62,12 +62,12 @@ helm:
     cert-manager:
       enabled: true
       version: "v1.11.0"
-      values:
+      values: # +doc-gen:break
         installCRDs: true
     kubedb:
       enabled: true
       version: "v2023.10.26-rc.0"
-      values:
+      values: # +doc-gen:break
         kubedb-provisioner:
           enabled: true
         kubedb-catalog:
@@ -88,6 +88,9 @@ helm:
     external-dns-operator:
       enabled: true
       version: "v2023.10.1"
+    kube-ui-server:
+      enabled: true
+      version: "v2023.10.1"
     license-proxyserver:
       enabled: true
       version: "v2023.10.18"
@@ -103,7 +106,7 @@ helm:
     panopticon:
       enabled: true
       version: "v2023.10.1"
-      values:
+      values: # +doc-gen:break
         monitoring:
           enabled: true
           agent: prometheus.io/operator
@@ -113,6 +116,6 @@ helm:
     stash:
       enabled: true
       version: "v2023.10.9"
-      values:
+      values: # +doc-gen:break
         features:
           enterprise: true
