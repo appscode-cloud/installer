@@ -125,7 +125,16 @@ properties:
         type: object
       clusterID:
         description: 'ClusterID is used to uniquely identify a Kubernetes cluster.
-          To find out, run: <code>kubectl get ns kube-system -o=jsonpath=''{.metadata.uid}''</code>'
+
+          To find out, run:
+
+          ```sh
+
+          kubectl get ns kube-system -o=jsonpath=''{.metadata.uid}''
+
+          ```
+
+          '
         type: string
       deploymentType:
         enum:

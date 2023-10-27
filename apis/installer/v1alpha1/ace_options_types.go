@@ -247,8 +247,7 @@ type AceDeploymentContext struct {
 	RequesterUsername    string         `json:"requesterUsername,omitempty"`
 	ProxyServiceDomain   string         `json:"proxyServiceDomain,omitempty"`
 	Token                string         `json:"token,omitempty"`
-	// ClusterID is used to uniquely identify a Kubernetes cluster.
-	// To find out, run: <code>kubectl get ns kube-system -o=jsonpath='{.metadata.uid}'</code>
+	// WARNING!!! Update docs in schema/ace-options/patch.yaml
 	// +optional
 	ClusterID string `json:"clusterID"`
 	// +optional
