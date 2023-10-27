@@ -44,7 +44,7 @@ helm:
   repositories:
     bootstrap:
       interval: 1h0m0s
-      url: https://charts.appscode.com/stable
+      url: oci://r.appscode.com/charts
     stakater:
       interval: 1h0m0s
       url: https://stakater.github.io/stakater-charts
