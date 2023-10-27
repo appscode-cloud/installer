@@ -3,7 +3,10 @@ stash-ui-server:
   registryFQDN: %q
 ` (include "registry.ghcr" $) | fromYaml }}
 
-{{ $vals := dict }}
+{{ $vals := `
+stash-metrics:
+  enabled: false
+` | fromYaml }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
