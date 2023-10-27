@@ -41,19 +41,17 @@ spec:
         version: v1
         kind: Deployment
         selector:
-          app.kubernetes.io/component: controller-manager
+          app.kubernetes.io/component: operator
           app.kubernetes.io/instance: keda-add-ons-http
           app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: keda-add-ons-http-controller-manager
           app.kubernetes.io/part-of: keda-add-ons-http
       - group: apps
         version: v1
         kind: Deployment
         selector:
-          app.kubernetes.io/component: external-scaler
+          app.kubernetes.io/component: scaler
           app.kubernetes.io/instance: keda-add-ons-http
           app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: keda-add-ons-http-external-scaler
           app.kubernetes.io/part-of: keda-add-ons-http
       - group: apps
         version: v1
@@ -62,7 +60,6 @@ spec:
           app.kubernetes.io/component: interceptor
           app.kubernetes.io/instance: keda-add-ons-http
           app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: keda-add-ons-http-interceptor
           app.kubernetes.io/part-of: keda-add-ons-http
   chart:
     name: keda-add-ons-http
