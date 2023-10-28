@@ -60,12 +60,12 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.repositories.appscode-charts-legacy.url |                         | <code>https://charts.appscode.com/stable</code>                    |
 | helm.repositories.appscode-charts-oci.url    |                         | <code>oci://r.appscode.com/charts</code>                           |
 | helm.repositories.aws-ebs-csi-driver.url     |                         | <code>https://kubernetes-sigs.github.io/aws-ebs-csi-driver</code>  |
+| helm.repositories.cert-manager.url           |                         | <code>https://charts.jetstack.io</code>                            |
 | helm.repositories.cluster-autoscaler.url     |                         | <code>https://kubernetes.github.io/autoscaler</code>               |
 | helm.repositories.crossplane.url             |                         | <code>https://charts.crossplane.io/stable</code>                   |
 | helm.repositories.falcosecurity.url          |                         | <code>https://falcosecurity.github.io/charts</code>                |
-| helm.repositories.flux.url                   |                         | <code>https://fluxcd-community.github.io/helm-charts</code>        |
+| helm.repositories.fluxcd-community.url       |                         | <code>https://fluxcd-community.github.io/helm-charts</code>        |
 | helm.repositories.gatekeeper.url             |                         | <code>https://open-policy-agent.github.io/gatekeeper/charts</code> |
-| helm.repositories.jetstack.url               |                         | <code>https://charts.jetstack.io</code>                            |
 | helm.repositories.kedacore.url               |                         | <code>https://kedacore.github.io/charts</code>                     |
 | helm.repositories.nats.url                   |                         | <code>https://nats-io.github.io/k8s/helm/charts</code>             |
 | helm.repositories.prometheus-community.url   |                         | <code>https://prometheus-community.github.io/helm-charts</code>    |

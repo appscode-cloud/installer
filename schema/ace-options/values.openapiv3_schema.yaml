@@ -1051,17 +1051,17 @@ properties:
             type: string
           aws-ebs-csi-driver:
             type: string
+          cert-manager:
+            type: string
           cluster-autoscaler:
             type: string
           crossplane:
             type: string
           falcosecurity:
             type: string
-          flux:
+          fluxcd-community:
             type: string
           gatekeeper:
-            type: string
-          jetstack:
             type: string
           kedacore:
             type: string

@@ -48,7 +48,7 @@ spec:
     version: "v1.11.0"
     sourceRef:
       kind: HelmRepository
-      name: jetstack
+      name: cert-manager
       namespace: {{ .Release.Namespace }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
