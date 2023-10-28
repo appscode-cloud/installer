@@ -47,6 +47,10 @@ type AceInstallerSpec struct {
 	NameOverride     string `json:"nameOverride"`
 	FullnameOverride string `json:"fullnameOverride"`
 
+	RegistryPresets `json:",inline,omitempty"`
+}
+
+type RegistryPresets struct {
 	Image    ImageRegistrySpec `json:"image"`
 	Registry RegistryInfo      `json:"registry"`
 	Helm     InstallerHelmSpec `json:"helm"`
