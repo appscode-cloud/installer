@@ -4,6 +4,14 @@
 {{ $_ := unset $helmrepos "stakater" }}
 {{ $_ := set $vals.helm "repositories" $helmrepos }}
 
+{{ $helmreleases := printf `
+opscenter-features:
+  version: %q
+`
+  (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
+  | fromYaml }}
+{{ $_ := set $vals.helm "releases" $helmreleases }}
+
 apiVersion: charts.x-helm.dev/v1alpha1
 kind: ClusterChartPreset
 metadata:
