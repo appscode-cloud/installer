@@ -80,8 +80,8 @@ type HelmRepository struct {
 	// Interval at which to check the URL for updates.
 	// +kubebuilder:validation:Type=string
 	// +kubebuilder:validation:Pattern="^([0-9]+(\\.[0-9]+)?(ms|s|m|h))+$"
-	// +required
-	Interval metav1.Duration `json:"interval"`
+	// +optional
+	Interval *metav1.Duration `json:"interval,omitempty"`
 
 	// The timeout of index downloading, defaults to 60s.
 	// +optional

@@ -49,7 +49,6 @@ properties:
             url:
               type: string
           required:
-          - interval
           - url
           type: object
         type: object

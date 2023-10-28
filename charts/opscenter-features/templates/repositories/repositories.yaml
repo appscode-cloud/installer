@@ -8,14 +8,8 @@ spec:
   {{- with $cfg.url }}
   url: {{ . }}
   {{- end }}
-
-  {{- with $cfg.interval }}
-  interval: {{ . }}
-  {{- end }}
-
-  {{- with $cfg.timeout }}
-  timeout: {{ . }}
-  {{- end }}
+  interval: {{ default "30m" $cfg.interval }}
+  timeout: {{ default "1m" $cfg.timeout }}
 
   {{- if hasPrefix "oci://" $cfg.url }}
   type: oci

@@ -1,7 +1,11 @@
 {{- with (index .Values "helm" "releases" "opscenter-features") }}
 {{- if .enabled }}
 
-{{ $overrides := dict "image" $.Values.image }}
+{{ $overrides := dict "image" $.Values.image "registry" $.Values.registry "helm" dict }}
+
+{{ $helmrepos := dig "repositories" dict $.Values.helm | deepCopy }}
+{{ $_ := unset $helmrepos "stakater" }}
+{{ $_ := set $overrides.helm "repositories" $helmrepos }}
 
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $vals $overrides }}
@@ -11,6 +15,8 @@ kind: HelmRelease
 metadata:
   name: opscenter-features
   namespace: {{ $.Release.Namespace }}
+  labels:
+    ace.appscode.com/feature: opscenter-features
 spec:
   interval: 5m
   timeout: 30m
