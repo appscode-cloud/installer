@@ -112,17 +112,17 @@ type HelmRepositories struct {
 	//+optional
 	AwsEbsCsiDriver string `json:"aws-ebs-csi-driver"`
 	//+optional
+	CertManager string `json:"cert-manager"`
+	//+optional
 	ClusterAutoscaler string `json:"cluster-autoscaler"`
 	//+optional
 	Crossplane string `json:"crossplane"`
 	//+optional
 	Falcosecurity string `json:"falcosecurity"`
 	//+optional
-	Flux string `json:"flux"`
+	FluxcdCommunity string `json:"fluxcd-community"`
 	//+optional
 	Gatekeeper string `json:"gatekeeper"`
-	//+optional
-	Jetstack string `json:"jetstack"`
 	//+optional
 	Kedacore string `json:"kedacore"`
 	//+optional

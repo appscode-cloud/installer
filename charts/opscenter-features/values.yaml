@@ -48,18 +48,18 @@ helm:
       url: oci://r.appscode.com/charts
     aws-ebs-csi-driver:
       url: https://kubernetes-sigs.github.io/aws-ebs-csi-driver
+    cert-manager:
+      url: https://charts.jetstack.io
     cluster-autoscaler:
       url: https://kubernetes.github.io/autoscaler
     crossplane:
       url: https://charts.crossplane.io/stable
     falcosecurity:
       url: https://falcosecurity.github.io/charts
-    flux:
+    fluxcd-community:
       url: https://fluxcd-community.github.io/helm-charts
     gatekeeper:
       url: https://open-policy-agent.github.io/gatekeeper/charts
-    jetstack:
-      url: https://charts.jetstack.io
     kedacore:
       url: https://kedacore.github.io/charts
     nats:

@@ -63,7 +63,7 @@ spec:
     version: ""
     sourceRef:
       kind: HelmRepository
-      name: flux
+      name: fluxcd-community
       namespace: {{ .Release.Namespace }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
