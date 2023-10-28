@@ -70,7 +70,7 @@ spec:
     # version: "v2023.10.1"
     sourceRef:
       kind: HelmRepository
-      name: {{ ternary .Values.helm.release.channel "falcosecurity" (has .Values.helm.release.channel (list "stable" "testing")) }}
+      name: falcosecurity
       namespace: {{ .Release.Namespace }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
