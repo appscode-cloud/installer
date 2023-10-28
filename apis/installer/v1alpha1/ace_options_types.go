@@ -19,6 +19,7 @@ package v1alpha1
 import (
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"kmodules.xyz/resource-metadata/apis/shared"
 )
 
 const (
@@ -72,7 +73,7 @@ type RegistrySpec struct {
 	//+optional
 	RegistryFQDN string `json:"registryFQDN"`
 	//+optional
-	Proxies RegistryProxies `json:"proxies"`
+	Proxies shared.RegistryProxies `json:"proxies"`
 	//+optional
 	Repositories HelmRepositories `json:"repositories"`
 	//+optional
@@ -81,27 +82,6 @@ type RegistrySpec struct {
 	Insecure bool `json:"insecure"`
 	//+optional
 	ImagePullSecrets []string `json:"imagePullSecrets"`
-}
-
-type RegistryProxies struct {
-	// company/bin:1.23
-	//+optional
-	DockerHub string `json:"dockerHub"`
-	// alpine, nginx etc.
-	//+optional
-	DockerLibrary string `json:"dockerLibrary"`
-	// ghcr.io
-	//+optional
-	GHCR string `json:"ghcr"`
-	// quay.io
-	//+optional
-	Quay string `json:"quay"`
-	// registry.k8s.io
-	//+optional
-	Kubernetes string `json:"kubernetes"`
-	// r.appscode.com
-	//+optional
-	AppsCode string `json:"appscode"`
 }
 
 type HelmRepositories struct {
