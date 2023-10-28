@@ -3,7 +3,7 @@ name: platform-links
 description: A Helm chart for Kubernetes
 type: application
 version: v2023.10.18
-appVersion: v2023.10.18
+appVersion: v2023.10.30
 home: https://github.com/bytebuilders
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
