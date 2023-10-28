@@ -74,6 +74,8 @@ type RegistrySpec struct {
 	//+optional
 	Proxies RegistryProxies `json:"proxies"`
 	//+optional
+	Repositories HelmRepositories `json:"repositories"`
+	//+optional
 	AllowNondistributableArtifacts bool `json:"allowNondistributableArtifacts"`
 	//+optional
 	Insecure bool `json:"insecure"`
@@ -100,6 +102,35 @@ type RegistryProxies struct {
 	// r.appscode.com
 	//+optional
 	AppsCode string `json:"appscode"`
+}
+
+type HelmRepositories struct {
+	//+optional
+	AppscodeChartsLegacy string `json:"appscode-charts-legacy"`
+	//+optional
+	AppscodeChartsOci string `json:"appscode-charts-oci"`
+	//+optional
+	AwsEbsCsiDriver string `json:"aws-ebs-csi-driver"`
+	//+optional
+	ClusterAutoscaler string `json:"cluster-autoscaler"`
+	//+optional
+	Crossplane string `json:"crossplane"`
+	//+optional
+	Falcosecurity string `json:"falcosecurity"`
+	//+optional
+	Flux string `json:"flux"`
+	//+optional
+	Gatekeeper string `json:"gatekeeper"`
+	//+optional
+	Jetstack string `json:"jetstack"`
+	//+optional
+	Kedacore string `json:"kedacore"`
+	//+optional
+	Nats string `json:"nats"`
+	//+optional
+	PrometheusCommunity string `json:"prometheus-community"`
+	//+optional
+	Stakater string `json:"stakater"`
 }
 
 type AceOptionsComponentSpec struct {
