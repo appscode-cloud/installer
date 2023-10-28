@@ -5,7 +5,7 @@ metadata:
 spec:
   title: Opscenter Core
   description: |
-    Collection of mandatory features that are necessary for providing basic UI functionalities.
+    Core features for ACE
   icons:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml

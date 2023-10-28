@@ -38,7 +38,7 @@ metadata:
   labels:
     ace.appscode.com/feature-set: opscenter-core
 spec:
-  title: Kube UI Server
+  title: FluxCD
   description: |
     Flux - the GitOps family of projects
   icons:
