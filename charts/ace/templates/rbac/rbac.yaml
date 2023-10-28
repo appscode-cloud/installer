@@ -32,6 +32,16 @@ rules:
   # - pods
   verbs:
   - '*'
+- apiGroups:
+  - source.toolkit.fluxcd.io
+  resources:
+  - helmrepositories
+  verbs: ["get", "list", "watch"]
+- apiGroups:
+  - charts.x-helm.dev
+  resources:
+  - clusterchartpresets
+  verbs: ["get", "list", "watch"]
 
 ---
 
