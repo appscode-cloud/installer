@@ -1,4 +1,9 @@
-{{ range $name, $cfg := .Values.helm.repositories }}
+{{ $helmrepos := dict
+  "bootstrap" (index .Values.helm "repositories" "appscode-charts-oci")
+  "stakater" (index .Values.helm "repositories" "stakater")
+}}
+
+{{ range $name, $cfg := $helmrepos }}
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
@@ -8,10 +13,8 @@ spec:
   {{- with $cfg.url }}
   url: {{ . }}
   {{- end }}
-
-  {{- with $cfg.interval }}
-  interval: {{ . }}
-  {{- end }}
+  interval: {{ default "30m" $cfg.interval }}
+  timeout: {{ default "1m" $cfg.timeout }}
 
   {{- if hasPrefix "oci://" $cfg.url }}
   type: oci
