@@ -54,7 +54,6 @@ type OpscenterFeaturesSpec struct {
 }
 
 type OpscenterHelmSpec struct {
-	Release      ReleaseInfo                `json:"release"`
 	Repositories map[string]*HelmRepository `json:"repositories"`
 }
 
@@ -62,20 +61,6 @@ type ImageRegistrySpec struct {
 	RegistryFQDN string          `json:"registryFQDN"`
 	Proxies      RegistryProxies `json:"proxies"`
 }
-
-type ReleaseInfo struct {
-	// +kubebuilder:default:=dev
-	Channel ReleaseChannel `json:"channel"`
-}
-
-// +kubebuilder:validation:Enum=stable;testing;dev
-type ReleaseChannel string
-
-const (
-	ChannelStable  ReleaseChannel = "stable"
-	ChannelTesting ReleaseChannel = "testing"
-	ChannelDev     ReleaseChannel = "dev"
-)
 
 type HelmRepository struct {
 	// URL of the Helm repository, a valid URL contains at least a protocol and

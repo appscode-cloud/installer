@@ -41,19 +41,7 @@ registry:
     #   password: "gh_xyz"
 
 helm:
-  release:
-    # Release channel used for charts. Possible values: stable, testing, dev
-    channel: dev
-
   repositories:
-    stable:
-      interval: 30m0s
-      url: oci://ghcr.io/appscode-charts/stable
-      timeout: 1m0s
-    testing:
-      interval: 30m0s
-      url: oci://ghcr.io/appscode-charts/testing
-      timeout: 1m0s
     appscode-charts-oci:
       interval: 30m0s
       url: oci://r.appscode.com/charts

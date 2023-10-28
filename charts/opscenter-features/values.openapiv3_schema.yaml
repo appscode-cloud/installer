@@ -23,18 +23,6 @@ properties:
     type: string
   helm:
     properties:
-      release:
-        properties:
-          channel:
-            default: dev
-            enum:
-            - stable
-            - testing
-            - dev
-            type: string
-        required:
-        - channel
-        type: object
       repositories:
         additionalProperties:
           properties:
@@ -66,7 +54,6 @@ properties:
           type: object
         type: object
     required:
-    - release
     - repositories
     type: object
   image:
