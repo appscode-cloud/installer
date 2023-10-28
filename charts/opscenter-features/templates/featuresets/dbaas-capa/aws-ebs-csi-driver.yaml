@@ -5,7 +5,7 @@ kind: Feature
 metadata:
   name: aws-ebs-csi-driver
   labels:
-    byte.builders/feature-set: dbaas-capa
+    ace.appscode.com/feature-set: dbaas-capa
 spec:
   title: AWS EBS CSI Driver
   description: |

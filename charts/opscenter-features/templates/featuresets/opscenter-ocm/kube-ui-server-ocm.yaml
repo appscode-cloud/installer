@@ -10,7 +10,7 @@ kind: Feature
 metadata:
   name: kube-ui-server-ocm
   labels:
-    byte.builders/feature-set: opscenter-ocm
+    ace.appscode.com/feature-set: opscenter-ocm
 spec:
   title: Kube UI Server for Multicluster Controlplane
   description: |

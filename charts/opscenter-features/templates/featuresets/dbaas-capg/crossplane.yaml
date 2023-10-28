@@ -13,7 +13,7 @@ kind: Feature
 metadata:
   name: crossplane
   labels:
-    byte.builders/feature-set: dbaas-capg
+    ace.appscode.com/feature-set: dbaas-capg
 spec:
   title: Crossplane
   description: |

@@ -10,7 +10,7 @@ kind: Feature
 metadata:
   name: kubeform-provider-gcp
   labels:
-    byte.builders/feature-set: dbaas-capg
+    ace.appscode.com/feature-set: dbaas-capg
 spec:
   title: Crossplane GCP Provider by AppsCode
   description: |

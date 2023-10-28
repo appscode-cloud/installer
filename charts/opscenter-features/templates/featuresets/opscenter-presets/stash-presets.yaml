@@ -3,7 +3,7 @@ kind: Feature
 metadata:
   name: stash-presets
   labels:
-    byte.builders/feature-set: opscenter-presets
+    ace.appscode.com/feature-set: opscenter-presets
 spec:
   title: Stash Presets
   description: |

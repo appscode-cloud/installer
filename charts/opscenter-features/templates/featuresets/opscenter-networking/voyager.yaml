@@ -8,7 +8,7 @@ kind: Feature
 metadata:
   name: voyager
   labels:
-    byte.builders/feature-set: opscenter-networking
+    ace.appscode.com/feature-set: opscenter-networking
 spec:
   title: Voyager Ingress
   description: |

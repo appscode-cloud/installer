@@ -19,7 +19,7 @@ kind: Feature
 metadata:
   name: voyager-gateway
   labels:
-    byte.builders/feature-set: opscenter-networking
+    ace.appscode.com/feature-set: opscenter-networking
 spec:
   title: Voyager Gateway
   description: |

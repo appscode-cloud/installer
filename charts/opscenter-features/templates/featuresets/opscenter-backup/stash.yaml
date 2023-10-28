@@ -20,7 +20,7 @@ kind: Feature
 metadata:
   name: stash
   labels:
-    byte.builders/feature-set: opscenter-backup
+    ace.appscode.com/feature-set: opscenter-backup
 spec:
   title: Stash
   description: |

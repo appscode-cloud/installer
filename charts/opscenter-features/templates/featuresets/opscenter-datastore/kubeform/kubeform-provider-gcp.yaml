@@ -10,7 +10,7 @@ kind: Feature
 metadata:
   name: kubeform-provider-gcp
   labels:
-    byte.builders/feature-set: opscenter-datastore
+    ace.appscode.com/feature-set: opscenter-datastore
 spec:
   title: Crossplane GCP Provider by AppsCode
   description: |

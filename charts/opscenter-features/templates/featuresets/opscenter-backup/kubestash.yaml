@@ -11,7 +11,7 @@ kind: Feature
 metadata:
   name: kubestash
   labels:
-    byte.builders/feature-set: opscenter-backup
+    ace.appscode.com/feature-set: opscenter-backup
 spec:
   title: KubeStash
   description: |

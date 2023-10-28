@@ -10,7 +10,7 @@ kind: Feature
 metadata:
   name: kubeform-provider-azure
   labels:
-    byte.builders/feature-set: opscenter-datastore
+    ace.appscode.com/feature-set: opscenter-datastore
 spec:
   title: Crossplane Azure Provider by AppsCode
   description: |
