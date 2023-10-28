@@ -8,7 +8,7 @@ kind: Feature
 metadata:
   name: external-dns-operator
   labels:
-    byte.builders/feature-set: opscenter-networking
+    ace.appscode.com/feature-set: opscenter-networking
 spec:
   title: External DNS Operator
   description: |

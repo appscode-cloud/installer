@@ -71,7 +71,7 @@ kind: Feature
 metadata:
   name: opencost
   labels:
-    byte.builders/feature-set: opscenter-cost
+    ace.appscode.com/feature-set: opscenter-cost
 spec:
   title: Opencost
   description: |

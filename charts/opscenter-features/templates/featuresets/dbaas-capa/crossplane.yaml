@@ -13,7 +13,7 @@ kind: Feature
 metadata:
   name: crossplane
   labels:
-    byte.builders/feature-set: dbaas-capa
+    ace.appscode.com/feature-set: dbaas-capa
 spec:
   title: Crossplane
   description: |

@@ -8,7 +8,7 @@ kind: Feature
 metadata:
   name: grafana-operator
   labels:
-    byte.builders/feature-set: opscenter-monitoring
+    ace.appscode.com/feature-set: opscenter-monitoring
 spec:
   title: Grafana Operator
   description: |

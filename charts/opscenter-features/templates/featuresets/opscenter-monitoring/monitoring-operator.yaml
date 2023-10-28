@@ -8,7 +8,7 @@ kind: Feature
 metadata:
   name: monitoring-operator
   labels:
-    byte.builders/feature-set: opscenter-monitoring
+    ace.appscode.com/feature-set: opscenter-monitoring
 spec:
   title: Monitoring Operator
   description: |

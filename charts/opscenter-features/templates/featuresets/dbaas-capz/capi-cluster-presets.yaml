@@ -5,7 +5,7 @@ kind: Feature
 metadata:
   name: capi-cluster-presets
   labels:
-    byte.builders/feature-set: dbaas-capz
+    ace.appscode.com/feature-set: dbaas-capz
 spec:
   title: CAPI Cluster Presets
   description: |

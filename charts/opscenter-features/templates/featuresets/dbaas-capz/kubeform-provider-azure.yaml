@@ -10,7 +10,7 @@ kind: Feature
 metadata:
   name: kubeform-provider-azure
   labels:
-    byte.builders/feature-set: dbaas-capz
+    ace.appscode.com/feature-set: dbaas-capz
 spec:
   title: Crossplane Azure Provider by AppsCode
   description: |

@@ -13,7 +13,7 @@ kind: Feature
 metadata:
   name: crossplane
   labels:
-    byte.builders/feature-set: opscenter-datastore
+    ace.appscode.com/feature-set: opscenter-datastore
 spec:
   title: Crossplane
   description: |

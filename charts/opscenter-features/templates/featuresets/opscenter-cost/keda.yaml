@@ -20,7 +20,7 @@ kind: Feature
 metadata:
   name: keda
   labels:
-    byte.builders/feature-set: opscenter-cost
+    ace.appscode.com/feature-set: opscenter-cost
 spec:
   title: Keda
   description: |

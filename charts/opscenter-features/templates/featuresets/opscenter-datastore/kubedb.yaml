@@ -27,7 +27,7 @@ kind: Feature
 metadata:
   name: kubedb
   labels:
-    byte.builders/feature-set: opscenter-datastore
+    ace.appscode.com/feature-set: opscenter-datastore
 spec:
   title: KubeDB
   description: |

@@ -11,7 +11,7 @@ kind: Feature
 metadata:
   name: kubevault-opscenter
   labels:
-    byte.builders/feature-set: opscenter-security
+    ace.appscode.com/feature-set: opscenter-security
 spec:
   title: Kubevault Opscenter
   description: |

@@ -8,7 +8,7 @@ kind: Feature
 metadata:
   name: license-proxyserver
   labels:
-    byte.builders/feature-set: opscenter-core
+    ace.appscode.com/feature-set: opscenter-core
 spec:
   title: License Proxyserver
   description: |

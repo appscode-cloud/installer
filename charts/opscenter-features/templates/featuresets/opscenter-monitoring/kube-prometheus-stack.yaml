@@ -79,7 +79,7 @@ kind: Feature
 metadata:
   name: kube-prometheus-stack
   labels:
-    byte.builders/feature-set: opscenter-monitoring
+    ace.appscode.com/feature-set: opscenter-monitoring
 spec:
   title: Kube Prometheus Stack
   description: |

@@ -10,7 +10,7 @@ kind: Feature
 metadata:
   name: kubeform-provider-aws
   labels:
-    byte.builders/feature-set: dbaas-capa
+    ace.appscode.com/feature-set: dbaas-capa
 spec:
   title: Crossplane AWS Provider by AppsCode
   description: |

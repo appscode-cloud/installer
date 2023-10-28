@@ -8,7 +8,7 @@ kind: Feature
 metadata:
   name: supervisor
   labels:
-    byte.builders/feature-set: opscenter-core
+    ace.appscode.com/feature-set: opscenter-core
 spec:
   title: Supervisor
   description: |

@@ -23,7 +23,7 @@ kind: Feature
 metadata:
   name: cluster-autoscaler
   labels:
-    byte.builders/feature-set: dbaas-capa
+    ace.appscode.com/feature-set: dbaas-capa
 spec:
   title: Cluster Autoscaler
   description: |

@@ -25,7 +25,7 @@ kind: Feature
 metadata:
   name: multicluster-controlplane
   labels:
-    byte.builders/feature-set: opscenter-ocm
+    ace.appscode.com/feature-set: opscenter-ocm
 spec:
   title: Multicluster Controlplane
   description: |
