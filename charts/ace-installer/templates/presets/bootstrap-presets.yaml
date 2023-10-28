@@ -5,9 +5,18 @@
 {{ $_ := set $vals.helm "repositories" $helmrepos }}
 
 {{ $helmreleases := printf `
+ace:
+  version: %q
+ace-installer:
+  version: %q
+license-proxyserver:
+  version: %q
 opscenter-features:
   version: %q
 `
+  (dig "ace" "version" .Chart.AppVersion $.Values.helm.releases)
+  .Chart.AppVersion
+  (dig "license-proxyserver" "version" .Chart.AppVersion $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
   | fromYaml }}
 {{ $_ := set $vals.helm "releases" $helmreleases }}
