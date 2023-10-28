@@ -25,7 +25,7 @@ spec:
     sourceRef:
       apiGroup: source.toolkit.fluxcd.io
       kind: HelmRepository
-      name: {{ ternary .Values.helm.release.channel "appscode-charts-oci" (has .Values.helm.release.channel (list "stable" "testing")) }}
+      name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
 
 {{- end }}

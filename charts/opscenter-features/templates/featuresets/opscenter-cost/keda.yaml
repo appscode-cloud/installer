@@ -57,7 +57,7 @@ spec:
     # version: ""
     sourceRef:
       kind: HelmRepository
-      name: {{ ternary .Values.helm.release.channel "kedacore" (has .Values.helm.release.channel (list "stable" "testing")) }}
+      name: kedacore
       namespace: {{ .Release.Namespace }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
