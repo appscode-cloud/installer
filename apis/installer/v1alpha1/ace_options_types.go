@@ -70,10 +70,7 @@ type AceOptionsSpec struct {
 }
 
 type RegistrySpec struct {
-	//+optional
-	RegistryFQDN string `json:"registryFQDN"`
-	//+optional
-	Proxies shared.RegistryProxies `json:"proxies"`
+	shared.ImageRegistrySpec `json:",inline,omitempty"`
 	//+optional
 	Repositories HelmRepositories `json:"repositories"`
 	//+optional
