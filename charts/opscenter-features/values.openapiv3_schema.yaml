@@ -74,9 +74,6 @@ properties:
         type: object
       registryFQDN:
         type: string
-    required:
-    - proxies
-    - registryFQDN
     type: object
   nameOverride:
     type: string
