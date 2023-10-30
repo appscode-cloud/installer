@@ -46,7 +46,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-core
   featureBlock: flux2
-  recommended: true
+  recommended: false
   readinessChecks:
     workloads:
     - group: apps
