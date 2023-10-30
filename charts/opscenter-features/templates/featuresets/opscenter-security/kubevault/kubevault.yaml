@@ -37,7 +37,7 @@ spec:
   chart:
     name: kubevault
     namespace: kubevault
-    version: "v2023.10.26-rc.0"
+    version: {{ dig "kubevault" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

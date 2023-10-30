@@ -64,7 +64,7 @@ spec:
   chart:
     name: keda-add-ons-http
     namespace: keda
-    version: "0.6.0"
+    version: {{ dig "keda-add-ons-http" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

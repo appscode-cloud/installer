@@ -35,7 +35,7 @@ spec:
   chart:
     name: kubeform-provider-aws
     namespace: crossplane-system
-    version: "v2023.06.27"
+    version: {{ dig "kubeform-provider-aws" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

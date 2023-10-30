@@ -8,6 +8,8 @@ ace:
   version: %q
 ace-installer:
   version: %q
+flux2:
+  version: %q
 license-proxyserver:
   version: %q
 opscenter-features:
@@ -15,6 +17,7 @@ opscenter-features:
 `
   (dig "ace" "version" .Chart.AppVersion $.Values.helm.releases)
   .Chart.AppVersion
+  (dig "flux2" "version" "" $.Values.helm.releases)
   (dig "license-proxyserver" "version" .Chart.AppVersion $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
   | fromYaml }}

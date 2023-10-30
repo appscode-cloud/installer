@@ -30,7 +30,7 @@ spec:
   chart:
     name: grafana-operator
     namespace: monitoring
-    version: "v0.0.3"
+    version: {{ dig "grafana-operator" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

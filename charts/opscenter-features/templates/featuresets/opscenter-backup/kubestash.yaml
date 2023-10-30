@@ -37,7 +37,7 @@ spec:
   chart:
     name: kubestash
     namespace: kubestash
-    version: "v2023.04.14"
+    version: {{ dig "kubestash" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

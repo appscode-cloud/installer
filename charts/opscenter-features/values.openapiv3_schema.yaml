@@ -23,6 +23,15 @@ properties:
     type: string
   helm:
     properties:
+      releases:
+        additionalProperties:
+          properties:
+            version:
+              type: string
+          required:
+          - version
+          type: object
+        type: object
       repositories:
         additionalProperties:
           properties:
@@ -53,6 +62,7 @@ properties:
           type: object
         type: object
     required:
+    - releases
     - repositories
     type: object
   image:

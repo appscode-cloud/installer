@@ -30,7 +30,7 @@ spec:
   chart:
     name: supervisor
     namespace: kubeops
-    version: "v2023.10.1"
+    version: {{ dig "supervisor" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

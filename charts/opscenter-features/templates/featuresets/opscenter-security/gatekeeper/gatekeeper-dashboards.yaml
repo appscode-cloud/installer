@@ -21,7 +21,7 @@ spec:
   chart:
     name: gatekeeper-grafana-dashboards
     namespace: kubeops
-    version: "v2023.10.1"
+    version: {{ dig "gatekeeper-grafana-dashboards" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

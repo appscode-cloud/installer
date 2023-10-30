@@ -105,7 +105,7 @@ spec:
   chart:
     name: kube-prometheus-stack
     namespace: monitoring
-    version: "52.1.0"
+    version: {{ dig "kube-prometheus-stack" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

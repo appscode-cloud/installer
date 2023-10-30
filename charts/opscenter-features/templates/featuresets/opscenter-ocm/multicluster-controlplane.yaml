@@ -47,7 +47,7 @@ spec:
   chart:
     name: multicluster-controlplane
     namespace: multicluster-controlplane
-    version: "0.2.0"
+    version: {{ dig "multicluster-controlplane" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci
