@@ -1049,28 +1049,6 @@ properties:
             type: string
           appscode-charts-oci:
             type: string
-          aws-ebs-csi-driver:
-            type: string
-          cert-manager:
-            type: string
-          cluster-autoscaler:
-            type: string
-          crossplane:
-            type: string
-          falcosecurity:
-            type: string
-          fluxcd-community:
-            type: string
-          gatekeeper:
-            type: string
-          kedacore:
-            type: string
-          nats:
-            type: string
-          prometheus-community:
-            type: string
-          stakater:
-            type: string
         type: object
     type: object
   release:

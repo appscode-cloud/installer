@@ -35,10 +35,10 @@ spec:
   chart:
     name: crossplane
     namespace: crossplane-system
-    version: "1.12.2"
+    version: "1.13.2"
     sourceRef:
       kind: HelmRepository
-      name: crossplane
+      name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
