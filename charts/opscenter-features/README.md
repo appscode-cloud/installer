@@ -45,23 +45,23 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `opscenter-features` chart and their default values.
 
-|                 Parameter                 |       Description       |                 Default                  |
-|-------------------------------------------|-------------------------|------------------------------------------|
-| nameOverride                              |                         | <code>""</code>                          |
-| fullnameOverride                          |                         | <code>""</code>                          |
-| image.registryFQDN                        |                         | <code>""</code>                          |
-| image.proxies.appscode                    | r.appscode.com          | <code>r.appscode.com</code>              |
-| image.proxies.dockerHub                   | company/bin:tag         | <code>""</code>                          |
-| image.proxies.dockerLibrary               | alpine, nginx etc.      | <code>""</code>                          |
-| image.proxies.ghcr                        | ghcr.io/company/bin:tag | <code>ghcr.io</code>                     |
-| image.proxies.quay                        | quay.io/company/bin:tag | <code>quay.io</code>                     |
-| image.proxies.kubernetes                  | registry.k8s.io/bin:tag | <code>registry.k8s.io</code>             |
-| registry.credentials                      |                         | <code>{}</code>                          |
-| helm.repositories.appscode-charts-oci.url |                         | <code>oci://r.appscode.com/charts</code> |
-| clusterManagers                           |                         | <code>[]</code>                          |
-| capi.provider                             |                         | <code>""</code>                          |
-| capi.namespace                            |                         | <code>""</code>                          |
-| capi.clusterName                          |                         | <code>""</code>                          |
+|                 Parameter                 |       Description       |                  Default                   |
+|-------------------------------------------|-------------------------|--------------------------------------------|
+| nameOverride                              |                         | <code>""</code>                            |
+| fullnameOverride                          |                         | <code>""</code>                            |
+| image.registryFQDN                        |                         | <code>""</code>                            |
+| image.proxies.appscode                    | r.appscode.com          | <code>r.appscode.com</code>                |
+| image.proxies.dockerHub                   | company/bin:tag         | <code>""</code>                            |
+| image.proxies.dockerLibrary               | alpine, nginx etc.      | <code>""</code>                            |
+| image.proxies.ghcr                        | ghcr.io/company/bin:tag | <code>ghcr.io</code>                       |
+| image.proxies.quay                        | quay.io/company/bin:tag | <code>quay.io</code>                       |
+| image.proxies.kubernetes                  | registry.k8s.io/bin:tag | <code>registry.k8s.io</code>               |
+| registry.credentials                      |                         | <code>{}</code>                            |
+| helm.repositories.appscode-charts-oci.url |                         | <code>oci://ghcr.io/appscode-charts</code> |
+| clusterManagers                           |                         | <code>[]</code>                            |
+| capi.provider                             |                         | <code>""</code>                            |
+| capi.namespace                            |                         | <code>""</code>                            |
+| capi.clusterName                          |                         | <code>""</code>                            |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
