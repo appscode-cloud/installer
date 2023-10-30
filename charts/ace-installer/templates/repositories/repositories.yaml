@@ -1,6 +1,5 @@
 {{ $helmrepos := dict
   "bootstrap" (index .Values.helm "repositories" "appscode-charts-oci")
-  "stakater" (index .Values.helm "repositories" "stakater")
 }}
 
 {{ range $name, $cfg := $helmrepos }}
