@@ -33,17 +33,11 @@ image:
 
 registry:
   credentials: {}
-    # dockerhub:
-    #   username: "abc"
-    #   password: "xyz"
-    # ghcr:
-    #   username: "gh_abc"
-    #   password: "gh_xyz"
+  #   username: "abc"
+  #   password: "xyz"
 
 helm:
   repositories:
-    appscode-charts-legacy:
-      url: https://charts.appscode.com/stable
     appscode-charts-oci:
       url: oci://r.appscode.com/charts
 
