@@ -42,6 +42,90 @@ helm:
     appscode-charts-oci:
       url: oci://ghcr.io/appscode-charts
 
+  releases:
+    aws-ebs-csi-driver:
+      version: "2.23.0"
+    capa-vpc-peering-operator:
+      version: "v2023.10.18"
+    capi-cluster-presets:
+      version: "v2023.10.18"
+    cert-manager:
+      version: "v1.11.0"
+    cluster-autoscaler:
+      version: "9.29.0"
+    crossplane:
+      version: "1.13.2"
+    external-dns-operator:
+      version: "v2023.10.1"
+    falco:
+      version: "3.8.4"
+    falco-ui-server:
+      version: "v2023.10.1"
+    flux2:
+      version: "2.10.6"
+    gatekeeper:
+      version: "3.13.3"
+    gatekeeper-grafana-dashboards:
+      version: "v2023.10.1"
+    gatekeeper-library:
+      version: "v2023.10.1"
+    gateway-helm:
+      version: "v0.0.0-latest"
+    grafana-operator:
+      version: "v0.0.3"
+    keda:
+      version: "2.12.0"
+    keda-add-ons-http:
+      version: "0.6.0"
+    kube-grafana-dashboards:
+      version: "v2023.10.1"
+    kube-prometheus-stack:
+      version: "52.1.0"
+    kube-ui-server:
+      version: "v2023.10.1"
+    kubedb:
+      version: "v2023.10.26-rc.0"
+    kubedb-opscenter:
+      version: "v2023.10.26-rc.0"
+    kubeform-provider-aws:
+      version: "v2023.06.27"
+    kubeform-provider-azure:
+      version: "v2023.06.27"
+    kubeform-provider-gcp:
+      version: "v2023.06.27"
+    kubestash:
+      version: "v2023.04.14"
+    kubestash-presets:
+      version: "v2023.10.18"
+    kubevault:
+      version: "v2023.10.26-rc.0"
+    kubevault-opscenter:
+      version: "v2023.10.26-rc.0"
+    license-proxyserver:
+      version: "v2023.10.18"
+    monitoring-operator:
+      version: "v0.0.3"
+    multicluster-controlplane:
+      version: "0.2.0"
+    opencost:
+      version: "1.18.1"
+    opscenter-features:
+      version: "v2023.10.18"
+    panopticon:
+      version: "v2023.10.1"
+    scanner:
+      version: "v2023.10.18"
+    stash:
+      version: "v2023.10.9"
+    stash-opscenter:
+      version: "v2023.10.9"
+    stash-presets:
+      version: "v2023.10.18"
+    supervisor:
+      version: "v2023.10.1"
+    voyager:
+      version: "v2023.9.18"
+
 clusterManagers: []
 
 capi:

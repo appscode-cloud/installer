@@ -70,7 +70,7 @@ spec:
   chart:
     name: flux2
     namespace: kubeops
-    version: "2.10.6"
+    version: {{ dig "flux2" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: fluxcd-community

@@ -54,7 +54,7 @@ spec:
   chart:
     name: keda
     namespace: keda
-    version: "2.12.0"
+    version: {{ dig "keda" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

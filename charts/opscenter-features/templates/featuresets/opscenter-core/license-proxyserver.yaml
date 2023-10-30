@@ -30,7 +30,7 @@ spec:
   chart:
     name: license-proxyserver
     namespace: kubeops
-    version: "v2023.10.18"
+    version: {{ dig "license-proxyserver" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

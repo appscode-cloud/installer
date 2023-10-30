@@ -71,7 +71,7 @@ spec:
   chart:
     name: gatekeeper
     namespace: gatekeeper-system
-    version: "3.13.3"
+    version: {{ dig "gatekeeper" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

@@ -67,7 +67,7 @@ spec:
   chart:
     name: falco
     namespace: falco
-    version: "3.8.4"
+    version: {{ dig "falco" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

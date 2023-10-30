@@ -32,7 +32,7 @@ spec:
   chart:
     name: capa-vpc-peering-operator
     namespace: crossplane-system
-    version: "v2023.10.18"
+    version: {{ dig "capa-vpc-peering-operator" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

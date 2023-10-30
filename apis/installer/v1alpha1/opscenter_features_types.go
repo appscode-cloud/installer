@@ -56,6 +56,11 @@ type OpscenterFeaturesSpec struct {
 
 type OpscenterHelmSpec struct {
 	Repositories map[string]*shared.HelmRepository `json:"repositories"`
+	Releases     map[string]*HelmRelease           `json:"releases"`
+}
+
+type HelmRelease struct {
+	Version string `json:"version"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

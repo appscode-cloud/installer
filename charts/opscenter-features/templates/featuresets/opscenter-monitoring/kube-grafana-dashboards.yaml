@@ -20,7 +20,7 @@ spec:
   chart:
     name: kube-grafana-dashboards
     namespace: monitoring
-    version: "v2023.10.1"
+    version: {{ dig "kube-grafana-dashboards" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

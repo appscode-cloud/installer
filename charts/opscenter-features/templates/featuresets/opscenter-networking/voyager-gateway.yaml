@@ -41,7 +41,7 @@ spec:
   chart:
     name: gateway-helm
     namespace: gateway-system
-    version: "v0.0.0-latest"
+    version: {{ dig "gateway-helm" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

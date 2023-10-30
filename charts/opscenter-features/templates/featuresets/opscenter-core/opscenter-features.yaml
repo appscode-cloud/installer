@@ -25,7 +25,7 @@ spec:
   chart:
     name: opscenter-features
     namespace: kubeops
-    version: "v2023.10.18"
+    version: {{ dig "opscenter-features" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

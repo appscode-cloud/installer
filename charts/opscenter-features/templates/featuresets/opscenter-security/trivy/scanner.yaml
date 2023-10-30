@@ -34,7 +34,7 @@ spec:
   chart:
     name: scanner
     namespace: kubeops
-    version: "v2023.10.18"
+    version: {{ dig "scanner" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

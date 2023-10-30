@@ -100,7 +100,7 @@ spec:
   chart:
     name: opencost
     namespace: opencost
-    version: "1.18.1"
+    version: {{ dig "opencost" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

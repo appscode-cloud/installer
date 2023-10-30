@@ -52,7 +52,7 @@ spec:
   chart:
     name: kubedb
     namespace: kubedb
-    version: "v2023.10.26-rc.0"
+    version: {{ dig "kubedb" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

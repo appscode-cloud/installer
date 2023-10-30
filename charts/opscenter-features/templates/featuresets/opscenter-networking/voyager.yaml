@@ -31,7 +31,7 @@ spec:
   chart:
     name: voyager
     namespace: voyager
-    version: "v2023.9.18"
+    version: {{ dig "voyager" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci
