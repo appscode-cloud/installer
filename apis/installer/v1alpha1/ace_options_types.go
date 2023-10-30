@@ -73,13 +73,18 @@ type RegistrySpec struct {
 	//+optional
 	Image shared.ImageRegistrySpec `json:"image"`
 	//+optional
-	Credentials shared.RepositoryCredential `json:"credentials"`
+	Credentials RepositoryCredential `json:"credentials"`
 	//+optional
 	Helm HelmOptions `json:"helm"`
 	//+optional
 	AllowNondistributableArtifacts bool `json:"allowNondistributableArtifacts"`
 	//+optional
 	Insecure bool `json:"insecure"`
+}
+
+type RepositoryCredential struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
 }
 
 type HelmOptions struct {

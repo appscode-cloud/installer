@@ -1015,8 +1015,14 @@ properties:
       allowNondistributableArtifacts:
         type: boolean
       credentials:
-        additionalProperties:
-          type: string
+        properties:
+          password:
+            type: string
+          username:
+            type: string
+        required:
+          - password
+          - username
         type: object
       helm:
         properties:
