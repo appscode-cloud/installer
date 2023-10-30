@@ -4,7 +4,6 @@
 {{ $overrides := dict "image" $.Values.image "registry" $.Values.registry "helm" dict }}
 
 {{ $helmrepos := dig "repositories" dict $.Values.helm | deepCopy }}
-{{ $_ := unset $helmrepos "stakater" }}
 {{ $_ := set $overrides.helm "repositories" $helmrepos }}
 
 {{ $vals := dig "values" dict . }}
