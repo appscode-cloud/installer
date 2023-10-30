@@ -86,28 +86,6 @@ type HelmRepositories struct {
 	AppscodeChartsLegacy string `json:"appscode-charts-legacy"`
 	//+optional
 	AppscodeChartsOci string `json:"appscode-charts-oci"`
-	//+optional
-	AwsEbsCsiDriver string `json:"aws-ebs-csi-driver"`
-	//+optional
-	CertManager string `json:"cert-manager"`
-	//+optional
-	ClusterAutoscaler string `json:"cluster-autoscaler"`
-	//+optional
-	Crossplane string `json:"crossplane"`
-	//+optional
-	Falcosecurity string `json:"falcosecurity"`
-	//+optional
-	FluxcdCommunity string `json:"fluxcd-community"`
-	//+optional
-	Gatekeeper string `json:"gatekeeper"`
-	//+optional
-	Kedacore string `json:"kedacore"`
-	//+optional
-	Nats string `json:"nats"`
-	//+optional
-	PrometheusCommunity string `json:"prometheus-community"`
-	//+optional
-	Stakater string `json:"stakater"`
 }
 
 type AceOptionsComponentSpec struct {
