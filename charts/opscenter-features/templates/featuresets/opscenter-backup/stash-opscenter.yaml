@@ -41,7 +41,7 @@ spec:
   chart:
     name: stash-opscenter
     namespace: stash
-    version: "v2023.10.9"
+    version: {{ dig "stash-opscenter" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

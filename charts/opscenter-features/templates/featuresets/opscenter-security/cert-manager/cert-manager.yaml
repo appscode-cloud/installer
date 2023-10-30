@@ -45,7 +45,7 @@ spec:
   chart:
     name: cert-manager
     namespace: cert-manager
-    version: "v1.11.0"
+    version: {{ dig "cert-manager" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

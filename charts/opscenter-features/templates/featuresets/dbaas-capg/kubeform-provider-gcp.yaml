@@ -35,7 +35,7 @@ spec:
   chart:
     name: kubeform-provider-gcp
     namespace: crossplane-system
-    version: "v2023.06.27"
+    version: {{ dig "kubeform-provider-gcp" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

@@ -20,7 +20,7 @@ spec:
   chart:
     name: kubestash-presets
     namespace: kubestash
-    version: "v2023.10.18"
+    version: {{ dig "kubestash-presets" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

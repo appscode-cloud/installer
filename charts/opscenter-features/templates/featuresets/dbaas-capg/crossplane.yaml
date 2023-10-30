@@ -35,7 +35,7 @@ spec:
   chart:
     name: crossplane
     namespace: crossplane-system
-    version: "1.13.2"
+    version: {{ dig "crossplane" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

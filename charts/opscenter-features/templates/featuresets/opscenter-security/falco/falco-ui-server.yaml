@@ -34,7 +34,7 @@ spec:
   chart:
     name: falco-ui-server
     namespace: falco
-    version: "v2023.10.1"
+    version: {{ dig "falco-ui-server" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

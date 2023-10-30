@@ -33,7 +33,7 @@ spec:
   chart:
     name: monitoring-operator
     namespace: monitoring
-    version: "v0.0.3"
+    version: {{ dig "monitoring-operator" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci
