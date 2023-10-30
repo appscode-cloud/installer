@@ -70,15 +70,21 @@ type AceOptionsSpec struct {
 }
 
 type RegistrySpec struct {
-	shared.ImageRegistrySpec `json:",inline,omitempty"`
 	//+optional
-	Repositories HelmRepositories `json:"repositories"`
+	Image shared.ImageRegistrySpec `json:"image"`
+	//+optional
+	Credentials shared.RepositoryCredential `json:"credentials"`
+	//+optional
+	Helm HelmOptions `json:"helm"`
 	//+optional
 	AllowNondistributableArtifacts bool `json:"allowNondistributableArtifacts"`
 	//+optional
 	Insecure bool `json:"insecure"`
+}
+
+type HelmOptions struct {
 	//+optional
-	ImagePullSecrets []string `json:"imagePullSecrets"`
+	Repositories HelmRepositories `json:"repositories"`
 }
 
 type HelmRepositories struct {
