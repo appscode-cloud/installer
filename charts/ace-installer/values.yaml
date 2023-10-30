@@ -91,7 +91,7 @@ helm:
       version: "v1.0.24"
     kube-prometheus-stack:
       enabled: true
-      version: ""
+      version: "52.1.0"
     opscenter-features:
       enabled: true
       version: "v2023.10.18"
