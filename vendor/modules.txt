@@ -556,7 +556,7 @@ k8s.io/utils/internal/third_party/forked/golang/net
 k8s.io/utils/net
 k8s.io/utils/pointer
 k8s.io/utils/strings/slices
-# kmodules.xyz/client-go v0.25.39
+# kmodules.xyz/client-go v0.25.40
 ## explicit; go 1.18
 kmodules.xyz/client-go
 kmodules.xyz/client-go/api/v1
@@ -569,7 +569,7 @@ kmodules.xyz/go-containerregistry/name
 # kmodules.xyz/objectstore-api v0.25.1
 ## explicit; go 1.18
 kmodules.xyz/objectstore-api/api/v1
-# kmodules.xyz/resource-metadata v0.17.33
+# kmodules.xyz/resource-metadata v0.17.36
 ## explicit; go 1.18
 kmodules.xyz/resource-metadata/apis/shared
 # kmodules.xyz/schema-checker v0.4.1
