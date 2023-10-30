@@ -1028,8 +1028,6 @@ properties:
         properties:
           repositories:
             properties:
-              appscode-charts-legacy:
-                type: string
               appscode-charts-oci:
                 type: string
             type: object

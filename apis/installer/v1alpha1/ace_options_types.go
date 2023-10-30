@@ -94,8 +94,6 @@ type HelmOptions struct {
 
 type HelmRepositories struct {
 	//+optional
-	AppscodeChartsLegacy string `json:"appscode-charts-legacy"`
-	//+optional
 	AppscodeChartsOci string `json:"appscode-charts-oci"`
 }
 
