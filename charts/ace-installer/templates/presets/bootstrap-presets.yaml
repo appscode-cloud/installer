@@ -1,7 +1,6 @@
 {{ $vals := dict "image" $.Values.image "registry" $.Values.registry "helm" dict }}
 
 {{ $helmrepos := dig "repositories" dict $.Values.helm | deepCopy }}
-{{ $_ := unset $helmrepos "stakater" }}
 {{ $_ := set $vals.helm "repositories" $helmrepos }}
 
 {{ $helmreleases := printf `
