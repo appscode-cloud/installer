@@ -38,8 +38,9 @@ registry:
 
 helm:
   repositories:
+    # oci://harbor.appscode.ninja/ac/appscode-charts
     appscode-charts-oci:
-      url: oci://r.appscode.com/charts
+      url: oci://ghcr.io/appscode-charts
 
   releases:
     ace:
