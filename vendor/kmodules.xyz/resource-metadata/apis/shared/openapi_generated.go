@@ -650,7 +650,6 @@ func schema_kmodulesxyz_resource_metadata_apis_shared_RegistryInfo(ref common.Re
 						},
 					},
 				},
-				Required: []string{"credentials"},
 			},
 		},
 	}

@@ -23,9 +23,9 @@ spec:
   provider: {{ . }}
   {{- end }}
 
-  {{- with $cfg.secretName }}
+  {{- if $.Values.registry.credentials }}
   secretRef:
-    name: {{ include "ace-installer.fullname" $ }}-{{ . }}
+    name: {{ include "ace-installer.fullname" $ }}-helmcred
   {{- end }}
 ---
 {{- end }}

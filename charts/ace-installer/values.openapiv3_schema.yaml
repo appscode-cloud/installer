@@ -79,8 +79,6 @@ properties:
         additionalProperties:
           type: string
         type: object
-    required:
-    - credentials
     type: object
 required:
 - fullnameOverride

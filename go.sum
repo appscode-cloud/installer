@@ -370,8 +370,8 @@ kmodules.xyz/go-containerregistry v0.0.11 h1:eZ7dz5QvszqoedOQLyqf5lkDa+S3Bds4EHH
 kmodules.xyz/go-containerregistry v0.0.11/go.mod h1:AUdmeACbvYyX+IsbfeMpVYFQskFsnaltWeRKx0cB0J0=
 kmodules.xyz/objectstore-api v0.25.1 h1:lYQlxk+edgZYakhq+OoRBXTbHbZTGKhatGZWnKixgEQ=
 kmodules.xyz/objectstore-api v0.25.1/go.mod h1:6wBtktN7/EXyE429OTCB9nwEe+d0ADaoCtm6+IZnJso=
-kmodules.xyz/resource-metadata v0.17.36 h1:CupcJSW0UaO6RD9oHS1rxUPEIcQSjurJiz4JkFc3Tg0=
-kmodules.xyz/resource-metadata v0.17.36/go.mod h1:rZFQgchXscdXQTpsj0WWSzne7VRmvoIfvuFLaBANP6w=
+kmodules.xyz/resource-metadata v0.17.38-0.20231030042824-783c2e28e36e h1:Q+DMytawBc7HtKhYM+fqtPT2n1HGhpiNJj59hmBi4aU=
+kmodules.xyz/resource-metadata v0.17.38-0.20231030042824-783c2e28e36e/go.mod h1:rZFQgchXscdXQTpsj0WWSzne7VRmvoIfvuFLaBANP6w=
 kmodules.xyz/schema-checker v0.4.1 h1:V5UEjR6UMAXf307lTgw+9rDRfHLTNA8g/q9DngqYI9M=
 kmodules.xyz/schema-checker v0.4.1/go.mod h1:BRXLB3Osuc9raHRJxHOgZFGecZ2aZumLXCHAOa5NPdA=
 kubeops.dev/external-dns-operator v0.0.6 h1:ZvSn6hdcnTpB5AxNFjH5u6VUqnyaBHXT+6x/Gy6Rokc=

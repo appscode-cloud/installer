@@ -33,12 +33,8 @@ image:
 
 registry:
   credentials: {}
-    # dockerhub:
-    #   username: "abc"
-    #   password: "xyz"
-    # ghcr:
-    #   username: "gh_abc"
-    #   password: "gh_xyz"
+  #   username: "abc"
+  #   password: "xyz"
 
 helm:
   repositories:

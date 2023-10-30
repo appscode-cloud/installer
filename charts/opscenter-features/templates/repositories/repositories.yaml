@@ -19,9 +19,9 @@ spec:
   provider: {{ . }}
   {{- end }}
 
-  {{- with $cfg.secretName }}
+  {{- if $.Values.registry.credentials }}
   secretRef:
-    name: {{ include "opscenter-features.fullname" $ }}-{{ . }}
+    name: {{ include "opscenter-features.fullname" $ }}-helmcred
   {{- end }}
 ---
 {{- end }}
