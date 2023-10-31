@@ -309,6 +309,10 @@ settings:
     ##
     serviceEnableNotifyMail: true
 
+    ## To create an account, email should belong to this domain list
+    ##
+    serviceDomainWhiteList: []
+
     cookieName: i_like_bytebuilders
 
     ## Landing page for non-logged users, can be "home" or "explore"

@@ -438,29 +438,30 @@ type NatsSettings struct {
 }
 
 type PlatformSettings struct {
-	AppName                         string  `json:"appName"`
-	RunMode                         string  `json:"runMode"`
-	ExperimentalFeatures            bool    `json:"experimentalFeatures"`
-	ForcePrivate                    bool    `json:"forcePrivate"`
-	DisableHttpGit                  bool    `json:"disableHttpGit"`
-	InstallLock                     bool    `json:"installLock"`
-	RepositoryUploadEnabled         bool    `json:"repositoryUploadEnabled"`
-	RepositoryUploadAllowedTypes    *string `json:"repositoryUploadAllowedTypes"`
-	RepositoryUploadMaxFileSize     int     `json:"repositoryUploadMaxFileSize"`
-	RepositoryUploadMaxFiles        int     `json:"repositoryUploadMaxFiles"`
-	ServiceEnableCaptcha            bool    `json:"serviceEnableCaptcha"`
-	ServiceRegisterEmailConfirm     bool    `json:"serviceRegisterEmailConfirm"`
-	ServiceDisableRegistration      bool    `json:"serviceDisableRegistration"`
-	ServiceRequireSignInView        bool    `json:"serviceRequireSignInView"`
-	ServiceEnableNotifyMail         bool    `json:"serviceEnableNotifyMail"`
-	CookieName                      string  `json:"cookieName"`
-	ServerLandingPage               string  `json:"serverLandingPage"`
-	LogMode                         string  `json:"logMode"`
-	LogLevel                        string  `json:"logLevel"`
-	OtherShowFooterBranding         bool    `json:"otherShowFooterBranding"`
-	OtherShowFooterVersion          bool    `json:"otherShowFooterVersion"`
-	OtherShowFooterTemplateLoadTime bool    `json:"otherShowFooterTemplateLoadTime"`
-	EnableCSRFCookieHttpOnly        bool    `json:"enableCSRFCookieHttpOnly"`
+	AppName                         string   `json:"appName"`
+	RunMode                         string   `json:"runMode"`
+	ExperimentalFeatures            bool     `json:"experimentalFeatures"`
+	ForcePrivate                    bool     `json:"forcePrivate"`
+	DisableHttpGit                  bool     `json:"disableHttpGit"`
+	InstallLock                     bool     `json:"installLock"`
+	RepositoryUploadEnabled         bool     `json:"repositoryUploadEnabled"`
+	RepositoryUploadAllowedTypes    *string  `json:"repositoryUploadAllowedTypes"`
+	RepositoryUploadMaxFileSize     int      `json:"repositoryUploadMaxFileSize"`
+	RepositoryUploadMaxFiles        int      `json:"repositoryUploadMaxFiles"`
+	ServiceEnableCaptcha            bool     `json:"serviceEnableCaptcha"`
+	ServiceRegisterEmailConfirm     bool     `json:"serviceRegisterEmailConfirm"`
+	ServiceDisableRegistration      bool     `json:"serviceDisableRegistration"`
+	ServiceRequireSignInView        bool     `json:"serviceRequireSignInView"`
+	ServiceEnableNotifyMail         bool     `json:"serviceEnableNotifyMail"`
+	ServiceDomainWhiteList          []string `json:"serviceDomainWhiteList"`
+	CookieName                      string   `json:"cookieName"`
+	ServerLandingPage               string   `json:"serverLandingPage"`
+	LogMode                         string   `json:"logMode"`
+	LogLevel                        string   `json:"logLevel"`
+	OtherShowFooterBranding         bool     `json:"otherShowFooterBranding"`
+	OtherShowFooterVersion          bool     `json:"otherShowFooterVersion"`
+	OtherShowFooterTemplateLoadTime bool     `json:"otherShowFooterTemplateLoadTime"`
+	EnableCSRFCookieHttpOnly        bool     `json:"enableCSRFCookieHttpOnly"`
 }
 
 type StripeSettings struct {

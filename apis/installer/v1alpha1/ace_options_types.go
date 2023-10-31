@@ -187,9 +187,10 @@ type AceOptionsInfraKms struct {
 }
 
 type AceOptionsSettings struct {
-	DB    AceOptionsDBSettings    `json:"db"`
-	Cache AceOptionsCacheSettings `json:"cache"`
-	SMTP  AceOptionsSMTPSettings  `json:"smtp"`
+	DB              AceOptionsDBSettings    `json:"db"`
+	Cache           AceOptionsCacheSettings `json:"cache"`
+	SMTP            AceOptionsSMTPSettings  `json:"smtp"`
+	DomainWhiteList []string                `json:"domainWhiteList"`
 }
 
 type AceOptionsDBSettings struct {

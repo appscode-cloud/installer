@@ -1163,6 +1163,10 @@ properties:
           - persistence
           - resources
         type: object
+      domainWhiteList:
+        items:
+          type: string
+        type: array
       smtp:
         properties:
           enabled:
@@ -1192,6 +1196,7 @@ properties:
     required:
       - cache
       - db
+      - domainWhiteList
       - smtp
     type: object
   smtprelay:
