@@ -82,8 +82,6 @@ properties:
           quay:
             type: string
         type: object
-      registryFQDN:
-        type: string
     type: object
   nameOverride:
     type: string

@@ -7,7 +7,7 @@ require (
 	k8s.io/api v0.25.3
 	k8s.io/apimachinery v0.25.4
 	kmodules.xyz/objectstore-api v0.25.1
-	kmodules.xyz/resource-metadata v0.17.38
+	kmodules.xyz/resource-metadata v0.17.39-0.20231031004100-20003b3c15a8
 	kmodules.xyz/schema-checker v0.4.1
 	kubeops.dev/external-dns-operator v0.0.6
 	stash.appscode.dev/apimachinery v0.32.0
