@@ -54,52 +54,52 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 Registry Proxy Templates
 */}}
 {{- define "registry.dockerHub" -}}
-{{ prepend (list ._repo) (list .Values.image.proxies.dockerHub .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{ .Values.image.proxies.dockerHub }}
 {{- end }}
 
 {{- define "registry.dockerLibrary" -}}
-{{ prepend (list ._repo) (list .Values.image.proxies.dockerLibrary .Values.image.proxies.dockerHub .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{ default .Values.image.proxies.dockerHub .Values.image.proxies.dockerLibrary }}
 {{- end }}
 
 {{- define "registry.ghcr" -}}
-{{ prepend (list ._repo) (list .Values.image.proxies.ghcr .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{ .Values.image.proxies.ghcr }}
 {{- end }}
 
 {{- define "registry.quay" -}}
-{{ prepend (list ._repo) (list .Values.image.proxies.quay .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{ .Values.image.proxies.quay }}
 {{- end }}
 
 {{- define "registry.kubernetes" -}}
-{{ prepend (list ._repo) (list .Values.image.proxies.kubernetes .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{ .Values.image.proxies.kubernetes }}
 {{- end }}
 
 {{- define "registry.appscode" -}}
-{{ prepend (list ._repo) (list .Values.image.proxies.appscode .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{ .Values.image.proxies.appscode }}
 {{- end }}
 
 {{/*
 Image Templates
 */}}
 {{- define "image.dockerHub" -}}
-{{ prepend (list ._repo) (list .Values.image.proxies.dockerHub .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{ list .Values.image.proxies.dockerHub ._repo | compact | join "/" }}
 {{- end }}
 
 {{- define "image.dockerLibrary" -}}
-{{ prepend (list ._repo) (list .Values.image.proxies.dockerLibrary .Values.image.proxies.dockerHub .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{ list (default .Values.image.proxies.dockerHub .Values.image.proxies.dockerLibrary) ._repo | compact | join "/" }}
 {{- end }}
 
 {{- define "image.ghcr" -}}
-{{ prepend (list ._repo) (list .Values.image.proxies.ghcr .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{ list .Values.image.proxies.ghcr ._repo | compact | join "/" }}
 {{- end }}
 
 {{- define "image.quay" -}}
-{{ prepend (list ._repo) (list .Values.image.proxies.quay .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{ list .Values.image.proxies.quay ._repo | compact | join "/" }}
 {{- end }}
 
 {{- define "image.kubernetes" -}}
-{{ prepend (list ._repo) (list .Values.image.proxies.kubernetes .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{ list .Values.image.proxies.kubernetes ._repo | compact | join "/" }}
 {{- end }}
 
 {{- define "image.appscode" -}}
-{{ prepend (list ._repo) (list .Values.image.proxies.appscode .Values.image.registryFQDN | compact | first) | compact | join "/" }}
+{{ list .Values.image.proxies.appscode ._repo | compact | join "/" }}
 {{- end }}

@@ -6,7 +6,6 @@ nameOverride: ""
 fullnameOverride: ""
 
 image:
-  registryFQDN: ""
   proxies:
     # r.appscode.com
     appscode: r.appscode.com
@@ -22,7 +21,6 @@ image:
     kubernetes: registry.k8s.io
 
 # image:
-#   registryFQDN: harbor.appscode.ninja
 #   proxies:
 #     dockerHub: harbor.appscode.ninja/dockerhub
 #     dockerLibrary: ""

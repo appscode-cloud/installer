@@ -1055,8 +1055,6 @@ properties:
                 description: quay.io
                 type: string
             type: object
-          registryFQDN:
-            type: string
         type: object
       insecure:
         type: boolean
