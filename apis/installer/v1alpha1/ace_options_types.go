@@ -242,6 +242,8 @@ type AceDeploymentContext struct {
 	RequesterUsername    string         `json:"requesterUsername,omitempty"`
 	ProxyServiceDomain   string         `json:"proxyServiceDomain,omitempty"`
 	Token                string         `json:"token,omitempty"`
+	// +optional
+	OfflineInstaller bool `json:"offlineInstaller"`
 	// WARNING!!! Update docs in schema/ace-options/patch.yaml
 	// +optional
 	ClusterID string `json:"clusterID"`
