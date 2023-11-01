@@ -1,0 +1,40 @@
+{{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: cert-manager-csi-driver-cacerts
+  labels:
+    ace.appscode.com/feature-set: opscenter-security
+spec:
+  title: Cert Manager
+  description: |
+    CSI Driver to mount ca-certs issued by cert-manager
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-security
+  featureBlock: cert-manager
+  recommended: false
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: DaemonSet
+        selector:
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: cert-manager-csi-driver-cacerts
+  chart:
+    name: cert-manager-csi-driver-cacerts
+    namespace: cert-manager
+    version: {{ dig "cert-manager-csi-driver-cacerts" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
