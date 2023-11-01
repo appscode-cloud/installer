@@ -11,6 +11,8 @@ kind: HelmRelease
 metadata:
   name: kube-ui-server
   namespace: {{ $.Release.Namespace }}
+  labels:
+    ace.appscode.com/feature: kube-ui-server
 spec:
   interval: 5m
   timeout: 30m

@@ -11,6 +11,8 @@ kind: HelmRelease
 metadata:
   name: panopticon
   namespace: {{ $.Release.Namespace }}
+  labels:
+    ace.appscode.com/feature: panopticon
 spec:
   interval: 5m
   timeout: 30m
