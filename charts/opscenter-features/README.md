@@ -80,10 +80,10 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kube-ui-server.version                |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.kubedb.version                        |                         | <code>"v2023.10.26-rc.0"</code>            |
 | helm.releases.kubedb-opscenter.version              |                         | <code>"v2023.10.26-rc.0"</code>            |
-| helm.releases.kubeform-provider-aws.version         |                         | <code>"v2023.06.27"</code>                 |
-| helm.releases.kubeform-provider-azure.version       |                         | <code>"v2023.06.27"</code>                 |
-| helm.releases.kubeform-provider-gcp.version         |                         | <code>"v2023.06.27"</code>                 |
-| helm.releases.kubestash.version                     |                         | <code>"v2023.04.14"</code>                 |
+| helm.releases.kubeform-provider-aws.version         |                         | <code>"v2023.11.1"</code>                  |
+| helm.releases.kubeform-provider-azure.version       |                         | <code>"v2023.11.1"</code>                  |
+| helm.releases.kubeform-provider-gcp.version         |                         | <code>"v2023.11.1"</code>                  |
+| helm.releases.kubestash.version                     |                         | <code>"v2023.10.30-rc.0"</code>            |
 | helm.releases.kubestash-presets.version             |                         | <code>"v2023.10.18"</code>                 |
 | helm.releases.kubevault.version                     |                         | <code>"v2023.10.26-rc.0"</code>            |
 | helm.releases.kubevault-opscenter.version           |                         | <code>"v2023.10.26-rc.0"</code>            |
