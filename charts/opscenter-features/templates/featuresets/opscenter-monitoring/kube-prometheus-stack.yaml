@@ -9,6 +9,10 @@ alertmanager:
 
 {{ $prometheusOperator := printf `
 prometheusOperator:
+  admissionWebhooks:
+    patch:
+      image:
+        registry: %s
   image:
     registry: %s
   prometheusConfigReloader:
@@ -17,6 +21,7 @@ prometheusOperator:
   thanosImage:
     registry: %s
 `
+  (include "registry.kubernetes" $)
   (include "registry.quay" $)
   (include "registry.quay" $)
   (include "registry.quay" $)
@@ -25,6 +30,13 @@ prometheusOperator:
 {{ $prometheus := printf `
 prometheus:
   prometheusSpec:
+    image:
+      registry: %s
+` (include "registry.quay" $) | fromYaml }}
+
+{{ $thanosRuler := printf `
+thanosRuler:
+  thanosRulerSpec:
     image:
       registry: %s
 ` (include "registry.quay" $) | fromYaml }}
@@ -44,35 +56,34 @@ prometheus-node-exporter:
 # https://github.com/grafana/helm-charts/blob/main/charts/grafana/README.md
 {{ $grafana := printf `
 grafana:
-  # docker
+  # docker.io
   image:
-    registry: %s
+    repository: %s
   initChownData:
     image:
-      registry: %s
+      repository: %s
   testFramework:
-    image:
-      registry: %s
+    image: %s
   downloadDashboardsImage:
-    registry: %s
+    repository: %s
   imageRenderer:
     image:
-      registry: %s
+      repository: %s
   # quay.io
   sidecar:
     image:
       repository: %s
 `
-  (include "image.dockerHub" $)
-  (include "image.dockerHub" $)
-  (include "image.dockerHub" $)
-  (include "image.dockerHub" $)
-  (include "image.dockerHub" $)
+  (include "image.dockerHub" (merge (dict "_repo" "grafana/grafana") $))
+  (include "image.dockerLibrary" (merge (dict "_repo" "busybox") $))
+  (include "image.dockerHub" (merge (dict "_repo" "bats/bats") $))
+  (include "image.dockerHub" (merge (dict "_repo" "curlimages/curl") $))
+  (include "image.dockerHub" (merge (dict "_repo" "grafana/grafana-image-renderer") $))
   (include "image.quay" (merge (dict "_repo" "kiwigrid/k8s-sidecar") $))
   | fromYaml }}
 
 {{ $vals := dict }}
-{{ $vals = mergeOverwrite $vals $alertmanager $prometheusOperator $prometheus $ksm $node $grafana }}
+{{ $vals = mergeOverwrite $vals $alertmanager $prometheusOperator $prometheus $thanosRuler $ksm $node $grafana }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
