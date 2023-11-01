@@ -49,6 +49,7 @@ The following table lists the configurable parameters of the `opscenter-features
 |-----------------------------------------------------|-------------------------|--------------------------------------------|
 | nameOverride                                        |                         | <code>""</code>                            |
 | fullnameOverride                                    |                         | <code>""</code>                            |
+| offlineInstaller                                    |                         | <code>false</code>                         |
 | image.proxies.appscode                              | r.appscode.com          | <code>r.appscode.com</code>                |
 | image.proxies.dockerHub                             | company/bin:tag         | <code>""</code>                            |
 | image.proxies.dockerLibrary                         | alpine, nginx etc.      | <code>""</code>                            |

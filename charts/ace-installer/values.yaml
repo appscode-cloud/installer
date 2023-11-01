@@ -5,6 +5,8 @@
 nameOverride: ""
 fullnameOverride: ""
 
+offlineInstaller: false
+
 image:
   proxies:
     # r.appscode.com
