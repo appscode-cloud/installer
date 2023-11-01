@@ -4,8 +4,20 @@ properties:
       clusterID:
         description: |
           ClusterID is used to uniquely identify a Kubernetes cluster.
-          To find out, run:
+
+          If you have an existing cluster, run:
           ```sh
+          kubectl get ns kube-system -o=jsonpath='{.metadata.uid}'
+          ```
+
+          To create a new cluster, get a Ubuntu 22.04 server with **16 GB ram**, **4+ cpus** & routable IP.
+
+          ```sh
+          # Create k3s cluster
+          curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--disable=traefik" sh -
+
+          export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+
           kubectl get ns kube-system -o=jsonpath='{.metadata.uid}'
           ```
   infra:
