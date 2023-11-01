@@ -88,13 +88,13 @@ helm:
     kubedb-opscenter:
       version: "v2023.10.26-rc.0"
     kubeform-provider-aws:
-      version: "v2023.06.27"
+      version: "v2023.11.1"
     kubeform-provider-azure:
-      version: "v2023.06.27"
+      version: "v2023.11.1"
     kubeform-provider-gcp:
-      version: "v2023.06.27"
+      version: "v2023.11.1"
     kubestash:
-      version: "v2023.04.14"
+      version: "v2023.10.30-rc.0"
     kubestash-presets:
       version: "v2023.10.18"
     kubevault:
