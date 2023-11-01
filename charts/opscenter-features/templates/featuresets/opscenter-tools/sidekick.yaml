@@ -6,18 +6,18 @@
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: supervisor
+  name: sidekick
   labels:
-    ace.appscode.com/feature-set: opscenter-core
+    ace.appscode.com/feature-set: opscenter-tools
 spec:
-  title: Supervisor
+  title: Sidekick
   description: |
-    Manages day 2 lifecycle such as upgrade recommendation, cluster maintenance window etc.
+    Like sidecar but a pod
   icons:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
-  featureSet: opscenter-core
-  featureBlock: supervisor
+  featureSet: opscenter-tools
+  featureBlock: sidekick
   recommended: false
   readinessChecks:
     workloads:
@@ -26,11 +26,11 @@ spec:
         kind: Deployment
         selector:
           app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: supervisor
+          app.kubernetes.io/name: sidekick
   chart:
-    name: supervisor
+    name: sidekick
     namespace: kubeops
-    version: {{ dig "supervisor" "version" "" $.Values.helm.releases }}
+    version: {{ dig "sidekick" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci
