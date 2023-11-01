@@ -94,6 +94,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.opscenter-features.version            |                         | <code>"v2023.10.18"</code>                 |
 | helm.releases.panopticon.version                    |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.scanner.version                       |                         | <code>"v2023.10.18"</code>                 |
+| helm.releases.sidekick.version                      |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.stash.version                         |                         | <code>"v2023.10.9"</code>                  |
 | helm.releases.stash-opscenter.version               |                         | <code>"v2023.10.9"</code>                  |
 | helm.releases.stash-presets.version                 |                         | <code>"v2023.10.18"</code>                 |
