@@ -569,7 +569,7 @@ kmodules.xyz/go-containerregistry/name
 # kmodules.xyz/objectstore-api v0.25.1
 ## explicit; go 1.18
 kmodules.xyz/objectstore-api/api/v1
-# kmodules.xyz/resource-metadata v0.17.39-0.20231031004100-20003b3c15a8
+# kmodules.xyz/resource-metadata v0.17.39-0.20231101070123-9cfd0519c7f9
 ## explicit; go 1.18
 kmodules.xyz/resource-metadata/apis/shared
 # kmodules.xyz/schema-checker v0.4.1

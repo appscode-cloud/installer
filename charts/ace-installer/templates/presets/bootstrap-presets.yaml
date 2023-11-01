@@ -1,4 +1,4 @@
-{{ $vals := dict "image" $.Values.image "registry" $.Values.registry "helm" dict }}
+{{ $vals := dict "offlineInstaller" $.Values.offlineInstaller "image" $.Values.image "registry" $.Values.registry "helm" dict }}
 
 {{ $helmrepos := dig "repositories" dict $.Values.helm | deepCopy }}
 {{ $_ := set $vals.helm "repositories" $helmrepos }}

@@ -18,7 +18,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-core
   featureBlock: license-proxyserver
-  recommended: true
+  recommended: {{ not $.Values.offlineInstaller }}
   readinessChecks:
     workloads:
     - group: apps

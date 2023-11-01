@@ -47,11 +47,13 @@ type OpscenterFeaturesSpec struct {
 	NameOverride     string `json:"nameOverride"`
 	FullnameOverride string `json:"fullnameOverride"`
 
-	Image           shared.ImageRegistrySpec `json:"image"`
-	Helm            OpscenterHelmSpec        `json:"helm"`
-	Registry        shared.RegistryInfo      `json:"registry"`
-	ClusterManagers []string                 `json:"clusterManagers"`
-	CAPI            CapiPresetsSpec          `json:"capi"`
+	// +optional
+	OfflineInstaller bool                     `json:"offlineInstaller"`
+	Image            shared.ImageRegistrySpec `json:"image"`
+	Helm             OpscenterHelmSpec        `json:"helm"`
+	Registry         shared.RegistryInfo      `json:"registry"`
+	ClusterManagers  []string                 `json:"clusterManagers"`
+	CAPI             CapiPresetsSpec          `json:"capi"`
 }
 
 type OpscenterHelmSpec struct {
