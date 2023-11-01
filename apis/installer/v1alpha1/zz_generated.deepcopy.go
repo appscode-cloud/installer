@@ -268,6 +268,13 @@ func (in *AceDeploymentContext) DeepCopyInto(out *AceDeploymentContext) {
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
+	if in.Licenses != nil {
+		in, out := &in.Licenses, &out.Licenses
+		*out = make(map[string]string, len(*in))
+		for key, val := range *in {
+			(*out)[key] = val
+		}
+	}
 	out.Admin = in.Admin
 }
 

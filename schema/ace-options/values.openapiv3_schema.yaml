@@ -144,8 +144,10 @@ properties:
         type: string
       hostedDomain:
         type: string
-      license:
-        type: string
+      licenses:
+        additionalProperties:
+          type: string
+        type: object
       offlineInstaller:
         type: boolean
       proxyServiceDomain:
