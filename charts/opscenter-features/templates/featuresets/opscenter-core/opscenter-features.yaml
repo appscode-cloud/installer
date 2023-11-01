@@ -14,14 +14,14 @@ spec:
   featureSet: opscenter-core
   featureBlock: opscenter-features
   recommended: false
-  readinessChecks:
-    workloads:
-    - group: helm.toolkit.fluxcd.io
-      version: v2beta1
-      kind: HelmRelease
-      selector:
-        app.kubernetes.io/managed-by: Helm
-        ace.appscode.com/feature: opscenter-features
+  # readinessChecks:
+  #   workloads:
+  #   - group: helm.toolkit.fluxcd.io
+  #     version: v2beta1
+  #     kind: HelmRelease
+  #     selector:
+  #       app.kubernetes.io/managed-by: Helm
+  #       ace.appscode.com/feature: opscenter-features
   chart:
     name: opscenter-features
     namespace: kubeops
