@@ -11,6 +11,8 @@ kind: HelmRelease
 metadata:
   name: external-dns-operator
   namespace: {{ $.Release.Namespace }}
+  labels:
+    ace.appscode.com/feature: external-dns-operator
 spec:
   interval: 5m
   timeout: 30m

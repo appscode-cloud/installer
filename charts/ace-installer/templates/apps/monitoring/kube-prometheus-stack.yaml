@@ -91,6 +91,8 @@ kind: HelmRelease
 metadata:
   name: kube-prometheus-stack
   namespace: {{ $.Release.Namespace }}
+  labels:
+    ace.appscode.com/feature: kube-prometheus-stack
 spec:
   interval: 5m
   timeout: 30m

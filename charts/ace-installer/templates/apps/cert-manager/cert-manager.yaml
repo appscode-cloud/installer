@@ -24,6 +24,8 @@ kind: HelmRelease
 metadata:
   name: cert-manager
   namespace: {{ $.Release.Namespace }}
+  labels:
+    ace.appscode.com/feature: cert-manager
 spec:
   interval: 5m
   timeout: 30m

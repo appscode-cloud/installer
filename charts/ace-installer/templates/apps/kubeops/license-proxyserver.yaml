@@ -11,6 +11,8 @@ kind: HelmRelease
 metadata:
   name: license-proxyserver
   namespace: {{ $.Release.Namespace }}
+  labels:
+    ace.appscode.com/feature: license-proxyserver
 spec:
   interval: 5m
   timeout: 30m

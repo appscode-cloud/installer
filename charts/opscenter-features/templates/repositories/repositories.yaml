@@ -4,6 +4,8 @@ kind: HelmRepository
 metadata:
   name: {{ $name }}
   namespace: {{ $.Release.Namespace }}
+  labels:
+    kubernetes.io/metadata.name: {{ $name }}
 spec:
   {{- with $cfg.url }}
   url: {{ . }}
