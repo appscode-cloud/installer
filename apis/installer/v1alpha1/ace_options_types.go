@@ -248,8 +248,8 @@ type AceDeploymentContext struct {
 	// +optional
 	ClusterID string `json:"clusterID"`
 	// +optional
-	PublicIPs []string `json:"publicIPs"`
-	License   string   `json:"license,omitempty"`
+	PublicIPs []string          `json:"publicIPs"`
+	Licenses  map[string]string `json:"licenses,omitempty"`
 	// +optional
 	Admin AcePlatformAdmin `json:"admin"`
 }
