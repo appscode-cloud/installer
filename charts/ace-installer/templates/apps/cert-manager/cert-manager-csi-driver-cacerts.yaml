@@ -11,6 +11,8 @@ kind: HelmRelease
 metadata:
   name: cert-manager-csi-driver-cacerts
   namespace: {{ $.Release.Namespace }}
+  labels:
+    ace.appscode.com/feature: cert-manager-csi-driver-cacerts
 spec:
   interval: 5m
   timeout: 30m
