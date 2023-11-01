@@ -71,6 +71,8 @@ properties:
     type: object
   nameOverride:
     type: string
+  offlineInstaller:
+    type: boolean
   registry:
     properties:
       credentials:
