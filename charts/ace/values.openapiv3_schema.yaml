@@ -14261,6 +14261,10 @@ properties:
             type: string
           serviceDisableRegistration:
             type: boolean
+          serviceDomainWhiteList:
+            items:
+              type: string
+            type: array
           serviceEnableCaptcha:
             type: boolean
           serviceEnableNotifyMail:
@@ -14289,6 +14293,7 @@ properties:
         - runMode
         - serverLandingPage
         - serviceDisableRegistration
+        - serviceDomainWhiteList
         - serviceEnableCaptcha
         - serviceEnableNotifyMail
         - serviceRegisterEmailConfirm
