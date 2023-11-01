@@ -146,6 +146,8 @@ properties:
         type: string
       license:
         type: string
+      offlineInstaller:
+        type: boolean
       proxyServiceDomain:
         type: string
       publicIPs:
