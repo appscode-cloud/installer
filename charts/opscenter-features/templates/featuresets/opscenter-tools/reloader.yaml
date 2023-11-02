@@ -1,0 +1,45 @@
+{{ $overridesVal := printf `
+reloader:
+  deployment:
+    image:
+      name: %s
+` (include "image.ghcr" (merge (dict "_repo" "stakater/reloader") $)) | fromYaml }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overridesVal }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: reloader
+  labels:
+    ace.appscode.com/feature-set: opscenter-tools
+spec:
+  title: Reloader
+  description: |
+    K8s controller for rolling upgrades based on ConfigMap and Secret changes.
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-tools
+  featureBlock: reloader
+  recommended: false
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: reloader
+  chart:
+    name: reloader
+    namespace: kubeops
+    version: {{ dig "reloader" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
