@@ -25,8 +25,8 @@ spec:
       version: v1
       kind: Deployment
       selector:
-        app: reloader-reloader
         app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: license-proxyserver
   chart:
     name: license-proxyserver
     namespace: kubeops

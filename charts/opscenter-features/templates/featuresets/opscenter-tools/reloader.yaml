@@ -30,8 +30,8 @@ spec:
         version: v1
         kind: Deployment
         selector:
+          app: reloader-reloader
           app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: reloader
   chart:
     name: reloader
     namespace: kubeops
