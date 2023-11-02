@@ -123,6 +123,8 @@ properties:
           username:
             type: string
         type: object
+      adminPassword:
+        type: string
       backupPassword:
         type: string
       clusterID:
@@ -195,6 +197,10 @@ properties:
       requesterDisplayName:
         type: string
       requesterUsername:
+        type: string
+      s3AccessKeyID:
+        type: string
+      s3AccessKeySecret:
         type: string
       token:
         type: string
