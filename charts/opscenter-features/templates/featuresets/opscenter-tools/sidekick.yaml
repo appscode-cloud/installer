@@ -18,7 +18,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-tools
   featureBlock: sidekick
-  recommended: true
+  recommended: false
   readinessChecks:
     workloads:
       - group: apps
