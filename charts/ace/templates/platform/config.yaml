@@ -101,7 +101,7 @@ stringData:
     ENABLE_REVERSE_PROXY_AUTHENTICATION = false
     ENABLE_REVERSE_PROXY_AUTO_REGISTRATION = false
     NO_REPLY_ADDRESS = {{ .Values.settings.smtp.from }}
-    EMAIL_DOMAIN_WHITELIST = {{ .Values.settings.platform.serviceDomainWhiteList }}
+    EMAIL_DOMAIN_WHITELIST = {{ join "," .Values.settings.platform.serviceDomainWhiteList }}
 
     [other]
     SHOW_FOOTER_BRANDING = {{ .Values.settings.platform.otherShowFooterBranding }}
