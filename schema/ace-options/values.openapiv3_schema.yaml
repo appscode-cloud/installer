@@ -123,6 +123,8 @@ properties:
           username:
             type: string
         type: object
+      backupPassword:
+        type: string
       clusterID:
         description: 'ClusterID is used to uniquely identify a Kubernetes cluster.
 
@@ -156,6 +158,8 @@ properties:
 
           '
         type: string
+      csrfSecretKey:
+        type: string
       deploymentType:
         enum:
           - Hosted
@@ -168,14 +172,24 @@ properties:
         additionalProperties:
           type: string
         type: object
+      nats:
+        additionalProperties:
+          type: string
+        type: object
+      oauth2JWTSecret:
+        type: string
       offlineInstaller:
         type: boolean
+      postgresPassword:
+        type: string
       proxyServiceDomain:
         type: string
       publicIPs:
         items:
           type: string
         type: array
+      redisPassword:
+        type: string
       requestedDomain:
         type: string
       requesterDisplayName:
