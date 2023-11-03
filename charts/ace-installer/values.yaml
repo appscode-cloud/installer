@@ -108,7 +108,7 @@ helm:
               release: kube-prometheus-stack
     reloader:
       enabled: true
-      version: "v1.0.24"
+      version: "v1.0.50"
     stash:
       enabled: true
       version: "v2023.10.9"
