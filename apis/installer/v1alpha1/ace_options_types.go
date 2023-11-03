@@ -259,6 +259,8 @@ type AceDeploymentContext struct {
 
 type GeneratedValues struct {
 	// +optional
+	AdminPassword string `json:"adminPassword"`
+	// +optional
 	BackupPassword string `json:"backupPassword"`
 	// +optional
 	PostgresPassword string `json:"postgresPassword"`
@@ -268,6 +270,10 @@ type GeneratedValues struct {
 	Oauth2JWTSecret string `json:"oauth2JWTSecret"`
 	// +optional
 	CsrfSecretKey string `json:"csrfSecretKey"`
+	// +optional
+	S3AccessKeyID string `json:"s3AccessKeyID"`
+	// +optional
+	S3AccessKeySecret string `json:"s3AccessKeySecret"`
 	// +optional
 	Nats map[string]string `json:"nats"`
 }
