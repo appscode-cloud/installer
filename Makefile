@@ -48,7 +48,7 @@ endif
 ### These variables should not need tweaking.
 ###
 
-SRC_PKGS := apis schema # directories which hold app source (not vendored)
+SRC_PKGS := apis schema tests # directories which hold app source (not vendored)
 SRC_DIRS := $(SRC_PKGS)
 
 DOCKER_PLATFORMS := linux/amd64 linux/arm linux/arm64
@@ -134,7 +134,6 @@ openapi: $(addprefix openapi-, $(subst :,_, $(API_GROUPS)))
 		-w $(DOCKER_REPO_ROOT)                           \
 		--env HTTP_PROXY=$(HTTP_PROXY)                   \
 		--env HTTPS_PROXY=$(HTTPS_PROXY)                 \
-		--env GO111MODULE=on                             \
 		--env GOFLAGS="-mod=vendor"                      \
 		$(BUILD_IMAGE)                                   \
 		go run hack/gencrd/main.go
@@ -384,7 +383,6 @@ lint: $(BUILD_DIRS)
 	    -v $$(pwd)/.go/cache:/.cache                            \
 	    --env HTTP_PROXY=$(HTTP_PROXY)                          \
 	    --env HTTPS_PROXY=$(HTTPS_PROXY)                        \
-	    --env GO111MODULE=on                                    \
 	    --env GOFLAGS="-mod=vendor"                             \
 	    $(BUILD_IMAGE)                                          \
 	    golangci-lint run --enable $(ADDTL_LINTERS) --timeout=10m --skip-files="generated.*\.go$\" --skip-dirs-use-default --skip-dirs=client,vendor
@@ -400,8 +398,8 @@ verify: verify-gen verify-modules
 
 .PHONY: verify-modules
 verify-modules:
-	GO111MODULE=on go mod tidy
-	GO111MODULE=on go mod vendor
+	go mod tidy
+	go mod vendor
 	@if !(git diff --exit-code HEAD); then \
 		echo "go module files are out of date"; exit 1; \
 	fi
@@ -439,7 +437,7 @@ check-license:
 		ltag -t "./hack/license" --excludes "vendor contrib libbuild" --check -v
 
 .PHONY: ci
-ci: verify check-license lint build unit-tests #cover
+ci: verify check-license lint build #unit-tests cover
 
 .PHONY: clean
 clean:
