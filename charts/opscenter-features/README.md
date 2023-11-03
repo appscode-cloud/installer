@@ -100,7 +100,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.stash-opscenter.version                 |                         | <code>"v2023.10.9"</code>                  |
 | helm.releases.stash-presets.version                   |                         | <code>"v2023.10.18"</code>                 |
 | helm.releases.supervisor.version                      |                         | <code>"v2023.10.1"</code>                  |
-| helm.releases.reloader.version                        |                         | <code>"v1.0.24"</code>                     |
+| helm.releases.reloader.version                        |                         | <code>"v1.0.50"</code>                     |
 | helm.releases.voyager.version                         |                         | <code>"v2023.9.18"</code>                  |
 | clusterManagers                                       |                         | <code>[]</code>                            |
 | capi.provider                                         |                         | <code>""</code>                            |
