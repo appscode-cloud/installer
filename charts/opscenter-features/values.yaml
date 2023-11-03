@@ -128,7 +128,7 @@ helm:
     supervisor:
       version: "v2023.10.1"
     reloader:
-      version: "v1.0.50"
+      version: "1.0.50"
     voyager:
       version: "v2023.9.18"
 
