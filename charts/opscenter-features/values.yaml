@@ -71,8 +71,6 @@ helm:
       version: "v2023.10.1"
     gatekeeper-library:
       version: "v2023.10.1"
-    gateway-helm:
-      version: "v0.0.0-latest"
     grafana-operator:
       version: "v0.0.3"
     keda:
@@ -131,6 +129,8 @@ helm:
       version: "1.0.50"
     voyager:
       version: "v2023.9.18"
+    voyager-gateway:
+      version: "v0.6.0"
 
 clusterManagers: []
 

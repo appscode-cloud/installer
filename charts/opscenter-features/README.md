@@ -72,7 +72,6 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.gatekeeper.version                      |                         | <code>"3.13.3"</code>                      |
 | helm.releases.gatekeeper-grafana-dashboards.version   |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.gatekeeper-library.version              |                         | <code>"v2023.10.1"</code>                  |
-| helm.releases.gateway-helm.version                    |                         | <code>"v0.0.0-latest"</code>               |
 | helm.releases.grafana-operator.version                |                         | <code>"v0.0.3"</code>                      |
 | helm.releases.keda.version                            |                         | <code>"2.12.0"</code>                      |
 | helm.releases.keda-add-ons-http.version               |                         | <code>"0.6.0"</code>                       |
@@ -102,6 +101,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.supervisor.version                      |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.reloader.version                        |                         | <code>"1.0.50"</code>                      |
 | helm.releases.voyager.version                         |                         | <code>"v2023.9.18"</code>                  |
+| helm.releases.voyager-gateway.version                 |                         | <code>"v0.6.0"</code>                      |
 | clusterManagers                                       |                         | <code>[]</code>                            |
 | capi.provider                                         |                         | <code>""</code>                            |
 | capi.namespace                                        |                         | <code>""</code>                            |
