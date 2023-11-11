@@ -90,7 +90,6 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kubevault-opscenter.version             |                         | <code>"v2023.10.26-rc.0"</code>            |
 | helm.releases.license-proxyserver.version             |                         | <code>"v2023.10.18"</code>                 |
 | helm.releases.monitoring-operator.version             |                         | <code>"v0.0.3"</code>                      |
-| helm.releases.multicluster-controlplane.version       |                         | <code>"0.2.0"</code>                       |
 | helm.releases.opencost.version                        |                         | <code>"1.18.1"</code>                      |
 | helm.releases.opscenter-features.version              |                         | <code>"v2023.10.18"</code>                 |
 | helm.releases.panopticon.version                      |                         | <code>"v2023.10.1"</code>                  |

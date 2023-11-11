@@ -29,6 +29,7 @@ spec:
           args:
             - dev
             - --admin={{ .Values.global.platform.admin.username }}
+            - --name={{ .Values.global.platform.admin.displayName }}
             - --password=$(ADMIN_PASSWORD)
             - --email={{ .Values.global.platform.admin.email }}
             - --exports
