@@ -16,7 +16,7 @@ kubedb-autoscaler:
 kubedb-dashboard:
   enabled: true
 kubedb-schema-manager:
-  enabled: true
+  enabled: false
 kubedb-metrics:
   enabled: false
 ` | fromYaml }}

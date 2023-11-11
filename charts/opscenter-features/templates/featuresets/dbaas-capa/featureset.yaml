@@ -18,7 +18,7 @@ spec:
     - capi-cluster-presets
     - cluster-autoscaler
     - crossplane
-    - kubeform-provider-aws
+    - kubedb-provider-aws
   chart:
     name: uik8sappscodecom-featureset-dbaas-capa-editor
     version: {{ .Chart.AppVersion }}
