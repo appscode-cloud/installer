@@ -58,7 +58,7 @@ helm:
     config-syncer:
       version: "v0.14.2"
     crossplane:
-      version: "1.13.2"
+      version: "1.14.0"
     external-dns-operator:
       version: "v2023.10.1"
     falco:
@@ -86,15 +86,15 @@ helm:
     kube-ui-server:
       version: "v2023.10.1"
     kubedb:
-      version: "v2023.10.26-rc.0"
+      version: "v2023.11.2"
     kubedb-opscenter:
-      version: "v2023.10.26-rc.0"
-    kubeform-provider-aws:
-      version: "v2023.11.1"
-    kubeform-provider-azure:
-      version: "v2023.11.1"
-    kubeform-provider-gcp:
-      version: "v2023.11.1"
+      version: "v2023.11.2"
+    kubedb-provider-aws:
+      version: "v0.0.1"
+    kubedb-provider-azure:
+      version: "v0.0.1"
+    kubedb-provider-gcp:
+      version: "v0.0.1"
     kubestash:
       version: "v2023.10.30-rc.0"
     kubestash-presets:
