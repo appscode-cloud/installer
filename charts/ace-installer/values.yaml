@@ -74,7 +74,7 @@ helm:
       version: "v2023.10.1"
     kubedb:
       enabled: true
-      version: "v2023.10.26-rc.0"
+      version: "v2023.11.2"
       values: # +doc-gen:break
         kubedb-provisioner:
           enabled: true
