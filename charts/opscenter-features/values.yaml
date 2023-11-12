@@ -50,7 +50,7 @@ helm:
     capi-cluster-presets:
       version: "v2023.10.18"
     cert-manager:
-      version: "v1.11.0"
+      version: "v1.12.6"
     cert-manager-csi-driver-cacerts:
       version: "v2023.10.1"
     cluster-autoscaler:
