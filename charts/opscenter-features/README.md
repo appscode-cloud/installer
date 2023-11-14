@@ -84,7 +84,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kubedb-provider-aws.version             |                         | <code>"v0.0.1"</code>                      |
 | helm.releases.kubedb-provider-azure.version           |                         | <code>"v0.0.1"</code>                      |
 | helm.releases.kubedb-provider-gcp.version             |                         | <code>"v0.0.1"</code>                      |
-| helm.releases.kubestash.version                       |                         | <code>"v2023.11.10-rc.0"</code>            |
+| helm.releases.kubestash.version                       |                         | <code>"v2023.10.30-rc.0"</code>            |
 | helm.releases.kubestash-presets.version               |                         | <code>"v2023.11.14"</code>                 |
 | helm.releases.kubevault.version                       |                         | <code>"v2023.10.26-rc.0"</code>            |
 | helm.releases.kubevault-opscenter.version             |                         | <code>"v2023.10.26-rc.0"</code>            |
