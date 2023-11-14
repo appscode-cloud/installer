@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/opscenter-features --version=v2023.10.18
-$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2023.10.18
+$ helm search repo appscode/opscenter-features --version=v2023.11.14
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2023.11.14
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys a ByteBuilders Opscenter Configurator on a [Kubernetes](http:
 To install/upgrade the chart with the release name `opscenter-features`:
 
 ```bash
-$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2023.10.18
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2023.11.14
 ```
 
 The command deploys a ByteBuilders Opscenter Configurator on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -60,7 +60,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.repositories.appscode-charts-oci.url             |                         | <code>oci://ghcr.io/appscode-charts</code> |
 | helm.releases.aws-ebs-csi-driver.version              |                         | <code>"2.23.0"</code>                      |
 | helm.releases.capa-vpc-peering-operator.version       |                         | <code>"v2023.10.18"</code>                 |
-| helm.releases.capi-cluster-presets.version            |                         | <code>"v2023.10.18"</code>                 |
+| helm.releases.capi-cluster-presets.version            |                         | <code>"v2023.11.14"</code>                 |
 | helm.releases.cert-manager.version                    |                         | <code>"v1.12.6"</code>                     |
 | helm.releases.cert-manager-csi-driver-cacerts.version |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.cluster-autoscaler.version              |                         | <code>"9.29.0"</code>                      |
@@ -84,20 +84,20 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kubedb-provider-aws.version             |                         | <code>"v0.0.1"</code>                      |
 | helm.releases.kubedb-provider-azure.version           |                         | <code>"v0.0.1"</code>                      |
 | helm.releases.kubedb-provider-gcp.version             |                         | <code>"v0.0.1"</code>                      |
-| helm.releases.kubestash.version                       |                         | <code>"v2023.10.30-rc.0"</code>            |
-| helm.releases.kubestash-presets.version               |                         | <code>"v2023.10.18"</code>                 |
+| helm.releases.kubestash.version                       |                         | <code>"v2023.11.10-rc.0"</code>            |
+| helm.releases.kubestash-presets.version               |                         | <code>"v2023.11.14"</code>                 |
 | helm.releases.kubevault.version                       |                         | <code>"v2023.10.26-rc.0"</code>            |
 | helm.releases.kubevault-opscenter.version             |                         | <code>"v2023.10.26-rc.0"</code>            |
-| helm.releases.license-proxyserver.version             |                         | <code>"v2023.10.18"</code>                 |
+| helm.releases.license-proxyserver.version             |                         | <code>"v2023.11.14"</code>                 |
 | helm.releases.monitoring-operator.version             |                         | <code>"v0.0.3"</code>                      |
 | helm.releases.opencost.version                        |                         | <code>"1.18.1"</code>                      |
-| helm.releases.opscenter-features.version              |                         | <code>"v2023.10.18"</code>                 |
+| helm.releases.opscenter-features.version              |                         | <code>"v2023.11.14"</code>                 |
 | helm.releases.panopticon.version                      |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.scanner.version                         |                         | <code>"v2023.10.18"</code>                 |
 | helm.releases.sidekick.version                        |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.stash.version                           |                         | <code>"v2023.10.9"</code>                  |
 | helm.releases.stash-opscenter.version                 |                         | <code>"v2023.10.9"</code>                  |
-| helm.releases.stash-presets.version                   |                         | <code>"v2023.10.18"</code>                 |
+| helm.releases.stash-presets.version                   |                         | <code>"v2023.11.14"</code>                 |
 | helm.releases.supervisor.version                      |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.reloader.version                        |                         | <code>"1.0.50"</code>                      |
 | helm.releases.voyager.version                         |                         | <code>"v2023.9.18"</code>                  |
@@ -111,12 +111,12 @@ The following table lists the configurable parameters of the `opscenter-features
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2023.10.18 --set image.proxies.appscode=r.appscode.com
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2023.11.14 --set image.proxies.appscode=r.appscode.com
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2023.10.18 --values values.yaml
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2023.11.14 --values values.yaml
 ```
