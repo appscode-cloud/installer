@@ -1,6 +1,6 @@
 # Deploy UI
 
-[Deploy UI by AppsCode](https://github.com/bytebuilders) - ByteBuilders Deploy UI
+[Deploy UI by AppsCode](https://github.com/bytebuilders) - ACE Deploy UI
 
 ## TL;DR;
 

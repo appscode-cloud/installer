@@ -1,9 +1,9 @@
 project:
-  name: ByteBuilders Opscenter Configurator by AppsCode
-  shortName: ByteBuilders Opscenter Configurator
+  name: ACE Opscenter Configurator by AppsCode
+  shortName: ACE Opscenter Configurator
   url: https://github.com/bytebuilders/installer
-  description: ByteBuilders Opscenter Configurator
-  app: a ByteBuilders Opscenter Configurator
+  description: ACE Opscenter Configurator
+  app: a ACE Opscenter Configurator
 repository:
   url: https://charts.appscode.com/stable
   name: appscode

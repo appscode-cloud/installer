@@ -1,6 +1,6 @@
 apiVersion: v2
 name: opscenter-features
-description: ByteBuilders Opscenter Configuration
+description: ACE Opscenter Configuration
 type: application
 version: v2023.11.14
 appVersion: v0.4.18

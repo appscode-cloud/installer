@@ -2,7 +2,7 @@ project:
   name: Platform UI by AppsCode
   shortName: Platform UI
   url: https://github.com/bytebuilders
-  description: ByteBuilders Platform UI
+  description: ACE Platform UI
   app: a Platform UI
 repository:
   url: https://charts.appscode.com/stable
