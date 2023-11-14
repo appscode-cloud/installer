@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/ace-installer --version=v2023.10.18
-$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.10.18
+$ helm search repo appscode/ace-installer --version=v2023.11.14
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.11.14
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys charts for ACE on a [Kubernetes](http://kubernetes.io) cluste
 To install/upgrade the chart with the release name `ace-installer`:
 
 ```bash
-$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.10.18
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.11.14
 ```
 
 The command deploys charts for ACE on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -59,14 +59,14 @@ The following table lists the configurable parameters of the `ace-installer` cha
 | registry.credentials                                  |                         | <code>{}</code>                                                                                                                                                                                                                                                                      |
 | helm.repositories.appscode-charts-oci.url             |                         | <code>oci://ghcr.io/appscode-charts</code>                                                                                                                                                                                                                                           |
 | helm.releases.ace.enabled                             |                         | <code>false</code>                                                                                                                                                                                                                                                                   |
-| helm.releases.ace.version                             |                         | <code>"v2023.10.18"</code>                                                                                                                                                                                                                                                           |
+| helm.releases.ace.version                             |                         | <code>"v2023.11.14"</code>                                                                                                                                                                                                                                                           |
 | helm.releases.cert-manager.enabled                    |                         | <code>true</code>                                                                                                                                                                                                                                                                    |
 | helm.releases.cert-manager.version                    |                         | <code>"v1.12.6"</code>                                                                                                                                                                                                                                                               |
 | helm.releases.cert-manager.values                     |                         | <code>{"installCRDs":true}</code>                                                                                                                                                                                                                                                    |
 | helm.releases.cert-manager-csi-driver-cacerts.enabled |                         | <code>true</code>                                                                                                                                                                                                                                                                    |
 | helm.releases.cert-manager-csi-driver-cacerts.version |                         | <code>"v2023.10.1"</code>                                                                                                                                                                                                                                                            |
 | helm.releases.cert-manager-webhook-ace.enabled        |                         | <code>true</code>                                                                                                                                                                                                                                                                    |
-| helm.releases.cert-manager-webhook-ace.version        |                         | <code>"v2023.10.18"</code>                                                                                                                                                                                                                                                           |
+| helm.releases.cert-manager-webhook-ace.version        |                         | <code>"v2023.11.14"</code>                                                                                                                                                                                                                                                           |
 | helm.releases.docker-machine-operator.enabled         |                         | <code>true</code>                                                                                                                                                                                                                                                                    |
 | helm.releases.docker-machine-operator.version         |                         | <code>"v2023.10.18"</code>                                                                                                                                                                                                                                                           |
 | helm.releases.external-dns-operator.enabled           |                         | <code>true</code>                                                                                                                                                                                                                                                                    |
@@ -81,9 +81,9 @@ The following table lists the configurable parameters of the `ace-installer` cha
 | helm.releases.kubedb.version                          |                         | <code>"v2023.11.2"</code>                                                                                                                                                                                                                                                            |
 | helm.releases.kubedb.values                           |                         | <code>{"kubedb-autoscaler":{"enabled":false},"kubedb-catalog":{"enabled":true},"kubedb-dashboard":{"enabled":false},"kubedb-metrics":{"enabled":false},"kubedb-ops-manager":{"enabled":true},"kubedb-provisioner":{"enabled":true},"kubedb-schema-manager":{"enabled":false}}</code> |
 | helm.releases.license-proxyserver.enabled             |                         | <code>true</code>                                                                                                                                                                                                                                                                    |
-| helm.releases.license-proxyserver.version             |                         | <code>"v2023.10.18"</code>                                                                                                                                                                                                                                                           |
+| helm.releases.license-proxyserver.version             |                         | <code>"v2023.11.14"</code>                                                                                                                                                                                                                                                           |
 | helm.releases.opscenter-features.enabled              |                         | <code>true</code>                                                                                                                                                                                                                                                                    |
-| helm.releases.opscenter-features.version              |                         | <code>"v2023.10.18"</code>                                                                                                                                                                                                                                                           |
+| helm.releases.opscenter-features.version              |                         | <code>"v2023.11.14"</code>                                                                                                                                                                                                                                                           |
 | helm.releases.panopticon.enabled                      |                         | <code>true</code>                                                                                                                                                                                                                                                                    |
 | helm.releases.panopticon.version                      |                         | <code>"v2023.10.1"</code>                                                                                                                                                                                                                                                            |
 | helm.releases.panopticon.values                       |                         | <code>{"monitoring":{"agent":"prometheus.io/operator","enabled":true,"serviceMonitor":{"labels":{"release":"kube-prometheus-stack"}}}}</code>                                                                                                                                        |
@@ -97,12 +97,12 @@ The following table lists the configurable parameters of the `ace-installer` cha
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.10.18 --set image.proxies.appscode=r.appscode.com
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.11.14 --set image.proxies.appscode=r.appscode.com
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.10.18 --values values.yaml
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2023.11.14 --values values.yaml
 ```

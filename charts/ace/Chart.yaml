@@ -2,8 +2,8 @@ apiVersion: v2
 name: ace
 description: A Helm chart for Kubernetes
 type: application
-version: v2023.10.18
-appVersion: v2023.10.30
+version: v2023.11.14
+appVersion: v2023.11.10
 home: https://github.com/bytebuilders
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
@@ -15,43 +15,43 @@ dependencies:
 - name: platform-ui
   repository: file://../platform-ui
   condition: platform-ui.enabled
-  version: v2023.10.18
+  version: v2023.11.14
 - name: accounts-ui
   repository: file://../accounts-ui
   condition: accounts-ui.enabled
-  version: v2023.10.18
+  version: v2023.11.14
 - name: cluster-ui
   repository: file://../cluster-ui
   condition: cluster-ui.enabled
-  version: v2023.10.18
+  version: v2023.11.14
 - name: deploy-ui
   repository: file://../deploy-ui
   condition: deploy-ui.enabled
-  version: v2023.10.18
+  version: v2023.11.14
 - name: kubedb-ui
   repository: file://../kubedb-ui
   condition: kubedb-ui.enabled
-  version: v2023.10.18
+  version: v2023.11.14
 - name: marketplace-ui
   repository: file://../marketplace-ui
   condition: marketplace-ui.enabled
-  version: v2023.10.18
+  version: v2023.11.14
 - name: platform-api
   repository: file://../platform-api
   condition: platform-api.enabled
-  version: v2023.10.18
+  version: v2023.11.14
 - name: platform-links
   repository: file://../platform-links
   condition: platform-links.enabled
-  version: v2023.10.18
+  version: v2023.11.14
 - name: billing
   repository: file://../billing
   condition: billing.enabled
-  version: v2023.10.18
+  version: v2023.11.14
 - name: grafana
   repository: file://../grafana
   condition: grafana.enabled
-  version: v2023.10.18
+  version: v2023.11.14
 - name: trickster
   repository: https://charts.appscode.com/stable
   condition: trickster.enabled
@@ -59,15 +59,15 @@ dependencies:
 - name: minio
   repository: file://../minio
   condition: minio.enabled
-  version: v2023.10.18
+  version: v2023.11.14
 - name: dns-proxy
   repository: file://../dns-proxy
   condition: dns-proxy.enabled
-  version: v2023.10.18
+  version: v2023.11.14
 - name: smtprelay
   repository: file://../smtprelay
   condition: smtprelay.enabled
-  version: v2023.10.18
+  version: v2023.11.14
 - name: ingress-nginx
   repository: https://kubernetes.github.io/ingress-nginx
   condition: ingress-nginx.enabled
