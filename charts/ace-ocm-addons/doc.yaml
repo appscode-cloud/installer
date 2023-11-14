@@ -1,0 +1,18 @@
+project:
+  name: ACE OCM Addons
+  shortName: ACE OCM Addons
+  url: https://github.com/bytebuilders/installer
+  description: ACE OCM Addons
+  app: charts for ACE OCM Addons
+repository:
+  url: https://charts.appscode.com/stable
+  name: appscode
+chart:
+  name: ace-ocm-addons
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: ace-ocm-addons
+  namespace: open-cluster-management
