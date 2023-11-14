@@ -46,6 +46,9 @@ helm:
     ace:
       enabled: false
       version: "v2023.11.14"
+    ace-ocm-addons:
+      enabled: true
+      version: "v2023.11.14"
     cert-manager:
       enabled: true
       version: "v1.12.6"
