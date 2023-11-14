@@ -2,7 +2,7 @@ apiVersion: v2
 name: opscenter-features
 description: ByteBuilders Opscenter Configuration
 type: application
-version: v2023.10.18
+version: v2023.11.14
 appVersion: v0.4.18
 home: https://github.com/bytebuilders
 icon: https://cdn.appscode.com/images/products/kubeops/icons/android-icon-192x192.png
