@@ -2,7 +2,7 @@ project:
   name: Deploy UI by AppsCode
   shortName: Deploy UI
   url: https://github.com/bytebuilders
-  description: ByteBuilders Deploy UI
+  description: ACE Deploy UI
   app: a Deploy UI
 repository:
   url: https://charts.appscode.com/stable

@@ -1,6 +1,6 @@
-# ByteBuilders Opscenter Configurator
+# ACE Opscenter Configurator
 
-[ByteBuilders Opscenter Configurator by AppsCode](https://github.com/bytebuilders/installer) - ByteBuilders Opscenter Configurator
+[ACE Opscenter Configurator by AppsCode](https://github.com/bytebuilders/installer) - ACE Opscenter Configurator
 
 ## TL;DR;
 
@@ -13,7 +13,7 @@ $ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --cr
 
 ## Introduction
 
-This chart deploys a ByteBuilders Opscenter Configurator on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart deploys a ACE Opscenter Configurator on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ To install/upgrade the chart with the release name `opscenter-features`:
 $ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2023.11.14
 ```
 
-The command deploys a ByteBuilders Opscenter Configurator on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
+The command deploys a ACE Opscenter Configurator on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
 
 > **Tip**: List all releases using `helm list`
 

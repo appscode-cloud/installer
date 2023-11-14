@@ -2,7 +2,7 @@ project:
   name: Cluster Importer by AppsCode
   shortName: Cluster Importer
   url: https://github.com/bytebuilders
-  description: ByteBuilders Cluster Importer
+  description: ACE Cluster Importer
   app: a Cluster Importer
 repository:
   url: https://charts.appscode.com/stable

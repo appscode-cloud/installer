@@ -2,7 +2,7 @@ project:
   name: Cluster UI by AppsCode
   shortName: Cluster UI
   url: https://github.com/bytebuilders
-  description: ByteBuilders Cluster UI
+  description: ACE Cluster UI
   app: a Cluster UI
 repository:
   url: https://charts.appscode.com/stable
