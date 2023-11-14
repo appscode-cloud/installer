@@ -96,7 +96,7 @@ helm:
     kubedb-provider-gcp:
       version: "v0.0.1"
     kubestash:
-      version: "v2023.11.10-rc.0"
+      version: "v2023.10.30-rc.0"
     kubestash-presets:
       version: "v2023.11.14"
     kubevault:
