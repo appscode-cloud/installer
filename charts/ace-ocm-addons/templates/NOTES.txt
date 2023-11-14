@@ -1,0 +1,3 @@
+To verify that ACE OCM addons are setup correctly, run:
+
+kubectl get placement,manifestworkreplicaset -n open-cluster-management-addon
