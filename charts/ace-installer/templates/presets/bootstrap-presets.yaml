@@ -12,6 +12,8 @@ ace-ocm-addons:
   version: %q
 flux2:
   version: %q
+kube-ui-server:
+  version: %q
 license-proxyserver:
   version: %q
 opscenter-features:
@@ -21,6 +23,7 @@ opscenter-features:
   .Chart.Version
   (dig "ace-ocm-addons" "version" .Chart.AppVersion $.Values.helm.releases)
   (dig "flux2" "version" "" $.Values.helm.releases)
+  (dig "kube-ui-server" "version" "" $.Values.helm.releases)
   (dig "license-proxyserver" "version" .Chart.AppVersion $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
   | fromYaml }}
