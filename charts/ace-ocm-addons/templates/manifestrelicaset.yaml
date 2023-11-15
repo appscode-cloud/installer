@@ -124,7 +124,7 @@ spec:
         {{- end }}
 
         {{- with (index .Values "helm" "releases" "license-proxyserver") }}
-        {{- if .enabled }}
+        {{- if and .enabled (not $.Values.offlineInstaller) }}
 
         {{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
 
