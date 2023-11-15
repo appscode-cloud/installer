@@ -2,7 +2,7 @@ apiVersion: work.open-cluster-management.io/v1alpha1
 kind: ManifestWorkReplicaSet
 metadata:
   name: opscenter-core-addons
-  namespace: open-cluster-management-addon
+  namespace: global-kubeops
 spec:
   placementRefs:
     - name: global
