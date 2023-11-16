@@ -201,3 +201,8 @@ stringData:
     NAMESPACE = {{ .Release.Namespace }}
     LABELS = trickstercache.org/metadata.name={{ include "ace.fullname" . }}
   {{- end }}
+
+    [branding]
+    LOGO = {{ .Values.branding.logo }}
+    FAVICON = {{ .Values.branding.favicon }}
+    PRIMARY_COLOR = {{ .Values.branding.primaryColor }}
