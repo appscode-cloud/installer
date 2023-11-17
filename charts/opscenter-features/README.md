@@ -64,7 +64,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.cert-manager.version                    |                         | <code>"v1.12.6"</code>                     |
 | helm.releases.cert-manager-csi-driver-cacerts.version |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.cluster-autoscaler.version              |                         | <code>"9.29.0"</code>                      |
-| helm.releases.config-syncer.version                   |                         | <code>"v0.14.2"</code>                     |
+| helm.releases.config-syncer.version                   |                         | <code>"v0.14.3"</code>                     |
 | helm.releases.crossplane.version                      |                         | <code>"1.14.0"</code>                      |
 | helm.releases.external-dns-operator.version           |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.falco.version                           |                         | <code>"3.8.4"</code>                       |

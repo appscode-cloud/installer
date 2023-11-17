@@ -56,7 +56,7 @@ helm:
     cluster-autoscaler:
       version: "9.29.0"
     config-syncer:
-      version: "v0.14.2"
+      version: "v0.14.3"
     crossplane:
       version: "1.14.0"
     external-dns-operator:
