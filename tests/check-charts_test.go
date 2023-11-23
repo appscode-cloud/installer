@@ -26,8 +26,10 @@ import (
 	"go.bytebuilders.dev/installer/apis/installer/v1alpha1"
 
 	shell "gomodules.xyz/go-sh"
-	"gopkg.in/yaml.v3"
+	"sigs.k8s.io/yaml"
 )
+
+const ociReg = "oci://ghcr.io/appscode-charts/"
 
 func Test_checkVersions(t *testing.T) {
 	if err := checkAceInstallerVersions(); err != nil {
@@ -64,7 +66,7 @@ func checkAceInstallerVersions() error {
 
 	for k, v := range spec.Helm.Releases {
 		// helm pull appscode/ace-installer --version=v2023.03.23
-		fullname := "oci://ghcr.io/appscode-charts/" + k
+		fullname := ociReg + k
 		err := sh.Command("helm", "pull", fullname, "--version", v.Version).Run()
 		if err != nil {
 			return err
@@ -96,7 +98,7 @@ func checkAceOcmAddonsVersions() error {
 
 	for k, v := range spec.Helm.Releases {
 		// helm pull appscode/ace-installer --version=v2023.03.23
-		fullname := "oci://ghcr.io/appscode-charts/" + k
+		fullname := ociReg + k
 		err := sh.Command("helm", "pull", fullname, "--version", v.Version).Run()
 		if err != nil {
 			return err
@@ -128,7 +130,7 @@ func checkOpscenterFeaturesVersions() error {
 
 	for k, v := range spec.Helm.Releases {
 		// helm pull appscode/ace-installer --version=v2023.03.23
-		fullname := "oci://ghcr.io/appscode-charts/" + k
+		fullname := ociReg + k
 		err := sh.Command("helm", "pull", fullname, "--version", v.Version).Run()
 		if err != nil {
 			return err
