@@ -70,6 +70,7 @@ type AceOptionsSpec struct {
 	DNSProxy      AceOptionsComponentSpec `json:"dns-proxy"`
 	SMTPRelay     AceOptionsComponentSpec `json:"smtprelay"`
 	Minio         AceOptionsComponentSpec `json:"minio"`
+	Branding      AceBrandingSpec         `json:"branding"`
 }
 
 type RegistrySpec struct {

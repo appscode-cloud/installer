@@ -73,6 +73,15 @@ properties:
     required:
       - enabled
     type: object
+  branding:
+    properties:
+      favicon:
+        type: string
+      logo:
+        type: string
+      primaryColor:
+        type: string
+    type: object
   cluster-ui:
     properties:
       enabled:
@@ -1420,6 +1429,7 @@ properties:
 required:
   - accounts-ui
   - billing
+  - branding
   - cluster-ui
   - context
   - deploy-ui
