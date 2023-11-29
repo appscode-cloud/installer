@@ -1764,6 +1764,15 @@ properties:
     - settings
     - summary
     type: object
+  branding:
+    properties:
+      favicon:
+        type: string
+      logo:
+        type: string
+      primaryColor:
+        type: string
+    type: object
   cluster-ui:
     properties:
       affinity:
@@ -17152,6 +17161,7 @@ required:
 - accounts-ui
 - affinity
 - billing
+- branding
 - cluster-ui
 - deploy-ui
 - dns-proxy

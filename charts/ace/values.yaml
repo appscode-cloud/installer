@@ -427,3 +427,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+branding:
+  logo: ""
+  favicon: ""
+  primaryColor: ""
