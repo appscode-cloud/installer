@@ -35,6 +35,17 @@ spec:
           metadata:
             name: kubeops
 
+        - apiVersion: rbac.authorization.k8s.io/v1
+          kind: ClusterRole
+          metadata:
+            name: open-cluster-management:klusterlet-work:agg-role
+            labels:
+              open-cluster-management.io/aggregate-to-work: "true"  # with this label, the clusterRole will be selected to aggregate
+          rules:
+            - apiGroups: ["drivers.x-helm.dev"]
+              resources: ["appreleases"]
+              verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]
+
         {{- $helmrepos := dict
           "bootstrap" (index .Values.helm "repositories" "appscode-charts-oci")
         }}
@@ -116,54 +127,6 @@ spec:
                 sourceRef:
                   kind: HelmRepository
                   name: bootstrap
-                  namespace: kubeops
-          {{- with $vals }}
-            {{- dict "values" . | toYaml | nindent 12 }}
-          {{- end }}
-        {{- end }}
-        {{- end }}
-
-        {{- with (index .Values "helm" "releases" "license-proxyserver") }}
-        {{- if and .enabled (not $.Values.offlineInstaller) }}
-
-        {{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
-
-        {{ $vals := dig "values" dict . }}
-        {{ $vals = mergeOverwrite $vals $overrides }}
-
-        - apiVersion: helm.toolkit.fluxcd.io/v2beta2
-          kind: HelmRelease
-          metadata:
-            name: license-proxyserver
-            namespace: kubeops
-            labels:
-              ace.appscode.com/feature: license-proxyserver
-          spec:
-            interval: 5m
-            timeout: 30m
-            releaseName: license-proxyserver
-            targetNamespace: kubeops
-            storageNamespace: kubeops
-            install:
-              createNamespace: true
-              # crds: CreateReplace
-              remediation:
-                retries: -1
-            upgrade:
-              crds: CreateReplace
-              remediation:
-                retries: -1
-            dependsOn:
-            - name: opscenter-features
-              namespace: kubeops
-            chart:
-              spec:
-                chart: license-proxyserver
-                version: {{ .version | quote }}
-                interval: 60m
-                sourceRef:
-                  kind: HelmRepository
-                  name: appscode-charts-oci
                   namespace: kubeops
           {{- with $vals }}
             {{- dict "values" . | toYaml | nindent 12 }}
