@@ -15,7 +15,7 @@ metadata:
 spec:
   title: KubeStash
   description: |
-    Stash v2 (ALPHA)
+    Stash v2 (BETA)
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
