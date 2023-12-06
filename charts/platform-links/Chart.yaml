@@ -2,8 +2,8 @@ apiVersion: v2
 name: platform-links
 description: A Helm chart for Kubernetes
 type: application
-version: v2023.11.14
-appVersion: v2023.11.10
+version: v2023.12.5
+appVersion: v2023.12.5
 home: https://github.com/bytebuilders
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
