@@ -42,4 +42,4 @@ helm:
       version: "v2023.11.14"
     opscenter-features:
       enabled: true
-      version: "v2023.11.14"
+      version: "v2023.12.5"
