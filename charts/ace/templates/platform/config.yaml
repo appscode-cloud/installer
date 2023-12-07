@@ -203,6 +203,6 @@ stringData:
   {{- end }}
 
     [branding]
-    LOGO = {{ .Values.branding.logo }}
-    FAVICON = {{ .Values.branding.favicon }}
-    PRIMARY_COLOR = {{ .Values.branding.primaryColor }}
+    LOGO = `{{ .Values.branding.logo }}`
+    FAVICON = `{{ .Values.branding.favicon }}`
+    PRIMARY_COLOR = `{{ .Values.branding.primaryColor }}`
