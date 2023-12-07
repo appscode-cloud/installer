@@ -1,31 +1,31 @@
 dependencies:
 - name: platform-ui
   repository: file://../platform-ui
-  version: v2023.11.14
+  version: v2023.12.5
 - name: accounts-ui
   repository: file://../accounts-ui
-  version: v2023.11.14
+  version: v2023.12.5
 - name: cluster-ui
   repository: file://../cluster-ui
-  version: v2023.11.14
+  version: v2023.12.5
 - name: deploy-ui
   repository: file://../deploy-ui
   version: v2023.11.14
 - name: kubedb-ui
   repository: file://../kubedb-ui
-  version: v2023.11.14
+  version: v2023.12.5
 - name: marketplace-ui
   repository: file://../marketplace-ui
   version: v2023.11.14
 - name: platform-api
   repository: file://../platform-api
-  version: v2023.11.14
+  version: v2023.12.5
 - name: platform-links
   repository: file://../platform-links
-  version: v2023.11.14
+  version: v2023.12.5
 - name: billing
   repository: file://../billing
-  version: v2023.11.14
+  version: v2023.12.5
 - name: grafana
   repository: file://../grafana
   version: v2023.11.14
@@ -47,5 +47,5 @@ dependencies:
 - name: nats
   repository: https://nats-io.github.io/k8s/helm/charts/
   version: 0.19.17
-digest: sha256:03aef2b3be2c114c4e9a74c7aff6f9bf28dd8232d8cef84819dff80aea88d666
-generated: "2023-11-15T07:00:28.63852275Z"
+digest: sha256:1fad71e172df682dfcf0c9c3684fb0426050cb43afc096e1f305972dbae4a821
+generated: "2023-12-06T16:22:01.053516-08:00"
