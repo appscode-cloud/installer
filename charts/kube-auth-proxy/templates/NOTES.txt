@@ -1,3 +1,0 @@
-To verify that Supervisor has started, run:
-
-  kubectl get deployment --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "kube-auth-proxy.name" . }},app.kubernetes.io/instance={{ .Release.Name }}"
