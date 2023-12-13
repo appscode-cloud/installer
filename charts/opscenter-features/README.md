@@ -59,7 +59,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | registry.credentials                                  |                         | <code>{}</code>                            |
 | helm.repositories.appscode-charts-oci.url             |                         | <code>oci://ghcr.io/appscode-charts</code> |
 | helm.releases.aws-ebs-csi-driver.version              |                         | <code>"2.23.0"</code>                      |
-| helm.releases.capa-vpc-peering-operator.version       |                         | <code>"v2023.10.18"</code>                 |
+| helm.releases.capa-vpc-peering-operator.version       |                         | <code>"v2023.12.11"</code>                 |
 | helm.releases.capi-cluster-presets.version            |                         | <code>"v2023.11.14"</code>                 |
 | helm.releases.cert-manager.version                    |                         | <code>"v1.12.6"</code>                     |
 | helm.releases.cert-manager-csi-driver-cacerts.version |                         | <code>"v2023.10.1"</code>                  |
@@ -79,11 +79,11 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kube-grafana-dashboards.version         |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.kube-prometheus-stack.version           |                         | <code>"52.1.0"</code>                      |
 | helm.releases.kube-ui-server.version                  |                         | <code>"v2023.10.1"</code>                  |
-| helm.releases.kubedb.version                          |                         | <code>"v2023.12.1-rc.1"</code>             |
-| helm.releases.kubedb-opscenter.version                |                         | <code>"v2023.12.1-rc.1"</code>             |
-| helm.releases.kubedb-provider-aws.version             |                         | <code>"v0.0.1"</code>                      |
-| helm.releases.kubedb-provider-azure.version           |                         | <code>"v0.0.1"</code>                      |
-| helm.releases.kubedb-provider-gcp.version             |                         | <code>"v0.0.1"</code>                      |
+| helm.releases.kubedb.version                          |                         | <code>"v2023.12.11"</code>                 |
+| helm.releases.kubedb-opscenter.version                |                         | <code>"v2023.12.11"</code>                 |
+| helm.releases.kubedb-provider-aws.version             |                         | <code>"v2023.12.11"</code>                 |
+| helm.releases.kubedb-provider-azure.version           |                         | <code>"v2023.12.11"</code>                 |
+| helm.releases.kubedb-provider-gcp.version             |                         | <code>"v2023.12.11"</code>                 |
 | helm.releases.kubestash.version                       |                         | <code>"v2023.12.1"</code>                  |
 | helm.releases.kubestash-presets.version               |                         | <code>"v2023.11.14"</code>                 |
 | helm.releases.kubevault.version                       |                         | <code>"v2023.10.26-rc.0"</code>            |
