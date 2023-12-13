@@ -24,8 +24,8 @@ fullnameOverride: ""
 
 podAnnotations: {}
 
-podSecurityContext: {}
-  # fsGroup: 2000
+podSecurityContext: # +doc-gen:break
+  fsGroup: 65534
 
 # Security options this container should run with
 securityContext: # +doc-gen:break
