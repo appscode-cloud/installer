@@ -101,6 +101,8 @@ spec:
                   name: {{ include "settings.objstoreSecretName" . }}
                   key: AZURE_ACCOUNT_KEY
           {{- end }}
+            - name: B3_CONFIG_SECRET_NAME
+              value: {{ include "settings.platformConfigSecretName" . }}
           volumeMounts:
             - name: tmp
               mountPath: /tmp
