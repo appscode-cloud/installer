@@ -109,10 +109,6 @@ spec:
                 properties:
                   accessToken:
                     type: string
-                  clientID:
-                    type: string
-                  clientSecret:
-                    type: string
                   expiry:
                     format: int64
                     type: integer
@@ -120,8 +116,6 @@ spec:
                     type: string
                 required:
                 - accessToken
-                - clientID
-                - clientSecret
                 type: object
               impersonate:
                 description: Impersonate is the username to act-as.
