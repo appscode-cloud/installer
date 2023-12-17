@@ -74,7 +74,7 @@ helm:
       version: "52.1.0"
     kube-ui-server:
       enabled: true
-      version: "v2023.10.1"
+      version: "v2023.12.18"
     kubedb:
       enabled: true
       version: "v2023.12.11"
