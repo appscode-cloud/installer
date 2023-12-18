@@ -59,7 +59,7 @@ The following table lists the configurable parameters of the `ace-ocm-addons` ch
 | registry.credentials                      |                         | <code>{}</code>                            |
 | helm.repositories.appscode-charts-oci.url |                         | <code>oci://ghcr.io/appscode-charts</code> |
 | helm.releases.kube-ui-server.enabled      |                         | <code>true</code>                          |
-| helm.releases.kube-ui-server.version      |                         | <code>"v2023.10.1"</code>                  |
+| helm.releases.kube-ui-server.version      |                         | <code>"v2023.12.18"</code>                 |
 | helm.releases.license-proxyserver.enabled |                         | <code>true</code>                          |
 | helm.releases.license-proxyserver.version |                         | <code>"v2023.11.14"</code>                 |
 | helm.releases.opscenter-features.enabled  |                         | <code>true</code>                          |
