@@ -87,7 +87,7 @@ spec:
         {{ $vals := dig "values" dict . }}
         {{ $vals = mergeOverwrite $vals $overrides }}
 
-        - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+        - apiVersion: helm.toolkit.fluxcd.io/v2beta2
           kind: HelmRelease
           metadata:
             name: opscenter-features
@@ -131,7 +131,7 @@ spec:
         {{ $vals := dig "values" dict . }}
         {{ $vals = mergeOverwrite $vals $overrides }}
 
-        - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+        - apiVersion: helm.toolkit.fluxcd.io/v2beta2
           kind: HelmRelease
           metadata:
             name: license-proxyserver
@@ -179,7 +179,7 @@ spec:
         {{ $vals := dig "values" dict . }}
         {{ $vals = mergeOverwrite $vals $overrides }}
 
-        - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+        - apiVersion: helm.toolkit.fluxcd.io/v2beta2
           kind: HelmRelease
           metadata:
             name: kube-ui-server
