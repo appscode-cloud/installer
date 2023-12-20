@@ -8,7 +8,7 @@ kind: Feature
 metadata:
   name: cert-manager-csi-driver-cacerts
   labels:
-    ace.appscode.com/feature-set: opscenter-security
+    app.kubernetes.io/part-of: opscenter-security
 spec:
   title: Cert Manager
   description: |

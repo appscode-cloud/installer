@@ -104,7 +104,7 @@ spec:
             name: opscenter-features
             namespace: kubeops
             labels:
-              ace.appscode.com/feature: opscenter-features
+              app.kubernetes.io/component: opscenter-features
           spec:
             interval: 5m
             timeout: 30m
@@ -148,7 +148,7 @@ spec:
             name: kube-ui-server
             namespace: kubeops
             labels:
-              ace.appscode.com/feature: kube-ui-server
+              app.kubernetes.io/component: kube-ui-server
           spec:
             interval: 5m
             timeout: 30m

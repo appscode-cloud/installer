@@ -3,7 +3,7 @@ kind: Feature
 metadata:
   name: gatekeeper-templates
   labels:
-    ace.appscode.com/feature-set: opscenter-security
+    app.kubernetes.io/part-of: opscenter-security
 spec:
   title: Gatekeeper Templates
   description: |

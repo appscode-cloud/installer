@@ -12,7 +12,7 @@ kind: Feature
 metadata:
   name: kubevault
   labels:
-    ace.appscode.com/feature-set: opscenter-security
+    app.kubernetes.io/part-of: opscenter-security
 spec:
   title: Kubevault
   description: |

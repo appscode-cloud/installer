@@ -10,7 +10,7 @@ kind: Feature
 metadata:
   name: kubedb-provider-aws
   labels:
-    ace.appscode.com/feature-set: opscenter-datastore
+    app.kubernetes.io/part-of: opscenter-datastore
 spec:
   title: KubeDB AWS Provider
   description: |

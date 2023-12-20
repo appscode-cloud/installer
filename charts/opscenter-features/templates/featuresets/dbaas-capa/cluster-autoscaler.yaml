@@ -23,7 +23,7 @@ kind: Feature
 metadata:
   name: cluster-autoscaler
   labels:
-    ace.appscode.com/feature-set: dbaas-capa
+    app.kubernetes.io/part-of: dbaas-capa
 spec:
   title: Cluster Autoscaler
   description: |

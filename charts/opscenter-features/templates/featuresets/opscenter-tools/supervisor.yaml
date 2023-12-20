@@ -8,7 +8,7 @@ kind: Feature
 metadata:
   name: supervisor
   labels:
-    ace.appscode.com/feature-set: opscenter-tools
+    app.kubernetes.io/part-of: opscenter-tools
 spec:
   title: Supervisor
   description: |

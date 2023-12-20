@@ -3,7 +3,7 @@ kind: Feature
 metadata:
   name: kube-grafana-dashboards
   labels:
-    ace.appscode.com/feature-set: opscenter-monitoring
+    app.kubernetes.io/part-of: opscenter-monitoring
 spec:
   title: Kubernetes Grafana Dashboards
   description: |

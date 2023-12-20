@@ -17,7 +17,8 @@ metadata:
   name: reloader
   namespace: {{ $.Release.Namespace }}
   labels:
-    ace.appscode.com/feature: reloader
+    app.kubernetes.io/component: reloader
+    app.kubernetes.io/part-of: opscenter-tools
 spec:
   interval: 5m
   timeout: 30m

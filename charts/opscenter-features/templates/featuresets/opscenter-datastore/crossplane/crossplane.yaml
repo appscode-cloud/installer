@@ -13,7 +13,7 @@ kind: Feature
 metadata:
   name: crossplane
   labels:
-    ace.appscode.com/feature-set: opscenter-datastore
+    app.kubernetes.io/part-of: opscenter-datastore
 spec:
   title: Crossplane
   description: |
