@@ -10,7 +10,7 @@ kind: Feature
 metadata:
   name: kubedb-provider-azure
   labels:
-    ace.appscode.com/feature-set: dbaas-capz
+    app.kubernetes.io/part-of: dbaas-capz
 spec:
   title: KubeDB Azure Provider
   description: |

@@ -8,7 +8,7 @@ kind: Feature
 metadata:
   name: falco-ui-server
   labels:
-    ace.appscode.com/feature-set: opscenter-security
+    app.kubernetes.io/part-of: opscenter-security
 spec:
   title: Falco UI Server
   description: |

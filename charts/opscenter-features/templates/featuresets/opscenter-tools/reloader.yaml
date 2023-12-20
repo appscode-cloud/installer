@@ -13,7 +13,7 @@ kind: Feature
 metadata:
   name: reloader
   labels:
-    ace.appscode.com/feature-set: opscenter-tools
+    app.kubernetes.io/part-of: opscenter-tools
 spec:
   title: Reloader
   description: |

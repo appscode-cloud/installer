@@ -10,7 +10,7 @@ kind: Feature
 metadata:
   name: capa-vpc-peering-operator
   labels:
-    ace.appscode.com/feature-set: dbaas-capa
+    app.kubernetes.io/part-of: dbaas-capa
 spec:
   title: AWS VPC Peering Operator
   description: |

@@ -36,7 +36,7 @@ kind: Feature
 metadata:
   name: flux2
   labels:
-    ace.appscode.com/feature-set: opscenter-core
+    app.kubernetes.io/part-of: opscenter-core
 spec:
   title: FluxCD
   description: |

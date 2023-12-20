@@ -12,7 +12,8 @@ metadata:
   name: external-dns-operator
   namespace: {{ $.Release.Namespace }}
   labels:
-    ace.appscode.com/feature: external-dns-operator
+    app.kubernetes.io/component: external-dns-operator
+    app.kubernetes.io/part-of: opscenter-networking
 spec:
   interval: 5m
   timeout: 30m

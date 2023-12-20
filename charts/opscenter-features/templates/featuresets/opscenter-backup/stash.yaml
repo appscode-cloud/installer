@@ -20,7 +20,7 @@ kind: Feature
 metadata:
   name: stash
   labels:
-    ace.appscode.com/feature-set: opscenter-backup
+    app.kubernetes.io/part-of: opscenter-backup
 spec:
   title: Stash
   description: |

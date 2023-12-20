@@ -11,7 +11,7 @@ kind: Feature
 metadata:
   name: kubestash
   labels:
-    ace.appscode.com/feature-set: opscenter-backup
+    app.kubernetes.io/part-of: opscenter-backup
 spec:
   title: KubeStash
   description: |

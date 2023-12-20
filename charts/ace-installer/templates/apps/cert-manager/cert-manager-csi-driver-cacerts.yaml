@@ -12,7 +12,8 @@ metadata:
   name: cert-manager-csi-driver-cacerts
   namespace: {{ $.Release.Namespace }}
   labels:
-    ace.appscode.com/feature: cert-manager-csi-driver-cacerts
+    app.kubernetes.io/component: cert-manager-csi-driver-cacerts
+    app.kubernetes.io/part-of: opscenter-security
 spec:
   interval: 5m
   timeout: 30m

@@ -10,7 +10,7 @@ kind: Feature
 metadata:
   name: kubedb-provider-aws
   labels:
-    ace.appscode.com/feature-set: dbaas-capa
+    app.kubernetes.io/part-of: dbaas-capa
 spec:
   title: KubeDB AWS Provider
   description: |

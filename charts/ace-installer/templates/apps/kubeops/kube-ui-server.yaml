@@ -12,7 +12,8 @@ metadata:
   name: kube-ui-server
   namespace: {{ $.Release.Namespace }}
   labels:
-    ace.appscode.com/feature: kube-ui-server
+    app.kubernetes.io/component: kube-ui-server
+    app.kubernetes.io/part-of: opscenter-core
 spec:
   interval: 5m
   timeout: 30m

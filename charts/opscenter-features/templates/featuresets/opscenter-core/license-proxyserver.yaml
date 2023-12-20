@@ -8,7 +8,7 @@ kind: Feature
 metadata:
   name: license-proxyserver
   labels:
-    ace.appscode.com/feature-set: opscenter-core
+    app.kubernetes.io/part-of: opscenter-core
 spec:
   title: License Proxyserver
   description: |

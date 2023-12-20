@@ -10,7 +10,7 @@ kind: Feature
 metadata:
   name: kubedb-provider-gcp
   labels:
-    ace.appscode.com/feature-set: dbaas-capg
+    app.kubernetes.io/part-of: dbaas-capg
 spec:
   title: KubeDB GCP Provider
   description: |

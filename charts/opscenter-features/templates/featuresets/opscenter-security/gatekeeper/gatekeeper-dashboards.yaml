@@ -3,7 +3,7 @@ kind: Feature
 metadata:
   name: gatekeeper-grafana-dashboards
   labels:
-    ace.appscode.com/feature-set: opscenter-security
+    app.kubernetes.io/part-of: opscenter-security
 spec:
   title: GateKeeper Policy Grafana Dashboards
   description: |

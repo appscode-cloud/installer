@@ -71,7 +71,7 @@ kind: Feature
 metadata:
   name: opencost
   labels:
-    ace.appscode.com/feature-set: opscenter-cost
+    app.kubernetes.io/part-of: opscenter-cost
 spec:
   title: Opencost
   description: |

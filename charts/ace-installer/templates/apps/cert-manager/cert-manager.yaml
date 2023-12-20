@@ -25,7 +25,8 @@ metadata:
   name: cert-manager
   namespace: {{ $.Release.Namespace }}
   labels:
-    ace.appscode.com/feature: cert-manager
+    app.kubernetes.io/component: cert-manager
+    app.kubernetes.io/part-of: opscenter-security
 spec:
   interval: 5m
   timeout: 30m
