@@ -13,7 +13,7 @@ kind: Feature
 metadata:
   name: crossplane
   labels:
-    ace.appscode.com/feature-set: dbaas-capz
+    app.kubernetes.io/part-of: dbaas-capz
 spec:
   title: Crossplane
   description: |

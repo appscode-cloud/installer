@@ -44,7 +44,7 @@ kind: Feature
 metadata:
   name: falco
   labels:
-    ace.appscode.com/feature-set: opscenter-security
+    app.kubernetes.io/part-of: opscenter-security
 spec:
   title: Falco
   description: |

@@ -21,7 +21,8 @@ metadata:
   name: stash
   namespace: {{ $.Release.Namespace }}
   labels:
-    ace.appscode.com/feature: stash
+    app.kubernetes.io/component: stash
+    app.kubernetes.io/part-of: opscenter-backup
 spec:
   interval: 5m
   timeout: 30m

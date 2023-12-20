@@ -3,7 +3,7 @@ kind: Feature
 metadata:
   name: kubestash-presets
   labels:
-    ace.appscode.com/feature-set: opscenter-presets
+    app.kubernetes.io/part-of: opscenter-presets
 spec:
   title: KubeStash Presets
   description: |

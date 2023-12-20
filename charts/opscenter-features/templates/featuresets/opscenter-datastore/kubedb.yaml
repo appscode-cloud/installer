@@ -27,7 +27,7 @@ kind: Feature
 metadata:
   name: kubedb
   labels:
-    ace.appscode.com/feature-set: opscenter-datastore
+    app.kubernetes.io/part-of: opscenter-datastore
 spec:
   title: KubeDB
   description: |

@@ -14,8 +14,6 @@ kind: HelmRelease
 metadata:
   name: opscenter-features
   namespace: {{ $.Release.Namespace }}
-  labels:
-    ace.appscode.com/feature: opscenter-features
 spec:
   interval: 5m
   timeout: 30m

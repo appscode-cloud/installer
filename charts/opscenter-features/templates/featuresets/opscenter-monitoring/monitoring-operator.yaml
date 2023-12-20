@@ -8,7 +8,7 @@ kind: Feature
 metadata:
   name: monitoring-operator
   labels:
-    ace.appscode.com/feature-set: opscenter-monitoring
+    app.kubernetes.io/part-of: opscenter-monitoring
 spec:
   title: Monitoring Operator
   description: |

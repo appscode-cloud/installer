@@ -8,7 +8,7 @@ kind: Feature
 metadata:
   name: voyager
   labels:
-    ace.appscode.com/feature-set: opscenter-networking
+    app.kubernetes.io/part-of: opscenter-networking
 spec:
   title: Voyager Ingress
   description: |

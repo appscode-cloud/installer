@@ -3,7 +3,7 @@ kind: Feature
 metadata:
   name: gatekeeper-constraints
   labels:
-    ace.appscode.com/feature-set: opscenter-security
+    app.kubernetes.io/part-of: opscenter-security
 spec:
   title: Gatekeeper Constraints
   description: |

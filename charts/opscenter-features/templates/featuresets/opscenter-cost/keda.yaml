@@ -20,7 +20,7 @@ kind: Feature
 metadata:
   name: keda
   labels:
-    ace.appscode.com/feature-set: opscenter-cost
+    app.kubernetes.io/part-of: opscenter-cost
 spec:
   title: Keda
   description: |
