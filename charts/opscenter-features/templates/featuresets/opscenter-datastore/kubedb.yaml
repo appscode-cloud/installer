@@ -13,6 +13,8 @@ kubedb-ops-manager:
   enabled: true
 kubedb-autoscaler:
   enabled: true
+kubedb-kubestash-catalog:
+  enabled: true
 kubedb-dashboard:
   enabled: true
 kubedb-schema-manager:
