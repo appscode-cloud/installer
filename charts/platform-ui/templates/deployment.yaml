@@ -40,6 +40,8 @@ spec:
             - name: PLATFORM_DOMAIN
               value: {{ . }}
             {{- end }}
+            - name: PLATFORM_APISERVER_DOMAIN
+              value: {{ include "b3.platformAPIServer" }}
             # ref: https://github.com/axios/axios/issues/535#issuecomment-262299969
             # ref: https://stackoverflow.com/a/56406725
             {{- if (include "settings.caProviderClass" .) }}
