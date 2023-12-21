@@ -45,10 +45,10 @@ helm:
   releases:
     ace:
       enabled: false
-      version: "v2023.12.5"
+      version: "v2023.12.20"
     ace-ocm-addons:
       enabled: true
-      version: "v2023.12.5"
+      version: "v2023.12.20"
     cert-manager:
       enabled: true
       version: "v1.12.6"
@@ -98,7 +98,7 @@ helm:
       version: "v2023.11.14"
     opscenter-features:
       enabled: true
-      version: "v2023.12.5"
+      version: "v2023.12.20"
     panopticon:
       enabled: true
       version: "v2023.10.1"
