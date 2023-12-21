@@ -2,8 +2,8 @@ apiVersion: v2
 name: ace
 description: A Helm chart for Kubernetes
 type: application
-version: v2023.12.5
-appVersion: v2023.12.5
+version: v2023.12.20
+appVersion: v2023.12.20
 home: https://github.com/bytebuilders
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
@@ -15,15 +15,15 @@ dependencies:
 - name: platform-ui
   repository: file://../platform-ui
   condition: platform-ui.enabled
-  version: v2023.12.5
+  version: v2023.12.20
 - name: accounts-ui
   repository: file://../accounts-ui
   condition: accounts-ui.enabled
-  version: v2023.12.5
+  version: v2023.12.20
 - name: cluster-ui
   repository: file://../cluster-ui
   condition: cluster-ui.enabled
-  version: v2023.12.5
+  version: v2023.12.20
 - name: deploy-ui
   repository: file://../deploy-ui
   condition: deploy-ui.enabled
@@ -31,7 +31,7 @@ dependencies:
 - name: kubedb-ui
   repository: file://../kubedb-ui
   condition: kubedb-ui.enabled
-  version: v2023.12.5
+  version: v2023.12.20
 - name: marketplace-ui
   repository: file://../marketplace-ui
   condition: marketplace-ui.enabled
@@ -39,15 +39,15 @@ dependencies:
 - name: platform-api
   repository: file://../platform-api
   condition: platform-api.enabled
-  version: v2023.12.5
+  version: v2023.12.20
 - name: platform-links
   repository: file://../platform-links
   condition: platform-links.enabled
-  version: v2023.12.5
+  version: v2023.12.20
 - name: billing
   repository: file://../billing
   condition: billing.enabled
-  version: v2023.12.5
+  version: v2023.12.20
 - name: grafana
   repository: file://../grafana
   condition: grafana.enabled
