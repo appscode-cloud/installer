@@ -1,0 +1,57 @@
+{{- with (index .Values "helm" "releases" "kubestash") }}
+{{- if .enabled }}
+
+{{ $overrides := printf `
+global:
+  registryFQDN: %s
+` (include "registry.ghcr" $) | fromYaml }}
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: kubestash
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: kubestash
+    app.kubernetes.io/part-of: opscenter-backup
+spec:
+  interval: 5m
+  timeout: 30m
+  releaseName: kubestash
+  targetNamespace: kubestash
+  storageNamespace: kubestash
+  install:
+    createNamespace: true
+    # crds: CreateReplace
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
+  dependsOn:
+  - name: opscenter-features
+    namespace: {{ $.Release.Namespace }}
+  - name: license-proxyserver
+    namespace: {{ $.Release.Namespace }}
+  - name: cert-manager
+    namespace: {{ $.Release.Namespace }}
+  - name: panopticon
+    namespace: {{ $.Release.Namespace }}
+  chart:
+    spec:
+      chart: kubestash
+      version: {{ .version | quote }}
+      sourceRef:
+        kind: HelmRepository
+        name: appscode-charts-oci
+        namespace: {{ $.Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}
