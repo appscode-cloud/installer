@@ -1,16 +1,21 @@
-{{- if eq .Values.capi.provider "capa" }}
-
 {{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
 
 {{ $vals := dict }}
 {{ $vals = mergeOverwrite $vals $overrides }}
+
+{{- $featureSet := "" -}}
+{{- if not .Values.capi.provider }}
+  {{- $featureSet = "opscenter-datastore" -}}
+{{- else }}
+  {{- $featureSet = printf "dbaas-%s" .Values.capi.provider -}}
+{{- end -}}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
   name: kubedb-provider-aws
   labels:
-    app.kubernetes.io/part-of: dbaas-capa
+    app.kubernetes.io/part-of: {{ $featureSet }}
 spec:
   title: KubeDB AWS Provider
   description: |
@@ -18,9 +23,9 @@ spec:
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  featureSet: dbaas-capa
+  featureSet: {{ $featureSet }}
   featureBlock: crossplane
-  recommended: true
+  recommended: {{ ne .Values.capi.provider "" }}
   requirements:
     features:
       - crossplane
@@ -42,6 +47,4 @@ spec:
       namespace: {{ .Release.Namespace }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
-{{- end }}
-
 {{- end }}
