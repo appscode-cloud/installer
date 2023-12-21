@@ -17,8 +17,6 @@ spec:
     - capa-vpc-peering-operator
     - capi-cluster-presets
     - cluster-autoscaler
-    - crossplane
-    - kubedb-provider-aws
   chart:
     name: uik8sappscodecom-featureset-dbaas-capa-editor
     version: {{ .Chart.AppVersion }}

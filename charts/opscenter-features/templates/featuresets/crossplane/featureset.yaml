@@ -1,0 +1,34 @@
+{{- with .Values.capi }}
+{{- if eq .provider "capa" }}
+{{- $reqFeatureSuffix := "aws" -}}
+{{- elif eq .provider "capz" }}
+{{- $reqFeatureSuffix := "azure" -}}
+{{- elif eq .provider "capz" }}
+{{- $reqFeatureSuffix := "gcp" -}}
+{{- end -}}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: FeatureSet
+metadata:
+  name: crossplane
+spec:
+  title: Crossplane
+  description: |
+    The cloud native control plane framework
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  recommended: {{ ne .Values.capi.provider "" }}
+  {{- if ne .Values.capi.provider "" }}
+  requiredFeatures:
+    - crossplane
+    - kubedb-provider-{{ $reqFeatureSuffix }}
+  {{- end }}
+  chart:
+    name: uik8sappscodecom-featureset-dbaas-capa-editor
+    version: {{ .Chart.AppVersion }}
+    sourceRef:
+      apiGroup: source.toolkit.fluxcd.io
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}

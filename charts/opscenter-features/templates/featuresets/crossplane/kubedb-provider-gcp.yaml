@@ -3,19 +3,12 @@
 {{ $vals := dict }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
-{{- $featureSet := "" -}}
-{{- if not .Values.capi.provider }}
-  {{- $featureSet = "opscenter-datastore" -}}
-{{- else }}
-  {{- $featureSet = printf "dbaas-%s" .Values.capi.provider -}}
-{{- end -}}
-
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
   name: kubedb-provider-gcp
   labels:
-    app.kubernetes.io/part-of: {{ $featureSet }}
+    app.kubernetes.io/part-of: crossplane
 spec:
   title: KubeDB GCP Provider
   description: |
@@ -23,9 +16,9 @@ spec:
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  featureSet: {{ $featureSet }}
+  featureSet: crossplane
   featureBlock: crossplane
-  recommended: {{ ne .Values.capi.provider "" }}
+  recommended: {{ eq .Values.capi.provider "capg" }}
   requirements:
     features:
       - crossplane

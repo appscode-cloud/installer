@@ -14,8 +14,6 @@ spec:
   recommended: true
   requiredFeatures:
     - capi-cluster-presets
-    - crossplane
-    - kubedb-provider-azure
   chart:
     name: uik8sappscodecom-featureset-dbaas-capz-editor
     version: {{ .Chart.AppVersion }}
