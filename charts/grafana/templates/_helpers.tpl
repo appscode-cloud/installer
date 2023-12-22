@@ -110,6 +110,6 @@ Returns the ServiceMonitor labels
 {{- .Values.settings.secretName.nats -}}
 {{- end }}
 
-{{- define "b3.platformAPIServer" -}}
+{{- define "ace.platformAPIServer" -}}
 {{- printf "http://%s-platform-api.%s.svc" .Release.Name .Release.Namespace -}}
 {{- end }}
