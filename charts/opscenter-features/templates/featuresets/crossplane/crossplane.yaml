@@ -1,5 +1,3 @@
-{{- if eq .Values.capi.provider "capz" }}
-
 {{ $overrides := printf `
 image:
   repository: %s
@@ -13,7 +11,7 @@ kind: Feature
 metadata:
   name: crossplane
   labels:
-    app.kubernetes.io/part-of: dbaas-capz
+    app.kubernetes.io/part-of: crossplane
 spec:
   title: Crossplane
   description: |
@@ -21,7 +19,7 @@ spec:
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  featureSet: dbaas-capz
+  featureSet: crossplane
   featureBlock: crossplane
   recommended: true
   readinessChecks:
@@ -42,6 +40,4 @@ spec:
       namespace: {{ .Release.Namespace }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
-{{- end }}
-
 {{- end }}

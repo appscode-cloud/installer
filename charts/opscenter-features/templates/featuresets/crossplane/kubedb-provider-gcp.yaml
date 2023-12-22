@@ -1,5 +1,3 @@
-{{- if eq .Values.capi.provider "capa" }}
-
 {{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
 
 {{ $vals := dict }}
@@ -8,19 +6,19 @@
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: kubedb-provider-aws
+  name: kubedb-provider-gcp
   labels:
-    app.kubernetes.io/part-of: dbaas-capa
+    app.kubernetes.io/part-of: crossplane
 spec:
-  title: KubeDB AWS Provider
+  title: KubeDB GCP Provider
   description: |
-    KubeDB AWS Provider for Crossplane
+    KubeDB GCP Provider for Crossplane
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  featureSet: dbaas-capa
+  featureSet: crossplane
   featureBlock: crossplane
-  recommended: true
+  recommended: {{ eq .Values.capi.provider "capg" }}
   requirements:
     features:
       - crossplane
@@ -30,18 +28,16 @@ spec:
         version: v1
         kind: Deployment
         selector:
-          app.kubernetes.io/name: kubedb-provider-aws
+          app.kubernetes.io/name: kubedb-provider-gcp
           app.kubernetes.io/managed-by: Helm
   chart:
-    name: kubedb-provider-aws
-    namespace: kubedb
-    version: {{ dig "kubedb-provider-aws" "version" "" $.Values.helm.releases }}
+    name: kubedb-provider-gcp
+    namespace: crossplane-system
+    version: {{ dig "kubedb-provider-gcp" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
-{{- end }}
-
 {{- end }}
