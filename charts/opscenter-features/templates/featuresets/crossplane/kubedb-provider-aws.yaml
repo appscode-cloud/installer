@@ -32,7 +32,7 @@ spec:
           app.kubernetes.io/managed-by: Helm
   chart:
     name: kubedb-provider-aws
-    namespace: kubedb
+    namespace: crossplane-system
     version: {{ dig "kubedb-provider-aws" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

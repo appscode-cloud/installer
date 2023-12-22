@@ -1,11 +1,8 @@
-{{- with .Values.capi }}
-{{- if eq .provider "capa" }}
-{{- $reqFeatureSuffix := "aws" -}}
-{{- elif eq .provider "capz" }}
-{{- $reqFeatureSuffix := "azure" -}}
-{{- elif eq .provider "capz" }}
-{{- $reqFeatureSuffix := "gcp" -}}
-{{- end -}}
+{{- $capiFeatures := dict
+  "capa" "aws"
+  "capz" "azure"
+  "capg" "gcp"
+-}}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: FeatureSet
@@ -18,11 +15,11 @@ spec:
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  recommended: {{ ne .Values.capi.provider "" }}
   {{- if ne .Values.capi.provider "" }}
+  recommended: true
   requiredFeatures:
     - crossplane
-    - kubedb-provider-{{ $reqFeatureSuffix }}
+    - kubedb-provider-{{ index $capiFeatures .Values.capi.provider }}
   {{- end }}
   chart:
     name: uik8sappscodecom-featureset-dbaas-capa-editor
