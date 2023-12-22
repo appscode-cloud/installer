@@ -86,15 +86,15 @@ helm:
     kube-ui-server:
       version: "v2023.12.18"
     kubedb:
-      version: "v2023.12.11"
+      version: "v2023.12.21"
     kubedb-opscenter:
-      version: "v2023.12.11"
+      version: "v2023.12.21"
     kubedb-provider-aws:
-      version: "v2023.12.11"
+      version: "v2023.12.21"
     kubedb-provider-azure:
-      version: "v2023.12.11"
+      version: "v2023.12.21"
     kubedb-provider-gcp:
-      version: "v2023.12.11"
+      version: "v2023.12.21"
     kubestash:
       version: "v2023.12.1"
     kubestash-presets:
