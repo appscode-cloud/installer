@@ -57,7 +57,7 @@ spec:
             - name: GF_PATHS_CONFIG
               value: /conf/defaults.ini
             - name: PLATFORM_APISERVER_DOMAIN
-              value: {{ include "b3.platformAPIServer" }}
+              value: {{ include "b3.platformAPIServer" . }}
           volumeMounts:
             - mountPath: /var/lib/grafana
               name: data
