@@ -74,3 +74,7 @@ imagePullSecrets:
 {{- define "settings.caProviderClass" -}}
 {{- .Values.settings.caProviderClass -}}
 {{- end }}
+
+{{- define "ace.platformAPIServer" -}}
+{{- printf "http://%s-platform-api.%s.svc" .Release.Name .Release.Namespace -}}
+{{- end }}

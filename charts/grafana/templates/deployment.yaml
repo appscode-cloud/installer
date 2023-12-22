@@ -56,6 +56,8 @@ spec:
           env:
             - name: GF_PATHS_CONFIG
               value: /conf/defaults.ini
+            - name: PLATFORM_APISERVER_DOMAIN
+              value: {{ include "ace.platformAPIServer" . }}
           volumeMounts:
             - mountPath: /var/lib/grafana
               name: data
