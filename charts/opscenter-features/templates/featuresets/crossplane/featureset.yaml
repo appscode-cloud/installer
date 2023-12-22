@@ -1,26 +1,31 @@
-{{- if eq .Values.capi.provider "capg" }}
+{{- $capiFeatures := dict
+  "capa" "aws"
+  "capz" "azure"
+  "capg" "gcp"
+-}}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: FeatureSet
 metadata:
-  name: dbaas-capg
+  name: crossplane
 spec:
-  title: KubeDB Managed DBaaS
+  title: Crossplane
   description: |
-    Turn A CAPG Cluster Into DBaaS
+    The cloud native control plane framework
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
+  {{- if ne .Values.capi.provider "" }}
   recommended: true
   requiredFeatures:
-    - capi-cluster-presets
+    - crossplane
+    - kubedb-provider-{{ index $capiFeatures .Values.capi.provider }}
+  {{- end }}
   chart:
-    name: uik8sappscodecom-featureset-dbaas-capg-editor
+    name: uik8sappscodecom-featureset-dbaas-capa-editor
     version: {{ .Chart.AppVersion }}
     sourceRef:
       apiGroup: source.toolkit.fluxcd.io
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
-
-{{- end }}
