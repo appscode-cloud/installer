@@ -1,0 +1,109 @@
+{{ $overrides := printf `
+image:
+  longhorn:
+    engine:
+      repository: %s
+    manager:
+      repository: %s
+    ui:
+      repository: %s
+    instanceManager:
+      repository: %s
+    shareManager:
+      repository: %s
+    backingImageManager:
+      repository: %s
+    supportBundleKit:
+      repository: %s
+  csi:
+    attacher:
+      repository: %s
+    provisioner:
+      repository: %s
+    nodeDriverRegistrar:
+      repository: %s
+    resizer:
+      repository: %s
+    snapshotter:
+      repository: %s
+    livenessProbe:
+      repository: %s
+`
+  (include "image.dockerHub" (merge (dict "_repo" "longhornio/longhorn-engine") $))
+  (include "image.dockerHub" (merge (dict "_repo" "longhornio/longhorn-manager") $))
+  (include "image.dockerHub" (merge (dict "_repo" "longhornio/longhorn-ui") $))
+  (include "image.dockerHub" (merge (dict "_repo" "longhornio/longhorn-instance-manager") $))
+  (include "image.dockerHub" (merge (dict "_repo" "longhornio/longhorn-share-manager") $))
+  (include "image.dockerHub" (merge (dict "_repo" "longhornio/backing-image-manager") $))
+  (include "image.dockerHub" (merge (dict "_repo" "longhornio/support-bundle-kit") $))
+  (include "image.dockerHub" (merge (dict "_repo" "longhornio/csi-attacher") $))
+  (include "image.dockerHub" (merge (dict "_repo" "longhornio/csi-provisioner") $))
+  (include "image.dockerHub" (merge (dict "_repo" "longhornio/csi-node-driver-registrar") $))
+  (include "image.dockerHub" (merge (dict "_repo" "longhornio/csi-resizer") $))
+  (include "image.dockerHub" (merge (dict "_repo" "longhornio/csi-snapshotter") $))
+  (include "image.dockerHub" (merge (dict "_repo" "longhornio/livenessprobe") $))
+  | fromYaml }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: longhorn
+  labels:
+    app.kubernetes.io/part-of: opscenter-storage
+spec:
+  title: Longhorn
+  description: |
+    Cloud native distributed block storage for Kubernetes
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-storage
+  featureBlock: longhorn
+  recommended: false
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/instance: longhorn
+          app.kubernetes.io/name: longhorn
+          app.kubernetes.io/managed-by: Helm
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app: csi-attacher
+          longhorn.io/managed-by: longhorn-manager
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app: csi-provisioner
+          longhorn.io/managed-by: longhorn-manager
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app: csi-resizer
+          longhorn.io/managed-by: longhorn-manager
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app: csi-snapshotter
+          longhorn.io/managed-by: longhorn-manager
+  chart:
+    name: longhorn
+    namespace: longhorn-system
+    version: {{ dig "longhorn" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
