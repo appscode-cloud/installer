@@ -61,8 +61,6 @@ helm:
       version: "1.14.0"
     external-dns-operator:
       version: "v2023.10.1"
-    external-snapshotter:
-      version: "2.0.3"
     falco:
       version: "3.8.4"
     falco-ui-server:
@@ -121,6 +119,8 @@ helm:
       version: "v2023.10.18"
     sidekick:
       version: "v2023.12.11"
+    snapshot-controller:
+      version: "2.0.3"
     stash:
       version: "v2023.10.9"
     stash-opscenter:
