@@ -61,6 +61,8 @@ helm:
       version: "1.14.0"
     external-dns-operator:
       version: "v2023.10.1"
+    external-snapshotter:
+      version: "2.0.3"
     falco:
       version: "3.8.4"
     falco-ui-server:
@@ -113,6 +115,8 @@ helm:
       version: "v2023.12.20"
     panopticon:
       version: "v2023.10.1"
+    reloader:
+      version: "1.0.50"
     scanner:
       version: "v2023.10.18"
     sidekick:
@@ -125,8 +129,8 @@ helm:
       version: "v2023.11.14"
     supervisor:
       version: "v2023.10.1"
-    reloader:
-      version: "1.0.50"
+    topolvm:
+      version: "13.0.0"
     voyager:
       version: "v2023.9.18"
     voyager-gateway:

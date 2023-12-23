@@ -1,0 +1,53 @@
+{{ $overrides := printf `
+image:
+  repository: %s
+`
+  (include "image.ghcr" (merge (dict "_repo" "topolvm/topolvm-with-sidecar") $))
+  | fromYaml }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: topolvm
+  labels:
+    app.kubernetes.io/part-of: opscenter-storage
+spec:
+  title: TopoLVM
+  description: |
+    CSI plugin using LVM for Kubernetes
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-storage
+  featureBlock: topolvm
+  recommended: false
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/name: topolvm
+          app.kubernetes.io/instance: topolvm
+          app.kubernetes.io/managed-by: Helm
+      - group: apps
+        version: v1
+        kind: DaemonSet
+        selector:
+          app.kubernetes.io/instance: topolvm
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: topolvm
+  chart:
+    name: topolvm
+    namespace: topolvm-system
+    version: {{ dig "topolvm" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
