@@ -215,7 +215,7 @@ settings:
       username: postgres
       password: "xyz"
   cache:
-    version: "6.2.11"
+    version: "6.2.14"
     cacheInterval: 60
     persistence:
       size: 10Gi
