@@ -1,0 +1,49 @@
+{{ $overrides := printf `
+preparer:
+  repository: %s
+cleaner:
+  repository: %s
+`
+  (include "image.dockerHub" (merge (dict "_repo" "tianon/toybox") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode/helm") $))
+  | fromYaml }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: prepare-cluster
+  labels:
+    app.kubernetes.io/part-of: opscenter-datastore
+spec:
+  title: Prepare Cluster
+  description: |
+    Prepare Kubernetes Cluster for KubeDB
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-datastore
+  featureBlock: kubedb
+  recommended: false
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: DaemonSet
+        selector:
+          app.kubernetes.io/instance: prepare-cluster
+          app.kubernetes.io/name: prepare-cluster
+          app.kubernetes.io/managed-by: Helm
+  chart:
+    name: prepare-cluster
+    namespace: kubedb
+    version: {{ dig "prepare-cluster" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
