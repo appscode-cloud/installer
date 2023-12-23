@@ -105,6 +105,8 @@ helm:
       version: "v2023.10.26-rc.0"
     license-proxyserver:
       version: "v2023.11.14"
+    longhorn:
+      version: "1.5.3"
     monitoring-operator:
       version: "v0.0.3"
     opencost:
