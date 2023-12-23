@@ -67,6 +67,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.config-syncer.version                   |                         | <code>"v0.14.3"</code>                     |
 | helm.releases.crossplane.version                      |                         | <code>"1.14.0"</code>                      |
 | helm.releases.external-dns-operator.version           |                         | <code>"v2023.10.1"</code>                  |
+| helm.releases.external-snapshotter.version            |                         | <code>"2.0.3"</code>                       |
 | helm.releases.falco.version                           |                         | <code>"3.8.4"</code>                       |
 | helm.releases.falco-ui-server.version                 |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.flux2.version                           |                         | <code>"2.12.1"</code>                      |
@@ -93,13 +94,14 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.opencost.version                        |                         | <code>"1.18.1"</code>                      |
 | helm.releases.opscenter-features.version              |                         | <code>"v2023.12.20"</code>                 |
 | helm.releases.panopticon.version                      |                         | <code>"v2023.10.1"</code>                  |
+| helm.releases.reloader.version                        |                         | <code>"1.0.50"</code>                      |
 | helm.releases.scanner.version                         |                         | <code>"v2023.10.18"</code>                 |
 | helm.releases.sidekick.version                        |                         | <code>"v2023.12.11"</code>                 |
 | helm.releases.stash.version                           |                         | <code>"v2023.10.9"</code>                  |
 | helm.releases.stash-opscenter.version                 |                         | <code>"v2023.10.9"</code>                  |
 | helm.releases.stash-presets.version                   |                         | <code>"v2023.11.14"</code>                 |
 | helm.releases.supervisor.version                      |                         | <code>"v2023.10.1"</code>                  |
-| helm.releases.reloader.version                        |                         | <code>"1.0.50"</code>                      |
+| helm.releases.topolvm.version                         |                         | <code>"13.0.0"</code>                      |
 | helm.releases.voyager.version                         |                         | <code>"v2023.9.18"</code>                  |
 | helm.releases.voyager-gateway.version                 |                         | <code>"v0.6.1"</code>                      |
 | clusterManagers                                       |                         | <code>[]</code>                            |
