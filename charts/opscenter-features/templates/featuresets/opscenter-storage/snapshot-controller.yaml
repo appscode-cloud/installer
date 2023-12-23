@@ -16,7 +16,7 @@ webhook:
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: external-snapshotter
+  name: snapshot-controller
   labels:
     app.kubernetes.io/part-of: opscenter-storage
 spec:
@@ -27,7 +27,7 @@ spec:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   featureSet: opscenter-storage
-  featureBlock: external-snapshotter
+  featureBlock: snapshot-controller
   recommended: false
   readinessChecks:
     workloads:
