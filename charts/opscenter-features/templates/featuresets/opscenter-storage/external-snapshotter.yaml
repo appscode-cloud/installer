@@ -48,7 +48,7 @@ spec:
   chart:
     name: snapshot-controller
     namespace: kubeops
-    version: {{ dig "external-snapshotter" "version" "" $.Values.helm.releases }}
+    version: {{ dig "snapshot-controller" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci
