@@ -82,8 +82,6 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&GrafanaList{},
 		&IngressNginx{},
 		&IngressNginxList{},
-		&KubeAuthManager{},
-		&KubeAuthManagerList{},
 		&KubedbUi{},
 		&KubedbUiList{},
 		&KubestashPresets{},
