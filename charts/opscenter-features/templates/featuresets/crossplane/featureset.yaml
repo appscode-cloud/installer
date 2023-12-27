@@ -22,7 +22,7 @@ spec:
     - kubedb-provider-{{ index $capiFeatures .Values.capi.provider }}
   {{- end }}
   chart:
-    name: uik8sappscodecom-featureset-dbaas-capa-editor
+    name: uik8sappscodecom-featureset-crossplane-editor
     version: {{ .Chart.AppVersion }}
     sourceRef:
       apiGroup: source.toolkit.fluxcd.io
