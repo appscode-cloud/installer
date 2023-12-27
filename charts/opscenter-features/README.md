@@ -94,6 +94,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.opencost.version                        |                         | <code>"1.18.1"</code>                      |
 | helm.releases.opscenter-features.version              |                         | <code>"v2023.12.20"</code>                 |
 | helm.releases.panopticon.version                      |                         | <code>"v2023.10.1"</code>                  |
+| helm.releases.prepare-cluster.version                 |                         | <code>"v2023.12.21"</code>                 |
 | helm.releases.reloader.version                        |                         | <code>"1.0.50"</code>                      |
 | helm.releases.scanner.version                         |                         | <code>"v2023.10.18"</code>                 |
 | helm.releases.sidekick.version                        |                         | <code>"v2023.12.11"</code>                 |
