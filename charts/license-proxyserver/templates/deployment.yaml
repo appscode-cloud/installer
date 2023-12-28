@@ -13,7 +13,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
       {{- include "license-proxyserver.selectorLabels" . | nindent 6 }}
@@ -22,10 +22,10 @@ spec:
       labels:
         {{- include "license-proxyserver.selectorLabels" . | nindent 8 }}
       annotations:
-        checksum/apiregistration.yaml: {{ include (print $.Template.BasePath "/apiregistration.yaml") . | sha256sum }}
-      {{- if $criticalAddon }}
-        scheduler.alpha.kubernetes.io/critical-pod: ''
-      {{- end }}
+        #checksum/apiregistration.yaml: {{ include (print $.Template.BasePath "/apiregistration.yaml") . | sha256sum }}
+      #{{- if $criticalAddon }}
+        #scheduler.alpha.kubernetes.io/critical-pod: ''
+      #{{- end }}
       {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
@@ -36,7 +36,9 @@ spec:
       - name: server
         securityContext:
           {{- toYaml .Values.image.securityContext | nindent 10 }}
-        image: {{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
+        #image: {{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
+        #image: ghcr.io/appscodeci/license-proxyserver:addon_linux_amd64
+        image: rokibulhasan114/license-proxyserver:addon_linux_amd64
         imagePullPolicy: {{ .Values.imagePullPolicy  }}
         args:
         - run
@@ -48,9 +50,9 @@ spec:
         - --use-kubeapiserver-fqdn-for-aks={{ .Values.apiserver.useKubeapiserverFqdnForAks }}
         - --baseURL={{ .Values.platform.baseURL }}
         - --token=$(PLATFORM_API_TOKEN)
-        {{- if (or .Values.licenses .Values.encodedLicenses) }}
+{{/*        #{{- if (or .Values.licenses .Values.encodedLicenses) }}*/}}
         - --license-dir=/var/run/secrets/appscode/license
-        {{- end }}
+{{/*        #{{- end }}*/}}
         ports:
         - containerPort: 8443
         - containerPort: 8081
@@ -89,21 +91,21 @@ spec:
         volumeMounts:
         - mountPath: /var/serving-cert
           name: serving-cert
-        {{- if (or .Values.licenses .Values.encodedLicenses) }}
+{{/*        #{{- if (or .Values.licenses .Values.encodedLicenses) }}*/}}
         - mountPath: /var/run/secrets/appscode/license
           name: licenses
-        {{- end }}
+{{/*        #{{- end }}*/}}
       volumes:
       - name: serving-cert
         secret:
           defaultMode: 420
           secretName: {{ include "license-proxyserver.fullname" . }}-apiserver-cert
-      {{- if (or .Values.licenses .Values.encodedLicenses) }}
+{{/*      #{{- if (or .Values.licenses .Values.encodedLicenses) }}*/}}
       - name: licenses
         secret:
           defaultMode: 420
           secretName: {{ include "license-proxyserver.fullname" . }}-licenses
-      {{- end }}
+{{/*      #{{- end }}*/}}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
     {{- if or .Values.tolerations $criticalAddon }}

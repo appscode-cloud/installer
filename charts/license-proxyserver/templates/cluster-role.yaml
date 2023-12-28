@@ -5,9 +5,6 @@ metadata:
   labels:
     {{- include "license-proxyserver.labels" . | nindent 4 }}
 rules:
-# Get cluster id
-- apiGroups:
-  - ""
-  resources:
-  - namespaces
-  verbs: ["get"]
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["*"]
