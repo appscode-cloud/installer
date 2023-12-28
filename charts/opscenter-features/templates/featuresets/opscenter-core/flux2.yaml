@@ -73,7 +73,7 @@ spec:
     version: {{ dig "flux2" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
-      name: fluxcd-community
+      name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
