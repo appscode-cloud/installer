@@ -18,3 +18,5 @@ spec:
         - name: license-proxyserver-addon-manager
           image: ghcr.io/appscode/license-proxyserver-addon:v0.0.1
           imagePullPolicy: IfNotPresent
+          args:
+            - manager
