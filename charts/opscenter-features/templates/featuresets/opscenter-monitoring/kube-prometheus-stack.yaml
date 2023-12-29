@@ -101,6 +101,9 @@ spec:
   featureSet: opscenter-monitoring
   featureBlock: kube-prometheus-stack
   recommended: true
+  requirements:
+    features:
+      - monitoring-operator
   readinessChecks:
     resources:
     - group: monitoring.coreos.com
