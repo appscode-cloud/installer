@@ -3,9 +3,9 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app.kubernetes.io/name: bytebuilders
-  name: clusterinfos.cluster.bytebuilders.dev
+  name: clusterinfos.cluster.appscode.com
 spec:
-  group: cluster.bytebuilders.dev
+  group: cluster.appscode.com
   names:
     categories:
     - kubernetes
