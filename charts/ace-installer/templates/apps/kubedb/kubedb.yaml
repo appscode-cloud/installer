@@ -17,7 +17,7 @@ metadata:
   namespace: {{ $.Release.Namespace }}
   labels:
     app.kubernetes.io/component: kubedb
-    app.kubernetes.io/part-of: opscenter-dbaas
+    app.kubernetes.io/part-of: opscenter-datastore
 spec:
   interval: 5m
   timeout: 30m
