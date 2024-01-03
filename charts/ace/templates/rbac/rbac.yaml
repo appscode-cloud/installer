@@ -10,8 +10,8 @@ metadata:
     {{- include "ace.labels" . | nindent 4 }}
 rules:
 - apiGroups:
-  - cloud.bytebuilders.dev
-  - cluster.bytebuilders.dev
+  - cloud.appscode.com
+  - cluster.appscode.com
   - products.x-helm.dev
   - trickstercache.org
   - docker-machine.klusters.dev
