@@ -19,9 +19,6 @@ spec:
   featureSet: opscenter-monitoring
   featureBlock: monitoring-operator
   recommended: true
-  requirements:
-    features:
-      - grafana-operator
   readinessChecks:
     workloads:
       - group: apps
