@@ -7,8 +7,9 @@ require (
 	gomodules.xyz/go-sh v0.1.0
 	k8s.io/api v0.25.3
 	k8s.io/apimachinery v0.25.4
+	kmodules.xyz/client-go v0.25.44
 	kmodules.xyz/objectstore-api v0.25.1
-	kmodules.xyz/resource-metadata v0.17.39-0.20231101070123-9cfd0519c7f9
+	kmodules.xyz/resource-metadata v0.17.44
 	kmodules.xyz/schema-checker v0.4.1
 	kubeops.dev/external-dns-operator v0.0.6
 	sigs.k8s.io/yaml v1.3.0
@@ -87,7 +88,6 @@ require (
 	k8s.io/klog/v2 v2.80.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20221012153701-172d655c2280 // indirect
 	k8s.io/utils v0.0.0-20221108210102-8e77b1f39fe2 // indirect
-	kmodules.xyz/client-go v0.25.40 // indirect
 	kmodules.xyz/go-containerregistry v0.0.11 // indirect
 	sigs.k8s.io/controller-runtime v0.13.1 // indirect
 	sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect
