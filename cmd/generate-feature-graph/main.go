@@ -18,12 +18,13 @@ package main
 
 import (
 	"bytes"
+	"os"
+
 	shell "gomodules.xyz/go-sh"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"kmodules.xyz/client-go/tools/parser"
 	uiv1alpha1 "kmodules.xyz/resource-metadata/apis/ui/v1alpha1"
-	"os"
 )
 
 var featureGVK = schema.GroupVersionKind{
@@ -89,7 +90,7 @@ func main() {
 	buf.WriteString("```")
 	buf.WriteRune('\n')
 
-	err = os.WriteFile("features.md", buf.Bytes(), 0644)
+	err = os.WriteFile("features.md", buf.Bytes(), 0o644)
 	if err != nil {
 		panic(err)
 	}
