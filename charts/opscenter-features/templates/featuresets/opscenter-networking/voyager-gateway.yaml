@@ -36,7 +36,7 @@ spec:
         version: v1
         kind: Deployment
         selector:
-          app.kubernetes.io/instance: gateway
+          app.kubernetes.io/instance: voyager-gateway
           app.kubernetes.io/name: voyager-gateway
           control-plane: envoy-gateway
   chart:
