@@ -51,6 +51,15 @@ kube-state-metrics:
 prometheus-node-exporter:
   image:
     registry: %s
+  prometheus:
+    monitor:
+      relabelings:
+      - sourceLabels: [__meta_kubernetes_pod_node_name]
+        separator: ;
+        regex: ^(.*)$
+        targetLabel: node
+        replacement: $1
+        action: replace
 ` (include "registry.quay" $) | fromYaml }}
 
 # https://github.com/grafana/helm-charts/blob/main/charts/grafana/README.md

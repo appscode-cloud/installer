@@ -107,6 +107,8 @@ helm:
       version: "v2023.11.14"
     longhorn:
       version: "1.5.3"
+    metrics-server:
+      version: "3.11.0"
     monitoring-operator:
       version: "v0.0.3"
     opencost:
@@ -117,6 +119,8 @@ helm:
       version: "v2023.10.1"
     prepare-cluster:
       version: "v2023.12.21"
+    prometheus-adapter:
+      version: "4.9.0"
     reloader:
       version: "1.0.50"
     scanner:
