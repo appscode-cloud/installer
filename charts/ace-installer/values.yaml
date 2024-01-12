@@ -69,6 +69,12 @@ helm:
     flux2:
       enabled: false
       version: "2.12.2"
+    grafana-operator:
+      enabled: true
+      version: "v0.0.3"
+    kube-grafana-dashboards:
+      enabled: true
+      version: "v2023.10.1"
     kube-prometheus-stack:
       enabled: true
       version: "52.1.0"
@@ -101,6 +107,9 @@ helm:
     license-proxyserver:
       enabled: true
       version: "v2023.11.14"
+    monitoring-operator:
+      enabled: true
+      version: "v0.0.3"
     opscenter-features:
       enabled: true
       version: "v2023.12.20"
@@ -114,6 +123,9 @@ helm:
           serviceMonitor:
             labels:
               release: kube-prometheus-stack
+    prometheus-adapter:
+      enabled: true
+      version: "4.9.0"
     reloader:
       enabled: true
       version: "1.0.50"
