@@ -1,0 +1,48 @@
+{{- with (index .Values "helm" "releases" "grafana-operator") }}
+{{- if .enabled }}
+
+{{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: grafana-operator
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: grafana-operator
+    app.kubernetes.io/part-of: opscenter-monitoring
+spec:
+  install:
+    crds: CreateReplace
+    createNamespace: true
+    remediation:
+      retries: -1
+  interval: 5m
+  releaseName: grafana-operator
+  storageNamespace: monitoring
+  targetNamespace: monitoring
+  timeout: 30m
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
+  dependsOn:
+  - name: monitoring-operator
+    namespace: {{ $.Release.Namespace }}
+  chart:
+    spec:
+      chart: grafana-operator
+      version: {{ .version | quote }}
+      sourceRef:
+        kind: HelmRepository
+        name: appscode-charts-oci
+        namespace: {{ $.Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}
