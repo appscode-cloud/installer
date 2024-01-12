@@ -21,6 +21,7 @@ graph TD;
   kube-grafana-dashboards-->grafana-operator;
   kube-prometheus-stack-->monitoring-operator;
   panopticon-->license-proxyserver;
+  prometheus-adapter-->kube-prometheus-stack;
   kubestash-presets-->kubestash;
   stash-presets-->stash;
   falco-ui-server-->grafana-operator;

@@ -1,0 +1,105 @@
+{{- if not (has "Rancher" .Values.clusterManagers) }}
+
+{{ $overrides := printf `
+image:
+  repository: %s
+prometheus:
+  url: http://kube-prometheus-stack-prometheus
+rules:
+  resource:
+    cpu:
+      containerQuery: |
+        sum by (<<.GroupBy>>) (
+          rate(container_cpu_usage_seconds_total{container!="",<<.LabelMatchers>>}[3m])
+        )
+      nodeQuery: |
+        sum  by (<<.GroupBy>>) (
+          rate(node_cpu_seconds_total{mode!="idle",mode!="iowait",mode!="steal",<<.LabelMatchers>>}[3m])
+        )
+      resources:
+        overrides:
+          node:
+            resource: node
+          namespace:
+            resource: namespace
+          pod:
+            resource: pod
+      containerLabel: container
+    memory:
+      containerQuery: |
+        sum by (<<.GroupBy>>) (
+          avg_over_time(container_memory_working_set_bytes{container!="",<<.LabelMatchers>>}[3m])
+        )
+      nodeQuery: |
+        sum by (<<.GroupBy>>) (
+          avg_over_time(node_memory_MemTotal_bytes{<<.LabelMatchers>>}[3m])
+          -
+          avg_over_time(node_memory_MemAvailable_bytes{<<.LabelMatchers>>}[3m])
+        )
+      resources:
+        overrides:
+          node:
+            resource: node
+          namespace:
+            resource: namespace
+          pod:
+            resource: pod
+      containerLabel: container
+    window: 3m
+`
+  (include "image.kubernetes" (merge (dict "_repo" "prometheus-adapter/prometheus-adapter") $))
+  | fromYaml }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: prometheus-adapter
+  labels:
+    app.kubernetes.io/part-of: opscenter-monitoring
+spec:
+  title: Prometheus Metrics Adapter
+  description: |
+    Prometheus Adapter for Kubernetes Metrics APIs
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-monitoring
+  featureBlock: kube-prometheus-stack
+  recommended: true
+  requirements:
+    features:
+      - kube-prometheus-stack
+  readinessChecks:
+    resources:
+    - group: metrics.k8s.io
+      version: v1beta1
+      kind: NodeMetrics
+    - group: metrics.k8s.io
+      version: v1beta1
+      kind: PodMetrics
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/component: metrics
+          app.kubernetes.io/instance: prometheus-adapter
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: prometheus-adapter
+          app.kubernetes.io/part-of: prometheus-adapter
+  chart:
+    name: prometheus-adapter
+    namespace: monitoring
+    version: {{ dig "prometheus-adapter" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}

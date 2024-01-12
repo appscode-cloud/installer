@@ -1,0 +1,59 @@
+{{- if not (has "Rancher" .Values.clusterManagers) }}
+
+{{ $overrides := printf `
+image:
+  repository: %s
+args:
+- --kubelet-insecure-tls
+`
+  (include "image.kubernetes" (merge (dict "_repo" "metrics-server/metrics-server") $))
+  | fromYaml }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: metrics-server
+  labels:
+    app.kubernetes.io/part-of: opscenter-monitoring
+spec:
+  title: Kubernetes Metrics Server
+  description: |
+    Container resource metrics for Kubernetes built-in autoscaling pipelines.
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-monitoring
+  featureBlock: metrics-server
+  recommended: false
+  readinessChecks:
+    resources:
+    - group: metrics.k8s.io
+      version: v1beta1
+      kind: NodeMetrics
+    - group: metrics.k8s.io
+      version: v1beta1
+      kind: PodMetrics
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/instance: metrics-server
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: metrics-server
+  chart:
+    name: metrics-server
+    namespace: monitoring
+    version: {{ dig "metrics-server" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
