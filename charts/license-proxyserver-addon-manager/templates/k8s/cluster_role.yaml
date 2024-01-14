@@ -1,3 +1,5 @@
+{{- if not .Values.kubeconfigSecretName }}
+
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -54,3 +56,5 @@ rules:
   - apiGroups: [ "helm.toolkit.fluxcd.io" ]
     resources: [ "*" ]
     verbs: [ "*" ]
+
+{{- end }}

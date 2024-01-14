@@ -1,0 +1,44 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: license-proxyserver-addon-manager
+  namespace: {{ ternary "license-proxyserver-addon" .Release.Namespace (empty .Values.kubeconfigSecretName) }}
+  labels:
+    app: license-proxyserver-addon-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: license-proxyserver-addon-manager
+  template:
+    metadata:
+      labels:
+        app: license-proxyserver-addon-manager
+    spec:
+      {{- if .Values.kubeconfigSecretName }}
+      automountServiceAccountToken: false
+      {{- else }}
+      serviceAccount: license-proxyserver-addon-manager
+      automountServiceAccountToken: true
+      {{- end }}
+      containers:
+        - name: manager
+          image: {{ .Values.image }}:{{ .Values.tag | default .Chart.AppVersion }}
+          imagePullPolicy: Always
+          args:
+            - manager
+            {{- if .Values.kubeconfigSecretName }}
+            - --kubeconfig=/var/run/secrets/ocm/auth/kubeconfig
+            {{- end }}
+          volumeMounts:
+          {{- if .Values.kubeconfigSecretName }}
+            - mountPath: /var/run/secrets/ocm/auth
+              name: ocm-auth
+          {{- end }}
+      volumes:
+        {{- if .Values.kubeconfigSecretName }}
+        - name: ocm-auth
+          secret:
+            defaultMode: 420
+            secretName: {{ .Values.kubeconfigSecretName }}
+        {{- end }}
