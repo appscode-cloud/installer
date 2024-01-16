@@ -101,6 +101,9 @@ helm:
           enabled: false
         kubedb-metrics:
           enabled: false
+    kubedb-opscenter:
+      enabled: true
+      version: "v2023.12.28"
     kubestash:
       enabled: false
       version: "v2023.12.28"
