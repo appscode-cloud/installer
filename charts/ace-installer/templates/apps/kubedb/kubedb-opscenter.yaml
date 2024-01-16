@@ -1,0 +1,56 @@
+{{- with (index .Values "helm" "releases" "kubedb-opscenter") }}
+{{- if .enabled }}
+
+{{ $overrides := printf `
+global:
+  registryFQDN: %q
+` (include "registry.ghcr" $) | fromYaml }}
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: kubedb-opscenter
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: kubedb-opscenter
+    app.kubernetes.io/part-of: opscenter-datastore
+spec:
+  interval: 5m
+  timeout: 30m
+  releaseName: kubedb-opscenter
+  targetNamespace: kubedb
+  storageNamespace: kubedb
+  install:
+    createNamespace: true
+    # crds: CreateReplace
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
+  dependsOn:
+  - name: kubedb
+    namespace: {{ $.Release.Namespace }}
+  - name: panopticon
+    namespace: {{ $.Release.Namespace }}
+  - name: grafana-operator
+    namespace: {{ $.Release.Namespace }}
+  chart:
+    spec:
+      chart: kubedb-opscenter
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: appscode-charts-oci
+        namespace: {{ $.Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}
