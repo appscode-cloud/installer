@@ -110,7 +110,7 @@ helm:
     metrics-server:
       version: "3.11.0"
     monitoring-operator:
-      version: "v0.0.3"
+      version: "v0.0.4"
     opencost:
       version: "1.18.1"
     opscenter-features:
