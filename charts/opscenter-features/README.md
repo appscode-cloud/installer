@@ -91,7 +91,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.license-proxyserver.version             |                         | <code>"v2023.11.14"</code>                 |
 | helm.releases.longhorn.version                        |                         | <code>"1.5.3"</code>                       |
 | helm.releases.metrics-server.version                  |                         | <code>"3.11.0"</code>                      |
-| helm.releases.monitoring-operator.version             |                         | <code>"v0.0.3"</code>                      |
+| helm.releases.monitoring-operator.version             |                         | <code>"v0.0.4"</code>                      |
 | helm.releases.opencost.version                        |                         | <code>"1.18.1"</code>                      |
 | helm.releases.opscenter-features.version              |                         | <code>"v2023.12.20"</code>                 |
 | helm.releases.panopticon.version                      |                         | <code>"v2023.10.1"</code>                  |

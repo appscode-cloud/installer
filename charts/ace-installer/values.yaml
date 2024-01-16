@@ -112,7 +112,7 @@ helm:
       version: "v2023.11.14"
     monitoring-operator:
       enabled: true
-      version: "v0.0.3"
+      version: "v0.0.4"
     opscenter-features:
       enabled: true
       version: "v2023.12.20"
