@@ -157,7 +157,8 @@ properties:
 
           # Create k3s cluster
 
-          curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--disable=traefik" sh -
+          curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--disable=traefik --disable=metrics-server"
+          sh -
 
 
           export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
