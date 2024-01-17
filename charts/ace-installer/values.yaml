@@ -70,13 +70,13 @@ helm:
       enabled: false
       version: "2.12.2"
     grafana-operator:
-      enabled: true
+      enabled: false
       version: "v0.0.3"
     kube-grafana-dashboards:
-      enabled: true
+      enabled: false
       version: "v2023.10.1"
     kube-prometheus-stack:
-      enabled: true
+      enabled: false
       version: "52.1.0"
     kube-ui-server:
       enabled: true
@@ -111,13 +111,13 @@ helm:
       enabled: true
       version: "v2023.11.14"
     monitoring-operator:
-      enabled: true
+      enabled: false
       version: "v0.0.4"
     opscenter-features:
       enabled: true
       version: "v2023.12.20"
     panopticon:
-      enabled: true
+      enabled: false
       version: "v2023.10.1"
       values: # +doc-gen:break
         monitoring:
@@ -127,7 +127,7 @@ helm:
             labels:
               release: kube-prometheus-stack
     prometheus-adapter:
-      enabled: true
+      enabled: false
       version: "4.9.0"
     reloader:
       enabled: true
