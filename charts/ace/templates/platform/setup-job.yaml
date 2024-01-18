@@ -39,6 +39,7 @@ spec:
             {{- end }}
             - --importer-service-account={{ include "appscode.serviceAccountName" . }}-importer
             - --self-import
+            - --enable-monitoring
           # ports:
           #   - name: http
           #     containerPort: 3000
