@@ -124,7 +124,7 @@ helm:
     reloader:
       version: "1.0.50"
     scanner:
-      version: "v2023.10.18"
+      version: "v2024.1.18"
     sidekick:
       version: "v2023.12.11"
     snapshot-controller:
