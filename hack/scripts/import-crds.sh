@@ -71,4 +71,5 @@ crd-importer \
     --input=https://github.com/fluxcd/source-controller/raw/${FLUXCD_SOURCE_CONTROLLER}/config/crd/bases/source.toolkit.fluxcd.io_helmrepositories.yaml \
     --input=https://github.com/kmodules/resource-metadata/raw/master/crds/ui.k8s.appscode.com_features.yaml \
     --input=https://github.com/kmodules/resource-metadata/raw/master/crds/ui.k8s.appscode.com_featuresets.yaml \
+    --input=https://github.com/x-helm/apimachinery/raw/${HELM_X_APIMACHINERY_TAG}/crds/drivers.x-helm.dev_appreleases.yaml \
     --out=./charts/opscenter-features/crds
