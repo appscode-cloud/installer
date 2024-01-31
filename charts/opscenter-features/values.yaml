@@ -100,9 +100,9 @@ helm:
     kubestash-presets:
       version: "v2023.11.14"
     kubevault:
-      version: "v2023.10.26-rc.0"
+      version: "v2024.1.31"
     kubevault-opscenter:
-      version: "v2023.10.26-rc.0"
+      version: "v2024.1.31"
     license-proxyserver:
       version: "v2023.11.14"
     longhorn:
