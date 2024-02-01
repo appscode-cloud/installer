@@ -142,7 +142,7 @@ helm:
     voyager:
       version: "v2023.9.18"
     voyager-gateway:
-      version: "v0.6.1"
+      version: "v2024.1.29"
 
 clusterManagers: []
 
