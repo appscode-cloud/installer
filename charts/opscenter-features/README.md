@@ -107,7 +107,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.supervisor.version                      |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.topolvm.version                         |                         | <code>"13.0.0"</code>                      |
 | helm.releases.voyager.version                         |                         | <code>"v2023.9.18"</code>                  |
-| helm.releases.voyager-gateway.version                 |                         | <code>"v0.6.1"</code>                      |
+| helm.releases.voyager-gateway.version                 |                         | <code>"v2024.1.29"</code>                  |
 | clusterManagers                                       |                         | <code>[]</code>                            |
 | capi.provider                                         |                         | <code>""</code>                            |
 | capi.namespace                                        |                         | <code>""</code>                            |
