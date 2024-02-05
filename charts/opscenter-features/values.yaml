@@ -84,7 +84,7 @@ helm:
     kube-prometheus-stack:
       version: "52.1.0"
     kube-ui-server:
-      version: "v2023.12.18"
+      version: "v2023.12.20"
     kubedb:
       version: "v2024.1.31"
     kubedb-opscenter:
