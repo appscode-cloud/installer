@@ -62,9 +62,9 @@ helm:
     external-dns-operator:
       version: "v2023.10.1"
     falco:
-      version: "3.8.4"
+      version: "4.0.0"
     falco-ui-server:
-      version: "v2023.10.1"
+      version: "v2024.2.5"
     flux2:
       version: "2.12.2"
     gatekeeper:
@@ -96,7 +96,7 @@ helm:
     kubedb-provider-gcp:
       version: "v2024.1.31"
     kubestash:
-      version: "v2024.1.31"
+      version: "v2024.2.5"
     kubestash-presets:
       version: "v2023.11.14"
     kubevault:
