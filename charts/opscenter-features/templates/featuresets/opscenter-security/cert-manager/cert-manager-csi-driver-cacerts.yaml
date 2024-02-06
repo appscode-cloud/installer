@@ -10,7 +10,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: opscenter-security
 spec:
-  title: Cert Manager
+  title: CA Cert CSI Driver
   description: |
     CSI Driver to mount ca-certs issued by cert-manager
   icons:
