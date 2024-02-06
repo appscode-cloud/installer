@@ -1,14 +1,14 @@
 {{ $overrides := printf `
 image:
-  registry: %s
+  registry: %q
 driver:
   loader:
     initContainer:
       image:
-        registry: %s
+        registry: %q
 falcoctl:
   image:
-    registry: %s
+    registry: %q
 `
   (include "registry.dockerHub" $)
   (include "registry.dockerHub" $)
