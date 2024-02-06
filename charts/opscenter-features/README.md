@@ -67,8 +67,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.config-syncer.version                   |                         | <code>"v0.14.6"</code>                     |
 | helm.releases.crossplane.version                      |                         | <code>"1.14.0"</code>                      |
 | helm.releases.external-dns-operator.version           |                         | <code>"v2023.10.1"</code>                  |
-| helm.releases.falco.version                           |                         | <code>"3.8.4"</code>                       |
-| helm.releases.falco-ui-server.version                 |                         | <code>"v2023.10.1"</code>                  |
+| helm.releases.falco.version                           |                         | <code>"4.0.0"</code>                       |
+| helm.releases.falco-ui-server.version                 |                         | <code>"v2024.2.5"</code>                   |
 | helm.releases.flux2.version                           |                         | <code>"2.12.2"</code>                      |
 | helm.releases.gatekeeper.version                      |                         | <code>"3.13.3"</code>                      |
 | helm.releases.gatekeeper-grafana-dashboards.version   |                         | <code>"v2023.10.1"</code>                  |
@@ -78,13 +78,13 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.keda-add-ons-http.version               |                         | <code>"0.6.0"</code>                       |
 | helm.releases.kube-grafana-dashboards.version         |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.kube-prometheus-stack.version           |                         | <code>"52.1.0"</code>                      |
-| helm.releases.kube-ui-server.version                  |                         | <code>"v2023.12.18"</code>                 |
+| helm.releases.kube-ui-server.version                  |                         | <code>"v2023.12.20"</code>                 |
 | helm.releases.kubedb.version                          |                         | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubedb-opscenter.version                |                         | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubedb-provider-aws.version             |                         | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubedb-provider-azure.version           |                         | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubedb-provider-gcp.version             |                         | <code>"v2024.1.31"</code>                  |
-| helm.releases.kubestash.version                       |                         | <code>"v2024.1.31"</code>                  |
+| helm.releases.kubestash.version                       |                         | <code>"v2024.2.5"</code>                   |
 | helm.releases.kubestash-presets.version               |                         | <code>"v2023.11.14"</code>                 |
 | helm.releases.kubevault.version                       |                         | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubevault-opscenter.version             |                         | <code>"v2024.1.31"</code>                  |
