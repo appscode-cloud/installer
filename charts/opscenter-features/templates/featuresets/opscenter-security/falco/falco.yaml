@@ -10,9 +10,9 @@ falcoctl:
   image:
     registry: %q
 `
-  (include "registry.dockerHub" $)
-  (include "registry.dockerHub" $)
-  (include "registry.dockerHub" $)
+  (default "docker.io" (include "registry.dockerHub" $))
+  (default "docker.io" (include "registry.dockerHub" $))
+  (default "docker.io" (include "registry.dockerHub" $))
   | fromYaml }}
 
 {{ $vals := `
