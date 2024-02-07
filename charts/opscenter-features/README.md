@@ -99,12 +99,12 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.prometheus-adapter.version              |                         | <code>"4.9.0"</code>                       |
 | helm.releases.reloader.version                        |                         | <code>"1.0.50"</code>                      |
 | helm.releases.scanner.version                         |                         | <code>"v2024.1.18"</code>                  |
-| helm.releases.sidekick.version                        |                         | <code>"v2023.12.11"</code>                 |
+| helm.releases.sidekick.version                        |                         | <code>"v2024.2.6"</code>                   |
 | helm.releases.snapshot-controller.version             |                         | <code>"2.0.3"</code>                       |
 | helm.releases.stash.version                           |                         | <code>"v2023.10.9"</code>                  |
 | helm.releases.stash-opscenter.version                 |                         | <code>"v2023.10.9"</code>                  |
 | helm.releases.stash-presets.version                   |                         | <code>"v2023.11.14"</code>                 |
-| helm.releases.supervisor.version                      |                         | <code>"v2023.10.1"</code>                  |
+| helm.releases.supervisor.version                      |                         | <code>"v2024.2.6"</code>                   |
 | helm.releases.topolvm.version                         |                         | <code>"13.0.0"</code>                      |
 | helm.releases.voyager.version                         |                         | <code>"v2023.9.18"</code>                  |
 | helm.releases.voyager-gateway.version                 |                         | <code>"v2024.1.29"</code>                  |
