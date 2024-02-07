@@ -11,12 +11,9 @@ spec:
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  featureSet: opscenter-presets
+  featureSet: opscenter-backup
   featureBlock: stash-presets
   recommended: true
-  requirements:
-    features:
-      - stash
   chart:
     name: stash-presets
     namespace: stash

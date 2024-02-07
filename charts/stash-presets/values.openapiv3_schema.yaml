@@ -1,4 +1,124 @@
 properties:
+  kubestash:
+    properties:
+      backend:
+        properties:
+          azure:
+            properties:
+              auth:
+                properties:
+                  AZURE_ACCOUNT_KEY:
+                    type: string
+                  AZURE_ACCOUNT_NAME:
+                    type: string
+                required:
+                - AZURE_ACCOUNT_KEY
+                - AZURE_ACCOUNT_NAME
+                type: object
+              spec:
+                properties:
+                  container:
+                    type: string
+                  maxConnections:
+                    format: int64
+                    type: integer
+                  prefix:
+                    type: string
+                required:
+                - container
+                type: object
+            required:
+            - spec
+            type: object
+          gcs:
+            properties:
+              auth:
+                properties:
+                  GOOGLE_PROJECT_ID:
+                    type: string
+                  GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
+                    type: string
+                required:
+                - GOOGLE_PROJECT_ID
+                - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                type: object
+              spec:
+                properties:
+                  bucket:
+                    type: string
+                  maxConnections:
+                    format: int64
+                    type: integer
+                  prefix:
+                    type: string
+                required:
+                - bucket
+                type: object
+            required:
+            - spec
+            type: object
+          provider:
+            type: string
+          s3:
+            properties:
+              auth:
+                properties:
+                  AWS_ACCESS_KEY_ID:
+                    type: string
+                  AWS_SECRET_ACCESS_KEY:
+                    type: string
+                  CA_CERT_DATA:
+                    type: string
+                required:
+                - AWS_ACCESS_KEY_ID
+                - AWS_SECRET_ACCESS_KEY
+                type: object
+              spec:
+                properties:
+                  bucket:
+                    type: string
+                  endpoint:
+                    type: string
+                  insecureTLS:
+                    type: boolean
+                  prefix:
+                    type: string
+                  region:
+                    type: string
+                required:
+                - bucket
+                - endpoint
+                type: object
+            required:
+            - spec
+            type: object
+          storageSecret:
+            properties:
+              create:
+                type: boolean
+            required:
+            - create
+            type: object
+        required:
+        - provider
+        - storageSecret
+        type: object
+      encryptionSecret:
+        type: string
+      retentionPolicy:
+        properties:
+          name:
+            type: string
+        required:
+        - name
+        type: object
+      schedule:
+        type: string
+    required:
+    - backend
+    - encryptionSecret
+    - retentionPolicy
+    type: object
   stash:
     properties:
       authSecret:
@@ -231,6 +351,13 @@ properties:
     - backend
     - retentionPolicy
     type: object
+  tool:
+    enum:
+    - KubeStash
+    - Stash
+    type: string
 required:
+- kubestash
 - stash
+- tool
 type: object

@@ -84,8 +84,6 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&IngressNginxList{},
 		&KubedbUi{},
 		&KubedbUiList{},
-		&KubestashPresets{},
-		&KubestashPresetsList{},
 		&LicenseProxyserver{},
 		&LicenseProxyserverList{},
 		&MarketplaceUi{},

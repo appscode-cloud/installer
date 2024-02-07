@@ -97,8 +97,6 @@ helm:
       version: "v2024.1.31"
     kubestash:
       version: "v2024.2.5"
-    kubestash-presets:
-      version: "v2023.11.14"
     kubevault:
       version: "v2024.1.31"
     kubevault-opscenter:
