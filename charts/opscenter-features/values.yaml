@@ -126,7 +126,7 @@ helm:
     scanner:
       version: "v2024.1.18"
     sidekick:
-      version: "v2023.12.11"
+      version: "v2024.2.6"
     snapshot-controller:
       version: "2.0.3"
     stash:
@@ -136,7 +136,7 @@ helm:
     stash-presets:
       version: "v2023.11.14"
     supervisor:
-      version: "v2023.10.1"
+      version: "v2024.2.6"
     topolvm:
       version: "13.0.0"
     voyager:
