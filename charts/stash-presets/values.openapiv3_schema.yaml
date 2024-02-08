@@ -96,8 +96,6 @@ properties:
             properties:
               create:
                 type: boolean
-            required:
-            - create
             type: object
         required:
         - provider

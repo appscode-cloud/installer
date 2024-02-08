@@ -80,8 +80,8 @@ const (
 )
 
 type KubeStashBackend struct {
-	Provider      string                 `json:"provider"`
-	StorageSecret KubeStashStorageSecret `json:"storageSecret"`
+	Provider      string           `json:"provider"`
+	StorageSecret OptionalResource `json:"storageSecret"`
 	// +optional
 	S3 S3 `json:"s3"`
 	// +optional
@@ -90,7 +90,8 @@ type KubeStashBackend struct {
 	GCS GCS `json:"gcs"`
 }
 
-type KubeStashStorageSecret struct {
+type OptionalResource struct {
+	// +optional
 	Create bool `json:"create"`
 }
 
