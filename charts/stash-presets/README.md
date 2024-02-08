@@ -49,7 +49,7 @@ The following table lists the configurable parameters of the `stash-presets` cha
 |------------------------------------------------------------|-------------|-----------------------------------------|
 | tool                                                       |             | <code>KubeStash # Stash</code>          |
 | kubestash.schedule                                         |             | <code>"0 */2 * * *"</code>              |
-| kubestash.retentionPolicy.name                             |             | <code>keep-1mo</code>                   |
+| kubestash.retentionPolicy                                  |             | <code>keep-1mo</code>                   |
 | kubestash.encryptionSecret                                 |             | <code>""</code>                         |
 | kubestash.backend.provider                                 |             | <code>s3 # s3,gcs,azure</code>          |
 | kubestash.backend.storageSecret.create                     |             | <code>true</code>                       |
