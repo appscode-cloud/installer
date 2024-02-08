@@ -1,0 +1,29 @@
+{{- if eq .Values.tool "KubeStash" }}
+
+apiVersion: charts.x-helm.dev/v1alpha1
+kind: ClusterChartPreset
+metadata:
+  name: stash-presets
+  labels:
+    ace.appscode.com/managed: "true"
+    charts.x-helm.dev/is-default-preset: "true"
+spec:
+  values:
+    spec:
+      backup:
+        tool: KubeStash
+        kubestash:
+          schedule: {{ .Values.kubestash.schedule }}
+          storageRef:
+            name: default
+            namespace: {{ .Release.Namespace }}
+          retentionPolicy:
+            name: {{ .Values.kubestash.retentionPolicy.name }}
+            namespace: {{ .Release.Namespace }}
+          encryptionSecret:
+            name: default-encryption-secret
+            namespace: {{ .Release.Namespace }}
+          storageSecret:
+            create: {{ .Values.kubestash.backend.storageSecret.create }}
+
+{{- end }}
