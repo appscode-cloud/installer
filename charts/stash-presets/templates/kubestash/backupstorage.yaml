@@ -21,10 +21,10 @@ spec:
       endpoint: {{ .endpoint | quote }}
       bucket: {{ .bucket | quote }}
       {{- with .region }}
-      region: {{ . }}
+      region: {{ . | quote }}
       {{- end }}
       {{- with .prefix }}
-      prefix: {{ . }}
+      prefix: {{ . | quote }}
       {{- end }}
       {{- with .insecureTLS }}
       insecureTLS: {{ . }}
@@ -41,7 +41,7 @@ spec:
       storageAccount: {{ $.Values.kubestash.backend.azure.auth.AZURE_ACCOUNT_NAME | quote }}
       container: {{ .container | quote }}
       {{- with .prefix }}
-      prefix: {{ . }}
+      prefix: {{ . | quote }}
       {{- end }}
       {{- with .maxConnections }}
       maxConnections: {{ . }}
@@ -57,7 +57,7 @@ spec:
     gcs:
       bucket: {{ .bucket | quote }}
       {{- with .prefix }}
-      prefix: {{ . }}
+      prefix: {{ . | quote }}
       {{- end }}
       {{- with .maxConnections }}
       maxConnections: {{ . }}
