@@ -13,9 +13,9 @@ metadata:
   labels:
     app.kubernetes.io/part-of: opscenter-backup
 spec:
-  title: KubeStash
+  title: Stash 2.0
   description: |
-    Stash v2 (BETA)
+    aka KubeStash
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml

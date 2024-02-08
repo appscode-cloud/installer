@@ -1,0 +1,18 @@
+{{- if eq .Values.tool "KubeStash" }}
+
+apiVersion: storage.kubestash.com/v1alpha1
+kind: RetentionPolicy
+metadata:
+  name: keep-1wk
+  namespace: {{ .Release.Namespace }}
+spec:
+  successfulSnapshots: # Hourly, daily for 7 days
+    hourly: 8
+    daily: 7
+  failedSnapshots:
+    last: 2
+  usagePolicy:
+    allowedNamespaces:
+      from: All
+
+{{- end }}

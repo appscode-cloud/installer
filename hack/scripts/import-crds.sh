@@ -17,16 +17,17 @@
 BYTEBUILDERS_RESOURCE_MODEL_TAG=${BYTEBUILDERS_RESOURCE_MODEL_TAG:-v0.0.9}
 FLUXCD_HELM_CONTROLLER=${FLUXCD_HELM_CONTROLLER:-v0.37.1}
 FLUXCD_SOURCE_CONTROLLER=${FLUXCD_SOURCE_CONTROLLER:-v1.2.3}
-HELM_X_APIMACHINERY_TAG=${HELM_X_APIMACHINERY_TAG:-master}
 KMODULES_RESOURCE_METADATA_TAG=${KMODULES_RESOURCE_METADATA_TAG:-v0.12.1}
 KUBEOPS_EXTERNAL_DNS_OPERATOR=${KUBEOPS_EXTERNAL_DNS_OPERATOR:-v0.0.6}
+KUBESTASH_APIMACHINERY_TAG=${KUBESTASH_APIMACHINERY_TAG:-v0.5.0}
 OPEN_CLUSTER_MANAGEMENT_IO_API_TAG=${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG:-v0.12.0}
 PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR=${PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR:-v0.59.1}
+X_HELM_APIMACHINERY_TAG=${X_HELM_APIMACHINERY_TAG:-v0.0.16}
 
 crd-importer \
     --input=https://github.com/fluxcd/helm-controller/raw/${FLUXCD_HELM_CONTROLLER}/config/crd/bases/helm.toolkit.fluxcd.io_helmreleases.yaml \
     --input=https://github.com/fluxcd/source-controller/raw/${FLUXCD_SOURCE_CONTROLLER}/config/crd/bases/source.toolkit.fluxcd.io_helmrepositories.yaml \
-    --input=https://github.com/x-helm/apimachinery/raw/${HELM_X_APIMACHINERY_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
+    --input=https://github.com/x-helm/apimachinery/raw/${X_HELM_APIMACHINERY_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
     --out=./charts/ace-installer/crds
 
 crd-importer \
@@ -34,8 +35,8 @@ crd-importer \
     --input=https://github.com/bytebuilders/resource-model/raw/${BYTEBUILDERS_RESOURCE_MODEL_TAG}/crds/cluster.appscode.com_clusterauthinfotemplates.yaml \
     --input=https://github.com/bytebuilders/resource-model/raw/${BYTEBUILDERS_RESOURCE_MODEL_TAG}/crds/cluster.appscode.com_clusterinfos.yaml \
     --input=https://github.com/bytebuilders/resource-model/raw/${BYTEBUILDERS_RESOURCE_MODEL_TAG}/crds/cluster.appscode.com_clusteruserauths.yaml \
-    --input=https://github.com/x-helm/apimachinery/raw/${HELM_X_APIMACHINERY_TAG}/crds/products.x-helm.dev_plans.yaml \
-    --input=https://github.com/x-helm/apimachinery/raw/${HELM_X_APIMACHINERY_TAG}/crds/products.x-helm.dev_products.yaml \
+    --input=https://github.com/x-helm/apimachinery/raw/${X_HELM_APIMACHINERY_TAG}/crds/products.x-helm.dev_plans.yaml \
+    --input=https://github.com/x-helm/apimachinery/raw/${X_HELM_APIMACHINERY_TAG}/crds/products.x-helm.dev_products.yaml \
     --out=./charts/ace/crds
 
 crd-importer \
@@ -54,7 +55,7 @@ crd-importer \
     --out=./charts/ace-ocm-addons/crds
 
 crd-importer \
-    --input=https://github.com/x-helm/apimachinery/raw/${HELM_X_APIMACHINERY_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
+    --input=https://github.com/x-helm/apimachinery/raw/${X_HELM_APIMACHINERY_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
     --out=./charts/capi-cluster-presets/crds
 
 crd-importer \
@@ -73,3 +74,9 @@ crd-importer \
     --input=https://github.com/kmodules/resource-metadata/raw/master/crds/ui.k8s.appscode.com_featuresets.yaml \
     --input=https://github.com/x-helm/apimachinery/raw/${HELM_X_APIMACHINERY_TAG}/crds/drivers.x-helm.dev_appreleases.yaml \
     --out=./charts/opscenter-features/crds
+
+crd-importer \
+    --input=https://github.com/kubestash/apimachinery/raw/${KUBESTASH_APIMACHINERY_TAG}/crds/storage.kubestash.com_backupstorages.yaml \
+    --input=https://github.com/kubestash/apimachinery/raw/${KUBESTASH_APIMACHINERY_TAG}/crds/storage.kubestash.com_retentionpolicies.yaml \
+    --input=https://github.com/x-helm/apimachinery/raw/${X_HELM_APIMACHINERY_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
+    --out=./charts/stash-presets/crds

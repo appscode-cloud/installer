@@ -1,7 +1,4 @@
-{{ $m := .Values.stash }}
-{{- if .Values.global }}
-{{- $m = .Values.global.stash }}
-{{- end }}
+{{- if eq .Values.tool "Stash" }}
 
 apiVersion: charts.x-helm.dev/v1alpha1
 kind: ClusterChartPreset
@@ -15,4 +12,7 @@ spec:
     spec:
       backup:
         tool: Stash
-        {{- toYaml .Values | nindent 8 }}
+        stash:
+          {{- toYaml .Values.stash | nindent 10 }}
+
+{{- end }}

@@ -1,0 +1,71 @@
+{{- if eq .Values.tool "KubeStash" }}
+
+apiVersion: storage.kubestash.com/v1alpha1
+kind: BackupStorage
+metadata:
+  name: default
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "stash-presets.labels" . | nindent 4 }}
+spec:
+  usagePolicy:
+    allowedNamespaces:
+      from: All
+  default: true
+  deletionPolicy: WipeOut
+  storage:
+    provider: {{ .Values.kubestash.backend.provider }}
+  {{- if eq .Values.kubestash.backend.provider "s3" }}
+    {{- with .Values.kubestash.backend.s3.spec }}
+    s3:
+      endpoint: {{ .endpoint | quote }}
+      bucket: {{ .bucket | quote }}
+      {{- with .region }}
+      region: {{ . }}
+      {{- end }}
+      {{- with .prefix }}
+      prefix: {{ . }}
+      {{- end }}
+      {{- with .insecureTLS }}
+      insecureTLS: {{ . }}
+      {{- end }}
+      {{- if $.Values.kubestash.backend.storageSecret.create }}
+      secretName: default-storage-cred
+      {{- end }}
+    {{- end }}
+  {{- end }}
+
+  {{- if eq .Values.kubestash.backend.provider "azure" }}
+    {{- with .Values.kubestash.backend.azure.spec }}
+    azure:
+      storageAccount: {{ $.Values.kubestash.backend.azure.auth.AZURE_ACCOUNT_NAME | quote }}
+      container: {{ .container | quote }}
+      {{- with .prefix }}
+      prefix: {{ . }}
+      {{- end }}
+      {{- with .maxConnections }}
+      maxConnections: {{ . }}
+      {{- end }}
+      {{- if $.Values.kubestash.backend.storageSecret.create }}
+      secretName: default-storage-cred
+      {{- end }}
+    {{- end }}
+  {{- end }}
+
+  {{- if eq .Values.kubestash.backend.provider "gcs" }}
+    {{- with .Values.kubestash.backend.gcs.spec }}
+    gcs:
+      bucket: {{ .bucket | quote }}
+      {{- with .prefix }}
+      prefix: {{ . }}
+      {{- end }}
+      {{- with .maxConnections }}
+      maxConnections: {{ . }}
+      {{- end }}
+      {{- if $.Values.kubestash.backend.storageSecret.create }}
+      secretName: default-storage-cred
+      {{- end }}
+    {{- end }}
+  {{- end }}
+
+{{- end }}
