@@ -74,8 +74,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.gatekeeper-grafana-dashboards.version   |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.gatekeeper-library.version              |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.grafana-operator.version                |                         | <code>"v0.0.3"</code>                      |
-| helm.releases.keda.version                            |                         | <code>"2.12.0"</code>                      |
-| helm.releases.keda-add-ons-http.version               |                         | <code>"0.6.0"</code>                       |
+| helm.releases.keda.version                            |                         | <code>"2.13.1"</code>                      |
+| helm.releases.keda-add-ons-http.version               |                         | <code>"0.7.0"</code>                       |
 | helm.releases.kube-grafana-dashboards.version         |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.kube-prometheus-stack.version           |                         | <code>"52.1.0"</code>                      |
 | helm.releases.kube-ui-server.version                  |                         | <code>"v2023.12.20"</code>                 |
