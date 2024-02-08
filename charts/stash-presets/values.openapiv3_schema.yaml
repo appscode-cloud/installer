@@ -92,14 +92,8 @@ properties:
             required:
             - spec
             type: object
-          storageSecret:
-            properties:
-              create:
-                type: boolean
-            type: object
         required:
         - provider
-        - storageSecret
         type: object
       encryptionSecret:
         type: string
@@ -113,10 +107,16 @@ properties:
         type: string
       schedule:
         type: string
+      storageSecret:
+        properties:
+          create:
+            type: boolean
+        type: object
     required:
     - backend
     - encryptionSecret
     - retentionPolicy
+    - storageSecret
     type: object
   stash:
     properties:

@@ -29,7 +29,7 @@ spec:
       {{- with .insecureTLS }}
       insecureTLS: {{ . }}
       {{- end }}
-      {{- if $.Values.kubestash.backend.storageSecret.create }}
+      {{- if $.Values.kubestash.storageSecret.create }}
       secretName: default-storage-cred
       {{- end }}
     {{- end }}
@@ -46,7 +46,7 @@ spec:
       {{- with .maxConnections }}
       maxConnections: {{ . }}
       {{- end }}
-      {{- if $.Values.kubestash.backend.storageSecret.create }}
+      {{- if $.Values.kubestash.storageSecret.create }}
       secretName: default-storage-cred
       {{- end }}
     {{- end }}
@@ -62,7 +62,7 @@ spec:
       {{- with .maxConnections }}
       maxConnections: {{ . }}
       {{- end }}
-      {{- if $.Values.kubestash.backend.storageSecret.create }}
+      {{- if $.Values.kubestash.storageSecret.create }}
       secretName: default-storage-cred
       {{- end }}
     {{- end }}

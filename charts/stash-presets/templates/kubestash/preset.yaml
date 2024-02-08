@@ -24,6 +24,6 @@ spec:
             name: default-encryption-secret
             namespace: {{ .Release.Namespace }}
           storageSecret:
-            create: {{ .Values.kubestash.backend.storageSecret.create }}
+            create: {{ .Values.kubestash.storageSecret.create }}
 
 {{- end }}

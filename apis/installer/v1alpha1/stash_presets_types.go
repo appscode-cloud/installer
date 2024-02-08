@@ -66,6 +66,7 @@ type KubeStashInfo struct {
 	// +kubebuilder:default=keep-1mo
 	RetentionPolicy  KubeStashRetentionPolicy `json:"retentionPolicy"`
 	EncryptionSecret string                   `json:"encryptionSecret"`
+	StorageSecret    OptionalResource         `json:"storageSecret"`
 	Backend          KubeStashBackend         `json:"backend"`
 }
 
@@ -80,8 +81,7 @@ const (
 )
 
 type KubeStashBackend struct {
-	Provider      string           `json:"provider"`
-	StorageSecret OptionalResource `json:"storageSecret"`
+	Provider string `json:"provider"`
 	// +optional
 	S3 S3 `json:"s3"`
 	// +optional

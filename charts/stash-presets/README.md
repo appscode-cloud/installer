@@ -51,8 +51,8 @@ The following table lists the configurable parameters of the `stash-presets` cha
 | kubestash.schedule                                         |             | <code>"0 */2 * * *"</code>              |
 | kubestash.retentionPolicy                                  |             | <code>keep-1mo</code>                   |
 | kubestash.encryptionSecret                                 |             | <code>""</code>                         |
+| kubestash.storageSecret.create                             |             | <code>true</code>                       |
 | kubestash.backend.provider                                 |             | <code>s3 # s3,gcs,azure</code>          |
-| kubestash.backend.storageSecret.create                     |             | <code>true</code>                       |
 | kubestash.backend.s3.spec.endpoint                         |             | <code>""</code>                         |
 | kubestash.backend.s3.spec.bucket                           |             | <code>""</code>                         |
 | kubestash.backend.s3.auth.AWS_ACCESS_KEY_ID                |             | <code>""</code>                         |
