@@ -44,6 +44,7 @@ type StashPresets struct {
 }
 
 type StashPresetsSpec struct {
+	// +kubebuilder:default=KubeStash
 	Tool      BackupTool    `json:"tool"`
 	KubeStash KubeStashInfo `json:"kubestash"`
 	Stash     StashInfo     `json:"stash"`
@@ -62,10 +63,21 @@ type KubeStashInfo struct {
 	// +optional
 	Schedule string `json:"schedule,omitempty"`
 	// RetentionPolicy indicates the policy to follow to clean old backup snapshots
-	RetentionPolicy  LocalObjectReference `json:"retentionPolicy"`
-	EncryptionSecret string               `json:"encryptionSecret"`
-	Backend          KubeStashBackend     `json:"backend"`
+	// +kubebuilder:default=keep-1mo
+	RetentionPolicy  KubeStashRetentionPolicy `json:"retentionPolicy"`
+	EncryptionSecret string                   `json:"encryptionSecret"`
+	Backend          KubeStashBackend         `json:"backend"`
 }
+
+// +kubebuilder:validation:Enum=keep-1wk;keep-1mo;keep-3mo;keep-1yr
+type KubeStashRetentionPolicy string
+
+const (
+	KubeStashKeep1W KubeStashRetentionPolicy = "keep-1wk"
+	KubeStashKeep1M KubeStashRetentionPolicy = "keep-1mo"
+	KubeStashKeep3M KubeStashRetentionPolicy = "keep-3mo"
+	KubeStashKeep1Y KubeStashRetentionPolicy = "keep-1yr"
+)
 
 type KubeStashBackend struct {
 	Provider      string                 `json:"provider"`

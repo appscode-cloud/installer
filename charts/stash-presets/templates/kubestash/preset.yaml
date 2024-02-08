@@ -18,7 +18,7 @@ spec:
             name: default
             namespace: {{ .Release.Namespace }}
           retentionPolicy:
-            name: {{ .Values.kubestash.retentionPolicy.name }}
+            name: {{ .Values.kubestash.retentionPolicy }}
             namespace: {{ .Release.Namespace }}
           encryptionSecret:
             name: default-encryption-secret

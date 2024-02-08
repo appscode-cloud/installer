@@ -106,12 +106,13 @@ properties:
       encryptionSecret:
         type: string
       retentionPolicy:
-        properties:
-          name:
-            type: string
-        required:
-        - name
-        type: object
+        default: keep-1mo
+        enum:
+        - keep-1wk
+        - keep-1mo
+        - keep-3mo
+        - keep-1yr
+        type: string
       schedule:
         type: string
     required:
@@ -352,6 +353,7 @@ properties:
     - retentionPolicy
     type: object
   tool:
+    default: KubeStash
     enum:
     - KubeStash
     - Stash

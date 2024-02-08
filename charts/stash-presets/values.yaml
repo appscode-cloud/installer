@@ -3,8 +3,7 @@ tool: KubeStash # Stash
 kubestash:
   schedule: "0 */2 * * *"
 
-  retentionPolicy:
-    name: keep-1mo
+  retentionPolicy: keep-1mo
 
   encryptionSecret: ""
 
