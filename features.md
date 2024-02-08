@@ -11,6 +11,8 @@ graph TD;
   stash-opscenter-->grafana-operator;
   stash-->license-proxyserver;
   keda-add-ons-http-->keda;
+  opencost-grafana-dashboards-->opencost;
+  opencost-grafana-dashboards-->grafana-operator;
   opencost-->kube-prometheus-stack;
   opencost-->monitoring-operator;
   kubedb-opscenter-->kubedb;
