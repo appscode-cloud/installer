@@ -1,0 +1,28 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: opencost-grafana-dashboards
+  labels:
+    app.kubernetes.io/part-of: opscenter-cost
+spec:
+  title: OpenCost Grafana Dashboards
+  description: |
+    OpenCost Grafana Dashboards
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-cost
+  featureBlock: opencost
+  recommended: false
+  requirements:
+    features:
+      - opencost
+      - grafana-operator
+  chart:
+    name: opencost-grafana-dashboards
+    namespace: opencost
+    version: {{ dig "opencost-grafana-dashboards" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
