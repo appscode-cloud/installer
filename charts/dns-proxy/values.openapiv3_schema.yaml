@@ -126,6 +126,16 @@ properties:
                           type: object
                       type: object
                       x-kubernetes-map-type: atomic
+                    matchLabelKeys:
+                      items:
+                        type: string
+                      type: array
+                      x-kubernetes-list-type: atomic
+                    mismatchLabelKeys:
+                      items:
+                        type: string
+                      type: array
+                      x-kubernetes-list-type: atomic
                     namespaceSelector:
                       properties:
                         matchExpressions:
@@ -194,6 +204,16 @@ properties:
                       type: object
                   type: object
                   x-kubernetes-map-type: atomic
+                matchLabelKeys:
+                  items:
+                    type: string
+                  type: array
+                  x-kubernetes-list-type: atomic
+                mismatchLabelKeys:
+                  items:
+                    type: string
+                  type: array
+                  x-kubernetes-list-type: atomic
                 namespaceSelector:
                   properties:
                     matchExpressions:
@@ -260,6 +280,16 @@ properties:
                           type: object
                       type: object
                       x-kubernetes-map-type: atomic
+                    matchLabelKeys:
+                      items:
+                        type: string
+                      type: array
+                      x-kubernetes-list-type: atomic
+                    mismatchLabelKeys:
+                      items:
+                        type: string
+                      type: array
+                      x-kubernetes-list-type: atomic
                     namespaceSelector:
                       properties:
                         matchExpressions:
@@ -328,6 +358,16 @@ properties:
                       type: object
                   type: object
                   x-kubernetes-map-type: atomic
+                matchLabelKeys:
+                  items:
+                    type: string
+                  type: array
+                  x-kubernetes-list-type: atomic
+                mismatchLabelKeys:
+                  items:
+                    type: string
+                  type: array
+                  x-kubernetes-list-type: atomic
                 namespaceSelector:
                   properties:
                     matchExpressions:
@@ -572,6 +612,18 @@ properties:
     type: integer
   resources:
     properties:
+      claims:
+        items:
+          properties:
+            name:
+              type: string
+          required:
+          - name
+          type: object
+        type: array
+        x-kubernetes-list-map-keys:
+        - name
+        x-kubernetes-list-type: map
       limits:
         additionalProperties:
           anyOf:
