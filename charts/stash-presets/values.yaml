@@ -7,10 +7,11 @@ kubestash:
 
   encryptionSecret: ""
 
+  storageSecret:
+    create: true
+
   backend:
     provider: s3 # s3,gcs,azure
-    storageSecret:
-      create: true
     s3:
       spec:
         endpoint: ""
