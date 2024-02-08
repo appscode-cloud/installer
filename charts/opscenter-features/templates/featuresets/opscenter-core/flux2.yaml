@@ -69,7 +69,7 @@ spec:
         control-plane: controller
   chart:
     name: flux2
-    namespace: kubeops
+    namespace: flux-system
     version: {{ dig "flux2" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

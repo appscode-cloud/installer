@@ -12,6 +12,8 @@ spec:
   recommended: true
   requiredFeatures:
   - kube-ui-server
+  - flux2
+  - opscenter-features
   chart:
     name: uik8sappscodecom-featureset-opscenter-core-editor
     version: {{ .Chart.AppVersion }}
