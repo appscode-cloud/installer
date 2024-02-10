@@ -80,6 +80,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&DnsProxyList{},
 		&Grafana{},
 		&GrafanaList{},
+		&InboxUi{},
+		&InboxUiList{},
 		&IngressNginx{},
 		&IngressNginxList{},
 		&KubedbUi{},
