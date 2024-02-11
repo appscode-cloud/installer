@@ -52,6 +52,7 @@ type AceSpec struct {
 	AccountsUi    AceAccountsUi    `json:"accounts-ui"`
 	ClusterUi     AceClusterUi     `json:"cluster-ui"`
 	DeployUi      AceDeployUi      `json:"deploy-ui"`
+	InboxUi       AceInboxUi       `json:"inbox-ui"`
 	Grafana       AceGrafana       `json:"grafana"`
 	KubedbUi      AceKubedbUi      `json:"kubedb-ui"`
 	MarketplaceUi AceMarketplaceUi `json:"marketplace-ui"`
@@ -105,6 +106,11 @@ type AceClusterUi struct {
 type AceDeployUi struct {
 	Enabled       bool `json:"enabled"`
 	*DeployUiSpec `json:",inline,omitempty"`
+}
+
+type AceInboxUi struct {
+	Enabled      bool `json:"enabled"`
+	*InboxUiSpec `json:",inline,omitempty"`
 }
 
 type AceGrafana struct {
