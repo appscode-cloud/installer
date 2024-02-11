@@ -44,6 +44,10 @@ dependencies:
   repository: file://../platform-links
   condition: platform-links.enabled
   version: v2023.12.20
+- name: inbox-ui
+  repository: file://../inbox-ui
+  condition: inbox-ui.enabled
+  version: v2023.12.20
 - name: billing
   repository: file://../billing
   condition: billing.enabled
