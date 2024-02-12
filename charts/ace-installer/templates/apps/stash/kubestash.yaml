@@ -21,8 +21,8 @@ spec:
   interval: 5m
   timeout: 30m
   releaseName: kubestash
-  targetNamespace: kubestash
-  storageNamespace: kubestash
+  targetNamespace: stash
+  storageNamespace: stash
   install:
     createNamespace: true
     # crds: CreateReplace
