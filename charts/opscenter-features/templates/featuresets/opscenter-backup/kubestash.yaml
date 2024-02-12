@@ -36,7 +36,7 @@ spec:
           app.kubernetes.io/name: kubestash-operator
   chart:
     name: kubestash
-    namespace: kubestash
+    namespace: stash
     version: {{ dig "kubestash" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
