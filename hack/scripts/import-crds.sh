@@ -14,6 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+BYTEBUILDERS_CATALOG_TAG=${BYTEBUILDERS_CATALOG_TAG:-master}
+BYTEBUILDERS_KUBE_BIND_TAG=${BYTEBUILDERS_KUBE_BIND_TAG:-master}
 BYTEBUILDERS_RESOURCE_MODEL_TAG=${BYTEBUILDERS_RESOURCE_MODEL_TAG:-v0.0.9}
 FLUXCD_HELM_CONTROLLER=${FLUXCD_HELM_CONTROLLER:-v0.37.1}
 FLUXCD_SOURCE_CONTROLLER=${FLUXCD_SOURCE_CONTROLLER:-v1.2.3}
@@ -80,3 +82,25 @@ crd-importer \
     --input=https://github.com/kubestash/apimachinery/raw/${KUBESTASH_APIMACHINERY_TAG}/crds/storage.kubestash.com_retentionpolicies.yaml \
     --input=https://github.com/x-helm/apimachinery/raw/${X_HELM_APIMACHINERY_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
     --out=./charts/stash-presets/crds
+
+crd-importer \
+    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/config/crd/bases/catalog.appscode.com_elasticsearchbindings.yaml \
+    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/config/crd/bases/catalog.appscode.com_kafkabindings.yaml \
+    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/config/crd/bases/catalog.appscode.com_mariadbbindings.yaml \
+    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/config/crd/bases/catalog.appscode.com_memcachedbindings.yaml \
+    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/config/crd/bases/catalog.appscode.com_mongodbbindings.yaml \
+    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/config/crd/bases/catalog.appscode.com_mysqlbindings.yaml \
+    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/config/crd/bases/catalog.appscode.com_perconaxtradbbindings.yaml \
+    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/config/crd/bases/catalog.appscode.com_pgbouncerbindings.yaml \
+    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/config/crd/bases/catalog.appscode.com_postgresbindings.yaml \
+    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/config/crd/bases/catalog.appscode.com_proxysqlbindings.yaml \
+    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/config/crd/bases/catalog.appscode.com_redisbindings.yaml \
+    --out=./charts/catalog-manager/crds
+
+crd-importer \
+    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/deploy/crd/kube-bind.appscode.com_apiservicebindings.yaml \
+    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/deploy/crd/kube-bind.appscode.com_apiserviceexportrequests.yaml \
+    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/deploy/crd/kube-bind.appscode.com_apiserviceexports.yaml \
+    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/deploy/crd/kube-bind.appscode.com_apiservicenamespaces.yaml \
+    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/deploy/crd/kube-bind.appscode.com_clusterbindings.yaml \
+    --out=./charts/service-provider/crds

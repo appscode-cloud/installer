@@ -6,7 +6,7 @@ metadata:
     {{- include "catalog-manager.labels" . | nindent 4 }}
 rules:
 - apiGroups:
-  - catalog.kubeware.dev
+  - catalog.appscode.com
   resources: ["*"]
   verbs: ["get", "list", "watch", "patch"]
 - apiGroups:

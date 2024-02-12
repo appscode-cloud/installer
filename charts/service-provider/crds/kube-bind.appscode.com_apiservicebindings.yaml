@@ -3,21 +3,33 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.10.0
-  name: apiserviceexportrequests.kubeware.dev
+  name: apiservicebindings.kube-bind.appscode.com
 spec:
-  group: kubeware.dev
+  group: kube-bind.appscode.com
   names:
     categories:
-    - kubewares
-    kind: APIServiceExportRequest
-    listKind: APIServiceExportRequestList
-    plural: apiserviceexportrequests
-    singular: apiserviceexportrequest
-  scope: Namespaced
+    - kube-bindings
+    kind: APIServiceBinding
+    listKind: APIServiceBindingList
+    plural: apiservicebindings
+    shortNames:
+    - sb
+    singular: apiservicebinding
+  scope: Cluster
   versions:
   - additionalPrinterColumns:
+    - jsonPath: .status.providerPrettyName
+      name: Provider
+      type: string
+    - jsonPath: .metadata.annotations.kube-bind\.appscode\.com/resources
+      name: Resources
+      priority: 1
+      type: string
     - jsonPath: .status.conditions[?(@.type=="Ready")].status
       name: Ready
+      type: string
+    - jsonPath: .status.conditions[?(@.type=="Ready")].message
+      name: Message
       type: string
     - jsonPath: .metadata.creationTimestamp
       name: Age
@@ -25,8 +37,9 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: "APIServiceExportRequest is represents a request session of kubectl-bind-apiservice.
-          \n The service provider can prune these objects after some time."
+        description: APIServiceBinding binds an API service represented by a APIServiceExport
+          in a service provider cluster into a consumer cluster. This object lives
+          in the consumer cluster.
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -44,47 +57,33 @@ spec:
             description: spec specifies how an API service from a service provider
               should be bound in the local consumer cluster.
             properties:
-              parameters:
-                description: parameters holds service provider specific parameters
-                  for this binding request.
-                type: object
-                x-kubernetes-preserve-unknown-fields: true
-                x-kubernetes-validations:
-                - message: parameters are immutable
-                  rule: self == oldSelf
-              resources:
-                description: resources is a list of resources that should be exported.
+              kubeconfigSecretRefs:
+                description: kubeconfigSecretName is the secret ref that contains
+                  the kubeconfig of the service cluster.
                 items:
                   properties:
-                    group:
-                      default: ""
-                      description: group is the name of an API group. For core groups
-                        this is the empty string '""'.
-                      pattern: ^(|[a-z0-9]([-a-z0-9]*[a-z0-9](\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*)?)$
+                    key:
+                      description: The key of the secret to select from.  Must be
+                        "kubeconfig".
+                      enum:
+                      - kubeconfig
                       type: string
-                    resource:
-                      description: 'resource is the name of the resource. Note: it
-                        is worth noting that you can not ask for permissions for resource
-                        provided by a CRD not provided by an service binding export.'
-                      pattern: ^[a-z][-a-z0-9]*[a-z0-9]$
+                    name:
+                      description: Name of the referent.
+                      minLength: 1
                       type: string
-                    versions:
-                      description: versions is a list of versions that should be exported.
-                        If this is empty a sensible default is chosen by the service
-                        provider.
-                      items:
-                        type: string
-                      type: array
+                    namespace:
+                      description: Namespace of the referent.
+                      minLength: 1
+                      type: string
                   required:
-                  - resource
+                  - key
+                  - name
+                  - namespace
                   type: object
-                minItems: 1
                 type: array
-                x-kubernetes-validations:
-                - message: resources are immutable
-                  rule: self == oldSelf
             required:
-            - resources
+            - kubeconfigSecretRefs
             type: object
           status:
             description: status contains reconciliation information for a service
@@ -92,7 +91,7 @@ spec:
             properties:
               conditions:
                 description: conditions is a list of conditions that apply to the
-                  ClusterBinding. It is updated by the konnector and the service provider.
+                  APIServiceBinding.
                 items:
                   description: Condition defines an observation of a object operational
                     state.
@@ -105,14 +104,21 @@ spec:
                       format: date-time
                       type: string
                     message:
-                      description: A human readable message indicating details about
+                      description: A human-readable message indicating details about
                         the transition. This field may be empty.
                       type: string
+                    observedGeneration:
+                      description: If set, this represents the .metadata.generation
+                        that the condition was set based upon. For instance, if .metadata.generation
+                        is currently 12, but the .status.condition[x].observedGeneration
+                        is 9, the condition is out of date with respect to the current
+                        state of the instance.
+                      format: int64
+                      type: integer
                     reason:
                       description: The reason for the condition's last transition
-                        in CamelCase. The specific API may choose whether or not this
-                        field is considered a guaranteed API. This field may not be
-                        empty.
+                        in CamelCase. The specific API may choose whether this field
+                        is considered a guaranteed API. This field may not be empty.
                       type: string
                     severity:
                       description: Severity provides an explicit classification of
@@ -126,9 +132,8 @@ spec:
                     type:
                       description: Type of condition in CamelCase or in foo.example.com/CamelCase.
                         Many .condition.type values are consistent across resources
-                        like Available, but because arbitrary conditions can be useful
-                        (see .node.status.conditions), the ability to deconflict is
-                        important.
+                        like Available, but because arbitrary util can be useful (see
+                        .node.status.util), the ability to deconflict is important.
                       type: string
                   required:
                   - lastTransitionTime
@@ -136,23 +141,36 @@ spec:
                   - type
                   type: object
                 type: array
-              phase:
-                default: Pending
-                description: phase is the current phase of the binding request. It
-                  starts in Pending and transitions to Succeeded or Failed. See the
-                  condition for detailed information.
-                enum:
-                - Pending
-                - Failed
-                - Succeeded
-                type: string
-              terminalMessage:
-                description: terminalMessage is a human readable message that describes
-                  the reason for the current phase.
-                type: string
+              kubeconfigs:
+                items:
+                  properties:
+                    key:
+                      description: The key of the secret to select from.  Must be
+                        "kubeconfig".
+                      enum:
+                      - kubeconfig
+                      type: string
+                    name:
+                      description: Name of the referent.
+                      minLength: 1
+                      type: string
+                    namespace:
+                      description: Namespace of the referent.
+                      minLength: 1
+                      type: string
+                  required:
+                  - key
+                  - name
+                  - namespace
+                  type: object
+                type: array
+              providerPrettyName:
+                description: providerPrettyName is the pretty name of the service
+                  provider cluster. This can be shared among different APIServiceBindings.
+                items:
+                  type: string
+                type: array
             type: object
-        required:
-        - spec
         type: object
     served: true
     storage: true

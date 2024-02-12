@@ -3,12 +3,12 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.10.0
-  name: apiservicenamespaces.kubeware.dev
+  name: apiservicenamespaces.kube-bind.appscode.com
 spec:
-  group: kubeware.dev
+  group: kube-bind.appscode.com
   names:
     categories:
-    - kubewares
+    - kube-bindings
     kind: APIServiceNamespace
     listKind: APIServiceNamespaceList
     plural: apiservicenamespaces

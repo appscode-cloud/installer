@@ -3,12 +3,12 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.10.0
-  name: clusterbindings.kubeware.dev
+  name: clusterbindings.kube-bind.appscode.com
 spec:
-  group: kubeware.dev
+  group: kube-bind.appscode.com
   names:
     categories:
-    - kubewares
+    - kube-bindings
     kind: ClusterBinding
     listKind: ClusterBindingList
     plural: clusterbindings
@@ -105,14 +105,21 @@ spec:
                       format: date-time
                       type: string
                     message:
-                      description: A human readable message indicating details about
+                      description: A human-readable message indicating details about
                         the transition. This field may be empty.
                       type: string
+                    observedGeneration:
+                      description: If set, this represents the .metadata.generation
+                        that the condition was set based upon. For instance, if .metadata.generation
+                        is currently 12, but the .status.condition[x].observedGeneration
+                        is 9, the condition is out of date with respect to the current
+                        state of the instance.
+                      format: int64
+                      type: integer
                     reason:
                       description: The reason for the condition's last transition
-                        in CamelCase. The specific API may choose whether or not this
-                        field is considered a guaranteed API. This field may not be
-                        empty.
+                        in CamelCase. The specific API may choose whether this field
+                        is considered a guaranteed API. This field may not be empty.
                       type: string
                     severity:
                       description: Severity provides an explicit classification of
@@ -126,9 +133,8 @@ spec:
                     type:
                       description: Type of condition in CamelCase or in foo.example.com/CamelCase.
                         Many .condition.type values are consistent across resources
-                        like Available, but because arbitrary conditions can be useful
-                        (see .node.status.conditions), the ability to deconflict is
-                        important.
+                        like Available, but because arbitrary util can be useful (see
+                        .node.status.util), the ability to deconflict is important.
                       type: string
                   required:
                   - lastTransitionTime

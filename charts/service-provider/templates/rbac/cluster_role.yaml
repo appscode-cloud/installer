@@ -30,12 +30,12 @@ rules:
   - "customresourcedefinitions"
   verbs: ["get", "list", "watch"]
 - apiGroups:
-  - "kubeware.dev"
+  - "kube-bind.appscode.com"
   resources:
   - "apiserviceexportrequests"
   verbs: ["*"]
 - apiGroups:
-  - "kubeware.dev"
+  - "kube-bind.appscode.com"
   resources:
   - "apiserviceexportrequests/status"
   verbs: ["patch","update","get"]
@@ -45,32 +45,32 @@ rules:
   - "secrets"
   verbs: ["*"]
 - apiGroups:
-  - "kubeware.dev"
+  - "kube-bind.appscode.com"
   resources:
   - "clusterbindings"
   verbs: ["get", "watch", "list", "create"]
 - apiGroups:
-  - "kubeware.dev"
+  - "kube-bind.appscode.com"
   resources:
   - "clusterbindings/status"
   verbs: ["get","patch","update"]
 - apiGroups:
-  - "kubeware.dev"
+  - "kube-bind.appscode.com"
   resources:
   - "apiserviceexports"
   verbs: ["get", "watch", "list", "create"]
 - apiGroups:
-  - "kubeware.dev"
+  - "kube-bind.appscode.com"
   resources:
   - "apiserviceexports/status"
   verbs: ["get","patch","update"]
 - apiGroups:
-  - "kubeware.dev"
+  - "kube-bind.appscode.com"
   resources:
   - "apiservicenamespaces"
   verbs: ["*"]
 - apiGroups:
-  - "kubeware.dev"
+  - "kube-bind.appscode.com"
   resources:
   - "apiservicenamespaces/status"
   verbs: ["patch", "update", "get"]
