@@ -12,7 +12,7 @@ spec:
     allowedNamespaces:
       from: All
   default: true
-  deletionPolicy: WipeOut
+  deletionPolicy: Delete
   storage:
     provider: {{ .Values.kubestash.backend.provider }}
   {{- if eq .Values.kubestash.backend.provider "s3" }}
