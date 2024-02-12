@@ -49,6 +49,8 @@ helm:
       version: "v2023.12.11"
     capi-cluster-presets:
       version: "v2023.11.14"
+    catalog-manager:
+      version: "v2024.2.11"
     cert-manager:
       version: "v1.14.1"
     cert-manager-csi-driver-cacerts:
@@ -125,6 +127,12 @@ helm:
       version: "1.0.50"
     scanner:
       version: "v2024.1.18"
+    service-backend:
+      version: "v2024.2.11"
+    service-presets:
+      version: "v2024.2.11"
+    service-provider:
+      version: "v2024.2.11"
     sidekick:
       version: "v2024.2.6"
     snapshot-controller:
