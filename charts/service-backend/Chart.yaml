@@ -1,13 +1,13 @@
 apiVersion: v2
 name: service-backend
-description: A Helm chart for Kubeware Backend Server by AppsCode
+description: A Helm chart for Kubernetes
 type: application
-version: v2024.2.11
-appVersion: v0.0.1
-home: https://github.com/kubeware
-icon: https://cdn.appscode.com/images/products/searchlight/icons/android-icon-192x192.png
+version: v2023.11.14
+appVersion: v0.0.3
+home: https://github.com/bytebuilders
+icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
-- https://github.com/kubeware
+- https://github.com/bytebuilders
 maintainers:
 - name: appscode
   email: support@appscode.com

@@ -27,7 +27,7 @@ const (
 	ResourceServiceBackends    = "servicebackends"
 )
 
-// ServiceBackend defines the schama for ServiceBackend operator installer.
+// ServiceBackend defines the schama for ServiceBackend Installer.
 
 // +genclient
 // +genclient:skipVerbs=updateStatus
@@ -42,25 +42,29 @@ type ServiceBackend struct {
 	Spec              ServiceBackendSpec `json:"spec,omitempty"`
 }
 
-// ServiceBackendSpec is the schema for Identity Server values file
+// ServiceBackendSpec is the schema for ServiceBackend Operator values file
 type ServiceBackendSpec struct {
+	ReplicaCount int `json:"replicaCount"`
+	//+optional
+	RegistryFQDN string         `json:"registryFQDN"`
+	Image        ImageReference `json:"image"`
+	//+optional
+	ImagePullSecrets []string `json:"imagePullSecrets"`
 	//+optional
 	NameOverride string `json:"nameOverride"`
 	//+optional
-	FullnameOverride string    `json:"fullnameOverride"`
-	ReplicaCount     int       `json:"replicaCount"`
-	RegistryFQDN     string    `json:"registryFQDN"`
-	Image            Container `json:"image"`
-	//+optional
-	ImagePullSecrets []string           `json:"imagePullSecrets"`
-	ImagePullPolicy  string             `json:"imagePullPolicy"`
-	ServiceAccount   ServiceAccountSpec `json:"serviceAccount"`
+	FullnameOverride string               `json:"fullnameOverride"`
+	ServiceAccount   LocalObjectReference `json:"serviceAccount"`
 	//+optional
 	PodAnnotations map[string]string `json:"podAnnotations"`
-	// PodSecurityContext holds pod-level security attributes and common container settings.
-	// Optional: Defaults to empty.  See type description for default values of each field.
-	// +optional
+	//+optional
 	PodSecurityContext *core.PodSecurityContext `json:"podSecurityContext"`
+	//+optional
+	SecurityContext *core.SecurityContext `json:"securityContext"`
+	Service         AceServiceSpec        `json:"service"`
+	//+optional
+	Resources   core.ResourceRequirements `json:"resources"`
+	Autoscaling AutoscalingSpec           `json:"autoscaling"`
 	//+optional
 	NodeSelector map[string]string `json:"nodeSelector"`
 	// If specified, the pod's tolerations.
@@ -69,6 +73,7 @@ type ServiceBackendSpec struct {
 	// If specified, the pod's scheduling constraints
 	// +optional
 	Affinity   *core.Affinity `json:"affinity"`
+	Ingress    AppIngress     `json:"ingress"`
 	Monitoring Monitoring     `json:"monitoring"`
 	Server     ServerConfig   `json:"server"`
 }

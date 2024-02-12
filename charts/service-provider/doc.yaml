@@ -1,9 +1,9 @@
 project:
-  name: Kubeware Service Provider by AppsCode
-  shortName: Kubeware Service Provider
+  name: AppsCode SaaS Provider
+  shortName: AppsCode SaaS Provider
   url: https://github.com/kubeware
-  description: Kubeware Service Provider by AppsCode
-  app: a Kubeware Service Provider
+  description: AppsCode SaaS Provider
+  app: a AppsCode SaaS Provider
 repository:
   url: https://charts.appscode.com/stable/
   name: appscode
@@ -15,4 +15,4 @@ prerequisites:
 - Kubernetes 1.21+
 release:
   name: service-provider
-  namespace: kubeops
+  namespace: ace

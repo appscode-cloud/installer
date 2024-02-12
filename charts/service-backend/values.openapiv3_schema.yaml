@@ -404,119 +404,98 @@ properties:
             type: array
         type: object
     type: object
+  autoscaling:
+    properties:
+      enabled:
+        type: boolean
+      maxReplicas:
+        type: integer
+      minReplicas:
+        type: integer
+      targetCPUUtilizationPercentage:
+        type: integer
+      targetMemoryUtilizationPercentage:
+        type: integer
+    required:
+    - enabled
+    - maxReplicas
+    - minReplicas
+    type: object
   fullnameOverride:
     type: string
   image:
     properties:
+      pullPolicy:
+        type: string
       registry:
         type: string
       repository:
         type: string
-      resources:
-        properties:
-          claims:
-            items:
-              properties:
-                name:
-                  type: string
-              required:
-              - name
-              type: object
-            type: array
-            x-kubernetes-list-map-keys:
-            - name
-            x-kubernetes-list-type: map
-          limits:
-            additionalProperties:
-              anyOf:
-              - type: integer
-              - type: string
-              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
-              x-kubernetes-int-or-string: true
-            type: object
-          requests:
-            additionalProperties:
-              anyOf:
-              - type: integer
-              - type: string
-              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
-              x-kubernetes-int-or-string: true
-            type: object
-        type: object
-      securityContext:
-        properties:
-          allowPrivilegeEscalation:
-            type: boolean
-          capabilities:
-            properties:
-              add:
-                items:
-                  type: string
-                type: array
-              drop:
-                items:
-                  type: string
-                type: array
-            type: object
-          privileged:
-            type: boolean
-          procMount:
-            type: string
-          readOnlyRootFilesystem:
-            type: boolean
-          runAsGroup:
-            format: int64
-            type: integer
-          runAsNonRoot:
-            type: boolean
-          runAsUser:
-            format: int64
-            type: integer
-          seLinuxOptions:
-            properties:
-              level:
-                type: string
-              role:
-                type: string
-              type:
-                type: string
-              user:
-                type: string
-            type: object
-          seccompProfile:
-            properties:
-              localhostProfile:
-                type: string
-              type:
-                type: string
-            required:
-            - type
-            type: object
-          windowsOptions:
-            properties:
-              gmsaCredentialSpec:
-                type: string
-              gmsaCredentialSpecName:
-                type: string
-              hostProcess:
-                type: boolean
-              runAsUserName:
-                type: string
-            type: object
-        type: object
       tag:
         type: string
     required:
+    - pullPolicy
     - registry
     - repository
     - tag
     type: object
-  imagePullPolicy:
-    type: string
   imagePullSecrets:
     items:
       type: string
     type: array
+  ingress:
+    properties:
+      annotations:
+        additionalProperties:
+          type: string
+        type: object
+      className:
+        type: string
+      enabled:
+        type: boolean
+      hosts:
+        items:
+          properties:
+            host:
+              type: string
+            paths:
+              items:
+                properties:
+                  path:
+                    type: string
+                  pathType:
+                    type: string
+                required:
+                - path
+                - pathType
+                type: object
+              type: array
+          required:
+          - host
+          - paths
+          type: object
+        type: array
+      tls:
+        items:
+          properties:
+            hosts:
+              items:
+                type: string
+              type: array
+            secretName:
+              type: string
+          required:
+          - hosts
+          - secretName
+          type: object
+        type: array
+    required:
+    - annotations
+    - className
+    - enabled
+    - hosts
+    - tls
+    type: object
   monitoring:
     properties:
       agent:
@@ -614,6 +593,98 @@ properties:
     type: string
   replicaCount:
     type: integer
+  resources:
+    properties:
+      claims:
+        items:
+          properties:
+            name:
+              type: string
+          required:
+          - name
+          type: object
+        type: array
+        x-kubernetes-list-map-keys:
+        - name
+        x-kubernetes-list-type: map
+      limits:
+        additionalProperties:
+          anyOf:
+          - type: integer
+          - type: string
+          pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+          x-kubernetes-int-or-string: true
+        type: object
+      requests:
+        additionalProperties:
+          anyOf:
+          - type: integer
+          - type: string
+          pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+          x-kubernetes-int-or-string: true
+        type: object
+    type: object
+  securityContext:
+    properties:
+      allowPrivilegeEscalation:
+        type: boolean
+      capabilities:
+        properties:
+          add:
+            items:
+              type: string
+            type: array
+          drop:
+            items:
+              type: string
+            type: array
+        type: object
+      privileged:
+        type: boolean
+      procMount:
+        type: string
+      readOnlyRootFilesystem:
+        type: boolean
+      runAsGroup:
+        format: int64
+        type: integer
+      runAsNonRoot:
+        type: boolean
+      runAsUser:
+        format: int64
+        type: integer
+      seLinuxOptions:
+        properties:
+          level:
+            type: string
+          role:
+            type: string
+          type:
+            type: string
+          user:
+            type: string
+        type: object
+      seccompProfile:
+        properties:
+          localhostProfile:
+            type: string
+          type:
+            type: string
+        required:
+        - type
+        type: object
+      windowsOptions:
+        properties:
+          gmsaCredentialSpec:
+            type: string
+          gmsaCredentialSpecName:
+            type: string
+          hostProcess:
+            type: boolean
+          runAsUserName:
+            type: string
+        type: object
+    type: object
   server:
     properties:
       consumerScope:
@@ -655,18 +726,22 @@ properties:
     - oidc
     - providerPrettyName
     type: object
+  service:
+    properties:
+      port:
+        type: integer
+      type:
+        type: string
+    required:
+    - port
+    - type
+    type: object
   serviceAccount:
     properties:
-      annotations:
-        additionalProperties:
-          type: string
-        type: object
-      create:
-        type: boolean
       name:
         type: string
     required:
-    - create
+    - name
     type: object
   tolerations:
     items:
@@ -685,11 +760,12 @@ properties:
       type: object
     type: array
 required:
+- autoscaling
 - image
-- imagePullPolicy
+- ingress
 - monitoring
-- registryFQDN
 - replicaCount
 - server
+- service
 - serviceAccount
 type: object

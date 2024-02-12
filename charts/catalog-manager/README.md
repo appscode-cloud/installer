@@ -8,7 +8,7 @@
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
 $ helm search repo appscode/catalog-manager --version=v2024.2.11
-$ helm upgrade -i catalog-manager appscode/catalog-manager -n kubeops --create-namespace --version=v2024.2.11
+$ helm upgrade -i catalog-manager appscode/catalog-manager -n ace --create-namespace --version=v2024.2.11
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys an Appcatalog on a [Kubernetes](http://kubernetes.io) cluster
 To install/upgrade the chart with the release name `catalog-manager`:
 
 ```bash
-$ helm upgrade -i catalog-manager appscode/catalog-manager -n kubeops --create-namespace --version=v2024.2.11
+$ helm upgrade -i catalog-manager appscode/catalog-manager -n ace --create-namespace --version=v2024.2.11
 ```
 
 The command deploys an Appcatalog on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -36,7 +36,7 @@ The command deploys an Appcatalog on the Kubernetes cluster in the default confi
 To uninstall the `catalog-manager`:
 
 ```bash
-$ helm uninstall catalog-manager -n kubeops
+$ helm uninstall catalog-manager -n ace
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -77,12 +77,12 @@ The following table lists the configurable parameters of the `catalog-manager` c
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i catalog-manager appscode/catalog-manager -n kubeops --create-namespace --version=v2024.2.11 --set replicaCount=1
+$ helm upgrade -i catalog-manager appscode/catalog-manager -n ace --create-namespace --version=v2024.2.11 --set replicaCount=1
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i catalog-manager appscode/catalog-manager -n kubeops --create-namespace --version=v2024.2.11 --values values.yaml
+$ helm upgrade -i catalog-manager appscode/catalog-manager -n ace --create-namespace --version=v2024.2.11 --values values.yaml
 ```

@@ -1,6 +1,6 @@
-# Kubeware Service Provider
+# AppsCode SaaS Provider
 
-[Kubeware Service Provider by AppsCode](https://github.com/kubeware) - Kubeware Service Provider by AppsCode
+[AppsCode SaaS Provider](https://github.com/kubeware) - AppsCode SaaS Provider
 
 ## TL;DR;
 
@@ -8,12 +8,12 @@
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
 $ helm search repo appscode/service-provider --version=v2024.2.11
-$ helm upgrade -i service-provider appscode/service-provider -n kubeops --create-namespace --version=v2024.2.11
+$ helm upgrade -i service-provider appscode/service-provider -n ace --create-namespace --version=v2024.2.11
 ```
 
 ## Introduction
 
-This chart deploys a Kubeware Service Provider on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart deploys a AppsCode SaaS Provider on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
@@ -24,10 +24,10 @@ This chart deploys a Kubeware Service Provider on a [Kubernetes](http://kubernet
 To install/upgrade the chart with the release name `service-provider`:
 
 ```bash
-$ helm upgrade -i service-provider appscode/service-provider -n kubeops --create-namespace --version=v2024.2.11
+$ helm upgrade -i service-provider appscode/service-provider -n ace --create-namespace --version=v2024.2.11
 ```
 
-The command deploys a Kubeware Service Provider on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
+The command deploys a AppsCode SaaS Provider on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
 
 > **Tip**: List all releases using `helm list`
 
@@ -36,7 +36,7 @@ The command deploys a Kubeware Service Provider on the Kubernetes cluster in the
 To uninstall the `service-provider`:
 
 ```bash
-$ helm uninstall service-provider -n kubeops
+$ helm uninstall service-provider -n ace
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -100,12 +100,12 @@ The following table lists the configurable parameters of the `service-provider` 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i service-provider appscode/service-provider -n kubeops --create-namespace --version=v2024.2.11 --set replicaCount=1
+$ helm upgrade -i service-provider appscode/service-provider -n ace --create-namespace --version=v2024.2.11 --set replicaCount=1
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i service-provider appscode/service-provider -n kubeops --create-namespace --version=v2024.2.11 --values values.yaml
+$ helm upgrade -i service-provider appscode/service-provider -n ace --create-namespace --version=v2024.2.11 --values values.yaml
 ```
