@@ -51,6 +51,7 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.PlatformLinksSpec{}},
 		sc.TestCase{Obj: v1alpha1.PlatformUiSpec{}},
 		sc.TestCase{Obj: v1alpha1.ServiceBackendSpec{}},
+		sc.TestCase{Obj: v1alpha1.ServicePresetsSpec{}},
 		sc.TestCase{Obj: v1alpha1.ServiceProviderSpec{}},
 		sc.TestCase{Obj: v1alpha1.SmtprelaySpec{}},
 		sc.TestCase{Obj: v1alpha1.StashPresetsSpec{}},
