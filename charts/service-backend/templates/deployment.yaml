@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "service-backend.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-backend.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "service-backend.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "service-backend.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- include "appscode.imagePullSecrets" . | nindent 6 }}
+      serviceAccountName: {{ include "service-backend.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.image.securityContext | nindent 12 }}
+{{/*          image: {{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}*/}}
+          image: superm4n/service-backend:config_linux_amd64
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          args:
+            - server
+            - --oidc-issuer-url={{ .Values.server.oidc.issuerURL }}
+            - --oidc-callback-url={{ .Values.server.oidc.callbackURL }}
+            - --namespace-prefix={{ .Values.server.namespacePrefix }}
+            - --oidc-issuer-client-id={{ .Values.server.oidc.clientID }}
+            - --oidc-issuer-client-secret={{ .Values.server.oidc.clientSecret }}
+            - --cookie-signing-key={{ .Values.server.cookie.signingKey }}
+            - --cookie-encryption-key={{ .Values.server.cookie.encryptionKey }}
+            - --consumer-scope={{ .Values.server.consumerScope }}
+          env:
+          - name: BIND_BACKEND_IMAGE
+            value: arnobkumarsaha/service-backend:config_linux_amd64
+{{/*            value: {{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}*/}}
+          ports:
+          - containerPort: 3003
+            name: http
+            protocol: TCP
+          resources:
+            {{- toYaml .Values.image.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
