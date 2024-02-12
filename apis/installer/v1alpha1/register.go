@@ -68,6 +68,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&BillingUiList{},
 		&CapiClusterPresets{},
 		&CapiClusterPresetsList{},
+		&CatalogManager{},
+		&CatalogManagerList{},
 		&CertManagerWebhookAce{},
 		&CertManagerWebhookAceList{},
 		&ClusterImporter{},
@@ -108,6 +110,10 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&NatsList{},
 		&Reloader{},
 		&ReloaderList{},
+		&ServiceProvider{},
+		&ServiceProviderList{},
+		&ServiceBackend{},
+		&ServiceBackendList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

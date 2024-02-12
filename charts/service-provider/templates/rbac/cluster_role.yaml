@@ -1,0 +1,76 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "service-provider.fullname" . }}
+  labels:
+    {{- include "service-provider.labels" . | nindent 4 }}
+rules:
+- apiGroups:
+  - apiextensions.k8s.io
+  resources:
+  - customresourcedefinitions
+  verbs: ["get", "list", "watch"]
+- apiGroups:
+  - rbac.authorization.k8s.io
+  resources:
+  - "clusterroles"
+  - "clusterrolebindings"
+  - "roles"
+  - "rolebindings"
+  verbs: ["*"]
+- apiGroups:
+  - ""
+  resources:
+  - "namespaces"
+  - "serviceaccounts"
+  verbs: ["get", "list", "watch", "create"]
+- apiGroups:
+  - "apiextensions.k8s.io"
+  resources:
+  - "customresourcedefinitions"
+  verbs: ["get", "list", "watch"]
+- apiGroups:
+  - "kubeware.dev"
+  resources:
+  - "apiserviceexportrequests"
+  verbs: ["*"]
+- apiGroups:
+  - "kubeware.dev"
+  resources:
+  - "apiserviceexportrequests/status"
+  verbs: ["patch","update","get"]
+- apiGroups:
+  - ""
+  resources:
+  - "secrets"
+  verbs: ["*"]
+- apiGroups:
+  - "kubeware.dev"
+  resources:
+  - "clusterbindings"
+  verbs: ["get", "watch", "list", "create"]
+- apiGroups:
+  - "kubeware.dev"
+  resources:
+  - "clusterbindings/status"
+  verbs: ["get","patch","update"]
+- apiGroups:
+  - "kubeware.dev"
+  resources:
+  - "apiserviceexports"
+  verbs: ["get", "watch", "list", "create"]
+- apiGroups:
+  - "kubeware.dev"
+  resources:
+  - "apiserviceexports/status"
+  verbs: ["get","patch","update"]
+- apiGroups:
+  - "kubeware.dev"
+  resources:
+  - "apiservicenamespaces"
+  verbs: ["*"]
+- apiGroups:
+  - "kubeware.dev"
+  resources:
+  - "apiservicenamespaces/status"
+  verbs: ["patch", "update", "get"]
