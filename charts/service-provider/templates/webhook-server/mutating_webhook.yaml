@@ -1,0 +1,30 @@
+{{- if .Values.apiserver.enableMutatingWebhook }}
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: {{ include "service-provider.fullname" . }}
+  labels:
+    {{- include "service-provider.labels" . | nindent 4 }}
+webhooks:
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      service:
+        name: {{ include "service-provider.webhookServiceName" . }}
+        namespace: {{ .Release.Namespace }}
+        path: /mutate-kubeware-dev-v1-clusterbinding
+      caBundle: {{ b64enc .Values.apiserver.ca }}
+    failurePolicy: Fail
+    name: clusterbindings.kubeware.dev
+    rules:
+      - apiGroups:
+          - kubeware.dev
+        apiVersions:
+          - v1
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - clusterbindings
+    sideEffects: None
+{{ end }}

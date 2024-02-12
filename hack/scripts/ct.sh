@@ -24,6 +24,9 @@ for dir in charts/*/; do
     if [ $num_files -le 1 ] ||
         [[ "$dir" = "accounts-ui" ]] ||
         [[ "$dir" = "ace" ]] ||
+        [[ "$dir" = "catalog-manager" ]] ||
+        [[ "$dir" = "service-backend" ]] ||
+        [[ "$dir" = "service-provider" ]] ||
         [[ "$dir" = "billing" ]] ||
         [[ "$dir" = "dns-proxy" ]] ||
         [[ "$dir" = "grafana" ]] ||
