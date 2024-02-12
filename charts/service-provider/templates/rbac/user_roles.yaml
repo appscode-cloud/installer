@@ -10,7 +10,7 @@ metadata:
     "helm.sh/hook-delete-policy": before-hook-creation
 rules:
 - apiGroups:
-  - kubeware.dev
+  - kube-bind.appscode.com
   resources:
   - "*"
   verbs: ["*"]
@@ -26,7 +26,7 @@ metadata:
     "helm.sh/hook-delete-policy": before-hook-creation
 rules:
 - apiGroups:
-  - kubeware.dev
+  - kube-bind.appscode.com
   resources:
   - "*"
   verbs: ["get", "list", "watch"]

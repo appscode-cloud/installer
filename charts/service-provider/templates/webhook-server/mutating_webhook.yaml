@@ -15,10 +15,10 @@ webhooks:
         path: /mutate-kubeware-dev-v1-clusterbinding
       caBundle: {{ b64enc .Values.apiserver.ca }}
     failurePolicy: Fail
-    name: clusterbindings.kubeware.dev
+    name: clusterbindings.kube-bind.appscode.com
     rules:
       - apiGroups:
-          - kubeware.dev
+          - kube-bind.appscode.com
         apiVersions:
           - v1
         operations:
