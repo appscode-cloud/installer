@@ -110,6 +110,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&NatsList{},
 		&Reloader{},
 		&ReloaderList{},
+		&ServicePresets{},
+		&ServicePresetsList{},
 		&ServiceProvider{},
 		&ServiceProviderList{},
 		&ServiceBackend{},
