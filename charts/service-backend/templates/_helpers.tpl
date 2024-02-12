@@ -1,4 +1,3 @@
-{{/* vim: set filetype=mustache: */}}
 {{/*
 Expand the name of the chart.
 */}}
@@ -63,14 +62,7 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
-Returns the appscode license
-*/}}
-{{- define "appscode.license" -}}
-{{- .Values.license }}
-{{- end }}
-
-{{/*
-Returns the registry used for operator docker image
+Returns the registry used for image docker image
 */}}
 {{- define "image.registry" -}}
 {{- list .Values.registryFQDN .Values.image.registry | compact | join "/" }}

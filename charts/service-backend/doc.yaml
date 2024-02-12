@@ -1,11 +1,11 @@
 project:
-  name: Kubeware Backend Server by AppsCode
-  shortName: Kubeware Backend Server
-  url: https://github.com/kubeware/service-backend
-  description: Kubeware Backend Server for Kubernetes
-  app: a Kubeware Backend Server
+  name: Cloudflare DNS Proxy by AppsCode
+  shortName: Cloudflare DNS Proxy
+  url: https://github.com/bytebuilders
+  description: Cloudflare DNS Proxy
+  app: a Cloudflare DNS Proxy server
 repository:
-  url: https://charts.appscode.com/stable/
+  url: https://charts.appscode.com/stable
   name: appscode
 chart:
   name: service-backend
@@ -15,4 +15,4 @@ prerequisites:
 - Kubernetes 1.21+
 release:
   name: service-backend
-  namespace: kubeops
+  namespace: ace
