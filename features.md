@@ -36,4 +36,6 @@ graph TD;
   scanner-->license-proxyserver;
   scanner-->grafana-operator;
   config-syncer-->license-proxyserver;
+  catalog-manager-->kubedb;
+  catalog-manager-->voyager-gateway;
 ```

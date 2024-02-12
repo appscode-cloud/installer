@@ -1,0 +1,32 @@
+{{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: service-presets
+  labels:
+    app.kubernetes.io/part-of: saas-core
+spec:
+  title: SaaS Presets
+  description: |
+    SaaS Presets
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: saas-core
+  featureBlock: service-presets
+  recommended: false
+  chart:
+    name: service-presets
+    namespace: ace
+    version: {{ dig "service-presets" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
