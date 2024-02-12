@@ -61,6 +61,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.aws-ebs-csi-driver.version              |                         | <code>"2.23.0"</code>                      |
 | helm.releases.capa-vpc-peering-operator.version       |                         | <code>"v2023.12.11"</code>                 |
 | helm.releases.capi-cluster-presets.version            |                         | <code>"v2023.11.14"</code>                 |
+| helm.releases.catalog-manager.version                 |                         | <code>"v2024.2.11"</code>                  |
 | helm.releases.cert-manager.version                    |                         | <code>"v1.14.1"</code>                     |
 | helm.releases.cert-manager-csi-driver-cacerts.version |                         | <code>"v2023.10.1"</code>                  |
 | helm.releases.cluster-autoscaler.version              |                         | <code>"9.29.0"</code>                      |
@@ -99,6 +100,9 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.prometheus-adapter.version              |                         | <code>"4.9.0"</code>                       |
 | helm.releases.reloader.version                        |                         | <code>"1.0.50"</code>                      |
 | helm.releases.scanner.version                         |                         | <code>"v2024.1.18"</code>                  |
+| helm.releases.service-backend.version                 |                         | <code>"v2024.2.11"</code>                  |
+| helm.releases.service-presets.version                 |                         | <code>"v2024.2.11"</code>                  |
+| helm.releases.service-provider.version                |                         | <code>"v2024.2.11"</code>                  |
 | helm.releases.sidekick.version                        |                         | <code>"v2024.2.6"</code>                   |
 | helm.releases.snapshot-controller.version             |                         | <code>"2.0.3"</code>                       |
 | helm.releases.stash.version                           |                         | <code>"v2023.10.9"</code>                  |
