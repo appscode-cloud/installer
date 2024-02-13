@@ -60,6 +60,8 @@ stringData:
     PROVIDER = redis
     PROVIDER_CONFIG = {{ template "settings.session.host" . }}
     COOKIE_NAME = {{ .Values.settings.platform.cookieName}}
+    ; https://intercom.help/progressier/en/articles/6894845-why-aren-t-cookies-working-inside-an-iframe
+    COOKIE_SECURE=true
 
     [cache]
     ADAPTER = redis
