@@ -109,7 +109,7 @@ helm:
       version: "v2024.2.5"
     license-proxyserver:
       enabled: true
-      version: "v2023.11.14"
+      version: "v2024.2.13"
     monitoring-operator:
       enabled: false
       version: "v0.0.4"
