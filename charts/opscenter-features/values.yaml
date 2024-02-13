@@ -116,7 +116,7 @@ helm:
     opencost-grafana-dashboards:
       version: "v2023.10.1"
     opscenter-features:
-      version: "v2023.12.20"
+      version: "v2024.2.13"
     panopticon:
       version: "v2024.2.5"
     prepare-cluster:

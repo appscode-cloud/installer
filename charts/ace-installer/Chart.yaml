@@ -2,8 +2,8 @@ apiVersion: v2
 name: ace-installer
 description: ACE Installer
 type: application
-version: v2023.12.20
-appVersion: v2023.12.20
+version: v2024.2.13
+appVersion: v2024.2.13
 home: https://github.com/bytebuilders
 icon: https://cdn.appscode.com/images/products/kubeops/icons/android-icon-192x192.png
 sources:
