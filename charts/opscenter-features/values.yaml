@@ -142,7 +142,7 @@ helm:
     stash-opscenter:
       version: "v2023.10.9"
     stash-presets:
-      version: "v2023.11.14"
+      version: "v2024.2.13"
     supervisor:
       version: "v2024.2.6"
     topolvm:
