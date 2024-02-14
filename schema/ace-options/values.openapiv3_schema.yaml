@@ -772,8 +772,6 @@ properties:
             required:
               - provider
             type: object
-          encryptionSecret:
-            type: string
           retentionPolicy:
             default: keep-1mo
             description: RetentionPolicy indicates the policy to follow to clean old
@@ -794,7 +792,6 @@ properties:
             type: object
         required:
           - backend
-          - encryptionSecret
           - retentionPolicy
           - storageSecret
         type: object
