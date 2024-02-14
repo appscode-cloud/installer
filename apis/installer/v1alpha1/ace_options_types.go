@@ -236,7 +236,6 @@ type ObjstoreAuth struct {
 	S3    *S3Auth    `json:"s3,omitempty"`
 	Azure *AzureAuth `json:"azure,omitempty"`
 	GCS   *GCSAuth   `json:"gcs,omitempty"`
-	Swift *SwiftAuth `json:"swift,omitempty"`
 }
 
 type AceOptionsInfraKms struct {
