@@ -62,6 +62,8 @@ stringData:
     COOKIE_NAME = {{ .Values.settings.platform.cookieName}}
     ; https://intercom.help/progressier/en/articles/6894845-why-aren-t-cookies-working-inside-an-iframe
     COOKIE_SECURE=true
+    ; SameSiteDefaultMode = 1 SameSiteLaxMode = 2 SameSiteStrictMode = 3 SameSiteNoneMode = 4
+    COOKIE_SAME_SITE = 4
 
     [cache]
     ADAPTER = redis
@@ -91,6 +93,8 @@ stringData:
     [security]
     SECRET_KEY     = {{ include "settings.csrfSecretkey" . }}
     CSRF_COOKIE_HTTP_ONLY = {{ .Values.settings.platform.enableCSRFCookieHttpOnly }}
+    COOKIE_USERNAME = {{ .Values.settings.platform.cookieUsername }}
+    COOKIE_REMEMBER_NAME = {{ .Values.settings.platform.cookieRememberName }}
 
     [service]
     ENABLE_CAPTCHA = {{ .Values.settings.platform.serviceEnableCaptcha }}

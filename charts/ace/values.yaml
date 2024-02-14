@@ -327,7 +327,7 @@ settings:
     ##
     serviceDomainWhiteList: []
 
-    cookieName: i_like_bytebuilders
+    cookieName: i_like_ace
 
     ## Landing page for non-logged users, can be "home" or "explore"
     ##
@@ -356,6 +356,12 @@ settings:
 
     # csrf cookie http only enable
     enableCSRFCookieHttpOnly: false
+
+    # logged in username
+    cookieUsername: ace_awesome
+
+    # to auto sign in
+    cookieRememberName: ace_incredible
 
   stripe:
     # stripe access token
