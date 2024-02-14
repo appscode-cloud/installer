@@ -22,6 +22,7 @@ spec:
   requirements:
     features:
       - kubedb
+      - kubevault
       - voyager-gateway
   readinessChecks:
     workloads:
