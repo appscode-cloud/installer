@@ -458,6 +458,8 @@ type PlatformSettings struct {
 	ServiceEnableNotifyMail         bool     `json:"serviceEnableNotifyMail"`
 	ServiceDomainWhiteList          []string `json:"serviceDomainWhiteList"`
 	CookieName                      string   `json:"cookieName"`
+	CookieRememberName              string   `json:"cookieRememberName"`
+	CookieUsername                  string   `json:"cookieUsername"`
 	ServerLandingPage               string   `json:"serverLandingPage"`
 	LogMode                         string   `json:"logMode"`
 	LogLevel                        string   `json:"logLevel"`
