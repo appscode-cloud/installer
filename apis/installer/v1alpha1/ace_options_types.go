@@ -163,10 +163,9 @@ type KubeStashOptions struct {
 	Schedule string `json:"schedule,omitempty"`
 	// RetentionPolicy indicates the policy to follow to clean old backup snapshots
 	// +kubebuilder:default=keep-1mo
-	RetentionPolicy  KubeStashRetentionPolicy `json:"retentionPolicy"`
-	EncryptionSecret string                   `json:"encryptionSecret"`
-	StorageSecret    OptionalResource         `json:"storageSecret"`
-	Backend          KubeStashBackendInfra    `json:"backend"`
+	RetentionPolicy KubeStashRetentionPolicy `json:"retentionPolicy"`
+	StorageSecret   OptionalResource         `json:"storageSecret"`
+	Backend         KubeStashBackendInfra    `json:"backend"`
 }
 
 type KubeStashBackendInfra struct {
