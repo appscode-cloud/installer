@@ -2,8 +2,8 @@ apiVersion: v2
 name: stash-presets
 description: Stash Presets
 type: application
-version: v2023.11.14
-appVersion: v2023.11.14
+version: v2024.2.13
+appVersion: v2024.2.13
 home: https://github.com/bytebuilders
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:

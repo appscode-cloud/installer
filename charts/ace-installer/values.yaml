@@ -134,4 +134,4 @@ helm:
       version: "1.0.50"
     stash-presets:
       enabled: false
-      version: "v2023.11.14"
+      version: "v2024.2.13"
