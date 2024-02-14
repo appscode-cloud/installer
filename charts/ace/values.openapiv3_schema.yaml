@@ -15864,6 +15864,10 @@ properties:
             type: string
           cookieName:
             type: string
+          cookieRememberName:
+            type: string
+          cookieUsername:
+            type: string
           disableHttpGit:
             type: boolean
           enableCSRFCookieHttpOnly:
@@ -15913,6 +15917,8 @@ properties:
         required:
         - appName
         - cookieName
+        - cookieRememberName
+        - cookieUsername
         - disableHttpGit
         - enableCSRFCookieHttpOnly
         - experimentalFeatures
