@@ -21,6 +21,7 @@ spec:
   recommended: false
   requirements:
     features:
+      - cert-manager
       - kubedb
       - kubevault
       - voyager-gateway
