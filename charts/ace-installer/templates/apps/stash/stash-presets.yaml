@@ -32,11 +32,9 @@ spec:
   dependsOn:
   - name: opscenter-features
     namespace: {{ $.Release.Namespace }}
-  - name: license-proxyserver
+  - name: kubestash
     namespace: {{ $.Release.Namespace }}
-  - name: cert-manager
-    namespace: {{ $.Release.Namespace }}
-  - name: panopticon
+  - name: ace
     namespace: {{ $.Release.Namespace }}
   chart:
     spec:
