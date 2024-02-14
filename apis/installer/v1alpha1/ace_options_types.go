@@ -22,6 +22,7 @@ import (
 
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	store "kmodules.xyz/objectstore-api/api/v1"
 	"kmodules.xyz/resource-metadata/apis/shared"
 )
 
@@ -150,10 +151,32 @@ type AceOptionsNatsSettings struct {
 
 type AceOptionsPlatformInfra struct {
 	StorageClass  LocalObjectReference         `json:"storageClass"`
-	Stash         InfraStash                   `json:"stash"`
+	KubeStash     KubeStashOptions             `json:"kubestash"`
 	TLS           AceOptionsInfraTLS           `json:"tls"`
 	DNS           InfraDns                     `json:"dns"`
 	CloudServices AceOptionsInfraCloudServices `json:"cloudServices"`
+}
+
+type KubeStashOptions struct {
+	// Schedule specifies the schedule for invoking backup sessions
+	// +optional
+	Schedule string `json:"schedule,omitempty"`
+	// RetentionPolicy indicates the policy to follow to clean old backup snapshots
+	// +kubebuilder:default=keep-1mo
+	RetentionPolicy  KubeStashRetentionPolicy `json:"retentionPolicy"`
+	EncryptionSecret string                   `json:"encryptionSecret"`
+	StorageSecret    OptionalResource         `json:"storageSecret"`
+	Backend          KubeStashBackendInfra    `json:"backend"`
+}
+
+type KubeStashBackendInfra struct {
+	Provider string `json:"provider"`
+	// +optional
+	S3 store.S3Spec `json:"s3"`
+	// +optional
+	Azure store.AzureSpec `json:"azure"`
+	// +optional
+	GCS store.GCSSpec `json:"gcs"`
 }
 
 type AceOptionsInfraTLS struct {

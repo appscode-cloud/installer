@@ -4113,6 +4113,51 @@ properties:
             - bucket
             - prefix
             type: object
+          kubestash:
+            properties:
+              encryptionSecret:
+                properties:
+                  name:
+                    type: string
+                  namespace:
+                    type: string
+                required:
+                - name
+                - namespace
+                type: object
+              retentionPolicy:
+                properties:
+                  name:
+                    type: string
+                  namespace:
+                    type: string
+                required:
+                - name
+                - namespace
+                type: object
+              schedule:
+                type: string
+              storageRef:
+                properties:
+                  name:
+                    type: string
+                  namespace:
+                    type: string
+                required:
+                - name
+                - namespace
+                type: object
+              storageSecret:
+                properties:
+                  create:
+                    type: boolean
+                type: object
+            required:
+            - encryptionSecret
+            - retentionPolicy
+            - storageRef
+            - storageSecret
+            type: object
           objstore:
             properties:
               azure:
@@ -4215,70 +4260,6 @@ properties:
             - mountPath
             - provider
             type: object
-          stash:
-            properties:
-              azure:
-                properties:
-                  container:
-                    type: string
-                  maxConnections:
-                    format: int64
-                    type: integer
-                  prefix:
-                    type: string
-                required:
-                - container
-                type: object
-              backup:
-                properties:
-                  password:
-                    type: string
-                  schedule:
-                    type: string
-                required:
-                - password
-                - schedule
-                type: object
-              gcs:
-                properties:
-                  bucket:
-                    type: string
-                  maxConnections:
-                    format: int64
-                    type: integer
-                  prefix:
-                    type: string
-                required:
-                - bucket
-                type: object
-              s3:
-                properties:
-                  bucket:
-                    type: string
-                  endpoint:
-                    type: string
-                  insecureTLS:
-                    type: boolean
-                  prefix:
-                    type: string
-                  region:
-                    type: string
-                required:
-                - bucket
-                - endpoint
-                type: object
-              swift:
-                properties:
-                  container:
-                    type: string
-                  prefix:
-                    type: string
-                required:
-                - container
-                type: object
-            required:
-            - backup
-            type: object
           storageClass:
             properties:
               name:
@@ -4335,7 +4316,6 @@ properties:
         - kms
         - kubepack
         - objstore
-        - stash
         - storageClass
         - tls
         type: object
