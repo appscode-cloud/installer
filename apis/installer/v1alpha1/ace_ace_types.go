@@ -20,7 +20,6 @@ import (
 	openviz_installer "go.openviz.dev/installer/apis/installer/v1alpha1"
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	store "kmodules.xyz/objectstore-api/api/v1"
 	dnsapi "kubeops.dev/external-dns-operator/apis/external/v1alpha1"
 )
 
@@ -233,11 +232,21 @@ type PlatformInfra struct {
 	TLS          InfraTLS             `json:"tls"`
 	DNS          InfraDns             `json:"dns"`
 	Objstore     InfraObjstore        `json:"objstore"`
-	Stash        InfraStash           `json:"stash"`
+	Kubestash    KubeStashSpec        `json:"kubestash,omitempty"`
 	Kms          InfraKms             `json:"kms"`
 	Kubepack     InfraKubepack        `json:"kubepack"`
 	Badger       InfraBadger          `json:"badger"`
 	Invoice      InfraInvoice         `json:"invoice"`
+}
+
+type KubeStashSpec struct {
+	// Schedule specifies the schedule for invoking backup sessions
+	// +optional
+	Schedule         string           `json:"schedule,omitempty"`
+	StorageRef       ObjectReference  `json:"storageRef"`
+	RetentionPolicy  ObjectReference  `json:"retentionPolicy"`
+	EncryptionSecret ObjectReference  `json:"encryptionSecret"`
+	StorageSecret    OptionalResource `json:"storageSecret"`
 }
 
 // +kubebuilder:validation:Enum=ca;letsencrypt;letsencrypt-staging;external
@@ -345,19 +354,6 @@ type InfraObjstore struct {
 	Azure     *AzureAuth       `json:"azure,omitempty"`
 	GCS       *GCSAuth         `json:"gcs,omitempty"`
 	Swift     *SwiftAuth       `json:"swift,omitempty"`
-}
-
-type InfraStash struct {
-	Backup BackupSpec       `json:"backup"`
-	S3     *store.S3Spec    `json:"s3,omitempty"`
-	Azure  *store.AzureSpec `json:"azure,omitempty"`
-	GCS    *store.GCSSpec   `json:"gcs,omitempty"`
-	Swift  *store.SwiftSpec `json:"swift,omitempty"`
-}
-
-type BackupSpec struct {
-	Password string `json:"password"`
-	Schedule string `json:"schedule"`
 }
 
 type InfraKms struct {

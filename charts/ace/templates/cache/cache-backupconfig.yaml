@@ -1,0 +1,43 @@
+apiVersion: core.kubestash.com/v1alpha1
+kind: BackupConfiguration
+metadata:
+  name: {{ include "ace.fullname" . }}-cache
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.offshootLabels" . | nindent 4 }}
+    app.kubernetes.io/component: database
+    app.kubernetes.io/instance: {{ include "ace.fullname" . }}-cache
+    app.kubernetes.io/managed-by: kubedb.com
+    app.kubernetes.io/name: redises.kubedb.com
+spec:
+  target:
+    apiGroup: kubedb.com
+    kind: Redis
+    name: {{ include "ace.fullname" . }}-cache
+    namespace: {{ .Release.Namespace }}
+  backends:
+    - name: default-backend
+      storageRef:
+        name: {{ .Values.global.infra.kubestash.storageRef.name }}
+        namespace: {{ .Values.global.infra.kubestash.storageRef.namespace }}
+      retentionPolicy:
+        name: {{ .Values.global.infra.kubestash.retentionPolicy.name }}
+        namespace: {{ .Values.global.infra.kubestash.retentionPolicy.namespace }}
+  sessions:
+    - name: full-backup
+      sessionHistoryLimit: 2
+      scheduler:
+        schedule: {{ .Values.global.infra.kubestash.schedule }}
+        jobTemplate:
+          backoffLimit: 1
+      repositories:
+        - name: {{ include "ace.fullname" . }}-cache
+          backend: default-backend
+          directory: {{ .Release.Namespace }}/{{ include "ace.fullname" . }}-cache
+          encryptionSecret:
+            name: {{ .Values.global.infra.kubestash.encryptionSecret.name }}
+            namespace: {{ .Values.global.infra.kubestash.encryptionSecret.namespace }}
+      addon:
+        name: redis-addon
+        tasks:
+          - name: logical-backup

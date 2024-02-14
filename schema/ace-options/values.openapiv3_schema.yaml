@@ -815,69 +815,80 @@ properties:
           - auth
           - provider
         type: object
-      stash:
+      kubestash:
         properties:
-          azure:
+          backend:
             properties:
-              container:
+              azure:
+                properties:
+                  container:
+                    type: string
+                  maxConnections:
+                    format: int64
+                    type: integer
+                  prefix:
+                    type: string
+                required:
+                  - container
+                type: object
+              gcs:
+                properties:
+                  bucket:
+                    type: string
+                  maxConnections:
+                    format: int64
+                    type: integer
+                  prefix:
+                    type: string
+                required:
+                  - bucket
+                type: object
+              provider:
                 type: string
-              maxConnections:
-                format: int64
-                type: integer
-              prefix:
-                type: string
+              s3:
+                properties:
+                  bucket:
+                    type: string
+                  endpoint:
+                    type: string
+                  insecureTLS:
+                    type: boolean
+                  prefix:
+                    type: string
+                  region:
+                    type: string
+                required:
+                  - bucket
+                  - endpoint
+                type: object
             required:
-              - container
+              - provider
             type: object
-          backup:
+          encryptionSecret:
+            type: string
+          retentionPolicy:
+            default: keep-1mo
+            description: RetentionPolicy indicates the policy to follow to clean old
+              backup snapshots
+            enum:
+              - keep-1wk
+              - keep-1mo
+              - keep-3mo
+              - keep-1yr
+            type: string
+          schedule:
+            description: Schedule specifies the schedule for invoking backup sessions
+            type: string
+          storageSecret:
             properties:
-              password:
-                type: string
-              schedule:
-                type: string
-            required:
-              - password
-              - schedule
-            type: object
-          gcs:
-            properties:
-              bucket:
-                type: string
-              maxConnections:
-                format: int64
-                type: integer
-              prefix:
-                type: string
-            required:
-              - bucket
-            type: object
-          s3:
-            properties:
-              bucket:
-                type: string
-              endpoint:
-                type: string
-              insecureTLS:
+              create:
                 type: boolean
-              prefix:
-                type: string
-              region:
-                type: string
-            required:
-              - bucket
-              - endpoint
-            type: object
-          swift:
-            properties:
-              container:
-                type: string
-              prefix:
-                type: string
-            required:
-              - container
             type: object
         required:
-          - backup
+          - backend
+          - encryptionSecret
+          - retentionPolicy
+          - storageSecret
         type: object
       storageClass:
         properties:
@@ -920,7 +931,7 @@ properties:
     required:
       - cloudServices
       - dns
-      - stash
+      - kubestash
       - storageClass
       - tls
     type: object
