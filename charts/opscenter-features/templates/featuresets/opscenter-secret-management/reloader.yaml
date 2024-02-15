@@ -13,7 +13,7 @@ kind: Feature
 metadata:
   name: reloader
   labels:
-    app.kubernetes.io/part-of: opscenter-tools
+    app.kubernetes.io/part-of: opscenter-secret-management
 spec:
   title: Reloader
   description: |
@@ -21,7 +21,7 @@ spec:
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  featureSet: opscenter-tools
+  featureSet: opscenter-secret-management
   featureBlock: reloader
   recommended: false
   readinessChecks:
