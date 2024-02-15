@@ -2,6 +2,7 @@
 global:
   registryFQDN: %q
 ` (include "registry.ghcr" $) | fromYaml }}
+{{ $_ := set $overrides.global "kubevault-catalog" $.Values.image }}
 
 {{ $vals := dict }}
 {{ $vals = mergeOverwrite $vals $overrides }}
@@ -9,27 +10,34 @@ global:
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: kubevault-opscenter
+  name: kubevault
   labels:
-    app.kubernetes.io/part-of: opscenter-security
+    app.kubernetes.io/part-of: opscenter-secret-management
 spec:
-  title: Kubevault Opscenter
+  title: Kubevault
   description: |
-    UI and monitoring resources for Kubevault.
+    HashiCorp vault operator for Kubernetes.
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  featureSet: opscenter-security
+  featureSet: opscenter-secret-management
   featureBlock: kubevault
   recommended: false
   requirements:
     features:
-      - kubevault
-      - grafana-operator
+      - license-proxyserver
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: kubevault-operator
   chart:
-    name: kubevault-opscenter
+    name: kubevault
     namespace: kubevault
-    version: {{ dig "kubevault-opscenter" "version" "" $.Values.helm.releases }}
+    version: {{ dig "kubevault" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci
