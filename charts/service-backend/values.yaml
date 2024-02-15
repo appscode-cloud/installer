@@ -13,7 +13,7 @@ image:
   # Docker registry used to pull app container image
   registry: appscode
   # App container image
-  repository: cloudflare-service-backend
+  repository: service-provider
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
   pullPolicy: IfNotPresent
@@ -101,11 +101,11 @@ server:
     clientID: ""
     # issuer client Secret
     clientSecret: ""
-    issuerURL: "https://accounts.appscode.com/"
-    callbackURL: "https://bind.appscode.com/callback"
-  providerPrettyName: ""
+    baseURL: "https://ks.appscode.com"
+    issuerURL: "https://accounts.appscode.com"
+    callbackURL: "https://ks.appscode.com/callback"
   # the sync namespace created in the provider side will be named like bb-<some-hash>
-  namespacePrefix: "kubeware-"
+  namespacePrefix: "ace-"
   # How consumers access the service provider cluster. In Kubernetes, "namespaced" allows namespace isolation.
   # In kcp, "cluster" allows workspace isolation, and with that allows cluster-scoped resources to bind, and it is generally more performant.
   consumerScope: "Namespaced"

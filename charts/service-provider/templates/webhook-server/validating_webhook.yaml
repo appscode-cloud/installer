@@ -12,7 +12,7 @@ webhooks:
       service:
         name: {{ include "service-provider.webhookServiceName" . }}
         namespace: {{ .Release.Namespace }}
-        path: /validate-kubeware-dev-v1-clusterbinding
+        path: /validate-kube-bind-appscode-com-v1alpha1-clusterbinding
       caBundle: {{ b64enc .Values.apiserver.ca }}
     failurePolicy: Fail
     name: clusterbindings.kube-bind.appscode.com
