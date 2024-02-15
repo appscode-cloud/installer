@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: appscode:kubeware:edit
+  name: appscode:kube-bind:edit
   labels:
     rbac.authorization.k8s.io/aggregate-to-admin: "true"
     rbac.authorization.k8s.io/aggregate-to-edit: "true"
@@ -18,7 +18,7 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: appscode:kubeware:view
+  name: appscode:kube-bind:view
   labels:
     rbac.authorization.k8s.io/aggregate-to-view: "true"
   annotations:

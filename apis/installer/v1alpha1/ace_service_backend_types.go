@@ -79,10 +79,9 @@ type ServiceBackendSpec struct {
 }
 
 type ServerConfig struct {
-	OIDC               OIDC   `json:"oidc"`
-	NamespacePrefix    string `json:"namespacePrefix"`
-	ProviderPrettyName string `json:"providerPrettyName"`
-	ConsumerScope      string `json:"consumerScope"`
+	OIDC            OIDC   `json:"oidc"`
+	NamespacePrefix string `json:"namespacePrefix"`
+	ConsumerScope   string `json:"consumerScope"`
 	// External           External `json:"external"`
 	Cookie Cookie `json:"cookie"`
 }
@@ -90,6 +89,7 @@ type ServerConfig struct {
 type OIDC struct {
 	ClientID     string `json:"clientID"`
 	ClientSecret string `json:"clientSecret"`
+	BaseURL      string `json:"baseURL"`
 	IssuerURL    string `json:"issuerURL"`
 	CallbackURL  string `json:"callbackURL"`
 }

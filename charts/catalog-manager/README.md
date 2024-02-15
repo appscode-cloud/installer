@@ -1,6 +1,6 @@
 # Appcatalog
 
-[Appcatalog by AppsCode](https://github.com/kubeware/catalog-manager) - Appcatalog for Kubernetes
+[Appcatalog by AppsCode](https://github.com/bytebuilders/catalog-manager) - Appcatalog for Kubernetes
 
 ## TL;DR;
 

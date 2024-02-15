@@ -1,7 +1,7 @@
 project:
   name: Appcatalog by AppsCode
   shortName: Appcatalog
-  url: https://github.com/kubeware/catalog-manager
+  url: https://github.com/bytebuilders/catalog-manager
   description: Appcatalog for Kubernetes
   app: an Appcatalog
 repository:
