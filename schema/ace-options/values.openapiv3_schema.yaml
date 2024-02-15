@@ -328,6 +328,16 @@ properties:
         type: string
       s3AccessKeySecret:
         type: string
+      serviceBackendCookie:
+        properties:
+          encryptionKey:
+            type: string
+          signingKey:
+            type: string
+        required:
+          - encryptionKey
+          - signingKey
+        type: object
       token:
         type: string
     required:

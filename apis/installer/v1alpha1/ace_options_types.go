@@ -334,6 +334,8 @@ type GeneratedValues struct {
 	S3AccessKeySecret string `json:"s3AccessKeySecret"`
 	// +optional
 	Nats map[string]string `json:"nats"`
+	// +optional
+	ServiceBackendCookie Cookie `json:"serviceBackendCookie"`
 }
 
 type PromotionValues struct {
