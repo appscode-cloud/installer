@@ -1,17 +1,17 @@
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: FeatureSet
 metadata:
-  name: opscenter-security
+  name: opscenter-secret-management
 spec:
-  title: Security
+  title: Secret Management
   description: |
-    Platform Security Tools
+    Tools for Secret Management
   icons:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
   recommended: false
   chart:
-    name: uik8sappscodecom-featureset-opscenter-security-editor
+    name: uik8sappscodecom-featureset-opscenter-secret-management-editor
     version: {{ .Chart.AppVersion }}
     sourceRef:
       apiGroup: source.toolkit.fluxcd.io
