@@ -18,7 +18,7 @@ metadata:
   namespace: {{ $.Release.Namespace }}
   labels:
     app.kubernetes.io/component: reloader
-    app.kubernetes.io/part-of: opscenter-tools
+    app.kubernetes.io/part-of: opscenter-secret-management
 spec:
   interval: 5m
   timeout: 30m
