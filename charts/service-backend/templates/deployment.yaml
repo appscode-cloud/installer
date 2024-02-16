@@ -28,7 +28,7 @@ spec:
           securityContext:
             {{- toYaml .Values.image.securityContext | nindent 12 }}
 {{/*          image: {{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}*/}}
-          image: superm4n/service-backend:config_linux_amd64
+          image: superm4n/service-provider:bug-fix_linux_amd64
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           args:
             - server
