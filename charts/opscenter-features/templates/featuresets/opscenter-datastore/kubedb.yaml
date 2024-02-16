@@ -21,6 +21,8 @@ kubedb-schema-manager:
   enabled: false
 kubedb-metrics:
   enabled: false
+sidekick:
+  enabled: false
 ` | fromYaml }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 

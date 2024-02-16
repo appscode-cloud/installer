@@ -101,6 +101,8 @@ helm:
           enabled: false
         kubedb-metrics:
           enabled: false
+        sidekick:
+          enabled: false
     kubedb-opscenter:
       enabled: true
       version: "v2024.2.14"
