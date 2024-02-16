@@ -1,9 +1,9 @@
 project:
-  name: Appcatalog by AppsCode
-  shortName: Appcatalog
+  name: AppsCode SaaS Calalog
+  shortName: Catalog
   url: https://github.com/bytebuilders/catalog-manager
-  description: Appcatalog for Kubernetes
-  app: an Appcatalog
+  description: AppsCode SaaS Calalog
+  app: a catalog manager
 repository:
   url: https://charts.appscode.com/stable/
   name: appscode

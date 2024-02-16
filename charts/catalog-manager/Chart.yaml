@@ -1,6 +1,6 @@
 apiVersion: v2
 name: catalog-manager
-description: A Helm chart for Appcatalog Operator by AppsCode
+description: A Helm chart for AppsCode SaaS Calalog
 type: application
 version: v2024.2.11
 appVersion: v0.0.1
