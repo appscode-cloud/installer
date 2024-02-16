@@ -1,6 +1,6 @@
-# Appcatalog
+# Catalog
 
-[Appcatalog by AppsCode](https://github.com/bytebuilders/catalog-manager) - Appcatalog for Kubernetes
+[AppsCode SaaS Calalog](https://github.com/bytebuilders/catalog-manager) - AppsCode SaaS Calalog
 
 ## TL;DR;
 
@@ -13,7 +13,7 @@ $ helm upgrade -i catalog-manager appscode/catalog-manager -n ace --create-names
 
 ## Introduction
 
-This chart deploys an Appcatalog on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart deploys a catalog manager on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ To install/upgrade the chart with the release name `catalog-manager`:
 $ helm upgrade -i catalog-manager appscode/catalog-manager -n ace --create-namespace --version=v2024.2.11
 ```
 
-The command deploys an Appcatalog on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
+The command deploys a catalog manager on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
 
 > **Tip**: List all releases using `helm list`
 
