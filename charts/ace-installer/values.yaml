@@ -104,7 +104,7 @@ helm:
         sidekick:
           enabled: false
     kubedb-opscenter:
-      enabled: true
+      enabled: false
       version: "v2024.2.14"
     kubestash:
       enabled: true
