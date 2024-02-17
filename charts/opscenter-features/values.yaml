@@ -75,6 +75,8 @@ helm:
       version: "v2023.10.1"
     gatekeeper-library:
       version: "v2023.10.1"
+    gateway-api:
+      version: "v1.0.0"
     grafana-operator:
       version: "v0.0.3"
     keda:

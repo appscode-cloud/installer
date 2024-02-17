@@ -54,6 +54,9 @@ helm:
       version: "v1.14.1"
       values: # +doc-gen:break
         installCRDs: true
+        extraArgs:
+        - --feature-gates=AdditionalCertificateOutputFormats=true
+        - --feature-gates=ExperimentalGatewayAPISupport=true
     cert-manager-csi-driver-cacerts:
       enabled: true
       version: "v2023.10.1"
@@ -69,6 +72,9 @@ helm:
     flux2:
       enabled: false
       version: "2.12.2"
+    gateway-api:
+      enabled: true
+      version: "v1.0.0"
     grafana-operator:
       enabled: false
       version: "v0.0.3"
