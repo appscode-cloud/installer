@@ -112,7 +112,8 @@ type IngressNginxControllerServiceExternal struct {
 }
 
 type IngressNginxAdmissionWebhooks struct {
-	Patch IngressNginxAdmissionWebhooksPatch `json:"patch"`
+	Enabled bool                               `json:"enabled"`
+	Patch   IngressNginxAdmissionWebhooksPatch `json:"patch"`
 }
 
 type IngressNginxAdmissionWebhooksPatch struct {
