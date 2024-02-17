@@ -27,8 +27,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.image.securityContext | nindent 12 }}
-{{/*          image: {{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}*/}}
-          image: superm4n/service-provider:bug-fix_linux_amd64
+          image: {{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           args:
             - server
@@ -40,10 +39,6 @@ spec:
             - --cookie-signing-key={{ .Values.server.cookie.signingKey }}
             - --cookie-encryption-key={{ .Values.server.cookie.encryptionKey }}
             - --consumer-scope={{ .Values.server.consumerScope }}
-          env:
-          - name: BIND_BACKEND_IMAGE
-            value: arnobkumarsaha/service-backend:config_linux_amd64
-{{/*            value: {{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}*/}}
           ports:
           - containerPort: 3003
             name: http

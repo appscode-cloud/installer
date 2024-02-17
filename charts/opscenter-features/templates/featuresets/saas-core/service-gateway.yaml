@@ -26,7 +26,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: saas-core
 spec:
-  title: Voyager Gateway
+  title: Service Gateway
   description: |
     Envoy Gateway by AppsCode
   icons:
