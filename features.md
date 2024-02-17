@@ -28,6 +28,7 @@ graph TD;
   kubevault-opscenter-->kubevault;
   kubevault-opscenter-->grafana-operator;
   kubevault-->license-proxyserver;
+  cert-manager-->gateway-api;
   falco-ui-server-->grafana-operator;
   gatekeeper-constraints-->gatekeeper;
   gatekeeper-constraints-->gatekeeper-templates;

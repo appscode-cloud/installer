@@ -45,6 +45,8 @@ spec:
   dependsOn:
   - name: opscenter-features
     namespace: {{ $.Release.Namespace }}
+  - name: gateway-api
+    namespace: {{ $.Release.Namespace }}
   chart:
     spec:
       chart: cert-manager

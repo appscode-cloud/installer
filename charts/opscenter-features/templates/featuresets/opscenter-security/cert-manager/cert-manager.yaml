@@ -15,6 +15,9 @@ cainjector:
 
 {{ $vals := `
 installCRDs: true
+extraArgs:
+- --feature-gates=AdditionalCertificateOutputFormats=true
+- --feature-gates=ExperimentalGatewayAPISupport=true
 ` | fromYaml }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
@@ -34,6 +37,9 @@ spec:
   featureSet: opscenter-security
   featureBlock: cert-manager
   recommended: false
+  requirements:
+    features:
+      - gateway-api
   readinessChecks:
     workloads:
       - group: apps
