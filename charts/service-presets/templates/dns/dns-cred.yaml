@@ -1,0 +1,39 @@
+{{- if not (eq .Values.infra.dns.provider "external") }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "service-presets.fullname" . }}-dns-cred
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-presets.labels" . | nindent 4 }}
+type: Opaque
+stringData:
+{{- if eq .Values.infra.dns.provider "cloudflare" }}
+  CF_API_TOKEN: '{{ .Values.infra.dns.auth.cloudflare.token }}'
+{{- end }}
+{{- if eq .Values.infra.dns.provider "route53" }}
+  AWS_ACCESS_KEY_ID: '{{ .Values.infra.dns.auth.route53.AWS_ACCESS_KEY_ID }}'
+  AWS_SECRET_ACCESS_KEY: '{{ .Values.infra.dns.auth.route53.AWS_SECRET_ACCESS_KEY }}'
+  AWS_REGION: '{{ .Values.infra.dns.auth.route53.AWS_REGION }}'
+  # https://github.com/kubeops/external-dns-operator/blob/master/examples/aws-credential.md
+  AWS_CREDENTIAL_FILE: |
+    [default]
+    aws_access_key_id = {{ .Values.infra.dns.auth.route53.AWS_ACCESS_KEY_ID }}
+    aws_secret_access_key = {{ .Values.infra.dns.auth.route53.AWS_SECRET_ACCESS_KEY }}
+{{- end }}
+{{- if eq .Values.infra.dns.provider "cloudDNS" }}
+  GOOGLE_SERVICE_ACCOUNT_JSON_KEY: '{{ .Values.infra.dns.auth.cloudDNS.GOOGLE_SERVICE_ACCOUNT_JSON_KEY }}'
+{{- end }}
+{{- if eq .Values.infra.dns.provider "azureDNS" }}
+  SERVICE_PRINCIPAL_PASSWORD: {{ .Values.infra.dns.auth.azureDNS.servicePrincipalAppPassword }}
+  # https://github.com/kubeops/external-dns-operator/blob/master/examples/azure-credential.md
+  AZURE_CREDENTIAL_FILE: |
+    {
+      "tenantId": {{ .Values.infra.dns.auth.azureDNS.tenantID | quote }},
+      "subscriptionId": {{ .Values.infra.dns.auth.azureDNS.subscriptionID | quote }},
+      "resourceGroup": {{ .Values.infra.dns.auth.azureDNS.resourceGroupName | quote }},
+      "aadClientId": {{ .Values.infra.dns.auth.azureDNS.servicePrincipalAppID | quote }},
+      "aadClientSecret": {{ .Values.infra.dns.auth.azureDNS.servicePrincipalAppPassword | quote }}
+    }
+{{- end }}
+{{- end }}

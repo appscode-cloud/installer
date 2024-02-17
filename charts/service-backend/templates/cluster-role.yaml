@@ -6,7 +6,7 @@ metadata:
     {{- include "service-backend.labels" . | nindent 4 }}
 rules:
 - apiGroups:
-  - service-backend.appscode.com
+  - kube-bind.appscode.com
   resources: ["*"]
   verbs: ["*"]
 - apiGroups:

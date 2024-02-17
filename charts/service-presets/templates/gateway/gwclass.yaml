@@ -1,0 +1,30 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: GatewayClass
+metadata:
+  name: ace
+spec:
+  controllerName: gateway.voyagermesh.com/service-gateway
+  parametersRef:
+    group: gateway.envoyproxy.io
+    kind: EnvoyProxy
+    name: ace-gw-proxy-config
+    namespace: {{ .Release.Namespace }}
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: EnvoyProxy
+metadata:
+  name: ace-gw-proxy-config
+  namespace: {{ .Release.Namespace }}
+spec:
+  mergeGateways: true
+  provider:
+    type: Kubernetes
+    kubernetes:
+      envoyDeployment:
+        container:
+          image: ghcr.io/voyagermesh/envoy:v1.28.1
+          # securityContext:
+          #   runAsUser: 1000
+      envoyService:
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: "{{ .Values.infra.clusterName }}.{{ .Values.infra.gatewayDomain }}"
