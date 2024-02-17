@@ -6051,6 +6051,8 @@ properties:
         properties:
           admissionWebhooks:
             properties:
+              enabled:
+                type: boolean
               patch:
                 properties:
                   image:
@@ -6076,6 +6078,7 @@ properties:
                 - image
                 type: object
             required:
+            - enabled
             - patch
             type: object
           config:
