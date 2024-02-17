@@ -1,0 +1,24 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: gateway-api
+  labels:
+    app.kubernetes.io/part-of: opscenter-networking
+spec:
+  title: Kubernetes Gateway API
+  description: |
+    Kubernetes Gateway API
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-networking
+  featureBlock: gateway-api
+  recommended: true
+  chart:
+    name: gateway-api
+    namespace: envoy-gateway-system
+    version: {{ dig "gateway-api" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}

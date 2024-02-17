@@ -11,24 +11,29 @@ deployment:
   (include "image.ghcr" (merge (dict "_repo" "appscode/kube-rbac-proxy") $))
   | fromYaml }}
 
-{{ $vals := dict }}
+{{ $vals := `
+config:
+  envoyGateway:
+    gateway:
+      controllerName: gateway.voyagermesh.com/ace
+` | fromYaml }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: voyager-gateway
+  name: service-gateway
   labels:
-    app.kubernetes.io/part-of: opscenter-networking
+    app.kubernetes.io/part-of: saas-core
 spec:
   title: Voyager Gateway
   description: |
-    Envoy Gateway Distro by AppsCode
+    Envoy Gateway by AppsCode
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  featureSet: opscenter-networking
-  featureBlock: voyager-gateway
+  featureSet: saas-core
+  featureBlock: service-provider
   recommended: false
   readinessChecks:
     workloads:
@@ -36,12 +41,13 @@ spec:
         version: v1
         kind: Deployment
         selector:
-          app.kubernetes.io/instance: voyager-gateway
+          app.kubernetes.io/instance: service-gateway
+          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: voyager-gateway
           control-plane: envoy-gateway
   chart:
     name: voyager-gateway
-    namespace: envoy-gateway-system
+    namespace: ace
     version: {{ dig "voyager-gateway" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
