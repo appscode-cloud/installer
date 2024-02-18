@@ -28,13 +28,16 @@ podAnnotations: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
+# Security options this container should run with
+securityContext: # +doc-gen:break
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["ALL"]
   # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
+  runAsNonRoot: true
   # runAsUser: 1000
+  seccompProfile:
+    type: RuntimeDefault
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
