@@ -89,8 +89,6 @@ monitoring:
 infra:
   clusterName: "tamal-gateway"
   gatewayDomain: gw.kubedb.cloud
-  storageClass:
-    name: "standard"
   tls:
     issuer: "ca" # ca,letsencrypt,letsencrypt-staging
     ca:
