@@ -1,0 +1,11 @@
+{{- if (eq .Values.infra.tls.issuer "ca") }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "service-presets.fullname" . }}-ca
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-presets.labels" . | nindent 4 }}
+type: kubernetes.io/tls
+stringData: {{ dict "tls.crt" .Values.infra.tls.ca.cert "tls.key" .Values.infra.tls.ca.key | toJson }}
+{{- end }}

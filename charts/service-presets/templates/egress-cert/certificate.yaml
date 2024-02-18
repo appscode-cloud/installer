@@ -1,0 +1,21 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "service-presets.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-presets.labels" . | nindent 4 }}
+spec:
+  secretName: {{ include "service-presets.fullname" . }}-cert
+  issuerRef:
+    group: cert-manager.io
+    kind: Issuer
+    name: {{ include "service-presets.fullname" . }}
+  commonName: "{{ .Values.infra.clusterName }}.{{ .Values.infra.gatewayDomain }}"
+  dnsNames:
+    - "{{ .Values.infra.clusterName }}.{{ .Values.infra.gatewayDomain }}"
+    - "*.{{ .Values.infra.clusterName }}.{{ .Values.infra.gatewayDomain }}"
+  usages:
+    - key agreement
+    - digital signature
+    - server auth

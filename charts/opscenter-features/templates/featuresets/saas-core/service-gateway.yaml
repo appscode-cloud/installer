@@ -15,7 +15,7 @@ deployment:
 config:
   envoyGateway:
     gateway:
-      controllerName: gateway.voyagermesh.com/ace
+      controllerName: gateway.voyagermesh.com/service-gateway
 ` | fromYaml }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
