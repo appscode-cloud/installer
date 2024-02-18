@@ -1,0 +1,38 @@
+# backups
+# tls encrypt
+
+apiVersion: kubevault.com/v1alpha2
+kind: VaultServer
+metadata:
+  name: vault
+  namespace: {{ .Release.Namespace }}
+spec:
+  # tls:
+  #   issuerRef:
+  #     apiGroup: "cert-manager.io"
+  #     kind: Issuer
+  #     name: vault-issuer
+  allowedSecretEngines:
+    namespaces:
+      from: All
+  version: "1.13.3"
+  replicas: 3
+  backend:
+    raft:
+      storage:
+        # storageClassName: ""
+        resources:
+          requests:
+            storage: 1Gi
+  unsealer:
+    secretShares: 5
+    secretThreshold: 3
+    mode:
+      kubernetesSecret:
+        secretName: vault-keys
+  monitor:
+    agent: prometheus.io
+    prometheus:
+      exporter:
+        resources: {}
+  terminationPolicy: Delete

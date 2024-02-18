@@ -17,7 +17,9 @@ limitations under the License.
 package v1alpha1
 
 import (
+	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	dnsapi "kubeops.dev/external-dns-operator/apis/external/v1alpha1"
 )
 
 const (
@@ -42,7 +44,38 @@ type ServicePresets struct {
 }
 
 type ServicePresetsSpec struct {
-	CAPI CapiPresetsSpec `json:"capi"`
+	NameOverride     string `json:"nameOverride"`
+	FullnameOverride string `json:"fullnameOverride"`
+	ReplicaCount     int    `json:"replicaCount"`
+	//+optional
+	RegistryFQDN       string                    `json:"registryFQDN"`
+	Image              ImageReference            `json:"image"`
+	ImagePullSecrets   []string                  `json:"imagePullSecrets"`
+	PodAnnotations     map[string]string         `json:"podAnnotations"`
+	PodSecurityContext *core.PodSecurityContext  `json:"podSecurityContext"`
+	SecurityContext    *core.SecurityContext     `json:"securityContext"`
+	Resources          core.ResourceRequirements `json:"resources"`
+	//+optional
+	NodeSelector   map[string]string      `json:"nodeSelector"`
+	Tolerations    []core.Toleration      `json:"tolerations"`
+	Affinity       *core.Affinity         `json:"affinity"`
+	ServiceAccount NatsServiceAccountSpec `json:"serviceAccount"`
+	Monitoring     GlobalMonitoring       `json:"monitoring"`
+	Infra          ServiceProviderInfra   `json:"infra"`
+	GatewayDns     ServiceGatewayDns      `json:"gateway-dns"`
+}
+
+type ServiceProviderInfra struct {
+	ClusterName   string               `json:"clusterName"`
+	GatewayDomain string               `json:"gatewayDomain"`
+	StorageClass  LocalObjectReference `json:"storageClass"`
+	TLS           InfraTLS             `json:"tls"`
+	DNS           InfraDns             `json:"dns"`
+}
+
+type ServiceGatewayDns struct {
+	Enabled bool                    `json:"enabled"`
+	Spec    *dnsapi.ExternalDNSSpec `json:"spec,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
