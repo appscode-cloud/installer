@@ -41,4 +41,8 @@ graph TD;
   catalog-manager-->kubedb;
   catalog-manager-->kubevault;
   catalog-manager-->voyager-gateway;
+  service-presets-->cert-manager;
+  service-presets-->external-dns-operator;
+  service-presets-->kubevault;
+  service-presets-->service-gateway;
 ```

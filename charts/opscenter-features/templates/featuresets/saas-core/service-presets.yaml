@@ -19,6 +19,13 @@ spec:
   featureSet: saas-core
   featureBlock: service-presets
   recommended: false
+  requirements:
+    features:
+      - cert-manager
+      # - cert-manager-csi-driver-cacerts
+      - external-dns-operator
+      - kubevault
+      - service-gateway
   chart:
     name: service-presets
     namespace: ace
