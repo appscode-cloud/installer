@@ -24,10 +24,8 @@ for dir in charts/*/; do
     if [ $num_files -le 1 ] ||
         [[ "$dir" = "accounts-ui" ]] ||
         [[ "$dir" = "ace" ]] ||
-        [[ "$dir" = "catalog-manager" ]] ||
-        [[ "$dir" = "service-backend" ]] ||
-        [[ "$dir" = "service-provider" ]] ||
         [[ "$dir" = "billing" ]] ||
+        [[ "$dir" = "catalog-manager" ]] ||
         [[ "$dir" = "dns-proxy" ]] ||
         [[ "$dir" = "grafana" ]] ||
         [[ "$dir" = "license-proxyserver-addon-manager" ]] ||
@@ -35,6 +33,9 @@ for dir in charts/*/; do
         [[ "$dir" = "platform-api" ]] ||
         [[ "$dir" = "platform-links" ]] ||
         [[ "$dir" = "platform-ui" ]] ||
+        [[ "$dir" = "service-backend" ]] ||
+        [[ "$dir" = "service-presets" ]] ||
+        [[ "$dir" = "service-provider" ]] ||
         [[ "$dir" = "smtprelay" ]]; then
         make ct CT_COMMAND=lint TEST_CHARTS=charts/$dir
     elif [[ "$dir" = "cert-manager-webhook-ace" ]]; then
