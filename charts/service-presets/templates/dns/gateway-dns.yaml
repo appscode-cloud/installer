@@ -1,13 +1,17 @@
-{{ if index .Values "gateway-dns" "enabled" }}
+{{- with (index .Values "gateway-dns") }}
+{{- if .enabled }}
+
+{{ $_ := set .spec "txtOwnerID" (printf "%s.%s" $.Values.infra.clusterName .spec.txtOwnerID) }}
 
 apiVersion: external-dns.appscode.com/v1alpha1
 kind: ExternalDNS
 metadata:
-  name: {{ include "service-presets.fullname" . }}-gateway
-  namespace: {{ .Release.Namespace }}
+  name: {{ include "service-presets.fullname" $ }}-gateway
+  namespace: {{ $.Release.Namespace }}
   labels:
-    {{- include "service-presets.labels" . | nindent 4 }}
+    {{- include "service-presets.labels" $ | nindent 4 }}
 spec:
-  {{- index .Values "gateway-dns" "spec" | toYaml | nindent 2 }}
+  {{- .spec | toYaml | nindent 2 }}
 
+{{- end }}
 {{- end }}
