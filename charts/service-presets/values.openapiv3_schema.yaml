@@ -736,13 +736,6 @@ properties:
         type: object
       gatewayDomain:
         type: string
-      storageClass:
-        properties:
-          name:
-            type: string
-        required:
-        - name
-        type: object
       tls:
         properties:
           acme:
@@ -789,7 +782,6 @@ properties:
     - clusterName
     - dns
     - gatewayDomain
-    - storageClass
     - tls
     type: object
   monitoring:
