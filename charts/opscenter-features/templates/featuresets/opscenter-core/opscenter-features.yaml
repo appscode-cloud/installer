@@ -30,4 +30,4 @@ spec:
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
-{{- dict "values" $ | toYaml | nindent 2 }}
+{{- dict "values" $.Values | toYaml | nindent 2 }}
