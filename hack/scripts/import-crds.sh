@@ -104,3 +104,17 @@ crd-importer \
     --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/deploy/crd/kube-bind.appscode.com_apiservicenamespaces.yaml \
     --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/deploy/crd/kube-bind.appscode.com_clusterbindings.yaml \
     --out=./charts/service-provider/crds
+
+crd-importer \
+    --input=https://github.com/envoyproxy/gateway/raw/v0.6.0/charts/gateway-helm/crds/generated/gateway.envoyproxy.io_envoyproxies.yaml \
+    --input=https://github.com/kubeops/csi-driver-cacerts/raw/v0.0.2/crds/cacerts.csi.cert-manager.io_caproviderclasses.yaml \
+    --input=https://github.com/kubeops/external-dns-operator/raw/${KUBEOPS_EXTERNAL_DNS_OPERATOR}/crds/external-dns.appscode.com_externaldns.yaml \
+    --input=https://github.com/kubeops/external-dns-operator/raw/v0.0.6/crds/external-dns.appscode.com_externaldns.yaml \
+    --input=https://github.com/kubernetes-sigs/gateway-api/raw/v1.0.0/config/crd/standard/gateway.networking.k8s.io_gatewayclasses.yaml \
+    --input=https://github.com/kubernetes-sigs/gateway-api/raw/v1.0.0/config/crd/standard/gateway.networking.k8s.io_gateways.yaml \
+    --input=https://github.com/kubernetes-sigs/gateway-api/raw/v1.0.0/config/crd/standard/gateway.networking.k8s.io_httproutes.yaml \
+    --input=https://github.com/kubernetes-sigs/gateway-api/raw/v1.0.0/config/crd/standard/gateway.networking.k8s.io_referencegrants.yaml \
+    --input=https://github.com/kubevault/apimachinery/raw/v0.17.0/crds/kubevault.com_vaultservers.yaml \
+    --input=https://github.com/kubevault/apimachinery/raw/v0.17.0/crds/policy.kubevault.com_vaultpolicies.yaml \
+    --input=https://github.com/kubevault/apimachinery/raw/v0.17.0/crds/policy.kubevault.com_vaultpolicybindings.yaml \
+    --out=./charts/service-presets/crds

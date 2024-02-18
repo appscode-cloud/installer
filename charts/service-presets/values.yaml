@@ -87,8 +87,8 @@ monitoring:
         memory: 128Mi
 
 infra:
-  clusterName: "tamal-gateway"
-  gatewayDomain: gw.kubedb.cloud
+  clusterName: "c1"
+  gatewayDomain: chart-example.local
   tls:
     issuer: "ca" # ca,letsencrypt,letsencrypt-staging
     ca:
