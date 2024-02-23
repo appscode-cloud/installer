@@ -114,7 +114,7 @@ helm:
       version: "v2024.2.14"
     kubestash:
       enabled: true
-      version: "v2024.2.5"
+      version: "v2024.2.22"
     license-proxyserver:
       enabled: true
       version: "v2024.2.13"

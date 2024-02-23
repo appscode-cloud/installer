@@ -1,5 +1,6 @@
 # backups
 # tls encrypt
+# monitoring
 
 apiVersion: kubevault.com/v1alpha2
 kind: VaultServer
