@@ -9,10 +9,10 @@
 {{- $restpl := $.Files.Get "common/addon/clustersetbinding.yaml" }}
 {{ tpl $restpl $ }}
 ---
-{{- $restpl := $.Files.Get "common/addon/config-secret.yaml" }}
+{{- $restpl := $.Files.Get "common/addon/placement.yaml" }}
 {{ tpl $restpl $ }}
 ---
-{{- $restpl := $.Files.Get "common/addon/placement.yaml" }}
+{{- $restpl := $.Files.Get "common/addon/token.yaml" }}
 {{ tpl $restpl $ }}
 ---
 {{- $restpl := $.Files.Get "common/work-agent/perm.yaml" }}

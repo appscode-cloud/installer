@@ -10,9 +10,23 @@ properties:
     required:
     - image
     type: object
+  platform:
+    properties:
+      baseURL:
+        type: string
+      token:
+        type: string
+    required:
+    - baseURL
+    - token
+    type: object
+  registryFQDN:
+    type: string
   tag:
     type: string
 required:
 - image
 - kubectl
+- platform
+- registryFQDN
 type: object

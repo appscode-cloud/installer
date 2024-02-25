@@ -26,22 +26,22 @@ spec:
               sleep 2; \
               kubectl --kubeconfig=auth/kubeconfig apply -f - <<EOF
               {{- $restpl := $.Files.Get "common/addon/namespace.yaml" -}}
-              {{- tpl $restpl $ | nindent 14 -}}
+              {{- tpl $restpl $ | nindent 14 }}
               ---
               {{- $restpl := $.Files.Get "common/addon/clustermanagementaddon.yaml" -}}
-              {{- tpl $restpl $ | nindent 14 -}}
+              {{- tpl $restpl $ | nindent 14 }}
               ---
               {{- $restpl := $.Files.Get "common/addon/clustersetbinding.yaml" -}}
-              {{- tpl $restpl $ | nindent 14 -}}
+              {{- tpl $restpl $ | nindent 14 }}
               ---
               {{- $restpl := $.Files.Get "common/addon/placement.yaml" -}}
-              {{- tpl $restpl $ | nindent 14 -}}
+              {{- tpl $restpl $ | nindent 14 }}
               ---
-              {{- $restpl := $.Files.Get "common/addon/config-secret.yaml" -}}
-              {{- tpl $restpl $ | nindent 14 -}}
+              {{- $restpl := $.Files.Get "common/addon/token.yaml" -}}
+              {{- tpl $restpl $ | nindent 14 }}
               ---
               {{- $restpl := $.Files.Get "common/work-agent/perm.yaml" -}}
-              {{- tpl $restpl $ | nindent 14 -}}
+              {{- tpl $restpl $ | nindent 14 }}
               EOF
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         volumeMounts:
