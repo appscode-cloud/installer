@@ -11,3 +11,9 @@ rules:
   resources:
   - namespaces
   verbs: ["get"]
+# ocm spoke detection
+- apiGroups:
+  - operator.open-cluster-management.io
+  resources:
+  - klusterlets
+  verbs: ["get"]

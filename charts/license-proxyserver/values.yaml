@@ -120,3 +120,6 @@ licenses: {}
 #   --set licenses.key1=base64_encoded(/path/to/license/file1) \
 #   --set licenses.key2=base64_encoded(/path/to/license/file2)
 encodedLicenses: {}
+
+# Name of OCM Hub Kubeconfig secret
+hubKubeconfigSecretName: ""

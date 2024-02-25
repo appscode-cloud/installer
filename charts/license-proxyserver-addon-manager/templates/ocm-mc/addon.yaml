@@ -1,0 +1,57 @@
+{{- if .Values.kubeconfigSecretName }}
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: license-proxy-configure-addon
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    "helm.sh/hook-weight": "2"
+    "helm.sh/hook": post-install,post-upgrade,post-rollback
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded,hook-failed
+spec:
+  ttlSecondsAfterFinished: 0
+  backoffLimit: 3
+  template:
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - name: kubectl
+        image: {{ .Values.kubectl.image }}
+        workingDir: /var/run/secrets/ocm
+        command:
+          - sh
+          - -c
+          - |
+              sleep 2; \
+              kubectl --kubeconfig=auth/kubeconfig apply -f - <<EOF
+              {{- $restpl := $.Files.Get "common/addon/namespace.yaml" -}}
+              {{- tpl $restpl $ | nindent 14 -}}
+              ---
+              {{- $restpl := $.Files.Get "common/addon/clustermanagementaddon.yaml" -}}
+              {{- tpl $restpl $ | nindent 14 -}}
+              ---
+              {{- $restpl := $.Files.Get "common/addon/clustersetbinding.yaml" -}}
+              {{- tpl $restpl $ | nindent 14 -}}
+              ---
+              {{- $restpl := $.Files.Get "common/addon/placement.yaml" -}}
+              {{- tpl $restpl $ | nindent 14 -}}
+              ---
+              {{- $restpl := $.Files.Get "common/addon/config-secret.yaml" -}}
+              {{- tpl $restpl $ | nindent 14 -}}
+              ---
+              {{- $restpl := $.Files.Get "common/work-agent/perm.yaml" -}}
+              {{- tpl $restpl $ | nindent 14 -}}
+              EOF
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        volumeMounts:
+        - mountPath: /var/run/secrets/ocm/auth
+          name: ocm-auth
+      volumes:
+      - name: ocm-auth
+        secret:
+          defaultMode: 420
+          secretName: {{ .Values.kubeconfigSecretName }}
+      restartPolicy: Never
+
+{{- end }}

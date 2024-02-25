@@ -1,0 +1,18 @@
+properties:
+  image:
+    type: string
+  kubeconfigSecretName:
+    type: string
+  kubectl:
+    properties:
+      image:
+        type: string
+    required:
+    - image
+    type: object
+  tag:
+    type: string
+required:
+- image
+- kubectl
+type: object
