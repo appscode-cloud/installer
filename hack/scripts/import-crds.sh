@@ -98,11 +98,11 @@ crd-importer \
     --out=./charts/catalog-manager/crds
 
 crd-importer \
-    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/deploy/crd/kube-bind.appscode.com_apiservicebindings.yaml \
-    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/deploy/crd/kube-bind.appscode.com_apiserviceexportrequests.yaml \
-    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/deploy/crd/kube-bind.appscode.com_apiserviceexports.yaml \
-    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/deploy/crd/kube-bind.appscode.com_apiservicenamespaces.yaml \
-    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/deploy/crd/kube-bind.appscode.com_clusterbindings.yaml \
+    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiservicebindings.yaml \
+    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiserviceexportrequests.yaml \
+    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiserviceexports.yaml \
+    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiservicenamespaces.yaml \
+    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_clusterbindings.yaml \
     --out=./charts/service-provider/crds
 
 crd-importer \
