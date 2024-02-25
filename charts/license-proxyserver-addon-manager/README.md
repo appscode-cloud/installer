@@ -45,18 +45,21 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `license-proxyserver-addon-manager` chart and their default values.
 
-|      Parameter       | Description |                         Default                         |
-|----------------------|-------------|---------------------------------------------------------|
-| image                |             | <code>ghcr.io/appscode/license-proxyserver-addon</code> |
-| tag                  |             | <code>""</code>                                         |
-| kubeconfigSecretName |             | <code>""</code>                                         |
-| kubectl.image        |             | <code>ghcr.io/appscode/kubectl:1.25</code>              |
+|      Parameter       |                             Description                             |                      Default                      |
+|----------------------|---------------------------------------------------------------------|---------------------------------------------------|
+| registryFQDN         | Docker registry fqdn used to pull license-proxyserver docker images | <code>ghcr.io</code>                              |
+| image                |                                                                     | <code>ghcr.io/appscode/license-proxyserver</code> |
+| tag                  |                                                                     | <code>""</code>                                   |
+| kubeconfigSecretName |                                                                     | <code>""</code>                                   |
+| kubectl.image        |                                                                     | <code>ghcr.io/appscode/kubectl:1.25</code>        |
+| platform.baseURL     |                                                                     | <code>""</code>                                   |
+| platform.token       |                                                                     | <code>""</code>                                   |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i license-proxyserver-addon-manager appscode/license-proxyserver-addon-manager -n open-cluster-management --create-namespace --version=v2024.2.25 --set image=ghcr.io/appscode/license-proxyserver-addon
+$ helm upgrade -i license-proxyserver-addon-manager appscode/license-proxyserver-addon-manager -n open-cluster-management --create-namespace --version=v2024.2.25 --set registryFQDN=ghcr.io
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while

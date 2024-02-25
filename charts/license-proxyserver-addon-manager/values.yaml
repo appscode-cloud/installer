@@ -1,7 +1,14 @@
-image: ghcr.io/appscode/license-proxyserver-addon
+# Docker registry fqdn used to pull license-proxyserver docker images
+registryFQDN: ghcr.io
+
+image: ghcr.io/appscode/license-proxyserver
 tag: ""
 
 kubeconfigSecretName: ""
 
 kubectl:
   image: ghcr.io/appscode/kubectl:1.25
+
+platform:
+  baseURL: ""
+  token: ""
