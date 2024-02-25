@@ -33,11 +33,19 @@ spec:
         - apiVersion: rbac.authorization.k8s.io/v1
           kind: ClusterRole
           metadata:
-            name: open-cluster-management:klusterlet-work:my-role
+            name: open-cluster-management:klusterlet-work:license-syncer
             labels:
               open-cluster-management.io/aggregate-to-work: "true"  # with this label, the clusterRole will be selected to aggregate
           rules:
-            # Allow agent to managed machines
-            - apiGroups: ["*"]
-              resources: ["*"]
-              verbs: ["*"]
+            # Get cluster id
+            - apiGroups:
+              - ""
+              resources:
+              - namespaces
+              verbs: ["get"]
+            # ocm spoke detection
+            - apiGroups:
+              - operator.open-cluster-management.io
+              resources:
+              - klusterlets
+              verbs: ["get"]

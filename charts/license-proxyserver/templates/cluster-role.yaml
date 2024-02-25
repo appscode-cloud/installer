@@ -5,6 +5,15 @@ metadata:
   labels:
     {{- include "license-proxyserver.labels" . | nindent 4 }}
 rules:
-- apiGroups: ["*"]
-  resources: ["*"]
-  verbs: ["*"]
+# Get cluster id
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs: ["get"]
+# ocm spoke detection
+- apiGroups:
+  - operator.open-cluster-management.io
+  resources:
+  - klusterlets
+  verbs: ["get"]

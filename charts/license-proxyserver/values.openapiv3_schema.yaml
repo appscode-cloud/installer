@@ -451,6 +451,8 @@ properties:
     type: object
   fullnameOverride:
     type: string
+  hubKubeconfigSecretName:
+    type: string
   image:
     properties:
       registry:

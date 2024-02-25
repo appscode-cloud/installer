@@ -20,6 +20,10 @@ import (
 	"k8s.io/apimachinery/pkg/api/resource"
 )
 
+type DockerImage struct {
+	Image string `json:"image"`
+}
+
 type ImageReference struct {
 	Registry   string `json:"registry"`
 	Repository string `json:"repository"`

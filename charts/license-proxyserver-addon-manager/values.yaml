@@ -1,10 +1,7 @@
 image: ghcr.io/appscode/license-proxyserver-addon
-tag:
+tag: ""
 
 kubeconfigSecretName: ""
 
 kubectl:
-  image: ghcr.io/appscode/kubectl:1.23
-
-fluxcdConfig:
-  installCRDs: true
+  image: ghcr.io/appscode/kubectl:1.25

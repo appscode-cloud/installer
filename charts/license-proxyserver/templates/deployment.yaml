@@ -13,7 +13,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       {{- include "license-proxyserver.selectorLabels" . | nindent 6 }}
@@ -22,10 +22,6 @@ spec:
       labels:
         {{- include "license-proxyserver.selectorLabels" . | nindent 8 }}
       annotations:
-        #checksum/apiregistration.yaml: {{ include (print $.Template.BasePath "/apiregistration.yaml") . | sha256sum }}
-      #{{- if $criticalAddon }}
-        #scheduler.alpha.kubernetes.io/critical-pod: ''
-      #{{- end }}
       {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
@@ -36,9 +32,7 @@ spec:
       - name: server
         securityContext:
           {{- toYaml .Values.image.securityContext | nindent 10 }}
-        #image: {{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
-        #image: ghcr.io/appscodeci/license-proxyserver:addon_linux_amd64
-        image: rokibulhasan114/license-proxyserver:addon_linux_amd64
+        image: {{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
         imagePullPolicy: {{ .Values.imagePullPolicy  }}
         args:
         - run
@@ -50,9 +44,12 @@ spec:
         - --use-kubeapiserver-fqdn-for-aks={{ .Values.apiserver.useKubeapiserverFqdnForAks }}
         - --baseURL={{ .Values.platform.baseURL }}
         - --token=$(PLATFORM_API_TOKEN)
-{{/*        #{{- if (or .Values.licenses .Values.encodedLicenses) }}*/}}
+        {{- if (or .Values.licenses .Values.encodedLicenses .Values.hubKubeconfigSecretName) }}
         - --license-dir=/var/run/secrets/appscode/license
-{{/*        #{{- end }}*/}}
+        {{- end }}
+        {{- if .Values.hubKubeconfigSecretName }}
+        - --hub-kubeconfig=/var/run/secrets/ocm/auth/kubeconfig
+        {{- end }}
         ports:
         - containerPort: 8443
         - containerPort: 8081
@@ -91,21 +88,31 @@ spec:
         volumeMounts:
         - mountPath: /var/serving-cert
           name: serving-cert
-{{/*        #{{- if (or .Values.licenses .Values.encodedLicenses) }}*/}}
+        {{- if (or .Values.licenses .Values.encodedLicenses .Values.hubKubeconfigSecretName) }}
         - mountPath: /var/run/secrets/appscode/license
           name: licenses
-{{/*        #{{- end }}*/}}
+        {{- end }}
+        {{- if .Values.hubKubeconfigSecretName }}
+          - mountPath: /var/run/secrets/ocm/auth
+            name: ocm-auth
+        {{- end }}
       volumes:
       - name: serving-cert
         secret:
           defaultMode: 420
           secretName: {{ include "license-proxyserver.fullname" . }}-apiserver-cert
-{{/*      #{{- if (or .Values.licenses .Values.encodedLicenses) }}*/}}
+      {{- if (or .Values.licenses .Values.encodedLicenses .Values.hubKubeconfigSecretName) }}
       - name: licenses
         secret:
           defaultMode: 420
           secretName: {{ include "license-proxyserver.fullname" . }}-licenses
-{{/*      #{{- end }}*/}}
+      {{- end }}
+      {{- if .Values.hubKubeconfigSecretName }}
+      - name: ocm-auth
+        secret:
+          defaultMode: 420
+          secretName: {{ .Values.hubKubeconfigSecretName }}
+      {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
     {{- if or .Values.tolerations $criticalAddon }}

@@ -90,6 +90,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&KubedbUiList{},
 		&LicenseProxyserver{},
 		&LicenseProxyserverList{},
+		&LicenseProxyserverAddonManager{},
+		&LicenseProxyserverAddonManagerList{},
 		&MarketplaceUi{},
 		&MarketplaceUiList{},
 		&Minio{},
