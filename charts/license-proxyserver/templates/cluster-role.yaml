@@ -11,7 +11,13 @@ rules:
   resources:
   - namespaces
   verbs: ["get"]
-# ocm spoke detection
+# ocm cluster claim
+- apiGroups:
+  - cluster.open-cluster-management.io
+  resources:
+  - clusterclaims
+  verbs: ["get", "create", "update"]
+# ocm cluster name detection
 - apiGroups:
   - operator.open-cluster-management.io
   resources:
