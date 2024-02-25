@@ -43,12 +43,14 @@ type LicenseProxyserverAddonManager struct {
 
 // LicenseProxyserverAddonManagerSpec is the schema for LicenseProxyserverAddonManager Operator values file
 type LicenseProxyserverAddonManagerSpec struct {
-	Image string `json:"image"`
+	RegistryFQDN string `json:"registryFQDN"`
+	Image        string `json:"image"`
 	// +optional
 	Tag string `json:"tag"`
 	// +optional
-	KubeconfigSecretName string      `json:"kubeconfigSecretName"`
-	Kubectl              DockerImage `json:"kubectl"`
+	KubeconfigSecretName string       `json:"kubeconfigSecretName"`
+	Kubectl              DockerImage  `json:"kubectl"`
+	Platform             PlatformSpec `json:"platform"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

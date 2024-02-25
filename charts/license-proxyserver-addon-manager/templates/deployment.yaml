@@ -30,6 +30,15 @@ spec:
             {{- if .Values.kubeconfigSecretName }}
             - --kubeconfig=/var/run/secrets/ocm/auth/kubeconfig
             {{- end }}
+            - --registryFQDN={{ .Values.registryFQDN }}
+            - --baseURL={{ .Values.platform.baseURL }}
+            - --token=$(PLATFORM_API_TOKEN)
+          env:
+            - name: PLATFORM_API_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: license-issuer-token
+                  key: token
           volumeMounts:
           {{- if .Values.kubeconfigSecretName }}
             - mountPath: /var/run/secrets/ocm/auth
