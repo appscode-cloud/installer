@@ -1,2 +1,5 @@
 # https://github.com/helm/charts/blob/master/test/README.md#providing-custom-test-values
 license: ""
+platform:
+  baseURL: "api.appscode.ninja"
+  token: "fake"
