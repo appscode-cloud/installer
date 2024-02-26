@@ -106,6 +106,7 @@ spec:
         secret:
           defaultMode: 420
           secretName: {{ include "license-proxyserver.fullname" . }}-licenses
+          optional: true
       {{- end }}
       {{- if .Values.hubKubeconfigSecretName }}
       - name: ocm-auth

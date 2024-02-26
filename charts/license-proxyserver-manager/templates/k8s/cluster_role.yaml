@@ -3,7 +3,7 @@
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: license-proxyserver-addon-manager
+  name: license-proxyserver-manager
 rules:
   - apiGroups: [""]
     resources: ["configmaps", "events", "namespace", "secrets"]

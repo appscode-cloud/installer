@@ -1,18 +1,18 @@
 project:
-  name: AppsCode License Proxy Server Addon Manager
-  shortName: AppsCode License Proxy Server Addon Manager
+  name: AppsCode License Proxy Server OCM Addon Manager
+  shortName: AppsCode License Proxy Server Manager
   url: https://github.com/bytebuilders/license-proxyserver
-  description: AppsCode License Proxy Server Addon Manager
-  app: an AppsCode License Proxy Server Addon Manager
+  description: AppsCode License Proxy Server OCM Addon Manager
+  app: an AppsCode License Proxy Server OCM Addon Manager
 repository:
   url: https://charts.appscode.com/stable
   name: appscode
 chart:
-  name: license-proxyserver-addon-manager
+  name: license-proxyserver-manager
   values: -- generate from values file --
   valuesExample: -- generate from values file --
 prerequisites:
 - Kubernetes 1.21+
 release:
-  name: license-proxyserver-addon-manager
+  name: license-proxyserver-manager
   namespace: open-cluster-management

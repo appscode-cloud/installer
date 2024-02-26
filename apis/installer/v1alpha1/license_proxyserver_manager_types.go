@@ -21,12 +21,12 @@ import (
 )
 
 const (
-	ResourceKindLicenseProxyserverAddonManager = "LicenseProxyserverAddonManager"
-	ResourceLicenseProxyserverAddonManager     = "licenseproxyserveraddonmanager"
-	ResourceLicenseProxyserverAddonManagers    = "licenseproxyserveraddonmanagers"
+	ResourceKindLicenseProxyserverManager = "LicenseProxyserverManager"
+	ResourceLicenseProxyserverManager     = "licenseproxyservermanager"
+	ResourceLicenseProxyserverManagers    = "licenseproxyservermanagers"
 )
 
-// LicenseProxyserverAddonManager defines the schama for LicenseProxyserverAddonManager Installer.
+// LicenseProxyserverManager defines the schama for LicenseProxyserverManager Installer.
 
 // +genclient
 // +genclient:skipVerbs=updateStatus
@@ -34,15 +34,15 @@ const (
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:path=licenseproxyserveraddonmanagers,singular=licenseproxyserveraddonmanager,categories={kubeops,appscode}
-type LicenseProxyserverAddonManager struct {
+// +kubebuilder:resource:path=licenseproxyservermanagers,singular=licenseproxyservermanager,categories={kubeops,appscode}
+type LicenseProxyserverManager struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              LicenseProxyserverAddonManagerSpec `json:"spec,omitempty"`
+	Spec              LicenseProxyserverManagerSpec `json:"spec,omitempty"`
 }
 
-// LicenseProxyserverAddonManagerSpec is the schema for LicenseProxyserverAddonManager Operator values file
-type LicenseProxyserverAddonManagerSpec struct {
+// LicenseProxyserverManagerSpec is the schema for LicenseProxyserverManager Operator values file
+type LicenseProxyserverManagerSpec struct {
 	RegistryFQDN string `json:"registryFQDN"`
 	Image        string `json:"image"`
 	// +optional
@@ -55,10 +55,10 @@ type LicenseProxyserverAddonManagerSpec struct {
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// LicenseProxyserverAddonManagerList is a list of LicenseProxyserverAddonManagers
-type LicenseProxyserverAddonManagerList struct {
+// LicenseProxyserverManagerList is a list of LicenseProxyserverManagers
+type LicenseProxyserverManagerList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of LicenseProxyserverAddonManager CRD objects
-	Items []LicenseProxyserverAddonManager `json:"items,omitempty"`
+	// Items is a list of LicenseProxyserverManager CRD objects
+	Items []LicenseProxyserverManager `json:"items,omitempty"`
 }
