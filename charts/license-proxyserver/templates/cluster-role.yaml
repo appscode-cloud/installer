@@ -22,7 +22,7 @@ rules:
   - cluster.open-cluster-management.io
   resources:
   - clusterclaims
-  verbs: ["get", "create", "update"]
+  verbs: ["get", "list", "watch", "create", "update", "patch"]
 # ocm cluster name detection
 - apiGroups:
   - operator.open-cluster-management.io
