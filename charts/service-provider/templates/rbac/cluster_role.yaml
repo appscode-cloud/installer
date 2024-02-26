@@ -74,3 +74,9 @@ rules:
   resources:
   - "apiservicenamespaces/status"
   verbs: ["patch", "update", "get"]
+- apiGroups:
+  - "admissionregistration.k8s.io"
+  resources:
+  - "mutatingwebhookconfigurations"
+  - "validatingwebhookconfigurations"
+  verbs: ["get", "list", "watch", "update"]
