@@ -49,14 +49,3 @@ Selector labels
 app.kubernetes.io/name: {{ include "license-proxyserver-manager.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
-
-{{/*
-Create the name of the service account to use
-*/}}
-{{- define "license-proxyserver-manager.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "license-proxyserver-manager.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
-{{- end }}

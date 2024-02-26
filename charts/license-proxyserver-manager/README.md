@@ -47,9 +47,12 @@ The following table lists the configurable parameters of the `license-proxyserve
 
 |      Parameter       |                             Description                             |                      Default                      |
 |----------------------|---------------------------------------------------------------------|---------------------------------------------------|
+| nameOverride         |                                                                     | <code>""</code>                                   |
+| fullnameOverride     |                                                                     | <code>""</code>                                   |
 | registryFQDN         | Docker registry fqdn used to pull license-proxyserver docker images | <code>ghcr.io</code>                              |
 | image                |                                                                     | <code>ghcr.io/appscode/license-proxyserver</code> |
 | tag                  |                                                                     | <code>""</code>                                   |
+| imagePullPolicy      |                                                                     | <code>Always</code>                               |
 | kubeconfigSecretName |                                                                     | <code>""</code>                                   |
 | kubectl.image        |                                                                     | <code>ghcr.io/appscode/kubectl:1.25</code>        |
 | platform.baseURL     |                                                                     | <code>""</code>                                   |

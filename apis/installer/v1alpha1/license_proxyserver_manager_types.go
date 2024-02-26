@@ -43,10 +43,15 @@ type LicenseProxyserverManager struct {
 
 // LicenseProxyserverManagerSpec is the schema for LicenseProxyserverManager Operator values file
 type LicenseProxyserverManagerSpec struct {
-	RegistryFQDN string `json:"registryFQDN"`
-	Image        string `json:"image"`
+	//+optional
+	NameOverride string `json:"nameOverride"`
+	//+optional
+	FullnameOverride string `json:"fullnameOverride"`
+	RegistryFQDN     string `json:"registryFQDN"`
+	Image            string `json:"image"`
 	// +optional
-	Tag string `json:"tag"`
+	Tag             string `json:"tag"`
+	ImagePullPolicy string `json:"imagePullPolicy"`
 	// +optional
 	KubeconfigSecretName string       `json:"kubeconfigSecretName"`
 	Kubectl              DockerImage  `json:"kubectl"`

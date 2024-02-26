@@ -1,8 +1,12 @@
+nameOverride: ""
+fullnameOverride: ""
+
 # Docker registry fqdn used to pull license-proxyserver docker images
 registryFQDN: ghcr.io
 
 image: ghcr.io/appscode/license-proxyserver
 tag: ""
+imagePullPolicy: Always
 
 kubeconfigSecretName: ""
 
