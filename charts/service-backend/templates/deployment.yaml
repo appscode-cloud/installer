@@ -39,6 +39,7 @@ spec:
             - --cookie-signing-key={{ .Values.server.cookie.signingKey }}
             - --cookie-encryption-key={{ .Values.server.cookie.encryptionKey }}
             - --consumer-scope={{ .Values.server.consumerScope }}
+            - --base-url={{ .Values.server.oidc.baseURL }}
           ports:
           - containerPort: 3003
             name: http
