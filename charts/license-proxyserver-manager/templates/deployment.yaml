@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: license-proxyserver-manager
-  namespace: {{ ternary "license-proxyserver-addon" .Release.Namespace (empty .Values.kubeconfigSecretName) }}
+  namespace: {{ ternary "open-cluster-management-license-proxyserver" .Release.Namespace (empty .Values.kubeconfigSecretName) }}
   labels:
     app: license-proxyserver-manager
 spec:
