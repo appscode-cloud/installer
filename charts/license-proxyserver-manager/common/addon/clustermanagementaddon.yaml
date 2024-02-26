@@ -12,10 +12,10 @@ spec:
     type: Placements
     placements:
       - name: global
-        namespace: license-proxyserver-addon
+        namespace: open-cluster-management-license-proxyserver
   supportedConfigs:
     - group: ""
       resource: secrets
       defaultConfig:
         name: license-proxyserver-config
-        namespace: license-proxyserver-addon
+        namespace: open-cluster-management-license-proxyserver
