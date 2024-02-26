@@ -28,7 +28,7 @@ for dir in charts/*/; do
         [[ "$dir" = "catalog-manager" ]] ||
         [[ "$dir" = "dns-proxy" ]] ||
         [[ "$dir" = "grafana" ]] ||
-        [[ "$dir" = "license-proxyserver-addon-manager" ]] ||
+        [[ "$dir" = "license-proxyserver-manager" ]] ||
         [[ "$dir" = "opscenter-features" ]] ||
         [[ "$dir" = "platform-api" ]] ||
         [[ "$dir" = "platform-links" ]] ||
