@@ -15,4 +15,4 @@ prerequisites:
 - Kubernetes 1.21+
 release:
   name: license-proxyserver-manager
-  namespace: open-cluster-management
+  namespace: open-cluster-management-license-proxyserver

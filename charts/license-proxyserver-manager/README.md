@@ -8,7 +8,7 @@
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
 $ helm search repo appscode/license-proxyserver-manager --version=v2024.2.25
-$ helm upgrade -i license-proxyserver-manager appscode/license-proxyserver-manager -n open-cluster-management --create-namespace --version=v2024.2.25
+$ helm upgrade -i license-proxyserver-manager appscode/license-proxyserver-manager -n open-cluster-management-license-proxyserver --create-namespace --version=v2024.2.25
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys an AppsCode License Proxy Server OCM Addon Manager on a [Kube
 To install/upgrade the chart with the release name `license-proxyserver-manager`:
 
 ```bash
-$ helm upgrade -i license-proxyserver-manager appscode/license-proxyserver-manager -n open-cluster-management --create-namespace --version=v2024.2.25
+$ helm upgrade -i license-proxyserver-manager appscode/license-proxyserver-manager -n open-cluster-management-license-proxyserver --create-namespace --version=v2024.2.25
 ```
 
 The command deploys an AppsCode License Proxy Server OCM Addon Manager on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -36,7 +36,7 @@ The command deploys an AppsCode License Proxy Server OCM Addon Manager on the Ku
 To uninstall the `license-proxyserver-manager`:
 
 ```bash
-$ helm uninstall license-proxyserver-manager -n open-cluster-management
+$ helm uninstall license-proxyserver-manager -n open-cluster-management-license-proxyserver
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -62,12 +62,12 @@ The following table lists the configurable parameters of the `license-proxyserve
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i license-proxyserver-manager appscode/license-proxyserver-manager -n open-cluster-management --create-namespace --version=v2024.2.25 --set registryFQDN=ghcr.io
+$ helm upgrade -i license-proxyserver-manager appscode/license-proxyserver-manager -n open-cluster-management-license-proxyserver --create-namespace --version=v2024.2.25 --set registryFQDN=ghcr.io
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i license-proxyserver-manager appscode/license-proxyserver-manager -n open-cluster-management --create-namespace --version=v2024.2.25 --values values.yaml
+$ helm upgrade -i license-proxyserver-manager appscode/license-proxyserver-manager -n open-cluster-management-license-proxyserver --create-namespace --version=v2024.2.25 --values values.yaml
 ```
