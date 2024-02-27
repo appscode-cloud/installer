@@ -22,6 +22,7 @@ spec:
   requirements:
     features:
       - cert-manager
+      - cert-manager-webhook-ace
       # - cert-manager-csi-driver-cacerts
       - external-dns-operator
       - kubevault
