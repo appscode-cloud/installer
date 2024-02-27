@@ -24,7 +24,7 @@ spec:
       - cert-manager
       - kubedb
       - kubevault
-      - voyager-gateway
+      - service-gateway
   readinessChecks:
     workloads:
       - group: apps
