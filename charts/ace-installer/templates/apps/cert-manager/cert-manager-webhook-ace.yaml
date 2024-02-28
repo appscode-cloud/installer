@@ -11,6 +11,9 @@ kind: HelmRelease
 metadata:
   name: cert-manager-webhook-ace
   namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: cert-manager-webhook-ace
+    app.kubernetes.io/part-of: opscenter-security
 spec:
   interval: 5m
   timeout: 30m
