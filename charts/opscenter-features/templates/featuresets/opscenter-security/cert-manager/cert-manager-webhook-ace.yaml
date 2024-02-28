@@ -10,7 +10,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: opscenter-security
 spec:
-  title: cert-manager Solver for AppsCode DNSå
+  title: cert-manager Solver for AppsCode DNS
   description: |
     cert-manager ACME DNS01 Webhook Solver for AppsCode DNS
   icons:
