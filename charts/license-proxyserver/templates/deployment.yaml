@@ -41,6 +41,7 @@ spec:
         - --audit-log-path=-
         - --tls-cert-file=/var/serving-cert/tls.crt
         - --tls-private-key-file=/var/serving-cert/tls.key
+        - --cache-dir=/tmp/licenses
         - --use-kubeapiserver-fqdn-for-aks={{ .Values.apiserver.useKubeapiserverFqdnForAks }}
         {{- if .Values.platform.token }}
         - --baseURL={{ .Values.platform.baseURL }}
@@ -88,6 +89,8 @@ spec:
         resources:
           {{- toYaml .Values.image.resources | nindent 10 }}
         volumeMounts:
+        - mountPath: /tmp/licenses
+          name: cache-dir
         - mountPath: /var/serving-cert
           name: serving-cert
         {{- if (or .Values.licenses .Values.encodedLicenses .Values.hubKubeconfigSecretName) }}
@@ -99,6 +102,8 @@ spec:
           name: ocm-auth
         {{- end }}
       volumes:
+      - name: cache-dir
+        emptyDir: {}
       - name: serving-cert
         secret:
           defaultMode: 420
