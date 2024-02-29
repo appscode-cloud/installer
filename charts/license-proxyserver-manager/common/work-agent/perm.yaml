@@ -55,3 +55,9 @@ spec:
               resources:
               - klusterlets
               verbs: ["get"]
+            - apiGroups:
+                - apiregistration.k8s.io
+              resources:
+                - apiservices
+              verbs:
+                - [ "*" ]
