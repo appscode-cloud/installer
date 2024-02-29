@@ -16,7 +16,7 @@ rules:
   - ""
   resources:
   - secrets
-  verbs: ["create", "update"]
+  verbs: ["get", "list", "watch", "create", "update", "patch"]
 # ocm cluster claim
 - apiGroups:
   - cluster.open-cluster-management.io
