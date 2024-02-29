@@ -1,8 +1,5 @@
 {{- if not .Values.kubeconfigSecretName }}
 
-{{- $restpl := $.Files.Get "common/addon/namespace.yaml" }}
-{{ tpl $restpl $ }}
----
 {{- $restpl := $.Files.Get "common/addon/clustermanagementaddon.yaml" }}
 {{ tpl $restpl $ }}
 ---
