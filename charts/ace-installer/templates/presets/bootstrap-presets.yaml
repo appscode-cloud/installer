@@ -23,6 +23,8 @@ opscenter-features:
       releases:
         service-presets:
           values: %s
+        stash-presets:
+          values: %s
 `
   (dig "ace" "version" .Chart.AppVersion $.Values.helm.releases)
   .Chart.Version
@@ -32,6 +34,7 @@ opscenter-features:
   (dig "license-proxyserver" "version" .Chart.AppVersion $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
   ((dig "opscenter-features" "values" "helm" "releases" "service-presets" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "opscenter-features" "values" "helm" "releases" "stash-presets" "values" (dict) $.Values.helm.releases) | toJson)
   | fromYaml }}
 {{ $_ := set $vals.helm "releases" $helmreleases }}
 
