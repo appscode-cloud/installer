@@ -1,3 +1,8 @@
+{{ $overrides := dict }}
+
+{{ $vals := dig "stash-presets" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -22,3 +27,6 @@ spec:
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
