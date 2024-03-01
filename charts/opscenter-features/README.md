@@ -90,7 +90,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kubestash.version                             |                         | <code>"v2024.2.22"</code>                  |
 | helm.releases.kubevault.version                             |                         | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubevault-opscenter.version                   |                         | <code>"v2024.1.31"</code>                  |
-| helm.releases.license-proxyserver.version                   |                         | <code>"v2024.2.13"</code>                  |
+| helm.releases.license-proxyserver.version                   |                         | <code>"v2024.2.25"</code>                  |
 | helm.releases.longhorn.version                              |                         | <code>"1.5.3"</code>                       |
 | helm.releases.metrics-server.version                        |                         | <code>"3.11.0"</code>                      |
 | helm.releases.monitoring-operator.version                   |                         | <code>"v0.0.4"</code>                      |
