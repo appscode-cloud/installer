@@ -102,7 +102,7 @@ server:
     # issuer client Secret
     clientSecret: ""
     baseURL: "https://api.appscode.com"
-    issuerURL: "https://accounts.appscode.com"
+    issuerURL: "https://accounts.appscode.com/"
     callbackURL: "https://bind.appscode.com/callback"
   # the sync namespace created in the provider side will be named like bb-<some-hash>
   namespacePrefix: "ace-"

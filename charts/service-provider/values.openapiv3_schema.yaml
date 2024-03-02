@@ -687,13 +687,13 @@ properties:
         type: object
       namespacePrefix:
         type: string
-      providerPrettyName:
+      providerClusterName:
         type: string
     required:
     - consumerScope
     - external
     - namespacePrefix
-    - providerPrettyName
+    - providerClusterName
     type: object
   rbacproxy:
     properties:
