@@ -693,7 +693,7 @@ properties:
     - consumerScope
     - external
     - namespacePrefix
-    - providerPrettyName
+    - providerClusterName
     type: object
   rbacproxy:
     properties:
