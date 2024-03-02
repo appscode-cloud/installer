@@ -1,7 +1,11 @@
+{{- if .Values.placement.create }}
+
 apiVersion: cluster.open-cluster-management.io/v1beta2
 kind: ManagedClusterSetBinding
 metadata:
   name: global
-  namespace: open-cluster-management-license-proxyserver
+  namespace: {{ include "license-proxyserver-manager.namespace" . }}
 spec:
   clusterSet: global
+
+{{- end }}
