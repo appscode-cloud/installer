@@ -16,9 +16,6 @@ spec:
   scope: Cluster
   versions:
   - additionalPrinterColumns:
-    - jsonPath: .status.providerPrettyName
-      name: Provider
-      type: string
     - jsonPath: .metadata.annotations.kube-bind\.appscode\.com/resources
       name: Resources
       priority: 1
@@ -140,10 +137,14 @@ spec:
                   type: object
                 type: array
               providers:
-                description: Providers contains the PrettyName and KubeconfigSecretRef
+                description: Providers contains the provider ClusterIdentity and KubeconfigSecretRef
                   of the provider cluster
                 items:
                   properties:
+                    clusterName:
+                      type: string
+                    clusterUID:
+                      type: string
                     kubeconfigs:
                       properties:
                         key:
@@ -165,10 +166,6 @@ spec:
                       - name
                       - namespace
                       type: object
-                    providerPrettyName:
-                      description: providerPrettyName is the pretty name of the service
-                        provider cluster. This can be shared among different APIServiceBindings.
-                      type: string
                   type: object
                 type: array
             type: object
