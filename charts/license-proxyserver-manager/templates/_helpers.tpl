@@ -49,3 +49,10 @@ Selector labels
 app.kubernetes.io/name: {{ include "license-proxyserver-manager.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
+
+{{/*
+Selector labels
+*/}}
+{{- define "license-proxyserver-manager.namespace" -}}
+{{ ternary .Release.Namespace (required "A valid .Values.addonManagerNamespace is required!" .Values.addonManagerNamespace) (empty .Values.kubeconfigSecretName) }}
+{{- end }}

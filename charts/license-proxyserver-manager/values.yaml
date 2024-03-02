@@ -9,6 +9,11 @@ tag: ""
 imagePullPolicy: Always
 
 kubeconfigSecretName: ""
+addonManagerNamespace: open-cluster-management-license-proxyserver
+
+placement:
+  create: true
+  name: global
 
 kubectl:
   image: ghcr.io/appscode/kubectl-nonroot:1.25

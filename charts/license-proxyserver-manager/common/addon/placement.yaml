@@ -1,8 +1,12 @@
+{{- if .Values.placement.create }}
+
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
-  name: global
-  namespace: open-cluster-management-license-proxyserver
+  name: {{ .Values.placement.name }}
+  namespace: {{ include "license-proxyserver-manager.namespace" . }}
 spec:
   clusterSets:
     - global
+
+{{- end }}
