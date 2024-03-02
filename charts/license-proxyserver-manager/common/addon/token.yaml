@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: license-issuer-token
-  namespace: {{ ternary "open-cluster-management-license-proxyserver" .Release.Namespace (empty .Values.kubeconfigSecretName) }}
+  namespace: {{ include "license-proxyserver-manager.namespace" $ }}
 type: Opaque
 stringData:
   token: {{ .Values.platform.token | quote }}

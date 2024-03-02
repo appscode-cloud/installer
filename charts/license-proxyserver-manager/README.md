@@ -45,18 +45,21 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `license-proxyserver-manager` chart and their default values.
 
-|      Parameter       |                             Description                             |                      Default                       |
-|----------------------|---------------------------------------------------------------------|----------------------------------------------------|
-| nameOverride         |                                                                     | <code>""</code>                                    |
-| fullnameOverride     |                                                                     | <code>""</code>                                    |
-| registryFQDN         | Docker registry fqdn used to pull license-proxyserver docker images | <code>ghcr.io</code>                               |
-| image                |                                                                     | <code>ghcr.io/appscode/license-proxyserver</code>  |
-| tag                  |                                                                     | <code>""</code>                                    |
-| imagePullPolicy      |                                                                     | <code>Always</code>                                |
-| kubeconfigSecretName |                                                                     | <code>""</code>                                    |
-| kubectl.image        |                                                                     | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code> |
-| platform.baseURL     |                                                                     | <code>""</code>                                    |
-| platform.token       |                                                                     | <code>""</code>                                    |
+|       Parameter       |                             Description                             |                         Default                          |
+|-----------------------|---------------------------------------------------------------------|----------------------------------------------------------|
+| nameOverride          |                                                                     | <code>""</code>                                          |
+| fullnameOverride      |                                                                     | <code>""</code>                                          |
+| registryFQDN          | Docker registry fqdn used to pull license-proxyserver docker images | <code>ghcr.io</code>                                     |
+| image                 |                                                                     | <code>ghcr.io/appscode/license-proxyserver</code>        |
+| tag                   |                                                                     | <code>""</code>                                          |
+| imagePullPolicy       |                                                                     | <code>Always</code>                                      |
+| kubeconfigSecretName  |                                                                     | <code>""</code>                                          |
+| addonManagerNamespace |                                                                     | <code>open-cluster-management-license-proxyserver</code> |
+| placement.create      |                                                                     | <code>true</code>                                        |
+| placement.name        |                                                                     | <code>global</code>                                      |
+| kubectl.image         |                                                                     | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code>       |
+| platform.baseURL      |                                                                     | <code>""</code>                                          |
+| platform.token        |                                                                     | <code>""</code>                                          |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

@@ -3,14 +3,14 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: license-proxyserver-manager
+  name: open-cluster-management:license-proxyserver:addon-manager
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: license-proxyserver-manager
+  name: open-cluster-management:license-proxyserver:addon-manager
 subjects:
   - kind: ServiceAccount
     name: license-proxyserver-manager
-    namespace: open-cluster-management-license-proxyserver
+    namespace: {{ .Release.Namespace }}
 
 {{- end }}

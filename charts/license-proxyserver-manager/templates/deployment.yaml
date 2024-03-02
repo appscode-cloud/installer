@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: license-proxyserver-manager
-  namespace: {{ ternary "open-cluster-management-license-proxyserver" .Release.Namespace (empty .Values.kubeconfigSecretName) }}
+  namespace: {{ .Release.Namespace }}
   labels:
     app: license-proxyserver-manager
 spec:
@@ -40,6 +40,18 @@ spec:
                 secretKeyRef:
                   name: license-issuer-token
                   key: token
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            {{- if .Values.kubeconfigSecretName }}
+            - name: NAMESPACE
+              value: {{ include "license-proxyserver-manager.namespace" . }}
+            {{- end }}
           volumeMounts:
             - mountPath: /tmp/licenses
               name: cache-dir
