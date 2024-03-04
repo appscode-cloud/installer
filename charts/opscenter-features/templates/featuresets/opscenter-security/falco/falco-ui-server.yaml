@@ -21,6 +21,7 @@ spec:
   recommended: false
   requirements:
     features:
+      - falco
       - grafana-operator
   readinessChecks:
     workloads:
