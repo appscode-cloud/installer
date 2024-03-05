@@ -30,6 +30,7 @@ graph TD;
   kubevault-->license-proxyserver;
   cert-manager-webhook-ace-->cert-manager;
   cert-manager-->gateway-api;
+  falco-ui-server-->falco;
   falco-ui-server-->grafana-operator;
   gatekeeper-constraints-->gatekeeper;
   gatekeeper-constraints-->gatekeeper-templates;
