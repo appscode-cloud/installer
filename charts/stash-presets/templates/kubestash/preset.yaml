@@ -13,7 +13,7 @@ spec:
       backup:
         tool: KubeStash
         kubestash:
-          schedule: {{ .Values.kubestash.schedule }}
+          schedule: {{ .Values.kubestash.schedule | quote }}
           storageRef:
             name: default
             namespace: {{ .Release.Namespace }}
