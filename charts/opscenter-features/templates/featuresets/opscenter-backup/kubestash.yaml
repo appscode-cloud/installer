@@ -21,7 +21,7 @@ spec:
       type: image/svg+xml
   featureSet: opscenter-backup
   featureBlock: kubestash
-  recommended: false
+  recommended: true
   requirements:
     features:
       - license-proxyserver
