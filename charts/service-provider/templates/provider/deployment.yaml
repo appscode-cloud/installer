@@ -43,7 +43,7 @@ spec:
         args:
           - provider
           - --namespace-prefix={{ .Values.provider.namespacePrefix }}
-          - --provider-cluster-name={{ .Values.provider.providerClusterName }}
+          - --provider-cluster-name={{ .Values.provider.clusterName }}
           - --consumer-scope={{ .Values.provider.consumerScope }}
           - --external-address={{ .Values.provider.external.address }}
           - --external-ca-file={{ .Values.provider.external.CAFile }}

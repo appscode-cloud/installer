@@ -18,7 +18,7 @@ spec:
       type: image/svg+xml
   featureSet: crossplane
   featureBlock: crossplane
-  recommended: {{ eq .Values.capi.provider "capa" }}
+  recommended: {{ eq .Values.clusterMetadata.capi.provider "capa" }}
   requirements:
     features:
       - crossplane

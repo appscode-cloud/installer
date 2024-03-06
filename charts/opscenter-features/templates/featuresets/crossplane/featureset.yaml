@@ -15,11 +15,11 @@ spec:
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  {{- if ne .Values.capi.provider "" }}
+  {{- if ne .Values.clusterMetadata.capi.provider "" }}
   recommended: true
   requiredFeatures:
     - crossplane
-    - kubedb-provider-{{ index $capiFeatures .Values.capi.provider }}
+    - kubedb-provider-{{ index $capiFeatures .Values.clusterMetadata.capi.provider }}
   {{- end }}
   chart:
     name: uik8sappscodecom-featureset-crossplane-editor

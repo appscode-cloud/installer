@@ -23,7 +23,8 @@ spec:
       {{- with .region }}
       region: {{ . | quote }}
       {{- end }}
-      {{- with .prefix }}
+      {{- $prefix := list .prefix (dig $.Values.usePrefix "" $.Values.clusterMetadata) | compact | join "/" }}
+      {{- with $prefix }}
       prefix: {{ . | quote }}
       {{- end }}
       {{- with .insecureTLS }}
@@ -40,7 +41,8 @@ spec:
     azure:
       storageAccount: {{ $.Values.kubestash.backend.azure.auth.AZURE_ACCOUNT_NAME | quote }}
       container: {{ .container | quote }}
-      {{- with .prefix }}
+      {{- $prefix := list .prefix (dig $.Values.usePrefix "" $.Values.clusterMetadata) | compact | join "/" }}
+      {{- with $prefix }}
       prefix: {{ . | quote }}
       {{- end }}
       {{- with .maxConnections }}
@@ -56,7 +58,8 @@ spec:
     {{- with .Values.kubestash.backend.gcs.spec }}
     gcs:
       bucket: {{ .bucket | quote }}
-      {{- with .prefix }}
+      {{- $prefix := list .prefix (dig $.Values.usePrefix "" $.Values.clusterMetadata) | compact | join "/" }}
+      {{- with $prefix }}
       prefix: {{ . | quote }}
       {{- end }}
       {{- with .maxConnections }}

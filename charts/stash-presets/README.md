@@ -48,6 +48,9 @@ The following table lists the configurable parameters of the `stash-presets` cha
 |                         Parameter                          | Description |                 Default                 |
 |------------------------------------------------------------|-------------|-----------------------------------------|
 | tool                                                       |             | <code>KubeStash # Stash</code>          |
+| clusterMetadata.uid                                        |             | <code>""</code>                         |
+| clusterMetadata.name                                       |             | <code>""</code>                         |
+| usePrefix                                                  |             | <code>name # uid, name or skip</code>   |
 | kubestash.schedule                                         |             | <code>"0 */2 * * *"</code>              |
 | kubestash.retentionPolicy                                  |             | <code>keep-1mo</code>                   |
 | kubestash.encryptionSecret                                 |             | <code>""</code>                         |

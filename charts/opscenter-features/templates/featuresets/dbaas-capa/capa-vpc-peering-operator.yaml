@@ -1,4 +1,4 @@
-{{- if eq .Values.capi.provider "capa" }}
+{{- if eq .Values.clusterMetadata.capi.provider "capa" }}
 
 {{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
 

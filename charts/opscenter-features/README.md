@@ -49,6 +49,11 @@ The following table lists the configurable parameters of the `opscenter-features
 |-------------------------------------------------------------|-------------------------|--------------------------------------------|
 | nameOverride                                                |                         | <code>""</code>                            |
 | fullnameOverride                                            |                         | <code>""</code>                            |
+| clusterMetadata.uid                                         |                         | <code>""</code>                            |
+| clusterMetadata.name                                        |                         | <code>""</code>                            |
+| clusterMetadata.clusterManagers                             |                         | <code>[]</code>                            |
+| clusterMetadata.capi.provider                               |                         | <code>""</code>                            |
+| clusterMetadata.capi.namespace                              |                         | <code>""</code>                            |
 | offlineInstaller                                            |                         | <code>false</code>                         |
 | image.proxies.appscode                                      | r.appscode.com          | <code>r.appscode.com</code>                |
 | image.proxies.dockerHub                                     | company/bin:tag         | <code>""</code>                            |
@@ -122,10 +127,6 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.csi-secrets-store-provider-azure.version      |                         | <code>"1.5.2"</code>                       |
 | helm.releases.secrets-store-csi-driver-provider-gcp.version |                         | <code>"0.1.0"</code>                       |
 | helm.releases.vault.version                                 |                         | <code>"0.27.0"</code>                      |
-| clusterManagers                                             |                         | <code>[]</code>                            |
-| capi.provider                                               |                         | <code>""</code>                            |
-| capi.namespace                                              |                         | <code>""</code>                            |
-| capi.clusterName                                            |                         | <code>""</code>                            |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

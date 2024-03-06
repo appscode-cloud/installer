@@ -670,6 +670,8 @@ properties:
     type: object
   provider:
     properties:
+      clusterName:
+        type: string
       consumerScope:
         type: string
       external:
@@ -687,13 +689,11 @@ properties:
         type: object
       namespacePrefix:
         type: string
-      providerClusterName:
-        type: string
     required:
+    - clusterName
     - consumerScope
     - external
     - namespacePrefix
-    - providerClusterName
     type: object
   rbacproxy:
     properties:

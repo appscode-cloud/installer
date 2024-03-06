@@ -1,24 +1,32 @@
 properties:
-  capi:
+  clusterMetadata:
     properties:
-      clusterName:
+      capi:
+        properties:
+          namespace:
+            type: string
+          provider:
+            enum:
+            - capa
+            - capg
+            - capz
+            type: string
+        required:
+        - namespace
+        type: object
+      clusterManagers:
+        items:
+          type: string
+        type: array
+      name:
         type: string
-      namespace:
-        type: string
-      provider:
-        enum:
-        - capa
-        - capg
-        - capz
+      uid:
         type: string
     required:
-    - clusterName
-    - namespace
+    - clusterManagers
+    - name
+    - uid
     type: object
-  clusterManagers:
-    items:
-      type: string
-    type: array
   fullnameOverride:
     type: string
   helm:
@@ -95,8 +103,7 @@ properties:
         type: object
     type: object
 required:
-- capi
-- clusterManagers
+- clusterMetadata
 - fullnameOverride
 - helm
 - image
