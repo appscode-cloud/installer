@@ -57,6 +57,18 @@ spec:
 
 # https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-cert-manager#deploy-cert-manager
 
+apiVersion: engine.kubevault.com/v1alpha1
+kind: SecretEngine
+metadata:
+  name: vault-issuer
+  namespace: {{ .Release.Namespace }}
+spec:
+  vaultRef:
+    name: vault
+  pki: {}
+
+---
+
 apiVersion: policy.kubevault.com/v1alpha1
 kind: VaultPolicy
 metadata:
