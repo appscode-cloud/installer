@@ -30,7 +30,7 @@ spec:
       type: image/svg+xml
   featureSet: opscenter-backup
   featureBlock: stash
-  recommended: true
+  recommended: false
   requirements:
     features:
       - license-proxyserver
