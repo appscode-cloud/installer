@@ -6,8 +6,8 @@ nameOverride: ""
 fullnameOverride: ""
 
 clusterMetadata:
-  uid: ""
-  name: ""
+  uid: TBD
+  name: TBD
   clusterManagers: []
   capi:
     provider: ""
