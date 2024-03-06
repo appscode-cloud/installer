@@ -1,4 +1,10 @@
-{{ $overrides := dict }}
+{{ $overrides := printf `
+clusterMetadata:
+  uid: %q
+  name: %q
+` $.Values.clusterMetadata.uid
+  $.Values.clusterMetadata.name
+  | fromYaml }}
 
 {{ $vals := dig "stash-presets" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $vals $overrides }}

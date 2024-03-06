@@ -1,4 +1,4 @@
-{{- if eq .Values.capi.provider "capz" }}
+{{- if eq .Values.clusterMetadata.capi.provider "capz" }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: FeatureSet

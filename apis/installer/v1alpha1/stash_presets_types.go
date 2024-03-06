@@ -45,9 +45,11 @@ type StashPresets struct {
 
 type StashPresetsSpec struct {
 	// +kubebuilder:default=KubeStash
-	Tool      BackupTool    `json:"tool"`
-	KubeStash KubeStashInfo `json:"kubestash"`
-	Stash     StashInfo     `json:"stash"`
+	Tool            BackupTool           `json:"tool"`
+	ClusterMetadata StashClusterMetadata `json:"clusterMetadata"`
+	UsePrefix       string               `json:"usePrefix"`
+	KubeStash       KubeStashInfo        `json:"kubestash"`
+	Stash           StashInfo            `json:"stash"`
 }
 
 // +kubebuilder:validation:Enum=KubeStash;Stash
@@ -57,6 +59,11 @@ const (
 	BackupToolKubeStash BackupTool = "KubeStash"
 	BackupToolStash     BackupTool = "Stash"
 )
+
+type StashClusterMetadata struct {
+	Uid  string `json:"uid"`
+	Name string `json:"name"`
+}
 
 type KubeStashInfo struct {
 	// Schedule specifies the schedule for invoking backup sessions

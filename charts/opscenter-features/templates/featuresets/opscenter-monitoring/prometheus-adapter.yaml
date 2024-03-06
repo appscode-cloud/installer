@@ -1,4 +1,4 @@
-{{- if not (has "Rancher" .Values.clusterManagers) }}
+{{- if not (has "Rancher" .Values.clusterMetadata.clusterManagers) }}
 
 {{ $overrides := printf `
 image:
