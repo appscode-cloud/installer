@@ -25,6 +25,14 @@ rules:
   - redises
   verbs: ["get", "list", "watch"]
 - apiGroups:
+  - kubedb.com
+  resources:
+  - elasticsearches/status
+  - mongodbs/status
+  - mysqls/status
+  - redises/status
+  verbs: ["get", "list", "watch", "update", "patch", "delete"]
+- apiGroups:
     - kubevault.com
   resources:
     - vaultservers
@@ -60,6 +68,7 @@ rules:
   - httproutes
   - referencegrants
   - tcproutes
+  - backendtlspolicies
   verbs: ["get","list","watch","create","patch","delete"]
 - apiGroups: ["gateway.voyagermesh.com"]
   resources:
@@ -67,3 +76,13 @@ rules:
   - mongodbroutes
   - redisroutes
   verbs: ["get","list","watch","create","patch","delete"]
+- apiGroups: ["rbac.authorization.k8s.io"]
+  resources:
+  - roles
+  - rolebindings
+  verbs: ["get","list","watch","create","patch","delete"]
+- apiGroups: ["gateway.envoyproxy.io"]
+  resources:
+  - envoyproxies
+  verbs: ["get","list","watch"]
+
