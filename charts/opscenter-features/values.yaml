@@ -5,8 +5,15 @@
 nameOverride: ""
 fullnameOverride: ""
 
-offlineInstaller: false
+clusterMetadata:
+  uid: ""
+  name: ""
+  clusterManagers: []
+  capi:
+    provider: ""
+    namespace: ""
 
+offlineInstaller: false
 image:
   proxies:
     # r.appscode.com
@@ -172,10 +179,3 @@ helm:
       version: "0.1.0"
     vault:
       version: "0.27.0"
-
-clusterManagers: []
-
-capi:
-  provider: ""
-  namespace: ""
-  clusterName: ""

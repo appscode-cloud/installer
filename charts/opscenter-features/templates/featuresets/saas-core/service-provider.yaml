@@ -1,4 +1,10 @@
-{{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
+{{ $overrides := printf `
+registryFQDN: %q
+provider:
+  clusterName: %q
+` (include "registry.ghcr" $)
+  $.Values.clusterMetadata.name
+  | fromYaml }}
 
 {{ $vals := dig "service-provider" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $vals $overrides }}

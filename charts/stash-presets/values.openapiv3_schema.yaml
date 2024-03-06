@@ -1,4 +1,14 @@
 properties:
+  clusterMetadata:
+    properties:
+      name:
+        type: string
+      uid:
+        type: string
+    required:
+    - name
+    - uid
+    type: object
   kubestash:
     properties:
       backend:
@@ -356,8 +366,12 @@ properties:
     - KubeStash
     - Stash
     type: string
+  usePrefix:
+    type: string
 required:
+- clusterMetadata
 - kubestash
 - stash
 - tool
+- usePrefix
 type: object

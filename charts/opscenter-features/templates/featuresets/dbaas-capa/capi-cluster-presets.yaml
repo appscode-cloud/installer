@@ -1,4 +1,4 @@
-{{- if eq .Values.capi.provider "capa" }}
+{{- if eq .Values.clusterMetadata.capi.provider "capa" }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
@@ -26,8 +26,8 @@ spec:
       namespace: {{ .Release.Namespace }}
   values:
     capi:
-      provider: {{ .Values.capi.provider }}
-      namespace: {{ .Values.capi.namespace }}
-      clusterName: {{ .Values.capi.clusterName }}
+      provider: {{ .Values.clusterMetadata.capi.provider }}
+      namespace: {{ .Values.clusterMetadata.capi.namespace }}
+      clusterName: {{ .Values.clusterMetadata.name }}
 
 {{- end }}

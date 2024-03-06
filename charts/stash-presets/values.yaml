@@ -1,5 +1,10 @@
 tool: KubeStash # Stash
 
+clusterMetadata:
+  uid: ""
+  name: ""
+usePrefix: name # uid, name or skip
+
 kubestash:
   schedule: "0 */2 * * *"
 

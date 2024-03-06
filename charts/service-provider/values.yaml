@@ -139,7 +139,7 @@ provider:
   # the sync namespace created in the provider side will be named like bb-<some-hash>
   namespacePrefix: "ace-"
   # the name of the provider
-  providerClusterName: "Appscode"
+  clusterName: "Appscode"
   # How consumers access the service provider cluster. In Kubernetes, "namespaced" allows namespace isolation.
   # In kcp, "cluster" allows workspace isolation, and with that allows cluster-scoped resources to bind, and it is generally more performant.
   consumerScope: "Namespaced"
