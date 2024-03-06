@@ -49,8 +49,8 @@ The following table lists the configurable parameters of the `opscenter-features
 |-------------------------------------------------------------|-------------------------|--------------------------------------------|
 | nameOverride                                                |                         | <code>""</code>                            |
 | fullnameOverride                                            |                         | <code>""</code>                            |
-| clusterMetadata.uid                                         |                         | <code>""</code>                            |
-| clusterMetadata.name                                        |                         | <code>""</code>                            |
+| clusterMetadata.uid                                         |                         | <code>TBD</code>                           |
+| clusterMetadata.name                                        |                         | <code>TBD</code>                           |
 | clusterMetadata.clusterManagers                             |                         | <code>[]</code>                            |
 | clusterMetadata.capi.provider                               |                         | <code>""</code>                            |
 | clusterMetadata.capi.namespace                              |                         | <code>""</code>                            |
@@ -132,7 +132,7 @@ The following table lists the configurable parameters of the `opscenter-features
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2024.2.13 --set image.proxies.appscode=r.appscode.com
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2024.2.13 --set clusterMetadata.uid=TBD
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
