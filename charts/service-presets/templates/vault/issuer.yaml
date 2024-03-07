@@ -65,7 +65,8 @@ metadata:
 spec:
   vaultRef:
     name: vault
-  pki: {}
+  pki:
+    isRootCA: true
 
 ---
 
