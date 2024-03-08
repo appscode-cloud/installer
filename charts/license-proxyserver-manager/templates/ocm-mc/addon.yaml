@@ -24,7 +24,7 @@ spec:
           - -c
           - |
               sleep 2; \
-              kubectl --kubeconfig=auth/kubeconfig create ns namespace: {{ include "license-proxyserver-manager.namespace" $ }} || true; \
+              kubectl --kubeconfig=auth/kubeconfig create ns {{ include "license-proxyserver-manager.namespace" $ }} || true; \
               kubectl --kubeconfig=auth/kubeconfig apply -f - <<EOF
               {{- $restpl := $.Files.Get "common/addon/clustermanagementaddon.yaml" -}}
               {{- tpl $restpl $ | nindent 14 }}
