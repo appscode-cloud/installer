@@ -1,0 +1,12 @@
+{{- if not .Values.kubeconfigSecretName }}
+
+{{- $restpl := $.Files.Get "common/addon/clustersetbinding.yaml" }}
+{{ tpl $restpl $ }}
+---
+{{- $restpl := $.Files.Get "common/addon/placement.yaml" }}
+{{ tpl $restpl $ }}
+---
+{{- $restpl := $.Files.Get "common/addon/manifestrelicaset.yaml" }}
+{{ tpl $restpl $ }}
+
+{{- end }}

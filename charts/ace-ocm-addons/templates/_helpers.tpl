@@ -51,14 +51,10 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
-Create the name of the service account to use
+Addon manager namespace
 */}}
-{{- define "ace-ocm-addons.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "ace-ocm-addons.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
+{{- define "ace-ocm-addons.namespace" -}}
+{{ ternary .Release.Namespace (required "A valid .Values.addonManagerNamespace is required!" .Values.addonManagerNamespace) (empty .Values.kubeconfigSecretName) }}
 {{- end }}
 
 {{/*

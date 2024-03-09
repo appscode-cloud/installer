@@ -1,0 +1,62 @@
+{{- if .Values.kubeconfigSecretName }}
+{{ range $path, $data := .Files.Glob  "crds/**.yaml" }}
+
+{{ $content := toString $data }}
+{{ $crd := dig "spec" "names" "plural" "" ($content | fromYaml) }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ace-regcrd-{{ $crd }}
+  namespace: {{ $.Release.Namespace }}
+  annotations:
+    "helm.sh/hook-weight": "0"
+    "helm.sh/hook": post-install,post-upgrade,post-rollback
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded,hook-failed
+data:
+  crd.yaml: |
+    {{- $content | nindent 4 }}
+
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ace-regcrd-{{ $crd }}
+  namespace: {{ $.Release.Namespace }}
+  annotations:
+    "helm.sh/hook-weight": "1"
+    "helm.sh/hook": post-install,post-upgrade,post-rollback
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded,hook-failed
+spec:
+  ttlSecondsAfterFinished: 0
+  backoffLimit: 3
+  template:
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - name: kubectl
+        image: {{ $.Values.kubectl.image }}
+        workingDir: /var/run/secrets/ocm
+        command:
+          - sh
+          - -c
+          - "sleep 2; \
+            kubectl --kubeconfig=auth/kubeconfig apply -f /etc/crds/crd.yaml; \
+            "
+        imagePullPolicy: {{ $.Values.imagePullPolicy }}
+        volumeMounts:
+        - mountPath: /var/run/secrets/ocm/auth
+          name: ocm-auth
+        - name: crd-volume
+          mountPath: /etc/crds
+      volumes:
+      - name: ocm-auth
+        secret:
+          defaultMode: 420
+          secretName: {{ $.Values.kubeconfigSecretName }}
+      - name: crd-volume
+        configMap:
+          name: ace-regcrd-{{ $crd }}
+      restartPolicy: Never
+{{- end }}
+{{- end }}
