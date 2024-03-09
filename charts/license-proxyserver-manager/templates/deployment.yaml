@@ -48,10 +48,8 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
-            {{- if .Values.kubeconfigSecretName }}
             - name: NAMESPACE
               value: {{ include "license-proxyserver-manager.namespace" . }}
-            {{- end }}
           volumeMounts:
             - mountPath: /tmp/licenses
               name: cache-dir

@@ -1,11 +1,11 @@
 apiVersion: work.open-cluster-management.io/v1alpha1
 kind: ManifestWorkReplicaSet
 metadata:
-  name: opscenter-core-addons
-  namespace: global-kubeops
+  name: ace-addons
+  namespace: {{ include "ace-ocm-addons.namespace" $ }}
 spec:
   placementRefs:
-    - name: global
+    - name: {{ .Values.placement.name }}
   manifestWorkTemplate:
     # deleteOption:
     #   propagationPolicy: SelectivelyOrphan

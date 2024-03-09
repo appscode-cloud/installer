@@ -5,6 +5,16 @@
 nameOverride: ""
 fullnameOverride: ""
 
+kubeconfigSecretName: ""
+addonManagerNamespace: open-cluster-management-addon
+
+placement:
+  create: true
+  name: global
+
+kubectl:
+  image: ghcr.io/appscode/kubectl-nonroot:1.25
+
 offlineInstaller: false
 
 image:
@@ -36,10 +46,7 @@ helm:
   releases:
     kube-ui-server:
       enabled: true
-      version: "v2023.12.18"
-    license-proxyserver:
-      enabled: true
-      version: "v2023.11.14"
+      version: "v2023.12.20"
     opscenter-features:
       enabled: true
       version: "v2024.2.13"
