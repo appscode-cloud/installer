@@ -1,4 +1,10 @@
 properties:
+  deploymentType:
+    enum:
+    - Hosted
+    - SelfHostedProduction
+    - SelfHostedDemo
+    type: string
   fullnameOverride:
     type: string
   helm:

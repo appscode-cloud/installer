@@ -1,0 +1,59 @@
+{{ $overrides := printf `
+registryFQDN: %s
+image: %s
+kubectl:
+  image: %s:1.25
+`
+  (include "registry.ghcr" $)
+  (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-auth") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode/kubectl-nonroot") $))
+  | fromYaml }}
+
+{{ $vals := `
+placement:
+  create: false
+` | fromYaml }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: cluster-auth-manager
+  labels:
+    app.kubernetes.io/part-of: ocm-hub
+spec:
+  title: OCM Spoke Components
+  description: |
+    Deploy OCM Spoke Components
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: ocm-hub
+  featureBlock: ocm-hub
+  recommended: false
+  requirements:
+    features:
+      - cluster-manager-hub
+      - ace-ocm-addons
+      - managed-serviceaccount-manager
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/instance: cluster-auth-manager
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: voyager-gateway
+          control-plane: envoy-gateway
+  chart:
+    name: cluster-auth-manager
+    namespace: open-cluster-management-addon
+    version: {{ dig "cluster-auth-manager" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

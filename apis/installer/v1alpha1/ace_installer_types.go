@@ -47,6 +47,8 @@ type AceInstallerSpec struct {
 	NameOverride     string `json:"nameOverride"`
 	FullnameOverride string `json:"fullnameOverride"`
 
+	// +optional
+	DeploymentType          DeploymentType `json:"deploymentType"`
 	shared.BootstrapPresets `json:",inline,omitempty"`
 }
 

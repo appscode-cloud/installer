@@ -1,0 +1,58 @@
+{{ $overrides := printf `
+image: %s
+kubectl:
+  image: %s:1.25
+`
+  (include "image.ghcr" (merge (dict "_repo" "kluster-manager/fluxcd-addon") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode/kubectl-nonroot") $))
+  | fromYaml }}
+
+{{ $vals := `
+kubeconfigSecretName: multicluster-controlplane-svc-kubeconfig
+addonManagerNamespace: open-cluster-management-addon
+placement:
+  create: false
+` | fromYaml }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: fluxcd-manager-mc
+  labels:
+    app.kubernetes.io/part-of: ocm-mc
+spec:
+  title: OCM Spoke Components
+  description: |
+    Deploy OCM Spoke Components
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: ocm-mc
+  featureBlock: ocm-mc
+  recommended: false
+  requirements:
+    features:
+      - multicluster-controlplane
+      - ace-ocm-addons-mc
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/instance: fluxcd-manager
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: voyager-gateway
+          control-plane: envoy-gateway
+  chart:
+    name: fluxcd-manager
+    namespace: multicluster-controlplane
+    version: {{ dig "fluxcd-manager" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

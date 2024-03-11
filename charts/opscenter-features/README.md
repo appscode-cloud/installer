@@ -127,6 +127,16 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.csi-secrets-store-provider-azure.version      |                         | <code>"1.5.2"</code>                       |
 | helm.releases.secrets-store-csi-driver-provider-gcp.version |                         | <code>"0.1.0"</code>                       |
 | helm.releases.vault.version                                 |                         | <code>"0.27.0"</code>                      |
+| helm.releases.cluster-manager-hub.version                   |                         | <code>"v2024.2.25"</code>                  |
+| helm.releases.cluster-manager-spoke.version                 |                         | <code>"v2024.2.25"</code>                  |
+| helm.releases.multicluster-controlplane.version             |                         | <code>"v2024.2.25"</code>                  |
+| helm.releases.managed-serviceaccount-manager.version        |                         | <code>"v2024.2.25"</code>                  |
+| helm.releases.cluster-proxy-manager.version                 |                         | <code>"v2024.2.25"</code>                  |
+| helm.releases.cluster-gateway-manager.version               |                         | <code>"v2024.2.25"</code>                  |
+| helm.releases.cluster-auth-manager.version                  |                         | <code>"v2024.2.25"</code>                  |
+| helm.releases.fluxcd-manager.version                        |                         | <code>"v2024.2.25"</code>                  |
+| helm.releases.license-proxyserver-manager.version           |                         | <code>"v2024.2.25"</code>                  |
+| helm.releases.vcluster.version                              |                         | <code>"0.19.4"</code>                      |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
