@@ -10,7 +10,7 @@ registry: %q
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: cluster-manager-spoke
+  name: vcluster-spoke
   labels:
     app.kubernetes.io/part-of: vcluster
 spec:
