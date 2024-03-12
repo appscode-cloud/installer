@@ -1,0 +1,77 @@
+{{ $overrides := printf `
+controller:
+  image:
+    registry: %s
+  opentelemetry:
+    image:
+      registry: %s
+defaultBackend:
+  image:
+    registry: %s
+`
+  (include "registry.kubernetes" $)
+  (include "registry.kubernetes" $)
+  (include "registry.kubernetes" $)
+  | fromYaml }}
+
+{{ $vals := printf `
+controller:
+  admissionWebhooks:
+    enabled: false
+  ingressClassByName: true
+  ingressClassResource:
+    controllerValue: open-cluster-management.io/ingress
+    enabled: true
+    name: ocm-ingress
+  service:
+    enableHttp: false
+    enableHttps: false
+tcp:
+  "8090": %s/proxy-entrypoint:8090
+  "8091": %s/proxy-entrypoint:8091
+  "9443": %s/multicluster-controlplane:443
+`
+  $.Release.Namespace
+  $.Release.Namespace
+  $.Release.Namespace
+  | fromYaml }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: ingress-nginx-mc
+  labels:
+    app.kubernetes.io/part-of: ocm-mc
+spec:
+  title: Multicluster Controlplane Ingress
+  description: |
+    Deploy Multicluster Controlplane Ingress Controller
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: ocm-mc
+  featureBlock: ocm-mc
+  recommended: false
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/component: controller
+          app.kubernetes.io/instance: ingress-nginx-mc
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: ingress-nginx
+          app.kubernetes.io/part-of: ingress-nginx
+  chart:
+    name: ingress-nginx
+    namespace: multicluster-controlplane
+    version: {{ dig "ingress-nginx" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

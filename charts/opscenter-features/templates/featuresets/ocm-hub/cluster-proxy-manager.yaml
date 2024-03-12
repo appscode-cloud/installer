@@ -8,7 +8,7 @@ kubectl:
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager") $))
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-proxy") $))
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-proxy") $))
-  (include "image.ghcr" (merge (dict "_repo" "appscode/kubectl-nonroot") $))
+  (include "kubectl.image" $)
   | fromYaml }}
 
 {{ $vals := `
@@ -24,9 +24,9 @@ metadata:
   labels:
     app.kubernetes.io/part-of: ocm-hub
 spec:
-  title: OCM Spoke Components
+  title: Cluster Proxy Manager
   description: |
-    Deploy OCM Spoke Components
+    Deploy Cluster Proxy Manager
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
@@ -45,8 +45,7 @@ spec:
         selector:
           app.kubernetes.io/instance: cluster-proxy-manager
           app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: voyager-gateway
-          control-plane: envoy-gateway
+          app.kubernetes.io/name: cluster-proxy-manager
   chart:
     name: cluster-proxy-manager
     namespace: open-cluster-management-addon

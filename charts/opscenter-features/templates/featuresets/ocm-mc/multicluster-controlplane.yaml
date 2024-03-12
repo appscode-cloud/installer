@@ -32,15 +32,18 @@ metadata:
   labels:
     app.kubernetes.io/part-of: ocm-mc
 spec:
-  title: OCM Spoke Components
+  title: Multicluster Controlplane
   description: |
-    Deploy OCM Spoke Components
+    Deploy Multicluster Controlplane
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   featureSet: ocm-mc
   featureBlock: ocm-mc
   recommended: false
+  requirements:
+    features:
+      - multicluster-ingress-reader
   readinessChecks:
     workloads:
       - group: apps
@@ -49,8 +52,7 @@ spec:
         selector:
           app.kubernetes.io/instance: multicluster-controlplane
           app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: voyager-gateway
-          control-plane: envoy-gateway
+          app.kubernetes.io/name: multicluster-controlplane
   chart:
     name: multicluster-controlplane
     namespace: multicluster-controlplane
@@ -59,6 +61,10 @@ spec:
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
+  valuesFrom:
+    - kind: ConfigMap
+      name: multicluster-ingress-config
+      valuesKey: mc.yaml
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
