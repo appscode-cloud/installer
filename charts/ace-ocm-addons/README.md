@@ -49,11 +49,6 @@ The following table lists the configurable parameters of the `ace-ocm-addons` ch
 |-------------------------------------------|-------------------------|----------------------------------------------------|
 | nameOverride                              |                         | <code>""</code>                                    |
 | fullnameOverride                          |                         | <code>""</code>                                    |
-| kubeconfigSecretName                      |                         | <code>""</code>                                    |
-| addonManagerNamespace                     |                         | <code>open-cluster-management-addon</code>         |
-| placement.create                          |                         | <code>true</code>                                  |
-| placement.name                            |                         | <code>global</code>                                |
-| kubectl.image                             |                         | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code> |
 | offlineInstaller                          |                         | <code>false</code>                                 |
 | image.proxies.appscode                    | r.appscode.com          | <code>r.appscode.com</code>                        |
 | image.proxies.dockerHub                   | company/bin:tag         | <code>""</code>                                    |
@@ -67,12 +62,17 @@ The following table lists the configurable parameters of the `ace-ocm-addons` ch
 | helm.releases.kube-ui-server.version      |                         | <code>"v2023.12.20"</code>                         |
 | helm.releases.opscenter-features.enabled  |                         | <code>true</code>                                  |
 | helm.releases.opscenter-features.version  |                         | <code>"v2024.2.13"</code>                          |
+| kubeconfigSecretName                      | ocm values              | <code>""</code>                                    |
+| addonManagerNamespace                     |                         | <code>open-cluster-management-addon</code>         |
+| placement.create                          |                         | <code>true</code>                                  |
+| placement.name                            |                         | <code>global</code>                                |
+| kubectl.image                             |                         | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code> |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i ace-ocm-addons appscode/ace-ocm-addons -n open-cluster-management --create-namespace --version=v2024.2.13 --set addonManagerNamespace=open-cluster-management-addon
+$ helm upgrade -i ace-ocm-addons appscode/ace-ocm-addons -n open-cluster-management --create-namespace --version=v2024.2.13 --set image.proxies.appscode=r.appscode.com
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while

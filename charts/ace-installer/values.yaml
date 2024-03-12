@@ -5,6 +5,7 @@
 nameOverride: ""
 fullnameOverride: ""
 
+deploymentType: ""
 offlineInstaller: false
 
 image:

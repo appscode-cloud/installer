@@ -179,3 +179,24 @@ helm:
       version: "0.1.0"
     vault:
       version: "0.27.0"
+    # ocm charts
+    cluster-manager-hub:
+      version: "v2024.2.25"
+    cluster-manager-spoke:
+      version: "v2024.2.25"
+    multicluster-controlplane:
+      version: "v2024.2.25"
+    managed-serviceaccount-manager:
+      version: "v2024.2.25"
+    cluster-proxy-manager:
+      version: "v2024.2.25"
+    cluster-gateway-manager:
+      version: "v2024.2.25"
+    cluster-auth-manager:
+      version: "v2024.2.25"
+    fluxcd-manager:
+      version: "v2024.2.25"
+    license-proxyserver-manager:
+      version: "v2024.2.25"
+    vcluster:
+      version: "0.19.4"

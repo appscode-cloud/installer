@@ -90,13 +90,7 @@ spec:
         {{- with (index .Values "helm" "releases" "opscenter-features") }}
         {{- if .enabled }}
 
-        {{ $overrides := dict "image" $.Values.image "registry" $.Values.registry "helm" dict }}
-
-        {{ $helmrepos := dig "repositories" dict $.Values.helm | deepCopy }}
-        {{ $_ := set $overrides.helm "repositories" $helmrepos }}
-
-        {{ $vals := dig "values" dict . }}
-        {{ $vals = mergeOverwrite $vals $overrides }}
+        {{ $vals := (omit $.Values "nameOverride" "fullnameOverride" "clusterMetadata" "kubeconfigSecretName" "addonManagerNamespace" "placement" "kubectl") }}
 
         - apiVersion: helm.toolkit.fluxcd.io/v2beta2
           kind: HelmRelease
