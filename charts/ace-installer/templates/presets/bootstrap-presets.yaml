@@ -8,13 +8,11 @@ ace:
   version: %q
 ace-installer:
   version: %q
-ace-ocm-addons:
-  version: %q
-flux2:
-  version: %q
-kube-ui-server:
-  version: %q
+# billing ui
 license-proxyserver:
+  version: %q
+# b3 import flow
+flux2:
   version: %q
 opscenter-features:
   version: %q
@@ -28,14 +26,30 @@ opscenter-features:
 `
   (dig "ace" "version" .Chart.AppVersion $.Values.helm.releases)
   .Chart.Version
-  (dig "ace-ocm-addons" "version" .Chart.AppVersion $.Values.helm.releases)
-  (dig "flux2" "version" "" $.Values.helm.releases)
-  (dig "kube-ui-server" "version" "" $.Values.helm.releases)
   (dig "license-proxyserver" "version" .Chart.AppVersion $.Values.helm.releases)
+  (dig "flux2" "version" "" $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
   ((dig "opscenter-features" "values" "helm" "releases" "service-presets" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "stash-presets" "values" (dict) $.Values.helm.releases) | toJson)
   | fromYaml }}
+
+{{- if or (eq $.Values.deploymentType "SelfHostedProduction") (eq $.Values.deploymentType "SelfHostedDemo") }}
+{{ $overrides := printf `
+opscenter-features:
+  values:
+    helm:
+      releases:
+        license-proxyserver:
+          values: %s
+        license-proxyserver-manager:
+          values: %s
+`
+  ((dig "opscenter-features" "values" "helm" "releases" "license-proxyserver" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "opscenter-features" "values" "helm" "releases" "license-proxyserver-manager" "values" (dict) $.Values.helm.releases) | toJson)
+  | fromYaml }}
+{{ $helmreleases = mergeOverwrite $helmreleases $overrides }}
+{{- end }}
+
 {{ $_ := set $vals.helm "releases" $helmreleases }}
 
 apiVersion: charts.x-helm.dev/v1alpha1
