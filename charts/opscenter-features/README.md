@@ -127,6 +127,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.csi-secrets-store-provider-azure.version      |                         | <code>"1.5.2"</code>                       |
 | helm.releases.secrets-store-csi-driver-provider-gcp.version |                         | <code>"0.1.0"</code>                       |
 | helm.releases.vault.version                                 |                         | <code>"0.27.0"</code>                      |
+| helm.releases.ace-ocm-addons.version                        |                         | <code>"v2024.2.13"</code>                  |
 | helm.releases.ingress-nginx.version                         |                         | <code>"4.10.0"</code>                      |
 | helm.releases.cluster-manager-hub.version                   |                         | <code>"v2024.2.25"</code>                  |
 | helm.releases.cluster-manager-spoke.version                 |                         | <code>"v2024.2.25"</code>                  |
