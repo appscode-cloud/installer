@@ -8,7 +8,7 @@ placement:
 `
   (include "registry.ghcr" $)
   (include "image.ghcr" (merge (dict "_repo" "appscode/license-proxyserver") $))
-  (include "image.ghcr" (merge (dict "_repo" "appscode/kubectl-nonroot") $))
+  (include "kubectl.image" $)
   | fromYaml }}
 
 {{ $vals := dig "license-proxyserver-manager" "values" (dict) .Values.helm.releases }}
@@ -21,9 +21,9 @@ metadata:
   labels:
     app.kubernetes.io/part-of: ocm-hub
 spec:
-  title: OCM Spoke Components
+  title: License Proxyserver Manager
   description: |
-    Deploy OCM Spoke Components
+    Deploy license-proxyserver-manager
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
@@ -42,8 +42,7 @@ spec:
         selector:
           app.kubernetes.io/instance: license-proxyserver-manager
           app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: voyager-gateway
-          control-plane: envoy-gateway
+          app.kubernetes.io/name: license-proxyserver-manager
   chart:
     name: license-proxyserver-manager
     namespace: open-cluster-management-addon

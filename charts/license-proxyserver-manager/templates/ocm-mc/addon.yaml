@@ -35,9 +35,6 @@ spec:
               {{- $restpl := $.Files.Get "common/addon/placement.yaml" -}}
               {{- tpl $restpl $ | nindent 14 }}
               ---
-              {{- $restpl := $.Files.Get "common/addon/token.yaml" -}}
-              {{- tpl $restpl $ | nindent 14 }}
-              ---
               {{- $restpl := $.Files.Get "common/work-agent/perm.yaml" -}}
               {{- tpl $restpl $ | nindent 14 }}
               EOF

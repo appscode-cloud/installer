@@ -2,7 +2,9 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: license-issuer-token
-  namespace: {{ include "license-proxyserver-manager.namespace" $ }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "license-proxyserver-manager.labels" . | nindent 4 }}
 type: Opaque
 stringData:
   token: {{ .Values.platform.token | quote }}

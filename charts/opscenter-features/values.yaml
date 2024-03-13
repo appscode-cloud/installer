@@ -180,11 +180,15 @@ helm:
     vault:
       version: "0.27.0"
     # ocm charts
+    ingress-nginx:
+      version: "4.10.0"
     cluster-manager-hub:
       version: "v2024.2.25"
     cluster-manager-spoke:
       version: "v2024.2.25"
     multicluster-controlplane:
+      version: "v2024.2.25"
+    multicluster-ingress-reader:
       version: "v2024.2.25"
     managed-serviceaccount-manager:
       version: "v2024.2.25"
@@ -197,6 +201,8 @@ helm:
     fluxcd-manager:
       version: "v2024.2.25"
     license-proxyserver-manager:
+      version: "v2024.2.25"
+    spoke-cluster-proxy:
       version: "v2024.2.25"
     vcluster:
       version: "0.19.4"
