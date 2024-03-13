@@ -28,7 +28,7 @@ securityContext:
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: multicluster-controlplane
+  name: ocm-mc
   labels:
     app.kubernetes.io/part-of: ocm-mc
 spec:
@@ -50,7 +50,7 @@ spec:
         version: v1
         kind: Deployment
         selector:
-          app.kubernetes.io/instance: multicluster-controlplane
+          app.kubernetes.io/instance: ocm-mc
           app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: multicluster-controlplane
   chart:
