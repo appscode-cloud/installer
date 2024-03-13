@@ -29,7 +29,7 @@ spec:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   featureSet: ocm-hub
-  featureBlock: ocm-hub
+  featureBlock: cluster-manager-hub
   recommended: false
   requirements:
     features:

@@ -22,7 +22,7 @@ spec:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   featureSet: ocm-mc
-  featureBlock: ocm-mc
+  featureBlock: multicluster-controlplane
   recommended: false
   requirements:
     features:

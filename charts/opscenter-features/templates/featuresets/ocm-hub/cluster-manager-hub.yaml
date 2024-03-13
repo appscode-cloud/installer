@@ -22,18 +22,18 @@ spec:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   featureSet: ocm-hub
-  featureBlock: ocm-hub
+  featureBlock: cluster-manager-hub
   recommended: false
-  readinessChecks:
-    workloads:
-      - group: apps
-        version: v1
-        kind: Deployment
-        selector:
-          app.kubernetes.io/instance: cluster-manager-hub
-          app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: voyager-gateway
-          control-plane: envoy-gateway
+  # readinessChecks:
+  #   workloads:
+  #     - group: apps
+  #       version: v1
+  #       kind: Deployment
+  #       selector:
+  #         app.kubernetes.io/instance: cluster-manager-hub
+  #         app.kubernetes.io/managed-by: Helm
+  #         app.kubernetes.io/name: voyager-gateway
+  #         control-plane: envoy-gateway
   chart:
     name: cluster-manager-hub
     namespace: open-cluster-management
