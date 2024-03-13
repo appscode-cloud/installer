@@ -30,7 +30,7 @@ spec:
   recommended: false
   requirements:
     features:
-      - multicluster-controlplane
+      - ocm-mc
   # readinessChecks:
   #   workloads:
   #     - group: apps

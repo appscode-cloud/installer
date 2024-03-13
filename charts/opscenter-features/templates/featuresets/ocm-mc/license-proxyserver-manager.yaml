@@ -34,7 +34,7 @@ spec:
   recommended: false
   requirements:
     features:
-      - multicluster-controlplane
+      - ocm-mc
       - ace-ocm-addons-mc
   readinessChecks:
     workloads:

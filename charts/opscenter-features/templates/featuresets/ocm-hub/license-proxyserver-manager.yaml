@@ -32,7 +32,7 @@ spec:
   recommended: false
   requirements:
     features:
-      - cluster-manager-hub
+      - ocm-hub
       - ace-ocm-addons
   readinessChecks:
     workloads:
