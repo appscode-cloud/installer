@@ -39,6 +39,7 @@ graph TD;
   mc-serviceaccount-manager-->ace-ocm-addons-mc;
   multicluster-controlplane-->multicluster-ingress-reader;
   multicluster-ingress-reader-->ingress-nginx-mc;
+  spoke-cluster-proxy-->cluster-manager-spoke;
   kubestash-->license-proxyserver;
   stash-opscenter-->stash;
   stash-opscenter-->panopticon;
@@ -83,4 +84,5 @@ graph TD;
   service-presets-->kubevault;
   service-presets-->service-gateway;
   vcluster-spoke-->vcluster;
+  vcluster-proxy-->vcluster-spoke;
 ```
