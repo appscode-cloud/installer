@@ -8,7 +8,7 @@ kubectl:
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager") $))
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-proxy") $))
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-proxy") $))
-  (include "image.ghcr" (merge (dict "_repo" "appscode/kubectl-nonroot") $))
+  (include "kubectl.image" $)
   | fromYaml }}
 
 {{ $vals := `
@@ -22,13 +22,13 @@ placement:
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: cluster-proxy-manager-mc
+  name: mc-proxy-manager
   labels:
     app.kubernetes.io/part-of: ocm-mc
 spec:
-  title: OCM Spoke Components
+  title: Cluster Proxy Manager
   description: |
-    Deploy OCM Spoke Components
+    Deploy Cluster Proxy Manager
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
@@ -45,10 +45,9 @@ spec:
         version: v1
         kind: Deployment
         selector:
-          app.kubernetes.io/instance: cluster-proxy-manager
+          app.kubernetes.io/instance: mc-proxy-manager
           app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: voyager-gateway
-          control-plane: envoy-gateway
+          app.kubernetes.io/name: cluster-proxy-manager
   chart:
     name: cluster-proxy-manager
     namespace: multicluster-controlplane
@@ -57,6 +56,10 @@ spec:
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
+  valuesFrom:
+    - kind: ConfigMap
+      name: multicluster-ingress-config
+      valuesKey: proxy.yaml
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}

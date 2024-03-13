@@ -1,30 +1,23 @@
 {{ $overrides := printf `
-image: %s
 kubectl:
   image: %s:1.25
 `
-  (include "image.ghcr" (merge (dict "_repo" "kluster-manager/fluxcd-addon") $))
   (include "kubectl.image" $)
   | fromYaml }}
 
-{{ $vals := `
-kubeconfigSecretName: multicluster-controlplane-svc-kubeconfig
-addonManagerNamespace: open-cluster-management-addon
-placement:
-  create: false
-` | fromYaml }}
+{{ $vals := dict }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: mc-fluxcd-manager
+  name: multicluster-ingress-reader
   labels:
     app.kubernetes.io/part-of: ocm-mc
 spec:
-  title: FluxCD Manager
+  title: Multicluster Ingress Reader
   description: |
-    Deploy FluxCD Manager
+    Generate Multicluster Ingress Values ConfigMap
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
@@ -33,21 +26,20 @@ spec:
   recommended: false
   requirements:
     features:
-      - multicluster-controlplane
-      - ace-ocm-addons-mc
+      - ingress-nginx-mc
   readinessChecks:
     workloads:
-      - group: apps
+      - group: ""
         version: v1
-        kind: Deployment
+        kind: ConfigMap
         selector:
-          app.kubernetes.io/instance: mc-fluxcd-manager
+          app.kubernetes.io/instance: multicluster-ingress-reader
           app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: fluxcd-manager
+          app.kubernetes.io/name: multicluster-ingress-reader
   chart:
-    name: fluxcd-manager
+    name: multicluster-ingress-reader
     namespace: multicluster-controlplane
-    version: {{ dig "fluxcd-manager" "version" "" $.Values.helm.releases }}
+    version: {{ dig "multicluster-ingress-reader" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

@@ -4,16 +4,16 @@ metadata:
   name: license-proxyserver-manager
   namespace: {{ .Release.Namespace }}
   labels:
-    app: license-proxyserver-manager
+    {{- include "license-proxyserver-manager.labels" . | nindent 4 }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: license-proxyserver-manager
+      {{- include "license-proxyserver-manager.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: license-proxyserver-manager
+        {{- include "license-proxyserver-manager.selectorLabels" . | nindent 8 }}
     spec:
       {{- if .Values.kubeconfigSecretName }}
       automountServiceAccountToken: false
