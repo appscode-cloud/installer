@@ -4,7 +4,7 @@ addonManagerNamespace: open-cluster-management-addon
 placement:
   create: false
 kubectl:
-  image: %s:1.25
+  image: %s
 `
   (include "kubectl.image" $)
   | fromYaml }}
