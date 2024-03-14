@@ -2,7 +2,7 @@
 registryFQDN: %s
 image: %s
 kubectl:
-  image: %s:1.25
+  image: %s
 `
   (include "registry.ghcr" $)
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-auth") $))
@@ -36,8 +36,8 @@ spec:
   requirements:
     features:
       - multicluster-controlplane
-      - ace-ocm-addons-mc
-      - managed-serviceaccount-manager-mc
+      - ace-mc-addons
+      - mc-serviceaccount-manager
   readinessChecks:
     workloads:
       - group: apps

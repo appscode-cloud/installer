@@ -1,7 +1,7 @@
 {{ $overrides := printf `
 image: %s
 kubectl:
-  image: %s:1.25
+  image: %s
 `
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/fluxcd-addon") $))
   (include "kubectl.image" $)
@@ -34,7 +34,7 @@ spec:
   requirements:
     features:
       - multicluster-controlplane
-      - ace-ocm-addons-mc
+      - ace-mc-addons
   readinessChecks:
     workloads:
       - group: apps

@@ -3,7 +3,7 @@ image: %s
 clusterGateway:
   image: %s
 kubectl:
-  image: %s:1.25
+  image: %s
 `
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-gateway-manager") $))
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-gateway") $))
@@ -37,9 +37,9 @@ spec:
   requirements:
     features:
       - multicluster-controlplane
-      - ace-ocm-addons-mc
-      - managed-serviceaccount-manager-mc
-      - cluster-proxy-manager-mc
+      - ace-mc-addons
+      - mc-serviceaccount-manager
+      - mc-proxy-manager
   readinessChecks:
     workloads:
       - group: apps
