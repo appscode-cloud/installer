@@ -13,7 +13,7 @@ placement:
   (include "image.ghcr" (merge (dict "_repo" "appscode/kubectl-nonroot") $))
   | fromYaml }}
 
-{{ $vals := dig "license-proxyserver-manager" "values" (dict) .Values.helm.releases }}
+{{ $vals := dig "license-proxyserver-manager" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
