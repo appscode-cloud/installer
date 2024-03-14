@@ -1,6 +1,6 @@
 {{ $overrides := printf `
 kubectl:
-  image: %s:1.25
+  image: %s
 `
   (include "image.ghcr" (merge (dict "_repo" "appscode/kubectl-nonroot") $))
   | fromYaml }}

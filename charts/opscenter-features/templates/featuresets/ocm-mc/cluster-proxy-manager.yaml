@@ -3,7 +3,7 @@ registry: %s
 proxyServerImage: %s
 proxyAgentImage: %s
 kubectl:
-  image: %s:1.25
+  image: %s
 `
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager") $))
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-proxy") $))

@@ -1,6 +1,6 @@
 {{ $overrides := printf `
 kubectl:
-  image: %s:1.25
+  image: %s
 `
   (include "kubectl.image" $)
   | fromYaml }}

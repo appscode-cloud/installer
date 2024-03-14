@@ -2,7 +2,7 @@
 registryFQDN: %s
 image: %s
 kubectl:
-  image: %s:1.25
+  image: %s
 kubeconfigSecretName: multicluster-controlplane-svc-kubeconfig
 addonManagerNamespace: open-cluster-management-addon
 placement:
