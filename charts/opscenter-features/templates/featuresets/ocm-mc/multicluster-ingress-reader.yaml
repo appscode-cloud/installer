@@ -5,7 +5,10 @@ kubectl:
   (include "kubectl.image" $)
   | fromYaml }}
 
-{{ $vals := dict }}
+{{ $vals := `
+configMap:
+  namespace: kubeops
+` | fromYaml }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
