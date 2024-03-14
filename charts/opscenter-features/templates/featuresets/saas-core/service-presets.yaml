@@ -6,7 +6,7 @@ infra:
   $.Values.clusterMetadata.name
   | fromYaml }}
 
-{{ $vals := dig "service-presets" "values" (dict) .Values.helm.releases }}
+{{ $vals := dig "service-presets" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
