@@ -37,9 +37,9 @@ spec:
   requirements:
     features:
       - multicluster-controlplane
-      - ace-ocm-addons-mc
-      - managed-serviceaccount-manager-mc
-      - cluster-proxy-manager-mc
+      - ace-mc-addons
+      - mc-serviceaccount-manager
+      - mc-proxy-manager
   readinessChecks:
     workloads:
       - group: apps
