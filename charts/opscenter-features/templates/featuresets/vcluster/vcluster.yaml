@@ -5,7 +5,18 @@ vcluster:
   (include "image.dockerLibrary" (merge (dict "_repo" "rancher/k3s") $))
   | fromYaml }}
 
-{{ $vals := dict }}
+{{ $vals := `
+sync:
+  # persistentvolumes:
+  #   enabled: true
+  # If you want to create custom storage classes
+  # inside the vcluster.
+  hoststorageclasses:
+    enabled: true
+telemetry:
+  disabled: "true"
+` | fromYaml }}
+
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
