@@ -14,7 +14,7 @@ kind: Feature
 metadata:
   name: stash-presets
   labels:
-    app.kubernetes.io/part-of: opscenter-presets
+    app.kubernetes.io/part-of: opscenter-backup
 spec:
   title: Stash Presets
   description: |
