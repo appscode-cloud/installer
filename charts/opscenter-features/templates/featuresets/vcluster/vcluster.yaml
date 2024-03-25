@@ -34,7 +34,7 @@ spec:
       type: image/svg+xml
   featureSet: vcluster
   featureBlock: vcluster
-  recommended: false
+  recommended: true
   # readinessChecks:
   #   workloads:
   #     - group: apps

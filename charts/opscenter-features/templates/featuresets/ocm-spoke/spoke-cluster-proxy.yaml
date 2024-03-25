@@ -23,7 +23,7 @@ spec:
       type: image/svg+xml
   featureSet: ocm-spoke
   featureBlock: cluster-manager-spoke
-  recommended: false
+  recommended: true
   requirements:
     features:
       - cluster-manager-spoke
