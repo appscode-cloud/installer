@@ -2,7 +2,7 @@
 kubectl:
   image: %s
 `
-  (include "image.ghcr" (merge (dict "_repo" "appscode/kubectl-nonroot") $))
+  (include "kubectl.image" $)
   | fromYaml }}
 
 {{ $vals := dict }}
