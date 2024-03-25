@@ -5,10 +5,12 @@ kubectl:
   (include "kubectl.image" $)
   | fromYaml }}
 
-{{ $vals := `
+{{ $vals := printf `
 configMap:
-  namespace: kubeops
-` | fromYaml }}
+  namespace: %s
+`
+  $.Release.Namespace
+  | fromYaml }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
