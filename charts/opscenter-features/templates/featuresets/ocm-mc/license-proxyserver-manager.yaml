@@ -10,7 +10,7 @@ placement:
 `
   (include "registry.ghcr" $)
   (include "image.ghcr" (merge (dict "_repo" "appscode/license-proxyserver") $))
-  (include "image.ghcr" (merge (dict "_repo" "appscode/kubectl-nonroot") $))
+  (include "kubectl.image" $)
   | fromYaml }}
 
 {{ $vals := dig "license-proxyserver-manager" "values" (dict) .Values.helm.releases | deepCopy }}
