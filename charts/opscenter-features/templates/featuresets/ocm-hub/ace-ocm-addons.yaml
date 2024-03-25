@@ -23,7 +23,7 @@ spec:
       type: image/svg+xml
   featureSet: ocm-hub
   featureBlock: cluster-manager-hub
-  recommended: false
+  recommended: true
   requirements:
     features:
       - cluster-manager-hub

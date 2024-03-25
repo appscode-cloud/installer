@@ -15,6 +15,9 @@ kubeconfigSecretName: multicluster-controlplane-svc-kubeconfig
 addonManagerNamespace: open-cluster-management-addon
 placement:
   create: false
+clusterProxy:
+  credentials:
+    namespace: multicluster-controlplane
 ` | fromYaml }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
@@ -33,7 +36,7 @@ spec:
       type: image/svg+xml
   featureSet: ocm-mc
   featureBlock: multicluster-controlplane
-  recommended: false
+  recommended: true
   requirements:
     features:
       - multicluster-controlplane
