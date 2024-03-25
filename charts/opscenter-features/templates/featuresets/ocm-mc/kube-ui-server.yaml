@@ -21,6 +21,10 @@ spec:
   featureSet: ocm-mc
   featureBlock: multicluster-controlplane
   recommended: true
+  requirements:
+    features:
+      - multicluster-controlplane
+      - ace-mc-addons
   readinessChecks:
     workloads:
     - group: apps
