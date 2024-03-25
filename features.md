@@ -33,6 +33,8 @@ graph TD;
   mc-proxy-manager-->ace-mc-addons;
   mc-fluxcd-manager-->multicluster-controlplane;
   mc-fluxcd-manager-->ace-mc-addons;
+  kube-ui-server-mc-->multicluster-controlplane;
+  kube-ui-server-mc-->ace-mc-addons;
   mc-license-manager-->multicluster-controlplane;
   mc-license-manager-->ace-mc-addons;
   mc-serviceaccount-manager-->multicluster-controlplane;
