@@ -1,7 +1,11 @@
 {{ $overrides := printf `
 registry: %q
+image: %s:latest
+selfManagementClusterName: %q
 `
   (include "image.quay" (merge (dict "_repo" "open-cluster-management") $))
+  (include "image.ghcr" (merge (dict "_repo" "kluster-manager/multicluster-controlplane") $))
+  $.Values.clusterMetadata.name
   | fromYaml }}
 
 {{ $vals := `
@@ -10,10 +14,9 @@ apiserver:
 enableSelfManagement: true
 autoApprovalBootstrapUsers: "system:admin"
 features: DefaultClusterSet=true,ManagedClusterAutoApproval=true,ManifestWorkReplicaSet=true
-image: ghcr.io/kluster-manager/multicluster-controlplane:latest
 imagePullPolicy: Always
 loadbalancer:
-  enabled: true
+  enabled: false
 pvc:
   storageClassName: ""
 route:
