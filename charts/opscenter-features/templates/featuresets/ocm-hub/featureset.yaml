@@ -9,7 +9,7 @@ spec:
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  recommended: false
+  recommended: true
   chart:
     name: uik8sappscodecom-featureset-ocm-hub-editor
     version: {{ .Chart.AppVersion }}

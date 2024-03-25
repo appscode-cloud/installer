@@ -28,7 +28,7 @@ spec:
       type: image/svg+xml
   featureSet: ocm-mc
   featureBlock: multicluster-controlplane
-  recommended: false
+  recommended: true
   requirements:
     features:
       - ingress-nginx-mc

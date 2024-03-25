@@ -49,7 +49,7 @@ spec:
       type: image/svg+xml
   featureSet: ocm-mc
   featureBlock: multicluster-controlplane
-  recommended: false
+  recommended: true
   readinessChecks:
     workloads:
       - group: apps
