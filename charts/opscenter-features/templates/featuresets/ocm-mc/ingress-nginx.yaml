@@ -14,7 +14,7 @@ defaultBackend:
   (include "registry.kubernetes" $)
   | fromYaml }}
 
-{{ $vals := printf `
+{{ $vals := `
 controller:
   admissionWebhooks:
     enabled: false
@@ -27,13 +27,10 @@ controller:
     enableHttp: false
     enableHttps: false
 tcp:
-  "8090": %s/proxy-entrypoint:8090
-  "8091": %s/proxy-entrypoint:8091
-  "9443": %s/multicluster-controlplane:443
+  "8090": multicluster-controlplane/proxy-entrypoint:8090
+  "8091": multicluster-controlplane/proxy-entrypoint:8091
+  "9443": multicluster-controlplane/multicluster-controlplane:443
 `
-  $.Release.Namespace
-  $.Release.Namespace
-  $.Release.Namespace
   | fromYaml }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
