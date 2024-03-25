@@ -4,6 +4,7 @@
 kubeconfigSecretName: multicluster-controlplane-svc-kubeconfig
 addonManagerNamespace: open-cluster-management-addon
 ` | fromYaml }}
+{{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
