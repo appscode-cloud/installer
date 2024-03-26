@@ -27,6 +27,7 @@ spec:
       selector:
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: kube-ui-server
+        app.kubernetes.io/instance: kube-ui-server
   chart:
     name: kube-ui-server
     namespace: kubeops
