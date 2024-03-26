@@ -33,7 +33,8 @@ spec:
       kind: Deployment
       selector:
         app.kubernetes.io/managed-by: Helm
-        app.kubernetes.io/name: kube-ui-server-mc
+        app.kubernetes.io/name: kube-ui-server
+        app.kubernetes.io/instance: kube-ui-server-mc
   chart:
     name: kube-ui-server
     namespace: multicluster-controlplane
