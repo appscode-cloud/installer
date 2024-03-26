@@ -12,7 +12,7 @@ metadata:
   namespace: {{ $.Release.Namespace }}
   annotations:
     "helm.sh/hook-weight": "0"
-    "helm.sh/hook": post-install,post-upgrade,post-rollback
+    "helm.sh/hook": pre-install,pre-upgrade,pre-rollback
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded,hook-failed
 data:
   crd.yaml: |
@@ -26,7 +26,7 @@ metadata:
   namespace: {{ $.Release.Namespace }}
   annotations:
     "helm.sh/hook-weight": "1"
-    "helm.sh/hook": post-install,post-upgrade,post-rollback
+    "helm.sh/hook": pre-install,pre-upgrade,pre-rollback
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded,hook-failed
 spec:
   ttlSecondsAfterFinished: 0
