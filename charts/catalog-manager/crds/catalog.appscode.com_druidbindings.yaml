@@ -4,17 +4,17 @@ metadata:
   labels:
     app.kubernetes.io/name: ace
     kube-bind.appscode.com/exported: "true"
-  name: mariadbbindings.catalog.appscode.com
+  name: druidbindings.catalog.appscode.com
 spec:
   group: catalog.appscode.com
   names:
     categories:
     - kubedb
     - appscode
-    kind: MariaDBBinding
-    listKind: MariaDBBindingList
-    plural: mariadbbindings
-    singular: mariadbbinding
+    kind: DruidBinding
+    listKind: DruidBindingList
+    plural: druidbindings
+    singular: druidbinding
   scope: Namespaced
   versions:
   - additionalPrinterColumns:
@@ -33,7 +33,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: MariaDBBinding is the Schema for the mariadbbindings API
+        description: DruidBinding is the Schema for the druidbindings API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -48,7 +48,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: MariaDBBindingSpec defines the desired state of MariaDBBinding
+            description: DruidBindingSpec defines the desired state of DruidBinding
             properties:
               sourceRef:
                 description: SourceRef refers to the source app instance.
