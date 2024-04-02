@@ -1,34 +1,34 @@
 dependencies:
 - name: platform-ui
   repository: file://../platform-ui
-  version: v2024.2.13
+  version: v2024.4.2
 - name: accounts-ui
   repository: file://../accounts-ui
-  version: v2024.2.13
+  version: v2024.4.2
 - name: cluster-ui
   repository: file://../cluster-ui
-  version: v2024.2.13
+  version: v2024.4.2
 - name: deploy-ui
   repository: file://../deploy-ui
   version: v2023.11.14
 - name: kubedb-ui
   repository: file://../kubedb-ui
-  version: v2024.2.13
+  version: v2024.4.2
 - name: marketplace-ui
   repository: file://../marketplace-ui
   version: v2023.11.14
 - name: platform-api
   repository: file://../platform-api
-  version: v2024.2.13
+  version: v2024.4.2
 - name: platform-links
   repository: file://../platform-links
-  version: v2024.2.13
+  version: v2024.4.2
 - name: inbox-ui
   repository: file://../inbox-ui
-  version: v2024.2.13
+  version: v2024.4.2
 - name: billing
   repository: file://../billing
-  version: v2024.2.13
+  version: v2024.4.2
 - name: grafana
   repository: file://../grafana
   version: v2023.11.14

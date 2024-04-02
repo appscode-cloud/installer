@@ -47,7 +47,7 @@ helm:
       version: "v2023.12.20"
     opscenter-features:
       enabled: true
-      version: "v2024.2.13"
+      version: "v2024.4.2"
 
 # ocm values
 kubeconfigSecretName: ""
