@@ -46,10 +46,10 @@ helm:
   releases:
     ace:
       enabled: false
-      version: "v2024.2.13"
+      version: "v2024.4.2"
     ace-ocm-addons:
       enabled: true
-      version: "v2024.2.13"
+      version: "v2024.4.2"
     cert-manager:
       enabled: true
       version: "v1.14.1"
@@ -124,7 +124,7 @@ helm:
       version: "v0.0.4"
     opscenter-features:
       enabled: true
-      version: "v2024.2.13"
+      version: "v2024.4.2"
     panopticon:
       enabled: true
       version: "v2023.10.1"
@@ -143,4 +143,4 @@ helm:
       version: "1.0.50"
     stash-presets:
       enabled: false
-      version: "v2024.2.13"
+      version: "v2024.4.2"
