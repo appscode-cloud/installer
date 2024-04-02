@@ -149,9 +149,9 @@ helm:
     snapshot-controller:
       version: "2.0.3"
     stash:
-      version: "v2024.4.2"
+      version: "v2024.2.13"
     stash-opscenter:
-      version: "v2024.4.2"
+      version: "v2024.2.13"
     stash-presets:
       version: "v2024.4.2"
     supervisor:

@@ -112,8 +112,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.service-provider.version                      |                         | <code>"v2024.2.11"</code>                  |
 | helm.releases.sidekick.version                              |                         | <code>"v2024.2.6"</code>                   |
 | helm.releases.snapshot-controller.version                   |                         | <code>"2.0.3"</code>                       |
-| helm.releases.stash.version                                 |                         | <code>"v2024.4.2"</code>                   |
-| helm.releases.stash-opscenter.version                       |                         | <code>"v2024.4.2"</code>                   |
+| helm.releases.stash.version                                 |                         | <code>"v2024.2.13"</code>                  |
+| helm.releases.stash-opscenter.version                       |                         | <code>"v2024.2.13"</code>                  |
 | helm.releases.stash-presets.version                         |                         | <code>"v2024.4.2"</code>                   |
 | helm.releases.supervisor.version                            |                         | <code>"v2024.2.6"</code>                   |
 | helm.releases.topolvm.version                               |                         | <code>"13.0.0"</code>                      |
