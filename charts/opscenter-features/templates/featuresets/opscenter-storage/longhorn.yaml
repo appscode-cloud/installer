@@ -99,6 +99,7 @@ spec:
   chart:
     name: longhorn
     namespace: longhorn-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "longhorn" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

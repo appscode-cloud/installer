@@ -17,6 +17,7 @@ spec:
   chart:
     name: gateway-api
     namespace: envoy-gateway-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "gateway-api" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

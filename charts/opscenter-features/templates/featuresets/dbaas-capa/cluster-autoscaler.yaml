@@ -45,6 +45,7 @@ spec:
   chart:
     name: cluster-autoscaler
     namespace: capi-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "cluster-autoscaler" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

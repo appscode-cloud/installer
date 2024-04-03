@@ -12,7 +12,7 @@ metadata:
 spec:
   install:
     crds: CreateReplace
-    createNamespace: true
+    createNamespace: {{ $.Values.helm.createNamespace }}
     remediation:
       retries: -1
   interval: 5m

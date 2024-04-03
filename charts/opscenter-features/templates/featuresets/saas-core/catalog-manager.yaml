@@ -36,6 +36,7 @@ spec:
   chart:
     name: catalog-manager
     namespace: ace
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "catalog-manager" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

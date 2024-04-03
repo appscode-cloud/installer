@@ -64,6 +64,7 @@ spec:
   chart:
     name: ingress-nginx
     namespace: multicluster-controlplane
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "ingress-nginx" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

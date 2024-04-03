@@ -25,7 +25,7 @@ spec:
   targetNamespace: kubedb
   storageNamespace: kubedb
   install:
-    createNamespace: true
+    createNamespace: {{ $.Values.helm.createNamespace }}
     # crds: CreateReplace
     remediation:
       retries: -1

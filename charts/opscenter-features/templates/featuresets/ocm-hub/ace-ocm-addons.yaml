@@ -40,6 +40,7 @@ spec:
   chart:
     name: ace-ocm-addons
     namespace: open-cluster-management-addon
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "ace-ocm-addons" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

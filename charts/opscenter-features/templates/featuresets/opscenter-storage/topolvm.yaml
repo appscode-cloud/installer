@@ -43,6 +43,7 @@ spec:
   chart:
     name: topolvm
     namespace: topolvm-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "topolvm" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

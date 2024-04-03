@@ -50,6 +50,7 @@ spec:
   chart:
     name: cluster-gateway-manager
     namespace: open-cluster-management-addon
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "cluster-gateway-manager" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

@@ -100,6 +100,7 @@ spec:
   chart:
     name: opencost
     namespace: opencost
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "opencost" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

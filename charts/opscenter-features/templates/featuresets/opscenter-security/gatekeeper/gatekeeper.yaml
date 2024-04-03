@@ -71,6 +71,7 @@ spec:
   chart:
     name: gatekeeper
     namespace: gatekeeper-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "gatekeeper" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

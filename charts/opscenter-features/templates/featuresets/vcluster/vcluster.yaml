@@ -48,6 +48,7 @@ spec:
   chart:
     name: vcluster
     namespace: open-cluster-management
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "vcluster" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

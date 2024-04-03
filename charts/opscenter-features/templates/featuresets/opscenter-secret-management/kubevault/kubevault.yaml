@@ -37,6 +37,7 @@ spec:
   chart:
     name: kubevault
     namespace: kubevault
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "kubevault" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

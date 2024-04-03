@@ -30,6 +30,7 @@ spec:
   chart:
     name: sidekick
     namespace: kubeops
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "sidekick" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

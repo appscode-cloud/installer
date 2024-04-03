@@ -32,6 +32,7 @@ spec:
   chart:
     name: capa-vpc-peering-operator
     namespace: crossplane-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "capa-vpc-peering-operator" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

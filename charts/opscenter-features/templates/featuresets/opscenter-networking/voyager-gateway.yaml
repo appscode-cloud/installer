@@ -42,6 +42,7 @@ spec:
   chart:
     name: voyager-gateway
     namespace: envoy-gateway-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "voyager-gateway" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

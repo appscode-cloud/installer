@@ -48,6 +48,7 @@ spec:
   chart:
     name: license-proxyserver-manager
     namespace: multicluster-controlplane
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "license-proxyserver-manager" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

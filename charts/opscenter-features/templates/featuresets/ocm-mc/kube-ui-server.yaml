@@ -38,6 +38,7 @@ spec:
   chart:
     name: kube-ui-server
     namespace: multicluster-controlplane
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "kube-ui-server" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

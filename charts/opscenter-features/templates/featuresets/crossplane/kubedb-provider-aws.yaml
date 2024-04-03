@@ -33,6 +33,7 @@ spec:
   chart:
     name: kubedb-provider-aws
     namespace: crossplane-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "kubedb-provider-aws" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

@@ -13,7 +13,7 @@ spec:
   targetNamespace: ace
   storageNamespace: ace
   install:
-    createNamespace: true
+    createNamespace: {{ $.Values.helm.createNamespace }}
     # crds: CreateReplace
     remediation:
       retries: -1
