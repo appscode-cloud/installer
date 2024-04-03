@@ -46,6 +46,11 @@ spec:
     spec:
       chart: kubedb
       version: {{ .version | quote }}
+      {{- if not ($.Capabilities.APIVersions.Has "policy/v1beta1/PodSecurityPolicy") }}
+      valuesFiles:
+      - values.yaml
+      - ci/ci-values.yaml
+      {{- end }}
       interval: 60m
       sourceRef:
         kind: HelmRepository
