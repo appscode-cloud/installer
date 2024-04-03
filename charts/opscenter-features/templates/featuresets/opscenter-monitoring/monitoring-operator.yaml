@@ -30,6 +30,7 @@ spec:
   chart:
     name: monitoring-operator
     namespace: monitoring
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "monitoring-operator" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

@@ -48,6 +48,7 @@ spec:
   chart:
     name: snapshot-controller
     namespace: kubeops
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "snapshot-controller" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

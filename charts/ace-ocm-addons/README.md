@@ -57,6 +57,7 @@ The following table lists the configurable parameters of the `ace-ocm-addons` ch
 | image.proxies.quay                        | quay.io/company/bin:tag | <code>quay.io</code>                               |
 | image.proxies.kubernetes                  | registry.k8s.io/bin:tag | <code>registry.k8s.io</code>                       |
 | registry.credentials                      |                         | <code>{}</code>                                    |
+| helm.createNamespace                      |                         | <code>true</code>                                  |
 | helm.repositories.appscode-charts-oci.url |                         | <code>oci://ghcr.io/appscode-charts</code>         |
 | helm.releases.kube-ui-server.enabled      |                         | <code>true</code>                                  |
 | helm.releases.kube-ui-server.version      |                         | <code>"v2023.12.20"</code>                         |

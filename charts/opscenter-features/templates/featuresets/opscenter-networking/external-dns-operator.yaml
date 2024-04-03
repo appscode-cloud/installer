@@ -30,6 +30,7 @@ spec:
   chart:
     name: external-dns-operator
     namespace: kubeops
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "external-dns-operator" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

@@ -40,6 +40,7 @@ spec:
   chart:
     name: spoke-cluster-proxy
     namespace: open-cluster-management
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "spoke-cluster-proxy" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

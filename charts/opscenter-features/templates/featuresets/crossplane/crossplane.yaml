@@ -33,6 +33,7 @@ spec:
   chart:
     name: crossplane
     namespace: crossplane-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "crossplane" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

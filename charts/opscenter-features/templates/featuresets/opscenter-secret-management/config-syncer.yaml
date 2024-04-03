@@ -35,6 +35,7 @@ spec:
   chart:
     name: config-syncer
     namespace: kubeops
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "config-syncer" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

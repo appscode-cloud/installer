@@ -47,6 +47,7 @@ spec:
   chart:
     name: metrics-server
     namespace: monitoring
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "metrics-server" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

@@ -36,6 +36,7 @@ spec:
   chart:
     name: service-presets
     namespace: ace
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "service-presets" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

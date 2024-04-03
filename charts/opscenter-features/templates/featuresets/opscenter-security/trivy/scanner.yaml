@@ -34,6 +34,7 @@ spec:
   chart:
     name: scanner
     namespace: kubeops
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "scanner" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

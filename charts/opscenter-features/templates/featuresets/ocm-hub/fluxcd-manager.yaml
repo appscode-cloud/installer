@@ -45,6 +45,7 @@ spec:
   chart:
     name: fluxcd-manager
     namespace: open-cluster-management-addon
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "fluxcd-manager" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

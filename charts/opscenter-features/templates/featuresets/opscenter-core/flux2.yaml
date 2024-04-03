@@ -70,6 +70,7 @@ spec:
   chart:
     name: flux2
     namespace: flux-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "flux2" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

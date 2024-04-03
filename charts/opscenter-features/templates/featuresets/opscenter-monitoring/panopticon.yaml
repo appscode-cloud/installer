@@ -37,6 +37,7 @@ spec:
   chart:
     name: panopticon
     namespace: monitoring
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "panopticon" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

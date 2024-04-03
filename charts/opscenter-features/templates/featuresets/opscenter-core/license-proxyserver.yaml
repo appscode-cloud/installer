@@ -30,6 +30,7 @@ spec:
   chart:
     name: license-proxyserver
     namespace: kubeops
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "license-proxyserver" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

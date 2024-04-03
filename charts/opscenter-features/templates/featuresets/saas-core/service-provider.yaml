@@ -44,6 +44,7 @@ spec:
   chart:
     name: service-provider
     namespace: ace
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "service-provider" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

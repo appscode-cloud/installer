@@ -28,6 +28,7 @@ spec:
   chart:
     name: stash-presets
     namespace: stash
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "stash-presets" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

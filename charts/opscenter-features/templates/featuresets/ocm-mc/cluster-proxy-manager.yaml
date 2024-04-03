@@ -53,6 +53,7 @@ spec:
   chart:
     name: cluster-proxy-manager
     namespace: multicluster-controlplane
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "cluster-proxy-manager" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

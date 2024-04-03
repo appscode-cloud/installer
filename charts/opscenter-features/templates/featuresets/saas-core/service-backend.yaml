@@ -30,6 +30,7 @@ spec:
   chart:
     name: service-backend
     namespace: ace
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "service-backend" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

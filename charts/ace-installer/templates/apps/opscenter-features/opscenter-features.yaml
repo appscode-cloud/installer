@@ -5,6 +5,7 @@
 
 {{ $helmrepos := dig "repositories" dict $.Values.helm | deepCopy }}
 {{ $_ := set $overrides.helm "repositories" $helmrepos }}
+{{ $_ := set $overrides.helm "createNamespace" $.Values.helm.createNamespace }}
 
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $vals $overrides }}
@@ -24,7 +25,7 @@ spec:
   targetNamespace: kubeops
   storageNamespace: kubeops
   install:
-    createNamespace: true
+    createNamespace: {{ $.Values.helm.createNamespace }}
     # crds: CreateReplace
     remediation:
       retries: -1

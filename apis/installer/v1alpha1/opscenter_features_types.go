@@ -70,8 +70,9 @@ type CapiMetadata struct {
 }
 
 type OpscenterHelmSpec struct {
-	Repositories map[string]*shared.HelmRepository `json:"repositories"`
-	Releases     map[string]*HelmRelease           `json:"releases"`
+	CreateNamespace bool                              `json:"createNamespace"`
+	Repositories    map[string]*shared.HelmRepository `json:"repositories"`
+	Releases        map[string]*HelmRelease           `json:"releases"`
 }
 
 type HelmRelease struct {

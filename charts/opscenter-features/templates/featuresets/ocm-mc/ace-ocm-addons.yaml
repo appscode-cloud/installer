@@ -42,6 +42,7 @@ spec:
   chart:
     name: ace-ocm-addons
     namespace: multicluster-controlplane
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "ace-ocm-addons" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

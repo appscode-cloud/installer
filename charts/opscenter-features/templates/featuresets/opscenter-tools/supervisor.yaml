@@ -30,6 +30,7 @@ spec:
   chart:
     name: supervisor
     namespace: kubeops
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "supervisor" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

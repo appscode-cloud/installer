@@ -33,6 +33,7 @@ spec:
   chart:
     name: grafana-operator
     namespace: monitoring
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "grafana-operator" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

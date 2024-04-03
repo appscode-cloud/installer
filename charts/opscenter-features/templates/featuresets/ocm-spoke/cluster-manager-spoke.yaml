@@ -36,6 +36,7 @@ spec:
   chart:
     name: cluster-manager-spoke
     namespace: open-cluster-management
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "cluster-manager-spoke" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

@@ -46,6 +46,7 @@ spec:
   chart:
     name: license-proxyserver-manager
     namespace: open-cluster-management-addon
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "license-proxyserver-manager" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

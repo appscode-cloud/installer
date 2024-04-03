@@ -48,6 +48,7 @@ spec:
   chart:
     name: voyager-gateway
     namespace: ace
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "voyager-gateway" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

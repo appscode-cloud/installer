@@ -47,6 +47,7 @@ spec:
   chart:
     name: fluxcd-manager
     namespace: multicluster-controlplane
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "fluxcd-manager" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

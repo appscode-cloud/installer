@@ -31,6 +31,8 @@ properties:
     type: string
   helm:
     properties:
+      createNamespace:
+        type: boolean
       releases:
         additionalProperties:
           properties:
@@ -70,6 +72,7 @@ properties:
           type: object
         type: object
     required:
+    - createNamespace
     - releases
     - repositories
     type: object

@@ -44,6 +44,7 @@ spec:
   chart:
     name: multicluster-ingress-reader
     namespace: multicluster-controlplane
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "multicluster-ingress-reader" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

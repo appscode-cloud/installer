@@ -55,6 +55,7 @@ spec:
   chart:
     name: cluster-gateway-manager
     namespace: multicluster-controlplane
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "cluster-gateway-manager" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

@@ -21,6 +21,7 @@ spec:
   chart:
     name: gatekeeper-grafana-dashboards
     namespace: kubeops
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "gatekeeper-grafana-dashboards" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

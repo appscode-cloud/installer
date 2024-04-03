@@ -21,7 +21,7 @@ spec:
   targetNamespace: stash
   storageNamespace: stash
   install:
-    createNamespace: true
+    createNamespace: {{ $.Values.helm.createNamespace }}
     # crds: CreateReplace
     remediation:
       retries: -1
