@@ -50,6 +50,7 @@ spec:
   chart:
     name: cluster-auth-manager
     namespace: multicluster-controlplane
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "cluster-auth-manager" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

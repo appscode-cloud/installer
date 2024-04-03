@@ -54,6 +54,7 @@ spec:
   chart:
     name: keda
     namespace: keda
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "keda" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

@@ -19,6 +19,7 @@ spec:
   chart:
     name: capi-cluster-presets
     namespace: capi-cluster
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "capi-cluster-presets" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

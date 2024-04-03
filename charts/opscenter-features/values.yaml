@@ -44,6 +44,8 @@ registry:
   #   password: "xyz"
 
 helm:
+  createNamespace: true
+
   repositories:
     # oci://harbor.appscode.ninja/ac/appscode-charts
     appscode-charts-oci:

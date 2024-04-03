@@ -20,6 +20,7 @@ spec:
   chart:
     name: kube-grafana-dashboards
     namespace: monitoring
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "kube-grafana-dashboards" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

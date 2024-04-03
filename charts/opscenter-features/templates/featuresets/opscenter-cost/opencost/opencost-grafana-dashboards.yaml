@@ -21,6 +21,7 @@ spec:
   chart:
     name: opencost-grafana-dashboards
     namespace: opencost
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "opencost-grafana-dashboards" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

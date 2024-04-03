@@ -33,6 +33,7 @@ spec:
   chart:
     name: kubedb-provider-gcp
     namespace: crossplane-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "kubedb-provider-gcp" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

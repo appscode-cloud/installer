@@ -27,6 +27,7 @@ spec:
   chart:
     name: aws-ebs-csi-driver
     namespace: capa-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "aws-ebs-csi-driver" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

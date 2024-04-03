@@ -93,6 +93,7 @@ spec:
   chart:
     name: prometheus-adapter
     namespace: monitoring
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "prometheus-adapter" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

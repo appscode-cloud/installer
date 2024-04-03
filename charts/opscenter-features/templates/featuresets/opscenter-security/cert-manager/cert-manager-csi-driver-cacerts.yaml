@@ -30,6 +30,7 @@ spec:
   chart:
     name: cert-manager-csi-driver-cacerts
     namespace: cert-manager
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "cert-manager-csi-driver-cacerts" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

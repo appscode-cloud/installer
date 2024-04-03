@@ -59,6 +59,7 @@ spec:
   chart:
     name: multicluster-controlplane
     namespace: multicluster-controlplane
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "multicluster-controlplane" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

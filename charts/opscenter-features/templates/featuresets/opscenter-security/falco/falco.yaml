@@ -67,6 +67,7 @@ spec:
   chart:
     name: falco
     namespace: falco
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "falco" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

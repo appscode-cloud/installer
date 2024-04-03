@@ -37,6 +37,7 @@ spec:
   chart:
     name: kubestash
     namespace: stash
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "kubestash" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

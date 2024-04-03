@@ -62,6 +62,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | image.proxies.quay                                          | quay.io/company/bin:tag | <code>quay.io</code>                       |
 | image.proxies.kubernetes                                    | registry.k8s.io/bin:tag | <code>registry.k8s.io</code>               |
 | registry.credentials                                        |                         | <code>{}</code>                            |
+| helm.createNamespace                                        |                         | <code>true</code>                          |
 | helm.repositories.appscode-charts-oci.url                   |                         | <code>oci://ghcr.io/appscode-charts</code> |
 | helm.releases.aws-ebs-csi-driver.version                    |                         | <code>"2.23.0"</code>                      |
 | helm.releases.capa-vpc-peering-operator.version             |                         | <code>"v2023.12.11"</code>                 |

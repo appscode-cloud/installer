@@ -39,6 +39,7 @@ spec:
   chart:
     name: prepare-cluster
     namespace: kubedb
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "prepare-cluster" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository

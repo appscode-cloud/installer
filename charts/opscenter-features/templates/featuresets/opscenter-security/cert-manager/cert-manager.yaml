@@ -51,6 +51,7 @@ spec:
   chart:
     name: cert-manager
     namespace: cert-manager
+    createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "cert-manager" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
