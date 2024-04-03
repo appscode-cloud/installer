@@ -9,30 +9,31 @@ metadata:
   labels:
     {{- include "ace.labels" . | nindent 4 }}
 rules:
+# for trickster
 - apiGroups:
-  - cloud.appscode.com
-  - cluster.appscode.com
-  - products.x-helm.dev
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - '*'
+- apiGroups:
   - trickstercache.org
+  resources:
+  - "*"
+  verbs: ["*"]
+# for creating capi cluster
+- apiGroups:
   - docker-machine.klusters.dev
   resources:
   - "*"
   verbs: ["*"]
+# for site info
 - apiGroups:
   - ""
   resources:
   - nodes
   verbs: ["get", "list", "watch"]
-# for virtual kubernetes
-- apiGroups:
-  - ""
-  resources:
-  - serviceaccounts
-  - secrets
-  # - namespaces
-  # - pods
-  verbs:
-  - '*'
+# for bootstrap data
 - apiGroups:
   - source.toolkit.fluxcd.io
   resources:
