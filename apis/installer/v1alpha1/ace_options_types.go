@@ -93,6 +93,8 @@ type RepositoryCredential struct {
 }
 
 type HelmOptions struct {
+	// +optional
+	CreateNamespace bool `json:"createNamespace,omitempty"`
 	//+optional
 	Repositories HelmRepositories `json:"repositories"`
 }

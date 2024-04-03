@@ -1410,6 +1410,8 @@ properties:
         type: object
       helm:
         properties:
+          createNamespace:
+            type: boolean
           repositories:
             properties:
               appscode-charts-oci:
