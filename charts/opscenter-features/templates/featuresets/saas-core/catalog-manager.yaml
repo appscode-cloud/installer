@@ -18,7 +18,7 @@ spec:
       type: image/svg+xml
   featureSet: saas-core
   featureBlock: service-provider
-  recommended: false
+  recommended: true
   requirements:
     features:
       - cert-manager
