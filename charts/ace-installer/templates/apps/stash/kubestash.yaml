@@ -37,8 +37,10 @@ spec:
     namespace: {{ $.Release.Namespace }}
   - name: license-proxyserver
     namespace: {{ $.Release.Namespace }}
+  {{- if (dig "cert-manager" "enabled" false $.Values.helm.releases) }}
   - name: cert-manager
     namespace: {{ $.Release.Namespace }}
+  {{- end }}
   - name: panopticon
     namespace: {{ $.Release.Namespace }}
   chart:

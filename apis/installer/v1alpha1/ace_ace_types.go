@@ -76,10 +76,11 @@ type AceSpec struct {
 	SecurityContext    *core.SecurityContext     `json:"securityContext"`
 	Resources          core.ResourceRequirements `json:"resources"`
 	//+optional
-	NodeSelector map[string]string `json:"nodeSelector"`
-	Tolerations  []core.Toleration `json:"tolerations"`
-	Affinity     *core.Affinity    `json:"affinity"`
-	Branding     AceBrandingSpec   `json:"branding"`
+	NodeSelector   map[string]string     `json:"nodeSelector"`
+	Tolerations    []core.Toleration     `json:"tolerations"`
+	Affinity       *core.Affinity        `json:"affinity"`
+	Branding       AceBrandingSpec       `json:"branding"`
+	SelfManagement AceSelfManagementSpec `json:"selfManagement"`
 }
 
 type AceBilling struct {
