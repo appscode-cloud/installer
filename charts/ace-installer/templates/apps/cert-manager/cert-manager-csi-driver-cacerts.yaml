@@ -32,8 +32,10 @@ spec:
   dependsOn:
   - name: opscenter-features
     namespace: {{ $.Release.Namespace }}
+  {{- if (dig "cert-manager" "enabled" false $.Values.helm.releases) }}
   - name: cert-manager
     namespace: {{ $.Release.Namespace }}
+  {{- end }}
   chart:
     spec:
       chart: cert-manager-csi-driver-cacerts

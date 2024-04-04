@@ -1459,6 +1459,25 @@ properties:
       - name
       - namespace
     type: object
+  selfManagement:
+    properties:
+      enableMonitoring:
+        type: boolean
+      enableServiceBackend:
+        type: boolean
+      import:
+        type: boolean
+      skipFeatures:
+        properties:
+          cert-manager:
+            type: boolean
+        type: object
+    required:
+      - enableMonitoring
+      - enableServiceBackend
+      - import
+      - skipFeatures
+    type: object
   settings:
     properties:
       cache:
@@ -1758,6 +1777,7 @@ required:
   - platform-ui
   - registry
   - release
+  - selfManagement
   - settings
   - smtprelay
   - trickster

@@ -452,3 +452,9 @@ branding:
   logo: ""
   favicon: ""
   primaryColor: ""
+
+# controls the self management of the ace cluster
+selfManagement:
+  import: true
+  enableMonitoring: true
+  enableServiceBackend: true
