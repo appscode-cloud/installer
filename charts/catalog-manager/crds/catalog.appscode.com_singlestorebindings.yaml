@@ -143,29 +143,26 @@ spec:
                           type: string
                         ports:
                           items:
-                            description: ServicePort contains information on service's
-                              port.
+                            description: GatewayPort contains information on Gateway
+                              service's port.
                             properties:
+                              backendServicePort:
+                                description: Number of the port to access the backend
+                                  service.
+                                format: int32
+                                type: integer
                               name:
-                                description: The name of this port within the service.
-                                  This must be a DNS_LABEL. All ports within a ServiceSpec
-                                  must have unique names. This maps to the 'Name'
-                                  field in EndpointPort objects. Optional if only
-                                  one ServicePort is defined on this service.
+                                description: The name of this port within the gateway
+                                  service.
                                 type: string
                               nodePort:
-                                description: 'The port on each node on which this
-                                  service is exposed when type=NodePort or LoadBalancer.
-                                  Usually assigned by the system. If specified, it
-                                  will be allocated to the service if unused or else
-                                  creation of the service will fail. Default is to
-                                  auto-allocate a port if the ServiceType of this
-                                  Service requires one. More info: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport'
+                                description: The port on each node on which this gateway
+                                  service is exposed when type is NodePort or LoadBalancer.
                                 format: int32
                                 type: integer
                               port:
-                                description: The port that will be exposed by this
-                                  service.
+                                description: The port that will be exposed by the
+                                  gateway service.
                                 format: int32
                                 type: integer
                             required:
@@ -195,11 +192,38 @@ spec:
                               type: string
                           type: object
                           x-kubernetes-map-type: atomic
+                        port:
+                          description: GatewayPort contains information on Gateway
+                            service's port.
+                          properties:
+                            backendServicePort:
+                              description: Number of the port to access the backend
+                                service.
+                              format: int32
+                              type: integer
+                            name:
+                              description: The name of this port within the gateway
+                                service.
+                              type: string
+                            nodePort:
+                              description: The port on each node on which this gateway
+                                service is exposed when type is NodePort or LoadBalancer.
+                              format: int32
+                              type: integer
+                            port:
+                              description: The port that will be exposed by the gateway
+                                service.
+                              format: int32
+                              type: integer
+                          required:
+                          - port
+                          type: object
                         url:
                           description: URL of the database ui
                           type: string
                       required:
                       - alias
+                      - port
                       - url
                       type: object
                     type: array
