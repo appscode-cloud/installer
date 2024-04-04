@@ -38,9 +38,15 @@ spec:
             - --create-nats-stream
             {{- end }}
             - --importer-service-account={{ include "appscode.serviceAccountName" . }}-importer
+            {{- if .Values.selfManagement.import }}
             - --self-import
+            {{- if .Values.selfManagement.enableMonitoring }}
             - --enable-monitoring
+            {{- end }}
+            {{- if .Values.selfManagement.enableServiceBackend }}
             - --enable-service-backend
+            {{- end }}
+            {{- end }}
           # ports:
           #   - name: http
           #     containerPort: 3000

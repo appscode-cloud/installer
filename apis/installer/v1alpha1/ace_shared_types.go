@@ -119,3 +119,9 @@ type AceBrandingSpec struct {
 	//+optional
 	Favicon string `json:"favicon"`
 }
+
+type AceSelfManagementSpec struct {
+	Import               bool `json:"import"`
+	EnableMonitoring     bool `json:"enableMonitoring"`
+	EnableServiceBackend bool `json:"enableServiceBackend"`
+}

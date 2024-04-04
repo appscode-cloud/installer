@@ -15588,6 +15588,19 @@ properties:
             type: string
         type: object
     type: object
+  selfManagement:
+    properties:
+      enableMonitoring:
+        type: boolean
+      enableServiceBackend:
+        type: boolean
+      import:
+        type: boolean
+    required:
+    - enableMonitoring
+    - enableServiceBackend
+    - import
+    type: object
   settings:
     properties:
       cache:
@@ -18961,6 +18974,7 @@ required:
 - podSecurityContext
 - resources
 - securityContext
+- selfManagement
 - settings
 - smtprelay
 - tolerations

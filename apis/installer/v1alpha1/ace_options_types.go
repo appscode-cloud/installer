@@ -49,29 +49,40 @@ type AceOptions struct {
 
 // AceOptionsSpec is the schema for AceOptions Operator values file
 type AceOptionsSpec struct {
-	Context       AceDeploymentContext    `json:"context"`
-	Release       ObjectReference         `json:"release"`
-	Registry      RegistrySpec            `json:"registry"`
-	Monitoring    GlobalMonitoring        `json:"monitoring"`
-	Infra         AceOptionsPlatformInfra `json:"infra"`
-	Settings      AceOptionsSettings      `json:"settings"`
-	Billing       AceOptionsComponentSpec `json:"billing"`
-	PlatformUi    AceOptionsComponentSpec `json:"platform-ui"`
-	AccountsUi    AceOptionsComponentSpec `json:"accounts-ui"`
-	ClusterUi     AceOptionsComponentSpec `json:"cluster-ui"`
-	DeployUi      AceOptionsComponentSpec `json:"deploy-ui"`
-	Grafana       AceOptionsComponentSpec `json:"grafana"`
-	KubedbUi      AceOptionsComponentSpec `json:"kubedb-ui"`
-	MarketplaceUi AceOptionsComponentSpec `json:"marketplace-ui"`
-	PlatformApi   AceOptionsComponentSpec `json:"platform-api"`
-	PlatformLinks AceOptionsComponentSpec `json:"platform-links"`
-	Ingress       AceOptionsIngressNginx  `json:"ingress"`
-	Nats          AceOptionsNatsSettings  `json:"nats"`
-	Trickster     AceOptionsComponentSpec `json:"trickster"`
-	DNSProxy      AceOptionsComponentSpec `json:"dns-proxy"`
-	SMTPRelay     AceOptionsComponentSpec `json:"smtprelay"`
-	Minio         AceOptionsComponentSpec `json:"minio"`
-	Branding      AceBrandingSpec         `json:"branding"`
+	Context        AceDeploymentContext     `json:"context"`
+	Release        ObjectReference          `json:"release"`
+	Registry       RegistrySpec             `json:"registry"`
+	Monitoring     GlobalMonitoring         `json:"monitoring"`
+	Infra          AceOptionsPlatformInfra  `json:"infra"`
+	Settings       AceOptionsSettings       `json:"settings"`
+	Billing        AceOptionsComponentSpec  `json:"billing"`
+	PlatformUi     AceOptionsComponentSpec  `json:"platform-ui"`
+	AccountsUi     AceOptionsComponentSpec  `json:"accounts-ui"`
+	ClusterUi      AceOptionsComponentSpec  `json:"cluster-ui"`
+	DeployUi       AceOptionsComponentSpec  `json:"deploy-ui"`
+	Grafana        AceOptionsComponentSpec  `json:"grafana"`
+	KubedbUi       AceOptionsComponentSpec  `json:"kubedb-ui"`
+	MarketplaceUi  AceOptionsComponentSpec  `json:"marketplace-ui"`
+	PlatformApi    AceOptionsComponentSpec  `json:"platform-api"`
+	PlatformLinks  AceOptionsComponentSpec  `json:"platform-links"`
+	Ingress        AceOptionsIngressNginx   `json:"ingress"`
+	Nats           AceOptionsNatsSettings   `json:"nats"`
+	Trickster      AceOptionsComponentSpec  `json:"trickster"`
+	DNSProxy       AceOptionsComponentSpec  `json:"dns-proxy"`
+	SMTPRelay      AceOptionsComponentSpec  `json:"smtprelay"`
+	Minio          AceOptionsComponentSpec  `json:"minio"`
+	Branding       AceBrandingSpec          `json:"branding"`
+	SelfManagement AceSelfManagementOptions `json:"selfManagement"`
+}
+
+type AceSelfManagementOptions struct {
+	AceSelfManagementSpec `json:",inline,omitempty"`
+	SkipFeatures          AceFeatureOptions `json:"skipFeatures"`
+}
+
+type AceFeatureOptions struct {
+	// +optional
+	CertManager bool `json:"cert-manager,omitempty"`
 }
 
 type RegistrySpec struct {
