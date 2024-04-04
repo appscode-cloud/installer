@@ -24,7 +24,7 @@ spec:
       type: image/svg+xml
   featureSet: saas-core
   featureBlock: service-provider
-  recommended: false
+  recommended: true
   readinessChecks:
     workloads:
       - group: apps
