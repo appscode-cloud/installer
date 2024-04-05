@@ -1,8 +1,11 @@
 {{ $overrides := printf `
 kubectl:
   image: %s
+helm:
+  createNamespace: %v
 `
   (include "kubectl.image" $)
+  $.Values.helm.createNamespace
   | fromYaml }}
 
 {{ $vals :=  (omit $.Values "clusterMetadata") | deepCopy }}
