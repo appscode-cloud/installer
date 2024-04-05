@@ -63,6 +63,8 @@ type ServicePresetsSpec struct {
 	Monitoring     GlobalMonitoring       `json:"monitoring"`
 	Infra          ServiceProviderInfra   `json:"infra"`
 	GatewayDns     ServiceGatewayDns      `json:"gateway-dns"`
+	// +optional
+	VaultServer LocalObjectReference `json:"vaultServer"`
 }
 
 type ServiceProviderInfra struct {

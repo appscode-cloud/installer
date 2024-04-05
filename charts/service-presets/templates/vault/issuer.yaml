@@ -45,7 +45,7 @@ metadata:
 spec:
   vault:
     path: pki/sign/{{ $pkiDomain }}
-    server: http://vault.{{ .Release.Namespace }}.svc:8200
+    server: http://{{ .Values.vaultServer.name }}.{{ .Release.Namespace }}.svc:8200
     auth:
       kubernetes:
         role: "vault-issuer"
