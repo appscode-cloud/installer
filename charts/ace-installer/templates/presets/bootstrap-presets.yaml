@@ -38,12 +38,14 @@ opscenter-features:
 opscenter-features:
   values:
     helm:
+      createNamespace: %v
       releases:
         license-proxyserver:
           values: %s
         license-proxyserver-manager:
           values: %s
 `
+  $.Values.helm.createNamespace
   ((dig "opscenter-features" "values" "helm" "releases" "license-proxyserver" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "license-proxyserver-manager" "values" (dict) $.Values.helm.releases) | toJson)
   | fromYaml }}
