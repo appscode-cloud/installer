@@ -74,15 +74,15 @@ monitoring:
 
 vaultServer:
   # Vault server name that exist on cluster
-  name: ""
+  name: "vault"
   # Vault server namespace that exist on cluster
-  namespace: ""
+  namespace: "ace"
 
 serviceProviderServiceAccount:
   # Service Account name of the kube-bind service provider
-  name: ""
+  name: "service-provider"
   # Service Account namespace of the kube-bind service provider
-  namespace: ""
+  namespace: "ace"
 
 gateway:
   # Name of the gateway class
