@@ -11,7 +11,7 @@ require (
 	k8s.io/apimachinery v0.29.2
 	kmodules.xyz/client-go v0.29.13
 	kmodules.xyz/objectstore-api v0.29.1
-	kmodules.xyz/resource-metadata v0.18.3-0.20240403142354-c1d290e603b2
+	kmodules.xyz/resource-metadata v0.18.3-0.20240405094550-baf126ca3cf8
 	kmodules.xyz/schema-checker v0.4.2-0.20230316051604-9a40277165e8
 	kubeops.dev/external-dns-operator v0.0.6
 	sigs.k8s.io/yaml v1.4.0

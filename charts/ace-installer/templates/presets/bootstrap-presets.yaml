@@ -2,6 +2,7 @@
 
 {{ $helmrepos := dig "repositories" dict $.Values.helm | deepCopy }}
 {{ $_ := set $vals.helm "repositories" $helmrepos }}
+{{ $_ := set $vals.helm "createNamespace" $.Values.helm.createNamespace }}
 
 {{ $helmreleases := printf `
 ace:
