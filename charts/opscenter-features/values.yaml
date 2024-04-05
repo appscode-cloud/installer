@@ -161,9 +161,9 @@ helm:
     topolvm:
       version: "13.0.0"
     voyager:
-      version: "v2023.9.18"
+      version: "v2024.3.18"
     voyager-gateway:
-      version: "v2024.1.29"
+      version: "v2024.4.4"
     # secret management
     external-secrets:
       version: "0.9.12"

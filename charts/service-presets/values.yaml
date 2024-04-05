@@ -126,3 +126,7 @@ infra:
 # https://github.com/kubernetes-sigs/external-dns/blob/master/docs/sources/service.md
 gateway-dns:
   enabled: false
+
+vaultServer:
+  # Vault server name that exist on cluster
+  name: "vault"

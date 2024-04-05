@@ -74,7 +74,25 @@ type CatalogManagerSpec struct {
 	// +optional
 	VaultServer ObjectReference `json:"vaultServer"`
 	// +optional
-	SecretReaderServiceAccount ObjectReference `json:"secretReaderServiceAccount"`
+	ServiceProviderServiceAccount ObjectReference `json:"serviceProviderServiceAccount"`
+	// +optional
+	Gateway CatalogManagerGatewaySpec `json:"gateway"`
+	// +optional
+	Keda CatalogManagerKedaSpec `json:"keda"`
+	// +optional
+	Helmrepo ObjectReference `json:"helmrepo"`
+}
+
+type CatalogManagerGatewaySpec struct {
+	ClassName     string          `json:"className"`
+	Name          string          `json:"name"`
+	PortRange     string          `json:"portRange"`
+	NodeportRange string          `json:"nodeportRange"`
+	TlsSecretRef  ObjectReference `json:"tlsSecretRef"`
+}
+
+type CatalogManagerKedaSpec struct {
+	ProxyService ObjectReference `json:"proxyService"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

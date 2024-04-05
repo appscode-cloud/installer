@@ -33,8 +33,18 @@ spec:
             - run
             - --vault-server-name={{ .Values.vaultServer.name }}
             - --vault-server-namespace={{ .Values.vaultServer.namespace }}
-            - --secret-reader-service-account-name={{ .Values.secretReaderServiceAccount.name }}
-            - --secret-reader-service-account-namespace={{ .Values.secretReaderServiceAccount.namespace }}
+            - --service-provider-service-account-name={{ .Values.serviceProviderServiceAccount.name }}
+            - --service-provider-service-account-namespace={{ .Values.serviceProviderServiceAccount.namespace }}
+            - --gwclass-name={{ .Values.gateway.className }}
+            - --gw-name={{ .Values.gateway.name }}
+            - --gw-nodeport-range={{ .Values.gateway.portRange }}
+            - --gw-port-range={{ .Values.gateway.nodeportRange }}
+            - --frontend-tls-cert-name={{ .Values.gateway.tlsSecretRef.name }}
+            - --frontend-tls-cert-namespace{{ .Values.gateway.tlsSecretRef.namespace }}
+            - --helmrepo-name{{ .Values.helmrepo.name }}
+            - --helmrepo-namespace{{ .Values.helmrepo.namespace }}
+            - --keda-proxyservice-name={{ .Values.keda.proxyService.namespace }}
+            - --keda-proxyservice-namespace={{ .Values.keda.proxyService.namespace }}
           ports:
             - name: metrics
               containerPort: 8080

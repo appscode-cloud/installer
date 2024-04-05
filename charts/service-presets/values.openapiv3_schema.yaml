@@ -1039,6 +1039,13 @@ properties:
           type: string
       type: object
     type: array
+  vaultServer:
+    properties:
+      name:
+        type: string
+    required:
+    - name
+    type: object
 required:
 - affinity
 - fullnameOverride
