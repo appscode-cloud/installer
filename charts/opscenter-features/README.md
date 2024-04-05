@@ -118,8 +118,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.stash-presets.version                         |                         | <code>"v2024.4.2"</code>                   |
 | helm.releases.supervisor.version                            |                         | <code>"v2024.2.6"</code>                   |
 | helm.releases.topolvm.version                               |                         | <code>"13.0.0"</code>                      |
-| helm.releases.voyager.version                               |                         | <code>"v2023.9.18"</code>                  |
-| helm.releases.voyager-gateway.version                       |                         | <code>"v2024.1.29"</code>                  |
+| helm.releases.voyager.version                               |                         | <code>"v2024.3.18"</code>                  |
+| helm.releases.voyager-gateway.version                       |                         | <code>"v2024.4.4"</code>                   |
 | helm.releases.external-secrets.version                      |                         | <code>"0.9.12"</code>                      |
 | helm.releases.sealed-secrets.version                        |                         | <code>"2.14.2"</code>                      |
 | helm.releases.vault-secrets-operator.version                |                         | <code>"0.4.3"</code>                       |

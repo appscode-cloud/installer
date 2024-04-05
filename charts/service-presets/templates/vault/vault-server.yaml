@@ -5,7 +5,7 @@
 apiVersion: kubevault.com/v1alpha2
 kind: VaultServer
 metadata:
-  name: vault
+  name: {{ .Values.vaultServer.name }}
   namespace: {{ .Release.Namespace }}
 spec:
   # tls:

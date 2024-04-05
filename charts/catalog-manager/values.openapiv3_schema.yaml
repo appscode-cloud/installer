@@ -406,6 +406,43 @@ properties:
     type: object
   fullnameOverride:
     type: string
+  gateway:
+    properties:
+      className:
+        type: string
+      name:
+        type: string
+      nodeportRange:
+        type: string
+      portRange:
+        type: string
+      tlsSecretRef:
+        properties:
+          name:
+            type: string
+          namespace:
+            type: string
+        required:
+        - name
+        - namespace
+        type: object
+    required:
+    - className
+    - name
+    - nodeportRange
+    - portRange
+    - tlsSecretRef
+    type: object
+  helmrepo:
+    properties:
+      name:
+        type: string
+      namespace:
+        type: string
+    required:
+    - name
+    - namespace
+    type: object
   image:
     properties:
       registry:
@@ -517,6 +554,21 @@ properties:
     items:
       type: string
     type: array
+  keda:
+    properties:
+      proxyService:
+        properties:
+          name:
+            type: string
+          namespace:
+            type: string
+        required:
+        - name
+        - namespace
+        type: object
+    required:
+    - proxyService
+    type: object
   monitoring:
     properties:
       agent:
@@ -614,16 +666,6 @@ properties:
     type: string
   replicaCount:
     type: integer
-  secretReaderServiceAccount:
-    properties:
-      name:
-        type: string
-      namespace:
-        type: string
-    required:
-    - name
-    - namespace
-    type: object
   serviceAccount:
     properties:
       annotations:
@@ -636,6 +678,16 @@ properties:
         type: string
     required:
     - create
+    type: object
+  serviceProviderServiceAccount:
+    properties:
+      name:
+        type: string
+      namespace:
+        type: string
+    required:
+    - name
+    - namespace
     type: object
   tolerations:
     items:
