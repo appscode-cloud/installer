@@ -83,6 +83,12 @@ type AceSelfManagementOptions struct {
 type AceFeatureOptions struct {
 	// +optional
 	CertManager bool `json:"cert-manager,omitempty"`
+	// +optional
+	KubeDB bool `json:"kubedb,omitempty"`
+	// +optional
+	KubeStash bool `json:"kubestash,omitempty"`
+	// +optional
+	Stash bool `json:"stash,omitempty"`
 }
 
 type RegistrySpec struct {
