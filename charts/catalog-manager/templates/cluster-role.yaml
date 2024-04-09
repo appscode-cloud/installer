@@ -7,8 +7,13 @@ metadata:
 rules:
 - apiGroups:
   - catalog.appscode.com
-  resources: ["*"]
-  verbs: ["get", "list", "watch", "patch"]
+  resources:
+  - '*'
+  verbs:
+  - get
+  - list
+  - watch
+  - patch
 - apiGroups:
   - kubedb.com
   resources:
@@ -23,20 +28,30 @@ rules:
   - postgreses
   - proxysqls
   - redises
-  verbs: ["get", "list", "watch"]
+  verbs:
+  - get
+  - list
+  - watch
 - apiGroups:
   - kubedb.com
   resources:
+  - mysqls/status
   - elasticsearches/status
   - mongodbs/status
-  - mysqls/status
-  - redises/status
-  verbs: ["get", "list", "watch", "update", "patch", "delete"]
+  verbs:
+  - get
+  - list
+  - watch
+  - patch
+  - update
 - apiGroups:
-    - kubevault.com
+  - kubevault.com
   resources:
-    - vaultservers
-  verbs: ["get", "list", "watch"]
+  - vaultservers
+  verbs:
+  - get
+  - list
+  - watch
 - apiGroups:
   - engine.kubevault.com
   resources:
@@ -48,41 +63,106 @@ rules:
   - redisroles
   - secretaccessrequests
   - secretengines
-  verbs: ["get", "list", "watch", "create", "patch", "delete"]
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - patch
+  - delete
 - apiGroups:
   - engine.kubevault.com
   resources:
   - secretaccessrequests/status
-  verbs: ["get", "list", "patch"]
-- apiGroups: [""]
-  resources: ["serviceaccounts", "secrets"]
-  verbs: ["get", "list", "watch"]
+  verbs:
+  - get
+  - list
+  - patch
+- apiGroups:
+  - ""
+  resources:
+  - serviceaccounts
+  - secrets
+  - configmaps
+  - services
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - delete
+  - update
 - apiGroups:
   - catalog.kubedb.com
   resources:
   - elasticsearchversions
-  verbs: ["get", "list", "watch"]
-- apiGroups: ["gateway.networking.k8s.io"]
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - gateway.networking.k8s.io
   resources:
+  - gatewayclasses
   - gateways
   - httproutes
   - referencegrants
   - tcproutes
   - backendtlspolicies
-  verbs: ["get","list","watch","create","patch","delete"]
-- apiGroups: ["gateway.voyagermesh.com"]
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - patch
+  - delete
+- apiGroups:
+  - gateway.voyagermesh.com
   resources:
   - mysqlroutes
   - mongodbroutes
   - redisroutes
-  verbs: ["get","list","watch","create","patch","delete"]
-- apiGroups: ["rbac.authorization.k8s.io"]
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - patch
+  - delete
+- apiGroups:
+  - gateway.envoyproxy.io
+  resources:
+  - envoyproxies
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - rbac.authorization.k8s.io
   resources:
   - roles
   - rolebindings
-  verbs: ["get","list","watch","create","patch","delete"]
-- apiGroups: ["gateway.envoyproxy.io"]
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - patch
+  - delete
+- apiGroups:
+  - notification.toolkit.fluxcd.io
+  - source.toolkit.fluxcd.io
+  - helm.toolkit.fluxcd.io
+  - image.toolkit.fluxcd.io
+  - kustomize.toolkit.fluxcd.io
   resources:
-  - envoyproxies
-  verbs: ["get","list","watch"]
-
+  - '*'
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - patch
+  - update
+  - list
+  - watch
+  
