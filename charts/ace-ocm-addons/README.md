@@ -45,29 +45,30 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `ace-ocm-addons` chart and their default values.
 
-|                 Parameter                 |       Description       |                      Default                       |
-|-------------------------------------------|-------------------------|----------------------------------------------------|
-| nameOverride                              |                         | <code>""</code>                                    |
-| fullnameOverride                          |                         | <code>""</code>                                    |
-| offlineInstaller                          |                         | <code>false</code>                                 |
-| image.proxies.appscode                    | r.appscode.com          | <code>r.appscode.com</code>                        |
-| image.proxies.dockerHub                   | company/bin:tag         | <code>""</code>                                    |
-| image.proxies.dockerLibrary               | alpine, nginx etc.      | <code>""</code>                                    |
-| image.proxies.ghcr                        | ghcr.io/company/bin:tag | <code>ghcr.io</code>                               |
-| image.proxies.quay                        | quay.io/company/bin:tag | <code>quay.io</code>                               |
-| image.proxies.kubernetes                  | registry.k8s.io/bin:tag | <code>registry.k8s.io</code>                       |
-| registry.credentials                      |                         | <code>{}</code>                                    |
-| helm.createNamespace                      |                         | <code>true</code>                                  |
-| helm.repositories.appscode-charts-oci.url |                         | <code>oci://ghcr.io/appscode-charts</code>         |
-| helm.releases.kube-ui-server.enabled      |                         | <code>true</code>                                  |
-| helm.releases.kube-ui-server.version      |                         | <code>"v2023.12.20"</code>                         |
-| helm.releases.opscenter-features.enabled  |                         | <code>true</code>                                  |
-| helm.releases.opscenter-features.version  |                         | <code>"v2024.4.2"</code>                           |
-| kubeconfigSecretName                      | ocm values              | <code>""</code>                                    |
-| addonManagerNamespace                     |                         | <code>open-cluster-management-addon</code>         |
-| placement.create                          |                         | <code>true</code>                                  |
-| placement.name                            |                         | <code>global</code>                                |
-| kubectl.image                             |                         | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code> |
+|                 Parameter                 |           Description           |                      Default                       |
+|-------------------------------------------|---------------------------------|----------------------------------------------------|
+| nameOverride                              |                                 | <code>""</code>                                    |
+| fullnameOverride                          |                                 | <code>""</code>                                    |
+| offlineInstaller                          |                                 | <code>false</code>                                 |
+| image.proxies.appscode                    | r.appscode.com                  | <code>r.appscode.com</code>                        |
+| image.proxies.dockerHub                   | company/bin:tag                 | <code>""</code>                                    |
+| image.proxies.dockerLibrary               | alpine, nginx etc.              | <code>""</code>                                    |
+| image.proxies.ghcr                        | ghcr.io/company/bin:tag         | <code>ghcr.io</code>                               |
+| image.proxies.quay                        | quay.io/company/bin:tag         | <code>quay.io</code>                               |
+| image.proxies.kubernetes                  | registry.k8s.io/bin:tag         | <code>registry.k8s.io</code>                       |
+| registry.credentials                      |                                 | <code>{}</code>                                    |
+| registry.certs                            | username: "abc" password: "xyz" | <code>{}</code>                                    |
+| helm.createNamespace                      |                                 | <code>true</code>                                  |
+| helm.repositories.appscode-charts-oci.url |                                 | <code>oci://ghcr.io/appscode-charts</code>         |
+| helm.releases.kube-ui-server.enabled      |                                 | <code>true</code>                                  |
+| helm.releases.kube-ui-server.version      |                                 | <code>"v2023.12.20"</code>                         |
+| helm.releases.opscenter-features.enabled  |                                 | <code>true</code>                                  |
+| helm.releases.opscenter-features.version  |                                 | <code>"v2024.4.2"</code>                           |
+| kubeconfigSecretName                      | ocm values                      | <code>""</code>                                    |
+| addonManagerNamespace                     |                                 | <code>open-cluster-management-addon</code>         |
+| placement.create                          |                                 | <code>true</code>                                  |
+| placement.name                            |                                 | <code>global</code>                                |
+| kubectl.image                             |                                 | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code> |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

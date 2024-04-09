@@ -40,8 +40,10 @@ image:
 
 registry:
   credentials: {}
-  #   username: "abc"
-  #   password: "xyz"
+  # username: "abc"
+  # password: "xyz"
+  certs: {}
+  # ca.crt: "***"
 
 helm:
   createNamespace: true
