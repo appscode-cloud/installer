@@ -29,5 +29,10 @@ spec:
   secretRef:
     name: {{ include "ace-installer.fullname" $ }}-helmcred
   {{- end }}
+  {{- if $.Values.registry.certs }}
+  certSecretRef:
+    name: {{ include "ace-installer.fullname" $ }}-helmcert
+  {{- end }}
+
 ---
 {{- end }}

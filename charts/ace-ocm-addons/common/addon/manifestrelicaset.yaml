@@ -82,6 +82,11 @@ spec:
             secretRef:
               name: {{ include "ace-ocm-addons.fullname" $ }}-helmcred
             {{- end }}
+
+            {{- if $.Values.registry.certs }}
+            secretRef:
+              name: {{ include "ace-ocm-addons.fullname" $ }}-helmcert
+            {{- end }}
         {{- end }}
 
         {{- if .Values.registry.credentials }}
@@ -91,6 +96,15 @@ spec:
             name: {{ include "ace-ocm-addons.fullname" . }}-helmcred
             namespace: kubeops
           stringData: {{ .Values.registry.credentials | toJson }}
+        {{- end }}
+
+        {{- if .Values.registry.certs }}
+        - apiVersion: v1
+          kind: Secret
+          metadata:
+            name: {{ include "ace-ocm-addons.fullname" . }}-helmcert
+            namespace: kubeops
+          stringData: {{ .Values.registry.certs | toJson }}
         {{- end }}
 
         {{- with (index .Values "helm" "releases" "opscenter-features") }}
