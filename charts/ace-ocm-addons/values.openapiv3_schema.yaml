@@ -99,6 +99,10 @@ properties:
     type: object
   registry:
     properties:
+      certs:
+        additionalProperties:
+          type: string
+        type: object
       credentials:
         additionalProperties:
           type: string

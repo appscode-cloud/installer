@@ -25,5 +25,11 @@ spec:
   secretRef:
     name: {{ include "opscenter-features.fullname" $ }}-helmcred
   {{- end }}
+
+  {{- if $.Values.registry.certs }}
+  certSecretRef:
+    name: {{ include "opscenter-features.fullname" $ }}-helmcert
+  {{- end }}
+
 ---
 {{- end }}
