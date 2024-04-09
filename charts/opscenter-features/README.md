@@ -106,7 +106,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.panopticon.version                            |                         | <code>"v2024.2.5"</code>                   |
 | helm.releases.prepare-cluster.version                       |                         | <code>"v2023.12.21"</code>                 |
 | helm.releases.prometheus-adapter.version                    |                         | <code>"4.9.0"</code>                       |
-| helm.releases.reloader.version                              |                         | <code>"1.0.50"</code>                      |
+| helm.releases.reloader.version                              |                         | <code>"1.0.76"</code>                      |
 | helm.releases.scanner.version                               |                         | <code>"v2024.1.18"</code>                  |
 | helm.releases.service-backend.version                       |                         | <code>"v2024.2.11"</code>                  |
 | helm.releases.service-presets.version                       |                         | <code>"v2024.2.11"</code>                  |
