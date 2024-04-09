@@ -1471,6 +1471,12 @@ properties:
         properties:
           cert-manager:
             type: boolean
+          kubedb:
+            type: boolean
+          kubestash:
+            type: boolean
+          stash:
+            type: boolean
         type: object
     required:
       - enableMonitoring
