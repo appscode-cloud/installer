@@ -9,6 +9,7 @@ require (
 	gomodules.xyz/go-sh v0.1.0
 	k8s.io/api v0.29.2
 	k8s.io/apimachinery v0.29.2
+	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
 	kmodules.xyz/client-go v0.29.13
 	kmodules.xyz/objectstore-api v0.29.1
 	kmodules.xyz/resource-metadata v0.18.3-0.20240405094550-baf126ca3cf8

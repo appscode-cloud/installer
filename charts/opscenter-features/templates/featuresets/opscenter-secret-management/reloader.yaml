@@ -3,9 +3,20 @@ reloader:
   deployment:
     image:
       name: %s
-` (include "image.ghcr" (merge (dict "_repo" "stakater/reloader") $)) | fromYaml }}
+` (include "image.ghcr" (merge (dict "_repo" "appscode/reloader") $)) | fromYaml }}
 
-{{ $vals := dict }}
+{{ $vals := `
+reloader:
+  securityContext:
+    seccompProfile:
+      type: RuntimeDefault
+  containerSecurityContext:
+    capabilities:
+      drop:
+        - ALL
+    allowPrivilegeEscalation: false
+  readOnlyRootFileSystem: true
+` | fromYaml }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
