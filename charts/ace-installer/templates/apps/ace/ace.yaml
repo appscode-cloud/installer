@@ -24,12 +24,20 @@ spec:
   dependsOn:
   - name: opscenter-features
     namespace: {{ $.Release.Namespace }}
+  {{- if (dig "cert-manager" "enabled" false $.Values.helm.releases) }}
+  - name: cert-manager
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
+  {{- if (dig "kubedb" "enabled" false $.Values.helm.releases) }}
   - name: kubedb
     namespace: {{ $.Release.Namespace }}
+  {{- end }}
   - name: reloader
     namespace: {{ $.Release.Namespace }}
+  {{- if (dig "kubestash" "enabled" false $.Values.helm.releases) }}
   - name: kubestash
     namespace: {{ $.Release.Namespace }}
+  {{- end }}
   chart:
     spec:
       chart: ace

@@ -87,8 +87,6 @@ type AceFeatureOptions struct {
 	KubeDB bool `json:"kubedb,omitempty"`
 	// +optional
 	KubeStash bool `json:"kubestash,omitempty"`
-	// +optional
-	Stash bool `json:"stash,omitempty"`
 }
 
 type RegistrySpec struct {

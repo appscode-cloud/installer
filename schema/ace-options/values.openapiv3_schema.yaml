@@ -1475,8 +1475,6 @@ properties:
             type: boolean
           kubestash:
             type: boolean
-          stash:
-            type: boolean
         type: object
     required:
       - enableMonitoring
