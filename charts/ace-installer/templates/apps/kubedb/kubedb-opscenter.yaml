@@ -33,8 +33,10 @@ spec:
     remediation:
       retries: -1
   dependsOn:
+  {{- if (dig "kubedb" "enabled" false $.Values.helm.releases) }}
   - name: kubedb
     namespace: {{ $.Release.Namespace }}
+  {{- end }}
   - name: panopticon
     namespace: {{ $.Release.Namespace }}
   - name: grafana-operator

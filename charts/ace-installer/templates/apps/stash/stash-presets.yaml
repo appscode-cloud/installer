@@ -32,8 +32,10 @@ spec:
   dependsOn:
   - name: opscenter-features
     namespace: {{ $.Release.Namespace }}
+  {{- if (dig "kubestash" "enabled" false $.Values.helm.releases) }}
   - name: kubestash
     namespace: {{ $.Release.Namespace }}
+  {{- end }}
   - name: ace
     namespace: {{ $.Release.Namespace }}
   chart:
