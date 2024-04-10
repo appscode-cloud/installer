@@ -37,6 +37,10 @@ spec:
   - name: kubedb
     namespace: {{ $.Release.Namespace }}
   {{- end }}
+  {{- if $.Values.selfManagement.enableMonitoring }}
+  - name: panopticon
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
   - name: panopticon
     namespace: {{ $.Release.Namespace }}
   - name: grafana-operator

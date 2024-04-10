@@ -50,6 +50,7 @@ type AceInstallerSpec struct {
 	// +optional
 	DeploymentType          DeploymentType `json:"deploymentType"`
 	shared.BootstrapPresets `json:",inline,omitempty"`
+	SelfManagement          AceSelfManagementSpec `json:"selfManagement"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

@@ -148,3 +148,9 @@ helm:
     stash-presets:
       enabled: false
       version: "v2024.4.2"
+
+# controls the self management of the ace cluster
+selfManagement:
+  import: true
+  enableMonitoring: true
+  enableServiceBackend: true

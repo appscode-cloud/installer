@@ -93,10 +93,24 @@ properties:
           type: string
         type: object
     type: object
+  selfManagement:
+    properties:
+      enableMonitoring:
+        type: boolean
+      enableServiceBackend:
+        type: boolean
+      import:
+        type: boolean
+    required:
+    - enableMonitoring
+    - enableServiceBackend
+    - import
+    type: object
 required:
 - fullnameOverride
 - helm
 - image
 - nameOverride
 - registry
+- selfManagement
 type: object
