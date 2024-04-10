@@ -42,8 +42,10 @@ spec:
   - name: cert-manager
     namespace: {{ $.Release.Namespace }}
   {{- end }}
+  {{- if $.Values.selfManagement.enableMonitoring }}
   - name: panopticon
     namespace: {{ $.Release.Namespace }}
+  {{- end }}
   chart:
     spec:
       chart: kubedb
