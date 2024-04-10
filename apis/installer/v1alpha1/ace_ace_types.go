@@ -268,8 +268,10 @@ type InfraTLS struct {
 }
 
 type TLSData struct {
+	// +optional
 	Cert string `json:"cert"`
-	Key  string `json:"key"`
+	// +optional
+	Key string `json:"key"`
 }
 
 type TLSIssuerAcme struct {

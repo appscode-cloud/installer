@@ -1,4 +1,4 @@
-{{- if (eq .Values.global.infra.tls.issuer "ca") }}
+{{- if and (eq .Values.global.infra.tls.issuer "ca") .Values.global.infra.tls.ca.cert .Values.global.infra.tls.ca.key }}
 apiVersion: v1
 kind: Secret
 metadata:

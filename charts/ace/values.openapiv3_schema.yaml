@@ -4236,9 +4236,6 @@ properties:
                     type: string
                   key:
                     type: string
-                required:
-                - cert
-                - key
                 type: object
               certificate:
                 properties:
@@ -4246,9 +4243,6 @@ properties:
                     type: string
                   key:
                     type: string
-                required:
-                - cert
-                - key
                 type: object
               issuer:
                 enum:
