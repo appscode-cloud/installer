@@ -9,8 +9,12 @@ metadata:
     {{- include "ace.labels" . | nindent 4 }}
 spec:
   {{- if eq .Values.global.infra.tls.issuer "ca" }}
+  {{- if and .Values.global.infra.tls.ca.cert .Values.global.infra.tls.ca.key }}
   ca:
     secretName: {{ include "ace.fullname" . }}-ca
+  {{- else }}
+  selfSigned: {}
+  {{- end }}
   {{- end }}
   {{- if has .Values.global.infra.tls.issuer (list "letsencrypt" "letsencrypt-staging") }}
   acme:
