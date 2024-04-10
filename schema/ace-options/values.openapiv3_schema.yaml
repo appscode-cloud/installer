@@ -237,6 +237,7 @@ properties:
           - Hosted
           - SelfHostedProduction
           - SelfHostedDemo
+          - OnpremDemo
         type: string
       hostedDomain:
         type: string
