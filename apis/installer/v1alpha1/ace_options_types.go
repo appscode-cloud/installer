@@ -310,6 +310,10 @@ func (dt DeploymentType) Demo() bool {
 	return dt == SelfHostedDemoDeployment || dt == OnpremDemoDeployment
 }
 
+func (dt DeploymentType) Onprem() bool {
+	return dt == OnpremDemoDeployment
+}
+
 type AceDeploymentContext struct {
 	DeploymentType       DeploymentType `json:"deploymentType"`
 	RequestedDomain      string         `json:"requestedDomain"`
