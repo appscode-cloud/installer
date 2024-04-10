@@ -4,6 +4,7 @@ properties:
     - Hosted
     - SelfHostedProduction
     - SelfHostedDemo
+    - OnpremDemo
     type: string
   fullnameOverride:
     type: string

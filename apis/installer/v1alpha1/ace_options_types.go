@@ -286,13 +286,14 @@ type AceOptionsSMTPSettings struct {
 	SendAsPlainText bool `json:"sendAsPlainText"`
 }
 
-// +kubebuilder:validation:Enum=Hosted;SelfHostedProduction;SelfHostedDemo
+// +kubebuilder:validation:Enum=Hosted;SelfHostedProduction;SelfHostedDemo;OnpremDemo
 type DeploymentType string
 
 const (
 	HostedDeployment               DeploymentType = "Hosted"
 	SelfHostedProductionDeployment DeploymentType = "SelfHostedProduction"
 	SelfHostedDemoDeployment       DeploymentType = "SelfHostedDemo"
+	OnpremDemoDeployment           DeploymentType = "OnpremDemo"
 )
 
 func (dt DeploymentType) Hosted() bool {
@@ -300,11 +301,13 @@ func (dt DeploymentType) Hosted() bool {
 }
 
 func (dt DeploymentType) SelfHosted() bool {
-	return dt == SelfHostedProductionDeployment || dt == SelfHostedDemoDeployment
+	return dt == SelfHostedProductionDeployment ||
+		dt == SelfHostedDemoDeployment ||
+		dt == OnpremDemoDeployment
 }
 
 func (dt DeploymentType) Demo() bool {
-	return dt == SelfHostedDemoDeployment
+	return dt == SelfHostedDemoDeployment || dt == OnpremDemoDeployment
 }
 
 type AceDeploymentContext struct {

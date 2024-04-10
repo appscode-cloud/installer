@@ -456,6 +456,7 @@ properties:
         - Hosted
         - SelfHostedProduction
         - SelfHostedDemo
+        - OnpremDemo
         type: string
       domain:
         type: string
