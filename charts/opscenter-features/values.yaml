@@ -139,7 +139,7 @@ helm:
     prometheus-adapter:
       version: "4.9.0"
     reloader:
-      version: "1.0.76"
+      version: "1.0.79"
     scanner:
       version: "v2024.1.18"
     service-backend:

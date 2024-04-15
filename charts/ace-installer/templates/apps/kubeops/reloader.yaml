@@ -6,14 +6,14 @@ reloader:
   deployment:
     image:
       name: %s
-  securityContext:
-    seccompProfile:
-      type: RuntimeDefault
-  containerSecurityContext:
-    capabilities:
-      drop:
-        - ALL
-    allowPrivilegeEscalation: false
+    securityContext:
+      seccompProfile:
+        type: RuntimeDefault
+    containerSecurityContext:
+      capabilities:
+        drop:
+          - ALL
+      allowPrivilegeEscalation: false
   readOnlyRootFileSystem: true
 ` (include "image.ghcr" (merge (dict "_repo" "appscode/reloader") $)) | fromYaml }}
 
