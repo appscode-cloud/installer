@@ -144,7 +144,7 @@ helm:
       version: "4.9.0"
     reloader:
       enabled: true
-      version: "1.0.76"
+      version: "1.0.79"
     stash-presets:
       enabled: false
       version: "v2024.4.2"
