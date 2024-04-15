@@ -1396,6 +1396,15 @@ properties:
     properties:
       allowNondistributableArtifacts:
         type: boolean
+      certs:
+        properties:
+          caCert:
+            type: string
+          clientCert:
+            type: string
+          clientKey:
+            type: string
+        type: object
       credentials:
         properties:
           password:

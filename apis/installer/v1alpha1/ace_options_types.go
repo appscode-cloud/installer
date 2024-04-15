@@ -95,6 +95,8 @@ type RegistrySpec struct {
 	//+optional
 	Credentials RepositoryCredential `json:"credentials"`
 	//+optional
+	Certs RepositoryCertificates `json:"certs"`
+	//+optional
 	Helm HelmOptions `json:"helm"`
 	//+optional
 	AllowNondistributableArtifacts bool `json:"allowNondistributableArtifacts"`
@@ -105,6 +107,12 @@ type RegistrySpec struct {
 type RepositoryCredential struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
+}
+
+type RepositoryCertificates struct {
+	CACert     string `json:"caCert,omitempty"`
+	ClientCert string `json:"clientCert,omitempty"`
+	ClientKey  string `json:"clientKey,omitempty"`
 }
 
 type HelmOptions struct {
