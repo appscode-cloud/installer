@@ -5611,7 +5611,7 @@ func (in *NatsSpec) DeepCopyInto(out *NatsSpec) {
 	}
 	if in.SecurityContext != nil {
 		in, out := &in.SecurityContext, &out.SecurityContext
-		*out = new(v1.SecurityContext)
+		*out = new(v1.PodSecurityContext)
 		(*in).DeepCopyInto(*out)
 	}
 	if in.Affinity != nil {
