@@ -1,4 +1,4 @@
-{{- if not (eq .Values.global.infra.dns.provider "external") }}
+{{- if (has .Values.global.infra.tls.issuer (list "letsencrypt" "letsencrypt-staging" "ca")) }}
 
 apiVersion: cert-manager.io/v1
 kind: Issuer
