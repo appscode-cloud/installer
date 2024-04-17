@@ -82,7 +82,7 @@ helm:
       version: "v1.0.0"
     grafana-operator:
       enabled: false
-      version: "v0.0.3"
+      version: "v0.0.5"
     kube-grafana-dashboards:
       enabled: false
       version: "v2023.10.1"
@@ -125,7 +125,7 @@ helm:
       version: "v2024.2.25"
     monitoring-operator:
       enabled: false
-      version: "v0.0.4"
+      version: "v0.0.5"
     opscenter-features:
       enabled: true
       version: "v2024.4.2"

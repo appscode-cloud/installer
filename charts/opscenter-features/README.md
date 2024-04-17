@@ -83,7 +83,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.gatekeeper-grafana-dashboards.version         |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.gatekeeper-library.version                    |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.gateway-api.version                           |                                 | <code>"v1.0.0"</code>                      |
-| helm.releases.grafana-operator.version                      |                                 | <code>"v0.0.3"</code>                      |
+| helm.releases.grafana-operator.version                      |                                 | <code>"v0.0.5"</code>                      |
 | helm.releases.keda.version                                  |                                 | <code>"2.13.1"</code>                      |
 | helm.releases.keda-add-ons-http.version                     |                                 | <code>"0.7.0"</code>                       |
 | helm.releases.kube-grafana-dashboards.version               |                                 | <code>"v2023.10.1"</code>                  |
@@ -100,7 +100,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.license-proxyserver.version                   |                                 | <code>"v2024.2.25"</code>                  |
 | helm.releases.longhorn.version                              |                                 | <code>"1.5.3"</code>                       |
 | helm.releases.metrics-server.version                        |                                 | <code>"3.11.0"</code>                      |
-| helm.releases.monitoring-operator.version                   |                                 | <code>"v0.0.4"</code>                      |
+| helm.releases.monitoring-operator.version                   |                                 | <code>"v0.0.5"</code>                      |
 | helm.releases.opencost.version                              |                                 | <code>"1.18.1"</code>                      |
 | helm.releases.opencost-grafana-dashboards.version           |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.opscenter-features.version                    |                                 | <code>"v2024.4.2"</code>                   |
