@@ -1,7 +1,17 @@
 {{- with (index .Values "helm" "releases" "cert-manager-csi-driver-cacerts") }}
 {{- if .enabled }}
 
-{{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
+{{ $overrides := printf `
+registryFQDN: %s
+nodeDriverRegistrar:
+  registry: %s
+livenessProbe:
+  registry: %s
+`
+  (include "registry.ghcr" $)
+  (include "image.kubernetes" (merge (dict "_repo" "sig-storage") $))
+  (include "image.kubernetes" (merge (dict "_repo" "sig-storage") $))
+  | fromYaml }}
 
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $vals $overrides }}
