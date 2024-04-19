@@ -73,7 +73,7 @@ helm:
       version: "v2023.10.18"
     external-dns-operator:
       enabled: true
-      version: "v2023.10.1"
+      version: "v2024.4.19"
     flux2:
       enabled: false
       version: "2.12.2"

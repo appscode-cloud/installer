@@ -75,7 +75,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.cluster-autoscaler.version                    |                                 | <code>"9.29.0"</code>                      |
 | helm.releases.config-syncer.version                         |                                 | <code>"v0.14.6"</code>                     |
 | helm.releases.crossplane.version                            |                                 | <code>"1.14.0"</code>                      |
-| helm.releases.external-dns-operator.version                 |                                 | <code>"v2023.10.1"</code>                  |
+| helm.releases.external-dns-operator.version                 |                                 | <code>"v2024.4.19"</code>                  |
 | helm.releases.falco.version                                 |                                 | <code>"4.0.0"</code>                       |
 | helm.releases.falco-ui-server.version                       |                                 | <code>"v2024.2.5"</code>                   |
 | helm.releases.flux2.version                                 |                                 | <code>"2.12.2"</code>                      |
