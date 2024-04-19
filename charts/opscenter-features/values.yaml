@@ -75,7 +75,7 @@ helm:
     crossplane:
       version: "1.14.0"
     external-dns-operator:
-      version: "v2023.10.1"
+      version: "v2024.4.19"
     falco:
       version: "4.0.0"
     falco-ui-server:
