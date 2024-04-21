@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-BYTEBUILDERS_CATALOG_TAG=${BYTEBUILDERS_CATALOG_TAG:-master}
+BYTEBUILDERS_CATALOG_TAG=${BYTEBUILDERS_CATALOG_TAG:-v0.0.6}
 BYTEBUILDERS_KUBE_BIND_TAG=${BYTEBUILDERS_KUBE_BIND_TAG:-master}
 BYTEBUILDERS_RESOURCE_MODEL_TAG=${BYTEBUILDERS_RESOURCE_MODEL_TAG:-v0.0.9}
 FLUXCD_HELM_CONTROLLER=${FLUXCD_HELM_CONTROLLER:-v0.37.1}
@@ -91,7 +91,7 @@ crd-importer \
     --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_kafkabindings.yaml \
     --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mariadbbindings.yaml \
     --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_memcachedbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_microsoftsqlserverbindings.yaml \
+    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mssqlserverbindings.yaml \
     --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mongodbbindings.yaml \
     --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mysqlbindings.yaml \
     --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_perconaxtradbbindings.yaml \
