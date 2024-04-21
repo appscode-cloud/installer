@@ -4,17 +4,17 @@ metadata:
   labels:
     app.kubernetes.io/name: ace
     kube-bind.appscode.com/exported: "true"
-  name: microsoftsqlserverbindings.catalog.appscode.com
+  name: mssqlserverbindings.catalog.appscode.com
 spec:
   group: catalog.appscode.com
   names:
     categories:
     - kubedb
     - appscode
-    kind: MicrosoftSQLServerBinding
-    listKind: MicrosoftSQLServerBindingList
-    plural: microsoftsqlserverbindings
-    singular: microsoftsqlserverbinding
+    kind: MSSQLServerBinding
+    listKind: MSSQLServerBindingList
+    plural: mssqlserverbindings
+    singular: mssqlserverbinding
   scope: Namespaced
   versions:
   - additionalPrinterColumns:
@@ -33,7 +33,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: MicrosoftSQLServerBinding is the Schema for the microsoftsqlserverbindings
+        description: MSSQLServerBinding is the Schema for the mssqlserverbindings
           API
         properties:
           apiVersion:
@@ -49,8 +49,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: MicrosoftSQLServerBindingSpec defines the desired state of
-              MicrosoftSQLServerBinding
+            description: MSSQLServerBindingSpec defines the desired state of MSSQLServerBinding
             properties:
               sourceRef:
                 description: SourceRef refers to the source app instance.
