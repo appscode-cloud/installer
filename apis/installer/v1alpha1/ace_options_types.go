@@ -102,6 +102,8 @@ type RegistrySpec struct {
 	AllowNondistributableArtifacts bool `json:"allowNondistributableArtifacts"`
 	//+optional
 	Insecure bool `json:"insecure"`
+	//+optional
+	ImagePullSecrets []string `json:"imagePullSecrets"`
 }
 
 type RepositoryCredential struct {

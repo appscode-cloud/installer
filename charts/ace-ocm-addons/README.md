@@ -58,6 +58,7 @@ The following table lists the configurable parameters of the `ace-ocm-addons` ch
 | image.proxies.kubernetes                  | registry.k8s.io/bin:tag         | <code>registry.k8s.io</code>                       |
 | registry.credentials                      |                                 | <code>{}</code>                                    |
 | registry.certs                            | username: "abc" password: "xyz" | <code>{}</code>                                    |
+| registry.imagePullSecrets                 | ca.crt: "***"                   | <code>[]</code>                                    |
 | helm.createNamespace                      |                                 | <code>true</code>                                  |
 | helm.repositories.appscode-charts-oci.url |                                 | <code>oci://ghcr.io/appscode-charts</code>         |
 | helm.releases.kube-ui-server.enabled      |                                 | <code>true</code>                                  |

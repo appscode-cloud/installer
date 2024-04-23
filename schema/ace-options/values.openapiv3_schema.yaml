@@ -1449,6 +1449,10 @@ properties:
                 type: string
             type: object
         type: object
+      imagePullSecrets:
+        items:
+          type: string
+        type: array
       insecure:
         type: boolean
     type: object
