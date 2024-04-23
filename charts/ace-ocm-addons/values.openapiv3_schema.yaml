@@ -107,6 +107,10 @@ properties:
         additionalProperties:
           type: string
         type: object
+      imagePullSecrets:
+        items:
+          type: string
+        type: array
     type: object
 required:
 - addonManagerNamespace

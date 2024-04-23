@@ -1,10 +1,18 @@
 {{- with (index .Values "helm" "releases" "kubedb") }}
 {{- if .enabled }}
 
+{{ $ips := list }}
+{{- range $secret := $.Values.registry.imagePullSecrets }}
+{{ $ips = append $ips (dict "name" $secret) }}
+{{- end }}
+
 {{ $overrides := printf `
 global:
   registryFQDN: %q
-` (include "registry.ghcr" $) | fromYaml }}
+  imagePullSecrets: %v
+` (include "registry.ghcr" $)
+  ($ips | toJson)
+  | fromYaml }}
 {{ $_ := set $overrides "kubedb-catalog" $.Values.image }}
 
 {{ $vals := dig "values" dict . }}

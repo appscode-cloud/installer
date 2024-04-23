@@ -63,6 +63,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | image.proxies.kubernetes                                    | registry.k8s.io/bin:tag         | <code>registry.k8s.io</code>               |
 | registry.credentials                                        |                                 | <code>{}</code>                            |
 | registry.certs                                              | username: "abc" password: "xyz" | <code>{}</code>                            |
+| registry.imagePullSecrets                                   | ca.crt: "***"                   | <code>[]</code>                            |
 | helm.createNamespace                                        |                                 | <code>true</code>                          |
 | helm.repositories.appscode-charts-oci.url                   |                                 | <code>oci://ghcr.io/appscode-charts</code> |
 | helm.releases.aws-ebs-csi-driver.version                    |                                 | <code>"2.23.0"</code>                      |
