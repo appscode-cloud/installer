@@ -36,6 +36,8 @@ registry:
   # password: "xyz"
   certs: {}
   # ca.crt: "***"
+  imagePullSecrets: []
+  # imagePullSecrets: ["abc", "xyz"]
 
 helm:
   createNamespace: true
