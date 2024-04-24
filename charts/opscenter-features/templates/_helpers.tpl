@@ -109,5 +109,5 @@ Image Templates
 {{- end }}
 
 {{- define "prometheus.mode" -}}
-{{- ternary "federated" "standalone" (and (has "Rancher" .Values.clusterMetadata.clusterManagers) (lookup "monitoring.coreos.com/v1" "Prometheus" "cattle-monitoring-system" "rancher-monitoring-prometheus")) -}}
+{{- ternary "federated" "standalone" (and (has "Rancher" .Values.clusterMetadata.clusterManagers) (not (empty (lookup "monitoring.coreos.com/v1" "Prometheus" "cattle-monitoring-system" "rancher-monitoring-prometheus")))) -}}
 {{- end }}
