@@ -107,3 +107,7 @@ Image Templates
 {{- define "kubectl.image" -}}
 {{ list .Values.image.proxies.ghcr "appscode/kubectl-nonroot:1.25" | compact | join "/" }}
 {{- end }}
+
+{{- define "prometheus.mode" -}}
+{{- ternary "federated" "standalone" (and (has "Rancher" .Values.clusterMetadata.clusterManagers) (lookup "monitoring.coreos.com/v1" "Prometheus" "cattle-monitoring-system" "rancher-monitoring-prometheus")) -}}
+{{- end }}
