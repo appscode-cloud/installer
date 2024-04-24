@@ -84,7 +84,7 @@ spec:
   recommended: false
   requirements:
     features:
-    {{- if not (has "Rancher" .Values.clusterMetadata.clusterManagers) }}
+    {{- if eq (include "prometheus.mode" $) "standalone" }}
       - kube-prometheus-stack
     {{- end }}
       - monitoring-operator
