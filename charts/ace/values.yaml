@@ -64,6 +64,7 @@ dns-proxy:
 
 openfga:
   enabled: false
+  datastoreURI: ""
 
 smtprelay:
   enabled: false
