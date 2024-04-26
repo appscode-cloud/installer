@@ -13,3 +13,6 @@ type: Opaque
 stringData:
   data.sql: |
      CREATE DATABASE {{ .Values.settings.db.databaseName }};
+     {{- if .Values.openfga.enabled }}
+     CREATE DATABASE openfga;
+     {{- end }}

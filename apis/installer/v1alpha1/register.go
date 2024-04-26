@@ -110,6 +110,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&StashPresetsList{},
 		&Nats{},
 		&NatsList{},
+		&Openfga{},
+		&OpenfgaList{},
 		&Reloader{},
 		&ReloaderList{},
 		&ServicePresets{},
