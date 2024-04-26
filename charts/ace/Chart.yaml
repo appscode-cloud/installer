@@ -81,6 +81,6 @@ dependencies:
   condition: nats.enabled
   version: 0.19.17
 - name: openfga
-  repository: https://openfga.github.io/helm-charts
+  repository: oci://ghcr.io/appscode-charts
   condition: openfga.enabled
   version: 0.2.3
