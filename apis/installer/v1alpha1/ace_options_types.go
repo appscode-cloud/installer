@@ -69,6 +69,7 @@ type AceOptionsSpec struct {
 	Nats           AceOptionsNatsSettings   `json:"nats"`
 	Trickster      AceOptionsComponentSpec  `json:"trickster"`
 	DNSProxy       AceOptionsComponentSpec  `json:"dns-proxy"`
+	Openfga        AceOptionsComponentSpec  `json:"openfga"`
 	SMTPRelay      AceOptionsComponentSpec  `json:"smtprelay"`
 	Minio          AceOptionsComponentSpec  `json:"minio"`
 	Branding       AceBrandingSpec          `json:"branding"`
