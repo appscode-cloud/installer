@@ -175,7 +175,8 @@ type AceDnsProxy struct {
 }
 
 type AceOpenfga struct {
-	Enabled      bool `json:"enabled"`
+	Enabled      bool   `json:"enabled"`
+	DatastoreURI string `json:"datastoreURI"`
 	*OpenfgaSpec `json:",inline,omitempty"`
 }
 
