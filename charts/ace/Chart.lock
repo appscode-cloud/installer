@@ -51,7 +51,7 @@ dependencies:
   repository: https://nats-io.github.io/k8s/helm/charts/
   version: 0.19.17
 - name: openfga
-  repository: https://openfga.github.io/helm-charts
+  repository: oci://ghcr.io/appscode-charts
   version: 0.2.3
-digest: sha256:4e8862380efecb53289286d24894b14096846e17baea43bcb2d10929b9789249
-generated: "2024-04-26T03:28:25.100341-07:00"
+digest: sha256:e46240db19e14c553019963e8a87b96a0f6e32087dd3e02bb9793086dcf689bc
+generated: "2024-04-26T08:15:38.762964-07:00"
