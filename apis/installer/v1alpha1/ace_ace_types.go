@@ -63,6 +63,7 @@ type AceSpec struct {
 	NatsDns       AceNatsDns       `json:"nats-dns"`
 	Trickster     AceTrickster     `json:"trickster"`
 	DNSProxy      AceDnsProxy      `json:"dns-proxy"`
+	Openfga       AceOpenfga       `json:"openfga"`
 	SMTPRelay     AceSmtprelay     `json:"smtprelay"`
 	Minio         AceMinio         `json:"minio"`
 	// KubeBindServer AceKubeBindServer `json:"kube-bind-server"`
@@ -171,6 +172,11 @@ type AceTrickster struct {
 type AceDnsProxy struct {
 	Enabled       bool `json:"enabled"`
 	*DnsProxySpec `json:",inline,omitempty"`
+}
+
+type AceOpenfga struct {
+	Enabled      bool `json:"enabled"`
+	*OpenfgaSpec `json:",inline,omitempty"`
 }
 
 type AceSmtprelay struct {
