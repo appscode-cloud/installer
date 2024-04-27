@@ -14,7 +14,7 @@ require (
 	kmodules.xyz/objectstore-api v0.29.1
 	kmodules.xyz/resource-metadata v0.18.3-0.20240423041842-b6b835b5c718
 	kmodules.xyz/schema-checker v0.4.2-0.20230316051604-9a40277165e8
-	kubeops.dev/external-dns-operator v0.0.8
+	kubeops.dev/external-dns-operator v0.0.9
 	sigs.k8s.io/yaml v1.4.0
 	stash.appscode.dev/apimachinery v0.34.0
 )
