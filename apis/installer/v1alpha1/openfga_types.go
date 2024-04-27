@@ -253,9 +253,9 @@ type OpenfgaCheckQueryCache struct {
 }
 
 type OpenfgaMigrate struct {
-	Sidecars    []core.Container  `json:"sidecars"`
-	Annotations map[string]string `json:"annotations"`
-	Labels      map[string]string `json:"labels"`
+	Sidecars    []core.Container   `json:"sidecars"`
+	Annotations map[string]*string `json:"annotations"`
+	Labels      map[string]*string `json:"labels"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
