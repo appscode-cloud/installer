@@ -487,8 +487,6 @@ properties:
                 required:
                 - name
                 type: object
-              zonesPerPage:
-                type: integer
             type: object
           connectorSourceServer:
             type: string
