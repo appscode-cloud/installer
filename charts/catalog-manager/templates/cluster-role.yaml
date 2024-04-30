@@ -28,6 +28,7 @@ rules:
   - postgreses
   - proxysqls
   - redises
+  - mariadbs
   verbs:
   - get
   - list
@@ -38,6 +39,8 @@ rules:
   - mysqls/status
   - elasticsearches/status
   - mongodbs/status
+  - postgreses/status
+  - mariadbs/status
   verbs:
   - get
   - list
@@ -122,6 +125,7 @@ rules:
   - mysqlroutes
   - mongodbroutes
   - redisroutes
+  - postgresroutes
   verbs:
   - get
   - list
