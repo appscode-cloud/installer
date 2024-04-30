@@ -105,9 +105,9 @@ helm:
     kube-ui-server:
       version: "v2023.12.20"
     kubedb:
-      version: "v2024.3.16"
+      version: "v2024.4.27"
     kubedb-opscenter:
-      version: "v2024.3.16"
+      version: "v2024.4.27"
     kubedb-provider-aws:
       version: "v2024.1.31"
     kubedb-provider-azure:
@@ -115,7 +115,7 @@ helm:
     kubedb-provider-gcp:
       version: "v2024.1.31"
     kubestash:
-      version: "v2024.3.16"
+      version: "v2024.4.27"
     kubevault:
       version: "v2024.3.12"
     kubevault-opscenter:
@@ -123,7 +123,7 @@ helm:
     license-proxyserver:
       version: "v2024.2.25"
     longhorn:
-      version: "1.5.3"
+      version: "1.6.1"
     metrics-server:
       version: "3.11.0"
     monitoring-operator:
@@ -155,9 +155,9 @@ helm:
     snapshot-controller:
       version: "2.0.3"
     stash:
-      version: "v2024.2.13"
+      version: "v2024.4.8"
     stash-opscenter:
-      version: "v2024.2.13"
+      version: "v2024.4.8"
     stash-presets:
       version: "v2024.4.2"
     supervisor:
