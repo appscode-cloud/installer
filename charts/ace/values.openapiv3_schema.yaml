@@ -15748,10 +15748,13 @@ properties:
               - name
               type: object
             type: array
+          timeout:
+            type: string
         required:
         - annotations
         - labels
         - sidecars
+        - timeout
         type: object
       mysql:
         properties:
