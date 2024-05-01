@@ -68,10 +68,10 @@ type ServicePresetsSpec struct {
 }
 
 type ServiceProviderInfra struct {
-	ClusterName   string   `json:"clusterName"`
-	GatewayDomain string   `json:"gatewayDomain"`
-	TLS           InfraTLS `json:"tls"`
-	DNS           InfraDns `json:"dns"`
+	ClusterName   string     `json:"clusterName"`
+	GatewayDomain string     `json:"gatewayDomain"`
+	TLS           InfraTLS   `json:"tls"`
+	DNS           GatewayDns `json:"dns"`
 }
 
 type ServiceGatewayDns struct {

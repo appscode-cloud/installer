@@ -7,9 +7,9 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "ace.labels" . | nindent 4 }}
-{{- with .Values.global.platform.publicIPs }}
+{{- if and .Values.global.infra.dns.publicIPs (not (eq .Values.global.infra.dns.provider "external")) }}
   annotations:
-    external-dns.alpha.kubernetes.io/target: {{ join "," . | quote }}
+    external-dns.alpha.kubernetes.io/target: {{ join "," .Values.global.infra.dns.publicIPs | quote }}
 {{- end }}
 spec:
   ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
