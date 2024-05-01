@@ -313,10 +313,6 @@ properties:
         type: object
       proxyServiceDomain:
         type: string
-      publicIPs:
-        items:
-          type: string
-        type: array
       redisPassword:
         type: string
       requestedDomain:
@@ -730,6 +726,10 @@ properties:
               - cloudDNS
               - azureDNS
             type: string
+          publicIPs:
+            items:
+              type: string
+            type: array
         required:
           - auth
           - provider
@@ -855,6 +855,10 @@ properties:
           - LoadBalancer
           - HostPort
         type: string
+      externalIPs:
+        items:
+          type: string
+        type: array
       managedRecordTypes:
         description: DNS record types that will be considered for management
         items:
@@ -1162,7 +1166,7 @@ properties:
     properties:
       exposeVia:
         enum:
-          - LoadBalancer
+          - Ingress
           - HostPort
         type: string
       nodeSelector:

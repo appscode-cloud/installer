@@ -217,8 +217,6 @@ type AcePlatformSettings struct {
 	Admin              AcePlatformAdmin `json:"admin"`
 	ProxyServiceDomain string           `json:"proxyServiceDomain,omitempty"`
 	Token              string           `json:"token,omitempty"`
-	// +optional
-	PublicIPs []string `json:"publicIPs"`
 }
 
 type GlobalMonitoring struct {
@@ -297,6 +295,12 @@ const (
 )
 
 type InfraDns struct {
+	GatewayDns `json:",inline,omitempty"`
+	// +optional
+	PublicIPs []string `json:"publicIPs"`
+}
+
+type GatewayDns struct {
 	Provider DNSProvider     `json:"provider"`
 	Auth     DNSProviderAuth `json:"auth"`
 }
