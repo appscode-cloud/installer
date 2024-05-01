@@ -3558,8 +3558,8 @@ func (in *InfraBadger) DeepCopy() *InfraBadger {
 func (in *InfraDns) DeepCopyInto(out *InfraDns) {
 	*out = *in
 	in.GatewayDns.DeepCopyInto(&out.GatewayDns)
-	if in.PublicIPs != nil {
-		in, out := &in.PublicIPs, &out.PublicIPs
+	if in.TargetIPs != nil {
+		in, out := &in.TargetIPs, &out.TargetIPs
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}

@@ -4076,7 +4076,7 @@ properties:
                 - cloudDNS
                 - azureDNS
                 type: string
-              publicIPs:
+              targetIPs:
                 items:
                   type: string
                 type: array

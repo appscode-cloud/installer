@@ -149,7 +149,7 @@ global:
         cert: ""
         key: ""
     dns:
-      publicIPs: []
+      targetIPs: []
       provider: "external" # external,cloudflare,route53,cloudDNS
       auth: {}
         # cloudflare:

@@ -41,7 +41,7 @@
 {{- end }}
 
 {{- if not (hasKey .Values.ingress.annotations "external-dns.alpha.kubernetes.io/target") }}
-{{- $_ := set .Values.ingress.annotations "external-dns.alpha.kubernetes.io/target" (join "," .Values.global.platform.publicIPs | quote)}}
+{{- $_ := set .Values.ingress.annotations "external-dns.alpha.kubernetes.io/target" (join "," .Values.global.platform.targetIPs | quote)}}
 {{- end }}
 
 {{- end }}
