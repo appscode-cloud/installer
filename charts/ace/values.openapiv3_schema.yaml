@@ -4076,6 +4076,10 @@ properties:
                 - cloudDNS
                 - azureDNS
                 type: string
+              publicIPs:
+                items:
+                  type: string
+                type: array
             required:
             - auth
             - provider
@@ -4349,10 +4353,6 @@ properties:
             type: string
           proxyServiceDomain:
             type: string
-          publicIPs:
-            items:
-              type: string
-            type: array
           token:
             type: string
         required:
@@ -6177,6 +6177,20 @@ properties:
             type: object
           service:
             properties:
+              annotations:
+                additionalProperties:
+                  type: string
+                type: object
+              appProtocol:
+                type: boolean
+              clusterIP:
+                type: string
+              enableHttp:
+                type: boolean
+              enableHttps:
+                type: boolean
+              enabled:
+                type: boolean
               external:
                 properties:
                   enabled:
@@ -6184,8 +6198,190 @@ properties:
                 required:
                 - enabled
                 type: object
+              externalIPs:
+                items:
+                  type: string
+                type: array
+              externalTrafficPolicy:
+                type: string
+              internal:
+                properties:
+                  annotations:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  appProtocol:
+                    type: boolean
+                  clusterIP:
+                    type: string
+                  enabled:
+                    type: boolean
+                  externalIPs:
+                    items:
+                      type: string
+                    type: array
+                  externalTrafficPolicy:
+                    type: string
+                  ipFamilies:
+                    items:
+                      type: string
+                    type: array
+                  ipFamilyPolicy:
+                    type: string
+                  loadBalancerClass:
+                    type: string
+                  loadBalancerIP:
+                    type: string
+                  loadBalancerSourceRanges:
+                    items:
+                      type: string
+                    type: array
+                  nodePorts:
+                    properties:
+                      http:
+                        type: string
+                      https:
+                        type: string
+                      tcp:
+                        additionalProperties:
+                          type: string
+                        type: object
+                      udp:
+                        additionalProperties:
+                          type: string
+                        type: object
+                    required:
+                    - http
+                    - https
+                    - tcp
+                    - udp
+                    type: object
+                  ports:
+                    properties:
+                      http:
+                        type: integer
+                      https:
+                        type: integer
+                    required:
+                    - http
+                    - https
+                    type: object
+                  sessionAffinity:
+                    type: string
+                  targetPorts:
+                    properties:
+                      http:
+                        type: string
+                      https:
+                        type: string
+                    required:
+                    - http
+                    - https
+                    type: object
+                  type:
+                    type: string
+                required:
+                - annotations
+                - appProtocol
+                - clusterIP
+                - enabled
+                - externalIPs
+                - externalTrafficPolicy
+                - ipFamilies
+                - ipFamilyPolicy
+                - loadBalancerClass
+                - loadBalancerIP
+                - loadBalancerSourceRanges
+                - nodePorts
+                - ports
+                - sessionAffinity
+                - targetPorts
+                - type
+                type: object
+              ipFamilies:
+                items:
+                  type: string
+                type: array
+              ipFamilyPolicy:
+                type: string
+              labels:
+                additionalProperties:
+                  type: string
+                type: object
+              loadBalancerClass:
+                type: string
+              loadBalancerIP:
+                type: string
+              loadBalancerSourceRanges:
+                items:
+                  type: string
+                type: array
+              nodePorts:
+                properties:
+                  http:
+                    type: string
+                  https:
+                    type: string
+                  tcp:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  udp:
+                    additionalProperties:
+                      type: string
+                    type: object
+                required:
+                - http
+                - https
+                - tcp
+                - udp
+                type: object
+              ports:
+                properties:
+                  http:
+                    type: integer
+                  https:
+                    type: integer
+                required:
+                - http
+                - https
+                type: object
+              sessionAffinity:
+                type: string
+              targetPorts:
+                properties:
+                  http:
+                    type: string
+                  https:
+                    type: string
+                required:
+                - http
+                - https
+                type: object
+              type:
+                type: string
             required:
+            - annotations
+            - appProtocol
+            - clusterIP
+            - enableHttp
+            - enableHttps
+            - enabled
             - external
+            - externalIPs
+            - externalTrafficPolicy
+            - internal
+            - ipFamilies
+            - ipFamilyPolicy
+            - labels
+            - loadBalancerClass
+            - loadBalancerIP
+            - loadBalancerSourceRanges
+            - nodePorts
+            - ports
+            - sessionAffinity
+            - targetPorts
+            - type
             type: object
         required:
         - admissionWebhooks

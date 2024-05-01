@@ -81,7 +81,6 @@ global:
   platform:
     domain: appscode.ninja
     deploymentType: SelfHostedDemo
-    publicIPs: []
     admin:
       username: admin
       password: secr3t
@@ -150,6 +149,7 @@ global:
         cert: ""
         key: ""
     dns:
+      publicIPs: []
       provider: "external" # external,cloudflare,route53,cloudDNS
       auth: {}
         # cloudflare:

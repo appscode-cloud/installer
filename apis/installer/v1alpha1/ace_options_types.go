@@ -144,6 +144,7 @@ type ServiceType string
 const (
 	ServiceTypeLoadBalancer ServiceType = "LoadBalancer"
 	ServiceTypeHostPort     ServiceType = "HostPort"
+	ServiceTypeClusterIP    ServiceType = "ClusterIP"
 )
 
 const (
@@ -166,11 +167,21 @@ type AceOptionsIngressNginx struct {
 	//+optional
 	Resources    core.ResourceRequirements `json:"resources"`
 	NodeSelector map[string]string         `json:"nodeSelector"`
+	// +optional
+	ExternalIPs []string `json:"externalIPs"`
 }
 
+// +kubebuilder:validation:Enum=Ingress;HostPort
+type ExposeNatsVia string
+
+const (
+	ExposeNatsViaIngress  ExposeNatsVia = "Ingress"
+	ExposeNatsViaHostPort ExposeNatsVia = "HostPort"
+)
+
 type AceOptionsNatsSettings struct {
-	ExposeVia ServiceType `json:"exposeVia"`
-	Replics   int         `json:"replicas"`
+	ExposeVia ExposeNatsVia `json:"exposeVia"`
+	Replics   int           `json:"replicas"`
 	//+optional
 	Resources core.ResourceRequirements `json:"resources"`
 	//+optional
@@ -337,9 +348,7 @@ type AceDeploymentContext struct {
 	OfflineInstaller bool `json:"offlineInstaller"`
 	// WARNING!!! Update docs in schema/ace-options/patch.yaml
 	// +optional
-	ClusterID string `json:"clusterID"`
-	// +optional
-	PublicIPs []string          `json:"publicIPs"`
+	ClusterID string            `json:"clusterID"`
 	Licenses  map[string]string `json:"licenses,omitempty"`
 	// +optional
 	Admin AcePlatformAdmin `json:"admin"`
