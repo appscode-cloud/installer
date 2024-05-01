@@ -297,7 +297,7 @@ const (
 type InfraDns struct {
 	GatewayDns `json:",inline,omitempty"`
 	// +optional
-	PublicIPs []string `json:"publicIPs"`
+	TargetIPs []string `json:"targetIPs"`
 }
 
 type GatewayDns struct {
