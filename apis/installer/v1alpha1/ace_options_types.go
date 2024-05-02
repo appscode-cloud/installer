@@ -138,7 +138,7 @@ type AceOptionsComponentSpec struct {
 	NodeSelector map[string]string `json:"nodeSelector"`
 }
 
-// +kubebuilder:validation:Enum=LoadBalancer;HostPort
+// +kubebuilder:validation:Enum=LoadBalancer;ClusterIP;HostPort
 type ServiceType string
 
 const (
