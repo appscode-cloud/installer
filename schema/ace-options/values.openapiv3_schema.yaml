@@ -853,6 +853,7 @@ properties:
       exposeVia:
         enum:
           - LoadBalancer
+          - ClusterIP
           - HostPort
         type: string
       externalIPs:
