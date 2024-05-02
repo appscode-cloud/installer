@@ -40,10 +40,13 @@
 {{- $_ := set .Values.ingress.annotations "cert-manager.io/usages" "key agreement,digital signature,server auth"}}
 {{- end }}
 
-{{- if not (hasKey .Values.ingress.annotations "external-dns.alpha.kubernetes.io/target") }}
-{{- $_ := set .Values.ingress.annotations "external-dns.alpha.kubernetes.io/target" (join "," .Values.global.platform.targetIPs | quote)}}
 {{- end }}
 
+{{- if and (not (hasKey .Values.ingress.annotations "external-dns.alpha.kubernetes.io/target")) (not (empty .Values.global)) }}
+{{- $targetIPs := dig "infra" "dns" "targetIPs" list .Values.global }}
+{{- if $targetIPs }}
+{{- $_ := set .Values.ingress.annotations "external-dns.alpha.kubernetes.io/target" (join "," $targetIPs)}}
+{{- end }}
 {{- end }}
 
 apiVersion: networking.k8s.io/v1
