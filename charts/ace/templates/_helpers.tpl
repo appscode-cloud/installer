@@ -139,10 +139,6 @@ Returns the ServiceMonitor labels
 {{- printf "%s-nats-cred" (include "ace.fullname" .) -}}
 {{- end }}
 
-{{- define "settings.caProviderClass" -}}
-{{- if (has .Values.global.infra.tls.issuer (list "ca" "letsencrypt-staging")) }}{{ include "ace.fullname" . }}{{end -}}
-{{- end }}
-
 {{/*
 Determine database host name
 */}}

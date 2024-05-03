@@ -1,5 +1,10 @@
 {{- $infra := .Values.global.infra -}}
 
+{{- $mountCACerts := or
+  (has $infra.tls.issuer (list "ca" "letsencrypt-staging"))
+  (and (eq $infra.tls.issuer "external") $infra.tls.ca.cert )
+}}
+
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -120,7 +125,7 @@ spec:
             - name: objstore-cred
               mountPath: {{ $infra.objstore.mountPath }}
             {{- end }}
-            {{- if (include "settings.caProviderClass" .) }}
+            {{- if $mountCACerts }}
             - name: cacerts
               mountPath: /etc/ssl/certs
             {{- end }}
@@ -147,14 +152,14 @@ spec:
             defaultMode: 420
             secretName: {{ $secretName }}
         {{- end }}
-        {{- with $cpc := (include "settings.caProviderClass" .) }}
+        {{- if $mountCACerts }}
         - name: cacerts
           csi:
             driver: cacerts.csi.cert-manager.io
             readOnly: true
             volumeAttributes:
               os: debian
-              caProviderClasses: {{ $cpc }}
+              caProviderClasses: {{ include "ace.fullname" . }}
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
