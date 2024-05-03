@@ -76,6 +76,8 @@ type ServiceBackendSpec struct {
 	Ingress    AppIngress     `json:"ingress"`
 	Monitoring Monitoring     `json:"monitoring"`
 	Server     ServerConfig   `json:"server"`
+	// +optional
+	DNS ServiceBackendDns `json:"dns"`
 }
 
 type ServerConfig struct {
@@ -97,6 +99,11 @@ type OIDC struct {
 type Cookie struct {
 	SigningKey    string `json:"signingKey"`
 	EncryptionKey string `json:"encryptionKey"`
+}
+
+type ServiceBackendDns struct {
+	// +optional
+	TargetIPs []string `json:"targetIPs"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

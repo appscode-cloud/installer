@@ -7,6 +7,19 @@
 {{ $_ := set $overrides.helm "repositories" $helmrepos }}
 {{ $_ := set $overrides.helm "createNamespace" $.Values.helm.createNamespace }}
 
+{{ $targetIPs := dig "releases" "ace" "values" "global" "infra" "dns" "targetIPs" list $.Values.helm }}
+{{ if $targetIPs }}
+{{ $hrs := printf `
+service-backend:
+  values:
+    dns:
+      targetIPs: %v
+`
+  ($targetIPs | toJson)
+  | fromYaml }}
+{{ $_ := set $overrides.helm "releases" $hrs }}
+{{ end }}
+
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
