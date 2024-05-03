@@ -191,7 +191,7 @@ type AceOptionsNatsSettings struct {
 type AceOptionsPlatformInfra struct {
 	StorageClass  LocalObjectReference         `json:"storageClass"`
 	KubeStash     KubeStashOptions             `json:"kubestash"`
-	TLS           AceOptionsInfraTLS           `json:"tls"`
+	TLS           InfraTLS                     `json:"tls"`
 	DNS           InfraDns                     `json:"dns"`
 	CloudServices AceOptionsInfraCloudServices `json:"cloudServices"`
 }
@@ -215,12 +215,6 @@ type KubeStashBackendInfra struct {
 	Azure store.AzureSpec `json:"azure"`
 	// +optional
 	GCS store.GCSSpec `json:"gcs"`
-}
-
-type AceOptionsInfraTLS struct {
-	Issuer      TLSIssuerType `json:"issuer"`
-	Acme        TLSIssuerAcme `json:"acme"`
-	Certificate TLSData       `json:"certificate"`
 }
 
 type AceOptionsInfraCloudServices struct {

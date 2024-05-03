@@ -13,4 +13,21 @@ spec:
     kind: Issuer
     namespace: {{ .Release.Namespace }}
     name: {{ include "ace.fullname" . }}
+
+{{- else if and (eq .Values.global.infra.tls.issuer "external") .Values.global.infra.tls.ca.cert }}
+
+apiVersion: cacerts.csi.cert-manager.io/v1alpha1
+kind: CAProviderClass
+metadata:
+  name: {{ include "ace.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+spec:
+  refs:
+  - apiGroup: ""
+    kind: Secret
+    namespace: {{ .Release.Namespace }}
+    name: {{ include "ace.fullname" . }}-cert
+    key: "ca.crt"
 {{- end}}

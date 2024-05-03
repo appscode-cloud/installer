@@ -1,4 +1,10 @@
 {{- if (eq .Values.infra.tls.issuer "ca") }}
+
+{{- $data := dict
+    "tls.crt" .Values.infra.tls.ca.cert
+    "tls.key" .Values.infra.tls.ca.key
+}}
+
 apiVersion: v1
 kind: Secret
 metadata:
@@ -7,5 +13,5 @@ metadata:
   labels:
     {{- include "service-presets.labels" . | nindent 4 }}
 type: kubernetes.io/tls
-stringData: {{ dict "tls.crt" .Values.infra.tls.ca.cert "tls.key" .Values.infra.tls.ca.key | toJson }}
+stringData: {{ $data | toJson }}
 {{- end }}
