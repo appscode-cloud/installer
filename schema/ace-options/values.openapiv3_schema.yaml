@@ -822,6 +822,13 @@ properties:
             required:
               - email
             type: object
+          ca:
+            properties:
+              cert:
+                type: string
+              key:
+                type: string
+            type: object
           certificate:
             properties:
               cert:
@@ -838,6 +845,7 @@ properties:
             type: string
         required:
           - acme
+          - ca
           - certificate
           - issuer
         type: object
