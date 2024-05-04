@@ -102,7 +102,7 @@ metadata:
   namespace: {{ $.Release.Namespace }}
   labels:
     app.kubernetes.io/component: kube-prometheus-stack
-    app.kubernetes.io/part-of: opscenter-monitoring
+    app.kubernetes.io/part-of: opscenter-observability
 spec:
   interval: 5m
   timeout: 30m
