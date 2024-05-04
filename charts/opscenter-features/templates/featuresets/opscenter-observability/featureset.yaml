@@ -1,9 +1,9 @@
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: FeatureSet
 metadata:
-  name: opscenter-monitoring
+  name: opscenter-observability
 spec:
-  title: Monitoring
+  title: Observability
   description: |
     Monitor your Kubernetes resources with Prometheus and Grafana.
   icons:
@@ -11,7 +11,7 @@ spec:
     type: image/svg+xml
   recommended: false
   chart:
-    name: uik8sappscodecom-featureset-opscenter-monitoring-editor
+    name: uik8sappscodecom-featureset-opscenter-observability-editor
     version: {{ .Chart.AppVersion }}
     sourceRef:
       apiGroup: source.toolkit.fluxcd.io

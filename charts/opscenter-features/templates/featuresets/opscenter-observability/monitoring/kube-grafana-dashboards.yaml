@@ -3,7 +3,7 @@ kind: Feature
 metadata:
   name: kube-grafana-dashboards
   labels:
-    app.kubernetes.io/part-of: opscenter-monitoring
+    app.kubernetes.io/part-of: opscenter-observability
 spec:
   title: Kubernetes Grafana Dashboards
   description: |
@@ -11,7 +11,7 @@ spec:
   icons:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
-  featureSet: opscenter-monitoring
+  featureSet: opscenter-observability
   featureBlock: monitoring-operator
   recommended: true
   requirements:

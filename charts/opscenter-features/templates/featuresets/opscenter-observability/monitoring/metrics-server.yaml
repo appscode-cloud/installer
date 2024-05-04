@@ -17,7 +17,7 @@ kind: Feature
 metadata:
   name: metrics-server
   labels:
-    app.kubernetes.io/part-of: opscenter-monitoring
+    app.kubernetes.io/part-of: opscenter-observability
 spec:
   title: Kubernetes Metrics Server
   description: |
@@ -25,7 +25,7 @@ spec:
   icons:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
-  featureSet: opscenter-monitoring
+  featureSet: opscenter-observability
   featureBlock: metrics-server
   recommended: false
   readinessChecks:

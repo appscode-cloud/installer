@@ -99,7 +99,7 @@ kind: Feature
 metadata:
   name: kube-prometheus-stack
   labels:
-    app.kubernetes.io/part-of: opscenter-monitoring
+    app.kubernetes.io/part-of: opscenter-observability
 spec:
   title: Kube Prometheus Stack
   description: |
@@ -107,7 +107,7 @@ spec:
   icons:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
-  featureSet: opscenter-monitoring
+  featureSet: opscenter-observability
   featureBlock: kube-prometheus-stack
   recommended: true
   requirements:
