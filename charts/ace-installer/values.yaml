@@ -52,10 +52,10 @@ helm:
   releases:
     ace:
       enabled: false
-      version: "v2024.4.2"
+      version: "v2024.5.3"
     ace-ocm-addons:
       enabled: true
-      version: "v2024.4.2"
+      version: "v2024.5.3"
     cert-manager:
       enabled: true
       version: "v1.14.1"
@@ -130,7 +130,7 @@ helm:
       version: "v0.0.5"
     opscenter-features:
       enabled: true
-      version: "v2024.4.2"
+      version: "v2024.5.3"
     panopticon:
       enabled: true
       version: "v2023.10.1"
@@ -149,7 +149,7 @@ helm:
       version: "1.0.79"
     stash-presets:
       enabled: false
-      version: "v2024.4.2"
+      version: "v2024.5.3"
 
 # controls the self management of the ace cluster
 selfManagement:
