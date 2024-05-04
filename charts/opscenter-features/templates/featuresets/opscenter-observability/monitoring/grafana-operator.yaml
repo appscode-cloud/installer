@@ -6,39 +6,35 @@
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: panopticon
+  name: grafana-operator
   labels:
-    app.kubernetes.io/part-of: opscenter-monitoring
+    app.kubernetes.io/part-of: opscenter-observability
 spec:
-  title: Panopticon
+  title: Grafana Operator
   description: |
-    Generic metrics generator from Kubernetes resources. Like kube-state-metrics but generic for all resources.
+    Manage Grafana dashboards in Kubernetes native way.
   icons:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
-  featureSet: opscenter-monitoring
-  featureBlock: panopticon
+  featureSet: opscenter-observability
+  featureBlock: monitoring-operator
   recommended: true
   requirements:
     features:
-      - license-proxyserver
+      - monitoring-operator
   readinessChecks:
-    resources:
-    - group: metrics.appscode.com
-      version: v1alpha1
-      kind: MetricsConfiguration
     workloads:
       - group: apps
         version: v1
         kind: Deployment
         selector:
           app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: panopticon
+          app.kubernetes.io/name: grafana-operator
   chart:
-    name: panopticon
+    name: grafana-operator
     namespace: monitoring
     createNamespace: {{ $.Values.helm.createNamespace }}
-    version: {{ dig "panopticon" "version" "" $.Values.helm.releases }}
+    version: {{ dig "grafana-operator" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci
