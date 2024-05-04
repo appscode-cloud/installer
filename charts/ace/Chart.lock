@@ -1,34 +1,34 @@
 dependencies:
 - name: platform-ui
   repository: file://../platform-ui
-  version: v2024.4.2
+  version: v2024.5.3
 - name: accounts-ui
   repository: file://../accounts-ui
-  version: v2024.4.2
+  version: v2024.5.3
 - name: cluster-ui
   repository: file://../cluster-ui
-  version: v2024.4.2
+  version: v2024.5.3
 - name: deploy-ui
   repository: file://../deploy-ui
   version: v2023.11.14
 - name: kubedb-ui
   repository: file://../kubedb-ui
-  version: v2024.4.2
+  version: v2024.5.3
 - name: marketplace-ui
   repository: file://../marketplace-ui
   version: v2023.11.14
 - name: platform-api
   repository: file://../platform-api
-  version: v2024.4.2
+  version: v2024.5.3
 - name: platform-links
   repository: file://../platform-links
-  version: v2024.4.2
+  version: v2024.5.3
 - name: inbox-ui
   repository: file://../inbox-ui
-  version: v2024.4.2
+  version: v2024.5.3
 - name: billing
   repository: file://../billing
-  version: v2024.4.2
+  version: v2024.5.3
 - name: grafana
   repository: file://../grafana
   version: v2023.11.14
@@ -53,5 +53,5 @@ dependencies:
 - name: openfga
   repository: oci://ghcr.io/appscode-charts
   version: 0.2.3
-digest: sha256:e46240db19e14c553019963e8a87b96a0f6e32087dd3e02bb9793086dcf689bc
-generated: "2024-04-26T20:35:23.674798-07:00"
+digest: sha256:30462ab6600d9de3cd40d4f01b4a32120c5a4efc825ab80538476e42b207bb2b
+generated: "2024-05-04T19:03:00.903834+06:00"

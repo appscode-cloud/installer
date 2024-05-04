@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/ace-ocm-addons --version=v2024.4.2
-$ helm upgrade -i ace-ocm-addons appscode/ace-ocm-addons -n open-cluster-management --create-namespace --version=v2024.4.2
+$ helm search repo appscode/ace-ocm-addons --version=v2024.5.3
+$ helm upgrade -i ace-ocm-addons appscode/ace-ocm-addons -n open-cluster-management --create-namespace --version=v2024.5.3
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys charts for ACE OCM Addons on a [Kubernetes](http://kubernetes
 To install/upgrade the chart with the release name `ace-ocm-addons`:
 
 ```bash
-$ helm upgrade -i ace-ocm-addons appscode/ace-ocm-addons -n open-cluster-management --create-namespace --version=v2024.4.2
+$ helm upgrade -i ace-ocm-addons appscode/ace-ocm-addons -n open-cluster-management --create-namespace --version=v2024.5.3
 ```
 
 The command deploys charts for ACE OCM Addons on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -64,7 +64,7 @@ The following table lists the configurable parameters of the `ace-ocm-addons` ch
 | helm.releases.kube-ui-server.enabled      |                                 | <code>true</code>                                  |
 | helm.releases.kube-ui-server.version      |                                 | <code>"v2023.12.20"</code>                         |
 | helm.releases.opscenter-features.enabled  |                                 | <code>true</code>                                  |
-| helm.releases.opscenter-features.version  |                                 | <code>"v2024.4.2"</code>                           |
+| helm.releases.opscenter-features.version  |                                 | <code>"v2024.5.3"</code>                           |
 | kubeconfigSecretName                      | ocm values                      | <code>""</code>                                    |
 | addonManagerNamespace                     |                                 | <code>open-cluster-management-addon</code>         |
 | placement.create                          |                                 | <code>true</code>                                  |
@@ -75,12 +75,12 @@ The following table lists the configurable parameters of the `ace-ocm-addons` ch
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i ace-ocm-addons appscode/ace-ocm-addons -n open-cluster-management --create-namespace --version=v2024.4.2 --set image.proxies.appscode=r.appscode.com
+$ helm upgrade -i ace-ocm-addons appscode/ace-ocm-addons -n open-cluster-management --create-namespace --version=v2024.5.3 --set image.proxies.appscode=r.appscode.com
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i ace-ocm-addons appscode/ace-ocm-addons -n open-cluster-management --create-namespace --version=v2024.4.2 --values values.yaml
+$ helm upgrade -i ace-ocm-addons appscode/ace-ocm-addons -n open-cluster-management --create-namespace --version=v2024.5.3 --values values.yaml
 ```
