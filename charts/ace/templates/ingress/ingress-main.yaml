@@ -95,18 +95,6 @@ spec:
         path: /
         pathType: Prefix
 {{- end }}
-{{- if (index .Values "inbox-ui" "enabled") }}
-  - host: inbox.{{ .Values.global.platform.domain }}
-    http:
-      paths:
-      - backend:
-          service:
-            name: {{ include "ace.fullname" . }}-inbox-ui
-            port:
-              number: 80
-        path: /
-        pathType: Prefix
-{{- end }}
 {{- if .Values.grafana.enabled }}
   - host: grafana.{{ .Values.global.platform.domain }}
     http:
@@ -187,9 +175,6 @@ spec:
   {{- end }}
   {{- if (index .Values "deploy-ui" "enabled") }}
     - 'deploy.{{ .Values.global.platform.domain }}'
-  {{- end }}
-  {{- if (index .Values "inbox-ui" "enabled") }}
-    - 'inbox.{{ .Values.global.platform.domain }}'
   {{- end }}
   {{- if .Values.grafana.enabled }}
     - 'grafana.{{ .Values.global.platform.domain }}'

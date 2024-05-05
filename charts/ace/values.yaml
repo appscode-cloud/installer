@@ -32,9 +32,6 @@ platform-api:
 platform-links:
   enabled: false
 
-inbox-ui:
-  enabled: false
-
 ingress-nginx:
   enabled: false
   # controller:

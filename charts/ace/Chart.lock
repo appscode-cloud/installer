@@ -23,9 +23,6 @@ dependencies:
 - name: platform-links
   repository: file://../platform-links
   version: v2024.5.3
-- name: inbox-ui
-  repository: file://../inbox-ui
-  version: v2024.5.3
 - name: billing
   repository: file://../billing
   version: v2024.5.3
