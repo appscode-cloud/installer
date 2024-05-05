@@ -10,6 +10,10 @@
 {{ $targetIPs := dig "releases" "ace" "values" "global" "infra" "dns" "targetIPs" list $.Values.helm }}
 {{ if $targetIPs }}
 {{ $hrs := printf `
+inbox-server:
+  values:
+    dns:
+      targetIPs: %v
 inbox-ui:
   values:
     ingress:
@@ -21,6 +25,7 @@ service-backend:
       dns:
         targetIPs: %v
 `
+  ($targetIPs | toJson)
   ($targetIPs | toJson)
   ($targetIPs | toJson)
   | fromYaml }}
