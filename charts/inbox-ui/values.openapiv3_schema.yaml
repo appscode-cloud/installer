@@ -443,6 +443,66 @@ properties:
     items:
       type: string
     type: array
+  ingress:
+    properties:
+      annotations:
+        additionalProperties:
+          type: string
+        type: object
+      className:
+        type: string
+      dns:
+        properties:
+          targetIPs:
+            items:
+              type: string
+            type: array
+        type: object
+      enabled:
+        type: boolean
+      hosts:
+        items:
+          properties:
+            host:
+              type: string
+            paths:
+              items:
+                properties:
+                  path:
+                    type: string
+                  pathType:
+                    type: string
+                required:
+                - path
+                - pathType
+                type: object
+              type: array
+          required:
+          - host
+          - paths
+          type: object
+        type: array
+      tls:
+        items:
+          properties:
+            hosts:
+              items:
+                type: string
+              type: array
+            secretName:
+              type: string
+          required:
+          - hosts
+          - secretName
+          type: object
+        type: array
+    required:
+    - annotations
+    - className
+    - enabled
+    - hosts
+    - tls
+    type: object
   nameOverride:
     type: string
   nodeSelector:
@@ -649,6 +709,7 @@ properties:
 required:
 - autoscaling
 - image
+- ingress
 - replicaCount
 - service
 - serviceAccount
