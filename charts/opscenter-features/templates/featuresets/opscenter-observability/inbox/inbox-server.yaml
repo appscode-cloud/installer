@@ -57,6 +57,9 @@ spec:
     namespace: monitoring
     createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "inbox-server" "version" "" $.Values.helm.releases }}
+    valuesFiles:
+    - values.yaml
+    - secrets.sample.yaml
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci
