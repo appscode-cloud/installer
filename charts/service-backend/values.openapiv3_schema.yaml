@@ -421,13 +421,6 @@ properties:
     - maxReplicas
     - minReplicas
     type: object
-  dns:
-    properties:
-      targetIPs:
-        items:
-          type: string
-        type: array
-    type: object
   fullnameOverride:
     type: string
   image:
@@ -458,6 +451,13 @@ properties:
         type: object
       className:
         type: string
+      dns:
+        properties:
+          targetIPs:
+            items:
+              type: string
+            type: array
+        type: object
       enabled:
         type: boolean
       hosts:
