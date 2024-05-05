@@ -81,7 +81,7 @@ type ServiceBackendSpec struct {
 type PlatformIngress struct {
 	AppIngress `json:",inline,omitempty"`
 	// +optional
-	DNS ServiceBackendDns `json:"dns"`
+	DNS AppIngressDns `json:"dns"`
 }
 
 type ServerConfig struct {
@@ -105,7 +105,7 @@ type Cookie struct {
 	EncryptionKey string `json:"encryptionKey"`
 }
 
-type ServiceBackendDns struct {
+type AppIngressDns struct {
 	// +optional
 	TargetIPs []string `json:"targetIPs"`
 }
