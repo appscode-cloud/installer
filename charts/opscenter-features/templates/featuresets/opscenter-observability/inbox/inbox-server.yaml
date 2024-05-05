@@ -1,6 +1,31 @@
-{{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
+{{ $overrides := printf `
+james:
+  image: %s:distributed-3.8.0
+cassandra:
+  image:
+    repository: %s
+opensearch:
+  image:
+    repository: %s
+rabbitmq:
+  image:
+    repository: %s
+s3:
+  image:
+    repository: %s
+tika:
+  image:
+    repository: %s
+`
+  (include "image.dockerHub" (merge (dict "_repo" "apache/james") $))
+  (include "image.dockerLibrary" (merge (dict "_repo" "cassandra") $))
+  (include "image.dockerHub" (merge (dict "_repo" "opensearchproject/opensearch") $))
+  (include "image.dockerLibrary" (merge (dict "_repo" "rabbitmq") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode/cloudserver") $))
+  (include "image.dockerHub" (merge (dict "_repo" "apache/tika") $))
+  | fromYaml }}
 
-{{ $vals := dict }}
+{{ $vals := dig "inbox-server" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
