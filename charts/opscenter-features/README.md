@@ -144,6 +144,9 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.license-proxyserver-manager.version           |                                 | <code>"v2024.2.25"</code>                  |
 | helm.releases.spoke-cluster-proxy.version                   |                                 | <code>"v2024.2.25"</code>                  |
 | helm.releases.vcluster.version                              |                                 | <code>"0.19.4"</code>                      |
+| helm.releases.inbox-server.version                          |                                 | <code>"v2024.5.3"</code>                   |
+| helm.releases.inbox-agent.version                           |                                 | <code>"v2024.5.3"</code>                   |
+| helm.releases.inbox-ui.version                              |                                 | <code>"v2024.5.3"</code>                   |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
