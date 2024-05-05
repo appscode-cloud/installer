@@ -17,7 +17,7 @@ spec:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
   featureSet: opscenter-observability
-  featureBlock: inbox-ui
+  featureBlock: inbox-server
   recommended: false
   readinessChecks:
     workloads:
