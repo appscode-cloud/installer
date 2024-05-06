@@ -1,6 +1,6 @@
 {{ $overrides := printf `
 james:
-  image: %s:distributed-3.8.0
+  image: %s:latest
 cassandra:
   image:
     repository: %s
@@ -17,7 +17,7 @@ tika:
   image:
     repository: %s
 `
-  (include "image.dockerHub" (merge (dict "_repo" "apache/james") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode/inbox-server") $))
   (include "image.dockerLibrary" (merge (dict "_repo" "cassandra") $))
   (include "image.dockerHub" (merge (dict "_repo" "opensearchproject/opensearch") $))
   (include "image.dockerLibrary" (merge (dict "_repo" "rabbitmq") $))
