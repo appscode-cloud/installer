@@ -229,7 +229,7 @@ settings:
     auth:
       username: postgres
       password: "xyz"
-    logSql: false
+    logSQL: false
   cache:
     version: "6.2.14"
     cacheInterval: 60

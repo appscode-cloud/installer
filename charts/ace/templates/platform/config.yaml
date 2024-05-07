@@ -54,7 +54,7 @@ stringData:
     NAME = {{ .Values.settings.db.databaseName }}
     USER = {{ .Values.settings.db.auth.username }}
     PASSWD = {{ .Values.settings.db.auth.password }}
-    LOG_SQL = {{ .Values.settings.db.logSql }}
+    LOG_SQL = {{ .Values.settings.db.logSQL }}
 
     [session]
     DOMAIN = {{ .Values.global.platform.domain }}

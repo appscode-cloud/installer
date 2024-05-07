@@ -19020,7 +19020,7 @@ properties:
             type: object
           databaseName:
             type: string
-          logSql:
+          logSQL:
             type: boolean
           persistence:
             properties:
@@ -19071,7 +19071,7 @@ properties:
         required:
         - auth
         - databaseName
-        - logSql
+        - logSQL
         - persistence
         - resources
         - terminationPolicy
