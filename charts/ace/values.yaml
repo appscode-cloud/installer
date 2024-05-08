@@ -267,13 +267,12 @@ settings:
     systemUserCreds: 'xyz'
     adminCreds: 'xyz'
     adminUserCreds: 'xyz'
-  platform:
-    ######## settings___oiginal:
-    appName: 'ACE: Kubernetes Native Data Platform'
-    ## Either "dev", "prod" or "test".
-    runMode: 'prod'
 
-    experimentalFeatures: false
+  ######## settings___oiginal:
+  platform:
+    appName: 'ACE: Cloud Native Data Platform'
+    # one of "GA", "BETA", "ALPHA"
+    runMode: 'GA'
 
     ## Force every new repository to be private.
     ##
