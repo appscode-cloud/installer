@@ -448,13 +448,14 @@ type NatsSettings struct {
 	AdminUserCreds  string `json:"adminUserCreds"`
 }
 
-// +kubebuilder:validation:Enum=ALPHA;BETA;GA
+// +kubebuilder:validation:Enum=DEV;ALPHA;BETA;GA
 type RunMode string
 
 const (
-	Alpha RunMode = "ALPHA"
-	Beta  RunMode = "BETA"
-	GA    RunMode = "GA"
+	RunModeDev   RunMode = "DEV"
+	RunModeAlpha RunMode = "ALPHA"
+	RunModeBeta  RunMode = "BETA"
+	RunModeGA    RunMode = "GA"
 )
 
 type PlatformSettings struct {

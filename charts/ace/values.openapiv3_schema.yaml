@@ -19169,6 +19169,7 @@ properties:
             type: integer
           runMode:
             enum:
+            - DEV
             - ALPHA
             - BETA
             - GA

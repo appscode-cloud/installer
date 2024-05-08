@@ -271,7 +271,7 @@ settings:
   ######## settings___oiginal:
   platform:
     appName: 'ACE: Cloud Native Data Platform'
-    # one of "GA", "BETA", "ALPHA"
+    # one of "GA", "BETA", "ALPHA", "DEV"
     runMode: 'GA'
 
     ## Force every new repository to be private.
