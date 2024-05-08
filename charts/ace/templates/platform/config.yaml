@@ -8,13 +8,8 @@ metadata:
 stringData:
   app.ini: |-
     APP_NAME = {{ .Values.settings.platform.appName }}
-
     RUN_MODE = {{ .Values.settings.platform.runMode }}
-
-    EXPERIMENTAL_FEATURES = {{ .Values.settings.platform.experimentalFeatures }}
-
     DOMAIN   = {{ .Values.global.platform.domain }}
-
     HOSTED   = {{ eq .Values.global.platform.deploymentType "Hosted" }}
 
 {{- if not (eq .Values.global.platform.deploymentType "Hosted") }}

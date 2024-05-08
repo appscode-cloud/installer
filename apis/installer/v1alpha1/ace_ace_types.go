@@ -448,10 +448,18 @@ type NatsSettings struct {
 	AdminUserCreds  string `json:"adminUserCreds"`
 }
 
+// +kubebuilder:validation:Enum=ALPHA;BETA;GA
+type RunMode string
+
+const (
+	Alpha RunMode = "ALPHA"
+	Beta  RunMode = "BETA"
+	GA    RunMode = "GA"
+)
+
 type PlatformSettings struct {
 	AppName                         string   `json:"appName"`
-	RunMode                         string   `json:"runMode"`
-	ExperimentalFeatures            bool     `json:"experimentalFeatures"`
+	RunMode                         RunMode  `json:"runMode"`
 	ForcePrivate                    bool     `json:"forcePrivate"`
 	DisableHttpGit                  bool     `json:"disableHttpGit"`
 	InstallLock                     bool     `json:"installLock"`

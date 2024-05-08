@@ -19145,8 +19145,6 @@ properties:
             type: boolean
           enableCSRFCookieHttpOnly:
             type: boolean
-          experimentalFeatures:
-            type: boolean
           forcePrivate:
             type: boolean
           installLock:
@@ -19170,6 +19168,10 @@ properties:
           repositoryUploadMaxFiles:
             type: integer
           runMode:
+            enum:
+            - ALPHA
+            - BETA
+            - GA
             type: string
           serverLandingPage:
             type: string
@@ -19194,7 +19196,6 @@ properties:
         - cookieUsername
         - disableHttpGit
         - enableCSRFCookieHttpOnly
-        - experimentalFeatures
         - forcePrivate
         - installLock
         - logLevel
