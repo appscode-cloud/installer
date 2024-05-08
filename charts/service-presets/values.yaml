@@ -9,7 +9,7 @@ fullnameOverride: ""
 
 infra:
   clusterName: "c1"
-  gatewayDomain: chart-example.local
+  domain: chart-example.local
   tls:
     issuer: "ca" # ca,letsencrypt,letsencrypt-staging
     ca:

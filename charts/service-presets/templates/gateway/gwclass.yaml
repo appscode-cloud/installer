@@ -27,4 +27,4 @@ spec:
           #   runAsUser: 1000
       envoyService:
         annotations:
-          external-dns.alpha.kubernetes.io/hostname: "{{ .Values.infra.clusterName }}.{{ .Values.infra.gatewayDomain }}"
+          external-dns.alpha.kubernetes.io/hostname: "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.clusterName }}"
