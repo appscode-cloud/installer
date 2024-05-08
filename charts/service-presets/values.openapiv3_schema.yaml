@@ -307,7 +307,7 @@ properties:
         - auth
         - provider
         type: object
-      gatewayDomain:
+      domain:
         type: string
       tls:
         properties:
@@ -348,7 +348,7 @@ properties:
     required:
     - clusterName
     - dns
-    - gatewayDomain
+    - domain
     - tls
     type: object
   nameOverride:

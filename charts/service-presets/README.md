@@ -50,7 +50,7 @@ The following table lists the configurable parameters of the `service-presets` c
 | nameOverride               | Overrides name template                 | <code>""</code>                                                |
 | fullnameOverride           | Overrides fullname template             | <code>""</code>                                                |
 | infra.clusterName          |                                         | <code>"c1"</code>                                              |
-| infra.gatewayDomain        |                                         | <code>chart-example.local</code>                               |
+| infra.domain               |                                         | <code>chart-example.local</code>                               |
 | infra.tls.issuer           |                                         | <code>"ca" # ca,letsencrypt,letsencrypt-staging</code>         |
 | infra.tls.ca.cert          |                                         | <code>""</code>                                                |
 | infra.tls.ca.key           |                                         | <code>""</code>                                                |

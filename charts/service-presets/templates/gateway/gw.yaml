@@ -87,7 +87,7 @@ spec:
   parentRefs:
     - name: backend
   hostnames:
-    - "{{ .Values.infra.clusterName }}.{{ .Values.infra.gatewayDomain }}"
+    - "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.clusterName }}"
   rules:
     - backendRefs:
         - group: ""
