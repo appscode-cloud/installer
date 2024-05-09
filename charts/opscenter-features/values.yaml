@@ -93,7 +93,7 @@ helm:
     gateway-api:
       version: "v1.0.0"
     grafana-operator:
-      version: "v0.0.5"
+      version: "v0.0.6"
     keda:
       version: "2.13.1"
     keda-add-ons-http:
@@ -127,7 +127,7 @@ helm:
     metrics-server:
       version: "3.11.0"
     monitoring-operator:
-      version: "v0.0.5"
+      version: "v0.0.6"
     opencost:
       version: "1.18.1"
     opencost-grafana-dashboards:
