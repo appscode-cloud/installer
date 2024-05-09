@@ -10,26 +10,42 @@
 {{ $targetIPs := dig "releases" "ace" "values" "global" "infra" "dns" "targetIPs" list $.Values.helm }}
 {{ if $targetIPs }}
 {{ $hrs := printf `
-inbox-server:
-  values:
-    dns:
-      targetIPs: %v
-inbox-ui:
-  values:
-    ingress:
-      dns:
-        targetIPs: %v
-service-backend:
-  values:
-    ingress:
-      dns:
-        targetIPs: %v
+helm:
+  releases:
+    inbox-server:
+      values:
+        dns:
+          targetIPs: %v
+    inbox-ui:
+      values:
+        ingress:
+          dns:
+            targetIPs: %v
+    service-backend:
+      values:
+        ingress:
+          dns:
+            targetIPs: %v
 `
   ($targetIPs | toJson)
   ($targetIPs | toJson)
   ($targetIPs | toJson)
   | fromYaml }}
-{{ $_ := set $overrides.helm "releases" $hrs }}
+{{ $overrides = mergeOverwrite $overrides $hrs }}
+{{ end }}
+
+{{ $platformCA := dig "releases" "ace" "values" "global" "infra" "tls" "ca" "cert" "" $.Values.helm }}
+{{ if $platformCA }}
+{{ $mop := printf `
+helm:
+  releases:
+    monitoring-operator:
+      values:
+        platform: %v
+`
+  (dict "caBundle" $platformCA | toJson)
+  | fromYaml }}
+{{ $overrides = mergeOverwrite $overrides $mop }}
 {{ end }}
 
 {{ $vals := dig "values" dict . }}
