@@ -23,6 +23,8 @@ done
 
 echo "uninstall ace chart"
 helm uninstall ace -n ace
+echo "deleting ace jobs"
+kubectl delete jobs -n ace ace-openfga-migrate ace-setup || true
 # wait for pods to teminate
 while [[ $(kubectl get pods -n ace -l lapp.kubernetes.io/instance=ace -o=name | wc -l) -gt 0 ]]; do
     sleep 1
