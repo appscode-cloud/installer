@@ -67,7 +67,7 @@ spec:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
   featureSet: opscenter-observability
-  featureBlock: kube-prometheus-stack
+  featureBlock: metrics-server
   recommended: true
   requirements:
     features:
