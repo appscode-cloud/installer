@@ -29,6 +29,8 @@ while [[ $(kubectl get pods -n ace -l lapp.kubernetes.io/instance=ace -o=name | 
 done
 # force delete
 kubectl delete pods -n ace -l lapp.kubernetes.io/instance=ace --force --grace-period=0
+echo "deleting nats pvcs"
+kubectl delete pvc -n ace ace-nats-js-pvc-ace-nats-0 nats-jwt-pvc-ace-nats-0 || true
 
 echo "deleting cached helm charts"
 kubectl delete helmcharts.source.toolkit.fluxcd.io -n kubeops --all
@@ -75,3 +77,7 @@ for x in $(kubectl get features.ui.k8s.appscode.com -o name); do
 done
 # delete features
 kubectl delete features.ui.k8s.appscode.com --all
+
+# restart fluxcd controllers
+kubectl scale deploy/helm-controller -n flux-system --replicas=1
+kubectl scale deploy/source-controller -n flux-system --replicas=1
