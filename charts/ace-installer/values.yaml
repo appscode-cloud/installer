@@ -73,6 +73,9 @@ helm:
     docker-machine-operator:
       enabled: true
       version: "v2023.10.18"
+    capi-catalog:
+      enabled: true
+      version: "v2024.5.14"
     external-dns-operator:
       enabled: true
       version: "v2024.4.19"
