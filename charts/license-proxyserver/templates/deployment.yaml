@@ -47,9 +47,7 @@ spec:
         - --baseURL={{ .Values.platform.baseURL }}
         - --token=$(PLATFORM_API_TOKEN)
         {{- end }}
-        {{- if (or .Values.licenses .Values.encodedLicenses .Values.hubKubeconfigSecretName) }}
         - --license-dir=/var/run/secrets/appscode/license
-        {{- end }}
         {{- if .Values.hubKubeconfigSecretName }}
         - --hub-kubeconfig=/var/run/secrets/ocm/auth/kubeconfig
         {{- end }}
@@ -93,10 +91,8 @@ spec:
           name: cache-dir
         - mountPath: /var/serving-cert
           name: serving-cert
-        {{- if (or .Values.licenses .Values.encodedLicenses .Values.hubKubeconfigSecretName) }}
         - mountPath: /var/run/secrets/appscode/license
           name: licenses
-        {{- end }}
         {{- if .Values.hubKubeconfigSecretName }}
         - mountPath: /var/run/secrets/ocm/auth
           name: ocm-auth
@@ -108,13 +104,11 @@ spec:
         secret:
           defaultMode: 420
           secretName: {{ include "license-proxyserver.fullname" . }}-apiserver-cert
-      {{- if (or .Values.licenses .Values.encodedLicenses .Values.hubKubeconfigSecretName) }}
       - name: licenses
         secret:
           defaultMode: 420
           secretName: {{ include "license-proxyserver.fullname" . }}-licenses
           optional: true
-      {{- end }}
       {{- if .Values.hubKubeconfigSecretName }}
       - name: ocm-auth
         secret:
