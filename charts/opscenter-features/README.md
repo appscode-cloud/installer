@@ -69,6 +69,9 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.aws-ebs-csi-driver.version                    |                                 | <code>"2.23.0"</code>                      |
 | helm.releases.capa-vpc-peering-operator.version             |                                 | <code>"v2023.12.11"</code>                 |
 | helm.releases.capi-cluster-presets.version                  |                                 | <code>"v2023.11.14"</code>                 |
+| helm.releases.capi-catalog.version                          |                                 | <code>"v2024.5.14"</code>                  |
+| helm.releases.capi-ops-manager.version                      |                                 | <code>"v2024.5.14"</code>                  |
+| helm.releases.docker-machine-operator.version               |                                 | <code>"v2023.10.18"</code>                 |
 | helm.releases.catalog-manager.version                       |                                 | <code>"v2024.2.11"</code>                  |
 | helm.releases.cert-manager.version                          |                                 | <code>"v1.14.1"</code>                     |
 | helm.releases.cert-manager-csi-driver-cacerts.version       |                                 | <code>"v2023.10.1"</code>                  |

@@ -1,0 +1,42 @@
+{{ $overrides := dict }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: capi-catalog
+  labels:
+    app.kubernetes.io/part-of: capi-core
+spec:
+  title: CAPI Catalog
+  description: |
+    CAPI Catalog
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: capi-core
+  featureBlock: capi-catalog
+  recommended: false
+  readinessChecks:
+    workloads:
+      - group: catalog.klusters.dev
+        version: v1alpha1
+        kind: CapiVersion
+        selector:
+          app.kubernetes.io/instance: capi-catalog
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: capi-catalog
+  chart:
+    name: capi-catalog
+    namespace: capi-cluster
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "capi-catalog" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

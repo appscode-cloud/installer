@@ -1,0 +1,46 @@
+{{- with (index .Values "helm" "releases" "capi-catalog") }}
+{{- if .enabled }}
+
+{{ $overrides := dict }}
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: capi-catalog
+  namespace: {{ $.Release.Namespace }}
+spec:
+  interval: 5m
+  timeout: 30m
+  releaseName: capi-catalog
+  targetNamespace: capi-cluster
+  storageNamespace: capi-cluster
+  install:
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    # crds: CreateReplace
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
+  dependsOn:
+  - name: opscenter-features
+    namespace: {{ $.Release.Namespace }}
+  chart:
+    spec:
+      chart: capi-catalog
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: appscode-charts-oci
+        namespace: {{ $.Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}
