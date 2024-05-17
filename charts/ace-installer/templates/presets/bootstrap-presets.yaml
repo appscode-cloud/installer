@@ -53,6 +53,39 @@ opscenter-features:
 {{ $helmreleases = mergeOverwrite $helmreleases $overrides }}
 {{- end }}
 
+{{ $spokeClusterAddons := printf `
+spoke-cluster-addons:
+  version: %q
+  values:
+    kubectl:
+      image: %s
+`
+  (dig "spoke-cluster-addons" "version" .Chart.AppVersion $.Values.helm.releases)
+  (include "kubectl.image" $)
+  | fromYaml }}
+{{ $helmreleases = mergeOverwrite $helmreleases $spokeClusterAddons }}
+
+{{ $vcluster := printf `
+vcluster:
+  version: %q
+  values:
+    vcluster:
+      image: "%s:v1.29.0-k3s1"
+    sync:
+      # persistentvolumes:
+      #   enabled: true
+      # If you want to create custom storage classes
+      # inside the vcluster.
+      hoststorageclasses:
+        enabled: true
+    telemetry:
+      disabled: "true"
+`
+  (dig "vcluster" "version" .Chart.AppVersion $.Values.helm.releases)
+  (include "image.dockerLibrary" (merge (dict "_repo" "rancher/k3s") $))
+  | fromYaml }}
+{{ $helmreleases = mergeOverwrite $helmreleases $vcluster }}
+
 {{ $_ := set $vals.helm "releases" $helmreleases }}
 
 apiVersion: charts.x-helm.dev/v1alpha1

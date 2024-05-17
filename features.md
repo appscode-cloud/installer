@@ -84,6 +84,4 @@ graph TD;
   service-presets-->external-dns-operator;
   service-presets-->kubevault;
   service-presets-->service-gateway;
-  vcluster-spoke-->vcluster;
-  vcluster-proxy-->vcluster-spoke;
 ```
