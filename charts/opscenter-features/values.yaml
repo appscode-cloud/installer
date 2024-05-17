@@ -121,7 +121,7 @@ helm:
     kubevault-opscenter:
       version: "v2024.1.31"
     license-proxyserver:
-      version: "v2024.2.25"
+      version: "v2024.5.17"
     longhorn:
       version: "1.6.1"
     metrics-server:

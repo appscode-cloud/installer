@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/license-proxyserver --version=v2024.2.25
-$ helm upgrade -i license-proxyserver appscode/license-proxyserver -n kubeops --create-namespace --version=v2024.2.25
+$ helm search repo appscode/license-proxyserver --version=v2024.5.17
+$ helm upgrade -i license-proxyserver appscode/license-proxyserver -n kubeops --create-namespace --version=v2024.5.17
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys a Kubernetes license proxyserver on a [Kubernetes](http://kub
 To install/upgrade the chart with the release name `license-proxyserver`:
 
 ```bash
-$ helm upgrade -i license-proxyserver appscode/license-proxyserver -n kubeops --create-namespace --version=v2024.2.25
+$ helm upgrade -i license-proxyserver appscode/license-proxyserver -n kubeops --create-namespace --version=v2024.5.17
 ```
 
 The command deploys a Kubernetes license proxyserver on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -89,12 +89,12 @@ The following table lists the configurable parameters of the `license-proxyserve
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i license-proxyserver appscode/license-proxyserver -n kubeops --create-namespace --version=v2024.2.25 --set replicaCount=1
+$ helm upgrade -i license-proxyserver appscode/license-proxyserver -n kubeops --create-namespace --version=v2024.5.17 --set replicaCount=1
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i license-proxyserver appscode/license-proxyserver -n kubeops --create-namespace --version=v2024.2.25 --values values.yaml
+$ helm upgrade -i license-proxyserver appscode/license-proxyserver -n kubeops --create-namespace --version=v2024.5.17 --values values.yaml
 ```
