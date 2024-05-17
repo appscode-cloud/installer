@@ -218,8 +218,8 @@ helm:
       version: "v2024.2.25"
 
     inbox-server:
-      version: "v2024.5.17"
+      version: "v2024.5.3"
     inbox-agent:
-      version: "v2024.5.17"
+      version: "v2024.5.3"
     inbox-ui:
-      version: "v2024.5.17"
+      version: "v2024.5.3"
