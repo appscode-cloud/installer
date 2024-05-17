@@ -210,10 +210,6 @@ helm:
       version: "v2024.2.25"
     license-proxyserver-manager:
       version: "v2024.2.25"
-    spoke-cluster-proxy:
-      version: "v2024.2.25"
-    vcluster:
-      version: "0.19.4"
 
     inbox-server:
       version: "v2024.5.3"

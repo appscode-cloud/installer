@@ -103,3 +103,7 @@ Image Templates
 {{- define "image.appscode" -}}
 {{ list .Values.image.proxies.appscode ._repo | compact | join "/" }}
 {{- end }}
+
+{{- define "kubectl.image" -}}
+{{ list .Values.image.proxies.ghcr "appscode/kubectl-nonroot:1.25" | compact | join "/" }}
+{{- end }}
