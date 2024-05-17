@@ -151,6 +151,15 @@ helm:
       enabled: false
       version: "v2024.5.3"
 
+    # feature less chart versions
+    spoke-cluster-addons:
+      enabled: false
+      version: "v2024.5.17"
+    vcluster:
+      enabled: false
+      version: "0.19.5"
+
+
 # controls the self management of the ace cluster
 selfManagement:
   import: true
