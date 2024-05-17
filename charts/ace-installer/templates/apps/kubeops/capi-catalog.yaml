@@ -1,7 +1,7 @@
 {{- with (index .Values "helm" "releases" "capi-catalog") }}
 {{- if .enabled }}
 
-{{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
+{{ $overrides := dict }}
 
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $vals $overrides }}
@@ -15,8 +15,8 @@ spec:
   interval: 5m
   timeout: 30m
   releaseName: capi-catalog
-  targetNamespace: kubeops
-  storageNamespace: kubeops
+  targetNamespace: capi-cluster
+  storageNamespace: capi-cluster
   install:
     createNamespace: {{ $.Values.helm.createNamespace }}
     # crds: CreateReplace
