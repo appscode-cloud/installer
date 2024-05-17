@@ -52,10 +52,10 @@ helm:
   releases:
     ace:
       enabled: false
-      version: "v2024.5.3"
+      version: "v2024.5.17"
     ace-ocm-addons:
       enabled: true
-      version: "v2024.5.3"
+      version: "v2024.5.17"
     cert-manager:
       enabled: true
       version: "v1.14.1"
@@ -133,7 +133,7 @@ helm:
       version: "v0.0.7"
     opscenter-features:
       enabled: true
-      version: "v2024.5.3"
+      version: "v2024.5.17"
     panopticon:
       enabled: true
       version: "v2024.5.15"
@@ -152,7 +152,7 @@ helm:
       version: "1.0.79"
     stash-presets:
       enabled: false
-      version: "v2024.5.3"
+      version: "v2024.5.17"
 
     # feature less chart versions
     spoke-cluster-addons:
