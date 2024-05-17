@@ -1,4 +1,3 @@
-{{- if (or .Values.licenses .Values.encodedLicenses) }}
 apiVersion: v1
 kind: Secret
 metadata:
@@ -13,5 +12,4 @@ data:
 {{- end }}
 {{- range $k, $v := .Values.encodedLicenses }}
   e_{{ $k }}: {{ $v | quote }}
-{{- end }}
 {{- end }}
