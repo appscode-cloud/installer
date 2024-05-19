@@ -56,7 +56,7 @@ spec:
           "bootstrap" (index .Values.helm "repositories" "appscode-charts-oci")
         }}
         {{ range $name, $cfg := $helmrepos }}
-        - apiVersion: source.toolkit.fluxcd.io/v1beta2
+        - apiVersion: source.toolkit.fluxcd.io/v1
           kind: HelmRepository
           metadata:
             name: {{ $name }}
@@ -112,7 +112,7 @@ spec:
 
         {{ $vals := (omit $.Values "nameOverride" "fullnameOverride" "clusterMetadata" "kubeconfigSecretName" "addonManagerNamespace" "placement" "kubectl") }}
 
-        - apiVersion: helm.toolkit.fluxcd.io/v2beta2
+        - apiVersion: helm.toolkit.fluxcd.io/v2
           kind: HelmRelease
           metadata:
             name: opscenter-features
@@ -156,7 +156,7 @@ spec:
         {{ $vals := dig "values" dict . }}
         {{ $vals = mergeOverwrite $vals $overrides }}
 
-        - apiVersion: helm.toolkit.fluxcd.io/v2beta2
+        - apiVersion: helm.toolkit.fluxcd.io/v2
           kind: HelmRelease
           metadata:
             name: kube-ui-server
