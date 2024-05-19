@@ -109,7 +109,7 @@ helm:
     kube-prometheus-stack:
       version: "52.1.0"
     kube-ui-server:
-      version: "v2024.5.15"
+      version: "v2024.5.17"
     kubedb:
       version: "v2024.4.27"
     kubedb-opscenter:
@@ -213,7 +213,7 @@ helm:
     cluster-auth-manager:
       version: "v2024.2.25"
     fluxcd-manager:
-      version: "v2024.2.25"
+      version: "v2024.5.17"
     license-proxyserver-manager:
       version: "v2024.2.25"
 
