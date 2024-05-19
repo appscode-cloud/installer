@@ -89,7 +89,7 @@ helm:
     falco-ui-server:
       version: "v2024.2.5"
     flux2:
-      version: "2.12.2"
+      version: "2.13.0"
     gatekeeper:
       version: "3.13.3"
     gatekeeper-grafana-dashboards:
