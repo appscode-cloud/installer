@@ -92,7 +92,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.keda-add-ons-http.version                     |                                 | <code>"0.7.0"</code>                       |
 | helm.releases.kube-grafana-dashboards.version               |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.kube-prometheus-stack.version                 |                                 | <code>"52.1.0"</code>                      |
-| helm.releases.kube-ui-server.version                        |                                 | <code>"v2024.5.15"</code>                  |
+| helm.releases.kube-ui-server.version                        |                                 | <code>"v2024.5.17"</code>                  |
 | helm.releases.kubedb.version                                |                                 | <code>"v2024.4.27"</code>                  |
 | helm.releases.kubedb-opscenter.version                      |                                 | <code>"v2024.4.27"</code>                  |
 | helm.releases.kubedb-provider-aws.version                   |                                 | <code>"v2024.1.31"</code>                  |
@@ -143,7 +143,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.cluster-proxy-manager.version                 |                                 | <code>"v2024.2.25"</code>                  |
 | helm.releases.cluster-gateway-manager.version               |                                 | <code>"v2024.2.25"</code>                  |
 | helm.releases.cluster-auth-manager.version                  |                                 | <code>"v2024.2.25"</code>                  |
-| helm.releases.fluxcd-manager.version                        |                                 | <code>"v2024.2.25"</code>                  |
+| helm.releases.fluxcd-manager.version                        |                                 | <code>"v2024.5.17"</code>                  |
 | helm.releases.license-proxyserver-manager.version           |                                 | <code>"v2024.2.25"</code>                  |
 | helm.releases.inbox-server.version                          |                                 | <code>"v2024.5.3"</code>                   |
 | helm.releases.inbox-agent.version                           |                                 | <code>"v2024.5.3"</code>                   |
