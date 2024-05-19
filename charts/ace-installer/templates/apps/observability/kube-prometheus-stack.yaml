@@ -95,7 +95,7 @@ grafana:
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $vals $alertmanager $prometheusOperator $prometheus $thanosRuler $ksm $node $grafana }}
 
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: kube-prometheus-stack

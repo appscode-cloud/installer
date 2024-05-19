@@ -9,7 +9,7 @@ global:
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: kubedb-opscenter
