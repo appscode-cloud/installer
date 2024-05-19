@@ -71,17 +71,17 @@ helm:
       enabled: true
       version: "v2023.11.14"
     docker-machine-operator:
-      enabled: true
+      enabled: false
       version: "v2023.10.18"
     capi-catalog:
-      enabled: true
+      enabled: false
       version: "v2024.5.14"
     external-dns-operator:
       enabled: true
       version: "v2024.4.19"
     flux2:
       enabled: false
-      version: "2.12.2"
+      version: "2.13.0"
     gateway-api:
       enabled: true
       version: "v1.0.0"
@@ -96,7 +96,7 @@ helm:
       version: "52.1.0"
     kube-ui-server:
       enabled: true
-      version: "v2024.5.15"
+      version: "v2024.5.17"
     kubedb:
       enabled: true
       version: "v2024.4.27"
@@ -121,7 +121,7 @@ helm:
           enabled: false
     kubedb-opscenter:
       enabled: false
-      version: "v2024.3.16"
+      version: "v2024.4.27"
     kubestash:
       enabled: true
       version: "v2024.4.27"

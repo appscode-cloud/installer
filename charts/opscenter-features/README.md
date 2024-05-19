@@ -82,7 +82,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.external-dns-operator.version                 |                                 | <code>"v2024.4.19"</code>                  |
 | helm.releases.falco.version                                 |                                 | <code>"4.0.0"</code>                       |
 | helm.releases.falco-ui-server.version                       |                                 | <code>"v2024.2.5"</code>                   |
-| helm.releases.flux2.version                                 |                                 | <code>"2.12.2"</code>                      |
+| helm.releases.flux2.version                                 |                                 | <code>"2.13.0"</code>                      |
 | helm.releases.gatekeeper.version                            |                                 | <code>"3.13.3"</code>                      |
 | helm.releases.gatekeeper-grafana-dashboards.version         |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.gatekeeper-library.version                    |                                 | <code>"v2023.10.1"</code>                  |
