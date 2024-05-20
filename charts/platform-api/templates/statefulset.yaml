@@ -104,6 +104,8 @@ spec:
             - name: B3_CONFIG_SECRET_NAME
               value: {{ include "settings.platformConfigSecretName" . }}
           volumeMounts:
+            - name: maxmind-mmdb
+              mountPath: /data/b3/maxmind-geoip
             - name: tmp
               mountPath: /tmp
             - name: data
@@ -125,7 +127,16 @@ spec:
             - name: cacerts
               mountPath: /etc/ssl/certs
             {{- end }}
+      initContainers:
+        - name: maxmind-mmdb
+          image: "{{ include "image.registry" . }}/maxmind-geoip:city-mmdb-latest"
+          command: [ "sh", "-c", "cp /GeoLite2-City.mmdb /data/b3/maxmind-geoip/GeoLite2-City.mmdb" ]
+          volumeMounts:
+            - name: maxmind-mmdb
+              mountPath: /data/b3/maxmind-geoip
       volumes:
+        - name: maxmind-mmdb
+          emptyDir: {}
         - name: tmp
           emptyDir: {}
         {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
