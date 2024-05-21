@@ -231,7 +231,7 @@ settings:
       password: "xyz"
     logSQL: false
   cache:
-    version: "6.2.14"
+    version: "7.2.4"
     cacheInterval: 60
     persistence:
       size: 10Gi
