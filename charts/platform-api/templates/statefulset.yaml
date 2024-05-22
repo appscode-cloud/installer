@@ -103,6 +103,8 @@ spec:
           {{- end }}
             - name: B3_CONFIG_SECRET_NAME
               value: {{ include "settings.platformConfigSecretName" . }}
+            - name: GEO_LOCATION_DB_PATH
+              value: /data/b3/maxmind-geoip/GeoLite2-City.mmdb
           volumeMounts:
             - name: maxmind-mmdb
               mountPath: /data/b3/maxmind-geoip
