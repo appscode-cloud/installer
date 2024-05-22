@@ -29,7 +29,7 @@ spec:
         version: v1
         kind: Deployment
         selector:
-          app: cluster-manager
+          app: klusterlet
   chart:
     name: cluster-manager-spoke
     namespace: open-cluster-management
