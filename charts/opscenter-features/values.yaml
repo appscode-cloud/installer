@@ -87,7 +87,7 @@ helm:
     falco:
       version: "4.0.0"
     falco-ui-server:
-      version: "v2024.2.5"
+      version: "v2024.5.17"
     flux2:
       version: "2.13.0"
     gatekeeper:
