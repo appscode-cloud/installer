@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ include "license-proxyserver.fullname" . }}-token
+  name: {{ include "platform.tokenSecretName" . }}
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "license-proxyserver.labels" . | nindent 4 }}

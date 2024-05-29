@@ -21,3 +21,4 @@ kubectl:
 platform:
   baseURL: ""
   token: ""
+  tokenSecretName: ""
