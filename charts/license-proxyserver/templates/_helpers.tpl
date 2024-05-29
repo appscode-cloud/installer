@@ -98,3 +98,14 @@ Returns the ServiceMonitor labels
 {{ $key }}: {{ $val }}
 {{- end }}
 {{- end }}
+
+{{/*
+Returns the platform token secret name
+*/}}
+{{- define "platform.tokenSecretName" -}}
+{{- if .Values.platform.tokenSecretName }}
+{{- .Values.platform.tokenSecretName -}}
+{{- else if .Values.platform.token }}
+{{- printf "%s-token" (include "license-proxyserver.fullname" .) -}}
+{{- end }}
+{{- end }}

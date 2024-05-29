@@ -104,6 +104,7 @@ monitoring:
 platform:
   baseURL: ""
   token: ""
+  tokenSecretName: ""
 
 # Offline licenses for various products.
 # Get a license by following the steps from [here](https://license-issuer.appscode.com/).
