@@ -63,13 +63,13 @@ type LicenseProxyserverSpec struct {
 	//+optional
 	PodAnnotations map[string]string `json:"podAnnotations"`
 	//+optional
-	NodeSelector map[string]string `json:"nodeSelector" protobuf:"bytes,12,rep,name=nodeSelector"`
+	NodeSelector map[string]string `json:"nodeSelector"`
 	// If specified, the pod's tolerations.
 	// +optional
-	Tolerations []core.Toleration `json:"tolerations" protobuf:"bytes,13,rep,name=tolerations"`
+	Tolerations []core.Toleration `json:"tolerations"`
 	// If specified, the pod's scheduling constraints
 	// +optional
-	Affinity *core.Affinity `json:"affinity" protobuf:"bytes,14,opt,name=affinity"`
+	Affinity *core.Affinity `json:"affinity"`
 	// PodSecurityContext holds pod-level security attributes and common container settings.
 	// Optional: Defaults to empty.  See type description for default values of each field.
 	// +optional
@@ -88,7 +88,10 @@ type LicenseProxyserverSpec struct {
 
 type PlatformSpec struct {
 	BaseURL string `json:"baseURL"`
-	Token   string `json:"token"`
+	// +optional
+	Token string `json:"token"`
+	// +optional
+	TokenSecretName string `json:"tokenSecretName"`
 }
 
 type ImageRef struct {

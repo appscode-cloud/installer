@@ -43,7 +43,7 @@ spec:
         - --tls-private-key-file=/var/serving-cert/tls.key
         - --cache-dir=/tmp/licenses
         - --use-kubeapiserver-fqdn-for-aks={{ .Values.apiserver.useKubeapiserverFqdnForAks }}
-        {{- if .Values.platform.token }}
+        {{- if include "platform.tokenSecretName" . }}
         - --baseURL={{ .Values.platform.baseURL }}
         - --token=$(PLATFORM_API_TOKEN)
         {{- end }}
@@ -55,11 +55,11 @@ spec:
         - containerPort: 8443
         - containerPort: 8081
         env:
-        {{- if .Values.platform.token }}
+        {{- with include "platform.tokenSecretName" . }}
         - name: PLATFORM_API_TOKEN
           valueFrom:
             secretKeyRef:
-              name: {{ include "license-proxyserver.fullname" . }}-token
+              name: {{ . }}
               key: token
         {{- end }}
         - name: POD_NAME
