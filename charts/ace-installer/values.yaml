@@ -157,7 +157,7 @@ helm:
     # feature less chart versions
     spoke-cluster-addons:
       enabled: false
-      version: "v2024.6.3"
+      version: "v2024.5.17"
     vcluster:
       enabled: false
       version: "0.19.5"
