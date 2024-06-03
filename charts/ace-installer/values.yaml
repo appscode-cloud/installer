@@ -52,10 +52,10 @@ helm:
   releases:
     ace:
       enabled: false
-      version: "v2024.5.17"
+      version: "v2024.6.3"
     ace-ocm-addons:
       enabled: true
-      version: "v2024.5.17"
+      version: "v2024.6.3"
     cert-manager:
       enabled: true
       version: "v1.14.1"
@@ -96,7 +96,7 @@ helm:
       version: "52.1.0"
     kube-ui-server:
       enabled: true
-      version: "v2024.5.17"
+      version: "v2024.6.3"
     kubedb:
       enabled: true
       version: "v2024.4.27"
@@ -127,13 +127,13 @@ helm:
       version: "v2024.4.27"
     license-proxyserver:
       enabled: true
-      version: "v2024.5.17"
+      version: "v2024.6.3"
     monitoring-operator:
       enabled: false
       version: "v0.0.7"
     opscenter-features:
       enabled: true
-      version: "v2024.5.17"
+      version: "v2024.6.3"
     panopticon:
       enabled: true
       version: "v2024.5.15"
@@ -152,12 +152,12 @@ helm:
       version: "1.0.79"
     stash-presets:
       enabled: false
-      version: "v2024.5.17"
+      version: "v2024.6.3"
 
     # feature less chart versions
     spoke-cluster-addons:
       enabled: false
-      version: "v2024.5.17"
+      version: "v2024.6.3"
     vcluster:
       enabled: false
       version: "0.19.5"
