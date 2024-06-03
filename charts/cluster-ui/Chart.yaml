@@ -2,7 +2,7 @@ apiVersion: v2
 name: cluster-ui
 description: A Helm chart for Kubernetes
 type: application
-version: v2024.5.17
+version: v2024.6.3
 appVersion: 0.8.12
 home: https://github.com/bytebuilders
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
