@@ -84,6 +84,8 @@ type LicenseProxyserverSpec struct {
 	EncodedLicenses map[string]string `json:"encodedLicenses"`
 	// +optional
 	HubKubeconfigSecretName string `json:"hubKubeconfigSecretName"`
+	// +optional
+	ClusterName string `json:"clusterName"`
 }
 
 type PlatformSpec struct {
