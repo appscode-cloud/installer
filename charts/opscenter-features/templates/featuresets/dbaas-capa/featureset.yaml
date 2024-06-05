@@ -11,12 +11,7 @@ spec:
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  recommended: true
-  requiredFeatures:
-    - aws-ebs-csi-driver
-    - capa-vpc-peering-operator
-    - capi-cluster-presets
-    - cluster-autoscaler
+  recommended: false
   chart:
     name: uik8sappscodecom-featureset-dbaas-capa-editor
     version: {{ .Chart.AppVersion }}
