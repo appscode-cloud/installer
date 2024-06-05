@@ -99,7 +99,7 @@ helm:
       version: "v2024.6.3"
     kubedb:
       enabled: true
-      version: "v2024.4.27"
+      version: "v2024.6.4"
       values: # +doc-gen:break
         kubedb-provisioner:
           enabled: true
@@ -121,10 +121,10 @@ helm:
           enabled: false
     kubedb-opscenter:
       enabled: false
-      version: "v2024.4.27"
+      version: "v2024.6.4"
     kubestash:
       enabled: true
-      version: "v2024.4.27"
+      version: "v2024.6.4"
     license-proxyserver:
       enabled: true
       version: "v2024.6.3"
