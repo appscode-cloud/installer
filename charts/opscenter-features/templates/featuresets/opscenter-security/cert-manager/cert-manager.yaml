@@ -15,9 +15,6 @@ cainjector:
 
 {{ $vals := `
 installCRDs: true
-extraArgs:
-- --feature-gates=AdditionalCertificateOutputFormats=true
-- --feature-gates=ExperimentalGatewayAPISupport=true
 ` | fromYaml }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 

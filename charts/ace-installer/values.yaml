@@ -58,12 +58,9 @@ helm:
       version: "v2024.6.3"
     cert-manager:
       enabled: true
-      version: "v1.14.1"
+      version: "v1.15.0"
       values: # +doc-gen:break
         installCRDs: true
-        extraArgs:
-        - --feature-gates=AdditionalCertificateOutputFormats=true
-        - --feature-gates=ExperimentalGatewayAPISupport=true
     cert-manager-csi-driver-cacerts:
       enabled: true
       version: "v2023.10.1"
