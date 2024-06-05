@@ -23,9 +23,3 @@ rules:
   resources:
   - clusterclaims
   verbs: ["get", "list", "watch", "create", "update", "patch"]
-# ocm cluster name detection
-- apiGroups:
-  - operator.open-cluster-management.io
-  resources:
-  - klusterlets
-  verbs: ["get"]
