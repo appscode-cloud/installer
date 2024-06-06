@@ -69,6 +69,16 @@ type CapiMetadata struct {
 	Namespace string       `json:"namespace"`
 }
 
+// +kubebuilder:validation:Enum=capa;capg;capz
+type CAPIProvider string
+
+const (
+	CAPIProviderDisabled CAPIProvider = ""
+	CAPIProviderCAPA     CAPIProvider = "capa"
+	CAPIProviderCAPG     CAPIProvider = "capg"
+	CAPIProviderCAPZ     CAPIProvider = "capz"
+)
+
 type OpscenterHelmSpec struct {
 	CreateNamespace bool                              `json:"createNamespace"`
 	Repositories    map[string]*shared.HelmRepository `json:"repositories"`

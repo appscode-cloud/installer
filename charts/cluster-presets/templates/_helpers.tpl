@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "capi-cluster-presets.name" -}}
+{{- define "cluster-presets.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "capi-cluster-presets.fullname" -}}
+{{- define "cluster-presets.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "capi-cluster-presets.chart" -}}
+{{- define "cluster-presets.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "capi-cluster-presets.labels" -}}
-helm.sh/chart: {{ include "capi-cluster-presets.chart" . }}
-{{ include "capi-cluster-presets.selectorLabels" . }}
+{{- define "cluster-presets.labels" -}}
+helm.sh/chart: {{ include "cluster-presets.chart" . }}
+{{ include "cluster-presets.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,7 +45,32 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "capi-cluster-presets.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "capi-cluster-presets.name" . }}
+{{- define "cluster-presets.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "cluster-presets.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "cluster-presets.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create }}
+{{- default (include "cluster-presets.fullname" .) .Values.serviceAccount.name }}
+{{- else }}
+{{- default "default" .Values.serviceAccount.name }}
+{{- end }}
+{{- end }}
+
+{{/*
+Returns the registry used for image docker image
+*/}}
+{{- define "image.registry" -}}
+{{- list .Values.registryFQDN .Values.image.registry | compact | join "/" }}
+{{- end }}
+
+{{- define "appscode.imagePullSecrets" -}}
+{{- with .Values.imagePullSecrets -}}
+imagePullSecrets:
+{{- toYaml . | nindent 2 }}
+{{- end }}
 {{- end }}

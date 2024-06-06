@@ -1,9 +1,9 @@
 apiVersion: v2
-name: capi-cluster-presets
-description: CAPI Cluster Presets
+name: cluster-presets
+description: A Helm chart for Kubernetes
 type: application
-version: v2023.11.14
-appVersion: v2023.11.14
+version: v2024.6.3
+appVersion: v0.0.1
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
