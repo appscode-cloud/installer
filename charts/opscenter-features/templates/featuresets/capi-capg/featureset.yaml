@@ -3,7 +3,7 @@
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: FeatureSet
 metadata:
-  name: dbaas-capg
+  name: capi-capg
 spec:
   title: KubeDB Managed DBaaS
   description: |
@@ -13,7 +13,7 @@ spec:
       type: image/svg+xml
   recommended: false
   chart:
-    name: uik8sappscodecom-featureset-dbaas-capg-editor
+    name: uik8sappscodecom-featureset-capi-capg-editor
     version: {{ .Chart.AppVersion }}
     sourceRef:
       apiGroup: source.toolkit.fluxcd.io

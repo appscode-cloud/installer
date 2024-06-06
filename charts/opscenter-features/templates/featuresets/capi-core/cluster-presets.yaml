@@ -1,26 +1,24 @@
-{{- if eq .Values.clusterMetadata.capi.provider "capg" }}
-
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: capi-cluster-presets
+  name: cluster-presets
   labels:
-    app.kubernetes.io/part-of: dbaas-capg
+    app.kubernetes.io/part-of: capi-core
 spec:
-  title: CAPI Cluster Presets
+  title: Cluster Presets
   description: |
-    CAPI Cluster Presets
+    Cluster Presets
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  featureSet: dbaas-capg
-  featureBlock: capi-cluster-presets
-  recommended: true
+  featureSet: capi-core
+  featureBlock: cluster-presets
+  recommended: false
   chart:
-    name: capi-cluster-presets
+    name: cluster-presets
     namespace: capi-cluster
     createNamespace: {{ $.Values.helm.createNamespace }}
-    version: {{ dig "capi-cluster-presets" "version" "" $.Values.helm.releases }}
+    version: {{ dig "cluster-presets" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci
@@ -30,5 +28,3 @@ spec:
       provider: {{ .Values.clusterMetadata.capi.provider }}
       namespace: {{ .Values.clusterMetadata.capi.namespace }}
       clusterName: {{ .Values.clusterMetadata.name }}
-
-{{- end }}
