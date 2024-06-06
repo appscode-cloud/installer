@@ -1,6 +1,6 @@
 # Accounts UI
 
-[Accounts UI by AppsCode](https://github.com/bytebuilders) - Accounts UI
+[Accounts UI by AppsCode](https://github.com/appscode-cloud) - Accounts UI
 
 ## TL;DR;
 

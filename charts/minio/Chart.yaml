@@ -4,10 +4,10 @@ description: A Helm chart for MinIO Demo Deployment
 type: application
 version: v2023.11.14
 appVersion: RELEASE.2023-01-12T02-06-16Z
-home: https://github.com/bytebuilders
+home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
-- https://github.com/bytebuilders
+- https://github.com/appscode-cloud
 maintainers:
 - name: appscode
   email: support@appscode.com

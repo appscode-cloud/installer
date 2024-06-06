@@ -1,6 +1,6 @@
 # ACE Installer
 
-[ACE Installer](https://github.com/bytebuilders/installer) - ACE Installer
+[ACE Installer](https://github.com/appscode-cloud/installer) - ACE Installer
 
 ## TL;DR;
 

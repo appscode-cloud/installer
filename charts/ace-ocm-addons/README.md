@@ -1,6 +1,6 @@
 # ACE OCM Addons
 
-[ACE OCM Addons](https://github.com/bytebuilders/installer) - ACE OCM Addons
+[ACE OCM Addons](https://github.com/appscode-cloud/installer) - ACE OCM Addons
 
 ## TL;DR;
 

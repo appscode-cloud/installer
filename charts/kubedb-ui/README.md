@@ -1,6 +1,6 @@
 # KubeDB UI
 
-[KubeDB UI by AppsCode](https://github.com/bytebuilders) - ACE KubeDB UI
+[KubeDB UI by AppsCode](https://github.com/appscode-cloud) - ACE KubeDB UI
 
 ## TL;DR;
 

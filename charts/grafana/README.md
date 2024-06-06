@@ -1,6 +1,6 @@
 # Grafana UI
 
-[Grafana UI by AppsCode](https://github.com/bytebuilders) - ACE Grafana UI
+[Grafana UI by AppsCode](https://github.com/appscode-cloud) - ACE Grafana UI
 
 ## TL;DR;
 

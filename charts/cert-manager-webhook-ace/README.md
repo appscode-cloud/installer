@@ -1,6 +1,6 @@
 # cert-manager webhook
 
-[cert-manager webhook for AppsCode DNS Proxy](https://github.com/bytebuilders) - A webhook to use AppsCode DNS Proxy for Cloudfare as a DNS issuer for cert-manager
+[cert-manager webhook for AppsCode DNS Proxy](https://github.com/appscode-cloud) - A webhook to use AppsCode DNS Proxy for Cloudfare as a DNS issuer for cert-manager
 
 ## TL;DR;
 

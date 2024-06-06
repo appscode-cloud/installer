@@ -1,7 +1,7 @@
 project:
   name: AppsCode License Proxy Server OCM Addon Manager
   shortName: AppsCode License Proxy Server Manager
-  url: https://github.com/bytebuilders/license-proxyserver
+  url: https://github.com/appscode-cloud/license-proxyserver
   description: AppsCode License Proxy Server OCM Addon Manager
   app: an AppsCode License Proxy Server OCM Addon Manager
 repository:

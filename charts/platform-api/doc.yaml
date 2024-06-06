@@ -1,7 +1,7 @@
 project:
   name: ACE Platform apiserver by AppsCode
   shortName: ACE Platform apiserver
-  url: https://github.com/bytebuilders
+  url: https://github.com/appscode-cloud
   description: ACE Platform apiserver
   app: a ACE Platform apiserver
 repository:

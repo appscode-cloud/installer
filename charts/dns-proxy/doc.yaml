@@ -1,7 +1,7 @@
 project:
   name: Cloudflare DNS Proxy by AppsCode
   shortName: Cloudflare DNS Proxy
-  url: https://github.com/bytebuilders
+  url: https://github.com/appscode-cloud
   description: Cloudflare DNS Proxy
   app: a Cloudflare DNS Proxy server
 repository:

@@ -1,6 +1,6 @@
 # Cloudflare DNS Proxy
 
-[Cloudflare DNS Proxy by AppsCode](https://github.com/bytebuilders) - Cloudflare DNS Proxy
+[Cloudflare DNS Proxy by AppsCode](https://github.com/appscode-cloud) - Cloudflare DNS Proxy
 
 ## TL;DR;
 

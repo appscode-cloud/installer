@@ -1,7 +1,7 @@
 project:
   name: AppsCode Container Engine
   shortName: ACE
-  url: https://github.com/bytebuilders
+  url: https://github.com/appscode-cloud
   description: AppsCode Container Engine
   app: AppsCode Container Engine
 repository:

@@ -1,7 +1,7 @@
 project:
   name: ACE UI Presets for CAPI by AppsCode
   shortName: ACE UI Presets for CAPI
-  url: https://github.com/bytebuilders
+  url: https://github.com/appscode-cloud
   description: ACE UI presets for Monitoring
   app: ACE UI presets for Monitoring
 repository:

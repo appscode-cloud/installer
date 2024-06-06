@@ -1,7 +1,7 @@
 project:
   name: Marketplace UI by AppsCode
   shortName: Marketplace UI
-  url: https://github.com/bytebuilders
+  url: https://github.com/appscode-cloud
   description: ACE Marketplace UI
   app: a Marketplace UI
 repository:
