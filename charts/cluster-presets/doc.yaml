@@ -1,18 +1,18 @@
 project:
-  name: ACE UI Presets for CAPI by AppsCode
-  shortName: ACE UI Presets for CAPI
+  name: Cluster Presets by AppsCode
+  shortName: Cluster Presets
   url: https://github.com/appscode-cloud
-  description: ACE UI presets for Monitoring
-  app: ACE UI presets for Monitoring
+  description: Cluster Presets
+  app: a Cluster Presets
 repository:
   url: https://charts.appscode.com/stable
   name: appscode
 chart:
-  name: capi-cluster-presets
+  name: cluster-presets
   values: -- generate from values file --
   valuesExample: -- generate from values file --
 prerequisites:
 - Kubernetes 1.21+
 release:
-  name: capi-cluster-presets
-  namespace: kubeops
+  name: cluster-presets
+  namespace: ace
