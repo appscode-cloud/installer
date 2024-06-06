@@ -16,14 +16,17 @@
 
 BYTEBUILDERS_CATALOG_TAG=${BYTEBUILDERS_CATALOG_TAG:-v0.0.6}
 BYTEBUILDERS_KUBE_BIND_TAG=${BYTEBUILDERS_KUBE_BIND_TAG:-master}
-BYTEBUILDERS_RESOURCE_MODEL_TAG=${BYTEBUILDERS_RESOURCE_MODEL_TAG:-v0.0.9}
+ENVOYPROXY_GATEWAY_TAG=${ENVOYPROXY_GATEWAY_TAG:-v1.0.0}
 FLUXCD_HELM_CONTROLLER=${FLUXCD_HELM_CONTROLLER:-v1.0.1}
 FLUXCD_SOURCE_CONTROLLER=${FLUXCD_SOURCE_CONTROLLER:-v1.3.0}
 KMODULES_RESOURCE_METADATA_TAG=${KMODULES_RESOURCE_METADATA_TAG:-master}
-KUBEOPS_EXTERNAL_DNS_OPERATOR=${KUBEOPS_EXTERNAL_DNS_OPERATOR:-v0.0.7}
-KUBESTASH_APIMACHINERY_TAG=${KUBESTASH_APIMACHINERY_TAG:-v0.5.0}
+KUBEOPS_CSI_DRIVER_CACERTS_TAG=${KUBEOPS_CSI_DRIVER_CACERTS_TAG:-v0.0.3}
+KUBEOPS_EXTERNAL_DNS_OPERATOR=${KUBEOPS_EXTERNAL_DNS_OPERATOR:-v0.0.9}
+KUBERNETES_SIGS_GATEWAY_API_TAG=${KUBERNETES_SIGS_GATEWAY_API_TAG:-v1.0.0}
+KUBESTASH_APIMACHINERY_TAG=${KUBESTASH_APIMACHINERY_TAG:-v0.9.0}
+KUBEVAULT_APIMACHINERY_TAG=${KUBEVAULT_APIMACHINERY_TAG:-v0.18.2}
 OPEN_CLUSTER_MANAGEMENT_IO_API_TAG=${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG:-v0.13.0}
-PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR=${PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR:-v0.71.2}
+PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR=${PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR:-v0.74.0}
 X_HELM_APIMACHINERY_TAG=${X_HELM_APIMACHINERY_TAG:-v0.0.16}
 
 crd-importer \
@@ -33,10 +36,6 @@ crd-importer \
     --out=./charts/ace-installer/crds
 
 crd-importer \
-    --input=https://github.com/bytebuilders/resource-model/raw/${BYTEBUILDERS_RESOURCE_MODEL_TAG}/crds/cloud.appscode.com_credentials.yaml \
-    --input=https://github.com/bytebuilders/resource-model/raw/${BYTEBUILDERS_RESOURCE_MODEL_TAG}/crds/cluster.appscode.com_clusterauthinfotemplates.yaml \
-    --input=https://github.com/bytebuilders/resource-model/raw/${BYTEBUILDERS_RESOURCE_MODEL_TAG}/crds/cluster.appscode.com_clusterinfos.yaml \
-    --input=https://github.com/bytebuilders/resource-model/raw/${BYTEBUILDERS_RESOURCE_MODEL_TAG}/crds/cluster.appscode.com_clusteruserauths.yaml \
     --input=https://github.com/x-helm/apimachinery/raw/${X_HELM_APIMACHINERY_TAG}/crds/products.x-helm.dev_plans.yaml \
     --input=https://github.com/x-helm/apimachinery/raw/${X_HELM_APIMACHINERY_TAG}/crds/products.x-helm.dev_products.yaml \
     --out=./charts/ace/crds
@@ -85,45 +84,44 @@ crd-importer \
     --out=./charts/stash-presets/crds
 
 crd-importer \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_druidbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_elasticsearchbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_ferretdbbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_kafkabindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mariadbbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_memcachedbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mssqlserverbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mongodbbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mysqlbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_perconaxtradbbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_pgbouncerbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_pgpoolbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_postgresbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_proxysqlbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_rabbitmqbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_redisbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_singlestorebindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_solrbindings.yaml \
-    --input=https://github.com/bytebuilders/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_zookeeperbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_druidbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_elasticsearchbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_ferretdbbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_kafkabindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mariadbbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_memcachedbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mssqlserverbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mongodbbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mysqlbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_perconaxtradbbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_pgbouncerbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_pgpoolbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_postgresbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_proxysqlbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_rabbitmqbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_redisbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_singlestorebindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_solrbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_zookeeperbindings.yaml \
     --out=./charts/catalog-manager/crds
 
 crd-importer \
-    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiservicebindings.yaml \
-    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiserviceexportrequests.yaml \
-    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiserviceexports.yaml \
-    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiservicenamespaces.yaml \
-    --input=https://github.com/bytebuilders/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_clusterbindings.yaml \
+    --input=https://github.com/appscode-cloud/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiservicebindings.yaml \
+    --input=https://github.com/appscode-cloud/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiserviceexportrequests.yaml \
+    --input=https://github.com/appscode-cloud/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiserviceexports.yaml \
+    --input=https://github.com/appscode-cloud/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiservicenamespaces.yaml \
+    --input=https://github.com/appscode-cloud/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_clusterbindings.yaml \
     --out=./charts/service-provider/crds
 
 crd-importer \
-    --input=https://github.com/envoyproxy/gateway/raw/v0.6.0/charts/gateway-helm/crds/generated/gateway.envoyproxy.io_envoyproxies.yaml \
-    --input=https://github.com/kubeops/csi-driver-cacerts/raw/v0.0.2/crds/cacerts.csi.cert-manager.io_caproviderclasses.yaml \
+    --input=https://github.com/envoyproxy/gateway/raw/${ENVOYPROXY_GATEWAY_TAG}/charts/gateway-helm/crds/generated/gateway.envoyproxy.io_envoyproxies.yaml \
+    --input=https://github.com/kubeops/csi-driver-cacerts/raw/${KUBEOPS_CSI_DRIVER_CACERTS_TAG}/crds/cacerts.csi.cert-manager.io_caproviderclasses.yaml \
     --input=https://github.com/kubeops/external-dns-operator/raw/${KUBEOPS_EXTERNAL_DNS_OPERATOR}/crds/external-dns.appscode.com_externaldns.yaml \
-    --input=https://github.com/kubeops/external-dns-operator/raw/v0.0.6/crds/external-dns.appscode.com_externaldns.yaml \
-    --input=https://github.com/kubernetes-sigs/gateway-api/raw/v1.0.0/config/crd/standard/gateway.networking.k8s.io_gatewayclasses.yaml \
-    --input=https://github.com/kubernetes-sigs/gateway-api/raw/v1.0.0/config/crd/standard/gateway.networking.k8s.io_gateways.yaml \
-    --input=https://github.com/kubernetes-sigs/gateway-api/raw/v1.0.0/config/crd/standard/gateway.networking.k8s.io_httproutes.yaml \
-    --input=https://github.com/kubernetes-sigs/gateway-api/raw/v1.0.0/config/crd/standard/gateway.networking.k8s.io_referencegrants.yaml \
-    --input=https://github.com/kubevault/apimachinery/raw/v0.17.0/crds/kubevault.com_vaultservers.yaml \
-    --input=https://github.com/kubevault/apimachinery/raw/v0.17.0/crds/policy.kubevault.com_vaultpolicies.yaml \
-    --input=https://github.com/kubevault/apimachinery/raw/v0.17.0/crds/policy.kubevault.com_vaultpolicybindings.yaml \
+    --input=https://github.com/kubernetes-sigs/gateway-api/raw/${KUBERNETES_SIGS_GATEWAY_API_TAG}/config/crd/standard/gateway.networking.k8s.io_gatewayclasses.yaml \
+    --input=https://github.com/kubernetes-sigs/gateway-api/raw/${KUBERNETES_SIGS_GATEWAY_API_TAG}/config/crd/standard/gateway.networking.k8s.io_gateways.yaml \
+    --input=https://github.com/kubernetes-sigs/gateway-api/raw/${KUBERNETES_SIGS_GATEWAY_API_TAG}/config/crd/standard/gateway.networking.k8s.io_httproutes.yaml \
+    --input=https://github.com/kubernetes-sigs/gateway-api/raw/${KUBERNETES_SIGS_GATEWAY_API_TAG}/config/crd/standard/gateway.networking.k8s.io_referencegrants.yaml \
+    --input=https://github.com/kubevault/apimachinery/raw/${KUBEVAULT_APIMACHINERY_TAG}/crds/kubevault.com_vaultservers.yaml \
+    --input=https://github.com/kubevault/apimachinery/raw/${KUBEVAULT_APIMACHINERY_TAG}/crds/policy.kubevault.com_vaultpolicies.yaml \
+    --input=https://github.com/kubevault/apimachinery/raw/${KUBEVAULT_APIMACHINERY_TAG}/crds/policy.kubevault.com_vaultpolicybindings.yaml \
     --out=./charts/service-presets/crds

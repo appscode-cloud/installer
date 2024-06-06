@@ -1,7 +1,7 @@
 project:
   name: ACE Installer
   shortName: ACE Installer
-  url: https://github.com/bytebuilders/installer
+  url: https://github.com/appscode-cloud/installer
   description: ACE Installer
   app: charts for ACE
 repository:

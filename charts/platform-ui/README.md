@@ -1,6 +1,6 @@
 # Platform UI
 
-[Platform UI by AppsCode](https://github.com/bytebuilders) - ACE Platform UI
+[Platform UI by AppsCode](https://github.com/appscode-cloud) - ACE Platform UI
 
 ## TL;DR;
 

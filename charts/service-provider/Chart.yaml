@@ -3,10 +3,10 @@ description: AppsCode SaaS Provider
 name: service-provider
 version: v2024.2.11
 appVersion: v0.0.1
-home: https://github.com/bytebuilders
+home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/stash/service-provider-icon.png
 sources:
-- https://github.com/bytebuilders
+- https://github.com/appscode-cloud
 maintainers:
 - name: appscode
   email: support@appscode.com

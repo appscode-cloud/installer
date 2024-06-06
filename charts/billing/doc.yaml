@@ -1,7 +1,7 @@
 project:
   name: Billing Backend by AppsCode
   shortName: Billing Backend
-  url: https://github.com/bytebuilders
+  url: https://github.com/appscode-cloud
   description: ACE Billing Backend
   app: a billing backend
 repository:

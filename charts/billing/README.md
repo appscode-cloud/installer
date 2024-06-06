@@ -1,6 +1,6 @@
 # Billing Backend
 
-[Billing Backend by AppsCode](https://github.com/bytebuilders) - ACE Billing Backend
+[Billing Backend by AppsCode](https://github.com/appscode-cloud) - ACE Billing Backend
 
 ## TL;DR;
 

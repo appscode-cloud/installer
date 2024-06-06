@@ -1,7 +1,7 @@
 project:
   name: ACE Opscenter Configurator by AppsCode
   shortName: ACE Opscenter Configurator
-  url: https://github.com/bytebuilders/installer
+  url: https://github.com/appscode-cloud/installer
   description: ACE Opscenter Configurator
   app: a ACE Opscenter Configurator
 repository:

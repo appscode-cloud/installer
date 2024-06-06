@@ -1,7 +1,7 @@
 project:
   name: MinIO
   shortName: MinIO
-  url: https://github.com/bytebuilders
+  url: https://github.com/appscode-cloud
   description: MinIO Demo Deployment
   app: a MinIO
 repository:

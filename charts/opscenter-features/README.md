@@ -1,6 +1,6 @@
 # ACE Opscenter Configurator
 
-[ACE Opscenter Configurator by AppsCode](https://github.com/bytebuilders/installer) - ACE Opscenter Configurator
+[ACE Opscenter Configurator by AppsCode](https://github.com/appscode-cloud/installer) - ACE Opscenter Configurator
 
 ## TL;DR;
 

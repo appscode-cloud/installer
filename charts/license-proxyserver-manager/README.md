@@ -1,6 +1,6 @@
 # AppsCode License Proxy Server Manager
 
-[AppsCode License Proxy Server OCM Addon Manager](https://github.com/bytebuilders/license-proxyserver) - AppsCode License Proxy Server OCM Addon Manager
+[AppsCode License Proxy Server OCM Addon Manager](https://github.com/appscode-cloud/license-proxyserver) - AppsCode License Proxy Server OCM Addon Manager
 
 ## TL;DR;
 

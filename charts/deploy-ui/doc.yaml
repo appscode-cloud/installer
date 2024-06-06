@@ -1,7 +1,7 @@
 project:
   name: Deploy UI by AppsCode
   shortName: Deploy UI
-  url: https://github.com/bytebuilders
+  url: https://github.com/appscode-cloud
   description: ACE Deploy UI
   app: a Deploy UI
 repository:

@@ -1,7 +1,7 @@
 project:
   name: SMTP relay
   shortName: SMTP relay
-  url: https://github.com/bytebuilders
+  url: https://github.com/appscode-cloud
   description: SMTP relay
   app: a SMTP relay server
 repository:
