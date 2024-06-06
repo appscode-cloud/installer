@@ -1,6 +1,6 @@
 # ACE UI Presets for CAPI
 
-[ACE UI Presets for CAPI by AppsCode](https://github.com/bytebuilders) - ACE UI presets for Monitoring
+[ACE UI Presets for CAPI by AppsCode](https://github.com/appscode-cloud) - ACE UI presets for Monitoring
 
 ## TL;DR;
 

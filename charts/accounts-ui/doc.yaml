@@ -1,7 +1,7 @@
 project:
   name: Accounts UI by AppsCode
   shortName: Accounts UI
-  url: https://github.com/bytebuilders
+  url: https://github.com/appscode-cloud
   description: Accounts UI
   app: a Accounts UI
 repository:

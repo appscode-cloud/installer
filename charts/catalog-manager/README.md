@@ -1,6 +1,6 @@
 # Catalog
 
-[AppsCode SaaS Calalog](https://github.com/bytebuilders/catalog-manager) - AppsCode SaaS Calalog
+[AppsCode SaaS Calalog](https://github.com/appscode-cloud/catalog-manager) - AppsCode SaaS Calalog
 
 ## TL;DR;
 

@@ -1,7 +1,7 @@
 project:
   name: KubeDB UI by AppsCode
   shortName: KubeDB UI
-  url: https://github.com/bytebuilders
+  url: https://github.com/appscode-cloud
   description: ACE KubeDB UI
   app: a KubeDB UI
 repository:

@@ -1,6 +1,6 @@
 # MinIO
 
-[MinIO](https://github.com/bytebuilders) - MinIO Demo Deployment
+[MinIO](https://github.com/appscode-cloud) - MinIO Demo Deployment
 
 ## TL;DR;
 

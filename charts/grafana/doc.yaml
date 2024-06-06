@@ -1,7 +1,7 @@
 project:
   name: Grafana UI by AppsCode
   shortName: Grafana UI
-  url: https://github.com/bytebuilders
+  url: https://github.com/appscode-cloud
   description: ACE Grafana UI
   app: a Grafana UI
 repository:

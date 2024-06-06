@@ -1,6 +1,6 @@
 # SMTP relay
 
-[SMTP relay](https://github.com/bytebuilders) - SMTP relay
+[SMTP relay](https://github.com/appscode-cloud) - SMTP relay
 
 ## TL;DR;
 

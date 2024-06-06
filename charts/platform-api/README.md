@@ -1,6 +1,6 @@
 # ACE Platform apiserver
 
-[ACE Platform apiserver by AppsCode](https://github.com/bytebuilders) - ACE Platform apiserver
+[ACE Platform apiserver by AppsCode](https://github.com/appscode-cloud) - ACE Platform apiserver
 
 ## TL;DR;
 

@@ -1,7 +1,7 @@
 project:
   name: AppsCode License ProxyServer
   shortName: AppsCode License ProxyServer
-  url: https://github.com/bytebuilders/license-proxyserver
+  url: https://github.com/appscode-cloud/license-proxyserver
   description: AppsCode License ProxyServer
   app: a Kubernetes license proxyserver
 repository:

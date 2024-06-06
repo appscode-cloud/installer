@@ -1,7 +1,7 @@
 project:
   name: ACE OCM Addons
   shortName: ACE OCM Addons
-  url: https://github.com/bytebuilders/installer
+  url: https://github.com/appscode-cloud/installer
   description: ACE OCM Addons
   app: charts for ACE OCM Addons
 repository:

@@ -1,6 +1,6 @@
 # Marketplace UI
 
-[Marketplace UI by AppsCode](https://github.com/bytebuilders) - ACE Marketplace UI
+[Marketplace UI by AppsCode](https://github.com/appscode-cloud) - ACE Marketplace UI
 
 ## TL;DR;
 

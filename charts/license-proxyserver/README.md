@@ -1,6 +1,6 @@
 # AppsCode License ProxyServer
 
-[AppsCode License ProxyServer](https://github.com/bytebuilders/license-proxyserver) - AppsCode License ProxyServer
+[AppsCode License ProxyServer](https://github.com/appscode-cloud/license-proxyserver) - AppsCode License ProxyServer
 
 ## TL;DR;
 

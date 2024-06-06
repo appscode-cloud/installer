@@ -1,7 +1,7 @@
 project:
   name: AppsCode SaaS Calalog
   shortName: Catalog
-  url: https://github.com/bytebuilders/catalog-manager
+  url: https://github.com/appscode-cloud/catalog-manager
   description: AppsCode SaaS Calalog
   app: a catalog manager
 repository:
