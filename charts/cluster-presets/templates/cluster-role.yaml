@@ -11,3 +11,74 @@ rules:
   resources:
   - namespaces
   verbs: ["get"]
+# chart presets
+- apiGroups:
+  - charts.x-helm.dev
+  resources:
+  - chartpresets
+  - clusterchartpresets
+  verbs: ["*"]
+# kubedb
+- apiGroups:
+  - kubedb.com
+  - ops.kubedb.com
+  - autoscaling.kubedb.com
+  resources: ["*"]
+  verbs: ["get", "list", "watch"]
+- apiGroups:
+  - archiver.kubedb.com
+  resources: ["*"]
+  verbs: ["*"]
+# petset
+- apiGroups:
+  - apps.k8s.appscode.com
+  resources:
+  - placementpolicies
+  verbs: ["*"]
+# node topologies
+- apiGroups:
+  - node.k8s.appscode.com
+  resources:
+  - nodetopologies
+  verbs: ["*"]
+# kubestash
+- apiGroups:
+  - storage.kubestash.com
+  resources:
+  - backupstorages
+  - repositories
+  verbs: ["get", "list", "watch"]
+# capi
+- apiGroups:
+  - cluster.x-k8s.io
+  resources:
+  - machinepools
+  verbs: ["*"]
+- apiGroups:
+  - infrastructure.cluster.x-k8s.io
+  resources:
+  - azuremachinepools
+  - gcpmanagedmachinepools
+  verbs: ["*"]
+# karpenter aws
+- apiGroups:
+  - karpenter.sh
+  resources:
+  - nodepools
+  verbs: ["*"]
+- apiGroups:
+  - karpenter.k8s.aws
+  resources:
+  - ec2nodeclasses
+  verbs: ["*"]
+# storage class
+- apiGroups:
+  - storage.k8s.io
+  resources:
+  - storageclasses
+  verbs: ["get", "list", "watch"]
+- apiGroups:
+  - snapshot.storage.k8s.io
+  resources:
+  - volumesnapshotclasses
+  verbs: ["get", "list", "watch"]
