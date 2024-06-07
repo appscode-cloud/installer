@@ -10,5 +10,5 @@ roleRef:
   name: {{ include "cluster-presets.fullname" . }}
 subjects:
 - kind: ServiceAccount
-  name: {{ include "cluster-presets.fullname" . }}
+  name: {{ include "cluster-presets.serviceAccountName" . }}
   namespace: {{ .Release.Namespace }}
