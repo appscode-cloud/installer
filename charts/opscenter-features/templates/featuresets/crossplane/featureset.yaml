@@ -1,9 +1,3 @@
-{{- $capiFeatures := dict
-  "capa" "aws"
-  "capz" "azure"
-  "capg" "gcp"
--}}
-
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: FeatureSet
 metadata:
@@ -16,8 +10,6 @@ spec:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   recommended: false
-  requiredFeatures:
-    - crossplane
   chart:
     name: uik8sappscodecom-featureset-crossplane-editor
     version: {{ .Chart.AppVersion }}
