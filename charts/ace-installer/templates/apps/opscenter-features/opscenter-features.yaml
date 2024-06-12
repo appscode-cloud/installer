@@ -39,10 +39,14 @@ helm:
 {{ $mop := printf `
 helm:
   releases:
+    kube-ui-server:
+      values:
+        platform: %v
     monitoring-operator:
       values:
         platform: %v
 `
+  (dict "caBundle" $platformCA | toJson)
   (dict "caBundle" $platformCA | toJson)
   | fromYaml }}
 {{ $overrides = mergeOverwrite $overrides $mop }}
