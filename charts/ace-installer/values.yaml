@@ -76,9 +76,6 @@ helm:
     gateway-api:
       enabled: true
       version: "v1.0.0"
-    kube-ui-server:
-      enabled: true
-      version: "v2024.6.3"
     kubedb:
       enabled: true
       version: "v2024.6.4"
