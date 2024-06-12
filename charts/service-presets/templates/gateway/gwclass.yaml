@@ -27,4 +27,4 @@ spec:
           #   runAsUser: 1000
       envoyService:
         annotations:
-          external-dns.alpha.kubernetes.io/hostname: "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.clusterName }}"
+          external-dns.alpha.kubernetes.io/hostname: "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.domain }}"
