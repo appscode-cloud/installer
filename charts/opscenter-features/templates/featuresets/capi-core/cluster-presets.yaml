@@ -1,3 +1,8 @@
+{{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -14,6 +19,14 @@ spec:
   featureSet: capi-core
   featureBlock: cluster-presets
   recommended: false
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: cluster-presets
   chart:
     name: cluster-presets
     namespace: capi-cluster
@@ -23,8 +36,6 @@ spec:
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
-  values:
-    capi:
-      provider: {{ .Values.clusterMetadata.capi.provider }}
-      namespace: {{ .Values.clusterMetadata.capi.namespace }}
-      clusterName: {{ .Values.clusterMetadata.name }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
