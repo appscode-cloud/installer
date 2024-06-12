@@ -67,12 +67,6 @@ helm:
     cert-manager-webhook-ace:
       enabled: true
       version: "v2023.11.14"
-    docker-machine-operator:
-      enabled: false
-      version: "v2023.10.18"
-    capi-catalog:
-      enabled: false
-      version: "v2024.5.14"
     external-dns-operator:
       enabled: true
       version: "v2024.4.19"
@@ -82,15 +76,6 @@ helm:
     gateway-api:
       enabled: true
       version: "v1.0.0"
-    grafana-operator:
-      enabled: false
-      version: "v0.0.7"
-    kube-grafana-dashboards:
-      enabled: false
-      version: "v2023.10.1"
-    kube-prometheus-stack:
-      enabled: false
-      version: "52.1.0"
     kube-ui-server:
       enabled: true
       version: "v2024.6.3"
@@ -116,18 +101,12 @@ helm:
           enabled: false
         sidekick:
           enabled: false
-    kubedb-opscenter:
-      enabled: false
-      version: "v2024.6.4"
     kubestash:
       enabled: true
       version: "v2024.6.4"
     license-proxyserver:
       enabled: true
       version: "v2024.6.3"
-    monitoring-operator:
-      enabled: false
-      version: "v0.0.7"
     opscenter-features:
       enabled: true
       version: "v2024.6.3"
@@ -141,9 +120,6 @@ helm:
           serviceMonitor:
             labels:
               release: kube-prometheus-stack
-    prometheus-adapter:
-      enabled: false
-      version: "4.9.0"
     reloader:
       enabled: true
       version: "1.0.79"
