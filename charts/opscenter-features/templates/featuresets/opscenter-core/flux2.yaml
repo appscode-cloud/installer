@@ -6,7 +6,7 @@ helmController:
 sourceController:
   image: %s
 `
-  (include "image.ghcr" (merge (dict "_repo" "fluxcd/flux-cli") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode/flux-cli") $))
   (include "image.ghcr" (merge (dict "_repo" "fluxcd/helm-controller") $))
   (include "image.ghcr" (merge (dict "_repo" "fluxcd/source-controller") $))
   | fromYaml }}
