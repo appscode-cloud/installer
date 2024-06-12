@@ -34,6 +34,13 @@ rules:
   resources:
   - nodes
   verbs: ["get", "list", "watch"]
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  resourceNames:
+  - ace-info
+  verbs: ["get"]
 # for bootstrap data
 - apiGroups:
   - source.toolkit.fluxcd.io
