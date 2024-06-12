@@ -2,9 +2,31 @@
 image: %s
 kubectl:
   image: %s
+fluxcdConfig:
+  cli:
+    image: %s
+  helmController:
+    image: %s
+  imageAutomationController:
+    image: %s
+  imageReflectionController:
+    image: %s
+  kustomizeController:
+    image: %s
+  notificationController:
+    image: %s
+  sourceController:
+    image: %s
 `
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/fluxcd-addon") $))
   (include "kubectl.image" $)
+  (include "image.ghcr" (merge (dict "_repo" "appscode/flux-cli") $))
+  (include "image.ghcr" (merge (dict "_repo" "fluxcd/helm-controller") $))
+  (include "image.ghcr" (merge (dict "_repo" "fluxcd/image-automation-controller") $))
+  (include "image.ghcr" (merge (dict "_repo" "fluxcd/image-reflector-controller") $))
+  (include "image.ghcr" (merge (dict "_repo" "fluxcd/kustomize-controller") $))
+  (include "image.ghcr" (merge (dict "_repo" "fluxcd/notification-controller") $))
+  (include "image.ghcr" (merge (dict "_repo" "fluxcd/source-controller") $))
   | fromYaml }}
 
 {{ $vals := `
