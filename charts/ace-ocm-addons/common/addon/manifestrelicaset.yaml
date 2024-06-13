@@ -142,6 +142,11 @@ spec:
                   kind: HelmRepository
                   name: bootstrap
                   namespace: kubeops
+            valuesFrom:
+              - kind: Secret
+                name: opscenter-features-values
+                valuesKey: values.yaml
+                optional: true
           {{- with $vals }}
             {{- dict "values" . | toYaml | nindent 12 }}
           {{- end }}
