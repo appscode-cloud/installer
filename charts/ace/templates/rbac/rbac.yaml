@@ -52,6 +52,12 @@ rules:
   resources:
   - clusterchartpresets
   verbs: ["get", "list", "watch"]
+- apiGroups:
+  - ui.k8s.appscode.com
+  resources:
+  - features
+  - featuresets
+  verbs: ["get", "list", "watch"]
 
 ---
 
