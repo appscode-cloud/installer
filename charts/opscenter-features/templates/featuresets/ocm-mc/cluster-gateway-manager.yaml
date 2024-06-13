@@ -62,8 +62,8 @@ spec:
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
   valuesFrom:
-    - kind: ConfigMap
-      name: multicluster-ingress-config
+    - kind: Secret
+      name: multicluster-ingress-values
       valuesKey: gateway.yaml
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}

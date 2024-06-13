@@ -41,6 +41,11 @@ spec:
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
+  valuesFrom:
+    - kind: Secret
+      name: monitoring-operator-values
+      valuesKey: values.yaml
+      optional: true
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
