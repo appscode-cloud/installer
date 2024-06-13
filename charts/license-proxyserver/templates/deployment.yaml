@@ -22,6 +22,8 @@ spec:
       labels:
         {{- include "license-proxyserver.selectorLabels" . | nindent 8 }}
       annotations:
+        checksum/licenses: {{ include (print $.Template.BasePath "/licenses.yaml") . | sha256sum }}
+        checksum/token: {{ include (print $.Template.BasePath "/token.yaml") . | sha256sum }}
       {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
