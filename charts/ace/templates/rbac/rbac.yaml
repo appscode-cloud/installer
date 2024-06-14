@@ -58,6 +58,11 @@ rules:
   - features
   - featuresets
   verbs: ["get", "list", "watch"]
+- apiGroups:
+  - meta.k8s.appscode.com
+  resources:
+  - clusterprofiles
+  verbs: ["get", "list", "watch"]
 
 ---
 
