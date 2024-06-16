@@ -51,6 +51,9 @@ kube-state-metrics:
 prometheus-node-exporter:
   image:
     registry: %s
+  # run node-exporter on dedicated db nodes
+  tolerations:
+    - operator: Exists
   prometheus:
     monitor:
       relabelings:
