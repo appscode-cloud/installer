@@ -1,0 +1,33 @@
+{{- if (has .Values.infra.tls.issuer (list "ca" "letsencrypt-staging")) }}
+
+apiVersion: cacerts.csi.cert-manager.io/v1alpha1
+kind: CAProviderClass
+metadata:
+  name: {{ include "service-gateway-presets.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-gateway-presets.labels" . | nindent 4 }}
+spec:
+  refs:
+  - apiGroup: cert-manager.io
+    kind: Issuer
+    namespace: {{ .Release.Namespace }}
+    name: {{ include "service-gateway-presets.fullname" . }}
+
+{{- else if and (eq .Values.infra.tls.issuer "external") .Values.infra.tls.ca.cert }}
+
+apiVersion: cacerts.csi.cert-manager.io/v1alpha1
+kind: CAProviderClass
+metadata:
+  name: {{ include "service-gateway-presets.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-gateway-presets.labels" . | nindent 4 }}
+spec:
+  refs:
+  - apiGroup: ""
+    kind: Secret
+    namespace: {{ .Release.Namespace }}
+    name: {{ include "service-gateway-presets.fullname" . }}-cert
+    key: "ca.crt"
+{{- end}}

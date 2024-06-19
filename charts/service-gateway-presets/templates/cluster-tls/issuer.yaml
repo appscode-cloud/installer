@@ -1,0 +1,13 @@
+{{- if (eq .Values.cluster.tls.issuer "ca") }}
+
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: ace
+  labels:
+    {{- include "service-gateway-presets.labels" . | nindent 4 }}
+spec:
+  ca:
+    secretName: ace-ca
+
+{{- end }}

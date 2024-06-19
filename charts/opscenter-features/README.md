@@ -114,7 +114,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.reloader.version                              |                                 | <code>"1.0.79"</code>                      |
 | helm.releases.scanner.version                               |                                 | <code>"v2024.1.18"</code>                  |
 | helm.releases.service-backend.version                       |                                 | <code>"v2024.2.11"</code>                  |
-| helm.releases.service-presets.version                       |                                 | <code>"v2024.2.11"</code>                  |
+| helm.releases.service-gateway-presets.version               |                                 | <code>"v2024.2.11"</code>                  |
 | helm.releases.service-provider.version                      |                                 | <code>"v2024.2.11"</code>                  |
 | helm.releases.sidekick.version                              |                                 | <code>"v2024.2.6"</code>                   |
 | helm.releases.snapshot-controller.version                   |                                 | <code>"2.0.3"</code>                       |

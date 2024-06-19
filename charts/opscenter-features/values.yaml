@@ -152,7 +152,7 @@ helm:
       version: "v2024.1.18"
     service-backend:
       version: "v2024.2.11"
-    service-presets:
+    service-gateway-presets:
       version: "v2024.2.11"
     service-provider:
       version: "v2024.2.11"
