@@ -77,7 +77,7 @@ helm:
     cluster-autoscaler:
       version: "9.29.0"
     cluster-presets:
-      version: "v2024.6.3"
+      version: "v2024.6.18"
     config-syncer:
       version: "v0.14.6"
     crossplane:
@@ -109,7 +109,7 @@ helm:
     kube-prometheus-stack:
       version: "52.1.0"
     kube-ui-server:
-      version: "v2024.6.3"
+      version: "v2024.6.18"
     kubedb:
       version: "v2024.6.4"
     kubedb-opscenter:
@@ -127,7 +127,7 @@ helm:
     kubevault-opscenter:
       version: "v2024.1.31"
     license-proxyserver:
-      version: "v2024.6.3"
+      version: "v2024.6.18"
     longhorn:
       version: "1.6.1"
     metrics-server:
@@ -139,7 +139,7 @@ helm:
     opencost-grafana-dashboards:
       version: "v2023.10.1"
     opscenter-features:
-      version: "v2024.6.3"
+      version: "v2024.6.18"
     panopticon:
       version: "v2024.5.15"
     prepare-cluster:
@@ -165,7 +165,7 @@ helm:
     stash-opscenter:
       version: "v2024.4.8"
     stash-presets:
-      version: "v2024.6.3"
+      version: "v2024.6.18"
     supervisor:
       version: "v2024.2.6"
     topolvm:
@@ -193,7 +193,7 @@ helm:
       version: "0.27.0"
     # ocm charts
     ace-ocm-addons:
-      version: "v2024.6.3"
+      version: "v2024.6.18"
     ingress-nginx:
       version: "4.10.0"
     cluster-manager-hub:
@@ -215,7 +215,7 @@ helm:
     fluxcd-manager:
       version: "v2024.5.17"
     license-proxyserver-manager:
-      version: "v2024.6.3"
+      version: "v2024.6.18"
 
     inbox-server:
       version: "v2024.5.3"
