@@ -145,7 +145,7 @@ spec:
             valuesFrom:
               - kind: Secret
                 name: opscenter-features-values
-                valuesKey: values.yaml
+                valuesKey: inject.yaml
                 optional: true
           {{- with $vals }}
             {{- dict "values" . | toYaml | nindent 12 }}

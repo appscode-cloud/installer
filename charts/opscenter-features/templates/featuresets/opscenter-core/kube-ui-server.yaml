@@ -40,7 +40,7 @@ spec:
   valuesFrom:
     - kind: Secret
       name: kube-ui-server-values
-      valuesKey: values.yaml
+      valuesKey: inject.yaml
       optional: true
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
