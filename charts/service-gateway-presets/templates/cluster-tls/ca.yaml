@@ -1,0 +1,18 @@
+{{- if (eq .Values.cluster.tls.issuer "ca") }}
+
+{{- $data := dict
+    "tls.crt" .Values.cluster.tls.ca.cert
+    "tls.key" .Values.cluster.tls.ca.key
+}}
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ace-ca
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-gateway-presets.labels" . | nindent 4 }}
+type: kubernetes.io/tls
+stringData: {{ $data | toJson }}
+
+{{- end }}

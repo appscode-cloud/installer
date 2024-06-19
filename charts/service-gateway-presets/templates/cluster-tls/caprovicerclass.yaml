@@ -1,0 +1,16 @@
+{{- if (eq .Values.cluster.tls.issuer "ca") }}
+
+apiVersion: cacerts.csi.cert-manager.io/v1alpha1
+kind: CAProviderClass
+metadata:
+  name: ace
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-gateway-presets.labels" . | nindent 4 }}
+spec:
+  refs:
+  - apiGroup: cert-manager.io
+    kind: ClusterIssuer
+    name: ace
+
+{{- end }}

@@ -1,0 +1,47 @@
+{{ $overrides := printf `
+registryFQDN: %q
+infra:
+  clusterName: %q
+` (include "registry.ghcr" $)
+  $.Values.clusterMetadata.name
+  | fromYaml }}
+
+{{ $vals := dig "service-gateway-presets" "values" (dict) .Values.helm.releases | deepCopy }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: service-gateway-presets
+  labels:
+    app.kubernetes.io/part-of: saas-core
+spec:
+  title: Service Gateway Presets
+  description: |
+    Service Gateway Presets
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: saas-core
+  featureBlock: service-gateway-presets
+  recommended: true
+  requirements:
+    features:
+      - cert-manager
+      - cert-manager-webhook-ace
+      # - cert-manager-csi-driver-cacerts
+      - external-dns-operator
+      - kubevault
+      - service-gateway
+  chart:
+    name: service-gateway-presets
+    namespace: ace
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "service-gateway-presets" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

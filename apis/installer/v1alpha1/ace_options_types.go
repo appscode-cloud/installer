@@ -374,6 +374,8 @@ type GeneratedValues struct {
 	Nats map[string]string `json:"nats"`
 	// +optional
 	ServiceBackendCookie Cookie `json:"serviceBackendCookie"`
+	// +optional
+	ClusterCA TLSData `json:"clusterCA"`
 }
 
 type PromotionValues struct {
