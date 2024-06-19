@@ -34,7 +34,7 @@ for dir in charts/*/; do
         [[ "$dir" = "platform-links" ]] ||
         [[ "$dir" = "platform-ui" ]] ||
         [[ "$dir" = "service-backend" ]] ||
-        [[ "$dir" = "service-presets" ]] ||
+        [[ "$dir" = "service-gateway-presets" ]] ||
         [[ "$dir" = "service-provider" ]] ||
         [[ "$dir" = "smtprelay" ]]; then
         make ct CT_COMMAND=lint TEST_CHARTS=charts/$dir
