@@ -44,7 +44,7 @@ spec:
   valuesFrom:
     - kind: Secret
       name: monitoring-operator-values
-      valuesKey: values.yaml
+      valuesKey: inject.yaml
       optional: true
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
