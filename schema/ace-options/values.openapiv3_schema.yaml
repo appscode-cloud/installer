@@ -196,6 +196,13 @@ properties:
         type: string
       backupPassword:
         type: string
+      clusterCA:
+        properties:
+          cert:
+            type: string
+          key:
+            type: string
+        type: object
       clusterID:
         description: 'ClusterID is used to uniquely identify a Kubernetes cluster.
 

@@ -79,9 +79,9 @@ graph TD;
   catalog-manager-->kubedb;
   catalog-manager-->kubevault;
   catalog-manager-->service-gateway;
-  service-presets-->cert-manager;
-  service-presets-->cert-manager-webhook-ace;
-  service-presets-->external-dns-operator;
-  service-presets-->kubevault;
-  service-presets-->service-gateway;
+  service-gateway-presets-->cert-manager;
+  service-gateway-presets-->cert-manager-webhook-ace;
+  service-gateway-presets-->external-dns-operator;
+  service-gateway-presets-->kubevault;
+  service-gateway-presets-->service-gateway;
 ```
