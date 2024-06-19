@@ -4348,6 +4348,9 @@ properties:
             - SelfHostedProduction
             - SelfHostedDemo
             - OnpremDemo
+            - AWSMarketplace
+            - AzureMarketplace
+            - GoogleCloudMarketplace
             type: string
           domain:
             type: string
@@ -18488,6 +18491,9 @@ properties:
             - SelfHostedProduction
             - SelfHostedDemo
             - OnpremDemo
+            - AWSMarketplace
+            - AzureMarketplace
+            - GoogleCloudMarketplace
             type: string
           domain:
             type: string
