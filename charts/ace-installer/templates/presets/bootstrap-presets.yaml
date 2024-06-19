@@ -20,7 +20,7 @@ opscenter-features:
   values:
     helm:
       releases:
-        service-presets:
+        service-gateway-presets:
           values: %s
         stash-presets:
           values: %s
@@ -30,7 +30,7 @@ opscenter-features:
   (dig "license-proxyserver" "version" .Chart.AppVersion $.Values.helm.releases)
   (dig "flux2" "version" "" $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
-  ((dig "opscenter-features" "values" "helm" "releases" "service-presets" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "opscenter-features" "values" "helm" "releases" "service-gateway-presets" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "stash-presets" "values" (dict) $.Values.helm.releases) | toJson)
   | fromYaml }}
 

@@ -95,7 +95,7 @@ gateway:
   nodeportRange: "30000-32767"
   tlsSecretRef:
     # Name of the frontend TLS certificate secret
-    name: service-presets-cert
+    name: service-gateway-presets-cert
     # Namespace of the frontend TLS certificate secret
     namespace: ace
 
