@@ -245,6 +245,9 @@ properties:
           - SelfHostedProduction
           - SelfHostedDemo
           - OnpremDemo
+          - AWSMarketplace
+          - AzureMarketplace
+          - GoogleCloudMarketplace
         type: string
       hostedDomain:
         type: string

@@ -5,6 +5,9 @@ properties:
     - SelfHostedProduction
     - SelfHostedDemo
     - OnpremDemo
+    - AWSMarketplace
+    - AzureMarketplace
+    - GoogleCloudMarketplace
     type: string
   fullnameOverride:
     type: string

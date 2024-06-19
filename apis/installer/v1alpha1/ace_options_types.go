@@ -302,7 +302,7 @@ type AceOptionsSMTPSettings struct {
 	SendAsPlainText bool `json:"sendAsPlainText"`
 }
 
-// +kubebuilder:validation:Enum=Hosted;SelfHostedProduction;SelfHostedDemo;OnpremDemo
+// +kubebuilder:validation:Enum=Hosted;SelfHostedProduction;SelfHostedDemo;OnpremDemo;AWSMarketplace;AzureMarketplace;GoogleCloudMarketplace
 type DeploymentType string
 
 const (
@@ -310,6 +310,10 @@ const (
 	SelfHostedProductionDeployment DeploymentType = "SelfHostedProduction"
 	SelfHostedDemoDeployment       DeploymentType = "SelfHostedDemo"
 	OnpremDemoDeployment           DeploymentType = "OnpremDemo"
+
+	AWSMarketplaceDeployment   DeploymentType = "AWSMarketplace"
+	AzureMarketplaceDeployment DeploymentType = "AzureMarketplace"
+	GCPMarketplaceDeployment   DeploymentType = "GoogleCloudMarketplace"
 )
 
 func (dt DeploymentType) Hosted() bool {
@@ -319,7 +323,10 @@ func (dt DeploymentType) Hosted() bool {
 func (dt DeploymentType) SelfHosted() bool {
 	return dt == SelfHostedProductionDeployment ||
 		dt == SelfHostedDemoDeployment ||
-		dt == OnpremDemoDeployment
+		dt == OnpremDemoDeployment ||
+		dt == AWSMarketplaceDeployment ||
+		dt == AzureMarketplaceDeployment ||
+		dt == GCPMarketplaceDeployment
 }
 
 func (dt DeploymentType) Demo() bool {
