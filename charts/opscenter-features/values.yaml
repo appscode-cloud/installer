@@ -82,6 +82,8 @@ helm:
       version: "v0.14.6"
     crossplane:
       version: "1.14.0"
+    csi-driver-nfs:
+      version: "v4.7.0"
     external-dns-operator:
       version: "v2024.4.19"
     falco:
