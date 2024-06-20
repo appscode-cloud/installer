@@ -102,7 +102,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kubevault.version                             |                                 | <code>"v2024.3.12"</code>                  |
 | helm.releases.kubevault-opscenter.version                   |                                 | <code>"v2024.1.31"</code>                  |
 | helm.releases.license-proxyserver.version                   |                                 | <code>"v2024.6.18"</code>                  |
-| helm.releases.longhorn.version                              |                                 | <code>"1.6.1"</code>                       |
+| helm.releases.longhorn.version                              |                                 | <code>"1.6.2"</code>                       |
 | helm.releases.metrics-server.version                        |                                 | <code>"3.11.0"</code>                      |
 | helm.releases.monitoring-operator.version                   |                                 | <code>"v0.0.7"</code>                      |
 | helm.releases.opencost.version                              |                                 | <code>"1.18.1"</code>                      |
@@ -117,12 +117,12 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.service-gateway-presets.version               |                                 | <code>"v2024.2.11"</code>                  |
 | helm.releases.service-provider.version                      |                                 | <code>"v2024.2.11"</code>                  |
 | helm.releases.sidekick.version                              |                                 | <code>"v2024.2.6"</code>                   |
-| helm.releases.snapshot-controller.version                   |                                 | <code>"2.0.3"</code>                       |
+| helm.releases.snapshot-controller.version                   |                                 | <code>"3.0.5"</code>                       |
 | helm.releases.stash.version                                 |                                 | <code>"v2024.4.8"</code>                   |
 | helm.releases.stash-opscenter.version                       |                                 | <code>"v2024.4.8"</code>                   |
 | helm.releases.stash-presets.version                         |                                 | <code>"v2024.6.18"</code>                  |
 | helm.releases.supervisor.version                            |                                 | <code>"v2024.2.6"</code>                   |
-| helm.releases.topolvm.version                               |                                 | <code>"13.0.0"</code>                      |
+| helm.releases.topolvm.version                               |                                 | <code>"15.0.0"</code>                      |
 | helm.releases.voyager.version                               |                                 | <code>"v2024.3.18"</code>                  |
 | helm.releases.voyager-gateway.version                       |                                 | <code>"v2024.4.4"</code>                   |
 | helm.releases.external-secrets.version                      |                                 | <code>"0.9.12"</code>                      |

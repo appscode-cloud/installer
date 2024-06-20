@@ -129,7 +129,7 @@ helm:
     license-proxyserver:
       version: "v2024.6.18"
     longhorn:
-      version: "1.6.1"
+      version: "1.6.2"
     metrics-server:
       version: "3.11.0"
     monitoring-operator:
@@ -159,7 +159,7 @@ helm:
     sidekick:
       version: "v2024.2.6"
     snapshot-controller:
-      version: "2.0.3"
+      version: "3.0.5"
     stash:
       version: "v2024.4.8"
     stash-opscenter:
@@ -169,7 +169,7 @@ helm:
     supervisor:
       version: "v2024.2.6"
     topolvm:
-      version: "13.0.0"
+      version: "15.0.0"
     voyager:
       version: "v2024.3.18"
     voyager-gateway:
