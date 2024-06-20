@@ -1,0 +1,66 @@
+{{ $overrides := printf `
+image:
+    baseRepo: %s
+    nfs:
+        repository: /sig-storage/nfsplugin
+    csiProvisioner:
+        repository: /sig-storage/csi-provisioner
+    csiSnapshotter:
+        repository: /sig-storage/csi-snapshotter
+    livenessProbe:
+        repository: /sig-storage/livenessprobe
+    nodeDriverRegistrar:
+        repository: /sig-storage/csi-node-driver-registrar
+    externalSnapshotter:
+        repository: /sig-storage/snapshot-controller
+`
+  (include "registry.kubernetes" $)
+  | fromYaml }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: csi-driver-nfs
+  labels:
+    app.kubernetes.io/part-of: opscenter-storage
+spec:
+  title: NFS CSI driver for Kubernetes
+  description: |
+    CSI driver to access NFS server on Kubernetes Linux nodes
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-storage
+  featureBlock: csi-driver-nfs
+  recommended: false
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/instance: csi-driver-nfs
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: csi-driver-nfs
+      - group: apps
+        version: v1
+        kind: DaemonSet
+        selector:
+          app.kubernetes.io/instance: csi-driver-nfs
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: csi-driver-nfs
+  chart:
+    name: csi-driver-nfs
+    namespace: kube-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "csi-driver-nfs" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
