@@ -116,6 +116,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&OpenfgaList{},
 		&Reloader{},
 		&ReloaderList{},
+		&S3proxy{},
+		&S3proxyList{},
 		&ServiceGatewayPresets{},
 		&ServiceGatewayPresetsList{},
 		&ServiceProvider{},

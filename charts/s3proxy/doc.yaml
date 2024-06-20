@@ -1,0 +1,18 @@
+project:
+  name: MinIO
+  shortName: MinIO
+  url: https://github.com/appscode-cloud
+  description: MinIO Demo Deployment
+  app: a MinIO
+repository:
+  url: https://charts.appscode.com/stable
+  name: appscode
+chart:
+  name: s3proxy
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: s3proxy
+  namespace: ace
