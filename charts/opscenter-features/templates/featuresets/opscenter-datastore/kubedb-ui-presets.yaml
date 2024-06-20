@@ -1,0 +1,33 @@
+{{ $overrides := dict }}
+
+{{ $vals := dig "kubedb-ui-presets" "values" (dict) .Values.helm.releases | deepCopy }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: kubedb-ui-presets
+  labels:
+    app.kubernetes.io/part-of: opscenter-datastore
+spec:
+  title: KubeDB UI Presets
+  description: |
+    KubeDB UI Presets
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-datastore
+  featureBlock: kubedb-ui-presets
+  recommended: false
+  chart:
+    name: kubedb-ui-presets
+    namespace: kubedb
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "kubedb-ui-presets" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

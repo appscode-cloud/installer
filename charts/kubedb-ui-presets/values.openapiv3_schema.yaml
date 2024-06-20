@@ -1,0 +1,16 @@
+properties:
+  capi:
+    properties:
+      clusterName:
+        type: string
+      namespace:
+        type: string
+      provider:
+        type: string
+    required:
+    - clusterName
+    - namespace
+    type: object
+required:
+- capi
+type: object

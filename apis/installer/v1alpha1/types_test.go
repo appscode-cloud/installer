@@ -43,6 +43,7 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.GrafanaSpec{}},
 		sc.TestCase{Obj: v1alpha1.InboxUiSpec{}},
 		sc.TestCase{Obj: v1alpha1.KubedbUiSpec{}},
+		sc.TestCase{Obj: v1alpha1.KubedbUiPresetsSpec{}},
 		sc.TestCase{Obj: v1alpha1.LicenseProxyserverSpec{}},
 		sc.TestCase{Obj: v1alpha1.LicenseProxyserverManagerSpec{}},
 		sc.TestCase{Obj: v1alpha1.MarketplaceUiSpec{}},
