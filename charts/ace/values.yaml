@@ -53,7 +53,7 @@ nats-dns:
 trickster:
   enabled: false
 
-minio:
+s3proxy:
   enabled: false
 
 dns-proxy:

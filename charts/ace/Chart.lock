@@ -32,9 +32,9 @@ dependencies:
 - name: trickster
   repository: https://charts.appscode.com/stable
   version: v2023.10.1
-- name: minio
-  repository: file://../minio
-  version: v2023.11.14
+- name: s3proxy
+  repository: file://../s3proxy
+  version: v2024.6.18
 - name: dns-proxy
   repository: file://../dns-proxy
   version: v2023.11.14
@@ -50,5 +50,5 @@ dependencies:
 - name: openfga
   repository: oci://ghcr.io/appscode-charts
   version: 0.2.6
-digest: sha256:eb6c1db74a2f1b950c9a58e22c1bf74e286789deaca4e519899904c45c6830e7
-generated: "2024-06-04T10:29:46.348723-07:00"
+digest: sha256:abb222565702192de163f75c3904eba4d64ecca1bcec9df20124a64b583c6850
+generated: "2024-06-20T19:02:44.070709-07:00"

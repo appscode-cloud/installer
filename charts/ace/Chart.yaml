@@ -56,10 +56,10 @@ dependencies:
   repository: https://charts.appscode.com/stable
   condition: trickster.enabled
   version: v2023.10.1
-- name: minio
-  repository: file://../minio
-  condition: minio.enabled
-  version: v2023.11.14
+- name: s3proxy
+  repository: file://../s3proxy
+  condition: s3proxy.enabled
+  version: v2024.6.18
 - name: dns-proxy
   repository: file://../dns-proxy
   condition: dns-proxy.enabled
