@@ -64,7 +64,7 @@ type AceSpec struct {
 	DNSProxy      AceDnsProxy      `json:"dns-proxy"`
 	Openfga       AceOpenfga       `json:"openfga"`
 	SMTPRelay     AceSmtprelay     `json:"smtprelay"`
-	Minio         AceMinio         `json:"minio"`
+	S3proxy       AceS3proxy       `json:"s3proxy"`
 	// KubeBindServer AceKubeBindServer `json:"kube-bind-server"`
 	Global   AceGlobalValues `json:"global"`
 	Settings Settings        `json:"settings"`
@@ -179,17 +179,10 @@ type AceSmtprelay struct {
 	*SmtprelaySpec `json:",inline,omitempty"`
 }
 
-type AceMinio struct {
-	Enabled    bool `json:"enabled"`
-	*MinioSpec `json:",inline,omitempty"`
+type AceS3proxy struct {
+	Enabled      bool `json:"enabled"`
+	*S3proxySpec `json:",inline,omitempty"`
 }
-
-/*
-type AceKubeBindServer struct {
-	Enabled             bool `json:"enabled"`
-	*KubeBindServerSpec `json:",inline,omitempty"`
-}
-*/
 
 type AceGlobalValues struct {
 	NameOverride     string                 `json:"nameOverride"`
