@@ -1,0 +1,84 @@
+{{- if .Values.ingress.enabled -}}
+
+# https://min.io/docs/s3proxy/linux/integrations/setup-nginx-proxy-with-s3proxy.html
+# https://blog.min.io/s3proxy-nginx-letsencrypt-certbot/
+# https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/
+
+# nginx.ingress.kubernetes.io/proxy-body-size: "0"
+# nginx.ingress.kubernetes.io/proxy-buffering: "off"
+# nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
+
+{{- if not (hasKey .Values.ingress.annotations "nginx.ingress.kubernetes.io/proxy-body-size") }}
+{{- $_ := set .Values.ingress.annotations "nginx.ingress.kubernetes.io/proxy-body-size" "0"}}
+{{- end }}
+
+{{- if not (hasKey .Values.ingress.annotations "nginx.ingress.kubernetes.io/proxy-buffering") }}
+{{- $_ := set .Values.ingress.annotations "nginx.ingress.kubernetes.io/proxy-buffering" "off"}}
+{{- end }}
+
+{{- if not (hasKey .Values.ingress.annotations "nginx.ingress.kubernetes.io/proxy-request-buffering") }}
+{{- $_ := set .Values.ingress.annotations "nginx.ingress.kubernetes.io/proxy-request-buffering" "off"}}
+{{- end }}
+
+# https://cert-manager.io/docs/usage/ingress/#supported-annotations
+# cert-manager.io/issuer: "name"
+# cert-manager.io/cluster-issuer: "name"
+# cert-manager.io/usages: "key agreement,digital signature,server auth"
+
+{{- if and .Values.s3proxy.tls.enable (not .Values.s3proxy.tls.secret.name) }}
+
+{{ $issuerKey := "cert-manager.io/cluster-issuer" }}
+{{- if or (not .Values.s3proxy.tls.issuer.name) (eq "Issuer" .Values.s3proxy.tls.issuer.kind) }}
+  {{ $issuerKey = "cert-manager.io/issuer" }}
+{{- end }}
+
+{{- if not (hasKey .Values.ingress.annotations $issuerKey) }}
+{{- $_ := set .Values.ingress.annotations $issuerKey (default (printf "%s-ca" (include "s3proxy.fullname" . )) .Values.s3proxy.tls.issuer.name) }}
+{{- end }}
+
+{{- if not (hasKey .Values.ingress.annotations "cert-manager.io/usages") }}
+{{- $_ := set .Values.ingress.annotations "cert-manager.io/usages" "key agreement,digital signature,server auth"}}
+{{- end }}
+
+{{- end }}
+
+{{- if and (not (hasKey .Values.ingress.annotations "external-dns.alpha.kubernetes.io/target")) (not (empty .Values.global)) }}
+{{- $targetIPs := dig "infra" "dns" "targetIPs" list .Values.global }}
+{{- if $targetIPs }}
+{{- $_ := set .Values.ingress.annotations "external-dns.alpha.kubernetes.io/target" (join "," $targetIPs)}}
+{{- end }}
+{{- end }}
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "s3proxy.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "s3proxy.labels" . | nindent 4 }}
+  {{- with .Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if and .Values.ingress.className (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion) }}
+  ingressClassName: {{ .Values.ingress.className }}
+  {{- end }}
+  {{- if .Values.s3proxy.tls.enable }}
+  tls:
+    - hosts:
+        - 's3.{{ .Values.ingress.domain }}'
+      secretName: {{ default (printf "%s-cert" (include "s3proxy.fullname" .)) .Values.s3proxy.tls.secret.name }}
+  {{- end }}
+  rules:
+    - host: s3.{{ .Values.ingress.domain }}
+      http:
+        paths:
+        - backend:
+            service:
+              name: {{ include "s3proxy.fullname" . }}
+              port:
+                number: {{ .Values.service.port }}
+          path: /
+          pathType: Prefix
+{{- end }}
