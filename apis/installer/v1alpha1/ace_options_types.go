@@ -71,7 +71,7 @@ type AceOptionsSpec struct {
 	DNSProxy       AceOptionsComponentSpec  `json:"dns-proxy"`
 	Openfga        AceOptionsComponentSpec  `json:"openfga"`
 	SMTPRelay      AceOptionsComponentSpec  `json:"smtprelay"`
-	Minio          AceOptionsComponentSpec  `json:"minio"`
+	S3proxy        AceOptionsComponentSpec  `json:"s3proxy"`
 	Branding       AceBrandingSpec          `json:"branding"`
 	SelfManagement AceSelfManagementOptions `json:"selfManagement"`
 }
@@ -386,7 +386,7 @@ type GeneratedValues struct {
 }
 
 type PromotionValues struct {
-	Minio AceOptionsInfraObjstore `json:"minio,omitempty"`
+	S3proxy AceOptionsInfraObjstore `json:"s3proxy,omitempty"`
 }
 
 type AcePlatformAdmin struct {
