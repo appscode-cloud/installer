@@ -17,7 +17,7 @@ spec:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   featureSet: opscenter-datastore
-  featureBlock: kubedb-ui-presets
+  featureBlock: kubedb
   recommended: false
   chart:
     name: kubedb-ui-presets
