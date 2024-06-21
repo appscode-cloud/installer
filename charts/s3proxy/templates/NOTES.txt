@@ -1,0 +1,3 @@
+To verify that MinIO has started, run:
+
+  kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "s3proxy.name" . }},app.kubernetes.io/instance={{ .Release.Name }}"
