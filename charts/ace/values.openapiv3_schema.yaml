@@ -19301,6 +19301,13 @@ properties:
     - smtp
     - stripe
     type: object
+  setupJob:
+    properties:
+      ttlSecondsAfterFinished:
+        type: integer
+    required:
+    - ttlSecondsAfterFinished
+    type: object
   smtprelay:
     properties:
       affinity:
@@ -22284,6 +22291,7 @@ required:
 - securityContext
 - selfManagement
 - settings
+- setupJob
 - smtprelay
 - tolerations
 - trickster

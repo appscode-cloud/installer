@@ -12,8 +12,15 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "ace.labels" . | nindent 4 }}
+  annotations:
+    helm.sh/hook: "pre-install,pre-upgrade,pre-rollback"
+    helm.sh/hook-weight: "-5"
+    helm.sh/hook-delete-policy: "before-hook-creation"
 spec:
   backoffLimit: 4
+  {{- if ge .Values.setupJob.ttlSecondsAfterFinished 0 }}
+  ttlSecondsAfterFinished: {{ .Values.setupJob.ttlSecondsAfterFinished }}
+  {{- end }}
   template:
     {{- with .Values.podAnnotations }}
     metadata:
