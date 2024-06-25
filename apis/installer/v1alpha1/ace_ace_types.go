@@ -76,12 +76,11 @@ type AceSpec struct {
 	SecurityContext    *core.SecurityContext     `json:"securityContext"`
 	Resources          core.ResourceRequirements `json:"resources"`
 	//+optional
-	NodeSelector   map[string]string     `json:"nodeSelector"`
-	Tolerations    []core.Toleration     `json:"tolerations"`
-	Affinity       *core.Affinity        `json:"affinity"`
-	Branding       AceBrandingSpec       `json:"branding"`
-	SelfManagement AceSelfManagementSpec `json:"selfManagement"`
-	SetupJob       AceSetupJob           `json:"setupJob"`
+	NodeSelector map[string]string `json:"nodeSelector"`
+	Tolerations  []core.Toleration `json:"tolerations"`
+	Affinity     *core.Affinity    `json:"affinity"`
+	Branding     AceBrandingSpec   `json:"branding"`
+	SetupJob     AceSetupJob       `json:"setupJob"`
 }
 
 type AceBilling struct {
@@ -199,12 +198,10 @@ type AceGlobalValues struct {
 }
 
 type AcePlatformSettings struct {
-	Domain         string         `json:"domain"`
-	DeploymentType DeploymentType `json:"deploymentType"`
-	// +optional
-	Admin              AcePlatformAdmin `json:"admin"`
-	ProxyServiceDomain string           `json:"proxyServiceDomain,omitempty"`
-	Token              string           `json:"token,omitempty"`
+	Domain             string         `json:"domain"`
+	DeploymentType     DeploymentType `json:"deploymentType"`
+	ProxyServiceDomain string         `json:"proxyServiceDomain,omitempty"`
+	Token              string         `json:"token,omitempty"`
 }
 
 type GlobalMonitoring struct {

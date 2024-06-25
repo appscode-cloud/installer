@@ -191,6 +191,11 @@ properties:
             type: string
           username:
             type: string
+        required:
+          - displayName
+          - email
+          - password
+          - username
         type: object
       adminPassword:
         type: string
@@ -1552,26 +1557,20 @@ properties:
     type: object
   selfManagement:
     properties:
-      enableMonitoring:
-        type: boolean
-      enableServiceBackend:
-        type: boolean
+      disableFeatures:
+        items:
+          type: string
+        type: array
+      enableFeatures:
+        items:
+          type: string
+        type: array
       import:
         type: boolean
-      skipFeatures:
-        properties:
-          cert-manager:
-            type: boolean
-          kubedb:
-            type: boolean
-          kubestash:
-            type: boolean
-        type: object
     required:
-      - enableMonitoring
-      - enableServiceBackend
+      - disableFeatures
+      - enableFeatures
       - import
-      - skipFeatures
     type: object
   settings:
     properties:
