@@ -61,9 +61,16 @@ rules:
   - machinepools
   verbs: ["*"]
 - apiGroups:
+  - cluster.x-k8s.io
+  resources:
+  - clusters
+  verbs: ["get", "list", "watch"]
+- apiGroups:
   - infrastructure.cluster.x-k8s.io
   resources:
   - azuremachinepools
+  - azuremanagedmachinepools
+  - gcpmachinepools
   - gcpmanagedmachinepools
   verbs: ["*"]
 # karpenter aws
