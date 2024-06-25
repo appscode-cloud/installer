@@ -17,6 +17,8 @@ limitations under the License.
 package v1alpha1
 
 import (
+	configapi "go.bytebuilders.dev/resource-model/apis/config/v1alpha1"
+
 	"k8s.io/apimachinery/pkg/api/resource"
 )
 
@@ -120,16 +122,11 @@ type AceBrandingSpec struct {
 	Favicon string `json:"favicon"`
 }
 
-type AceSelfManagementSpec struct {
-	Import               bool `json:"import"`
-	EnableMonitoring     bool `json:"enableMonitoring"`
-	EnableServiceBackend bool `json:"enableServiceBackend"`
-}
-
 type AceSetupJob struct {
-	Annotations             map[string]string `json:"annotations"`
-	Hook                    AceHook           `json:"hook"`
-	TTLSecondsAfterFinished int               `json:"ttlSecondsAfterFinished"`
+	Annotations             map[string]string              `json:"annotations"`
+	Hook                    AceHook                        `json:"hook"`
+	TTLSecondsAfterFinished int                            `json:"ttlSecondsAfterFinished"`
+	Config                  configapi.AceSetupInlineConfig `json:"config"`
 }
 
 type AceHook struct {

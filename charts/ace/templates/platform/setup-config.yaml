@@ -1,0 +1,22 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: {{ include "ace.fullname" . }}-setup-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+data:
+  config.yaml: |
+    apiVersion: ace.appscode.com/v1alpha1
+    kind: AceSetupConfig
+    deploymentType: {{ .Values.global.platform.deploymentType }}
+    nats:
+      exports: true
+      reloadNatsAccounts: true
+      {{- if eq .Values.global.platform.deploymentType "Hosted" }}
+      createNatsStream: true
+      {{- end }}
+    importerServiceAccount: {{ include "appscode.serviceAccountName" . }}-importer
+    {{- with .Values.setupJob.config }}
+    {{- . | toYaml | nindent 4 }}
+    {{- end }}

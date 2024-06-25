@@ -41,7 +41,7 @@ spec:
   - name: cert-manager
     namespace: {{ $.Release.Namespace }}
   {{- end }}
-  {{- if $.Values.selfManagement.enableMonitoring }}
+  {{- if has "panopticon" $.Values.selfManagement.enableFeatures }}
   - name: panopticon
     namespace: {{ $.Release.Namespace }}
   {{- end }}
