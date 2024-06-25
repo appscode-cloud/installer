@@ -26,12 +26,18 @@ spec:
   {{- if ge (int .Values.setupJob.ttlSecondsAfterFinished) 0 }}
   ttlSecondsAfterFinished: {{ .Values.setupJob.ttlSecondsAfterFinished }}
   {{- end }}
+  manualSelector: true
+  selector:
+    matchLabels:
+      {{- include "ace.selectorLabels" . | nindent 6 }}
   template:
-    {{- with .Values.podAnnotations }}
     metadata:
+      {{- with .Values.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
-    {{- end }}
+      {{- end }}
+      labels:
+        {{- include "ace.selectorLabels" . | nindent 8 }}
     spec:
       {{- include "appscode.imagePullSecrets" . | nindent 6 }}
       serviceAccountName: {{ include "appscode.serviceAccountName" . }}
