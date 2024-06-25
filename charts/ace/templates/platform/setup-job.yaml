@@ -18,7 +18,7 @@ metadata:
     helm.sh/hook-delete-policy: "before-hook-creation"
 spec:
   backoffLimit: 4
-  {{- if ge .Values.setupJob.ttlSecondsAfterFinished 0 }}
+  {{- if ge (int .Values.setupJob.ttlSecondsAfterFinished) 0 }}
   ttlSecondsAfterFinished: {{ .Values.setupJob.ttlSecondsAfterFinished }}
   {{- end }}
   template:
