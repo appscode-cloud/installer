@@ -21156,11 +21156,6 @@ properties:
                 type: string
               username:
                 type: string
-            required:
-            - displayName
-            - email
-            - password
-            - username
             type: object
           selfManagement:
             properties:
