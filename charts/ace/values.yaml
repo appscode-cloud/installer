@@ -471,4 +471,4 @@ setupJob:
     hookWeight: "-5"
     hookDeletePolicy: "before-hook-creation"
   annotations: {}
-  ttlSecondsAfterFinished: 600
+  ttlSecondsAfterFinished: -1
