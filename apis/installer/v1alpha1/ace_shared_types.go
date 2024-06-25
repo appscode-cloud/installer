@@ -127,5 +127,14 @@ type AceSelfManagementSpec struct {
 }
 
 type AceSetupJob struct {
-	TtlSecondsAfterFinished int `json:"ttlSecondsAfterFinished"`
+	Annotations             map[string]string `json:"annotations"`
+	Hook                    AceHook           `json:"hook"`
+	TTLSecondsAfterFinished int               `json:"ttlSecondsAfterFinished"`
+}
+
+type AceHook struct {
+	Enable           bool   `json:"enable"`
+	Hook             string `json:"hook"`
+	HookWeight       string `json:"hookWeight"`
+	HookDeletePolicy string `json:"hookDeletePolicy"`
 }
