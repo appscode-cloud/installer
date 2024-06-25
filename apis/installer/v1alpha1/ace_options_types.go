@@ -20,6 +20,8 @@ import (
 	"fmt"
 	"net/url"
 
+	configapi "go.bytebuilders.dev/resource-model/apis/config/v1alpha1"
+
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	store "kmodules.xyz/objectstore-api/api/v1"
@@ -73,21 +75,7 @@ type AceOptionsSpec struct {
 	SMTPRelay      AceOptionsComponentSpec  `json:"smtprelay"`
 	S3proxy        AceOptionsComponentSpec  `json:"s3proxy"`
 	Branding       AceBrandingSpec          `json:"branding"`
-	SelfManagement AceSelfManagementOptions `json:"selfManagement"`
-}
-
-type AceSelfManagementOptions struct {
-	AceSelfManagementSpec `json:",inline,omitempty"`
-	SkipFeatures          AceFeatureOptions `json:"skipFeatures"`
-}
-
-type AceFeatureOptions struct {
-	// +optional
-	CertManager bool `json:"cert-manager,omitempty"`
-	// +optional
-	KubeDB bool `json:"kubedb,omitempty"`
-	// +optional
-	KubeStash bool `json:"kubestash,omitempty"`
+	SelfManagement configapi.SelfManagement `json:"selfManagement"`
 }
 
 type RegistrySpec struct {
@@ -352,7 +340,7 @@ type AceDeploymentContext struct {
 	ClusterID string            `json:"clusterID"`
 	Licenses  map[string]string `json:"licenses,omitempty"`
 	// +optional
-	Admin AcePlatformAdmin `json:"admin"`
+	Admin configapi.AcePlatformAdmin `json:"admin"`
 
 	PromotedToProduction bool             `json:"promotedToProduction,omitempty"`
 	PromotionValues      *PromotionValues `json:"promotionValues,omitempty"`
@@ -387,13 +375,6 @@ type GeneratedValues struct {
 
 type PromotionValues struct {
 	S3proxy AceOptionsInfraObjstore `json:"s3proxy,omitempty"`
-}
-
-type AcePlatformAdmin struct {
-	Username    string `json:"username,omitempty"`
-	Password    string `json:"password,omitempty"`
-	Email       string `json:"email,omitempty"`
-	DisplayName string `json:"displayName,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

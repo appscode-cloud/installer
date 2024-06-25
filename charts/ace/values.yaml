@@ -78,11 +78,6 @@ global:
   platform:
     domain: appscode.ninja
     deploymentType: SelfHostedDemo
-    admin:
-      username: admin
-      password: secr3t
-      email: admin@example.com
-      displayName: "Ace Admin"
 
   # License for the product.
   # Example:
@@ -456,12 +451,6 @@ branding:
   favicon: ""
   primaryColor: ""
 
-# controls the self management of the ace cluster
-selfManagement:
-  import: true
-  enableMonitoring: true
-  enableServiceBackend: true
-
 setupJob:
   # https://github.com/fluxcd/flux2/discussions/1085#discussioncomment-473271
   # https://github.com/helm/helm/issues/9027#issuecomment-1908032461
@@ -472,3 +461,21 @@ setupJob:
     hookDeletePolicy: "before-hook-creation"
   annotations: {}
   ttlSecondsAfterFinished: -1
+  config:
+    admin:
+      username: admin
+      password: secr3t
+      email: admin@example.com
+      displayName: "Ace Admin"
+    # controls the self management of the ace cluster
+    selfManagement:
+      import: true
+      enableFeatures:
+      - grafana-operator
+      - kube-grafana-dashboards
+      - kube-prometheus-stack
+      - monitoring-operator
+      - panopticon
+      - prometheus-adapter
+      - service-backend
+      disableFeatures: []

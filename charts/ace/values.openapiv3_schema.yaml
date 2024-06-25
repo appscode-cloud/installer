@@ -4645,17 +4645,6 @@ properties:
         type: string
       platform:
         properties:
-          admin:
-            properties:
-              displayName:
-                type: string
-              email:
-                type: string
-              password:
-                type: string
-              username:
-                type: string
-            type: object
           deploymentType:
             enum:
             - Hosted
@@ -20752,19 +20741,6 @@ properties:
             type: string
         type: object
     type: object
-  selfManagement:
-    properties:
-      enableMonitoring:
-        type: boolean
-      enableServiceBackend:
-        type: boolean
-      import:
-        type: boolean
-    required:
-    - enableMonitoring
-    - enableServiceBackend
-    - import
-    type: object
   settings:
     properties:
       cache:
@@ -21168,6 +21144,42 @@ properties:
         additionalProperties:
           type: string
         type: object
+      config:
+        properties:
+          admin:
+            properties:
+              displayName:
+                type: string
+              email:
+                type: string
+              password:
+                type: string
+              username:
+                type: string
+            required:
+            - displayName
+            - email
+            - password
+            - username
+            type: object
+          selfManagement:
+            properties:
+              disableFeatures:
+                items:
+                  type: string
+                type: array
+              enableFeatures:
+                items:
+                  type: string
+                type: array
+              import:
+                type: boolean
+            required:
+            - disableFeatures
+            - enableFeatures
+            - import
+            type: object
+        type: object
       hook:
         properties:
           enable:
@@ -21188,6 +21200,7 @@ properties:
         type: integer
     required:
     - annotations
+    - config
     - hook
     - ttlSecondsAfterFinished
     type: object
@@ -24351,7 +24364,6 @@ required:
 - resources
 - s3proxy
 - securityContext
-- selfManagement
 - settings
 - setupJob
 - smtprelay

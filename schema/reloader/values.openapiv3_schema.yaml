@@ -2514,7 +2514,7 @@ properties:
                       - TargetHigherThanRequests
                       - TargetLowerThanRequests
                       type: string
-                    resources:
+                    resource:
                       description: Resources is a list of one or more resources that
                         the condition applies to. If more than one resource is given,
                         the EvictionRequirement is fulfilled if at least one resource
@@ -2526,7 +2526,7 @@ properties:
                       type: array
                   required:
                   - changeRequirement
-                  - resources
+                  - resource
                   type: object
                 type: array
               minReplicas:

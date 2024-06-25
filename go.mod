@@ -5,15 +5,16 @@ go 1.22.1
 toolchain go1.22.4
 
 require (
-	go.openviz.dev/installer v0.0.0-20240612081551-25f5e1f1a2cd
+	go.bytebuilders.dev/resource-model v0.0.11-0.20240625113340-029e4e124831
+	go.openviz.dev/installer v0.0.0-20230802073927-bc7c337886e9
 	gomodules.xyz/go-sh v0.1.0
 	k8s.io/api v0.30.1
 	k8s.io/apimachinery v0.30.1
-	k8s.io/autoscaler/vertical-pod-autoscaler v1.1.2
+	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
 	kmodules.xyz/client-go v0.30.8
 	kmodules.xyz/objectstore-api v0.29.1
 	kmodules.xyz/resource-metadata v0.18.9
-	kmodules.xyz/schema-checker v0.4.1
+	kmodules.xyz/schema-checker v0.4.2-0.20230316051604-9a40277165e8
 	kubeops.dev/external-dns-operator v0.0.9
 	sigs.k8s.io/yaml v1.4.0
 	stash.appscode.dev/apimachinery v0.34.0
@@ -80,24 +81,23 @@ require (
 	github.com/yudai/gojsondiff v1.0.0 // indirect
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 	github.com/zeebo/xxh3 v1.0.2 // indirect
-	golang.org/x/crypto v0.22.0 // indirect
+	golang.org/x/crypto v0.24.0 // indirect
 	golang.org/x/exp v0.0.0-20231226003508-02704c960a9b // indirect
-	golang.org/x/net v0.24.0 // indirect
-	golang.org/x/oauth2 v0.18.0 // indirect
+	golang.org/x/net v0.26.0 // indirect
+	golang.org/x/oauth2 v0.21.0 // indirect
 	golang.org/x/sync v0.7.0 // indirect
-	golang.org/x/sys v0.19.0 // indirect
-	golang.org/x/term v0.19.0 // indirect
-	golang.org/x/text v0.14.0 // indirect
+	golang.org/x/sys v0.21.0 // indirect
+	golang.org/x/term v0.21.0 // indirect
+	golang.org/x/text v0.16.0 // indirect
 	golang.org/x/time v0.5.0 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.4.0 // indirect
-	google.golang.org/appengine v1.6.8 // indirect
-	google.golang.org/protobuf v1.33.0 // indirect
+	google.golang.org/protobuf v1.34.2 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	k8s.io/apiextensions-apiserver v0.30.1 // indirect
 	k8s.io/client-go v0.30.1 // indirect
-	k8s.io/klog/v2 v2.120.1 // indirect
+	k8s.io/klog/v2 v2.130.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20240430033511-f0e62f92d13f // indirect
 	k8s.io/utils v0.0.0-20240102154912-e7106e64919e // indirect
 	kmodules.xyz/go-containerregistry v0.0.12 // indirect

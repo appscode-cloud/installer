@@ -51,6 +51,7 @@ spec:
           imagePullPolicy: Always
           args:
             - dev
+            - --setup-config=/data/b3/conf/config.yaml
           # ports:
           #   - name: http
           #     containerPort: 3000
@@ -66,11 +67,6 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
-            - name: ADMIN_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "ace.fullname" . }}-admin-auth
-                  key: password
           {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "gcs") }}
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: {{ $infra.objstore.mountPath }}/sa.json
@@ -129,7 +125,7 @@ spec:
               mountPath: /etc/ssl/certs
             {{- end }}
             - name: setup-config
-              mountPath: /data/b3/conf/setup-config
+              mountPath: /data/b3/conf/config.yaml
               subPath: config.yaml
       volumes:
         - name: tmp
@@ -163,12 +159,10 @@ spec:
               os: debian
               caProviderClasses: {{ include "ace.fullname" . }}
         {{- end }}
-        {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
         - name: setup-config
           secret:
             defaultMode: 420
-            secretName: {{ $secretName }}
-        {{- end }}
+            secretName: {{ include "ace.fullname" . }}-setup-config
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
