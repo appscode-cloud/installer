@@ -463,4 +463,12 @@ selfManagement:
   enableServiceBackend: true
 
 setupJob:
-  ttlSecondsAfterFinished: -1
+  # https://github.com/fluxcd/flux2/discussions/1085#discussioncomment-473271
+  # https://github.com/helm/helm/issues/9027#issuecomment-1908032461
+  hook:
+    enable: false
+    hook: "post-install, post-upgrade, post-rollback, post-delete"
+    hookWeight: "-5"
+    hookDeletePolicy: "before-hook-creation"
+  annotations: {}
+  ttlSecondsAfterFinished: 600

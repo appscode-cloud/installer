@@ -13,9 +13,14 @@ metadata:
   labels:
     {{- include "ace.labels" . | nindent 4 }}
   annotations:
-    helm.sh/hook: "pre-install,pre-upgrade,pre-rollback"
-    helm.sh/hook-weight: "-5"
-    helm.sh/hook-delete-policy: "before-hook-creation"
+  {{- with .Values.setupJob.annotations }}
+    {{- toYaml . | nindent 4}}
+  {{- end}}
+  {{- if .Values.setupJob.hook.enable }}
+    helm.sh/hook: {{ .Values.setupJob.hook.hook }}
+    helm.sh/hook-weight: {{ .Values.setupJob.hook.hookWeight }}
+    helm.sh/hook-delete-policy: {{ .Values.setupJob.hook.hookDeletePolicy }}
+  {{- end}}
 spec:
   backoffLimit: 4
   {{- if ge (int .Values.setupJob.ttlSecondsAfterFinished) 0 }}
