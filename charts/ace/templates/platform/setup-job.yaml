@@ -51,25 +51,6 @@ spec:
           imagePullPolicy: Always
           args:
             - dev
-            - --admin={{ .Values.global.platform.admin.username }}
-            - --name={{ .Values.global.platform.admin.displayName }}
-            - --password=$(ADMIN_PASSWORD)
-            - --email={{ .Values.global.platform.admin.email }}
-            - --exports
-            - --reload-nats-accounts
-            {{- if eq .Values.global.platform.deploymentType "Hosted" }}
-            - --create-nats-stream
-            {{- end }}
-            - --importer-service-account={{ include "appscode.serviceAccountName" . }}-importer
-            {{- if .Values.selfManagement.import }}
-            - --self-import
-            {{- if .Values.selfManagement.enableMonitoring }}
-            - --enable-monitoring
-            {{- end }}
-            {{- if .Values.selfManagement.enableServiceBackend }}
-            - --enable-service-backend
-            {{- end }}
-            {{- end }}
           # ports:
           #   - name: http
           #     containerPort: 3000
@@ -147,6 +128,9 @@ spec:
             - name: cacerts
               mountPath: /etc/ssl/certs
             {{- end }}
+            - name: setup-config
+              mountPath: /data/b3/conf/setup-config
+              subPath: config.yaml
       volumes:
         - name: tmp
           emptyDir: {}
@@ -178,6 +162,12 @@ spec:
             volumeAttributes:
               os: debian
               caProviderClasses: {{ include "ace.fullname" . }}
+        {{- end }}
+        {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
+        - name: setup-config
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

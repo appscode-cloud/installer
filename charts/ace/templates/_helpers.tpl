@@ -139,6 +139,10 @@ Returns the ServiceMonitor labels
 {{- printf "%s-nats-cred" (include "ace.fullname" .) -}}
 {{- end }}
 
+{{- define "settings.setupConfigSecretName" -}}
+{{- printf "%s-setup-config" (include "ace.fullname" .) -}}
+{{- end }}
+
 {{/*
 Determine database host name
 */}}
