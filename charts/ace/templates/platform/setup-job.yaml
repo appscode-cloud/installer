@@ -17,9 +17,9 @@ metadata:
     {{- toYaml . | nindent 4}}
   {{- end}}
   {{- if .Values.setupJob.hook.enable }}
-    helm.sh/hook: {{ .Values.setupJob.hook.hook }}
-    helm.sh/hook-weight: {{ .Values.setupJob.hook.hookWeight }}
-    helm.sh/hook-delete-policy: {{ .Values.setupJob.hook.hookDeletePolicy }}
+    helm.sh/hook: {{ .Values.setupJob.hook.hook | quote }}
+    helm.sh/hook-weight: {{ .Values.setupJob.hook.hookWeight | quote }}
+    helm.sh/hook-delete-policy: {{ .Values.setupJob.hook.hookDeletePolicy | quote }}
   {{- end}}
 spec:
   backoffLimit: 4
