@@ -125,3 +125,7 @@ type AceSelfManagementSpec struct {
 	EnableMonitoring     bool `json:"enableMonitoring"`
 	EnableServiceBackend bool `json:"enableServiceBackend"`
 }
+
+type AceSetupJob struct {
+	TtlSecondsAfterFinished int `json:"ttlSecondsAfterFinished"`
+}

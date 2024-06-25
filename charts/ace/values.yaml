@@ -461,3 +461,6 @@ selfManagement:
   import: true
   enableMonitoring: true
   enableServiceBackend: true
+
+setupJob:
+  ttlSecondsAfterFinished: -1
