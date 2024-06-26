@@ -467,6 +467,7 @@ setupJob:
       password: secr3t
       email: admin@example.com
       displayName: "Ace Admin"
+    initialOrgName: ace
     # controls the self management of the ace cluster
     selfManagement:
       import: true
@@ -478,4 +479,12 @@ setupJob:
       - panopticon
       - prometheus-adapter
       - service-backend
+      - ace-ocm-addons
+      - cluster-auth-manager
+      - cluster-gateway-manager
+      - cluster-manager-hub
+      - cluster-proxy-manager
+      - fluxcd-manager
+      - license-proxyserver-manager
+      - managed-serviceaccount-manager
       disableFeatures: []

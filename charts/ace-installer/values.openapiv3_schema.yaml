@@ -113,10 +113,6 @@ properties:
         type: array
       import:
         type: boolean
-    required:
-    - disableFeatures
-    - enableFeatures
-    - import
     type: object
 required:
 - fullnameOverride

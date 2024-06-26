@@ -21157,6 +21157,62 @@ properties:
               username:
                 type: string
             type: object
+          initialOrgName:
+            type: string
+          marketplaceConfig:
+            properties:
+              aws:
+                properties:
+                  accessKeyID:
+                    type: string
+                  secretAccessKey:
+                    type: string
+                required:
+                - accessKeyID
+                - secretAccessKey
+                type: object
+              azure:
+                properties:
+                  clientID:
+                    type: string
+                  clientSecret:
+                    type: string
+                  subscriptionID:
+                    type: string
+                  tenantID:
+                    type: string
+                required:
+                - clientID
+                - clientSecret
+                - subscriptionID
+                - tenantID
+                type: object
+              clusterCreateOptions:
+                properties:
+                  CIDRRange:
+                    type: string
+                  clusterName:
+                    type: string
+                  kubernetesVersion:
+                    type: string
+                  machineType:
+                    type: string
+                  projectID:
+                    type: string
+                  region:
+                    type: string
+                type: object
+              googleCloud:
+                properties:
+                  projectID:
+                    type: string
+                  serviceAccount:
+                    type: string
+                required:
+                - projectID
+                - serviceAccount
+                type: object
+            type: object
           selfManagement:
             properties:
               disableFeatures:
@@ -21169,10 +21225,6 @@ properties:
                 type: array
               import:
                 type: boolean
-            required:
-            - disableFeatures
-            - enableFeatures
-            - import
             type: object
         type: object
       hook:
