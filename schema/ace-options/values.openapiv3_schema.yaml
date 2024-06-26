@@ -181,17 +181,6 @@ properties:
     type: object
   context:
     properties:
-      admin:
-        properties:
-          displayName:
-            type: string
-          email:
-            type: string
-          password:
-            type: string
-          username:
-            type: string
-        type: object
       adminPassword:
         type: string
       backupPassword:
@@ -941,6 +930,37 @@ properties:
       - exposeVia
       - nodeSelector
     type: object
+  initialSetup:
+    properties:
+      admin:
+        properties:
+          displayName:
+            type: string
+          email:
+            type: string
+          password:
+            type: string
+          username:
+            type: string
+        type: object
+      selfManagement:
+        properties:
+          disableFeatures:
+            items:
+              type: string
+            type: array
+          enableFeatures:
+            items:
+              type: string
+            type: array
+          import:
+            type: boolean
+        required:
+          - disableFeatures
+          - enableFeatures
+          - import
+        type: object
+    type: object
   kubedb-ui:
     properties:
       enabled:
@@ -1550,23 +1570,6 @@ properties:
     required:
       - enabled
     type: object
-  selfManagement:
-    properties:
-      disableFeatures:
-        items:
-          type: string
-        type: array
-      enableFeatures:
-        items:
-          type: string
-        type: array
-      import:
-        type: boolean
-    required:
-      - disableFeatures
-      - enableFeatures
-      - import
-    type: object
   settings:
     properties:
       cache:
@@ -1856,6 +1859,7 @@ required:
   - grafana
   - infra
   - ingress
+  - initialSetup
   - kubedb-ui
   - marketplace-ui
   - monitoring
@@ -1867,7 +1871,6 @@ required:
   - registry
   - release
   - s3proxy
-  - selfManagement
   - settings
   - smtprelay
   - trickster
