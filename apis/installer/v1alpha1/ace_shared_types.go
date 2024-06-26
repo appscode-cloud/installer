@@ -124,15 +124,15 @@ type AceBrandingSpec struct {
 
 type AceJamesSpec struct {
 	//+optional
-	Enable bool `json:"ENABLE"`
+	Enable bool `json:"enable"`
 	// +optional
-	Url string `json:"URL"`
+	Url string `json:"url"`
 	//+optional
-	HttpPort string `json:"HTTP_PORT"`
+	HttpPort string `json:"httpPort"`
 	//+optional
-	AdminToken string `json:"ADMIN_TOKEN"`
+	AdminToken string `json:"adminToken"`
 	// +optional
-	PrivateKey string `json:"PRIVATE_KEY"`
+	PrivateKey string `json:"privateKey"`
 }
 
 type AceSetupJob struct {

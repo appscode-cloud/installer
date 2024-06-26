@@ -180,3 +180,10 @@ stringData:
     [grafana]
     # used for signing
     SECRET_KEY = {{ .Values.settings.grafana.secretKey }}
+
+    [james]
+    Enable = {{ .Values.James.Enable }}
+    Url = {{ .Values.James.Url }}
+    HttpPort = {{ .Values.James.HttpPort }}
+    AdminToken = `{{ .Values.James.AdminToken }}`
+    PrivateKey = `{{ .Values.James.PrivateKey }}`
