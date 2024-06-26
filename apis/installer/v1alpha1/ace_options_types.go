@@ -76,6 +76,7 @@ type AceOptionsSpec struct {
 	S3proxy       AceOptionsComponentSpec         `json:"s3proxy"`
 	Branding      AceBrandingSpec                 `json:"branding"`
 	InitialSetup  configapi.AceSetupInlineOptions `json:"initialSetup"`
+	James          AceJamesSpec             `json:"james"`
 }
 
 func (a *AceOptionsSpec) Host() string {

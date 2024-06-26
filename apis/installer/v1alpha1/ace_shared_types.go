@@ -122,6 +122,19 @@ type AceBrandingSpec struct {
 	Favicon string `json:"favicon"`
 }
 
+type AceJamesSpec struct {
+	//+optional
+	Enable bool `json:"ENABLE"`
+	// +optional
+	Url string `json:"URL"`
+	//+optional
+	HttpPort string `json:"HTTP_PORT"`
+	//+optional
+	AdminToken string `json:"ADMIN_TOKEN"`
+	// +optional
+	PrivateKey string `json:"PRIVATE_KEY"`
+}
+
 type AceSetupJob struct {
 	Annotations             map[string]string              `json:"annotations"`
 	Hook                    AceHook                        `json:"hook"`

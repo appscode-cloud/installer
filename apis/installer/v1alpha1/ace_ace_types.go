@@ -84,6 +84,7 @@ type AceSpec struct {
 	Branding     AceBrandingSpec                  `json:"branding"`
 	SetupJob     AceSetupJob                      `json:"setupJob"`
 	ExtraObjects map[string]*runtime.RawExtension `json:"extraObjects"`
+	James          AceJamesSpec          `json:"james"`
 }
 
 type AceBilling struct {
