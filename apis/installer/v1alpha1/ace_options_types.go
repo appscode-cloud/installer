@@ -51,31 +51,31 @@ type AceOptions struct {
 
 // AceOptionsSpec is the schema for AceOptions Operator values file
 type AceOptionsSpec struct {
-	Context        AceDeploymentContext     `json:"context"`
-	Release        ObjectReference          `json:"release"`
-	Registry       RegistrySpec             `json:"registry"`
-	Monitoring     GlobalMonitoring         `json:"monitoring"`
-	Infra          AceOptionsPlatformInfra  `json:"infra"`
-	Settings       AceOptionsSettings       `json:"settings"`
-	Billing        AceOptionsComponentSpec  `json:"billing"`
-	PlatformUi     AceOptionsComponentSpec  `json:"platform-ui"`
-	AccountsUi     AceOptionsComponentSpec  `json:"accounts-ui"`
-	ClusterUi      AceOptionsComponentSpec  `json:"cluster-ui"`
-	DeployUi       AceOptionsComponentSpec  `json:"deploy-ui"`
-	Grafana        AceOptionsComponentSpec  `json:"grafana"`
-	KubedbUi       AceOptionsComponentSpec  `json:"kubedb-ui"`
-	MarketplaceUi  AceOptionsComponentSpec  `json:"marketplace-ui"`
-	PlatformApi    AceOptionsComponentSpec  `json:"platform-api"`
-	PlatformLinks  AceOptionsComponentSpec  `json:"platform-links"`
-	Ingress        AceOptionsIngressNginx   `json:"ingress"`
-	Nats           AceOptionsNatsSettings   `json:"nats"`
-	Trickster      AceOptionsComponentSpec  `json:"trickster"`
-	DNSProxy       AceOptionsComponentSpec  `json:"dns-proxy"`
-	Openfga        AceOptionsComponentSpec  `json:"openfga"`
-	SMTPRelay      AceOptionsComponentSpec  `json:"smtprelay"`
-	S3proxy        AceOptionsComponentSpec  `json:"s3proxy"`
-	Branding       AceBrandingSpec          `json:"branding"`
-	SelfManagement configapi.SelfManagement `json:"selfManagement"`
+	Context       AceDeploymentContext           `json:"context"`
+	Release       ObjectReference                `json:"release"`
+	Registry      RegistrySpec                   `json:"registry"`
+	Monitoring    GlobalMonitoring               `json:"monitoring"`
+	Infra         AceOptionsPlatformInfra        `json:"infra"`
+	Settings      AceOptionsSettings             `json:"settings"`
+	Billing       AceOptionsComponentSpec        `json:"billing"`
+	PlatformUi    AceOptionsComponentSpec        `json:"platform-ui"`
+	AccountsUi    AceOptionsComponentSpec        `json:"accounts-ui"`
+	ClusterUi     AceOptionsComponentSpec        `json:"cluster-ui"`
+	DeployUi      AceOptionsComponentSpec        `json:"deploy-ui"`
+	Grafana       AceOptionsComponentSpec        `json:"grafana"`
+	KubedbUi      AceOptionsComponentSpec        `json:"kubedb-ui"`
+	MarketplaceUi AceOptionsComponentSpec        `json:"marketplace-ui"`
+	PlatformApi   AceOptionsComponentSpec        `json:"platform-api"`
+	PlatformLinks AceOptionsComponentSpec        `json:"platform-links"`
+	Ingress       AceOptionsIngressNginx         `json:"ingress"`
+	Nats          AceOptionsNatsSettings         `json:"nats"`
+	Trickster     AceOptionsComponentSpec        `json:"trickster"`
+	DNSProxy      AceOptionsComponentSpec        `json:"dns-proxy"`
+	Openfga       AceOptionsComponentSpec        `json:"openfga"`
+	SMTPRelay     AceOptionsComponentSpec        `json:"smtprelay"`
+	S3proxy       AceOptionsComponentSpec        `json:"s3proxy"`
+	Branding      AceBrandingSpec                `json:"branding"`
+	InitialSetup  configapi.AceSetupInlineConfig `json:"initialSetup"`
 }
 
 type RegistrySpec struct {
@@ -339,8 +339,6 @@ type AceDeploymentContext struct {
 	// +optional
 	ClusterID string            `json:"clusterID"`
 	Licenses  map[string]string `json:"licenses,omitempty"`
-	// +optional
-	Admin configapi.AcePlatformAdmin `json:"admin"`
 
 	PromotedToProduction bool             `json:"promotedToProduction,omitempty"`
 	PromotionValues      *PromotionValues `json:"promotionValues,omitempty"`
