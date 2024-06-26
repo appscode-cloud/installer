@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "ace.labels" . | nindent 4 }}
-data:
+stringData:
   config.yaml: |
     apiVersion: ace.appscode.com/v1alpha1
     kind: AceSetupConfig
