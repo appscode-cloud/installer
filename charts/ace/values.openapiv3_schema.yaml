@@ -21169,10 +21169,6 @@ properties:
                 type: array
               import:
                 type: boolean
-            required:
-            - disableFeatures
-            - enableFeatures
-            - import
             type: object
         type: object
       hook:
