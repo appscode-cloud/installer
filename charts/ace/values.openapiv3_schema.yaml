@@ -21397,8 +21397,49 @@ properties:
           subscription:
             properties:
               aws:
+                properties:
+                  customer-identifier:
+                    type: string
+                  offer-identifier:
+                    type: string
+                  product-code:
+                    type: string
+                required:
+                - customer-identifier
+                - offer-identifier
+                - product-code
                 type: object
               azure:
+                properties:
+                  applicationId:
+                    type: string
+                  billingDetails:
+                    properties:
+                      resourceUsageId:
+                        type: string
+                    required:
+                    - resourceUsageId
+                    type: object
+                  plan:
+                    properties:
+                      name:
+                        type: string
+                      product:
+                        type: string
+                      publisher:
+                        type: string
+                      version:
+                        type: string
+                    required:
+                    - name
+                    - product
+                    - publisher
+                    - version
+                    type: object
+                required:
+                - applicationId
+                - billingDetails
+                - plan
                 type: object
               gcp:
                 type: object
