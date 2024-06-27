@@ -6,7 +6,7 @@
 {{- $restpl := $.Files.Get "common/addon/placement.yaml" }}
 {{ tpl $restpl $ }}
 ---
-{{- $restpl := $.Files.Get "common/addon/manifestrelicaset.yaml" }}
+{{- $restpl := $.Files.Get "common/addon/manifestreplicaset.yaml" }}
 {{ tpl $restpl $ }}
 
 {{- end }}
