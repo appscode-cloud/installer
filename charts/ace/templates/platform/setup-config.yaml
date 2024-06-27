@@ -10,6 +10,9 @@ stringData:
     apiVersion: ace.appscode.com/v1alpha1
     kind: AceSetupConfig
     deploymentType: {{ .Values.global.platform.deploymentType }}
+    {{- with .Values.global.infra.dns.targetIPs }}
+    serverIP: {{ first . }}
+    {{- end }}
     nats:
       exports: true
       reloadNatsAccounts: true
