@@ -326,7 +326,9 @@ func (dt DeploymentType) Onprem() bool {
 }
 
 func (dt DeploymentType) MarketplaceDeployment() bool {
-	return dt == AWSMarketplaceDeployment || dt == AzureMarketplaceDeployment || dt == GCPMarketplaceDeployment
+	return dt == AWSMarketplaceDeployment ||
+		dt == AzureMarketplaceDeployment ||
+		dt == GCPMarketplaceDeployment
 }
 
 type AceDeploymentContext struct {
