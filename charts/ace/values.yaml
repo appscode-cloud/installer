@@ -209,6 +209,11 @@ global:
       bucket: gs://invoice-storage-demo
       prefix: ""
       trackerEmail: invoice-tracker@appscode.com
+    fileserver:
+      baseURL: ""
+      # bucket to store installer and kubepack yamls
+      bucket: ""
+      prefix: ""
 
 settings:
   db:
@@ -359,19 +364,6 @@ settings:
     # to auto sign in
     cookieRememberName: ace_incredible
 
-  stripe:
-    # stripe access token
-    stripeKey: sk_
-    # webhook signing secret
-    endpointSecret: wh
-
-  searchlight:
-    enabled: true
-    alertmanagerAddr: http://alertmanager.m3db.svc:8443
-    queryAddr: http://m3query.m3db.svc:7201
-    rulerAddr: http://ruler.m3db.svc:8443
-    m3coordinatorAddr: http://m3coordinator.m3db.svc:7201
-
   grafana:
     # possible values : production, development
     appMode: production
@@ -379,16 +371,6 @@ settings:
   security:
     oauth2JWTSecret: ""
     csrfSecretKey: ""
-
-  clusterConnector:
-    # Docker registry containing cluster connector images
-    registry: ""
-    repository: ""
-    tag: ""
-    pullPolicy: Always
-    # bucket to store cluster-connector yamls
-    bucket: ""
-    prefix: ""
 
   contract:
     bucket: ""
