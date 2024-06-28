@@ -38,9 +38,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
             - links
-            {{- if include "appscode.license" . }}
-            - --license-file=/var/run/secrets/appscode/license/key.txt
-            {{- end }}
+            - app-config=/data/b3/conf/app.ini
           ports:
             - name: http
               containerPort: 3006
@@ -117,10 +115,6 @@ spec:
             - name: cacerts
               mountPath: /etc/ssl/certs
             {{- end }}
-            {{- if include "appscode.license" . }}
-            - mountPath: /var/run/secrets/appscode/license
-              name: license
-            {{- end }}
       volumes:
         - name: tmp
           emptyDir: {}
@@ -141,12 +135,6 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: {{ include "platform-links.fullname" . }}-data
-        {{- end }}
-        {{- if include "appscode.license" . }}
-        - name: license
-          secret:
-            defaultMode: 420
-            secretName: {{ include "platform-links.fullname" . }}-license
         {{- end }}
         {{- with $cpc := (include "settings.caProviderClass" .) }}
         - name: cacerts

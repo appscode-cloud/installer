@@ -228,6 +228,7 @@ type PlatformInfra struct {
 	Kubepack     InfraKubepack        `json:"kubepack"`
 	Badger       InfraBadger          `json:"badger"`
 	Invoice      InfraInvoice         `json:"invoice"`
+	Fileserver   InfraFileserver      `json:"fileserver"`
 }
 
 type KubeStashSpec struct {
@@ -375,19 +376,22 @@ type InfraInvoice struct {
 	TrackerEmail string `json:"trackerEmail"`
 }
 
+type InfraFileserver struct {
+	BaseURL string `json:"baseURL"`
+	Bucket  string `json:"bucket"`
+	Prefix  string `json:"prefix"`
+}
+
 type Settings struct {
-	DB               DBSettings           `json:"db"`
-	Cache            CacheSettings        `json:"cache"`
-	Smtp             SmtpSettings         `json:"smtp"`
-	Nats             NatsSettings         `json:"nats"`
-	Platform         PlatformSettings     `json:"platform"`
-	Stripe           StripeSettings       `json:"stripe"`
-	Security         SecuritySettings     `json:"security"`
-	Searchlight      SearchlightSettings  `json:"searchlight"`
-	Grafana          GrafanaSettings      `json:"grafana"`
-	ClusterConnector ClusterConnectorSpec `json:"clusterConnector"`
-	Contract         ContractStorage      `json:"contract"`
-	Firebase         FirebaseSettings     `json:"firebase"`
+	DB       DBSettings       `json:"db"`
+	Cache    CacheSettings    `json:"cache"`
+	Smtp     SmtpSettings     `json:"smtp"`
+	Nats     NatsSettings     `json:"nats"`
+	Platform PlatformSettings `json:"platform"`
+	Security SecuritySettings `json:"security"`
+	Grafana  GrafanaSettings  `json:"grafana"`
+	Contract ContractStorage  `json:"contract"`
+	Firebase FirebaseSettings `json:"firebase"`
 }
 
 type DBSettings struct {
@@ -477,19 +481,6 @@ type PlatformSettings struct {
 	EnableCSRFCookieHttpOnly        bool     `json:"enableCSRFCookieHttpOnly"`
 }
 
-type StripeSettings struct {
-	StripeKey      string `json:"stripeKey"`
-	EndpointSecret string `json:"endpointSecret"`
-}
-
-type SearchlightSettings struct {
-	Enabled           bool   `json:"enabled"`
-	AlertmanagerAddr  string `json:"alertmanagerAddr"`
-	QueryAddr         string `json:"queryAddr"`
-	RulerAddr         string `json:"rulerAddr"`
-	M3CoordinatorAddr string `json:"m3coordinatorAddr"`
-}
-
 type SecuritySettings struct {
 	Oauth2JWTSecret string `json:"oauth2JWTSecret"`
 	CsrfSecretKey   string `json:"csrfSecretKey"`
@@ -497,13 +488,6 @@ type SecuritySettings struct {
 
 type GrafanaSettings struct {
 	AppMode string `json:"appMode"`
-}
-
-type ClusterConnectorSpec struct {
-	ImageReference `json:",inline,omitempty"`
-
-	Bucket string `json:"bucket"`
-	Prefix string `json:"prefix"`
 }
 
 type ContractStorage struct {

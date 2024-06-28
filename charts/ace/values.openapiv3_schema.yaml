@@ -4398,6 +4398,19 @@ properties:
             - auth
             - provider
             type: object
+          fileserver:
+            properties:
+              baseURL:
+                type: string
+              bucket:
+                type: string
+              prefix:
+                type: string
+            required:
+            - baseURL
+            - bucket
+            - prefix
+            type: object
           invoice:
             properties:
               bucket:
@@ -4578,6 +4591,7 @@ properties:
         required:
         - badger
         - dns
+        - fileserver
         - invoice
         - kms
         - kubepack
@@ -18734,8 +18748,6 @@ properties:
         - objstore
         - storageClass
         type: object
-      license:
-        type: string
       monitoring:
         properties:
           agent:
@@ -20811,28 +20823,6 @@ properties:
         - terminationPolicy
         - version
         type: object
-      clusterConnector:
-        properties:
-          bucket:
-            type: string
-          prefix:
-            type: string
-          pullPolicy:
-            type: string
-          registry:
-            type: string
-          repository:
-            type: string
-          tag:
-            type: string
-        required:
-        - bucket
-        - prefix
-        - pullPolicy
-        - registry
-        - repository
-        - tag
-        type: object
       contract:
         properties:
           bucket:
@@ -21057,25 +21047,6 @@ properties:
         - serviceRegisterEmailConfirm
         - serviceRequireSignInView
         type: object
-      searchlight:
-        properties:
-          alertmanagerAddr:
-            type: string
-          enabled:
-            type: boolean
-          m3coordinatorAddr:
-            type: string
-          queryAddr:
-            type: string
-          rulerAddr:
-            type: string
-        required:
-        - alertmanagerAddr
-        - enabled
-        - m3coordinatorAddr
-        - queryAddr
-        - rulerAddr
-        type: object
       security:
         properties:
           csrfSecretKey:
@@ -21114,29 +21085,16 @@ properties:
         - tlsEnabled
         - username
         type: object
-      stripe:
-        properties:
-          endpointSecret:
-            type: string
-          stripeKey:
-            type: string
-        required:
-        - endpointSecret
-        - stripeKey
-        type: object
     required:
     - cache
-    - clusterConnector
     - contract
     - db
     - firebase
     - grafana
     - nats
     - platform
-    - searchlight
     - security
     - smtp
-    - stripe
     type: object
   setupJob:
     properties:
