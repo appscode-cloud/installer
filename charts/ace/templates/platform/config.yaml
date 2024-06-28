@@ -19,7 +19,6 @@ stringData:
 {{- end }}
 
     [site_accounts]
-    ; WHY http, not https?
     PROTOCOL = http
     DOMAIN = {{ .Values.global.platform.domain }}
     ROOT_URL = https://accounts.{{ .Values.global.platform.domain }}
@@ -27,21 +26,9 @@ stringData:
     APP_DATA_PATH = /data
 
     [site_api]
-    ; WHY http, not https?
     PROTOCOL = http
     DOMAIN = api.{{ .Values.global.platform.domain }}
     ROOT_URL = https://api.{{ .Values.global.platform.domain }}
-
-    [picture]
-    DISABLE_GRAVATAR        = false
-    ENABLE_FEDERATED_AVATAR = true
-    AVATAR_UPLOAD_PATH      = avatars
-
-    [storage]
-    BUCKET_URL      = {{ .Values.global.infra.objstore.bucket }}
-    BUCKET_ENDPOINT = {{ .Values.global.infra.objstore.endpoint }}
-    BUCKET_REGION   = {{ .Values.global.infra.objstore.region }}
-    BUCKET_PREFIX   = {{ .Values.global.infra.objstore.prefix }}
 
     [database]
     DB_TYPE = "postgres"
@@ -121,24 +108,8 @@ stringData:
     ALLOW_DOMAIN = {{ .Values.global.platform.domain }}
     ALLOW_SUBDOMAIN = true
 
-  {{- if .Values.billing.enabled }}
-    [payment_gateway]
-    PROVIDERS = stripe
-    STRIPE_KEY = {{ .Values.settings.stripe.stripeKey }}
-    ENDPOINT_SECRET = {{ .Values.settings.stripe.endpointSecret }}
-  {{- end }}
-
     [kms]
     MASTER_KEY_URL = '{{ include "settings.kms.masterKeyURL" . }}'
-
-    [searchlight]
-    ENABLE = {{ .Values.settings.searchlight.enabled }}
-  {{- if .Values.settings.searchlight.enabled }}
-    ALERTMANAGER_ADDR = {{ .Values.settings.searchlight.alertmanagerAddr }}
-    QUERY_ADDR = {{ .Values.settings.searchlight.queryAddr }}
-    RULER_ADDR = {{ .Values.settings.searchlight.rulerAddr }}
-    M3COORDINATOR_ADDR = {{ .Values.settings.searchlight.m3coordinatorAddr }}
-  {{- end }}
 
   {{- if .Values.nats.enabled }}
     [nats]
@@ -156,42 +127,41 @@ stringData:
     REPLICAS = {{ .Values.settings.nats.replicas }}
   {{- end }}
 
-{{- if .Values.global.infra.objstore.provider }}
+    [storage]
+    BUCKET_URL      = {{ .Values.global.infra.objstore.bucket }}
+    BUCKET_ENDPOINT = {{ .Values.global.infra.objstore.endpoint }}
+    BUCKET_REGION   = {{ .Values.global.infra.objstore.region }}
+    BUCKET_PREFIX   = {{ .Values.global.infra.objstore.prefix }}
+
+    [picture]
+    DISABLE_GRAVATAR        = false
+    ENABLE_FEDERATED_AVATAR = true
+    AVATAR_UPLOAD_PATH      = avatars
+
   {{- if .Values.billing.enabled }}
     [badger]
-    PATH = {{ .Values.global.infra.badger.mountPath }}
+    PATH   = {{ .Values.global.infra.badger.mountPath }}
     LEVELS = {{ .Values.global.infra.badger.levels }}
 
     [invoice]
-    PATH = {{ .Values.global.infra.invoice.mountPath }}
-    BUCKET = {{ .Values.global.infra.invoice.bucket }}
-    PREFIX = {{ .Values.global.infra.invoice.prefix }}
+    PATH          = {{ .Values.global.infra.invoice.mountPath }}
+    BUCKET        = {{ .Values.global.infra.invoice.bucket }}
+    PREFIX        = {{ .Values.global.infra.invoice.prefix }}
     TRACKER_EMAIL = {{ .Values.global.infra.invoice.trackerEmail }}
-  {{- end }}
-
-  {{- if eq .Values.global.platform.deploymentType "Hosted" }}
-    [yaml_storage]
-    BUCKET = {{ .Values.global.infra.kubepack.bucket }}
-    PREFIX = {{ .Values.global.infra.kubepack.prefix }}
-  {{- end }}
-{{- end }}
-
-    [cluster_connector]
-  {{- if .Values.settings.clusterConnector.registry }}
-    REGISTRY    = {{ .Values.settings.clusterConnector.registry }}
-    REPOSITORY  = {{ .Values.settings.clusterConnector.repository }}
-    TAG         = {{ .Values.settings.clusterConnector.tag }}
-    PULL_POLICY = {{ .Values.settings.clusterConnector.pullPolicy }}
-  {{- end }}
-
-  {{- if eq .Values.global.platform.deploymentType "Hosted" }}
-    BUCKET      = {{ .Values.settings.clusterConnector.bucket }}
-    PREFIX      = {{ .Values.settings.clusterConnector.prefix }}
 
     [contract]
     BUCKET          = {{ .Values.settings.contract.bucket }}
     PREFIX          = {{ .Values.settings.contract.prefix }}
     LICENSE_BUCKET  = {{ .Values.settings.contract.licenseBucket }}
+  {{- end }}
+
+  {{- if eq .Values.global.platform.deploymentType "Hosted" }}
+    [fileserver]
+    ROOT_URL         = {{ .Values.global.infra.fileserver.baseURL }}
+    BUCKET           = {{ .Values.global.infra.fileserver.bucket }}
+    PREFIX           = {{ .Values.global.infra.fileserver.prefix }}
+    INSTALLER_PREFIX = installer
+    PACKAGES_PREFIX  = packages
 
     [firebase]
     PROJECT   = {{ .Values.settings.firebase.project }}
