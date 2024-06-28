@@ -62,7 +62,7 @@ The following table lists the configurable parameters of the `ace-ocm-addons` ch
 | helm.createNamespace                      |                                 | <code>true</code>                                  |
 | helm.repositories.appscode-charts-oci.url |                                 | <code>oci://ghcr.io/appscode-charts</code>         |
 | helm.releases.kube-ui-server.enabled      |                                 | <code>true</code>                                  |
-| helm.releases.kube-ui-server.version      |                                 | <code>"v2024.5.15"</code>                          |
+| helm.releases.kube-ui-server.version      |                                 | <code>"v2024.6.18"</code>                          |
 | helm.releases.opscenter-features.enabled  |                                 | <code>true</code>                                  |
 | helm.releases.opscenter-features.version  |                                 | <code>"v2024.6.28"</code>                          |
 | kubeconfigSecretName                      | ocm values                      | <code>""</code>                                    |
