@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/opscenter-features --version=v2024.6.18
-$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2024.6.18
+$ helm search repo appscode/opscenter-features --version=v2024.6.28
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2024.6.28
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys a ACE Opscenter Configurator on a [Kubernetes](http://kuberne
 To install/upgrade the chart with the release name `opscenter-features`:
 
 ```bash
-$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2024.6.18
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2024.6.28
 ```
 
 The command deploys a ACE Opscenter Configurator on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -76,7 +76,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.cert-manager-csi-driver-cacerts.version       |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.cert-manager-webhook-ace.version              |                                 | <code>"v2023.11.14"</code>                 |
 | helm.releases.cluster-autoscaler.version                    |                                 | <code>"9.29.0"</code>                      |
-| helm.releases.cluster-presets.version                       |                                 | <code>"v2024.6.18"</code>                  |
+| helm.releases.cluster-presets.version                       |                                 | <code>"v2024.6.28"</code>                  |
 | helm.releases.config-syncer.version                         |                                 | <code>"v0.14.6"</code>                     |
 | helm.releases.crossplane.version                            |                                 | <code>"1.14.0"</code>                      |
 | helm.releases.csi-driver-nfs.version                        |                                 | <code>"v4.7.0"</code>                      |
@@ -93,8 +93,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.keda-add-ons-http.version                     |                                 | <code>"0.7.0"</code>                       |
 | helm.releases.kube-grafana-dashboards.version               |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.kube-prometheus-stack.version                 |                                 | <code>"52.1.0"</code>                      |
-| helm.releases.kubedb-ui-presets.version                     |                                 | <code>"v2024.6.18"</code>                  |
-| helm.releases.kube-ui-server.version                        |                                 | <code>"v2024.6.18"</code>                  |
+| helm.releases.kubedb-ui-presets.version                     |                                 | <code>"v2024.6.28"</code>                  |
+| helm.releases.kube-ui-server.version                        |                                 | <code>"v2024.6.28"</code>                  |
 | helm.releases.kubedb.version                                |                                 | <code>"v2024.6.4"</code>                   |
 | helm.releases.kubedb-opscenter.version                      |                                 | <code>"v2024.6.4"</code>                   |
 | helm.releases.kubedb-provider-aws.version                   |                                 | <code>"v2024.1.31"</code>                  |
@@ -103,13 +103,13 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kubestash.version                             |                                 | <code>"v2024.6.4"</code>                   |
 | helm.releases.kubevault.version                             |                                 | <code>"v2024.3.12"</code>                  |
 | helm.releases.kubevault-opscenter.version                   |                                 | <code>"v2024.1.31"</code>                  |
-| helm.releases.license-proxyserver.version                   |                                 | <code>"v2024.6.18"</code>                  |
+| helm.releases.license-proxyserver.version                   |                                 | <code>"v2024.6.28"</code>                  |
 | helm.releases.longhorn.version                              |                                 | <code>"1.6.2"</code>                       |
 | helm.releases.metrics-server.version                        |                                 | <code>"3.11.0"</code>                      |
 | helm.releases.monitoring-operator.version                   |                                 | <code>"v0.0.7"</code>                      |
 | helm.releases.opencost.version                              |                                 | <code>"1.18.1"</code>                      |
 | helm.releases.opencost-grafana-dashboards.version           |                                 | <code>"v2023.10.1"</code>                  |
-| helm.releases.opscenter-features.version                    |                                 | <code>"v2024.6.18"</code>                  |
+| helm.releases.opscenter-features.version                    |                                 | <code>"v2024.6.28"</code>                  |
 | helm.releases.panopticon.version                            |                                 | <code>"v2024.5.15"</code>                  |
 | helm.releases.prepare-cluster.version                       |                                 | <code>"v2023.12.21"</code>                 |
 | helm.releases.prometheus-adapter.version                    |                                 | <code>"4.9.0"</code>                       |
@@ -122,7 +122,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.snapshot-controller.version                   |                                 | <code>"3.0.5"</code>                       |
 | helm.releases.stash.version                                 |                                 | <code>"v2024.4.8"</code>                   |
 | helm.releases.stash-opscenter.version                       |                                 | <code>"v2024.4.8"</code>                   |
-| helm.releases.stash-presets.version                         |                                 | <code>"v2024.6.18"</code>                  |
+| helm.releases.stash-presets.version                         |                                 | <code>"v2024.6.28"</code>                  |
 | helm.releases.supervisor.version                            |                                 | <code>"v2024.2.6"</code>                   |
 | helm.releases.topolvm.version                               |                                 | <code>"15.0.0"</code>                      |
 | helm.releases.voyager.version                               |                                 | <code>"v2024.3.18"</code>                  |
@@ -135,7 +135,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.csi-secrets-store-provider-azure.version      |                                 | <code>"1.5.2"</code>                       |
 | helm.releases.secrets-store-csi-driver-provider-gcp.version |                                 | <code>"0.1.0"</code>                       |
 | helm.releases.vault.version                                 |                                 | <code>"0.27.0"</code>                      |
-| helm.releases.ace-ocm-addons.version                        |                                 | <code>"v2024.6.18"</code>                  |
+| helm.releases.ace-ocm-addons.version                        |                                 | <code>"v2024.6.28"</code>                  |
 | helm.releases.ingress-nginx.version                         |                                 | <code>"4.10.0"</code>                      |
 | helm.releases.cluster-manager-hub.version                   |                                 | <code>"v2024.2.25"</code>                  |
 | helm.releases.cluster-manager-spoke.version                 |                                 | <code>"v2024.2.25"</code>                  |
@@ -146,7 +146,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.cluster-gateway-manager.version               |                                 | <code>"v2024.2.25"</code>                  |
 | helm.releases.cluster-auth-manager.version                  |                                 | <code>"v2024.2.25"</code>                  |
 | helm.releases.fluxcd-manager.version                        |                                 | <code>"v2024.5.17"</code>                  |
-| helm.releases.license-proxyserver-manager.version           |                                 | <code>"v2024.6.18"</code>                  |
+| helm.releases.license-proxyserver-manager.version           |                                 | <code>"v2024.6.28"</code>                  |
 | helm.releases.inbox-server.version                          |                                 | <code>"v2024.5.3"</code>                   |
 | helm.releases.inbox-agent.version                           |                                 | <code>"v2024.5.3"</code>                   |
 | helm.releases.inbox-ui.version                              |                                 | <code>"v2024.5.3"</code>                   |
@@ -155,12 +155,12 @@ The following table lists the configurable parameters of the `opscenter-features
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2024.6.18 --set clusterMetadata.uid=TBD
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2024.6.28 --set clusterMetadata.uid=TBD
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2024.6.18 --values values.yaml
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2024.6.28 --values values.yaml
 ```
