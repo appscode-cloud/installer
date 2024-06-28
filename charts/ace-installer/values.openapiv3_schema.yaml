@@ -103,16 +103,16 @@ properties:
     type: object
   selfManagement:
     properties:
-      enableMonitoring:
-        type: boolean
-      enableServiceBackend:
-        type: boolean
+      disableFeatures:
+        items:
+          type: string
+        type: array
+      enableFeatures:
+        items:
+          type: string
+        type: array
       import:
         type: boolean
-    required:
-    - enableMonitoring
-    - enableServiceBackend
-    - import
     type: object
 required:
 - fullnameOverride

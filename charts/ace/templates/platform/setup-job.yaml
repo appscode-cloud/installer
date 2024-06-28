@@ -12,14 +12,32 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "ace.labels" . | nindent 4 }}
+  annotations:
+  {{- with .Values.setupJob.annotations }}
+    {{- toYaml . | nindent 4}}
+  {{- end}}
+  {{- if .Values.setupJob.hook.enable }}
+    helm.sh/hook: {{ .Values.setupJob.hook.hook | quote }}
+    helm.sh/hook-weight: {{ .Values.setupJob.hook.hookWeight | quote }}
+    helm.sh/hook-delete-policy: {{ .Values.setupJob.hook.hookDeletePolicy | quote }}
+  {{- end}}
 spec:
   backoffLimit: 4
+  {{- if ge (int .Values.setupJob.ttlSecondsAfterFinished) 0 }}
+  ttlSecondsAfterFinished: {{ .Values.setupJob.ttlSecondsAfterFinished }}
+  {{- end }}
+  manualSelector: true
+  selector:
+    matchLabels:
+      {{- include "ace.selectorLabels" . | nindent 6 }}
   template:
-    {{- with .Values.podAnnotations }}
     metadata:
+      {{- with .Values.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
-    {{- end }}
+      {{- end }}
+      labels:
+        {{- include "ace.selectorLabels" . | nindent 8 }}
     spec:
       {{- include "appscode.imagePullSecrets" . | nindent 6 }}
       serviceAccountName: {{ include "appscode.serviceAccountName" . }}
@@ -33,25 +51,7 @@ spec:
           imagePullPolicy: Always
           args:
             - dev
-            - --admin={{ .Values.global.platform.admin.username }}
-            - --name={{ .Values.global.platform.admin.displayName }}
-            - --password=$(ADMIN_PASSWORD)
-            - --email={{ .Values.global.platform.admin.email }}
-            - --exports
-            - --reload-nats-accounts
-            {{- if eq .Values.global.platform.deploymentType "Hosted" }}
-            - --create-nats-stream
-            {{- end }}
-            - --importer-service-account={{ include "appscode.serviceAccountName" . }}-importer
-            {{- if .Values.selfManagement.import }}
-            - --self-import
-            {{- if .Values.selfManagement.enableMonitoring }}
-            - --enable-monitoring
-            {{- end }}
-            {{- if .Values.selfManagement.enableServiceBackend }}
-            - --enable-service-backend
-            {{- end }}
-            {{- end }}
+            - --setup-config=/data/b3/conf/config.yaml
           # ports:
           #   - name: http
           #     containerPort: 3000
@@ -67,11 +67,6 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
-            - name: ADMIN_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "ace.fullname" . }}-admin-auth
-                  key: password
           {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "gcs") }}
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: {{ $infra.objstore.mountPath }}/sa.json
@@ -129,6 +124,9 @@ spec:
             - name: cacerts
               mountPath: /etc/ssl/certs
             {{- end }}
+            - name: setup-config
+              mountPath: /data/b3/conf/config.yaml
+              subPath: config.yaml
       volumes:
         - name: tmp
           emptyDir: {}
@@ -161,6 +159,10 @@ spec:
               os: debian
               caProviderClasses: {{ include "ace.fullname" . }}
         {{- end }}
+        - name: setup-config
+          secret:
+            defaultMode: 420
+            secretName: {{ include "ace.fullname" . }}-setup-config
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

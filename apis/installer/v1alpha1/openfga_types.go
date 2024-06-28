@@ -76,6 +76,7 @@ type OpenfgaSpec struct {
 	ExtraEnvVars                              []core.EnvVar               `json:"extraEnvVars"`
 	ExtraVolumes                              []core.Volume               `json:"extraVolumes"`
 	ExtraVolumeMounts                         []core.VolumeMount          `json:"extraVolumeMounts"`
+	ExtraInitContainers                       []core.Container            `json:"extraInitContainers"`
 	PodSecurityContext                        core.PodSecurityContext     `json:"podSecurityContext"`
 	SecurityContext                           core.SecurityContext        `json:"securityContext"`
 	InitContainer                             OpenfgaImageReference       `json:"initContainer"`
@@ -108,6 +109,9 @@ type OpenfgaSpec struct {
 	ResolveNodeBreadthLimit                   *int                        `json:"resolveNodeBreadthLimit"`
 	ListObjectsDeadline                       *string                     `json:"listObjectsDeadline"`
 	ListObjectsMaxResults                     *int                        `json:"listObjectsMaxResults"`
+	ListUsersDeadline                         *string                     `json:"listUsersDeadline"`
+	ListUsersMaxResults                       *int                        `json:"listUsersMaxResults"`
+	MaxConcurrentReadsForListUsers            *int                        `json:"maxConcurrentReadsForListUsers"`
 	RequestDurationDatastoreQueryCountBuckets []int                       `json:"requestDurationDatastoreQueryCountBuckets"`
 	AllowWriting10Models                      *string                     `json:"allowWriting1_0Models"`
 	AllowEvaluating10Models                   *string                     `json:"allowEvaluating1_0Models"`
@@ -253,10 +257,12 @@ type OpenfgaCheckQueryCache struct {
 }
 
 type OpenfgaMigrate struct {
-	Sidecars    []core.Container   `json:"sidecars"`
-	Annotations map[string]*string `json:"annotations"`
-	Labels      map[string]*string `json:"labels"`
-	Timeout     *string            `json:"timeout"`
+	Sidecars                []core.Container   `json:"sidecars"`
+	Annotations             map[string]*string `json:"annotations"`
+	Labels                  map[string]*string `json:"labels"`
+	Timeout                 *string            `json:"timeout"`
+	Hook                    AceHook            `json:"hook"`
+	TTLSecondsAfterFinished int                `json:"ttlSecondsAfterFinished"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
