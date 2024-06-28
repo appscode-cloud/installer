@@ -50,7 +50,7 @@ helm:
   releases:
     kube-ui-server:
       enabled: true
-      version: "v2024.5.15"
+      version: "v2024.6.18"
     opscenter-features:
       enabled: true
       version: "v2024.6.28"
