@@ -1205,36 +1205,12 @@ properties:
               - product-code
             type: object
           azure:
+            description: https://learn.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/publish-notifications
             properties:
               applicationId:
                 type: string
-              billingDetails:
-                properties:
-                  resourceUsageId:
-                    type: string
-                required:
-                  - resourceUsageId
-                type: object
-              plan:
-                properties:
-                  name:
-                    type: string
-                  product:
-                    type: string
-                  publisher:
-                    type: string
-                  version:
-                    type: string
-                required:
-                  - name
-                  - product
-                  - publisher
-                  - version
-                type: object
             required:
               - applicationId
-              - billingDetails
-              - plan
             type: object
           gcp:
             type: object
