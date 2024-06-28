@@ -325,6 +325,12 @@ func (dt DeploymentType) Onprem() bool {
 	return dt == OnpremDemoDeployment
 }
 
+func (dt DeploymentType) MarketplaceDeployment() bool {
+	return dt == AWSMarketplaceDeployment ||
+		dt == AzureMarketplaceDeployment ||
+		dt == GCPMarketplaceDeployment
+}
+
 type AceDeploymentContext struct {
 	DeploymentType       DeploymentType `json:"deploymentType"`
 	RequestedDomain      string         `json:"requestedDomain"`
