@@ -467,6 +467,7 @@ setupJob:
       password: secr3t
       email: admin@example.com
       displayName: "Ace Admin"
+      orgname: ""
     # controls the self management of the ace cluster
     selfManagement:
       import: true
