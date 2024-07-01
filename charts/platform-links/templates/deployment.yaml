@@ -38,7 +38,9 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
             - run
-            - app-config=/data/b3/conf/app.ini
+            - --listen=:3006
+            - --app-config=/data/b3/conf/app.ini
+            - --use-signed-url=false
           ports:
             - name: http
               containerPort: 3006
