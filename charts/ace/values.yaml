@@ -453,13 +453,5 @@ setupJob:
     # controls the self management of the ace cluster
     selfManagement:
       import: true
-      enableFeatures:
-      - grafana-operator
-      - kube-grafana-dashboards
-      - kube-prometheus-stack
-      - kubedb-opscenter
-      - monitoring-operator
-      - panopticon
-      - prometheus-adapter
-      - service-backend
+      enableFeatures: []
       disableFeatures: []
