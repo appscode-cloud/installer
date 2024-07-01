@@ -63,6 +63,12 @@ rules:
   resources:
   - clusterprofiles
   verbs: ["get", "list", "watch"]
+# to get the ace server IP address
+- apiGroups:
+  - ""
+  resources:
+  - services
+  verbs: ["get", "list", "watch"]
 
 ---
 
