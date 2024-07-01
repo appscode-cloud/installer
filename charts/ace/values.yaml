@@ -457,6 +457,7 @@ setupJob:
       - grafana-operator
       - kube-grafana-dashboards
       - kube-prometheus-stack
+      - kubedb-opscenter
       - monitoring-operator
       - panopticon
       - prometheus-adapter
