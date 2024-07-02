@@ -939,6 +939,8 @@ properties:
           email:
             type: string
           orgname:
+            description: Organization name should contain only alphanumeric, dash
+              ('-'), underscore ('_') and dot ('.') characters.
             type: string
           password:
             type: string
@@ -1954,6 +1956,9 @@ properties:
           - resources
         type: object
       domainWhiteList:
+        description: DomainWhiteList is an array of domain names that are allowed.
+          Each domain should be in the format of a fully qualified domain name, such
+          as 'example.com' or 'appscode.com' etc.
         items:
           type: string
         type: array
