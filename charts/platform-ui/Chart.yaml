@@ -3,7 +3,7 @@ name: platform-ui
 description: A Helm chart for Kubernetes
 type: application
 version: v2024.6.28
-appVersion: 0.7.14
+appVersion: 0.8.3
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
