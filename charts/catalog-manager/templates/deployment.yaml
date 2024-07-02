@@ -43,7 +43,7 @@ spec:
             - --frontend-tls-cert-namespace={{ .Values.gateway.tlsSecretRef.namespace }}
             - --helmrepo-name={{ .Values.helmrepo.name }}
             - --helmrepo-namespace={{ .Values.helmrepo.namespace }}
-            - --keda-proxyservice-name={{ .Values.keda.proxyService.namespace }}
+            - --keda-proxyservice-name={{ .Values.keda.proxyService.name }}
             - --keda-proxyservice-namespace={{ .Values.keda.proxyService.namespace }}
           ports:
             - name: metrics
