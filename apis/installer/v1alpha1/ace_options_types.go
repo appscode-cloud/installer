@@ -263,10 +263,14 @@ type AceOptionsInfraKms struct {
 }
 
 type AceOptionsSettings struct {
-	DB              AceOptionsDBSettings    `json:"db"`
-	Cache           AceOptionsCacheSettings `json:"cache"`
-	SMTP            AceOptionsSMTPSettings  `json:"smtp"`
-	DomainWhiteList []string                `json:"domainWhiteList"`
+	DB    AceOptionsDBSettings    `json:"db"`
+	Cache AceOptionsCacheSettings `json:"cache"`
+	SMTP  AceOptionsSMTPSettings  `json:"smtp"`
+
+	// DomainWhiteList is an array of domain names that are allowed.
+	// Each domain should be in the format of a fully qualified domain name,
+	// such as 'example.com' or 'appscode.com' etc.
+	DomainWhiteList []string `json:"domainWhiteList"`
 }
 
 type AceOptionsDBSettings struct {
