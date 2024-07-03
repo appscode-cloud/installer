@@ -48,7 +48,6 @@ type Ace struct {
 type AceSpec struct {
 	Billing       AceBilling       `json:"billing"`
 	PlatformUi    AcePlatformUi    `json:"platform-ui"`
-	AccountsUi    AceAccountsUi    `json:"accounts-ui"`
 	ClusterUi     AceClusterUi     `json:"cluster-ui"`
 	DeployUi      AceDeployUi      `json:"deploy-ui"`
 	Grafana       AceGrafana       `json:"grafana"`

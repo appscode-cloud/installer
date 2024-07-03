@@ -14,10 +14,10 @@ metadata:
 spec:
   ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
   rules:
-{{- if (index .Values "platform-ui" "enabled") }}
   - host: {{ .Values.global.platform.domain }}
     http:
       paths:
+      {{- if (index .Values "platform-ui" "enabled") }}
       - backend:
           service:
             name: {{ include "ace.fullname" . }}-platform-ui
@@ -25,7 +25,17 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-    {{- if eq .Values.global.platform.deploymentType "Hosted" }}
+      {{- end }}
+      {{- if (index .Values "platform-api" "enabled") }}
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-platform-api
+            port:
+              number: 80
+        path: /accounts/
+        pathType: Prefix
+      {{- end }}
+      {{- if (index .Values "accounts-ui" "enabled") }}
       - backend:
           service:
             name: {{ include "ace.fullname" . }}-platform-api
@@ -33,116 +43,61 @@ spec:
               number: 80
         path: /api/
         pathType: Prefix
-    {{- end }}
-{{- end }}
-{{- if (index .Values "accounts-ui" "enabled") }}
-  - host: accounts.{{ .Values.global.platform.domain }}
-    http:
-      paths:
-      - backend:
-          service:
-            name: {{ include "ace.fullname" . }}-accounts-ui
-            port:
-              number: 80
-        path: /
-        pathType: Prefix
-{{- end }}
-{{- if (index .Values "platform-api" "enabled") }}
-  - host: api.{{ .Values.global.platform.domain }}
-    http:
-      paths:
-      - backend:
-          service:
-            name: {{ include "ace.fullname" . }}-platform-api
-            port:
-              number: 80
-        path: /api/
-        pathType: Prefix
-{{- end }}
-{{- if (index .Values "platform-links" "enabled") }}
-  - host: links.{{ .Values.global.platform.domain }}
-    http:
-      paths:
+      {{- end }}
+      {{- if (index .Values "platform-links" "enabled") }}
       - backend:
           service:
             name: {{ include "ace.fullname" . }}-platform-links
             port:
               number: 80
-        path: /
+        path: /links/
         pathType: Prefix
-{{- end }}
-{{- if (index .Values "cluster-ui" "enabled") }}
-  - host: console.{{ .Values.global.platform.domain }}
-    http:
-      paths:
+      {{- end }}
+      {{- if (index .Values "cluster-ui" "enabled") }}
       - backend:
           service:
             name: {{ include "ace.fullname" . }}-cluster-ui
             port:
               number: 80
-        path: /
+        path: /console/
         pathType: Prefix
-{{- end }}
-{{- if (index .Values "deploy-ui" "enabled") }}
-  - host: deploy.{{ .Values.global.platform.domain }}
-    http:
-      paths:
+      {{- end }}
+      {{- if (index .Values "deploy-ui" "enabled") }}
       - backend:
           service:
             name: {{ include "ace.fullname" . }}-deploy-ui
             port:
               number: 80
-        path: /
+        path: /deploy/
         pathType: Prefix
-{{- end }}
-{{- if .Values.grafana.enabled }}
-  - host: grafana.{{ .Values.global.platform.domain }}
-    http:
-      paths:
-      - backend:
-          service:
-            name: {{ include "ace.fullname" . }}-grafana
-            port:
-              number: 80
-        path: /
-        pathType: Prefix
-{{- end }}
-{{- if (index .Values "kubedb-ui" "enabled") }}
-  - host: db.{{ .Values.global.platform.domain }}
-    http:
-      paths:
+      {{- end }}
+      {{- if (index .Values "kubedb-ui" "enabled") }}
       - backend:
           service:
             name: {{ include "ace.fullname" . }}-kubedb-ui
             port:
               number: 80
-        path: /
+        path: /db/
         pathType: Prefix
-{{- end }}
-{{- if (index .Values "marketplace-ui" "enabled") }}
-  - host: marketplace.{{ .Values.global.platform.domain }}
-    http:
-      paths:
+      {{- end }}
+      {{- if (index .Values "marketplace-ui" "enabled") }}
       - backend:
           service:
             name: {{ include "ace.fullname" . }}-marketplace-ui
             port:
               number: 80
-        path: /
+        path: /marketplace/
         pathType: Prefix
-{{- end }}
-{{- if (index .Values "trickster" "enabled") }}
-  - host: prometheus.{{ .Values.global.platform.domain }}
-    http:
-      paths:
+      {{- end }}
+      {{- if (index .Values "trickster" "enabled") }}
       - backend:
           service:
             name: {{ include "ace.fullname" . }}-trickster
             port:
               number: 4000
-        path: /
+        path: /prometheus/
         pathType: Prefix
-{{- end }}
+      {{- end }}
 {{- if (index .Values "dns-proxy" "enabled") }}
   - host: dns-proxy.{{ .Values.global.platform.domain }}
     http:
@@ -158,39 +113,7 @@ spec:
   tls:
   - secretName: {{ include "ace.fullname" . }}-cert
     hosts:
-  {{- if (index .Values "platform-ui" "enabled") }}
     - '{{ .Values.global.platform.domain }}'
-  {{- end }}
-  {{- if (index .Values "accounts-ui" "enabled") }}
-    - 'accounts.{{ .Values.global.platform.domain }}'
-  {{- end }}
-  {{- if (index .Values "platform-api" "enabled") }}
-    - 'api.{{ .Values.global.platform.domain }}'
-  {{- end }}
-  {{- if (index .Values "platform-links" "enabled") }}
-    - 'links.{{ .Values.global.platform.domain }}'
-  {{- end }}
-  {{- if (index .Values "cluster-ui" "enabled") }}
-    - 'console.{{ .Values.global.platform.domain }}'
-  {{- end }}
-  {{- if (index .Values "deploy-ui" "enabled") }}
-    - 'deploy.{{ .Values.global.platform.domain }}'
-  {{- end }}
-  {{- if .Values.grafana.enabled }}
-    - 'grafana.{{ .Values.global.platform.domain }}'
-  {{- end }}
-  {{- if (index .Values "kubedb-ui" "enabled") }}
-    - 'db.{{ .Values.global.platform.domain }}'
-  {{- end }}
-  {{- if (index .Values "marketplace-ui" "enabled") }}
-    - 'marketplace.{{ .Values.global.platform.domain }}'
-  {{- end }}
-  {{- if .Values.nats.enabled }}
-    - 'nats.{{ .Values.global.platform.domain }}'
-  {{- end }}
-  {{- if (index .Values "trickster" "enabled") }}
-    - 'prometheus.{{ .Values.global.platform.domain }}'
-  {{- end }}
   {{- if (index .Values "dns-proxy" "enabled") }}
     - 'dns-proxy.{{ .Values.global.platform.domain }}'
   {{- end }}

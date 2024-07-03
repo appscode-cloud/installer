@@ -1271,7 +1271,6 @@ func (in *AceSpec) DeepCopyInto(out *AceSpec) {
 	*out = *in
 	in.Billing.DeepCopyInto(&out.Billing)
 	in.PlatformUi.DeepCopyInto(&out.PlatformUi)
-	in.AccountsUi.DeepCopyInto(&out.AccountsUi)
 	in.ClusterUi.DeepCopyInto(&out.ClusterUi)
 	in.DeployUi.DeepCopyInto(&out.DeployUi)
 	in.Grafana.DeepCopyInto(&out.Grafana)

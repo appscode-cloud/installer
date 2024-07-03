@@ -9,26 +9,19 @@ stringData:
   app.ini: |-
     APP_NAME = {{ .Values.settings.platform.appName }}
     RUN_MODE = {{ .Values.settings.platform.runMode }}
-    DOMAIN   = {{ .Values.global.platform.domain }}
-    HOSTED   = {{ eq .Values.global.platform.deploymentType "Hosted" }}
+
+    [server]
+    PROTOCOL      = http
+    DOMAIN        = {{ .Values.global.platform.domain }}
+    BASE_URL      = https://{{ .Values.global.platform.domain }}/
+    LANDING_PAGE  = {{ .Values.settings.platform.serverLandingPage }}
+    APP_DATA_PATH = /data
 
 {{- if not (eq .Values.global.platform.deploymentType "Hosted") }}
     [licensor]
     DOMAIN = {{ .Values.global.platform.proxyServiceDomain }}
     TOKEN = {{ .Values.global.platform.token }}
 {{- end }}
-
-    [site_accounts]
-    PROTOCOL = http
-    DOMAIN = {{ .Values.global.platform.domain }}
-    ROOT_URL = https://accounts.{{ .Values.global.platform.domain }}
-    LANDING_PAGE = {{ .Values.settings.platform.serverLandingPage }}
-    APP_DATA_PATH = /data
-
-    [site_api]
-    PROTOCOL = http
-    DOMAIN = api.{{ .Values.global.platform.domain }}
-    ROOT_URL = https://api.{{ .Values.global.platform.domain }}
 
     [database]
     DB_TYPE = "postgres"
@@ -39,7 +32,6 @@ stringData:
     LOG_SQL = {{ .Values.settings.db.logSQL }}
 
     [session]
-    DOMAIN = {{ .Values.global.platform.domain }}
     PROVIDER = redis
     PROVIDER_CONFIG = {{ template "settings.session.host" . }}
     COOKIE_NAME = {{ .Values.settings.platform.cookieName}}
@@ -104,8 +96,6 @@ stringData:
 
     [cors]
     ENABLED = true
-    SCHEME = https
-    ALLOW_DOMAIN = {{ .Values.global.platform.domain }}
     ALLOW_SUBDOMAIN = true
 
     [kms]
@@ -120,8 +110,8 @@ stringData:
     ADMIN_USER_CREDS = {{ .Values.settings.nats.mountPath }}/admin.creds
 
     INCLUSTER_ADDR = nats://{{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc:4222
-    EXTERNAL_ADDR = nats://nats.{{ .Values.global.platform.domain }}:4222
-    WEBSOCKET_ADDR = wss://nats.{{ .Values.global.platform.domain }}
+    EXTERNAL_ADDR = nats://{{ .Values.global.platform.domain }}:4222
+    WEBSOCKET_ADDR = wss://{{ .Values.global.platform.domain }}/nats
 
     SHARD_COUNT = {{ .Values.settings.nats.shardCount }}
     REPLICAS = {{ .Values.settings.nats.replicas }}
@@ -157,7 +147,7 @@ stringData:
 
   {{- if eq .Values.global.platform.deploymentType "Hosted" }}
     [fileserver]
-    ROOT_URL         = {{ .Values.global.infra.fileserver.baseURL }}
+    BASE_URL         = {{ .Values.global.infra.fileserver.baseURL }}
     BUCKET           = {{ .Values.global.infra.fileserver.bucket }}
     PREFIX           = {{ .Values.global.infra.fileserver.prefix }}
     INSTALLER_PREFIX = installer

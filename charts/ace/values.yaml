@@ -8,9 +8,6 @@ billing:
 platform-ui:
   enabled: false
 
-accounts-ui:
-  enabled: false
-
 cluster-ui:
   enabled: false
 
