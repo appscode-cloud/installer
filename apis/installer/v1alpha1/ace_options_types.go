@@ -59,7 +59,6 @@ type AceOptionsSpec struct {
 	Settings      AceOptionsSettings             `json:"settings"`
 	Billing       AceOptionsComponentSpec        `json:"billing"`
 	PlatformUi    AceOptionsComponentSpec        `json:"platform-ui"`
-	AccountsUi    AceOptionsComponentSpec        `json:"accounts-ui"`
 	ClusterUi     AceOptionsComponentSpec        `json:"cluster-ui"`
 	DeployUi      AceOptionsComponentSpec        `json:"deploy-ui"`
 	Grafana       AceOptionsComponentSpec        `json:"grafana"`
