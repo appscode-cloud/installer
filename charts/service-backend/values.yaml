@@ -104,8 +104,8 @@ server:
     # issuer client Secret
     clientSecret: ""
     baseURL: "https://api.appscode.com"
-    issuerURL: "https://accounts.appscode.com/"
-    callbackURL: "https://bind.appscode.com/callback"
+    issuerURL: "https://accounts.appscode.com/accounts"
+    callbackURL: "https://bind.appscode.com/bind/callback"
   # the sync namespace created in the provider side will be named like bb-<some-hash>
   namespacePrefix: "ace-"
   # How consumers access the service provider cluster. In Kubernetes, "namespaced" allows namespace isolation.
