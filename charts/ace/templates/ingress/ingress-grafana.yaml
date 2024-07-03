@@ -1,11 +1,10 @@
-# TODO: expose nats websocket via nginx
-# https://discuss.kubernetes.io/t/how-to-use-ingress-nginx-with-secure-backend/7347/2
+# https://grafana.com/tutorials/run-grafana-behind-a-proxy/
 
-{{ if (and (index .Values "ingress-nginx" "enabled") (and .Values.nats.enabled (not .Values.nats.nats.externalAccess))) }}
+{{ if .Values.grafana.enabled }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "ace.fullname" . }}-nats
+  name: {{ include "ace.fullname" . }}-grafana
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "ace.labels" . | nindent 4 }}
@@ -24,10 +23,10 @@ spec:
       paths:
       - backend:
           service:
-            name: {{ include "ace.fullname" . }}-nats
+            name: {{ include "ace.fullname" . }}-grafana
             port:
               number: 443
-        path: /nats(/|$)(.*)
+        path: /grafana(/|$)(.*)
         pathType: ImplementationSpecific
   tls:
   - secretName: {{ include "ace.fullname" . }}-cert
