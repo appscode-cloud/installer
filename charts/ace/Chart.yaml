@@ -16,10 +16,6 @@ dependencies:
   repository: file://../platform-ui
   condition: platform-ui.enabled
   version: v2024.7.2
-- name: accounts-ui
-  repository: file://../accounts-ui
-  condition: accounts-ui.enabled
-  version: v2024.7.2
 - name: cluster-ui
   repository: file://../cluster-ui
   condition: cluster-ui.enabled
