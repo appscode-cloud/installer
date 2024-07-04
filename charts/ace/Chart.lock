@@ -1,31 +1,31 @@
 dependencies:
 - name: platform-ui
   repository: file://../platform-ui
-  version: v2024.7.2
+  version: v2024.7.4
 - name: accounts-ui
   repository: file://../accounts-ui
-  version: v2024.7.2
+  version: v2024.7.4
 - name: cluster-ui
   repository: file://../cluster-ui
-  version: v2024.7.2
+  version: v2024.7.4
 - name: deploy-ui
   repository: file://../deploy-ui
   version: v2023.11.14
 - name: kubedb-ui
   repository: file://../kubedb-ui
-  version: v2024.7.2
+  version: v2024.7.4
 - name: marketplace-ui
   repository: file://../marketplace-ui
   version: v2023.11.14
 - name: platform-api
   repository: file://../platform-api
-  version: v2024.7.2
+  version: v2024.7.4
 - name: platform-links
   repository: file://../platform-links
-  version: v2024.7.2
+  version: v2024.7.4
 - name: billing
   repository: file://../billing
-  version: v2024.7.2
+  version: v2024.7.4
 - name: grafana
   repository: file://../grafana
   version: v2023.11.14
@@ -34,7 +34,7 @@ dependencies:
   version: v2023.10.1
 - name: s3proxy
   repository: file://../s3proxy
-  version: v2024.7.2
+  version: v2024.7.4
 - name: dns-proxy
   repository: file://../dns-proxy
   version: v2023.11.14

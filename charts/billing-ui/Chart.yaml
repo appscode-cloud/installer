@@ -2,7 +2,7 @@ apiVersion: v2
 name: billing-ui
 description: A Helm chart for Kubernetes
 type: application
-version: v2024.7.2
+version: v2024.7.4
 appVersion: 0.1.5-alpha.1
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
