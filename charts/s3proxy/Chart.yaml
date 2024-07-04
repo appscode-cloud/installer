@@ -2,7 +2,7 @@ apiVersion: v2
 name: s3proxy
 description: A Helm chart for MinIO Demo Deployment
 type: application
-version: v2024.7.2
+version: v2024.7.4
 appVersion: v0.0.1
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
