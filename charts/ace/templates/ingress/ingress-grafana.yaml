@@ -11,7 +11,6 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 {{- if and .Values.global.infra.dns.targetIPs (not (eq .Values.global.infra.dns.provider "external")) }}
     external-dns.alpha.kubernetes.io/target: {{ join "," .Values.global.infra.dns.targetIPs | quote }}
 {{- end }}
@@ -25,7 +24,7 @@ spec:
           service:
             name: {{ include "ace.fullname" . }}-grafana
             port:
-              number: 443
+              number: 80
         path: /grafana(/|$)(.*)
         pathType: ImplementationSpecific
   tls:
