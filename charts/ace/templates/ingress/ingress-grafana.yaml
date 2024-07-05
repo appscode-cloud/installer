@@ -11,9 +11,6 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
-{{- if and .Values.global.infra.dns.targetIPs (not (eq .Values.global.infra.dns.provider "external")) }}
-    external-dns.alpha.kubernetes.io/target: {{ join "," .Values.global.infra.dns.targetIPs | quote }}
-{{- end }}
 spec:
   ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
   rules:
