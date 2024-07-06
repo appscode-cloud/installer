@@ -788,14 +788,25 @@ properties:
               - letsencrypt-staging
               - external
             type: string
-          jksPassword:
-            type: string
+          jks:
+            properties:
+              keystore:
+                format: byte
+                type: string
+              password:
+                type: string
+              truststore:
+                format: byte
+                type: string
+            required:
+              - password
+            type: object
         required:
           - acme
           - ca
           - certificate
           - issuer
-          - jksPassword
+          - jks
         type: object
     required:
       - cloudServices
