@@ -84,3 +84,6 @@ s3proxy:
       kind: ""
     secret:
       name: ""
+    jksPasswordSecretRef:
+      name: ""
+      key: ""

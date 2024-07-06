@@ -137,6 +137,7 @@ global:
       certificate:
         cert: ""
         key: ""
+      jksPassword: ""
     dns:
       targetIPs: []
       provider: "external" # external,cloudflare,route53,cloudDNS

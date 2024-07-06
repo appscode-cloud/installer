@@ -19,3 +19,14 @@ spec:
     - key agreement
     - digital signature
     - server auth
+  additionalOutputFormats:
+    - type: CombinedPEM
+  {{- if .Values.global.infra.tls.jksPassword }}
+  keystores:
+    jks:
+      create: true
+      alias: aws
+      passwordSecretRef:
+        name: {{ include "ace.fullname" . }}-jkscred
+        key: password
+  {{- end }}

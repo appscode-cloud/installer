@@ -255,6 +255,7 @@ type InfraTLS struct {
 	CA          TLSData       `json:"ca"`
 	Acme        TLSIssuerAcme `json:"acme"`
 	Certificate TLSData       `json:"certificate"`
+	JKSPassword string        `json:"jksPassword"`
 }
 
 type TLSData struct {

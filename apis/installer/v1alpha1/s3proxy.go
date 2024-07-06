@@ -95,9 +95,10 @@ type S3proxyAuth struct {
 }
 
 type S3proxyTLS struct {
-	Enable bool                 `json:"enable"`
-	Issuer CertificateIssuerRef `json:"issuer"`
-	Secret LocalObjectReference `json:"secret"`
+	Enable               bool                 `json:"enable"`
+	Issuer               CertificateIssuerRef `json:"issuer"`
+	Secret               LocalObjectReference `json:"secret"`
+	JksPasswordSecretRef ConfigKeySelector    `json:"jksPasswordSecretRef"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
