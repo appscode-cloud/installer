@@ -9,7 +9,7 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: 9000
+      targetPort: 4224
       protocol: TCP
       name: api
   selector:
@@ -30,7 +30,7 @@ spec:
     # port needed to create SRV records, SRV records have pod DNS name
     - name: api
       port: {{ .Values.service.port }}
-      targetPort: 9000
+      targetPort: 4224
       protocol: TCP
   # for headless service
   clusterIP: None
