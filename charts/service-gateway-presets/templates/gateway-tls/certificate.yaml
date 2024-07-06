@@ -21,7 +21,7 @@ spec:
     - server auth
   additionalOutputFormats:
     - type: CombinedPEM
-  {{- if .Values.infra.tls.jksPassword }}
+  {{- if .Values.infra.tls.jks.password }}
   keystores:
     jks:
       create: true

@@ -1,4 +1,4 @@
-{{- if .Values.global.infra.tls.jksPassword }}
+{{- if .Values.global.infra.tls.jks.password }}
 apiVersion: v1
 kind: Secret
 metadata:
@@ -7,5 +7,5 @@ metadata:
   labels:
     {{- include "ace.labels" . | nindent 4 }}
 stringData:
-  password: {{ .Values.global.infra.tls.jksPassword | quote }}
+  password: {{ .Values.global.infra.tls.jks.password | quote }}
 {{- end }}
