@@ -57,7 +57,9 @@ The following table lists the configurable parameters of the `service-gateway-pr
 | infra.tls.acme.email       |                             | <code>ops@appscode.com</code>                                  |
 | infra.tls.certificate.cert |                             | <code>""</code>                                                |
 | infra.tls.certificate.key  |                             | <code>""</code>                                                |
-| infra.tls.jksPassword      |                             | <code>""</code>                                                |
+| infra.tls.jks.keystore     |                             | <code></code>                                                  |
+| infra.tls.jks.truststore   |                             | <code></code>                                                  |
+| infra.tls.jks.password     |                             | <code>""</code>                                                |
 | infra.dns.provider         |                             | <code>"external" # external,cloudflare,route53,cloudDNS</code> |
 | infra.dns.auth             |                             | <code>{}</code>                                                |
 | gateway-dns.enabled        |                             | <code>false</code>                                             |
