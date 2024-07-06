@@ -50,7 +50,7 @@ spec:
         image: "{{ include "s3proxy.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
-        - containerPort: 9000
+        - containerPort: 4224
         envFrom:
         - secretRef:
             name: {{ include "s3proxy.fullname" . }}

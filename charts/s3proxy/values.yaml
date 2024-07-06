@@ -59,7 +59,7 @@ resources: {}
 
 service:
   type: ClusterIP
-  port: 9000
+  port: 4224
 
 storageClass:
   name: ""
