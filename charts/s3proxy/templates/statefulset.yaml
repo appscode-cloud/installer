@@ -54,11 +54,32 @@ spec:
         envFrom:
         - secretRef:
             name: {{ include "s3proxy.fullname" . }}
+        {{- if .Values.s3proxy.tls.jksPasswordSecretRef.name }}
+        env:
+        - name: S3PROXY_KEYSTORE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.s3proxy.tls.jksPasswordSecretRef.name }}
+              key: {{ .Values.s3proxy.tls.jksPasswordSecretRef.key }}
+        {{- end }}
         resources:
           {{- toYaml .Values.resources | nindent 10 }}
         volumeMounts:
         - name: storage
           mountPath: "/storage"
+        {{- if .Values.s3proxy.tls.jksPasswordSecretRef.name }}
+        - name: keystore
+          mountPath: /opt/s3proxy/tls
+        {{- end }}
+      {{- if .Values.s3proxy.tls.jksPasswordSecretRef.name }}
+      volumes:
+      - name: keystore
+        secret:
+          secretName: {{ default (printf "%s-cert" (include "s3proxy.fullname" .)) .Values.s3proxy.tls.secret.name  }}
+          items:
+          - key: keystore.jks
+            path: keystore.jks
+      {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
     {{- if or .Values.tolerations $criticalAddon }}

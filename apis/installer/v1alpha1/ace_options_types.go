@@ -378,6 +378,9 @@ type GeneratedValues struct {
 	ServiceBackendCookie Cookie `json:"serviceBackendCookie"`
 	// +optional
 	ClusterCA TLSData `json:"clusterCA"`
+	// JKS password is used to create keystore for s3proxy
+	// +optional
+	JKSPassword string `json:"jksPassword"`
 }
 
 type PromotionValues struct {

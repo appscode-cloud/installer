@@ -20,6 +20,7 @@ infra:
     certificate:
       cert: ""
       key: ""
+    jksPassword: ""
   dns:
     provider: "external" # external,cloudflare,route53,cloudDNS
     auth: {}

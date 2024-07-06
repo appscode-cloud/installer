@@ -3768,11 +3768,14 @@ properties:
                 - letsencrypt-staging
                 - external
                 type: string
+              jksPassword:
+                type: string
             required:
             - acme
             - ca
             - certificate
             - issuer
+            - jksPassword
             type: object
         required:
         - badger
@@ -19736,6 +19739,16 @@ properties:
                 - kind
                 - name
                 type: object
+              jksPasswordSecretRef:
+                properties:
+                  key:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - key
+                - name
+                type: object
               secret:
                 properties:
                   name:
@@ -19746,6 +19759,7 @@ properties:
             required:
             - enable
             - issuer
+            - jksPasswordSecretRef
             - secret
             type: object
         required:

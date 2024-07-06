@@ -1,0 +1,11 @@
+{{- if .Values.global.infra.tls.jksPassword }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "ace.fullname" . }}-jkscred
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+stringData:
+  password: {{ .Values.global.infra.tls.jksPassword | quote }}
+{{- end }}
