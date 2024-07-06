@@ -1,0 +1,49 @@
+{{- if and .Values.s3proxy.tls.enable .Values.s3proxy.tls.mount (not .Values.s3proxy.tls.secret.name) }}
+
+{{- if not .Values.s3proxy.tls.issuer.name }}
+
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: {{ include "s3proxy.fullname" . }}-ca
+  namespace: {{ .Release.Namespace }}
+spec:
+  selfSigned: {}
+
+{{- end }}
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "s3proxy.fullname" . }}-cert
+  namespace: {{ .Release.Namespace }}
+spec:
+  isCA: true
+  secretName: {{ include "s3proxy.fullname" . }}-cert
+  # privateKey:
+  #   algorithm: ECDSA
+  #   size: 256
+  issuerRef:
+    group: cert-manager.io
+    kind: {{ default "Issuer" .Values.s3proxy.tls.issuer.kind }}
+    name: {{ default (printf "%s-ca" (include "s3proxy.fullname" . )) .Values.s3proxy.tls.issuer.name }}
+  commonName: localhost
+  dnsNames:
+  - localhost
+  - {{ include "s3proxy.fullname" . }}
+  - {{ include "s3proxy.fullname" . }}.{{ .Release.Namespace }}.svc
+  ipAddresses:
+  - 127.0.0.1
+  {{- if .Values.s3proxy.tls.jksPasswordSecretRef.name }}
+  keystores:
+    jks:
+      create: true
+      alias: aws
+      passwordSecretRef:
+        name: {{ .Values.s3proxy.tls.jksPasswordSecretRef.name }}
+        key: password
+  {{- end }}
+
+{{- end }}

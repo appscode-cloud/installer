@@ -25,7 +25,7 @@
 # cert-manager.io/cluster-issuer: "name"
 # cert-manager.io/usages: "key agreement,digital signature,server auth"
 
-{{- if and .Values.s3proxy.tls.enable (not .Values.s3proxy.tls.secret.name) }}
+{{- if and .Values.s3proxy.tls.enable (not .Values.s3proxy.tls.jksPasswordSecretRef.name) (not .Values.s3proxy.tls.secret.name) }}
 
 {{ $issuerKey := "cert-manager.io/cluster-issuer" }}
 {{- if or (not .Values.s3proxy.tls.issuer.name) (eq "Issuer" .Values.s3proxy.tls.issuer.kind) }}
@@ -67,11 +67,11 @@ spec:
   {{- if .Values.s3proxy.tls.enable }}
   tls:
     - hosts:
-        - '{{ .Values.ingress.domain }}'
+        - 's3.{{ .Values.ingress.domain }}'
       secretName: {{ default (printf "%s-cert" (include "s3proxy.fullname" .)) .Values.s3proxy.tls.secret.name }}
   {{- end }}
   rules:
-    - host: {{ .Values.ingress.domain }}
+    - host: s3.{{ .Values.ingress.domain }}
       http:
         paths:
         - backend:
@@ -79,6 +79,6 @@ spec:
               name: {{ include "s3proxy.fullname" . }}
               port:
                 number: {{ .Values.service.port }}
-          path: /s3(/|$)(.*)
-          pathType: ImplementationSpecific
+          path: /
+          pathType: Prefix
 {{- end }}

@@ -338,10 +338,10 @@ type NatsAuthSpec struct {
 }
 
 type NatsOperatorJWTSpec struct {
-	ConfigMap ConfigMapKeySelector `json:"configMap"`
+	ConfigMap ConfigKeySelector `json:"configMap"`
 }
 
-type ConfigMapKeySelector struct {
+type ConfigKeySelector struct {
 	Name string `json:"name"`
 	Key  string `json:"key"`
 }

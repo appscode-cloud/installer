@@ -339,11 +339,14 @@ properties:
             - letsencrypt-staging
             - external
             type: string
+          jksPassword:
+            type: string
         required:
         - acme
         - ca
         - certificate
         - issuer
+        - jksPassword
         type: object
     required:
     - clusterName
