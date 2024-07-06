@@ -1,4 +1,4 @@
-{{- if and .Values.s3proxy.tls.enable .Values.s3proxy.tls.mount (not .Values.s3proxy.tls.secret.name) }}
+{{- if and .Values.s3proxy.tls.enable .Values.s3proxy.tls.jksPasswordSecretRef.name (not .Values.s3proxy.tls.secret.name) }}
 
 {{- if not .Values.s3proxy.tls.issuer.name }}
 
