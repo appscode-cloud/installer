@@ -17,15 +17,6 @@ spec:
   - host: {{ .Values.global.platform.domain }}
     http:
       paths:
-      {{- if (index .Values "platform-ui" "enabled") }}
-      - backend:
-          service:
-            name: {{ include "ace.fullname" . }}-platform-ui
-            port:
-              number: 80
-        path: /
-        pathType: Prefix
-      {{- end }}
       {{- if (index .Values "platform-api" "enabled") }}
       - backend:
           service:
@@ -44,15 +35,6 @@ spec:
         path: /api
         pathType: Prefix
       {{- end }}
-      {{- if (index .Values "platform-links" "enabled") }}
-      - backend:
-          service:
-            name: {{ include "ace.fullname" . }}-platform-links
-            port:
-              number: 80
-        path: /links
-        pathType: Prefix
-      {{- end }}
       {{- if (index .Values "cluster-ui" "enabled") }}
       - backend:
           service:
@@ -60,6 +42,15 @@ spec:
             port:
               number: 80
         path: /console
+        pathType: Prefix
+      {{- end }}
+      {{- if (index .Values "kubedb-ui" "enabled") }}
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-kubedb-ui
+            port:
+              number: 80
+        path: /db
         pathType: Prefix
       {{- end }}
       {{- if (index .Values "deploy-ui" "enabled") }}
@@ -71,13 +62,13 @@ spec:
         path: /deploy
         pathType: Prefix
       {{- end }}
-      {{- if (index .Values "kubedb-ui" "enabled") }}
+      {{- if (index .Values "platform-links" "enabled") }}
       - backend:
           service:
-            name: {{ include "ace.fullname" . }}-kubedb-ui
+            name: {{ include "ace.fullname" . }}-platform-links
             port:
               number: 80
-        path: /db
+        path: /links
         pathType: Prefix
       {{- end }}
       {{- if (index .Values "marketplace-ui" "enabled") }}
@@ -96,6 +87,19 @@ spec:
             port:
               number: 4000
         path: /prometheus
+        pathType: Prefix
+      {{- end }}
+      {{- if (index .Values "platform-ui" "enabled") }}
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-platform-ui
+            port:
+              number: 80
+        {{- if eq .Values.global.platform.deploymentType "Hosted" }}
+        path: /id
+        {{- else }}
+        path: /
+        {{- end }}
         pathType: Prefix
       {{- end }}
 {{- if (index .Values "dns-proxy" "enabled") }}
