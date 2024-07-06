@@ -32,7 +32,7 @@ spec:
             name: {{ include "ace.fullname" . }}-platform-api
             port:
               number: 80
-        path: /accounts/
+        path: /accounts
         pathType: Prefix
       {{- end }}
       {{- if (index .Values "accounts-ui" "enabled") }}
@@ -41,7 +41,7 @@ spec:
             name: {{ include "ace.fullname" . }}-platform-api
             port:
               number: 80
-        path: /api/
+        path: /api
         pathType: Prefix
       {{- end }}
       {{- if (index .Values "platform-links" "enabled") }}
@@ -50,7 +50,7 @@ spec:
             name: {{ include "ace.fullname" . }}-platform-links
             port:
               number: 80
-        path: /links/
+        path: /links
         pathType: Prefix
       {{- end }}
       {{- if (index .Values "cluster-ui" "enabled") }}
@@ -59,7 +59,7 @@ spec:
             name: {{ include "ace.fullname" . }}-cluster-ui
             port:
               number: 80
-        path: /console/
+        path: /console
         pathType: Prefix
       {{- end }}
       {{- if (index .Values "deploy-ui" "enabled") }}
@@ -68,7 +68,7 @@ spec:
             name: {{ include "ace.fullname" . }}-deploy-ui
             port:
               number: 80
-        path: /deploy/
+        path: /deploy
         pathType: Prefix
       {{- end }}
       {{- if (index .Values "kubedb-ui" "enabled") }}
@@ -77,7 +77,7 @@ spec:
             name: {{ include "ace.fullname" . }}-kubedb-ui
             port:
               number: 80
-        path: /db/
+        path: /db
         pathType: Prefix
       {{- end }}
       {{- if (index .Values "marketplace-ui" "enabled") }}
@@ -86,7 +86,7 @@ spec:
             name: {{ include "ace.fullname" . }}-marketplace-ui
             port:
               number: 80
-        path: /marketplace/
+        path: /marketplace
         pathType: Prefix
       {{- end }}
       {{- if (index .Values "trickster" "enabled") }}
@@ -95,7 +95,7 @@ spec:
             name: {{ include "ace.fullname" . }}-trickster
             port:
               number: 4000
-        path: /prometheus/
+        path: /prometheus
         pathType: Prefix
       {{- end }}
 {{- if (index .Values "dns-proxy" "enabled") }}
