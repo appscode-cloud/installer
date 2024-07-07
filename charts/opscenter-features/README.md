@@ -110,7 +110,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.opencost.version                              |                                 | <code>"1.18.1"</code>                      |
 | helm.releases.opencost-grafana-dashboards.version           |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.opscenter-features.version                    |                                 | <code>"v2024.7.4"</code>                   |
-| helm.releases.panopticon.version                            |                                 | <code>"v2024.5.15"</code>                  |
+| helm.releases.panopticon.version                            |                                 | <code>"v2024.7.6"</code>                   |
 | helm.releases.prepare-cluster.version                       |                                 | <code>"v2023.12.21"</code>                 |
 | helm.releases.prometheus-adapter.version                    |                                 | <code>"4.9.0"</code>                       |
 | helm.releases.reloader.version                              |                                 | <code>"1.0.79"</code>                      |
