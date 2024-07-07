@@ -37,7 +37,7 @@ spec:
               protocol: TCP
           startupProbe:
             httpGet:
-              path: /
+              path: /grafana/healthz
               port: http
             # wait for cert and nats to be ready
             initialDelaySeconds: 60
@@ -45,11 +45,11 @@ spec:
             periodSeconds: 30
           livenessProbe:
             httpGet:
-              path: /
+              path: /grafana/healthz
               port: http
           readinessProbe:
             httpGet:
-              path: /
+              path: /grafana/healthz
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
