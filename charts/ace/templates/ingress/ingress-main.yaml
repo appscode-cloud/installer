@@ -69,6 +69,15 @@ spec:
         path: /links
         pathType: Prefix
       {{- end }}
+      {{ if .Values.grafana.enabled }}
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-grafana
+            port:
+              number: 80
+        path: /grafana
+        pathType: Prefix
+      {{- end }}
       {{- if (index .Values "marketplace-ui" "enabled") }}
       - backend:
           service:
