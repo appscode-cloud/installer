@@ -277,10 +277,11 @@ type TLSIssuerAcme struct {
 	Email string `json:"email"`
 }
 
-// +kubebuilder:validation:Enum=external;cloudflare;route53;cloudDNS;azureDNS
+// +kubebuilder:validation:Enum=none;external;cloudflare;route53;cloudDNS;azureDNS
 type DNSProvider string
 
 const (
+	DNSProviderNone       DNSProvider = "none"
 	DNSProviderExternal   DNSProvider = "external"
 	DNSProviderCloudflare DNSProvider = "cloudflare"
 	DNSProviderRoute53    DNSProvider = "route53"
