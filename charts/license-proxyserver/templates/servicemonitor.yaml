@@ -29,7 +29,7 @@ spec:
       ca:
         secret:
           name: {{ include "license-proxyserver.fullname" . }}-apiserver-cert
-          key: tls.crt
+          key: ca.crt
       serverName: "{{ include "license-proxyserver.fullname" . }}.{{ .Release.Namespace }}.svc"
   - port: telemetry
     bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
