@@ -319,6 +319,7 @@ properties:
             type: object
           provider:
             enum:
+            - none
             - external
             - cloudflare
             - route53

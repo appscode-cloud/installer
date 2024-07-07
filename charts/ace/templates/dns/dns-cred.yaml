@@ -1,4 +1,4 @@
-{{- if not (eq .Values.global.infra.dns.provider "external") }}
+{{- if not (has .Values.global.infra.dns.provider (list "none" "external")) }}
 apiVersion: v1
 kind: Secret
 metadata:
