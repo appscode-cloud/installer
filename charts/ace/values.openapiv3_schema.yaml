@@ -3870,7 +3870,12 @@ properties:
             - AzureMarketplace
             - GoogleCloudMarketplace
             type: string
-          domain:
+          host:
+            type: string
+          hostType:
+            enum:
+            - domain
+            - ip
             type: string
           proxyServiceDomain:
             type: string
@@ -3878,7 +3883,8 @@ properties:
             type: string
         required:
         - deploymentType
-        - domain
+        - host
+        - hostType
         type: object
       registry:
         type: string
@@ -18740,11 +18746,17 @@ properties:
             - AzureMarketplace
             - GoogleCloudMarketplace
             type: string
-          domain:
+          host:
+            type: string
+          hostType:
+            enum:
+            - domain
+            - ip
             type: string
         required:
         - deploymentType
-        - domain
+        - host
+        - hostType
         type: object
       podAnnotations:
         additionalProperties:

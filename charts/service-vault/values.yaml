@@ -9,7 +9,8 @@ fullnameOverride: ""
 
 infra:
   clusterName: "c1"
-  domain: chart-example.local
+  host: chart-example.local
+  hostType: domain
   tls:
     issuer: "ca" # ca,letsencrypt,letsencrypt-staging
     ca:

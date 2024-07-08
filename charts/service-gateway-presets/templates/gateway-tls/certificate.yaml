@@ -11,10 +11,15 @@ spec:
     group: cert-manager.io
     kind: Issuer
     name: {{ include "service-gateway-presets.fullname" . }}
-  commonName: "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.domain }}"
+  {{- if eq .Values.infra.hostType "domain" }}
+  commonName: "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.host }}"
   dnsNames:
-    - "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.domain }}"
-    - "*.{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.domain }}"
+    - "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.host }}"
+    - "*.{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.host }}"
+  {{- else }}
+  ipAddresses:
+    - "{{ .Values.infra.host }}"
+  {{- end }}
   usages:
     - key agreement
     - digital signature

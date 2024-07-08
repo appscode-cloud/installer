@@ -16,8 +16,7 @@ metadata:
 spec:
   ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
   rules:
-  - host: {{ .Values.global.platform.domain }}
-    http:
+  - http:
       paths:
       - backend:
           service:
@@ -26,9 +25,14 @@ spec:
               number: 443
         path: /nats(/|$)(.*)
         pathType: ImplementationSpecific
+    {{- if eq .Values.global.platform.hostType "domain" }}
+    host: {{ .Values.global.platform.host }}
+    {{- end }}
   tls:
   - secretName: {{ include "ace.fullname" . }}-cert
+    {{- if eq .Values.global.platform.hostType "domain" }}
     hosts:
-    - '{{ .Values.global.platform.domain }}'
+    - '{{ .Values.global.platform.host }}'
+    {{- end }}
 
 {{- end }}

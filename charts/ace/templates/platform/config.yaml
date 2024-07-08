@@ -12,8 +12,8 @@ stringData:
 
     [server]
     PROTOCOL      = http
-    DOMAIN        = {{ .Values.global.platform.domain }}
-    BASE_URL      = https://{{ .Values.global.platform.domain }}/
+    DOMAIN        = {{ .Values.global.platform.host }}
+    BASE_URL      = https://{{ .Values.global.platform.host }}/
     LANDING_PAGE  = {{ .Values.settings.platform.serverLandingPage }}
     APP_DATA_PATH = /data
 
@@ -110,8 +110,8 @@ stringData:
     ADMIN_USER_CREDS = {{ .Values.settings.nats.mountPath }}/admin.creds
 
     INCLUSTER_ADDR = nats://{{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc:4222
-    EXTERNAL_ADDR = nats://{{ .Values.global.platform.domain }}:4222
-    WEBSOCKET_ADDR = wss://{{ .Values.global.platform.domain }}/nats
+    EXTERNAL_ADDR = nats://{{ .Values.global.platform.host }}:4222
+    WEBSOCKET_ADDR = wss://{{ .Values.global.platform.host }}/nats
 
     SHARD_COUNT = {{ .Values.settings.nats.shardCount }}
     REPLICAS = {{ .Values.settings.nats.replicas }}

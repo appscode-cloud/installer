@@ -11,10 +11,15 @@ spec:
     group: cert-manager.io
     kind: Issuer
     name: {{ include "ace.fullname" . }}
-  commonName: "{{ .Values.global.platform.domain }}"
+  {{- if eq .Values.global.platform.hostType "domain" }}
+  commonName: "{{ .Values.global.platform.host }}"
   dnsNames:
-    - "{{ .Values.global.platform.domain }}"
-    - "*.{{ .Values.global.platform.domain }}"
+    - "{{ .Values.global.platform.host }}"
+    - "*.{{ .Values.global.platform.host }}"
+  {{- else }}
+  ipAddresses:
+    - "{{ .Values.global.platform.host }}"
+  {{- end }}
   usages:
     - key agreement
     - digital signature
