@@ -6,7 +6,7 @@ kubectl:
   | fromYaml }}
 
 {{ $vals := printf `
-configMap:
+secret:
   namespace: %s
 `
   $.Release.Namespace
@@ -36,7 +36,7 @@ spec:
     workloads:
       - group: ""
         version: v1
-        kind: ConfigMap
+        kind: Secret
         selector:
           app.kubernetes.io/instance: multicluster-ingress-reader
           app.kubernetes.io/managed-by: Helm
