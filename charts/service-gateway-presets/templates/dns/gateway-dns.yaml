@@ -1,7 +1,7 @@
 {{- with (index .Values "gateway-dns") }}
 {{- if .enabled }}
 
-{{ $_ := set .spec "txtOwnerID" (printf "gw-%s.%s" $.Values.infra.clusterName $.Values.infra.domain) }}
+{{ $_ := set .spec "txtOwnerID" (printf "gw-%s.%s" $.Values.infra.clusterName $.Values.infra.host) }}
 
 apiVersion: external-dns.appscode.com/v1alpha1
 kind: ExternalDNS

@@ -308,7 +308,12 @@ properties:
         - auth
         - provider
         type: object
-      domain:
+      host:
+        type: string
+      hostType:
+        enum:
+        - domain
+        - ip
         type: string
       tls:
         properties:
@@ -363,7 +368,8 @@ properties:
     required:
     - clusterName
     - dns
-    - domain
+    - host
+    - hostType
     - tls
     type: object
   nameOverride:

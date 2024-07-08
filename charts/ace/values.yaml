@@ -73,7 +73,8 @@ global:
   fullnameOverride: ""
 
   platform:
-    domain: appscode.ninja
+    host: appscode.ninja
+    hostType: domain
     deploymentType: SelfHostedDemo
 
   # License for the product.

@@ -14,8 +14,7 @@ metadata:
 spec:
   ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
   rules:
-  - host: {{ .Values.global.platform.domain }}
-    http:
+  - http:
       paths:
       {{- if (index .Values "platform-api" "enabled") }}
       - backend:
@@ -109,8 +108,11 @@ spec:
         {{- end }}
         pathType: Prefix
       {{- end }}
-{{- if (index .Values "dns-proxy" "enabled") }}
-  - host: dns-proxy.{{ .Values.global.platform.domain }}
+    {{- if eq .Values.global.platform.hostType "domain" }}
+    host: {{ .Values.global.platform.host }}
+    {{- end }}
+{{- if and (index .Values "dns-proxy" "enabled") (eq .Values.global.platform.hostType "domain") }}
+  - host: dns-proxy.{{ .Values.global.platform.host }}
     http:
       paths:
       - backend:
@@ -123,12 +125,14 @@ spec:
 {{- end }}
   tls:
   - secretName: {{ include "ace.fullname" . }}-cert
+    {{- if eq .Values.global.platform.hostType "domain" }}
     hosts:
-    - '{{ .Values.global.platform.domain }}'
-  {{- if (index .Values "dns-proxy" "enabled") }}
-    - 'dns-proxy.{{ .Values.global.platform.domain }}'
-  {{- end }}
-  {{- if (index .Values "smtprelay" "enabled") }}
-    - 'smtprelay.{{ .Values.global.platform.domain }}'
-  {{- end }}
+    - '{{ .Values.global.platform.host }}'
+    {{- if (index .Values "dns-proxy" "enabled") }}
+    - 'dns-proxy.{{ .Values.global.platform.host }}'
+    {{- end }}
+    {{- if (index .Values "smtprelay" "enabled") }}
+    - 'smtprelay.{{ .Values.global.platform.host }}'
+    {{- end }}
+    {{- end }}
 {{- end }}

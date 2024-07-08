@@ -197,11 +197,31 @@ type AceGlobalValues struct {
 }
 
 type AcePlatformSettings struct {
-	Domain             string         `json:"domain"`
+	HostInfo           `json:",inline"`
 	DeploymentType     DeploymentType `json:"deploymentType"`
 	ProxyServiceDomain string         `json:"proxyServiceDomain,omitempty"`
 	Token              string         `json:"token,omitempty"`
 }
+
+const (
+	// AcePrivateDomain is used as hosted domain when host type is IP
+	// https://serverfault.com/a/937808
+	AcePrivateDomain = "ace.internal"
+)
+
+type HostInfo struct {
+	Host     string   `json:"host"`
+	HostType HostType `json:"hostType"`
+}
+
+// +kubebuilder:validation:Enum=domain;ip
+// +kubebuilder:default=ip
+type HostType string
+
+const (
+	HostTypeDomain HostType = "domain"
+	HostTypeIP     HostType = "ip"
+)
 
 type GlobalMonitoring struct {
 	Agent          string                   `json:"agent"`
