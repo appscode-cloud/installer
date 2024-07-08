@@ -3,7 +3,7 @@
 # kubectl create serviceaccount -n cert-manager vault-issuer
 # --cluster-resource-namespace
 
-{{ $pkiDomain := printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.domain | replace "." "-" }}
+{{ $pkiDomain := printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.host | replace "." "-" }}
 
 apiVersion: v1
 kind: ServiceAccount

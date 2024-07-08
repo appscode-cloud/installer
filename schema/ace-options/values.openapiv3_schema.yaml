@@ -183,6 +183,8 @@ properties:
         type: string
       hostedDomain:
         type: string
+      installerName:
+        type: string
       jksPassword:
         description: JKS password is used to create keystore for s3proxy
         type: string
@@ -282,9 +284,12 @@ properties:
         type: object
       token:
         type: string
+      uploadID:
+        type: string
     required:
       - deploymentType
-      - requestedDomain
+      - installerName
+      - uploadID
     type: object
   deploy-ui:
     properties:

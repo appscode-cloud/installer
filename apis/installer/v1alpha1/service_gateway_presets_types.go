@@ -51,8 +51,8 @@ type ServiceGatewayPresetsSpec struct {
 }
 
 type ServiceProviderInfra struct {
-	ClusterName string     `json:"clusterName"`
-	Domain      string     `json:"domain"`
+	ClusterName string `json:"clusterName"`
+	HostInfo    `json:",inline"`
 	TLS         InfraTLS   `json:"tls"`
 	DNS         GatewayDns `json:"dns"`
 }

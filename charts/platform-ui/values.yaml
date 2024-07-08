@@ -23,7 +23,8 @@ nameOverride: ""
 fullnameOverride: ""
 
 platform:
-  domain: ""
+  host: ""
+  hostType: domain
   deploymentType: SelfHostedDemo
 
 serviceAccount:

@@ -77,6 +77,23 @@ type AceOptionsSpec struct {
 	InitialSetup  configapi.AceSetupInlineConfig `json:"initialSetup"`
 }
 
+func (a *AceOptionsSpec) Host() string {
+	if a.Infra.DNS.Provider == DNSProviderNone {
+		if len(a.Infra.DNS.TargetIPs) == 0 {
+			panic("target IPs required when no dns provider is used")
+		}
+		return a.Infra.DNS.TargetIPs[0]
+	}
+	return a.Context.HostedDomain
+}
+
+func (a *AceOptionsSpec) HostType() HostType {
+	if a.Infra.DNS.Provider == DNSProviderNone {
+		return HostTypeIP
+	}
+	return HostTypeDomain
+}
+
 type RegistrySpec struct {
 	//+optional
 	Image shared.ImageRegistrySpec `json:"image"`
@@ -335,13 +352,16 @@ func (dt DeploymentType) MarketplaceDeployment() bool {
 }
 
 type AceDeploymentContext struct {
-	DeploymentType       DeploymentType `json:"deploymentType"`
-	RequestedDomain      string         `json:"requestedDomain"`
-	HostedDomain         string         `json:"hostedDomain,omitempty"`
-	RequesterDisplayName string         `json:"requesterDisplayName,omitempty"`
-	RequesterUsername    string         `json:"requesterUsername,omitempty"`
-	ProxyServiceDomain   string         `json:"proxyServiceDomain,omitempty"`
-	Token                string         `json:"token,omitempty"`
+	DeploymentType DeploymentType `json:"deploymentType"`
+	InstallerName  string         `json:"installerName"`
+	UploadID       string         `json:"uploadID"`
+	// +optional
+	RequestedDomain      string `json:"requestedDomain"`
+	HostedDomain         string `json:"hostedDomain,omitempty"`
+	RequesterDisplayName string `json:"requesterDisplayName,omitempty"`
+	RequesterUsername    string `json:"requesterUsername,omitempty"`
+	ProxyServiceDomain   string `json:"proxyServiceDomain,omitempty"`
+	Token                string `json:"token,omitempty"`
 	// +optional
 	OfflineInstaller bool `json:"offlineInstaller"`
 	// WARNING!!! Update docs in schema/ace-options/patch.yaml
