@@ -203,12 +203,6 @@ type AcePlatformSettings struct {
 	Token              string         `json:"token,omitempty"`
 }
 
-const (
-	// AcePrivateDomain is used as hosted domain when host type is IP
-	// https://serverfault.com/a/937808
-	AcePrivateDomain = "ace.internal"
-)
-
 type HostInfo struct {
 	Host     string   `json:"host"`
 	HostType HostType `json:"hostType"`
