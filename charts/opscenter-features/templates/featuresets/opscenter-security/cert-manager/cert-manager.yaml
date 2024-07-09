@@ -23,6 +23,8 @@ startupapicheck:
 
 {{ $vals := `
 installCRDs: true
+extraArgs:
+- --enable-gateway-api
 ` | fromYaml }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
