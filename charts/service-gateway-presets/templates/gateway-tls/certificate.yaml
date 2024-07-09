@@ -15,7 +15,6 @@ spec:
   commonName: "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.host }}"
   dnsNames:
     - "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.host }}"
-    - "*.{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.host }}"
   {{- else }}
   ipAddresses:
     - "{{ .Values.infra.host }}"
