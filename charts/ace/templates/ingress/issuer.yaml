@@ -28,10 +28,15 @@ spec:
     # Name of a secret used to store the ACME account private key
     privateKeySecretRef:
       name: {{ include "ace.fullname" . }}-acme-cred
-    # ACME DNS-01 provider configurations
     solvers:
     # An empty 'selector' means that this solver matches all domains
     - selector: {}
+      http01:
+        ingress:
+          ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
+          serviceType: ClusterIP
+    - selector:
+        dnsNames: ["ace.internal"]
       dns01:
       {{- if eq .Values.global.infra.dns.provider "cloudflare" }}
       {{- if .Values.global.infra.dns.auth.cloudflare.baseURL }}

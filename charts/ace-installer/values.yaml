@@ -59,8 +59,6 @@ helm:
     cert-manager:
       enabled: true
       version: "v1.15.1"
-      values: # +doc-gen:break
-        installCRDs: true
     cert-manager-csi-driver-cacerts:
       enabled: true
       version: "v2023.10.1"
