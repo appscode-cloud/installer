@@ -15,7 +15,6 @@ spec:
   commonName: "{{ .Values.global.platform.host }}"
   dnsNames:
     - "{{ .Values.global.platform.host }}"
-    - "*.{{ .Values.global.platform.host }}"
   {{- else }}
   ipAddresses:
     - "{{ .Values.global.platform.host }}"
