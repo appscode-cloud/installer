@@ -7,10 +7,18 @@ webhook:
 cainjector:
   image:
     repository: %s
+acmesolver:
+  image:
+    repository: %s
+startupapicheck:
+  image:
+    repository: %s
 `
   (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-controller") $))
   (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-webhook") $))
   (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-cainjector") $))
+  (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-acmesolver") $))
+  (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-startupapicheck") $))
   | fromYaml }}
 
 {{ $vals := `
