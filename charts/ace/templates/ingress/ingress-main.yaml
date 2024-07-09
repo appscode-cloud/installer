@@ -59,6 +59,15 @@ spec:
         path: /deploy
         pathType: Prefix
       {{- end }}
+      {{- if (index .Values "platform-ui" "enabled") }}
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-platform-ui
+            port:
+              number: 80
+        path: /id
+        pathType: Prefix
+      {{- end }}
       {{- if (index .Values "platform-links" "enabled") }}
       - backend:
           service:
@@ -93,19 +102,6 @@ spec:
             port:
               number: 4000
         path: /prometheus
-        pathType: Prefix
-      {{- end }}
-      {{- if (index .Values "platform-ui" "enabled") }}
-      - backend:
-          service:
-            name: {{ include "ace.fullname" . }}-platform-ui
-            port:
-              number: 80
-        {{- if eq .Values.global.platform.deploymentType "Hosted" }}
-        path: /id
-        {{- else }}
-        path: /
-        {{- end }}
         pathType: Prefix
       {{- end }}
     {{- if eq .Values.global.platform.hostType "domain" }}

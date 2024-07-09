@@ -1,0 +1,34 @@
+{{ if and (index .Values "ingress-nginx" "enabled") (index .Values "platform-ui" "enabled") (not (eq .Values.global.platform.deploymentType "Hosted")) }}
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "ace.fullname" . }}-home
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /id/home
+spec:
+  ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-platform-ui
+            port:
+              number: 80
+        path: /
+        pathType: Exact
+    {{- if eq .Values.global.platform.hostType "domain" }}
+    host: {{ .Values.global.platform.host }}
+    {{- end }}
+  tls:
+  - secretName: {{ include "ace.fullname" . }}-cert
+    {{- if eq .Values.global.platform.hostType "domain" }}
+    hosts:
+    - '{{ .Values.global.platform.host }}'
+    {{- end }}
+
+{{- end }}
