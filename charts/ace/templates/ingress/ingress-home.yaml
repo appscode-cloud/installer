@@ -20,7 +20,7 @@ spec:
             port:
               number: 80
         path: /
-        pathType: Exact
+        pathType: Prefix
     {{- if eq .Values.global.platform.hostType "domain" }}
     host: {{ .Values.global.platform.host }}
     {{- end }}
