@@ -1147,13 +1147,17 @@ properties:
       selfManagement:
         properties:
           disableFeatures:
-            items:
-              type: string
-            type: array
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
           enableFeatures:
-            items:
-              type: string
-            type: array
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
           import:
             type: boolean
         type: object
