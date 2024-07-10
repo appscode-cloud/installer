@@ -23,7 +23,7 @@ kind: Feature
 metadata:
   name: cluster-autoscaler
   labels:
-    app.kubernetes.io/part-of: dbaas-capa
+    app.kubernetes.io/part-of: capi-capa
 spec:
   title: Cluster Autoscaler
   description: |
@@ -31,7 +31,7 @@ spec:
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  featureSet: dbaas-capa
+  featureSet: capi-capa
   featureBlock: cluster-autoscaler
   recommended: true
   readinessChecks:
