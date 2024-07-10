@@ -51,30 +51,30 @@ type AceOptions struct {
 
 // AceOptionsSpec is the schema for AceOptions Operator values file
 type AceOptionsSpec struct {
-	Context       AceDeploymentContext           `json:"context"`
-	Release       ObjectReference                `json:"release"`
-	Registry      RegistrySpec                   `json:"registry"`
-	Monitoring    GlobalMonitoring               `json:"monitoring"`
-	Infra         AceOptionsPlatformInfra        `json:"infra"`
-	Settings      AceOptionsSettings             `json:"settings"`
-	Billing       AceOptionsComponentSpec        `json:"billing"`
-	PlatformUi    AceOptionsComponentSpec        `json:"platform-ui"`
-	ClusterUi     AceOptionsComponentSpec        `json:"cluster-ui"`
-	DeployUi      AceOptionsComponentSpec        `json:"deploy-ui"`
-	Grafana       AceOptionsComponentSpec        `json:"grafana"`
-	KubedbUi      AceOptionsComponentSpec        `json:"kubedb-ui"`
-	MarketplaceUi AceOptionsComponentSpec        `json:"marketplace-ui"`
-	PlatformApi   AceOptionsComponentSpec        `json:"platform-api"`
-	PlatformLinks AceOptionsComponentSpec        `json:"platform-links"`
-	Ingress       AceOptionsIngressNginx         `json:"ingress"`
-	Nats          AceOptionsNatsSettings         `json:"nats"`
-	Trickster     AceOptionsComponentSpec        `json:"trickster"`
-	DNSProxy      AceOptionsComponentSpec        `json:"dns-proxy"`
-	Openfga       AceOptionsComponentSpec        `json:"openfga"`
-	SMTPRelay     AceOptionsComponentSpec        `json:"smtprelay"`
-	S3proxy       AceOptionsComponentSpec        `json:"s3proxy"`
-	Branding      AceBrandingSpec                `json:"branding"`
-	InitialSetup  configapi.AceSetupInlineConfig `json:"initialSetup"`
+	Context       AceDeploymentContext            `json:"context"`
+	Release       ObjectReference                 `json:"release"`
+	Registry      RegistrySpec                    `json:"registry"`
+	Monitoring    GlobalMonitoring                `json:"monitoring"`
+	Infra         AceOptionsPlatformInfra         `json:"infra"`
+	Settings      AceOptionsSettings              `json:"settings"`
+	Billing       AceOptionsComponentSpec         `json:"billing"`
+	PlatformUi    AceOptionsComponentSpec         `json:"platform-ui"`
+	ClusterUi     AceOptionsComponentSpec         `json:"cluster-ui"`
+	DeployUi      AceOptionsComponentSpec         `json:"deploy-ui"`
+	Grafana       AceOptionsComponentSpec         `json:"grafana"`
+	KubedbUi      AceOptionsComponentSpec         `json:"kubedb-ui"`
+	MarketplaceUi AceOptionsComponentSpec         `json:"marketplace-ui"`
+	PlatformApi   AceOptionsComponentSpec         `json:"platform-api"`
+	PlatformLinks AceOptionsComponentSpec         `json:"platform-links"`
+	Ingress       AceOptionsIngressNginx          `json:"ingress"`
+	Nats          AceOptionsNatsSettings          `json:"nats"`
+	Trickster     AceOptionsComponentSpec         `json:"trickster"`
+	DNSProxy      AceOptionsComponentSpec         `json:"dns-proxy"`
+	Openfga       AceOptionsComponentSpec         `json:"openfga"`
+	SMTPRelay     AceOptionsComponentSpec         `json:"smtprelay"`
+	S3proxy       AceOptionsComponentSpec         `json:"s3proxy"`
+	Branding      AceBrandingSpec                 `json:"branding"`
+	InitialSetup  configapi.AceSetupInlineOptions `json:"initialSetup"`
 }
 
 func (a *AceOptionsSpec) Host() string {
