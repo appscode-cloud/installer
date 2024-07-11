@@ -13,7 +13,7 @@ spec:
       type: image/svg+xml
   recommended: false
   chart:
-    name: uik8sappscodecom-featureset-dbaas-capa-editor
+    name: uik8sappscodecom-featureset-capi-capa-editor
     version: {{ .Chart.AppVersion }}
     sourceRef:
       apiGroup: source.toolkit.fluxcd.io
