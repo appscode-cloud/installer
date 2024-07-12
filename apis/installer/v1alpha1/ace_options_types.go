@@ -372,6 +372,9 @@ type AceDeploymentContext struct {
 	PromotedToProduction bool             `json:"promotedToProduction,omitempty"`
 	PromotionValues      *PromotionValues `json:"promotionValues,omitempty"`
 
+	ChartFluxCDVersion       string `json:"chartFluxCDVersion,omitempty"`
+	ChartAceInstallerVersion string `json:"chartAceInstallerVersion,omitempty"`
+
 	GeneratedValues `json:",inline,omitempty"`
 }
 
