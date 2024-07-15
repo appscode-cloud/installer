@@ -72,10 +72,12 @@ type ServiceBackendSpec struct {
 	Tolerations []core.Toleration `json:"tolerations"`
 	// If specified, the pod's scheduling constraints
 	// +optional
-	Affinity   *core.Affinity  `json:"affinity"`
-	Ingress    PlatformIngress `json:"ingress"`
-	Monitoring Monitoring      `json:"monitoring"`
-	Server     ServerConfig    `json:"server"`
+	Affinity     *core.Affinity     `json:"affinity"`
+	Volumes      []core.Volume      `json:"volumes"`
+	VolumeMounts []core.VolumeMount `json:"volumeMounts"`
+	Ingress      PlatformIngress    `json:"ingress"`
+	Monitoring   Monitoring         `json:"monitoring"`
+	Server       ServerConfig       `json:"server"`
 }
 
 type PlatformIngress struct {

@@ -8918,6 +8918,20 @@ func (in *ServiceBackendSpec) DeepCopyInto(out *ServiceBackendSpec) {
 		*out = new(v1.Affinity)
 		(*in).DeepCopyInto(*out)
 	}
+	if in.Volumes != nil {
+		in, out := &in.Volumes, &out.Volumes
+		*out = make([]v1.Volume, len(*in))
+		for i := range *in {
+			(*in)[i].DeepCopyInto(&(*out)[i])
+		}
+	}
+	if in.VolumeMounts != nil {
+		in, out := &in.VolumeMounts, &out.VolumeMounts
+		*out = make([]v1.VolumeMount, len(*in))
+		for i := range *in {
+			(*in)[i].DeepCopyInto(&(*out)[i])
+		}
+	}
 	in.Ingress.DeepCopyInto(&out.Ingress)
 	in.Monitoring.DeepCopyInto(&out.Monitoring)
 	out.Server = in.Server
