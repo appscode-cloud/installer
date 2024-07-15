@@ -28,6 +28,11 @@ rules:
   resources:
   - "*"
   verbs: ["*"]
+- apiGroups:
+  - catalog.klusters.dev
+  resources:
+  - "*"
+  verbs: ["*"]
 # for site info
 - apiGroups:
   - ""
