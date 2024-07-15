@@ -65,6 +65,9 @@ helm:
     cert-manager-webhook-ace:
       enabled: true
       version: "v2023.11.14"
+    cluster-manager-spoke:
+      enabled: false
+      version: "v2024.7.10"
     external-dns-operator:
       enabled: true
       version: "v2024.4.19"
