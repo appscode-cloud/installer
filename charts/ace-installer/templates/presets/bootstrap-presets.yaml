@@ -13,6 +13,8 @@ ace-installer:
 license-proxyserver:
   version: %q
 # b3 import flow
+cluster-manager-spoke:
+  version: %q
 flux2:
   version: %q
 opscenter-features:
@@ -28,6 +30,7 @@ opscenter-features:
   (dig "ace" "version" .Chart.AppVersion $.Values.helm.releases)
   .Chart.Version
   (dig "license-proxyserver" "version" .Chart.AppVersion $.Values.helm.releases)
+  (dig "cluster-manager-spoke" "version" "" $.Values.helm.releases)
   (dig "flux2" "version" "" $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
   ((dig "opscenter-features" "values" "helm" "releases" "service-gateway-presets" "values" (dict) $.Values.helm.releases) | toJson)
