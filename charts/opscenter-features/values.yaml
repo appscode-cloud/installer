@@ -199,23 +199,23 @@ helm:
     ingress-nginx:
       version: "4.10.0"
     cluster-manager-hub:
-      version: "v2024.2.25"
+      version: "v2024.7.10"
     cluster-manager-spoke:
-      version: "v2024.2.25"
+      version: "v2024.7.10"
     multicluster-controlplane:
-      version: "v2024.2.25"
+      version: "v2024.7.10"
     multicluster-ingress-reader:
-      version: "v2024.2.25"
+      version: "v2024.7.10"
     managed-serviceaccount-manager:
-      version: "v2024.2.25"
+      version: "v2024.7.10"
     cluster-proxy-manager:
-      version: "v2024.2.25"
+      version: "v2024.7.10"
     cluster-gateway-manager:
-      version: "v2024.2.25"
+      version: "v2024.7.10"
     cluster-auth-manager:
-      version: "v2024.2.25"
+      version: "v2024.7.10"
     fluxcd-manager:
-      version: "v2024.5.17"
+      version: "v2024.7.10"
     license-proxyserver-manager:
       version: "v2024.7.9"
 
