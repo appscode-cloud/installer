@@ -62,9 +62,6 @@ helm:
     cert-manager-csi-driver-cacerts:
       enabled: true
       version: "v2023.10.1"
-    cert-manager-webhook-ace:
-      enabled: true
-      version: "v2023.11.14"
     cluster-manager-spoke:
       enabled: false
       version: "v2024.7.10"
