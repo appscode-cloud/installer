@@ -75,6 +75,8 @@ type IngressNginxController struct {
 	Resources         core.ResourceRequirements           `json:"resources"`
 	AdmissionWebhooks IngressNginxAdmissionWebhooks       `json:"admissionWebhooks"`
 	NetworkPolicy     IngressNginxControllerNetworkPolicy `json:"networkPolicy"`
+	//+optional
+	ExtraArgs map[string]string `json:"extraArgs"`
 }
 
 type IngressNginxControllerNetworkPolicy struct {
