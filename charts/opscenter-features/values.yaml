@@ -72,8 +72,6 @@ helm:
       version: "v1.15.1"
     cert-manager-csi-driver-cacerts:
       version: "v2023.10.1"
-    cert-manager-webhook-ace:
-      version: "v2023.11.14"
     cluster-autoscaler:
       version: "9.29.0"
     cluster-presets:

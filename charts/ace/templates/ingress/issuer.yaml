@@ -35,52 +35,5 @@ spec:
         ingress:
           ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
           serviceType: ClusterIP
-    - selector:
-        dnsNames: ["ace.internal"]
-      dns01:
-      {{- if eq .Values.global.infra.dns.provider "cloudflare" }}
-      {{- if .Values.global.infra.dns.auth.cloudflare.baseURL }}
-        webhook:
-          solverName: "ace"
-          groupName: webhook.dns.appscode.com
-          config:
-            baseURL: '{{ .Values.global.infra.dns.auth.cloudflare.baseURL }}'
-            apiToken:
-              name: {{ include "ace.fullname" . }}-dns-cred
-              key: CF_API_TOKEN
-      {{- else }}
-        cloudflare:
-          apiTokenSecretRef:
-            name: {{ include "ace.fullname" . }}-dns-cred
-            key: CF_API_TOKEN
-      {{- end }}
-      {{- end }}
-      {{- if eq .Values.global.infra.dns.provider "cloudDNS" }}
-        cloudDNS:
-          project: {{ .Values.global.infra.dns.auth.cloudDNS.GOOGLE_PROJECT_ID }}
-          serviceAccountSecretRef:
-            name: {{ include "ace.fullname" . }}-dns-cred
-            key: GOOGLE_SERVICE_ACCOUNT_JSON_KEY
-      {{- end }}
-      {{- if eq .Values.global.infra.dns.provider "route53" }}
-        route53:
-          accessKeyID: {{ .Values.global.infra.dns.auth.route53.AWS_ACCESS_KEY_ID }}
-          region: {{ .Values.global.infra.dns.auth.route53.AWS_REGION }}
-          secretAccessKeySecretRef:
-            name: {{ include "ace.fullname" . }}-dns-cred
-            key: AWS_SECRET_ACCESS_KEY
-      {{- end }}
-      {{- if eq .Values.global.infra.dns.provider "azureDNS" }}
-        azureDNS:
-          clientID: {{ .Values.global.infra.dns.auth.azureDNS.servicePrincipalAppID }}
-          clientSecretSecretRef:
-            name: {{ include "ace.fullname" . }}-dns-cred
-            key: SERVICE_PRINCIPAL_PASSWORD
-          subscriptionID: {{ .Values.global.infra.dns.auth.azureDNS.subscriptionID }}
-          tenantID: {{ .Values.global.infra.dns.auth.azureDNS.tenantID }}
-          resourceGroupName: {{ .Values.global.infra.dns.auth.azureDNS.resourceGroupName }}
-          hostedZoneName: {{ .Values.global.infra.dns.auth.azureDNS.hostedZoneName }}
-          environment: {{ default "AzurePublicCloud" .Values.global.infra.dns.auth.azureDNS.environment }}
-      {{- end }}
   {{- end }}
 {{- end }}
