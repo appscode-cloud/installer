@@ -129,7 +129,7 @@ helm:
     kubevault-opscenter:
       version: "v2024.1.31"
     license-proxyserver:
-      version: "v2024.7.9"
+      version: "v2024.7.10"
     longhorn:
       version: "1.6.2"
     metrics-server:
@@ -217,7 +217,7 @@ helm:
     fluxcd-manager:
       version: "v2024.7.10"
     license-proxyserver-manager:
-      version: "v2024.7.9"
+      version: "v2024.7.10"
 
     inbox-server:
       version: "v2024.5.3"
