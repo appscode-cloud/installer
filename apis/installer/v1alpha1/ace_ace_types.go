@@ -511,6 +511,8 @@ type SecuritySettings struct {
 
 type GrafanaSettings struct {
 	AppMode string `json:"appMode"`
+	// +optional
+	SecretKey string `json:"secretKey"`
 }
 
 type ContractStorage struct {

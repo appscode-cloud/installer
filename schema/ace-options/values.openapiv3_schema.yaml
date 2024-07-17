@@ -181,6 +181,8 @@ properties:
           - AzureMarketplace
           - GoogleCloudMarketplace
         type: string
+      grafanaSecretKey:
+        type: string
       hostedDomain:
         type: string
       installerName:
