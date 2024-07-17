@@ -216,7 +216,7 @@ stringData:
     admin_password = admin
 
     # used for signing
-    secret_key = 4nHrUDNw00AjlhAq8hCGYPxBt6I1UCbmdC5ReY19IPWdy8qFDzTZzXkdCr5d6qwP
+    secret_key = {{ .Values.settings.grafana.secretKey }}
 
     # disable gravatar profile images
     disable_gravatar = false

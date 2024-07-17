@@ -401,6 +401,8 @@ type GeneratedValues struct {
 	// JKS password is used to create keystore for s3proxy
 	// +optional
 	JKSPassword string `json:"jksPassword"`
+	// +optional
+	GrafanaSecretKey string `json:"grafanaSecretKey"`
 }
 
 type PromotionValues struct {
