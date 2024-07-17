@@ -162,6 +162,9 @@ stringData:
     [trickster]
     NAMESPACE = {{ .Release.Namespace }}
     LABELS = trickstercache.org/metadata.name={{ include "ace.fullname" . }}
+    {{- if .Values.global.infra.tls.ca.cert }}
+    CA_CERT_PATH = /var/platform-auth/ca.crt
+    {{- end }}
   {{- end }}
 
     [branding]

@@ -129,6 +129,9 @@ spec:
             - name: cacerts
               mountPath: /etc/ssl/certs
             {{- end }}
+            {{- with .Values.volumeMounts }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
       initContainers:
         - name: maxmind-mmdb
           image: "{{ include "image.registry" . }}/maxmind-geoip:city-mmdb-latest"
@@ -173,6 +176,9 @@ spec:
             volumeAttributes:
               os: debian
               caProviderClasses: {{ $cpc }}
+        {{- end }}
+        {{- with .Values.volumes }}
+        {{- toYaml . | nindent 8 }}
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

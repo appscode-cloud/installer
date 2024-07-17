@@ -7385,6 +7385,20 @@ func (in *PlatformApiSpec) DeepCopyInto(out *PlatformApiSpec) {
 		*out = new(v1.Affinity)
 		(*in).DeepCopyInto(*out)
 	}
+	if in.Volumes != nil {
+		in, out := &in.Volumes, &out.Volumes
+		*out = make([]v1.Volume, len(*in))
+		for i := range *in {
+			(*in)[i].DeepCopyInto(&(*out)[i])
+		}
+	}
+	if in.VolumeMounts != nil {
+		in, out := &in.VolumeMounts, &out.VolumeMounts
+		*out = make([]v1.VolumeMount, len(*in))
+		for i := range *in {
+			(*in)[i].DeepCopyInto(&(*out)[i])
+		}
+	}
 	in.Persistence.DeepCopyInto(&out.Persistence)
 	in.Monitoring.DeepCopyInto(&out.Monitoring)
 	out.Infra = in.Infra
