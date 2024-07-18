@@ -22,6 +22,10 @@ opscenter-features:
   values:
     helm:
       releases:
+        kube-ui-server:
+          values: %s
+        monitoring-operator:
+          values: %s
         service-gateway-presets:
           values: %s
         stash-presets:
@@ -33,6 +37,8 @@ opscenter-features:
   (dig "cluster-manager-spoke" "version" "" $.Values.helm.releases)
   (dig "flux2" "version" "" $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
+  ((dig "opscenter-features" "values" "helm" "releases" "kube-ui-server" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "opscenter-features" "values" "helm" "releases" "monitoring-operator" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "service-gateway-presets" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "stash-presets" "values" (dict) $.Values.helm.releases) | toJson)
   | fromYaml }}
