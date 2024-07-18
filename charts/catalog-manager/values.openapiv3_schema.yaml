@@ -639,6 +639,16 @@ properties:
     additionalProperties:
       type: string
     type: object
+  platform:
+    properties:
+      baseURL:
+        type: string
+      caBundle:
+        type: string
+    required:
+    - baseURL
+    - caBundle
+    type: object
   podAnnotations:
     additionalProperties:
       type: string
@@ -775,6 +785,7 @@ required:
 - image
 - imagePullPolicy
 - monitoring
+- platform
 - registryFQDN
 - replicaCount
 - serviceAccount

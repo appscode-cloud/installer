@@ -80,7 +80,8 @@ type CatalogManagerSpec struct {
 	// +optional
 	Keda CatalogManagerKedaSpec `json:"keda"`
 	// +optional
-	Helmrepo ObjectReference `json:"helmrepo"`
+	Helmrepo ObjectReference            `json:"helmrepo"`
+	Platform CatalogManagerPlatformSpec `json:"platform"`
 }
 
 type CatalogManagerGatewaySpec struct {
@@ -93,6 +94,11 @@ type CatalogManagerGatewaySpec struct {
 
 type CatalogManagerKedaSpec struct {
 	ProxyService ObjectReference `json:"proxyService"`
+}
+
+type CatalogManagerPlatformSpec struct {
+	BaseURL  string `json:"baseURL"`
+	CaBundle string `json:"caBundle"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

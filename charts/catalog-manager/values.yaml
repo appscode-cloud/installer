@@ -109,3 +109,7 @@ helmrepo:
   name: ""
   # Namespace of the helmrepo for ui charts
   namespace: ""
+
+platform:
+  baseURL: ""
+  caBundle: ""
