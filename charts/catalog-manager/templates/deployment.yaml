@@ -45,6 +45,10 @@ spec:
             - --helmrepo-namespace={{ .Values.helmrepo.namespace }}
             - --keda-proxyservice-name={{ .Values.keda.proxyService.name }}
             - --keda-proxyservice-namespace={{ .Values.keda.proxyService.namespace }}
+            - --platform-url={{ .Values.platform.baseURL }}
+            {{- if .Values.platform.caBundle }}
+            - --platform-ca-file=/var/platform-auth/ca.crt
+            {{- end }}
           ports:
             - name: metrics
               containerPort: 8080
@@ -62,6 +66,18 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.image.resources | nindent 12 }}
+          {{- if .Values.platform.caBundle }}
+          volumeMounts:
+            - mountPath: /var/platform-auth
+              name: platform-auth
+          {{- end }}
+      {{- if .Values.platform.caBundle }}
+      volumes:
+        - name: platform-auth
+          secret:
+            defaultMode: 420
+            secretName: {{ include "catalog-manager.fullname" . }}-platform-auth
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

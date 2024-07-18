@@ -22,6 +22,8 @@ opscenter-features:
   values:
     helm:
       releases:
+        catalog-manager:
+          values: %s
         kube-ui-server:
           values: %s
         monitoring-operator:
@@ -37,13 +39,14 @@ opscenter-features:
   (dig "cluster-manager-spoke" "version" "" $.Values.helm.releases)
   (dig "flux2" "version" "" $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
+  ((dig "opscenter-features" "values" "helm" "releases" "catalog-manager" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "kube-ui-server" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "monitoring-operator" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "service-gateway-presets" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "stash-presets" "values" (dict) $.Values.helm.releases) | toJson)
   | fromYaml }}
 
-{{- if or (eq $.Values.deploymentType "SelfHostedProduction") (eq $.Values.deploymentType "SelfHostedDemo") }}
+{{- if has $.Values.deploymentType (list "SelfHostedProduction" "SelfHostedDemo" "OnpremDemo" "AWSMarketplace" "AzureMarketplace" "GoogleCloudMarketplace") }}
 {{ $overrides := printf `
 opscenter-features:
   values:

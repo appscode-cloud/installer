@@ -1,0 +1,17 @@
+{{ $data := dict }}
+
+{{- if .Values.platform.caBundle }}
+{{ $_ := set $data "ca.crt" .Values.platform.caBundle }}
+{{- end }}
+
+{{- if $data }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "catalog-manager.fullname" . }}-platform-auth
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "catalog-manager.labels" . | nindent 4 }}
+type: Opaque
+stringData: {{ $data | toJson }}
+{{- end }}
