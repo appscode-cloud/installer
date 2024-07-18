@@ -25,6 +25,8 @@ spec:
           image: ghcr.io/voyagermesh/envoy:v1.28.1
           # securityContext:
           #   runAsUser: 1000
+    {{- if eq .Values.infra.hostType "domain" }}
       envoyService:
         annotations:
           external-dns.alpha.kubernetes.io/hostname: "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.host }}"
+    {{- end }}
