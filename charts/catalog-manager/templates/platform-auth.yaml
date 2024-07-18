@@ -1,5 +1,9 @@
 {{ $data := dict }}
 
+{{- if .Values.proxies }}
+{{ $_ := set $data "oci.yaml" (.Values.proxies | toYaml) }}
+{{- end }}
+
 {{- if .Values.platform.caBundle }}
 {{ $_ := set $data "ca.crt" .Values.platform.caBundle }}
 {{- end }}
