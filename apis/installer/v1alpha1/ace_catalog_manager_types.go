@@ -19,6 +19,7 @@ package v1alpha1
 import (
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"kmodules.xyz/resource-metadata/apis/shared"
 )
 
 const (
@@ -44,6 +45,8 @@ type CatalogManager struct {
 
 // CatalogManagerSpec is the schema for Identity Server values file
 type CatalogManagerSpec struct {
+	//+optional
+	Proxies shared.RegistryProxies `json:"proxies"`
 	//+optional
 	NameOverride string `json:"nameOverride"`
 	//+optional

@@ -728,6 +728,21 @@ properties:
             type: string
         type: object
     type: object
+  proxies:
+    properties:
+      appscode:
+        type: string
+      dockerHub:
+        type: string
+      dockerLibrary:
+        type: string
+      ghcr:
+        type: string
+      kubernetes:
+        type: string
+      quay:
+        type: string
+    type: object
   registryFQDN:
     type: string
   replicaCount:
