@@ -86,8 +86,10 @@ metadata:
 spec:
   parentRefs:
     - name: backend
+  {{- if eq .Values.infra.hostType "domain" }}
   hostnames:
     - "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.host }}"
+  {{- end }}
   rules:
     - backendRefs:
         - group: ""
