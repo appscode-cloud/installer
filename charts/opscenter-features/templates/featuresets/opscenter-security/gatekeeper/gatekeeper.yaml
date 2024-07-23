@@ -1,5 +1,5 @@
 {{ $overrides := printf `
-
+constraintViolationsLimit: 100
 image:
   repository: %s
   crdRepository: %s
@@ -31,9 +31,7 @@ preUninstall:
   (include "image.dockerHub" (merge (dict "_repo" "openpolicyagent/gatekeeper-crds") $))
   | fromYaml }}
 
-{{ $vals := `
-constraintViolationsLimit: 100
-` | fromYaml }}
+{{ $vals := dig "gatekeeper" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

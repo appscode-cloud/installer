@@ -3,7 +3,7 @@ global:
   registryFQDN: %q
 ` (include "registry.ghcr" $) | fromYaml }}
 
-{{ $vals := dict }}
+{{ $vals := dig "kubedb-opscenter" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

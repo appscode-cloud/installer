@@ -1,4 +1,8 @@
 {{ $overrides := printf `
+config:
+  envoyGateway:
+    gateway:
+      controllerName: gateway.voyagermesh.com/service-gateway
 deployment:
   envoyGateway:
     image:
@@ -11,12 +15,7 @@ deployment:
   (include "image.ghcr" (merge (dict "_repo" "appscode/kube-rbac-proxy") $))
   | fromYaml }}
 
-{{ $vals := `
-config:
-  envoyGateway:
-    gateway:
-      controllerName: gateway.voyagermesh.com/service-gateway
-` | fromYaml }}
+{{ $vals := dig "service-gateway" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

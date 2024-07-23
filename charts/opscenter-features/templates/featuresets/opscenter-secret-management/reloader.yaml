@@ -3,10 +3,6 @@ reloader:
   deployment:
     image:
       name: %s
-` (include "image.ghcr" (merge (dict "_repo" "appscode/reloader") $)) | fromYaml }}
-
-{{ $vals := `
-reloader:
   securityContext:
     seccompProfile:
       type: RuntimeDefault
@@ -16,7 +12,9 @@ reloader:
         - ALL
     allowPrivilegeEscalation: false
   readOnlyRootFileSystem: true
-` | fromYaml }}
+` (include "image.ghcr" (merge (dict "_repo" "appscode/reloader") $)) | fromYaml }}
+
+{{ $vals := dig "reloader" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

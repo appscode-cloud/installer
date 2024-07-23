@@ -4,6 +4,12 @@ proxyServerImage: %s
 proxyAgentImage: %s
 kubectl:
   image: %s
+kubeconfigSecretName: multicluster-controlplane-svc-kubeconfig
+addonManagerNamespace: open-cluster-management-addon
+placement:
+  create: false
+proxyServer:
+  entrypointLoadBalancer: false
 `
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager") $))
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-proxy") $))
@@ -11,14 +17,7 @@ kubectl:
   (include "kubectl.image" $)
   | fromYaml }}
 
-{{ $vals := `
-kubeconfigSecretName: multicluster-controlplane-svc-kubeconfig
-addonManagerNamespace: open-cluster-management-addon
-placement:
-  create: false
-proxyServer:
-  entrypointLoadBalancer: false
-` | fromYaml }}
+{{ $vals := dig "cluster-proxy-manager" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

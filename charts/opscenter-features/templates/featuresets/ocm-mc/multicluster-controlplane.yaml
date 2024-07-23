@@ -2,13 +2,6 @@
 registry: %q
 image: %s:latest
 selfManagementClusterName: %q
-`
-  (include "image.quay" (merge (dict "_repo" "open-cluster-management") $))
-  (include "image.ghcr" (merge (dict "_repo" "kluster-manager/multicluster-controlplane") $))
-  $.Values.clusterMetadata.name
-  | fromYaml }}
-
-{{ $vals := `
 apiserver:
   generateCA: true
 enableSelfManagement: true
@@ -25,7 +18,13 @@ securityContext:
   fsGroup: 10001
   runAsGroup: 10001
   runAsUser: 10001
-` | fromYaml }}
+`
+  (include "image.quay" (merge (dict "_repo" "open-cluster-management") $))
+  (include "image.ghcr" (merge (dict "_repo" "kluster-manager/multicluster-controlplane") $))
+  $.Values.clusterMetadata.name
+  | fromYaml }}
+
+{{ $vals := dig "multicluster-controlplane" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

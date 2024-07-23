@@ -17,6 +17,8 @@ fluxcdConfig:
     image: %s
   sourceController:
     image: %s
+placement:
+  create: false
 `
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/fluxcd-addon") $))
   (include "kubectl.image" $)
@@ -29,10 +31,7 @@ fluxcdConfig:
   (include "image.ghcr" (merge (dict "_repo" "fluxcd/source-controller") $))
   | fromYaml }}
 
-{{ $vals := `
-placement:
-  create: false
-` | fromYaml }}
+{{ $vals := dig "fluxcd-manager" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

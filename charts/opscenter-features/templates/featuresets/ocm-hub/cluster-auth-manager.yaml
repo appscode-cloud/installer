@@ -3,16 +3,15 @@ registryFQDN: %s
 image: %s
 kubectl:
   image: %s
+placement:
+  create: false
 `
   (include "registry.ghcr" $)
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-auth") $))
   (include "kubectl.image" $)
   | fromYaml }}
 
-{{ $vals := `
-placement:
-  create: false
-` | fromYaml }}
+{{ $vals := dig "cluster-auth-manager" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

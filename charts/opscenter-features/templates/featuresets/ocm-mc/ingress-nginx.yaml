@@ -5,17 +5,6 @@ controller:
   opentelemetry:
     image:
       registry: %s
-defaultBackend:
-  image:
-    registry: %s
-`
-  (include "registry.kubernetes" $)
-  (include "registry.kubernetes" $)
-  (include "registry.kubernetes" $)
-  | fromYaml }}
-
-{{ $vals := `
-controller:
   admissionWebhooks:
     enabled: false
   ingressClassByName: true
@@ -26,12 +15,20 @@ controller:
   service:
     enableHttp: false
     enableHttps: false
+defaultBackend:
+  image:
+    registry: %s
 tcp:
   "8090": multicluster-controlplane/proxy-entrypoint:8090
   "8091": multicluster-controlplane/proxy-entrypoint:8091
   "9443": multicluster-controlplane/multicluster-controlplane:443
 `
+  (include "registry.kubernetes" $)
+  (include "registry.kubernetes" $)
+  (include "registry.kubernetes" $)
   | fromYaml }}
+
+{{ $vals := dig "ingress-nginx" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

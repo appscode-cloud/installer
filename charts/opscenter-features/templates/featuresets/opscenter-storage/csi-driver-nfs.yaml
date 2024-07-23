@@ -17,7 +17,7 @@ image:
   (include "registry.kubernetes" $)
   | fromYaml }}
 
-{{ $vals := dict }}
+{{ $vals := dig "csi-driver-nfs" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

@@ -7,16 +7,11 @@
 global:
   registryFQDN: %q
   imagePullSecrets: %v
-` (include "registry.ghcr" $)
-  ($ips | toJson)
-  | fromYaml }}
-{{ $_ := set $overrides "kubedb-catalog" $.Values.image }}
-
-{{ $vals := `
 kubedb-provisioner:
   enabled: true
 kubedb-catalog:
   enabled: true
+  proxies: %v
 kubedb-ops-manager:
   enabled: true
 kubedb-autoscaler:
@@ -31,7 +26,12 @@ kubedb-metrics:
   enabled: false
 sidekick:
   enabled: false
-` | fromYaml }}
+` (include "registry.ghcr" $)
+  ($ips | toJson)
+  ($.Values.image.proxies | toJson )
+  | fromYaml }}
+
+{{ $vals := dig "kubedb" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

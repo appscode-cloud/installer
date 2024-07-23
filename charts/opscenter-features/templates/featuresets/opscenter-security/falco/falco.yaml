@@ -2,22 +2,11 @@
 image:
   registry: %q
 driver:
+  kind: modern-bpf
   loader:
     initContainer:
       image:
         registry: %q
-falcoctl:
-  image:
-    registry: %q
-`
-  (default "docker.io" (include "registry.dockerHub" $))
-  (default "docker.io" (include "registry.dockerHub" $))
-  (default "docker.io" (include "registry.dockerHub" $))
-  | fromYaml }}
-
-{{ $vals := `
-driver:
-  kind: modern-bpf
 falco:
   grpc:
     enabled: true
@@ -31,12 +20,22 @@ falco:
   json_output: true
   modern_bpf:
     cpus_for_each_syscall_buffer: 1
+falcoctl:
+  image:
+    registry: %q
 falcosidekick:
   enabled: false
   webui:
     enabled: false
 tty: true
-` | fromYaml }}
+
+`
+  (default "docker.io" (include "registry.dockerHub" $))
+  (default "docker.io" (include "registry.dockerHub" $))
+  (default "docker.io" (include "registry.dockerHub" $))
+  | fromYaml }}
+
+{{ $vals := dig "falco" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

@@ -3,9 +3,6 @@
 {{ $overrides := printf `
 image:
   repository: %s
-` (include "image.kubernetes" (merge (dict "_repo" "autoscaling/cluster-autoscaler") $)) | fromYaml }}
-
-{{ $vals := `
 cloudProvider: clusterapi
 autoscalingGroups:
   - name: default
@@ -15,7 +12,11 @@ extraArgs:
   logtostderr: null
   stderrthreshold: null
   v: null
-` | fromYaml }}
+`
+  (include "image.kubernetes" (merge (dict "_repo" "autoscaling/cluster-autoscaler") $))
+  | fromYaml }}
+
+{{ $vals := dig "cluster-autoscaler" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

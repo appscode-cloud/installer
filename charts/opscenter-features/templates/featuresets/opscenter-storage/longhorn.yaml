@@ -44,7 +44,7 @@ image:
   (include "image.dockerHub" (merge (dict "_repo" "longhornio/livenessprobe") $))
   | fromYaml }}
 
-{{ $vals := dict }}
+{{ $vals := dig "longhorn" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

@@ -95,7 +95,7 @@ grafana:
   (include "image.quay" (merge (dict "_repo" "kiwigrid/k8s-sidecar") $))
   | fromYaml }}
 
-{{ $vals := dict }}
+{{ $vals := dig "kube-prometheus-stack" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $alertmanager $prometheusOperator $prometheus $thanosRuler $ksm $node $grafana }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
