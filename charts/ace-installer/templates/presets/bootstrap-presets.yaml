@@ -47,7 +47,7 @@ opscenter-features:
   | fromYaml }}
 
 {{- if has $.Values.deploymentType (list "SelfHostedProduction" "SelfHostedDemo" "OnpremDemo" "AWSMarketplace" "AzureMarketplace" "GoogleCloudMarketplace") }}
-{{ $overrides := printf `
+{{ $defaults := printf `
 opscenter-features:
   values:
     helm:
@@ -62,7 +62,7 @@ opscenter-features:
   ((dig "opscenter-features" "values" "helm" "releases" "license-proxyserver" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "license-proxyserver-manager" "values" (dict) $.Values.helm.releases) | toJson)
   | fromYaml }}
-{{ $helmreleases = mergeOverwrite $helmreleases $overrides }}
+{{ $helmreleases = mergeOverwrite $helmreleases $defaults }}
 {{- end }}
 
 {{ $spokeClusterAddons := printf `

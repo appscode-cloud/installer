@@ -1,10 +1,10 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 global:
   registryFQDN: %q
 ` (include "registry.ghcr" $) | fromYaml }}
 
-{{ $vals := dig "kubestash" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "kubestash" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

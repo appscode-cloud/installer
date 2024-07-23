@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 kubectl:
   image: %s
 helm:
@@ -9,7 +9,7 @@ helm:
   | fromYaml }}
 
 {{ $vals :=  (omit $.Values "clusterMetadata") | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

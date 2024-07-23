@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 cli:
   image: %s
 helmController:
@@ -41,7 +41,7 @@ sourceController:
   labels:
     ace.appscode.com/managed: "true"
 ` | fromYaml }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

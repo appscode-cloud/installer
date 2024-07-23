@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 preparer:
   repository: %s
 cleaner:
@@ -8,8 +8,8 @@ cleaner:
   (include "image.ghcr" (merge (dict "_repo" "appscode/helm") $))
   | fromYaml }}
 
-{{ $vals := dig "prepare-cluster" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "prepare-cluster" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

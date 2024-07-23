@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 
 images:
   operator: %s
@@ -13,8 +13,8 @@ images:
   (include "image.ghcr" (merge (dict "_repo" "appscode/kube-rbac-proxy") $))
   | fromYaml }}
 
-{{ $vals := dig "keda-add-ons-http" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "keda-add-ons-http" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

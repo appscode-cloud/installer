@@ -1,15 +1,15 @@
 {{- with (index .Values "helm" "releases" "panopticon") }}
 {{- if .enabled }}
 
-{{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
+{{ $defaults := dict "registryFQDN" (include "registry.ghcr" $) }}
 
 {{ $platformCA := dig "releases" "ace" "values" "global" "infra" "tls" "ca" "cert" "" $.Values.helm }}
 {{ if $platformCA }}
-{{ $overrides = mergeOverwrite $overrides (dict "platform" (dict "caBundle" $platformCA)) }}
+{{ $defaults = mergeOverwrite $defaults (dict "platform" (dict "caBundle" $platformCA)) }}
 {{ end }}
 
 {{ $vals := dig "values" dict . }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease

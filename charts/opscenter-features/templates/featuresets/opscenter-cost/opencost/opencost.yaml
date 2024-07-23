@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 opencost:
   exporter:
     image:
@@ -64,7 +64,7 @@ configs:
       - kube_pod_labels
       - kube_pod_owner
 ` | fromYaml }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

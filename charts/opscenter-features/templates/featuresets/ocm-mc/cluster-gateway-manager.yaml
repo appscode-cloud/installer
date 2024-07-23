@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 image: %s
 clusterGateway:
   image: %s
@@ -17,8 +17,8 @@ clusterProxy:
   (include "kubectl.image" $)
   | fromYaml }}
 
-{{ $vals := dig "cluster-gateway-manager" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "cluster-gateway-manager" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

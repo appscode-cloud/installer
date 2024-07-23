@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 kubeconfigSecretName: multicluster-controlplane-svc-kubeconfig
 addonManagerNamespace: open-cluster-management-addon
 kubectl:
@@ -11,7 +11,7 @@ helm:
   | fromYaml }}
 
 {{ $vals :=  (omit $.Values "clusterMetadata") | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

@@ -1,12 +1,12 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 mode: enterprise
 registryFQDN: %q
 `
   (include "registry.ghcr" $)
   | fromYaml }}
 
-{{ $vals := dig "config-syncer" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "config-syncer" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
