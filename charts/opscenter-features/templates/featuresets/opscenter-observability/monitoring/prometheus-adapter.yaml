@@ -50,7 +50,7 @@ rules:
   (include "image.kubernetes" (merge (dict "_repo" "prometheus-adapter/prometheus-adapter") $))
   | fromYaml }}
 
-{{ $vals := dict }}
+{{ $vals := dig "prometheus-adapter" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

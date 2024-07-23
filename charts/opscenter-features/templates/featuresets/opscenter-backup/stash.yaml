@@ -4,15 +4,14 @@ global:
 stash-enterprise:
   pushgateway:
     registry: %s
+features:
+  enterprise: true
 `
   (include "registry.ghcr" $)
   (include "image.dockerLibrary" (merge (dict "_repo" "prom") $))
   | fromYaml }}
 
-{{ $vals := `
-features:
-  enterprise: true
-` | fromYaml }}
+{{ $vals := dig "stash" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

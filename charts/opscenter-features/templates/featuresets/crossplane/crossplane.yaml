@@ -3,7 +3,7 @@ image:
   repository: %s
 ` (include "image.ghcr" (merge (dict "_repo" "kubedb/crossplane") $)) | fromYaml }}
 
-{{ $vals := dict }}
+{{ $vals := dig "crossplane" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

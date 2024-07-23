@@ -9,7 +9,7 @@ args:
   (include "image.kubernetes" (merge (dict "_repo" "metrics-server/metrics-server") $))
   | fromYaml }}
 
-{{ $vals := dict }}
+{{ $vals := dig "metrics-server" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
