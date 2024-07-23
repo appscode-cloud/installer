@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 image:
   longhorn:
     engine:
@@ -44,8 +44,8 @@ image:
   (include "image.dockerHub" (merge (dict "_repo" "longhornio/livenessprobe") $))
   | fromYaml }}
 
-{{ $vals := dig "longhorn" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "longhorn" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 james:
   image: %s:latest
 cassandra:
@@ -25,8 +25,8 @@ tika:
   (include "image.dockerHub" (merge (dict "_repo" "apache/tika") $))
   | fromYaml }}
 
-{{ $vals := dig "inbox-server" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "inbox-server" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

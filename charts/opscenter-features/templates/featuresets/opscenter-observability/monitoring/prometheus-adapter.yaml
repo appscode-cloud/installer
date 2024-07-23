@@ -1,6 +1,6 @@
 {{- if eq (include "prometheus.mode" $) "standalone" }}
 
-{{ $overrides := printf `
+{{ $defaults := printf `
 image:
   repository: %s
 prometheus:
@@ -50,8 +50,8 @@ rules:
   (include "image.kubernetes" (merge (dict "_repo" "prometheus-adapter/prometheus-adapter") $))
   | fromYaml }}
 
-{{ $vals := dig "prometheus-adapter" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "prometheus-adapter" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

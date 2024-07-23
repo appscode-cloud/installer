@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 registry: %q
 image: %s:latest
 selfManagementClusterName: %q
@@ -24,8 +24,8 @@ securityContext:
   $.Values.clusterMetadata.name
   | fromYaml }}
 
-{{ $vals := dig "multicluster-controlplane" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "multicluster-controlplane" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

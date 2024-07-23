@@ -1,7 +1,7 @@
-{{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
+{{ $defaults := dict "registryFQDN" (include "registry.ghcr" $) }}
 
-{{ $vals := dig "inbox-ui" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "inbox-ui" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

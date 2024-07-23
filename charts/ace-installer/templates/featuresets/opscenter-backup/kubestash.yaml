@@ -1,13 +1,13 @@
 {{- with (index .Values "helm" "releases" "kubestash") }}
 {{- if .enabled }}
 
-{{ $overrides := printf `
+{{ $defaults := printf `
 global:
   registryFQDN: %s
 ` (include "registry.ghcr" $) | fromYaml }}
 
 {{ $vals := dig "values" dict . }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
