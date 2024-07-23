@@ -6,17 +6,17 @@
 {{ $ips = append $ips (dict "name" $secret) }}
 {{- end }}
 
-{{ $overrides := printf `
+{{ $defaults := printf `
 global:
   registryFQDN: %q
   imagePullSecrets: %v
 ` (include "registry.ghcr" $)
   ($ips | toJson)
   | fromYaml }}
-{{ $_ := set $overrides "kubedb-catalog" $.Values.image }}
+{{ $_ := set $defaults "kubedb-catalog" $.Values.image }}
 
 {{ $vals := dig "values" dict . }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease

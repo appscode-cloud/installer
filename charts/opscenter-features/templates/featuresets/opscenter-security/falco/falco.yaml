@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 image:
   registry: %q
 driver:
@@ -35,8 +35,8 @@ tty: true
   (default "docker.io" (include "registry.dockerHub" $))
   | fromYaml }}
 
-{{ $vals := dig "falco" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "falco" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

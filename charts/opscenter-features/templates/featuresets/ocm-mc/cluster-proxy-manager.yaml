@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 registry: %s
 proxyServerImage: %s
 proxyAgentImage: %s
@@ -17,8 +17,8 @@ proxyServer:
   (include "kubectl.image" $)
   | fromYaml }}
 
-{{ $vals := dig "cluster-proxy-manager" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "cluster-proxy-manager" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

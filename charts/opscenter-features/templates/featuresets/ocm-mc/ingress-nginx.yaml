@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 controller:
   image:
     registry: %s
@@ -28,8 +28,8 @@ tcp:
   (include "registry.kubernetes" $)
   | fromYaml }}
 
-{{ $vals := dig "ingress-nginx" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "ingress-nginx" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

@@ -156,10 +156,10 @@ spec:
         {{- with (index .Values "helm" "releases" "kube-ui-server") }}
         {{- if .enabled }}
 
-        {{ $overrides := dict "registryFQDN" (include "registry.ghcr" $) }}
+        {{ $defaults := dict "registryFQDN" (include "registry.ghcr" $) }}
 
         {{ $vals := dig "values" dict . }}
-        {{ $vals = mergeOverwrite $vals $overrides }}
+        {{ $vals = mergeOverwrite $defaults $vals }}
 
         - apiVersion: helm.toolkit.fluxcd.io/v2
           kind: HelmRelease

@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 registryFQDN: %q
 helmrepo:
   name: appscode-charts-oci
@@ -8,8 +8,8 @@ helmrepo:
   $.Release.Namespace
   | fromYaml }}
 
-{{ $vals := dig "catalog-manager" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "catalog-manager" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

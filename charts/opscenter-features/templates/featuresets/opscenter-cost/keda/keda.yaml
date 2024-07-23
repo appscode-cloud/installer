@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 image:
   keda:
     repository: %s
@@ -12,8 +12,8 @@ image:
   (include "image.ghcr" (merge (dict "_repo" "kedacore/keda-admission-webhooks") $))
   | fromYaml }}
 
-{{ $vals := dig "keda" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "keda" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature

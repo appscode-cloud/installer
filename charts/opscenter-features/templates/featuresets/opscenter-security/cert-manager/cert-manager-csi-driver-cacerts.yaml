@@ -1,4 +1,4 @@
-{{ $overrides := printf `
+{{ $defaults := printf `
 registryFQDN: %s
 nodeDriverRegistrar:
   registry: %s
@@ -10,8 +10,8 @@ livenessProbe:
   (include "image.kubernetes" (merge (dict "_repo" "sig-storage") $))
   | fromYaml }}
 
-{{ $vals := dig "cert-manager-csi-driver-cacerts" "values" (dict) .Values.helm.releases | deepCopy }}
-{{ $vals = mergeOverwrite $vals $overrides }}
+{{ $vals := dig "cert-manager-csi-driver-cacerts" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
