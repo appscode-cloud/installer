@@ -68,6 +68,7 @@ prometheus-node-exporter:
 # https://github.com/grafana/helm-charts/blob/main/charts/grafana/README.md
 {{ $grafana := printf `
 grafana:
+  enabled: false
   # docker.io
   image:
     repository: %s
