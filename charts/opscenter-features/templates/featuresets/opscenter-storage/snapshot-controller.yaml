@@ -10,7 +10,7 @@ webhook:
   (include "image.kubernetes" (merge (dict "_repo" "sig-storage/snapshot-validation-webhook") $))
   | fromYaml }}
 
-{{ $vals := dict }}
+{{ $vals := dig "snapshot-controller" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

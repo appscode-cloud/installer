@@ -6,7 +6,6 @@ addonManagerNamespace: open-cluster-management-addon
   | fromYaml }}
 
 {{ $vals := dig "kube-ui-server" "values" (dict) .Values.helm.releases | deepCopy }}
-
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

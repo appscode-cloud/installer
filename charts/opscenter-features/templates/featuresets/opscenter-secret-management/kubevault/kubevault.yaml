@@ -4,7 +4,7 @@ global:
 ` (include "registry.ghcr" $) | fromYaml }}
 {{ $_ := set $overrides.global "kubevault-catalog" $.Values.image }}
 
-{{ $vals := dict }}
+{{ $vals := dig "kubevault" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

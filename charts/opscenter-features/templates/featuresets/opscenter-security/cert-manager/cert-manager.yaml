@@ -1,4 +1,7 @@
 {{ $overrides := printf `
+installCRDs: true
+extraArgs:
+- --enable-gateway-api
 image:
   repository: %s
 webhook:
@@ -21,11 +24,7 @@ startupapicheck:
   (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-startupapicheck") $))
   | fromYaml }}
 
-{{ $vals := `
-installCRDs: true
-extraArgs:
-- --enable-gateway-api
-` | fromYaml }}
+{{ $vals := dig "cert-manager" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

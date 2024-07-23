@@ -4,13 +4,6 @@ clusterGateway:
   image: %s
 kubectl:
   image: %s
-`
-  (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-gateway-manager") $))
-  (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-gateway") $))
-  (include "kubectl.image" $)
-  | fromYaml }}
-
-{{ $vals := `
 kubeconfigSecretName: multicluster-controlplane-svc-kubeconfig
 addonManagerNamespace: open-cluster-management-addon
 placement:
@@ -18,7 +11,13 @@ placement:
 clusterProxy:
   credentials:
     namespace: multicluster-controlplane
-` | fromYaml }}
+`
+  (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-gateway-manager") $))
+  (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-gateway") $))
+  (include "kubectl.image" $)
+  | fromYaml }}
+
+{{ $vals := dig "cluster-gateway-manager" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

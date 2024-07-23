@@ -5,7 +5,7 @@ hub:
   (include "image.quay" (merge (dict "_repo" "open-cluster-management") $))
   | fromYaml }}
 
-{{ $vals := dict }}
+{{ $vals := dig "cluster-manager-hub" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

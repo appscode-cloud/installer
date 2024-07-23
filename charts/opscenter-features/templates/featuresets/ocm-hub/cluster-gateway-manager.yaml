@@ -4,16 +4,15 @@ clusterGateway:
   image: %s
 kubectl:
   image: %s
+placement:
+  create: false
 `
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-gateway-manager") $))
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-gateway") $))
   (include "kubectl.image" $)
   | fromYaml }}
 
-{{ $vals := `
-placement:
-  create: false
-` | fromYaml }}
+{{ $vals := dig "cluster-gateway-manager" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

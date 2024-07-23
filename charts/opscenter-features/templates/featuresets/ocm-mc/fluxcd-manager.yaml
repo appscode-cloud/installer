@@ -2,17 +2,16 @@
 image: %s
 kubectl:
   image: %s
+kubeconfigSecretName: multicluster-controlplane-svc-kubeconfig
+addonManagerNamespace: open-cluster-management-addon
+placement:
+  create: false
 `
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/fluxcd-addon") $))
   (include "kubectl.image" $)
   | fromYaml }}
 
-{{ $vals := `
-kubeconfigSecretName: multicluster-controlplane-svc-kubeconfig
-addonManagerNamespace: open-cluster-management-addon
-placement:
-  create: false
-` | fromYaml }}
+{{ $vals := dig "fluxcd-manager" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

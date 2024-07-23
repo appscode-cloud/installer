@@ -1,12 +1,11 @@
 {{ $overrides := printf `
 stash-ui-server:
   registryFQDN: %q
-` (include "registry.ghcr" $) | fromYaml }}
-
-{{ $vals := `
 stash-metrics:
   enabled: false
-` | fromYaml }}
+` (include "registry.ghcr" $) | fromYaml }}
+
+{{ $vals := dig "stash-opscenter" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1

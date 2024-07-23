@@ -1,16 +1,14 @@
 {{ $overrides := printf `
 kubectl:
   image: %s
-`
-  (include "kubectl.image" $)
-  | fromYaml }}
-
-{{ $vals := printf `
 secret:
   namespace: %s
 `
+  (include "kubectl.image" $)
   $.Release.Namespace
   | fromYaml }}
+
+{{ $vals := dig "multicluster-ingress-reader" "values" (dict) .Values.helm.releases | deepCopy }}
 {{ $vals = mergeOverwrite $vals $overrides }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
