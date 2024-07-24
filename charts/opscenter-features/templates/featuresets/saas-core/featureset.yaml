@@ -3,9 +3,9 @@ kind: FeatureSet
 metadata:
   name: saas-core
 spec:
-  title: Kubernetes Native SaaS
+  title: Kubernetes Native Service
   description: |
-    Components for a Kubernetes Native SaaS
+    Components for Kubernetes Native Services
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml

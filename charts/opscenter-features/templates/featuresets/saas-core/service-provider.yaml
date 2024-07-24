@@ -16,9 +16,9 @@ metadata:
   labels:
     app.kubernetes.io/part-of: saas-core
 spec:
-  title: SaaS Provider
+  title: Service Provider
   description: |
-    SaaS Provider
+    Service Provider
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
