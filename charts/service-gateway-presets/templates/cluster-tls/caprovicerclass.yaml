@@ -9,8 +9,10 @@ metadata:
     {{- include "service-gateway-presets.labels" . | nindent 4 }}
 spec:
   refs:
-  - apiGroup: cert-manager.io
-    kind: ClusterIssuer
-    name: ace
+  - apiGroup: ""
+    kind: Secret
+    namespace: cert-manager
+    name: ace-ca
+    key: "tls.crt"
 
 {{- end }}
