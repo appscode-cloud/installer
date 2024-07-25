@@ -59,7 +59,14 @@ spec:
         ports:
         - containerPort: 8443
         - containerPort: 8080
+        {{- with .Values.envFrom }}
+        envFrom:
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
         env:
+        {{- with .Values.env }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
         {{- with include "platform.tokenSecretName" . }}
         - name: PLATFORM_API_TOKEN
           valueFrom:

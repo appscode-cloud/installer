@@ -4779,6 +4779,20 @@ func (in *LicenseProxyserverSpec) DeepCopyInto(out *LicenseProxyserverSpec) {
 		*out = new(v1.PodSecurityContext)
 		(*in).DeepCopyInto(*out)
 	}
+	if in.EnvFrom != nil {
+		in, out := &in.EnvFrom, &out.EnvFrom
+		*out = make([]v1.EnvFromSource, len(*in))
+		for i := range *in {
+			(*in)[i].DeepCopyInto(&(*out)[i])
+		}
+	}
+	if in.Env != nil {
+		in, out := &in.Env, &out.Env
+		*out = make([]v1.EnvVar, len(*in))
+		for i := range *in {
+			(*in)[i].DeepCopyInto(&(*out)[i])
+		}
+	}
 	in.ServiceAccount.DeepCopyInto(&out.ServiceAccount)
 	out.Apiserver = in.Apiserver
 	in.Monitoring.DeepCopyInto(&out.Monitoring)
