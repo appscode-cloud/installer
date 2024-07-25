@@ -177,6 +177,7 @@ properties:
           - SelfHostedProduction
           - SelfHostedDemo
           - OnpremDemo
+          - KubernetesAppDemo
           - AWSMarketplace
           - AzureMarketplace
           - GoogleCloudMarketplace
