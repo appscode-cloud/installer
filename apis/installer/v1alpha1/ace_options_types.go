@@ -329,16 +329,6 @@ func (dt DeploymentType) Hosted() bool {
 	return dt == HostedDeployment
 }
 
-func (dt DeploymentType) SelfHosted() bool {
-	return dt == SelfHostedProductionDeployment ||
-		dt == CloudDemoDeployment ||
-		dt == OnpremDemoDeployment ||
-		dt == KubeAppDemoDeployment ||
-		dt == AWSMarketplaceDeployment ||
-		dt == AzureMarketplaceDeployment ||
-		dt == GCPMarketplaceDeployment
-}
-
 func (dt DeploymentType) Demo() bool {
 	return dt == CloudDemoDeployment ||
 		dt == OnpremDemoDeployment ||
