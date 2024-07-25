@@ -3864,9 +3864,9 @@ properties:
             enum:
             - Hosted
             - SelfHostedProduction
-            - SelfHostedDemo
+            - CloudDemo
             - OnpremDemo
-            - KubernetesAppDemo
+            - KubeAppDemo
             - AWSMarketplace
             - AzureMarketplace
             - GoogleCloudMarketplace
@@ -20365,9 +20365,9 @@ properties:
             enum:
             - Hosted
             - SelfHostedProduction
-            - SelfHostedDemo
+            - CloudDemo
             - OnpremDemo
-            - KubernetesAppDemo
+            - KubeAppDemo
             - AWSMarketplace
             - AzureMarketplace
             - GoogleCloudMarketplace
