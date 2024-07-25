@@ -5868,6 +5868,8 @@ properties:
             type: object
           kind:
             type: string
+          name:
+            type: string
           networkPolicy:
             properties:
               enabled:
@@ -6146,6 +6148,10 @@ properties:
         type: object
       enabled:
         type: boolean
+      fullnameOverride:
+        type: string
+      nameOverride:
+        type: string
       tcp:
         additionalProperties:
           type: string

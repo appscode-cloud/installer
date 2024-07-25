@@ -96,6 +96,8 @@ properties:
         type: object
       kind:
         type: string
+      name:
+        type: string
       networkPolicy:
         properties:
           enabled:
@@ -389,6 +391,10 @@ properties:
     - image
     - name
     type: object
+  fullnameOverride:
+    type: string
+  nameOverride:
+    type: string
   tcp:
     additionalProperties:
       type: string
