@@ -46,7 +46,7 @@ opscenter-features:
   ((dig "opscenter-features" "values" "helm" "releases" "stash-presets" "values" (dict) $.Values.helm.releases) | toJson)
   | fromYaml }}
 
-{{- if has $.Values.deploymentType (list "SelfHostedProduction" "SelfHostedDemo" "OnpremDemo" "AWSMarketplace" "AzureMarketplace" "GoogleCloudMarketplace") }}
+{{- if has $.Values.deploymentType (list "SelfHostedProduction" "CloudDemo" "OnpremDemo" "AWSMarketplace" "AzureMarketplace" "GoogleCloudMarketplace") }}
 {{ $defaults := printf `
 opscenter-features:
   values:

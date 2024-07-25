@@ -25,7 +25,7 @@ fullnameOverride: ""
 platform:
   host: ""
   hostType: domain
-  deploymentType: SelfHostedDemo
+  deploymentType: CloudDemo
 
 serviceAccount:
   name: ""
