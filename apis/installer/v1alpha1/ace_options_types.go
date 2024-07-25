@@ -351,6 +351,10 @@ func (dt DeploymentType) MarketplaceDeployment() bool {
 		dt == GCPMarketplaceDeployment
 }
 
+func (dt DeploymentType) UsesVirtualCluster() bool {
+	return dt == GCPMarketplaceDeployment
+}
+
 type AceDeploymentContext struct {
 	DeploymentType DeploymentType `json:"deploymentType"`
 	InstallerName  string         `json:"installerName"`
