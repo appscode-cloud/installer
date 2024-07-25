@@ -310,7 +310,7 @@ type AceOptionsSMTPSettings struct {
 	SendAsPlainText bool `json:"sendAsPlainText"`
 }
 
-// +kubebuilder:validation:Enum=Hosted;SelfHostedProduction;SelfHostedDemo;OnpremDemo;AWSMarketplace;AzureMarketplace;GoogleCloudMarketplace
+// +kubebuilder:validation:Enum=Hosted;SelfHostedProduction;SelfHostedDemo;OnpremDemo;KubernetesAppDemo;AWSMarketplace;AzureMarketplace;GoogleCloudMarketplace
 type DeploymentType string
 
 const (
@@ -318,6 +318,7 @@ const (
 	SelfHostedProductionDeployment DeploymentType = "SelfHostedProduction"
 	SelfHostedDemoDeployment       DeploymentType = "SelfHostedDemo"
 	OnpremDemoDeployment           DeploymentType = "OnpremDemo"
+	KubernetesAppDemoDeployment    DeploymentType = "KubernetesAppDemo"
 
 	AWSMarketplaceDeployment   DeploymentType = "AWSMarketplace"
 	AzureMarketplaceDeployment DeploymentType = "AzureMarketplace"
@@ -332,13 +333,16 @@ func (dt DeploymentType) SelfHosted() bool {
 	return dt == SelfHostedProductionDeployment ||
 		dt == SelfHostedDemoDeployment ||
 		dt == OnpremDemoDeployment ||
+		dt == KubernetesAppDemoDeployment ||
 		dt == AWSMarketplaceDeployment ||
 		dt == AzureMarketplaceDeployment ||
 		dt == GCPMarketplaceDeployment
 }
 
 func (dt DeploymentType) Demo() bool {
-	return dt == SelfHostedDemoDeployment || dt == OnpremDemoDeployment
+	return dt == SelfHostedDemoDeployment ||
+		dt == OnpremDemoDeployment ||
+		dt == KubernetesAppDemoDeployment
 }
 
 func (dt DeploymentType) Onprem() bool {
@@ -352,7 +356,8 @@ func (dt DeploymentType) MarketplaceDeployment() bool {
 }
 
 func (dt DeploymentType) UsesVirtualCluster() bool {
-	return dt == GCPMarketplaceDeployment
+	return dt == KubernetesAppDemoDeployment ||
+		dt == GCPMarketplaceDeployment
 }
 
 type AceDeploymentContext struct {
