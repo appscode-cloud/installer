@@ -59,6 +59,10 @@ affinity: {}
 # Security options the operator pod should run with.
 podSecurityContext: # +doc-gen:break
   fsGroup: 65535
+# List of sources to populate environment variables in the container
+envFrom: []
+# List of environment variables to set in the container
+env: []
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
