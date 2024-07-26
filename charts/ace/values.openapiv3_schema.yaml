@@ -22203,6 +22203,8 @@ properties:
                 type: array
               import:
                 type: boolean
+              kubeAPIServer:
+                type: string
             type: object
           subscription:
             properties:
