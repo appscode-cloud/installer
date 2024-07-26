@@ -99,6 +99,11 @@ rules:
   - catalog.kubedb.com
   resources:
   - elasticsearchversions
+  - mariadbversions
+  - mongodbversions
+  - mysqlversions
+  - postgresversions
+  - redisversions
   verbs:
   - get
   - list
