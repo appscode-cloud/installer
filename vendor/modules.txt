@@ -244,7 +244,7 @@ github.com/yudai/golcs
 # github.com/zeebo/xxh3 v1.0.2
 ## explicit; go 1.17
 github.com/zeebo/xxh3
-# go.bytebuilders.dev/resource-model v0.0.13-0.20240726220510-e1930e435770
+# go.bytebuilders.dev/resource-model v0.0.13-0.20240726223904-6d484cb4e33b
 ## explicit; go 1.22.1
 go.bytebuilders.dev/resource-model/apis/cloud
 go.bytebuilders.dev/resource-model/apis/cloud/v1alpha1
