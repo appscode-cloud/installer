@@ -7,6 +7,9 @@ metadata:
     {{- include "service-gateway-presets.labels" . | nindent 4 }}
 spec:
   secretName: {{ include "service-gateway-presets.fullname" . }}-cert
+  secretTemplate:
+    annotations:
+      vcluster.loft.sh/force-sync: "true"
   issuerRef:
     group: cert-manager.io
     kind: Issuer

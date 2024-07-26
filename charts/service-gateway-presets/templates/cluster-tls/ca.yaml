@@ -13,6 +13,8 @@ metadata:
   namespace: cert-manager
   labels:
     {{- include "service-gateway-presets.labels" . | nindent 4 }}
+  annotations:
+    vcluster.loft.sh/force-sync: "true"
 type: kubernetes.io/tls
 stringData: {{ $data | toJson }}
 
