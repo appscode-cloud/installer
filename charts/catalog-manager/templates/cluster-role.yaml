@@ -17,18 +17,7 @@ rules:
 - apiGroups:
   - kubedb.com
   resources:
-  - elasticsearches
-  - kafkas
-  - mariadbs
-  - memcacheds
-  - mongodbs
-  - mysqls
-  - perconaxtradbs
-  - pgbouncers
-  - postgreses
-  - proxysqls
-  - redises
-  - mariadbs
+  - '*'
   verbs:
   - get
   - list
@@ -36,11 +25,18 @@ rules:
 - apiGroups:
   - kubedb.com
   resources:
-  - mysqls/status
   - elasticsearches/status
-  - mongodbs/status
-  - postgreses/status
+  - kafkas/status
   - mariadbs/status
+  - mariadbs/status
+  - memcacheds/status
+  - mongodbs/status
+  - mysqls/status
+  - perconaxtradbs/status
+  - pgbouncers/status
+  - postgreses/status
+  - proxysqls/status
+  - redises/status
   verbs:
   - get
   - list
@@ -58,14 +54,7 @@ rules:
 - apiGroups:
   - engine.kubevault.com
   resources:
-  - elasticsearchroles
-  - mariadbroles
-  - mongodbroles
-  - mysqlroles
-  - postgresroles
-  - redisroles
-  - secretaccessrequests
-  - secretengines
+  - '*'
   verbs:
   - get
   - list
@@ -98,7 +87,7 @@ rules:
 - apiGroups:
   - catalog.kubedb.com
   resources:
-  - elasticsearchversions
+  - '*'
   verbs:
   - get
   - list
@@ -122,10 +111,7 @@ rules:
 - apiGroups:
   - gateway.voyagermesh.com
   resources:
-  - mysqlroutes
-  - mongodbroutes
-  - redisroutes
-  - postgresroutes
+  - '*'
   verbs:
   - get
   - list
@@ -169,4 +155,3 @@ rules:
   - update
   - list
   - watch
-  
