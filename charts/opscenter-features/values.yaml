@@ -71,7 +71,7 @@ helm:
     cert-manager:
       version: "v1.15.1"
     cert-manager-csi-driver-cacerts:
-      version: "v2023.10.1"
+      version: "v2024.7.28"
     cluster-autoscaler:
       version: "9.29.0"
     cluster-presets:
