@@ -144,8 +144,8 @@ spec:
                   namespace: kubeops
             valuesFrom:
               - kind: Secret
-                name: opscenter-features-values
-                valuesKey: inject.yaml
+                name: ace-features-cred
+                valuesKey: ace-ocm-addons.yaml
                 optional: true
           {{- with $vals }}
             {{- dict "values" . | toYaml | nindent 12 }}

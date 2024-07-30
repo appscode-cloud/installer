@@ -38,8 +38,8 @@ spec:
       namespace: {{ .Release.Namespace }}
   valuesFrom:
     - kind: Secret
-      name: license-proxyserver-values
-      valuesKey: inject.yaml
+      name: ace-features-cred
+      valuesKey: license-proxyserver.yaml
       optional: true
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
