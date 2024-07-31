@@ -23905,7 +23905,7 @@ properties:
       sidecars:
         properties:
           spec:
-            items:
+            additionalProperties:
               properties:
                 args:
                   items:
@@ -24578,7 +24578,7 @@ properties:
               required:
               - name
               type: object
-            type: array
+            type: object
           volumes:
             items:
               properties:

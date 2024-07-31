@@ -250,8 +250,8 @@ go.bytebuilders.dev/resource-model/apis/cloud
 go.bytebuilders.dev/resource-model/apis/cloud/v1alpha1
 go.bytebuilders.dev/resource-model/apis/config/v1alpha1
 go.bytebuilders.dev/resource-model/crds
-# go.openviz.dev/installer v0.0.0-20230802073927-bc7c337886e9
-## explicit; go 1.18
+# go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0
+## explicit; go 1.22.0
 go.openviz.dev/installer/apis/installer
 go.openviz.dev/installer/apis/installer/v1alpha1
 # golang.org/x/crypto v0.24.0
