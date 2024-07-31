@@ -2,6 +2,9 @@
 {{- if .enabled }}
 
 {{ $defaults := printf `
+installCRDs: true
+extraArgs:
+- --enable-gateway-api
 image:
   repository: %s
 webhook:
@@ -22,14 +25,9 @@ startupapicheck:
   (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-cainjector") $))
   (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-acmesolver") $))
   (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-startupapicheck") $))
-
   | fromYaml }}
 
-{{ $vals := `
-installCRDs: true
-extraArgs:
-- --enable-gateway-api
-` | fromYaml }}
+{{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: helm.toolkit.fluxcd.io/v2
