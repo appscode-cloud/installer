@@ -50,6 +50,7 @@ type PlatformApiSpec struct {
 	//+optional
 	RegistryFQDN string         `json:"registryFQDN"`
 	Image        ImageReference `json:"image"`
+	GeoIPDB      ImageReference `json:"geoipdb"`
 	//+optional
 	ImagePullSecrets []string `json:"imagePullSecrets"`
 	//+optional

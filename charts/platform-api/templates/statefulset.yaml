@@ -134,7 +134,8 @@ spec:
             {{- end }}
       initContainers:
         - name: maxmind-mmdb
-          image: "{{ include "image.registry" . }}/maxmind-geoip:city-mmdb-latest"
+          image: "{{ include "image.registry" . }}/{{ .Values.geoipdb.repository }}:{{ .Values.geoipdb.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.geoipdb.pullPolicy }}
           command: [ "sh", "-c", "cp /GeoLite2-City.mmdb /data/b3/maxmind-geoip/GeoLite2-City.mmdb" ]
           volumeMounts:
             - name: maxmind-mmdb

@@ -7371,6 +7371,7 @@ func (in *PlatformApiList) DeepCopyObject() runtime.Object {
 func (in *PlatformApiSpec) DeepCopyInto(out *PlatformApiSpec) {
 	*out = *in
 	out.Image = in.Image
+	out.GeoIPDB = in.GeoIPDB
 	if in.ImagePullSecrets != nil {
 		in, out := &in.ImagePullSecrets, &out.ImagePullSecrets
 		*out = make([]string, len(*in))

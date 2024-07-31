@@ -17900,6 +17900,22 @@ properties:
         type: boolean
       fullnameOverride:
         type: string
+      geoipdb:
+        properties:
+          pullPolicy:
+            type: string
+          registry:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - pullPolicy
+        - registry
+        - repository
+        - tag
+        type: object
       image:
         properties:
           pullPolicy:
@@ -19048,6 +19064,7 @@ properties:
     required:
     - autoscaling
     - enabled
+    - geoipdb
     - image
     - infra
     - monitoring
