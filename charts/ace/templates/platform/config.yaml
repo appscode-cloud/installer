@@ -91,6 +91,9 @@ stringData:
     SHOW_FOOTER_BRANDING = {{ .Values.settings.platform.otherShowFooterBranding }}
     SHOW_FOOTER_VERSION = {{ .Values.settings.platform.otherShowFooterVersion }}
     SHOW_FOOTER_TEMPLATE_LOAD_TIME = {{ .Values.settings.platform.otherShowFooterTemplateLoadTime }}
+    FEATURES_CREDENTIAL_SECRET_NAME = ace-features-cred
+    FEATURES_CREDENTIAL_SECRET_NAMESPACE = kubeops
+    INGRESS_NAME = ace-ingress
 
   {{- if (include "monitoring.agent" .) }}
     [metrics]
