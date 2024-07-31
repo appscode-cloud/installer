@@ -457,6 +457,22 @@ properties:
     type: object
   fullnameOverride:
     type: string
+  geoipdb:
+    properties:
+      pullPolicy:
+        type: string
+      registry:
+        type: string
+      repository:
+        type: string
+      tag:
+        type: string
+    required:
+    - pullPolicy
+    - registry
+    - repository
+    - tag
+    type: object
   image:
     properties:
       pullPolicy:
@@ -1604,6 +1620,7 @@ properties:
     type: array
 required:
 - autoscaling
+- geoipdb
 - image
 - infra
 - monitoring

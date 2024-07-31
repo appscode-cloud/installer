@@ -28,6 +28,16 @@ image:
   tag: ""
   pullPolicy: Always
 
+# Docker registry containing MaxMind's GeoIP database
+geoipdb:
+  # Docker registry used to pull app container image
+  registry: appscode
+  # App container image
+  repository: maxmind-geoip
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: city-mmdb-latest
+  pullPolicy: Always
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
