@@ -14,8 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-BYTEBUILDERS_CATALOG_TAG=${BYTEBUILDERS_CATALOG_TAG:-v0.0.6}
-BYTEBUILDERS_KUBE_BIND_TAG=${BYTEBUILDERS_KUBE_BIND_TAG:-master}
+APPSCODE_CLOUD_CATALOG_TAG=${APPSCODE_CLOUD_CATALOG_TAG:-v0.0.7}
+APPSCODE_CLOUD_KUBE_BIND_TAG=${APPSCODE_CLOUD_KUBE_BIND_TAG:-master}
 ENVOYPROXY_GATEWAY_TAG=${ENVOYPROXY_GATEWAY_TAG:-v1.0.0}
 FLUXCD_HELM_CONTROLLER=${FLUXCD_HELM_CONTROLLER:-v1.0.1}
 FLUXCD_SOURCE_CONTROLLER=${FLUXCD_SOURCE_CONTROLLER:-v1.3.0}
@@ -50,25 +50,25 @@ crd-importer \
     --out=./charts/ace-ocm-addons/crds
 
 crd-importer \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_druidbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_elasticsearchbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_ferretdbbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_kafkabindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mariadbbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_memcachedbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mssqlserverbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mongodbbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_mysqlbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_perconaxtradbbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_pgbouncerbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_pgpoolbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_postgresbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_proxysqlbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_rabbitmqbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_redisbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_singlestorebindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_solrbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/${BYTEBUILDERS_CATALOG_TAG}/crds/catalog.appscode.com_zookeeperbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_druidbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_elasticsearchbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_ferretdbbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_kafkabindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_mariadbbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_memcachedbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_mssqlserverbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_mongodbbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_mysqlbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_perconaxtradbbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_pgbouncerbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_pgpoolbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_postgresbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_proxysqlbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_rabbitmqbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_redisbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_singlestorebindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_solrbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_zookeeperbindings.yaml \
     --out=./charts/catalog-manager/crds
 
 crd-importer \
@@ -111,11 +111,11 @@ crd-importer \
     --out=./charts/service-gateway-presets/crds
 
 crd-importer \
-    --input=https://github.com/appscode-cloud/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiservicebindings.yaml \
-    --input=https://github.com/appscode-cloud/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiserviceexportrequests.yaml \
-    --input=https://github.com/appscode-cloud/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiserviceexports.yaml \
-    --input=https://github.com/appscode-cloud/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiservicenamespaces.yaml \
-    --input=https://github.com/appscode-cloud/kube-bind/raw/${BYTEBUILDERS_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_clusterbindings.yaml \
+    --input=https://github.com/appscode-cloud/kube-bind/raw/${APPSCODE_CLOUD_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiservicebindings.yaml \
+    --input=https://github.com/appscode-cloud/kube-bind/raw/${APPSCODE_CLOUD_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiserviceexportrequests.yaml \
+    --input=https://github.com/appscode-cloud/kube-bind/raw/${APPSCODE_CLOUD_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiserviceexports.yaml \
+    --input=https://github.com/appscode-cloud/kube-bind/raw/${APPSCODE_CLOUD_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_apiservicenamespaces.yaml \
+    --input=https://github.com/appscode-cloud/kube-bind/raw/${APPSCODE_CLOUD_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_clusterbindings.yaml \
     --out=./charts/service-provider/crds
 
 crd-importer \
