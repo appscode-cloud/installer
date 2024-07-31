@@ -39,13 +39,13 @@ dependencies:
   repository: file://../smtprelay
   version: v2023.11.14
 - name: ingress-nginx
-  repository: https://kubernetes.github.io/ingress-nginx
-  version: 4.10.0
+  repository: oci://ghcr.io/appscode-charts
+  version: 4.11.1
 - name: nats
-  repository: https://nats-io.github.io/k8s/helm/charts/
+  repository: oci://ghcr.io/appscode-charts
   version: 0.19.17
 - name: openfga
   repository: oci://ghcr.io/appscode-charts
   version: 0.2.6
-digest: sha256:55b0f5c4d646d9e842484917d5398d66ce30c4afe74a72065c666f40d87f399d
-generated: "2024-07-31T00:56:16.399302-07:00"
+digest: sha256:7278a957baeb85809ce2a92da59afbb9fe1fb3c3c738b118b874c2d218970951
+generated: "2024-07-31T04:46:57.474631-07:00"
