@@ -49,9 +49,9 @@ dependencies:
   condition: grafana.enabled
   version: v2024.7.7
 - name: trickster
-  repository: https://charts.appscode.com/stable
+  repository: oci://ghcr.io/appscode-charts
   condition: trickster.enabled
-  version: v2023.10.1
+  version: v2024.7.31
 - name: s3proxy
   repository: file://../s3proxy
   condition: s3proxy.enabled

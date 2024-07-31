@@ -2,9 +2,6 @@ dependencies:
 - name: platform-ui
   repository: file://../platform-ui
   version: v2024.7.4
-- name: accounts-ui
-  repository: file://../accounts-ui
-  version: v2024.7.4
 - name: cluster-ui
   repository: file://../cluster-ui
   version: v2024.7.4
@@ -28,10 +25,10 @@ dependencies:
   version: v2024.7.4
 - name: grafana
   repository: file://../grafana
-  version: v2023.11.14
+  version: v2024.7.7
 - name: trickster
-  repository: https://charts.appscode.com/stable
-  version: v2023.10.1
+  repository: oci://ghcr.io/appscode-charts
+  version: v2024.7.31
 - name: s3proxy
   repository: file://../s3proxy
   version: v2024.7.4
@@ -50,5 +47,5 @@ dependencies:
 - name: openfga
   repository: oci://ghcr.io/appscode-charts
   version: 0.2.6
-digest: sha256:abb222565702192de163f75c3904eba4d64ecca1bcec9df20124a64b583c6850
-generated: "2024-06-20T19:02:44.070709-07:00"
+digest: sha256:55b0f5c4d646d9e842484917d5398d66ce30c4afe74a72065c666f40d87f399d
+generated: "2024-07-31T00:56:16.399302-07:00"
