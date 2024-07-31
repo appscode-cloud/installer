@@ -65,11 +65,11 @@ dependencies:
   condition: smtprelay.enabled
   version: v2023.11.14
 - name: ingress-nginx
-  repository: https://kubernetes.github.io/ingress-nginx
+  repository: oci://ghcr.io/appscode-charts
   condition: ingress-nginx.enabled
-  version: 4.10.0
+  version: 4.11.1
 - name: nats
-  repository: https://nats-io.github.io/k8s/helm/charts/
+  repository: oci://ghcr.io/appscode-charts
   condition: nats.enabled
   version: 0.19.17
 - name: openfga
