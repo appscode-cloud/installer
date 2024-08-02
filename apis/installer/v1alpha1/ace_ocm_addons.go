@@ -49,10 +49,19 @@ type AceOcmAddonsSpec struct {
 
 	shared.BootstrapPresets `json:",inline,omitempty"`
 
-	KubeconfigSecretName  string        `json:"kubeconfigSecretName"`
-	AddonManagerNamespace string        `json:"addonManagerNamespace"`
-	Placement             PlacementSpec `json:"placement"`
-	Kubectl               DockerImage   `json:"kubectl"`
+	KubeconfigSecretName  string                   `json:"kubeconfigSecretName"`
+	AddonManagerNamespace string                   `json:"addonManagerNamespace"`
+	Placement             PlacementSpec            `json:"placement"`
+	Kubectl               DockerImage              `json:"kubectl"`
+	Platform              AceOcmAddonsPlatformSpec `json:"platform"`
+}
+
+type AceOcmAddonsPlatformSpec struct {
+	BaseURL string `json:"baseURL"`
+	// +optional
+	Token string `json:"token"`
+	// +optional
+	CaBundle string `json:"caBundle"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

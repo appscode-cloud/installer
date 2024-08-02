@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ace-licenseserver-cred
+  namespace: {{ .Release.Namespace }}
+stringData:
+  license-proxyserver.yaml: |
+    {{- dict "platform" .Values.licenseServer | toYaml | nindent 4 }}
+  license-proxyserver-manager.yaml: |
+    {{- dict "platform" .Values.licenseServer | toYaml | nindent 4 }}

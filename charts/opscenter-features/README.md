@@ -149,6 +149,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.inbox-server.version                          |                                 | <code>"v2024.5.3"</code>                   |
 | helm.releases.inbox-agent.version                           |                                 | <code>"v2024.5.3"</code>                   |
 | helm.releases.inbox-ui.version                              |                                 | <code>"v2024.5.3"</code>                   |
+| licenseServer.baseURL                                       |                                 | <code>https://api.appscode.com</code>      |
+| licenseServer.token                                         |                                 | <code>"xyz1234"</code>                     |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

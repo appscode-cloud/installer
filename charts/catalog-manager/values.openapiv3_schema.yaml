@@ -647,7 +647,6 @@ properties:
         type: string
     required:
     - baseURL
-    - caBundle
     type: object
   podAnnotations:
     additionalProperties:

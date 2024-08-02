@@ -225,3 +225,7 @@ helm:
       version: "v2024.5.3"
     inbox-ui:
       version: "v2024.5.3"
+
+licenseServer:
+  baseURL: ""
+  token: ""

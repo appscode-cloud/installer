@@ -94,6 +94,15 @@ properties:
             type: string
         type: object
     type: object
+  licenseserver:
+    properties:
+      baseURL:
+        type: string
+      token:
+        type: string
+    required:
+    - baseURL
+    type: object
   nameOverride:
     type: string
   offlineInstaller:
@@ -118,6 +127,7 @@ required:
 - fullnameOverride
 - helm
 - image
+- licenseserver
 - nameOverride
 - registry
 type: object

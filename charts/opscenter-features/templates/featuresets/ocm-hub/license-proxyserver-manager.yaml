@@ -54,7 +54,7 @@ spec:
       namespace: {{ .Release.Namespace }}
   valuesFrom:
     - kind: Secret
-      name: ace-features-cred
+      name: ace-licenseserver-cred
       valuesKey: license-proxyserver-manager.yaml
       optional: true
 {{- with $vals }}
