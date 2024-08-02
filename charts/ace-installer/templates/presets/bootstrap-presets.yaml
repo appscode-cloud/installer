@@ -1,4 +1,4 @@
-{{ $vals := dict "offlineInstaller" $.Values.offlineInstaller "image" $.Values.image "registry" $.Values.registry "helm" dict }}
+{{ $vals := dict "helm" dict }}
 
 {{ $helmrepos := dig "repositories" dict $.Values.helm | deepCopy }}
 {{ $_ := set $vals.helm "repositories" $helmrepos }}
@@ -24,10 +24,6 @@ opscenter-features:
       releases:
         catalog-manager:
           values: %s
-        kube-ui-server:
-          values: %s
-        monitoring-operator:
-          values: %s
         service-gateway-presets:
           values: %s
         stash-presets:
@@ -40,8 +36,6 @@ opscenter-features:
   (dig "flux2" "version" "" $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
   ((dig "opscenter-features" "values" "helm" "releases" "catalog-manager" "values" (dict) $.Values.helm.releases) | toJson)
-  ((dig "opscenter-features" "values" "helm" "releases" "kube-ui-server" "values" (dict) $.Values.helm.releases) | toJson)
-  ((dig "opscenter-features" "values" "helm" "releases" "monitoring-operator" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "service-gateway-presets" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "stash-presets" "values" (dict) $.Values.helm.releases) | toJson)
   | fromYaml }}
@@ -50,17 +44,20 @@ opscenter-features:
 {{ $defaults := printf `
 opscenter-features:
   values:
+    offlineInstaller: %v
+    image: %v
+    registry: %v
     helm:
       createNamespace: %v
-      releases:
-        license-proxyserver:
-          values: %s
-        license-proxyserver-manager:
-          values: %s
+      repositories: %v
+    licenseServer: %v
 `
+  $.Values.offlineInstaller
+  ($.Values.image | toJson)
+  ($.Values.registry | toJson)
   $.Values.helm.createNamespace
-  ((dig "opscenter-features" "values" "helm" "releases" "license-proxyserver" "values" (dict) $.Values.helm.releases) | toJson)
-  ((dig "opscenter-features" "values" "helm" "releases" "license-proxyserver-manager" "values" (dict) $.Values.helm.releases) | toJson)
+  ($.Values.helm.repositories | toJson)
+  ((dig "opscenter-features" "values" "licenseServer" (dict) $.Values.helm.releases) | toJson)
   | fromYaml }}
 {{ $helmreleases = mergeOverwrite $helmreleases $defaults }}
 {{- end }}
