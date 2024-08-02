@@ -49,6 +49,11 @@ spec:
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
+  valuesFrom:
+    - kind: Secret
+      name: ace-features-cred
+      valuesKey: ace-ocm-addons.yaml
+      optional: true
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
