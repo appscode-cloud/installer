@@ -94,7 +94,7 @@ properties:
             type: string
         type: object
     type: object
-  licenseserver:
+  licenseServer:
     properties:
       baseURL:
         type: string
@@ -127,7 +127,7 @@ required:
 - fullnameOverride
 - helm
 - image
-- licenseserver
+- licenseServer
 - nameOverride
 - registry
 type: object
