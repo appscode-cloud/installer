@@ -18,6 +18,7 @@ package v1alpha1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/runtime"
 	"kmodules.xyz/resource-metadata/apis/shared"
 )
 
@@ -87,7 +88,8 @@ type OpscenterHelmSpec struct {
 }
 
 type HelmRelease struct {
-	Version string `json:"version"`
+	Version string                `json:"version"`
+	Values  *runtime.RawExtension `json:"values,omitempty"`
 }
 
 type LicenseServerSpec struct {
