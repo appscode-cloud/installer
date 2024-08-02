@@ -49,7 +49,7 @@ spec:
   valuesFrom:
     - kind: Secret
       name: ace-features-cred
-      valuesKey: kube-ui-server-mc.yaml
+      valuesKey: kube-ui-server.yaml
       optional: true
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}

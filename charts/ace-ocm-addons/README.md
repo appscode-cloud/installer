@@ -70,6 +70,9 @@ The following table lists the configurable parameters of the `ace-ocm-addons` ch
 | placement.create                          |                                 | <code>true</code>                                  |
 | placement.name                            |                                 | <code>global</code>                                |
 | kubectl.image                             |                                 | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code> |
+| platform.baseURL                          |                                 | <code>""</code>                                    |
+| platform.token                            |                                 | <code>""</code>                                    |
+| platform.caBundle                         |                                 | <code>""</code>                                    |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

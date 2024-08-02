@@ -53,6 +53,7 @@ type OpscenterFeaturesSpec struct {
 	Helm             OpscenterHelmSpec        `json:"helm"`
 	Registry         shared.RegistryInfo      `json:"registry"`
 	ClusterMetadata  ClusterMetadata          `json:"clusterMetadata"`
+	LicenseServer    LicenseServerSpec        `json:"licenseServer"`
 }
 
 type ClusterMetadata struct {
@@ -87,6 +88,12 @@ type OpscenterHelmSpec struct {
 
 type HelmRelease struct {
 	Version string `json:"version"`
+}
+
+type LicenseServerSpec struct {
+	BaseURL string `json:"baseURL"`
+	// +optional
+	Token string `json:"token"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
