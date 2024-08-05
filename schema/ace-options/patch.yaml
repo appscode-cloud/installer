@@ -150,3 +150,37 @@ properties:
                       ```sh
                       aws iam create-access-key --user-name "route53"
                       ```
+      tls:
+        properties:
+          certificate:
+            properties:
+              cert:
+                description: |
+                  - Create a Root CA Certificate and Key.
+                  ```sh
+                  openssl req -x509 -newkey rsa:2048 -keyout ./ca.key -out ./ca.crt -days 3650 -nodes -subj "/CN=ca/O=ace"
+                  ```
+
+                  - Create and Sign a Server Certificate and Key.
+
+                    1. Create the Server private key.
+                      ```sh
+                      openssl genrsa -out server.key 2048
+                      ```
+
+                    2. Create the Server certificate signing request (csr).
+                      ```
+                      openssl req -new -key server.key -out server.csr -subj "/CN=ace/O=ace"
+                      ```
+
+                    3. Create the SANs list.
+                      ```sh
+                      $ echo subjectAltName = IP:<TARGET-IP>,DNS:<domain> > extfile.cnf
+                      ```
+
+                    4. Use the my-root-ca to sign the server certificate.
+                      ```sh
+                      openssl x509 -req -in server.csr -CA ca.crt \
+                      -CAkey ca.key -CAcreateserial -out server.crt \
+                      -days 365 -extfile extfile.cnf
+                      ```

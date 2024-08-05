@@ -787,6 +787,19 @@ properties:
             properties:
               cert:
                 type: string
+                description: "- Create a Root CA Certificate and Key.\n```sh\nopenssl\
+                  \ req -x509 -newkey rsa:2048 -keyout ./ca.key -out ./ca.crt -days\
+                  \ 3650 -nodes -subj \"/CN=ca/O=ace\"\n```\n\n- Create and Sign a\
+                  \ Server Certificate and Key.\n\n  1. Create the Server private\
+                  \ key.\n    ```sh\n    openssl genrsa -out server.key 2048\n   \
+                  \ ```\n\n  2. Create the Server certificate signing request (csr).\n\
+                  \    ```\n    openssl req -new -key server.key -out server.csr -subj\
+                  \ \"/CN=ace/O=ace\"\n    ```\n\n  3. Create the SANs list.\n   \
+                  \ ```sh\n    $ echo subjectAltName = IP:<TARGET-IP>,DNS:<domain>\
+                  \ > extfile.cnf\n    ```\n\n  4. Use the my-root-ca to sign the\
+                  \ server certificate.\n    ```sh\n    openssl x509 -req -in server.csr\
+                  \ -CA ca.crt \\\n    -CAkey ca.key -CAcreateserial -out server.crt\
+                  \ \\\n    -days 365 -extfile extfile.cnf\n    ```\n"
               key:
                 type: string
             type: object
