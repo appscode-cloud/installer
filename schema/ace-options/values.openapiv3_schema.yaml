@@ -1180,17 +1180,12 @@ properties:
       subscription:
         properties:
           aws:
+            description: https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/API_MeterUsage.html
             properties:
-              customer-identifier:
-                type: string
-              offer-identifier:
-                type: string
-              product-code:
+              meteringServiceProxyToken:
                 type: string
             required:
-              - customer-identifier
-              - offer-identifier
-              - product-code
+              - meteringServiceProxyToken
             type: object
           azure:
             description: https://learn.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/publish-notifications
@@ -1201,6 +1196,12 @@ properties:
               - applicationId
             type: object
           gcp:
+            description: https://cloud.google.com/service-infrastructure/docs/service-control/reference/rest/v2/services/report
+            properties:
+              serviceControlProxyToken:
+                type: string
+            required:
+              - serviceControlProxyToken
             type: object
         type: object
     type: object

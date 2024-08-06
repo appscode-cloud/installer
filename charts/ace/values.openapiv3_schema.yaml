@@ -22227,16 +22227,10 @@ properties:
             properties:
               aws:
                 properties:
-                  customer-identifier:
-                    type: string
-                  offer-identifier:
-                    type: string
-                  product-code:
+                  meteringServiceProxyToken:
                     type: string
                 required:
-                - customer-identifier
-                - offer-identifier
-                - product-code
+                - meteringServiceProxyToken
                 type: object
               azure:
                 properties:
@@ -22246,6 +22240,11 @@ properties:
                 - applicationId
                 type: object
               gcp:
+                properties:
+                  serviceControlProxyToken:
+                    type: string
+                required:
+                - serviceControlProxyToken
                 type: object
             type: object
         type: object
