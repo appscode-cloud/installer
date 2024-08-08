@@ -44,7 +44,7 @@ spec:
             kube-ui-server.yaml: |
               {{- dict "platform" .Values.platform | toYaml | nindent 14 }}
             monitoring-operator.yaml: |
-              {{- dict "platform" .Values.platform | toYaml | nindent 14 }}
+              {{- dict "hubUID" ._hubUID "platform" .Values.platform | toYaml | nindent 14 }}
             catalog-manager.yaml: |
               {{- dict "platform" (dict "baseURL" .Values.platform.baseURL "caBundle" .Values.platform.caBundle) | toYaml | nindent 14 }}
             ace-ocm-addons.yaml: |
