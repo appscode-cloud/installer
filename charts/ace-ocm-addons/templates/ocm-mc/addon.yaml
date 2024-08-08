@@ -25,21 +25,29 @@ spec:
           - |
               sleep 2; \
               kubectl --kubeconfig=auth/kubeconfig create ns {{ include "ace-ocm-addons.namespace" $ }} || true; \
-              kubectl --kubeconfig=auth/kubeconfig apply -f - <<EOF
+              hubUID=$(kubectl --kubeconfig=auth/kubeconfig get ns kube-system -o=jsonpath='{.metadata.uid}'); \
+              cat >/tmp/resource.yaml <<EOF
               {{- $restpl := $.Files.Get "common/addon/clustersetbinding.yaml" -}}
               {{- tpl $restpl $ | nindent 14 }}
               ---
               {{- $restpl := $.Files.Get "common/addon/placement.yaml" -}}
               {{- tpl $restpl $ | nindent 14 }}
               ---
+              {{- $_ := set $ "_hubUID" "SET_HUBID" -}}
               {{- $restpl := $.Files.Get "common/addon/manifestrelicaset.yaml" -}}
               {{- tpl $restpl $ | nindent 14 }}
-              EOF
+              EOF; \
+              sed -i 's|SET_HUBID|$hubUID|g' /tmp/resource.yaml; \
+              kubectl --kubeconfig=auth/kubeconfig apply -f /tmp/resource.yaml
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         volumeMounts:
+        - name: tmp
+          mountPath: /tmp
         - mountPath: /var/run/secrets/ocm/auth
           name: ocm-auth
       volumes:
+      - name: tmp
+        emptyDir: {}
       - name: ocm-auth
         secret:
           defaultMode: 420
