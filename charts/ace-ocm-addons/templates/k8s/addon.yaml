@@ -6,6 +6,9 @@
 {{- $restpl := $.Files.Get "common/addon/placement.yaml" }}
 {{ tpl $restpl $ }}
 ---
+{{- $restpl := $.Files.Get "common/addon/trickster-account.yaml" }}
+{{ tpl $restpl $ }}
+---
 
 {{- $ns := (lookup "v1" "Namespace" "kube-system" "kube-system") -}}
 {{- $hubUID := default (dig "metadata" "uid" "" ($ns)) "" -}}
