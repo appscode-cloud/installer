@@ -213,7 +213,7 @@ helm:
     cluster-gateway-manager:
       version: "v2024.7.10"
     cluster-auth-manager:
-      version: "v2024.7.10"
+      version: "v2024.8.9"
     fluxcd-manager:
       version: "v2024.7.10"
     license-proxyserver-manager:

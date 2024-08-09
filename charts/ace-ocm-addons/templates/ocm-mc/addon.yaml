@@ -33,6 +33,9 @@ spec:
               {{- $restpl := $.Files.Get "common/addon/placement.yaml" -}}
               {{- tpl $restpl $ | nindent 14 }}
               ---
+              {{- $restpl := $.Files.Get "common/addon/trickster-account.yaml" -}}
+              {{- tpl $restpl $ | nindent 14 }}
+              ---
               {{- $_ := set $ "_hubUID" "SET_HUBID" -}}
               {{- $restpl := $.Files.Get "common/addon/manifestrelicaset.yaml" -}}
               {{- tpl $restpl $ | nindent 14 }}

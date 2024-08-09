@@ -1,0 +1,6 @@
+apiVersion: authentication.k8s.appscode.com/v1alpha1
+kind: Account
+metadata:
+  name: sa.monitoring.trickster
+spec:
+  username: system:serviceaccount:monitoring:trickster
