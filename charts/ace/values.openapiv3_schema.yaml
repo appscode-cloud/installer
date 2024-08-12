@@ -3487,6 +3487,11 @@ properties:
     - service
     - serviceAccount
     type: object
+  extraObjects:
+    additionalProperties:
+      type: object
+      x-kubernetes-preserve-unknown-fields: true
+    type: object
   global:
     properties:
       fullnameOverride:
@@ -25413,6 +25418,7 @@ required:
 - cluster-ui
 - deploy-ui
 - dns-proxy
+- extraObjects
 - global
 - grafana
 - image

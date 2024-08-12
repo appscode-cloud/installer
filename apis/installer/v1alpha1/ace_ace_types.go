@@ -20,6 +20,7 @@ import (
 	openviz_installer "go.openviz.dev/installer/apis/installer/v1alpha1"
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/runtime"
 	dnsapi "kubeops.dev/external-dns-operator/apis/external/v1alpha1"
 )
 
@@ -75,11 +76,12 @@ type AceSpec struct {
 	SecurityContext    *core.SecurityContext     `json:"securityContext"`
 	Resources          core.ResourceRequirements `json:"resources"`
 	//+optional
-	NodeSelector map[string]string `json:"nodeSelector"`
-	Tolerations  []core.Toleration `json:"tolerations"`
-	Affinity     *core.Affinity    `json:"affinity"`
-	Branding     AceBrandingSpec   `json:"branding"`
-	SetupJob     AceSetupJob       `json:"setupJob"`
+	NodeSelector map[string]string                `json:"nodeSelector"`
+	Tolerations  []core.Toleration                `json:"tolerations"`
+	Affinity     *core.Affinity                   `json:"affinity"`
+	Branding     AceBrandingSpec                  `json:"branding"`
+	SetupJob     AceSetupJob                      `json:"setupJob"`
+	ExtraObjects map[string]*runtime.RawExtension `json:"extraObjects"`
 }
 
 type AceBilling struct {
