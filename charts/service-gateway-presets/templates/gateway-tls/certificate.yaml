@@ -26,8 +26,6 @@ spec:
     - key agreement
     - digital signature
     - server auth
-  additionalOutputFormats:
-    - type: CombinedPEM
   {{- if .Values.infra.tls.jks.password }}
   keystores:
     jks:
