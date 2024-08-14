@@ -479,20 +479,21 @@ const (
 )
 
 type PlatformSettings struct {
-	AppName                         string   `json:"appName"`
-	RunMode                         RunMode  `json:"runMode"`
-	ForcePrivate                    bool     `json:"forcePrivate"`
-	DisableHttpGit                  bool     `json:"disableHttpGit"`
-	InstallLock                     bool     `json:"installLock"`
-	RepositoryUploadEnabled         bool     `json:"repositoryUploadEnabled"`
-	RepositoryUploadAllowedTypes    *string  `json:"repositoryUploadAllowedTypes"`
-	RepositoryUploadMaxFileSize     int      `json:"repositoryUploadMaxFileSize"`
-	RepositoryUploadMaxFiles        int      `json:"repositoryUploadMaxFiles"`
-	ServiceEnableCaptcha            bool     `json:"serviceEnableCaptcha"`
-	ServiceRegisterEmailConfirm     bool     `json:"serviceRegisterEmailConfirm"`
-	ServiceDisableRegistration      bool     `json:"serviceDisableRegistration"`
-	ServiceRequireSignInView        bool     `json:"serviceRequireSignInView"`
-	ServiceEnableNotifyMail         bool     `json:"serviceEnableNotifyMail"`
+	AppName                      string  `json:"appName"`
+	RunMode                      RunMode `json:"runMode"`
+	ForcePrivate                 bool    `json:"forcePrivate"`
+	DisableHttpGit               bool    `json:"disableHttpGit"`
+	InstallLock                  bool    `json:"installLock"`
+	RepositoryUploadEnabled      bool    `json:"repositoryUploadEnabled"`
+	RepositoryUploadAllowedTypes *string `json:"repositoryUploadAllowedTypes"`
+	RepositoryUploadMaxFileSize  int     `json:"repositoryUploadMaxFileSize"`
+	RepositoryUploadMaxFiles     int     `json:"repositoryUploadMaxFiles"`
+	ServiceEnableCaptcha         bool    `json:"serviceEnableCaptcha"`
+	ServiceRegisterEmailConfirm  bool    `json:"serviceRegisterEmailConfirm"`
+	ServiceDisableRegistration   bool    `json:"serviceDisableRegistration"`
+	ServiceRequireSignInView     bool    `json:"serviceRequireSignInView"`
+	ServiceEnableNotifyMail      bool    `json:"serviceEnableNotifyMail"`
+	// +optional
 	ServiceDomainWhiteList          []string `json:"serviceDomainWhiteList"`
 	CookieName                      string   `json:"cookieName"`
 	CookieRememberName              string   `json:"cookieRememberName"`
