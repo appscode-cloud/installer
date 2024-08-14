@@ -1976,7 +1976,6 @@ properties:
     required:
       - cache
       - db
-      - domainWhiteList
       - smtp
     type: object
   smtprelay:

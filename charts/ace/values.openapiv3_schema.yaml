@@ -21915,7 +21915,6 @@ properties:
         - runMode
         - serverLandingPage
         - serviceDisableRegistration
-        - serviceDomainWhiteList
         - serviceEnableCaptcha
         - serviceEnableNotifyMail
         - serviceRegisterEmailConfirm

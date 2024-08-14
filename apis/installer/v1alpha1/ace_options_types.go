@@ -286,6 +286,7 @@ type AceOptionsSettings struct {
 	// DomainWhiteList is an array of domain names that are allowed.
 	// Each domain should be in the format of a fully qualified domain name,
 	// such as 'example.com' or 'appscode.com' etc.
+	// +optional
 	DomainWhiteList []string `json:"domainWhiteList"`
 }
 
