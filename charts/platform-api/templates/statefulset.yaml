@@ -66,6 +66,18 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
+          {{- if .Values.settings.secretName.gcpMarketplaceReportingSecret }}
+            - name: GCP_MARKETPLACE_ENCODED_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ . }}
+                  key: reporting-key
+            - name: GCP_MARKETPLACE_CONSUMER_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ . }}
+                  key: consumer-id
+          {{- end }}
           {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "gcs") }}
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: {{ $infra.objstore.mountPath }}/sa.json
