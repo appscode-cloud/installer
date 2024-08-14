@@ -133,3 +133,4 @@ settings:
     grafanaConfig: ""
     objstore: ""
     nats: ""
+    gcpMarketplaceReportingSecret: ""

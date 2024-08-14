@@ -18227,6 +18227,8 @@ properties:
             type: string
           secretName:
             properties:
+              gcpMarketplaceReportingSecret:
+                type: string
               grafanaConfig:
                 type: string
               nats:
@@ -18236,6 +18238,7 @@ properties:
               platformConfig:
                 type: string
             required:
+            - gcpMarketplaceReportingSecret
             - grafanaConfig
             - nats
             - objstore
