@@ -86,8 +86,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.gatekeeper.version                            |                                 | <code>"3.13.3"</code>                      |
 | helm.releases.gatekeeper-grafana-dashboards.version         |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.gatekeeper-library.version                    |                                 | <code>"v2023.10.1"</code>                  |
-| helm.releases.gateway-api.version                           |                                 | <code>"v1.0.0"</code>                      |
-| helm.releases.grafana-operator.version                      |                                 | <code>"v0.0.9"</code>                      |
+| helm.releases.gateway-api.version                           |                                 | <code>"v1.1.0"</code>                      |
+| helm.releases.grafana-operator.version                      |                                 | <code>"v0.0.10"</code>                     |
 | helm.releases.keda.version                                  |                                 | <code>"2.14.2"</code>                      |
 | helm.releases.keda-add-ons-http.version                     |                                 | <code>"0.8.0"</code>                       |
 | helm.releases.kube-grafana-dashboards.version               |                                 | <code>"v2023.10.1"</code>                  |
@@ -99,13 +99,13 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kubedb-provider-aws.version                   |                                 | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubedb-provider-azure.version                 |                                 | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubedb-provider-gcp.version                   |                                 | <code>"v2024.1.31"</code>                  |
-| helm.releases.kubestash.version                             |                                 | <code>"v2024.7.1"</code>                   |
+| helm.releases.kubestash.version                             |                                 | <code>"v2024.8.14"</code>                  |
 | helm.releases.kubevault.version                             |                                 | <code>"v2024.3.12"</code>                  |
 | helm.releases.kubevault-opscenter.version                   |                                 | <code>"v2024.1.31"</code>                  |
 | helm.releases.license-proxyserver.version                   |                                 | <code>"v2024.7.10"</code>                  |
 | helm.releases.longhorn.version                              |                                 | <code>"1.6.2"</code>                       |
 | helm.releases.metrics-server.version                        |                                 | <code>"3.11.0"</code>                      |
-| helm.releases.monitoring-operator.version                   |                                 | <code>"v0.0.9"</code>                      |
+| helm.releases.monitoring-operator.version                   |                                 | <code>"v0.0.10"</code>                     |
 | helm.releases.opencost.version                              |                                 | <code>"1.18.1"</code>                      |
 | helm.releases.opencost-grafana-dashboards.version           |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.opscenter-features.version                    |                                 | <code>"v2024.7.4"</code>                   |
@@ -125,7 +125,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.supervisor.version                            |                                 | <code>"v2024.2.6"</code>                   |
 | helm.releases.topolvm.version                               |                                 | <code>"15.0.0"</code>                      |
 | helm.releases.voyager.version                               |                                 | <code>"v2024.3.18"</code>                  |
-| helm.releases.voyager-gateway.version                       |                                 | <code>"v2024.4.4"</code>                   |
+| helm.releases.voyager-gateway.version                       |                                 | <code>"v2024.8.14"</code>                  |
 | helm.releases.external-secrets.version                      |                                 | <code>"0.9.12"</code>                      |
 | helm.releases.sealed-secrets.version                        |                                 | <code>"2.14.2"</code>                      |
 | helm.releases.vault-secrets-operator.version                |                                 | <code>"0.4.3"</code>                       |

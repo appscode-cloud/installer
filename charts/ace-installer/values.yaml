@@ -73,7 +73,7 @@ helm:
       version: "2.13.0"
     gateway-api:
       enabled: true
-      version: "v1.0.0"
+      version: "v1.1.0"
     kubedb:
       enabled: true
       version: "v2024.6.4"
@@ -98,7 +98,7 @@ helm:
           enabled: false
     kubestash:
       enabled: true
-      version: "v2024.7.1"
+      version: "v2024.8.14"
     license-proxyserver:
       enabled: true
       version: "v2024.7.9"
