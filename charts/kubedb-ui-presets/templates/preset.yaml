@@ -1,8 +1,3 @@
-{{ $m := .Values.capi }}
-{{- if .Values.global }}
-{{- $m = .Values.global.capi }}
-{{- end }}
-
 apiVersion: charts.x-helm.dev/v1alpha1
 kind: ClusterChartPreset
 metadata:
@@ -12,5 +7,6 @@ metadata:
     charts.x-helm.dev/is-kubedb-preset: "true"
 spec:
   values:
-    form:
-      {{- toYaml .Values | nindent 6 }}
+    spec:
+      kubeDB:
+        {{- toYaml .Values | nindent 8 }}
