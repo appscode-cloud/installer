@@ -5,17 +5,17 @@ go 1.22.1
 toolchain go1.22.4
 
 require (
-	go.bytebuilders.dev/resource-model v0.0.13-0.20240817060902-5c544790e4a4
+	go.bytebuilders.dev/resource-model v0.0.13
 	go.bytebuilders.dev/ui-wizards v0.4.22-0.20240817064950-df809a3bf0fb
 	go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0
 	gomodules.xyz/go-sh v0.1.0
 	k8s.io/api v0.30.2
 	k8s.io/apimachinery v0.30.2
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
-	kmodules.xyz/client-go v0.30.9
+	kmodules.xyz/client-go v0.30.12
 	kmodules.xyz/objectstore-api v0.29.1
-	kmodules.xyz/resource-metadata v0.18.10
-	kmodules.xyz/schema-checker v0.4.2-0.20230316051604-9a40277165e8
+	kmodules.xyz/resource-metadata v0.18.11
+	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
 	sigs.k8s.io/yaml v1.4.0
 	stash.appscode.dev/apimachinery v0.34.0
@@ -39,7 +39,7 @@ require (
 	github.com/evanphx/json-patch/v5 v5.9.0 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
-	github.com/go-logr/logr v1.4.1 // indirect
+	github.com/go-logr/logr v1.4.2 // indirect
 	github.com/go-openapi/jsonpointer v0.21.0 // indirect
 	github.com/go-openapi/jsonreference v0.21.0 // indirect
 	github.com/go-openapi/swag v0.23.0 // indirect
@@ -69,7 +69,7 @@ require (
 	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/opencontainers/image-spec v1.1.0-rc3 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
-	github.com/prometheus-operator/prometheus-operator/pkg/apis/monitoring v0.74.0 // indirect
+	github.com/prometheus-operator/prometheus-operator/pkg/apis/monitoring v0.75.2 // indirect
 	github.com/prometheus/client_golang v1.19.0 // indirect
 	github.com/prometheus/client_model v0.5.0 // indirect
 	github.com/prometheus/common v0.48.0 // indirect
@@ -99,7 +99,7 @@ require (
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	k8s.io/apiextensions-apiserver v0.30.1 // indirect
+	k8s.io/apiextensions-apiserver v0.30.2 // indirect
 	k8s.io/client-go v0.30.2 // indirect
 	k8s.io/klog/v2 v2.130.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20240430033511-f0e62f92d13f // indirect
