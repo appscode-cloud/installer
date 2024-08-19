@@ -9,29 +9,119 @@ clusterTier:
   default: "GeneralPurpose"
   toggle: true
   nodeTopology:
-    available: ["m4", "m7gd", "c5d", "c7g", "t4g", "r5a", "r6g", "a-family", "b-family", "d-family"]
-    default: "c5d"
+    available: ["m4", "m7gd", "c5d", "c7g", "t4g", "r5a", "r6g", "a-family", "b-family", "d-family", "standard-bsv2-family", "standard-ddv4-family", "standard-dv2-family"]
+    default: "standard-bsv2-family"
     toggle: true
   placement:
-    available: ["majority-on-spot", "minority-on-spot", "multizone", "ondemand-only", "one-on-ondemand", "spot-only", "zone-ap-southeast-1a", "zone-ap-southeast-1b", "zone-ap-southeast-1c"]
-    default: "majority-on-spot"
+    available: ["majority-on-spot", "minority-on-spot", "multizone", "ondemand-only", "one-on-ondemand", "spot-only", "zone-ap-southeast-1a", "zone-ap-southeast-1b", "zone-ap-southeast-1c", "default"]
+    default: "default"
     toggle: true
 
 databases:
+  ClickHouse:
+    versions:
+      available: [ "24.4.1" ]
+      default: "24.4.1"
+      toggle: true
+  Druid:
+    versions:
+      available: [ "25.0.0", "28.0.1" ]
+      default: "28.0.1"
+      toggle: true
+  Elasticsearch:
+    versions:
+      available: [ "opensearch-2.5.0", "xpack-7.16.3", "xpack-8.6.2" ]
+      default: "xpack-8.6.2"
+      toggle: true
+  FerretDB:
+    versions:
+      available: [ "1.18.0" ]
+      default: "1.18.0"
+      toggle: true
+  Kafka:
+    versions:
+      available: [ "3.4.1", "3.5.2", "3.6.1" ]
+      default: "3.5.2"
+      toggle: true
+  MariaDB:
+    versions:
+      available: [ "10.5.23", "10.6.16", "11.2.2" ]
+      default: "10.6.16"
+      toggle: true
+  Memcached:
+    versions:
+      available: [ "1.5.22", "1.6.22" ]
+      default: "1.6.22"
+      toggle: true
   MongoDB:
     versions:
       available: ["4.4.26", "6.0.12"]
       default: "6.0.12"
+      toggle: true
+  MSSQLServer:
+    versions:
+      available: [ "2022-cu12" ]
+      default: "2022-cu12"
       toggle: true
   MySQL:
     versions:
       available: [ "5.7.44", "8.0.35" ]
       default: "8.0.35"
       toggle: true
+  PerconaXtraDB:
+    versions:
+      available: [ "8.0.26", "8.0.28", "8.0.31" ]
+      default: "8.0.31"
+      toggle: true
+  PgBouncer:
+    versions:
+      available: [ "1.17.0", "1.18.0" ]
+      default: "1.18.0"
+      toggle: true
+  Pgpool:
+    versions:
+      available: [ "4.4.5", "4.5.0" ]
+      default: "4.4.5"
+      toggle: true
+  Postgres:
+    versions:
+      available: [ "13.13", "14.10", "15.5", "16.1" ]
+      default: "15.5"
+      toggle: true
+  ProxySQL:
+    versions:
+      available: [ "2.3.2-debian", "2.4.4-debian" ]
+      default: "2.3.2-debian"
+      toggle: true
+  RabbitMQ:
+    versions:
+      available: [ "3.12.12", "3.13.2" ]
+      default: "3.13.2"
+      toggle: true
+  Redis:
+    versions:
+      available: [ "6.2.14", "7.0.15", "7.2.4" ]
+      default: "7.0.15"
+      toggle: true
+  Singlestore:
+    versions:
+      available: [ "8.1.32", "8.5.7" ]
+      default: "8.1.32"
+      toggle: true
+  Solr:
+    versions:
+      available: [ "8.11.2", "9.4.1" ]
+      default: "8.11.2"
+      toggle: true
+  ZooKeeper:
+    versions:
+      available: [ "3.8.3", "3.9.1" ]
+      default: "3.8.3"
+      toggle: true
 
 storageClasses:
-  available: ["linode-block-storage", "linode-block-storage-retain", "standard", "gp2"]
-  default: "gp2"
+  available: ["linode-block-storage", "default", "standard", "gp2"]
+  default: "default"
   toggle: true
 
 tls:
@@ -66,9 +156,8 @@ archiver:
   toggle: true
   default: true
 backup:
-  tool: ""
+  tool: KubeStash
   toggle: true
-
   kubestash:
     schedule: "0 */2 * * *"
     storageRef:
@@ -80,74 +169,3 @@ backup:
     encryptionSecret:
       name: default-encryption-secret
       namespace: stash
-    storageSecret:
-      create: true
-
-  stash:
-    schedule: "0 */2 * * *"
-
-    retentionPolicy:
-      name: keep-last-30d
-      keepHourly: 24
-      keepDaily: 30
-      prune: true
-
-    authSecret:
-      name: ""
-      password: ""
-
-    backend:
-      provider: "" # s3,gcs,azure,swift,b2
-      s3:
-        spec:
-          endpoint: ""
-          bucket: ""
-          # prefix: ""
-          # region: ""
-        auth:
-          AWS_ACCESS_KEY_ID: ""
-          AWS_SECRET_ACCESS_KEY: ""
-          CA_CERT_DATA: ""
-      azure:
-        spec:
-          container: ""
-          # prefix: ""
-          # maxConnections: 0
-        auth:
-          AZURE_ACCOUNT_NAME: ""
-          AZURE_ACCOUNT_KEY: ""
-      gcs:
-        spec:
-          bucket: ""
-          # prefix: ""
-          # maxConnections: 0
-        auth:
-          GOOGLE_PROJECT_ID: ""
-          GOOGLE_SERVICE_ACCOUNT_JSON_KEY: ""
-      swift:
-        spec:
-          container: ""
-          # prefix: ""
-        auth:
-          OS_USERNAME: ""
-          OS_PASSWORD: ""
-          OS_REGION_NAME: ""
-          OS_AUTH_URL: ""
-          OS_USER_DOMAIN_NAME: ""
-          OS_PROJECT_NAME: ""
-          OS_PROJECT_DOMAIN_NAME: ""
-          OS_TENANT_ID: ""
-          OS_TENANT_NAME: ""
-          ST_AUTH: ""
-          ST_USER: ""
-          ST_KEY: ""
-          OS_STORAGE_URL: ""
-          OS_AUTH_TOKEN: ""
-      b2:
-        spec:
-          bucket: ""
-          # prefix: ""
-          # maxConnections: 0
-        auth:
-          B2_ACCOUNT_ID: ""
-          B2_ACCOUNT_KEY: ""
