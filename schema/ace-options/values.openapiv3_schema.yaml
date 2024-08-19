@@ -1163,11 +1163,9 @@ properties:
       selfManagement:
         properties:
           disableFeatures:
-            additionalProperties:
-              items:
-                type: string
-              type: array
-            type: object
+            items:
+              type: string
+            type: array
           enableFeatures:
             additionalProperties:
               items:
@@ -1978,7 +1976,6 @@ properties:
     required:
       - cache
       - db
-      - domainWhiteList
       - smtp
     type: object
   smtprelay:

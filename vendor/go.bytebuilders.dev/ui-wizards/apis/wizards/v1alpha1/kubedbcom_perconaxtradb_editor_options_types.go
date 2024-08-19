@@ -22,31 +22,30 @@ import (
 	api "x-helm.dev/apimachinery/apis/releases/v1alpha1"
 )
 
-// KubedbcomZookeeperEditorOptions defines the schama for ZooKeeper Editor UI Options.
+// KubedbcomPerconaxtradbEditorOptions defines the schama for PerconaXtraDB Editor UI Options.
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:path=kubedbcomzookeepereditoroptionss,singular=kubedbcomzookeepereditoroptions
-type KubedbcomZookeeperEditorOptions struct {
+// +kubebuilder:resource:path=kubedbcomperconaxtradbeditoroptionss,singular=kubedbcomperconaxtradbeditoroptions
+type KubedbcomPerconaxtradbEditorOptions struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              KubedbcomZookeeperEditorOptionsSpec `json:"spec,omitempty"`
+	Spec              KubedbcomPerconaxtradbEditorOptionsSpec `json:"spec,omitempty"`
 }
 
-// KubedbcomZookeeperEditorOptionsSpec is the schema for ZooKeeper profile values file
-type KubedbcomZookeeperEditorOptionsSpec struct {
+// KubedbcomPerconaxtradbEditorOptionsSpec is the schema for PerconaXtraDB profile values file
+type KubedbcomPerconaxtradbEditorOptionsSpec struct {
 	api.Metadata `json:"metadata,omitempty"`
-	Spec         KubedbcomZookeeperEditorOptionsSpecSpec `json:"spec"`
-	Form         ZookeeperAlertsSpecForm                 `json:"form"`
+	Spec         KubedbcomPerconaxtradbEditorOptionsSpecSpec `json:"spec"`
+	Form         PerconaxtradbAlertsSpecForm                 `json:"form"`
 }
 
-type KubedbcomZookeeperEditorOptionsSpecSpec struct {
+type KubedbcomPerconaxtradbEditorOptionsSpecSpec struct {
 	// +optional
 	Annotations map[string]string `json:"annotations"`
 	// +optional
 	Labels         map[string]string `json:"labels"`
-	Mode           GeneralMode       `json:"mode"`
 	Replicas       int               `json:"replicas"`
 	Persistence    Persistence       `json:"persistence"`
 	PodResources   PodResources      `json:"podResources"`
@@ -56,20 +55,16 @@ type KubedbcomZookeeperEditorOptionsSpecSpec struct {
 	Admin          AdminOptions      `json:"admin"`
 }
 
-type ZooKeeperCluster struct {
-	Replicas int `json:"replicas"`
-}
-
-type ZookeeperAlertsSpecForm struct {
-	Alert alerts.ZookeeperAlert `json:"alert"`
+type PerconaxtradbAlertsSpecForm struct {
+	Alert alerts.PerconaXtraDBAlert `json:"alert"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// KubedbcomZookeeperEditorOptionsList is a list of KubedbcomZookeeperEditorOptionss
-type KubedbcomZookeeperEditorOptionsList struct {
+// KubedbcomPerconaxtradbEditorOptionsList is a list of KubedbcomPerconaxtradbEditorOptionss
+type KubedbcomPerconaxtradbEditorOptionsList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of KubedbcomZookeeperEditorOptions CRD objects
-	Items []KubedbcomZookeeperEditorOptions `json:"items,omitempty"`
+	// Items is a list of KubedbcomPerconaxtradbEditorOptions CRD objects
+	Items []KubedbcomPerconaxtradbEditorOptions `json:"items,omitempty"`
 }

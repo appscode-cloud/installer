@@ -17,7 +17,7 @@ limitations under the License.
 package v1alpha1
 
 import (
-	core "k8s.io/api/core/v1"
+	alerts "go.appscode.dev/alerts/apis/alerts/v1alpha1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	api "x-helm.dev/apimachinery/apis/releases/v1alpha1"
 )
@@ -38,24 +38,33 @@ type KubedbcomPgbouncerEditorOptions struct {
 type KubedbcomPgbouncerEditorOptionsSpec struct {
 	api.Metadata `json:"metadata,omitempty"`
 	Spec         KubedbcomPgbouncerEditorOptionsSpecSpec `json:"spec"`
+	Form         PgbouncerAlertsSpecForm                 `json:"form"`
 }
 
 type KubedbcomPgbouncerEditorOptionsSpecSpec struct {
 	// +optional
 	Annotations map[string]string `json:"annotations"`
 	// +optional
-	Labels         map[string]string         `json:"labels"`
-	Replicas       int                       `json:"replicas"`
-	Version        string                    `json:"version"`
-	DeletionPolicy DeletionPolicy            `json:"deletionPolicy"`
-	Machine        MachineType               `json:"machine"`
-	Resources      core.ResourceRequirements `json:"resources"`
-	AuthSecret     AuthSecret                `json:"authSecret"`
-	Monitoring     Monitoring                `json:"monitoring"`
+	Labels         map[string]string `json:"labels"`
+	Mode           GeneralMode       `json:"mode"`
+	Replicas       int               `json:"replicas"`
+	Database       PgbouncerDatabase `json:"database"`
+	PodResources   PodResources      `json:"podResources"`
+	AuthSecret     AuthSecret        `json:"authSecret"`
+	DeletionPolicy DeletionPolicy    `json:"deletionPolicy"`
+	Configuration  string            `json:"configuration"`
+	Admin          AdminOptions      `json:"admin"`
 }
 
-// +kubebuilder:validation:Enum=Standalone;Cluster
-type PgbouncerMode string
+type PgbouncerDatabase struct {
+	SyncUsers    bool            `json:"syncUsers,omitempty"`
+	DatabaseRef  ObjectReference `json:"databaseRef"`
+	DatabaseName string          `json:"databaseName"`
+}
+
+type PgbouncerAlertsSpecForm struct {
+	Alert alerts.PostgresAlert `json:"alert"`
+}
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 

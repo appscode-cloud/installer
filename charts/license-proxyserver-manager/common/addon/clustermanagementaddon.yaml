@@ -13,9 +13,3 @@ spec:
     placements:
       - name: {{ .Values.placement.name }}
         namespace: {{ include "license-proxyserver-manager.namespace" . }}
-  supportedConfigs:
-    - group: ""
-      resource: secrets
-      defaultConfig:
-        name: license-proxyserver-config
-        namespace: {{ include "license-proxyserver-manager.namespace" . }}

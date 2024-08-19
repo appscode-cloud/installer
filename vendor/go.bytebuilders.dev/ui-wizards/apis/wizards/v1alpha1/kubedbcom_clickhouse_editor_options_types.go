@@ -22,35 +22,32 @@ import (
 	api "x-helm.dev/apimachinery/apis/releases/v1alpha1"
 )
 
-// KubedbcomMysqlEditorOptions defines the schama for MySQL Editor UI Options.
+// KubedbcomClickhouseEditorOptions defines the schama for ClickHouse Editor UI Options.
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:path=kubedbcommysqleditoroptionss,singular=kubedbcommysqleditoroptions
-type KubedbcomMysqlEditorOptions struct {
+// +kubebuilder:resource:path=kubedbcomclickhouseeditoroptionss,singular=kubedbcomclickhouseeditoroptions
+type KubedbcomClickhouseEditorOptions struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              KubedbcomMysqlEditorOptionsSpec `json:"spec,omitempty"`
+	Spec              KubedbcomClickhouseEditorOptionsSpec `json:"spec,omitempty"`
 }
 
-// KubedbcomMysqlEditorOptionsSpec is the schema for MySQL profile values file
-type KubedbcomMysqlEditorOptionsSpec struct {
+// KubedbcomClickhouseEditorOptionsSpec is the schema for ClickHouse profile values file
+type KubedbcomClickhouseEditorOptionsSpec struct {
 	api.Metadata `json:"metadata,omitempty"`
-	Spec         KubedbcomMysqlEditorOptionsSpecSpec `json:"spec"`
-	Form         MysqlAlertsSpecForm                 `json:"form"`
+	Spec         KubedbcomClickhouseEditorOptionsSpecSpec `json:"spec"`
+	Form         ClickhouseAlertsSpecForm                 `json:"form"`
 }
 
-type KubedbcomMysqlEditorOptionsSpecSpec struct {
+type KubedbcomClickhouseEditorOptionsSpecSpec struct {
 	// +optional
 	Annotations map[string]string `json:"annotations"`
 	// +optional
-	Labels map[string]string `json:"labels"`
-	Mode   MysqlMode         `json:"mode"`
-	// +optional
-	Replicas int `json:"replicas,omitempty"`
-	// +optional
-	InnoDBCluster  MySQLInnoDBCluster `json:"innoDBCluster,omitempty"`
+	Labels         map[string]string  `json:"labels"`
+	Mode           ClickHouseMode     `json:"mode"`
+	Topology       ClickHouseTopology `json:"topology"`
 	Persistence    Persistence        `json:"persistence"`
 	PodResources   PodResources       `json:"podResources"`
 	AuthSecret     AuthSecret         `json:"authSecret"`
@@ -59,27 +56,35 @@ type KubedbcomMysqlEditorOptionsSpecSpec struct {
 	Admin          AdminOptions       `json:"admin"`
 }
 
-type MySQLInnoDBCluster struct {
-	Router MySQLRouter `json:"router"`
+// +kubebuilder:validation:Enum=Standalone;Topology
+type ClickHouseMode string
+
+type ClickHouseTopology struct {
+	Cluster          []ClickHouseClusterSpec `json:"cluster"`
+	ClickHouseKeeper *ClickHouseKeeperConfig `json:"clickHouseKeeper"`
 }
 
-type MySQLRouter struct {
-	Replicas int `json:"replicas"`
+type ClickHouseClusterSpec struct {
+	Name     string `json:"name"`
+	Replicas int32  `json:"replicas"`
+	Shards   int32  `json:"shards"`
 }
 
-// +kubebuilder:validation:Enum=Standalone;GroupReplication;InnoDBCluster
-type MysqlMode string
+type ClickHouseKeeperConfig struct {
+	Host string `json:"host"`
+	Port int32  `json:"port"`
+}
 
-type MysqlAlertsSpecForm struct {
-	Alert alerts.MySQLAlert `json:"alert"`
+type ClickhouseAlertsSpecForm struct {
+	Alert alerts.MongoDBAlert `json:"alert"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// KubedbcomMysqlEditorOptionsList is a list of KubedbcomMysqlEditorOptionss
-type KubedbcomMysqlEditorOptionsList struct {
+// KubedbcomClickhouseEditorOptionsList is a list of KubedbcomClickhouseEditorOptionss
+type KubedbcomClickhouseEditorOptionsList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of KubedbcomMysqlEditorOptions CRD objects
-	Items []KubedbcomMysqlEditorOptions `json:"items,omitempty"`
+	// Items is a list of KubedbcomClickhouseEditorOptions CRD objects
+	Items []KubedbcomClickhouseEditorOptions `json:"items,omitempty"`
 }

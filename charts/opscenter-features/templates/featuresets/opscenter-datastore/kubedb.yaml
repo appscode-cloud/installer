@@ -19,7 +19,7 @@ kubedb-autoscaler:
 kubedb-kubestash-catalog:
   enabled: true
 kubedb-dashboard:
-  enabled: true
+  enabled: false
 kubedb-schema-manager:
   enabled: false
 kubedb-metrics:

@@ -18,7 +18,6 @@ package v1alpha1
 
 import (
 	alerts "go.appscode.dev/alerts/apis/alerts/v1alpha1"
-	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	api "x-helm.dev/apimachinery/apis/releases/v1alpha1"
 )
@@ -43,7 +42,6 @@ type KubedbcomKafkaEditorOptionsSpec struct {
 }
 
 type KubedbcomKafkaEditorOptionsSpecSpec struct {
-	Version string `json:"version"`
 	// +optional
 	Annotations map[string]string `json:"annotations"`
 	// +optional
@@ -52,20 +50,17 @@ type KubedbcomKafkaEditorOptionsSpecSpec struct {
 	// +optional
 	Replicas *int `json:"replicas,omitempty"`
 	// +optional
-	Topology        *KafkaTopology `json:"topology,omitempty"`
-	DisableSecurity bool           `json:"disableSecurity"`
-	DeletionPolicy  DeletionPolicy `json:"deletionPolicy"`
-	StorageClass    StorageClass   `json:"storageClass"`
+	Topology *KafkaTopology `json:"topology,omitempty"`
 	// +optional
-	Persistence *Persistence `json:"persistence"`
-	// +optional
-	Machine    MachineType               `json:"machine"`
-	Resources  core.ResourceRequirements `json:"resources"`
-	AuthSecret AuthSecret                `json:"authSecret"`
-	Monitoring Monitoring                `json:"monitoring"`
+	Persistence    Persistence    `json:"persistence"`
+	PodResources   PodResources   `json:"podResources"`
+	AuthSecret     AuthSecret     `json:"authSecret"`
+	DeletionPolicy DeletionPolicy `json:"deletionPolicy"`
+	Configuration  string         `json:"configuration"`
+	Admin          AdminOptions   `json:"admin"`
 }
 
-// +kubebuilder:validation:Enum=Combined;Dedicated
+// +kubebuilder:validation:Enum=Combined;Topology
 type KafkaMode string
 
 type KafkaTopology struct {
@@ -74,15 +69,13 @@ type KafkaTopology struct {
 }
 
 type KafkaNode struct {
-	Replicas int `json:"replicas"`
-	// +optional
-	Machine     string      `json:"machine"`
-	Persistence Persistence `json:"persistence"`
+	Replicas     int          `json:"replicas"`
+	PodResources PodResources `json:"podResources"`
+	Persistence  Persistence  `json:"persistence"`
 }
 
 type KafkaAlertsSpecForm struct {
 	Alert alerts.KafkaAlert `json:"alert"`
-	CAPI  CAPIFormSpec      `json:"capi"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

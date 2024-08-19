@@ -18,7 +18,6 @@ package v1alpha1
 
 import (
 	alerts "go.appscode.dev/alerts/apis/alerts/v1alpha1"
-	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	api "x-helm.dev/apimachinery/apis/releases/v1alpha1"
 )
@@ -43,7 +42,6 @@ type KubedbcomElasticsearchEditorOptionsSpec struct {
 }
 
 type KubedbcomElasticsearchEditorOptionsSpecSpec struct {
-	Version string `json:"version"`
 	// Authentication plugin used by Elasticsearch cluster
 	AuthPlugin ElasticsearchAuthPlugin `json:"authPlugin"`
 	// +optional
@@ -54,19 +52,13 @@ type KubedbcomElasticsearchEditorOptionsSpecSpec struct {
 	// +optional
 	Replicas *int `json:"replicas,omitempty"`
 	// +optional
-	Topology        *ElasticsearchTopology `json:"topology,omitempty"`
-	EnableSSL       bool                   `json:"enableSSL"`
-	DisableSecurity bool                   `json:"disableSecurity"`
-	DeletionPolicy  DeletionPolicy         `json:"deletionPolicy"`
-	StorageClass    StorageClass           `json:"storageClass"`
-	// +optional
-	Persistence *Persistence `json:"persistence"`
-	// +optional
-	Machine    MachineType               `json:"machine"`
-	Resources  core.ResourceRequirements `json:"resources"`
-	AuthSecret AuthSecret                `json:"authSecret"`
-	Monitoring Monitoring                `json:"monitoring"`
-	Backup     BackupToolSpec            `json:"backup"`
+	Topology       *ElasticsearchTopology `json:"topology,omitempty"`
+	Persistence    Persistence            `json:"persistence"`
+	PodResources   PodResources           `json:"podResources"`
+	AuthSecret     AuthSecret             `json:"authSecret"`
+	DeletionPolicy DeletionPolicy         `json:"deletionPolicy"`
+	Configuration  string                 `json:"configuration"`
+	Admin          AdminOptions           `json:"admin"`
 	// KernelSettings contains the additional kernel settings.
 	// +optional
 	KernelSettings KernelSettings `json:"kernelSettings"`
@@ -94,18 +86,16 @@ type ElasticsearchTopology struct {
 }
 
 type ElasticsearchNode struct {
-	Replicas int `json:"replicas"`
-	// +optional
-	Machine     string      `json:"machine"`
-	Persistence Persistence `json:"persistence"`
+	Replicas     int          `json:"replicas"`
+	PodResources PodResources `json:"podResources"`
+	Persistence  Persistence  `json:"persistence"`
 }
 
-// +kubebuilder:validation:Enum=Combined;Dedicated
+// +kubebuilder:validation:Enum=Combined;Topology
 type ElasticsearchMode string
 
 type ElasticsearchAlertsSpecForm struct {
 	Alert alerts.ElasticsearchAlert `json:"alert"`
-	CAPI  CAPIFormSpec              `json:"capi"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
