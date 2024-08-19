@@ -1,7 +1,7 @@
 apiVersion: charts.x-helm.dev/v1alpha1
 kind: ClusterChartPreset
 metadata:
-  name: capi-presets
+  name: kubedb-ui-presets
   labels:
     ace.appscode.com/managed: "true"
     charts.x-helm.dev/is-kubedb-preset: "true"
