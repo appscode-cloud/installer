@@ -2,7 +2,7 @@ apiVersion: v2
 name: opscenter-features
 description: ACE Opscenter Configuration
 type: application
-version: v2024.7.4
+version: v2024.8.21
 appVersion: v0.4.21
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/kubeops/icons/android-icon-192x192.png
