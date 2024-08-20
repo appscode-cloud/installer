@@ -362,6 +362,8 @@ type AceDeploymentContext struct {
 	RequesterUsername    string `json:"requesterUsername,omitempty"`
 	ProxyServiceDomain   string `json:"proxyServiceDomain,omitempty"`
 	Token                string `json:"token,omitempty"`
+	LicenseServiceDomain string `json:"licenseServiceDomain,omitempty"`
+	LicenseServiceToken  string `json:"licenseServiceToken,omitempty"`
 	// +optional
 	OfflineInstaller bool `json:"offlineInstaller"`
 	// WARNING!!! Update docs in schema/ace-options/patch.yaml
