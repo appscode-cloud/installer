@@ -17,9 +17,11 @@ spec:
         storage: {{ .Values.settings.cache.persistence.size }}
   podTemplate:
     spec:
-      resources:
-        {{- toYaml .Values.settings.cache.resources | nindent 8 }}
-  terminationPolicy: {{ .Values.settings.cache.terminationPolicy }}
+      containers:
+      - name: redis
+        resources:
+          {{- toYaml .Values.settings.cache.resources | nindent 10 }}
+  deletionPolicy: {{ .Values.settings.cache.deletionPolicy }}
   authSecret:
     name: {{ include "ace.fullname" . }}-cache-auth
     externallyManaged: true
