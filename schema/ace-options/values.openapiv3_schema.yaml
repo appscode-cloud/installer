@@ -191,6 +191,10 @@ properties:
       jksPassword:
         description: JKS password is used to create keystore for s3proxy
         type: string
+      licenseServiceDomain:
+        type: string
+      licenseServiceToken:
+        type: string
       licenses:
         additionalProperties:
           type: string
