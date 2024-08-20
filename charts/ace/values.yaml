@@ -221,7 +221,7 @@ settings:
   db:
     version: "15.5"
     databaseName: bb
-    terminationPolicy: Delete
+    deletionPolicy: Delete
     persistence:
       size: 10Gi
     resources:
@@ -244,7 +244,7 @@ settings:
     auth:
       username: root
       password: "xyz"
-    terminationPolicy: Delete
+    deletionPolicy: Delete
   # Mail service
   smtp:
     # mailerServiceType: smtp

@@ -1,4 +1,4 @@
-apiVersion: kubedb.com/v1alpha2
+apiVersion: kubedb.com/v1
 kind: Postgres
 metadata:
   name: {{ include "ace.fullname" . }}-db
@@ -18,9 +18,11 @@ spec:
         storage: {{ .Values.settings.db.persistence.size }}
   podTemplate:
     spec:
-      resources:
-        {{- toYaml .Values.settings.db.resources | nindent 8 }}
-  terminationPolicy: {{ .Values.settings.db.terminationPolicy }}
+      containers:
+      - name: postgres
+        resources:
+          {{- toYaml .Values.settings.db.resources | nindent 10 }}
+  deletionPolicy: {{ .Values.settings.db.deletionPolicy }}
   authSecret:
     name: {{ include "ace.fullname" . }}-db-auth
     externallyManaged: true

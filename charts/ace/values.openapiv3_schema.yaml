@@ -21644,6 +21644,8 @@ properties:
             type: object
           cacheInterval:
             type: integer
+          deletionPolicy:
+            type: string
           persistence:
             properties:
               size:
@@ -21686,16 +21688,14 @@ properties:
                   x-kubernetes-int-or-string: true
                 type: object
             type: object
-          terminationPolicy:
-            type: string
           version:
             type: string
         required:
         - auth
         - cacheInterval
+        - deletionPolicy
         - persistence
         - resources
-        - terminationPolicy
         - version
         type: object
       contract:
@@ -21724,6 +21724,8 @@ properties:
             - username
             type: object
           databaseName:
+            type: string
+          deletionPolicy:
             type: string
           logSQL:
             type: boolean
@@ -21769,17 +21771,15 @@ properties:
                   x-kubernetes-int-or-string: true
                 type: object
             type: object
-          terminationPolicy:
-            type: string
           version:
             type: string
         required:
         - auth
         - databaseName
+        - deletionPolicy
         - logSQL
         - persistence
         - resources
-        - terminationPolicy
         - version
         type: object
       firebase:
