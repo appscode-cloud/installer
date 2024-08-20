@@ -422,7 +422,7 @@ type Settings struct {
 type DBSettings struct {
 	Version           string                    `json:"version"`
 	DatabaseName      string                    `json:"databaseName"`
-	TerminationPolicy string                    `json:"terminationPolicy"`
+	DerminationPolicy string                    `json:"deletionPolicy"`
 	Persistence       PersistenceSpec           `json:"persistence"`
 	Resources         core.ResourceRequirements `json:"resources"`
 	Auth              BasicAuth                 `json:"auth"`
@@ -430,12 +430,12 @@ type DBSettings struct {
 }
 
 type CacheSettings struct {
-	CacheInterval     int                       `json:"cacheInterval"`
-	Version           string                    `json:"version"`
-	TerminationPolicy string                    `json:"terminationPolicy"`
-	Persistence       PersistenceSpec           `json:"persistence"`
-	Resources         core.ResourceRequirements `json:"resources"`
-	Auth              BasicAuth                 `json:"auth"`
+	CacheInterval  int                       `json:"cacheInterval"`
+	Version        string                    `json:"version"`
+	DeletionPolicy string                    `json:"deletionPolicy"`
+	Persistence    PersistenceSpec           `json:"persistence"`
+	Resources      core.ResourceRequirements `json:"resources"`
+	Auth           BasicAuth                 `json:"auth"`
 }
 
 type BasicAuth struct {
