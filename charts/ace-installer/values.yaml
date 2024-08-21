@@ -107,7 +107,7 @@ helm:
       version: "v2024.8.21"
     panopticon:
       enabled: true
-      version: "v2024.7.6"
+      version: "v2024.8.21"
       values: # +doc-gen:break
         monitoring:
           agent: prometheus.io/operator
