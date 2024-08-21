@@ -17,6 +17,8 @@ limitations under the License.
 package v1alpha1
 
 import (
+	wizardsapi "go.bytebuilders.dev/ui-wizards/apis/wizards/v1alpha1"
+
 	openviz_installer "go.openviz.dev/installer/apis/installer/v1alpha1"
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -249,11 +251,11 @@ type PlatformInfra struct {
 type KubeStashSpec struct {
 	// Schedule specifies the schedule for invoking backup sessions
 	// +optional
-	Schedule         string           `json:"schedule,omitempty"`
-	StorageRef       ObjectReference  `json:"storageRef"`
-	RetentionPolicy  ObjectReference  `json:"retentionPolicy"`
-	EncryptionSecret ObjectReference  `json:"encryptionSecret"`
-	StorageSecret    OptionalResource `json:"storageSecret"`
+	Schedule         string                      `json:"schedule,omitempty"`
+	StorageRef       ObjectReference             `json:"storageRef"`
+	RetentionPolicy  ObjectReference             `json:"retentionPolicy"`
+	EncryptionSecret ObjectReference             `json:"encryptionSecret"`
+	StorageSecret    wizardsapi.OptionalResource `json:"storageSecret"`
 }
 
 // +kubebuilder:validation:Enum=ca;letsencrypt;letsencrypt-staging;external
@@ -369,15 +371,15 @@ const (
 )
 
 type InfraObjstore struct {
-	Provider  ObjstoreProvider `json:"provider"`
-	Bucket    string           `json:"bucket"`
-	Prefix    string           `json:"prefix,omitempty"`
-	Endpoint  string           `json:"endpoint,omitempty"`
-	Region    string           `json:"region,omitempty"`
-	MountPath string           `json:"mountPath"`
-	S3        *S3Auth          `json:"s3,omitempty"`
-	Azure     *AzureAuth       `json:"azure,omitempty"`
-	GCS       *GCSAuth         `json:"gcs,omitempty"`
+	Provider  ObjstoreProvider      `json:"provider"`
+	Bucket    string                `json:"bucket"`
+	Prefix    string                `json:"prefix,omitempty"`
+	Endpoint  string                `json:"endpoint,omitempty"`
+	Region    string                `json:"region,omitempty"`
+	MountPath string                `json:"mountPath"`
+	S3        *wizardsapi.S3Auth    `json:"s3,omitempty"`
+	Azure     *wizardsapi.AzureAuth `json:"azure,omitempty"`
+	GCS       *wizardsapi.GCSAuth   `json:"gcs,omitempty"`
 }
 
 type InfraKms struct {

@@ -6,7 +6,7 @@ toolchain go1.22.4
 
 require (
 	go.bytebuilders.dev/resource-model v0.0.13
-	go.bytebuilders.dev/ui-wizards v0.4.22-0.20240820113521-f550efb76d2c
+	go.bytebuilders.dev/ui-wizards v0.5.1-0.20240821070547-46d346c3746a
 	go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0
 	gomodules.xyz/go-sh v0.1.0
 	k8s.io/api v0.30.2
@@ -18,7 +18,6 @@ require (
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
 	sigs.k8s.io/yaml v1.4.0
-	stash.appscode.dev/apimachinery v0.34.0
 )
 
 require (
@@ -112,6 +111,7 @@ require (
 	sigs.k8s.io/controller-runtime v0.18.4 // indirect
 	sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.4.1 // indirect
+	stash.appscode.dev/apimachinery v0.34.0 // indirect
 	x-helm.dev/apimachinery v0.0.16 // indirect
 )
 
