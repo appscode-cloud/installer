@@ -21,6 +21,7 @@ import (
 	"net/url"
 
 	configapi "go.bytebuilders.dev/resource-model/apis/config/v1alpha1"
+	wizardsapi "go.bytebuilders.dev/ui-wizards/apis/wizards/v1alpha1"
 
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -206,9 +207,9 @@ type KubeStashOptions struct {
 	Schedule string `json:"schedule,omitempty"`
 	// RetentionPolicy indicates the policy to follow to clean old backup snapshots
 	// +kubebuilder:default=keep-1mo
-	RetentionPolicy KubeStashRetentionPolicy `json:"retentionPolicy"`
-	StorageSecret   OptionalResource         `json:"storageSecret"`
-	Backend         KubeStashBackendInfra    `json:"backend"`
+	RetentionPolicy KubeStashRetentionPolicy    `json:"retentionPolicy"`
+	StorageSecret   wizardsapi.OptionalResource `json:"storageSecret"`
+	Backend         KubeStashBackendInfra       `json:"backend"`
 }
 
 type KubeStashBackendInfra struct {
@@ -269,9 +270,9 @@ type AceOptionsInfraObjstore struct {
 }
 
 type ObjstoreAuth struct {
-	S3    *S3Auth    `json:"s3,omitempty"`
-	Azure *AzureAuth `json:"azure,omitempty"`
-	GCS   *GCSAuth   `json:"gcs,omitempty"`
+	S3    *wizardsapi.S3Auth    `json:"s3,omitempty"`
+	Azure *wizardsapi.AzureAuth `json:"azure,omitempty"`
+	GCS   *wizardsapi.GCSAuth   `json:"gcs,omitempty"`
 }
 
 type AceOptionsInfraKms struct {
