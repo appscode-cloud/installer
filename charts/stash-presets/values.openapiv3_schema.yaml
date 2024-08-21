@@ -134,8 +134,15 @@ properties:
     - KubeStash
     - Stash
     type: string
+  usePrefix:
+    enum:
+    - uid
+    - name
+    - skip
+    type: string
 required:
 - clusterMetadata
 - kubestash
 - tool
+- usePrefix
 type: object
