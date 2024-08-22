@@ -4,9 +4,9 @@ metadata:
   name: kubedb-ui-presets
   labels:
     ace.appscode.com/managed: "true"
-    charts.x-helm.dev/is-kubedb-preset: "true"
+    charts.x-helm.dev/is-default-preset: "kubedb"
 spec:
   values:
     spec:
-      kubeDB:
+      admin:
         {{- toYaml .Values | nindent 8 }}
