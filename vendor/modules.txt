@@ -258,7 +258,7 @@ go.bytebuilders.dev/resource-model/apis/cloud
 go.bytebuilders.dev/resource-model/apis/cloud/v1alpha1
 go.bytebuilders.dev/resource-model/apis/config/v1alpha1
 go.bytebuilders.dev/resource-model/crds
-# go.bytebuilders.dev/ui-wizards v0.5.1-0.20240822125541-f5216fe077f0
+# go.bytebuilders.dev/ui-wizards v0.4.22-0.20240823125422-24fad16928c4
 ## explicit; go 1.22.0
 go.bytebuilders.dev/ui-wizards/apis/wizards
 go.bytebuilders.dev/ui-wizards/apis/wizards/v1alpha1
@@ -664,7 +664,7 @@ k8s.io/utils/trace
 # kmodules.xyz/apiversion v0.2.0
 ## explicit; go 1.14
 kmodules.xyz/apiversion
-# kmodules.xyz/client-go v0.30.12
+# kmodules.xyz/client-go v0.30.13-0.20240820121523-30dbfd82b4c6
 ## explicit; go 1.22.0
 kmodules.xyz/client-go
 kmodules.xyz/client-go/api/v1
@@ -689,7 +689,7 @@ kmodules.xyz/offshoot-api/api/v1
 # kmodules.xyz/prober v0.29.0
 ## explicit; go 1.21.5
 kmodules.xyz/prober/api/v1
-# kmodules.xyz/resource-metadata v0.18.11
+# kmodules.xyz/resource-metadata v0.18.13-0.20240824120307-3c195d9e5e64
 ## explicit; go 1.22.1
 kmodules.xyz/resource-metadata/apis/shared
 kmodules.xyz/resource-metadata/apis/ui
