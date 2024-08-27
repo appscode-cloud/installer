@@ -6,15 +6,15 @@ toolchain go1.22.4
 
 require (
 	go.bytebuilders.dev/resource-model v0.0.13
-	go.bytebuilders.dev/ui-wizards v0.4.22-0.20240823125422-24fad16928c4
+	go.bytebuilders.dev/ui-wizards v0.4.22-0.20240827064311-d5d4246b42e5
 	go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0
 	gomodules.xyz/go-sh v0.1.0
 	k8s.io/api v0.30.2
 	k8s.io/apimachinery v0.30.2
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
-	kmodules.xyz/client-go v0.30.12
+	kmodules.xyz/client-go v0.30.13-0.20240820121523-30dbfd82b4c6
 	kmodules.xyz/objectstore-api v0.29.1
-	kmodules.xyz/resource-metadata v0.18.11
+	kmodules.xyz/resource-metadata v0.18.13-0.20240827053744-cbee6c3be2fd
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
 	sigs.k8s.io/yaml v1.4.0
