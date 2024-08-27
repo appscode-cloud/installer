@@ -422,13 +422,13 @@ type Settings struct {
 }
 
 type DBSettings struct {
-	Version           string                    `json:"version"`
-	DatabaseName      string                    `json:"databaseName"`
-	DerminationPolicy string                    `json:"deletionPolicy"`
-	Persistence       PersistenceSpec           `json:"persistence"`
-	Resources         core.ResourceRequirements `json:"resources"`
-	Auth              BasicAuth                 `json:"auth"`
-	LogSQL            bool                      `json:"logSQL"`
+	Version        string                    `json:"version"`
+	DatabaseName   string                    `json:"databaseName"`
+	DeletionPolicy string                    `json:"deletionPolicy"`
+	Persistence    PersistenceSpec           `json:"persistence"`
+	Resources      core.ResourceRequirements `json:"resources"`
+	Auth           BasicAuth                 `json:"auth"`
+	LogSQL         bool                      `json:"logSQL"`
 }
 
 type CacheSettings struct {
