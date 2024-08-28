@@ -3,146 +3,144 @@
 # Declare variables to be passed into your templates.
 
 deployment:
-  default: Dedicated
+  default: Shared
   toggle: true
 clusterTier:
   default: "GeneralPurpose"
   toggle: true
   nodeTopology:
-    available: ["m4", "m7gd", "c5d", "c7g", "t4g", "r5a", "r6g", "a-family", "b-family", "d-family", "standard-bsv2-family", "standard-ddv4-family", "standard-dv2-family"]
-    default: "standard-bsv2-family"
+    available: []
+    default: ""
     toggle: true
   placement:
-    available: ["majority-on-spot", "minority-on-spot", "multizone", "ondemand-only", "one-on-ondemand", "spot-only", "zone-ap-southeast-1a", "zone-ap-southeast-1b", "zone-ap-southeast-1c", "default"]
-    default: "default"
+    available: []
+    default: ""
     toggle: true
 
 databases:
   ClickHouse:
     versions:
-      available: ["24.4.1"]
-      default: "24.4.1"
+      available: []
+      default: ""
       toggle: true
   Druid:
     versions:
-      available: ["25.0.0", "28.0.1"]
-      default: "28.0.1"
+      available: []
+      default: ""
       toggle: true
   Elasticsearch:
     versions:
-      available: ["opensearch-2.5.0", "xpack-7.16.3", "xpack-8.6.2"]
-      default: "xpack-8.6.2"
+      available: []
+      default: ""
       toggle: true
   FerretDB:
     versions:
-      available: ["1.18.0"]
-      default: "1.18.0"
+      available: []
+      default: ""
       toggle: true
   Kafka:
     versions:
-      available: ["3.4.1", "3.5.2", "3.6.1"]
-      default: "3.5.2"
+      available: []
+      default: ""
       toggle: true
   MariaDB:
     versions:
-      available: ["10.5.23", "10.6.16", "11.2.2"]
-      default: "10.6.16"
+      available: []
+      default: ""
       toggle: true
   Memcached:
     versions:
-      available: ["1.5.22", "1.6.22"]
-      default: "1.6.22"
+      available: []
+      default: ""
       toggle: true
   MongoDB:
     versions:
-      available: ["4.4.26", "6.0.12"]
-      default: "6.0.12"
+      available: []
+      default: ""
       toggle: true
   MSSQLServer:
     versions:
-      available: ["2022-cu12"]
-      default: "2022-cu12"
+      available: []
+      default: ""
       toggle: true
   MySQL:
     versions:
-      available: ["5.7.44", "8.0.35"]
-      default: "8.0.35"
+      available: []
+      default: ""
       toggle: true
   PerconaXtraDB:
     versions:
-      available: ["8.0.26", "8.0.28", "8.0.31"]
-      default: "8.0.31"
+      available: []
+      default: ""
       toggle: true
   PgBouncer:
     versions:
-      available: ["1.17.0", "1.18.0"]
-      default: "1.18.0"
+      available: []
+      default: ""
       toggle: true
   Pgpool:
     versions:
-      available: ["4.4.5", "4.5.0"]
-      default: "4.4.5"
+      available: []
+      default: ""
       toggle: true
   Postgres:
     versions:
-      available: ["13.13", "14.10", "15.5", "16.1"]
-      default: "15.5"
+      available: []
+      default: ""
       toggle: true
   ProxySQL:
     versions:
-      available: ["2.3.2-debian", "2.4.4-debian"]
-      default: "2.3.2-debian"
+      available: []
+      default: ""
       toggle: true
   RabbitMQ:
     versions:
-      available: ["3.12.12", "3.13.2"]
-      default: "3.13.2"
+      available: []
+      default: ""
       toggle: true
   Redis:
     versions:
-      available: ["6.2.14", "7.0.15", "7.2.4"]
-      default: "7.0.15"
+      available: []
+      default: ""
       toggle: true
   Singlestore:
     versions:
-      available: ["8.1.32", "8.5.7"]
-      default: "8.1.32"
+      available: []
+      default: ""
       toggle: true
   Solr:
     versions:
-      available: ["8.11.2", "9.4.1"]
-      default: "8.11.2"
+      available: []
+      default: ""
       toggle: true
   ZooKeeper:
     versions:
-      available: ["3.8.3", "3.9.1"]
-      default: "3.8.3"
+      available: []
+      default: ""
       toggle: true
 
 storageClasses:
-  available: ["linode-block-storage", "default", "standard", "gp2"]
-  default: "default"
+  available: []
+  default: ""
   toggle: true
 
 tls:
   default: true
   toggle: true
 clusterIssuers:
-  available: ["global-ca", "cluster-issuer"]
-  default: "cluster-issuer"
+  available: []
+  default: ""
   toggle: true
-webUI:
+expose:
   default: true
   toggle: true
+showPreview: false
 
 monitoring:
   # Name of monitoring agent (one of "prometheus.io", "prometheus.io/operator", "prometheus.io/builtin")
   agent: prometheus.io/operator
   exporter:
-    resources: # +doc-gen:break
-      requests:
-        cpu: 100m
-        memory: 128Mi
+    resources: {}
   toggle: true
 alert:
   toggle: true

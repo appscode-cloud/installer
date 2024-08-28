@@ -45,76 +45,101 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `kubedb-ui-presets` chart and their default values.
 
-|                Parameter                 |                                             Description                                              |                          Default                          |
-|------------------------------------------|------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| deployment.default                       |                                                                                                      | <code>Dedicated</code>                                    |
-| deployment.toggle                        |                                                                                                      | <code>true</code>                                         |
-| clusterTier.default                      |                                                                                                      | <code>"GeneralPurpose"</code>                             |
-| clusterTier.toggle                       |                                                                                                      | <code>true</code>                                         |
-| clusterTier.nodeTopology.default         |                                                                                                      | <code>"standard-bsv2-family"</code>                       |
-| clusterTier.nodeTopology.toggle          |                                                                                                      | <code>true</code>                                         |
-| clusterTier.placement.default            |                                                                                                      | <code>"default"</code>                                    |
-| clusterTier.placement.toggle             |                                                                                                      | <code>true</code>                                         |
-| databases.ClickHouse.versions.default    |                                                                                                      | <code>"24.4.1"</code>                                     |
-| databases.ClickHouse.versions.toggle     |                                                                                                      | <code>true</code>                                         |
-| databases.Druid.versions.default         |                                                                                                      | <code>"28.0.1"</code>                                     |
-| databases.Druid.versions.toggle          |                                                                                                      | <code>true</code>                                         |
-| databases.Elasticsearch.versions.default |                                                                                                      | <code>"xpack-8.6.2"</code>                                |
-| databases.Elasticsearch.versions.toggle  |                                                                                                      | <code>true</code>                                         |
-| databases.FerretDB.versions.default      |                                                                                                      | <code>"1.18.0"</code>                                     |
-| databases.FerretDB.versions.toggle       |                                                                                                      | <code>true</code>                                         |
-| databases.Kafka.versions.default         |                                                                                                      | <code>"3.5.2"</code>                                      |
-| databases.Kafka.versions.toggle          |                                                                                                      | <code>true</code>                                         |
-| databases.MariaDB.versions.default       |                                                                                                      | <code>"10.6.16"</code>                                    |
-| databases.MariaDB.versions.toggle        |                                                                                                      | <code>true</code>                                         |
-| databases.Memcached.versions.default     |                                                                                                      | <code>"1.6.22"</code>                                     |
-| databases.Memcached.versions.toggle      |                                                                                                      | <code>true</code>                                         |
-| databases.MongoDB.versions.default       |                                                                                                      | <code>"6.0.12"</code>                                     |
-| databases.MongoDB.versions.toggle        |                                                                                                      | <code>true</code>                                         |
-| databases.MSSQLServer.versions.default   |                                                                                                      | <code>"2022-cu12"</code>                                  |
-| databases.MSSQLServer.versions.toggle    |                                                                                                      | <code>true</code>                                         |
-| databases.MySQL.versions.default         |                                                                                                      | <code>"8.0.35"</code>                                     |
-| databases.MySQL.versions.toggle          |                                                                                                      | <code>true</code>                                         |
-| databases.PerconaXtraDB.versions.default |                                                                                                      | <code>"8.0.31"</code>                                     |
-| databases.PerconaXtraDB.versions.toggle  |                                                                                                      | <code>true</code>                                         |
-| databases.PgBouncer.versions.default     |                                                                                                      | <code>"1.18.0"</code>                                     |
-| databases.PgBouncer.versions.toggle      |                                                                                                      | <code>true</code>                                         |
-| databases.Pgpool.versions.default        |                                                                                                      | <code>"4.4.5"</code>                                      |
-| databases.Pgpool.versions.toggle         |                                                                                                      | <code>true</code>                                         |
-| databases.Postgres.versions.default      |                                                                                                      | <code>"15.5"</code>                                       |
-| databases.Postgres.versions.toggle       |                                                                                                      | <code>true</code>                                         |
-| databases.ProxySQL.versions.default      |                                                                                                      | <code>"2.3.2-debian"</code>                               |
-| databases.ProxySQL.versions.toggle       |                                                                                                      | <code>true</code>                                         |
-| databases.RabbitMQ.versions.default      |                                                                                                      | <code>"3.13.2"</code>                                     |
-| databases.RabbitMQ.versions.toggle       |                                                                                                      | <code>true</code>                                         |
-| databases.Redis.versions.default         |                                                                                                      | <code>"7.0.15"</code>                                     |
-| databases.Redis.versions.toggle          |                                                                                                      | <code>true</code>                                         |
-| databases.Singlestore.versions.default   |                                                                                                      | <code>"8.1.32"</code>                                     |
-| databases.Singlestore.versions.toggle    |                                                                                                      | <code>true</code>                                         |
-| databases.Solr.versions.default          |                                                                                                      | <code>"8.11.2"</code>                                     |
-| databases.Solr.versions.toggle           |                                                                                                      | <code>true</code>                                         |
-| databases.ZooKeeper.versions.default     |                                                                                                      | <code>"3.8.3"</code>                                      |
-| databases.ZooKeeper.versions.toggle      |                                                                                                      | <code>true</code>                                         |
-| storageClasses.default                   |                                                                                                      | <code>"default"</code>                                    |
-| storageClasses.toggle                    |                                                                                                      | <code>true</code>                                         |
-| tls.default                              |                                                                                                      | <code>true</code>                                         |
-| tls.toggle                               |                                                                                                      | <code>true</code>                                         |
-| clusterIssuers.default                   |                                                                                                      | <code>"cluster-issuer"</code>                             |
-| clusterIssuers.toggle                    |                                                                                                      | <code>true</code>                                         |
-| webUI.default                            |                                                                                                      | <code>true</code>                                         |
-| webUI.toggle                             |                                                                                                      | <code>true</code>                                         |
-| monitoring.agent                         | Name of monitoring agent (one of "prometheus.io", "prometheus.io/operator", "prometheus.io/builtin") | <code>prometheus.io/operator</code>                       |
-| monitoring.exporter.resources            |                                                                                                      | <code>{"requests":{"cpu":"100m","memory":"128Mi"}}</code> |
-| monitoring.toggle                        |                                                                                                      | <code>true</code>                                         |
-| alert.toggle                             |                                                                                                      | <code>true</code>                                         |
-| archiver.toggle                          |                                                                                                      | <code>true</code>                                         |
-| archiver.default                         |                                                                                                      | <code>true</code>                                         |
+|                 Parameter                  |                                             Description                                              |               Default               |
+|--------------------------------------------|------------------------------------------------------------------------------------------------------|-------------------------------------|
+| deployment.default                         |                                                                                                      | <code>Shared</code>                 |
+| deployment.toggle                          |                                                                                                      | <code>true</code>                   |
+| clusterTier.default                        |                                                                                                      | <code>"GeneralPurpose"</code>       |
+| clusterTier.toggle                         |                                                                                                      | <code>true</code>                   |
+| clusterTier.nodeTopology.available         |                                                                                                      | <code>[]</code>                     |
+| clusterTier.nodeTopology.default           |                                                                                                      | <code>""</code>                     |
+| clusterTier.nodeTopology.toggle            |                                                                                                      | <code>true</code>                   |
+| clusterTier.placement.available            |                                                                                                      | <code>[]</code>                     |
+| clusterTier.placement.default              |                                                                                                      | <code>""</code>                     |
+| clusterTier.placement.toggle               |                                                                                                      | <code>true</code>                   |
+| databases.ClickHouse.versions.available    |                                                                                                      | <code>[]</code>                     |
+| databases.ClickHouse.versions.default      |                                                                                                      | <code>""</code>                     |
+| databases.ClickHouse.versions.toggle       |                                                                                                      | <code>true</code>                   |
+| databases.Druid.versions.available         |                                                                                                      | <code>[]</code>                     |
+| databases.Druid.versions.default           |                                                                                                      | <code>""</code>                     |
+| databases.Druid.versions.toggle            |                                                                                                      | <code>true</code>                   |
+| databases.Elasticsearch.versions.available |                                                                                                      | <code>[]</code>                     |
+| databases.Elasticsearch.versions.default   |                                                                                                      | <code>""</code>                     |
+| databases.Elasticsearch.versions.toggle    |                                                                                                      | <code>true</code>                   |
+| databases.FerretDB.versions.available      |                                                                                                      | <code>[]</code>                     |
+| databases.FerretDB.versions.default        |                                                                                                      | <code>""</code>                     |
+| databases.FerretDB.versions.toggle         |                                                                                                      | <code>true</code>                   |
+| databases.Kafka.versions.available         |                                                                                                      | <code>[]</code>                     |
+| databases.Kafka.versions.default           |                                                                                                      | <code>""</code>                     |
+| databases.Kafka.versions.toggle            |                                                                                                      | <code>true</code>                   |
+| databases.MariaDB.versions.available       |                                                                                                      | <code>[]</code>                     |
+| databases.MariaDB.versions.default         |                                                                                                      | <code>""</code>                     |
+| databases.MariaDB.versions.toggle          |                                                                                                      | <code>true</code>                   |
+| databases.Memcached.versions.available     |                                                                                                      | <code>[]</code>                     |
+| databases.Memcached.versions.default       |                                                                                                      | <code>""</code>                     |
+| databases.Memcached.versions.toggle        |                                                                                                      | <code>true</code>                   |
+| databases.MongoDB.versions.available       |                                                                                                      | <code>[]</code>                     |
+| databases.MongoDB.versions.default         |                                                                                                      | <code>""</code>                     |
+| databases.MongoDB.versions.toggle          |                                                                                                      | <code>true</code>                   |
+| databases.MSSQLServer.versions.available   |                                                                                                      | <code>[]</code>                     |
+| databases.MSSQLServer.versions.default     |                                                                                                      | <code>""</code>                     |
+| databases.MSSQLServer.versions.toggle      |                                                                                                      | <code>true</code>                   |
+| databases.MySQL.versions.available         |                                                                                                      | <code>[]</code>                     |
+| databases.MySQL.versions.default           |                                                                                                      | <code>""</code>                     |
+| databases.MySQL.versions.toggle            |                                                                                                      | <code>true</code>                   |
+| databases.PerconaXtraDB.versions.available |                                                                                                      | <code>[]</code>                     |
+| databases.PerconaXtraDB.versions.default   |                                                                                                      | <code>""</code>                     |
+| databases.PerconaXtraDB.versions.toggle    |                                                                                                      | <code>true</code>                   |
+| databases.PgBouncer.versions.available     |                                                                                                      | <code>[]</code>                     |
+| databases.PgBouncer.versions.default       |                                                                                                      | <code>""</code>                     |
+| databases.PgBouncer.versions.toggle        |                                                                                                      | <code>true</code>                   |
+| databases.Pgpool.versions.available        |                                                                                                      | <code>[]</code>                     |
+| databases.Pgpool.versions.default          |                                                                                                      | <code>""</code>                     |
+| databases.Pgpool.versions.toggle           |                                                                                                      | <code>true</code>                   |
+| databases.Postgres.versions.available      |                                                                                                      | <code>[]</code>                     |
+| databases.Postgres.versions.default        |                                                                                                      | <code>""</code>                     |
+| databases.Postgres.versions.toggle         |                                                                                                      | <code>true</code>                   |
+| databases.ProxySQL.versions.available      |                                                                                                      | <code>[]</code>                     |
+| databases.ProxySQL.versions.default        |                                                                                                      | <code>""</code>                     |
+| databases.ProxySQL.versions.toggle         |                                                                                                      | <code>true</code>                   |
+| databases.RabbitMQ.versions.available      |                                                                                                      | <code>[]</code>                     |
+| databases.RabbitMQ.versions.default        |                                                                                                      | <code>""</code>                     |
+| databases.RabbitMQ.versions.toggle         |                                                                                                      | <code>true</code>                   |
+| databases.Redis.versions.available         |                                                                                                      | <code>[]</code>                     |
+| databases.Redis.versions.default           |                                                                                                      | <code>""</code>                     |
+| databases.Redis.versions.toggle            |                                                                                                      | <code>true</code>                   |
+| databases.Singlestore.versions.available   |                                                                                                      | <code>[]</code>                     |
+| databases.Singlestore.versions.default     |                                                                                                      | <code>""</code>                     |
+| databases.Singlestore.versions.toggle      |                                                                                                      | <code>true</code>                   |
+| databases.Solr.versions.available          |                                                                                                      | <code>[]</code>                     |
+| databases.Solr.versions.default            |                                                                                                      | <code>""</code>                     |
+| databases.Solr.versions.toggle             |                                                                                                      | <code>true</code>                   |
+| databases.ZooKeeper.versions.available     |                                                                                                      | <code>[]</code>                     |
+| databases.ZooKeeper.versions.default       |                                                                                                      | <code>""</code>                     |
+| databases.ZooKeeper.versions.toggle        |                                                                                                      | <code>true</code>                   |
+| storageClasses.available                   |                                                                                                      | <code>[]</code>                     |
+| storageClasses.default                     |                                                                                                      | <code>""</code>                     |
+| storageClasses.toggle                      |                                                                                                      | <code>true</code>                   |
+| tls.default                                |                                                                                                      | <code>true</code>                   |
+| tls.toggle                                 |                                                                                                      | <code>true</code>                   |
+| clusterIssuers.available                   |                                                                                                      | <code>[]</code>                     |
+| clusterIssuers.default                     |                                                                                                      | <code>""</code>                     |
+| clusterIssuers.toggle                      |                                                                                                      | <code>true</code>                   |
+| expose.default                             |                                                                                                      | <code>true</code>                   |
+| expose.toggle                              |                                                                                                      | <code>true</code>                   |
+| showPreview                                |                                                                                                      | <code>false</code>                  |
+| monitoring.agent                           | Name of monitoring agent (one of "prometheus.io", "prometheus.io/operator", "prometheus.io/builtin") | <code>prometheus.io/operator</code> |
+| monitoring.exporter.resources              |                                                                                                      | <code>{}</code>                     |
+| monitoring.toggle                          |                                                                                                      | <code>true</code>                   |
+| alert.toggle                               |                                                                                                      | <code>true</code>                   |
+| archiver.toggle                            |                                                                                                      | <code>true</code>                   |
+| archiver.default                           |                                                                                                      | <code>true</code>                   |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i kubedb-ui-presets appscode/kubedb-ui-presets -n kubeops --create-namespace --version=v2024.8.21 --set deployment.default=Dedicated
+$ helm upgrade -i kubedb-ui-presets appscode/kubedb-ui-presets -n kubeops --create-namespace --version=v2024.8.21 --set deployment.default=Shared
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
