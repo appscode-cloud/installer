@@ -3883,6 +3883,11 @@ properties:
             - domain
             - ip
             type: string
+          ownerID:
+            format: int64
+            type: integer
+          ownerName:
+            type: string
           proxyServiceDomain:
             type: string
           token:
@@ -3891,6 +3896,8 @@ properties:
         - deploymentType
         - host
         - hostType
+        - ownerID
+        - ownerName
         type: object
       registry:
         type: string

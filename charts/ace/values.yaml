@@ -76,6 +76,8 @@ global:
     host: appscode.ninja
     hostType: domain
     deploymentType: CloudDemo
+    ownerID: 0
+    ownerName: ""
 
   # License for the product.
   # Example:

@@ -191,6 +191,11 @@ properties:
       jksPassword:
         description: JKS password is used to create keystore for s3proxy
         type: string
+      licenseOwnerID:
+        format: int64
+        type: integer
+      licenseOwnerName:
+        type: string
       licenseServiceDomain:
         type: string
       licenseServiceToken:
@@ -296,6 +301,8 @@ properties:
     required:
       - deploymentType
       - installerName
+      - licenseOwnerID
+      - licenseOwnerName
       - uploadID
     type: object
   deploy-ui:
