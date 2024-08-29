@@ -365,6 +365,9 @@ type AceDeploymentContext struct {
 	Token                string `json:"token,omitempty"`
 	LicenseServiceDomain string `json:"licenseServiceDomain,omitempty"`
 	LicenseServiceToken  string `json:"licenseServiceToken,omitempty"`
+	LicenseOwnerID       int64  `json:"licenseOwnerID"`
+	LicenseOwnerName     string `json:"licenseOwnerName"`
+
 	// +optional
 	OfflineInstaller bool `json:"offlineInstaller"`
 	// WARNING!!! Update docs in schema/ace-options/patch.yaml

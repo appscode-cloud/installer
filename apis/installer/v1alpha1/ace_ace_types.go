@@ -205,6 +205,8 @@ type AcePlatformSettings struct {
 	DeploymentType     DeploymentType `json:"deploymentType"`
 	ProxyServiceDomain string         `json:"proxyServiceDomain,omitempty"`
 	Token              string         `json:"token,omitempty"`
+	OwnerID            int64          `json:"ownerID"`
+	OwnerName          string         `json:"ownerName"`
 }
 
 type HostInfo struct {

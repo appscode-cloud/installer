@@ -24,6 +24,8 @@ stringData:
     [licensor]
     DOMAIN = {{ .Values.global.platform.proxyServiceDomain }}
     TOKEN = {{ .Values.global.platform.token }}
+    OWNER_ID = {{ .Values.global.platform.ownerID }}
+    OWNER_NAME = {{ .Values.global.platform.ownerName }}
 {{- end }}
 
     [database]
