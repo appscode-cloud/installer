@@ -123,7 +123,7 @@ helm:
     kubedb-provider-gcp:
       version: "v2024.1.31"
     kubestash:
-      version: "v2024.8.14"
+      version: "v2024.8.30"
     kubevault:
       version: "v2024.3.12"
     kubevault-opscenter:
