@@ -35,7 +35,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: opscenter-observability
 spec:
-  title: Inbox Server
+  title: Inbox Server (ALPHA)
   description: |
     Inbox server
   icons:
