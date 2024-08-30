@@ -98,7 +98,7 @@ helm:
           enabled: false
     kubestash:
       enabled: true
-      version: "v2024.8.14"
+      version: "v2024.8.30"
     license-proxyserver:
       enabled: true
       version: "v2024.7.9"
