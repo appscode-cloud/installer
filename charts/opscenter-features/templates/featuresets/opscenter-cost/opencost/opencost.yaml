@@ -73,7 +73,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: opscenter-cost
 spec:
-  title: Opencost
+  title: Opencost (ALPHA)
   description: |
     Measure and allocate infrastructure and container costs
   icons:

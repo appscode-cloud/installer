@@ -10,7 +10,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: opscenter-observability
 spec:
-  title: Inbox UI
+  title: Inbox UI (ALPHA)
   description: |
     Inbox UI
   icons:
