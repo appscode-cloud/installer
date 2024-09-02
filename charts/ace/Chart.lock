@@ -47,5 +47,5 @@ dependencies:
 - name: openfga
   repository: oci://ghcr.io/appscode-charts
   version: 0.2.8
-digest: sha256:4412fc0ed76736b9d010a26b3bb845493812eaf83b6df1d9c493d10500024c00
-generated: "2024-08-07T16:48:22.176734-07:00"
+digest: sha256:47daf145334e980b173375e60379f48c6b85f27fc7afb345815e402059400283
+generated: "2024-09-02T12:02:26.149317977+06:00"
