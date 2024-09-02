@@ -7,15 +7,15 @@ spec:
   gatewayClassName: ace
   listeners:
     - name: http
-      protocol: HTTPS
-      port: 443
-      tls:
-        certificateRefs:
-        - group: ""
-          kind: Secret
-          name: {{ include "service-gateway-presets.fullname" . }}-cert
-          namespace: {{ .Release.Namespace }}
-        mode: Terminate
+      protocol: HTTP
+      port: 80
+      # tls:
+      #   certificateRefs:
+      #   - group: ""
+      #     kind: Secret
+      #     name: {{ include "service-gateway-presets.fullname" . }}-cert
+      #     namespace: {{ .Release.Namespace }}
+      #   mode: Terminate
 ---
 apiVersion: v1
 kind: ServiceAccount
