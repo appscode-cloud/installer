@@ -1,0 +1,39 @@
+apiVersion: core.kubestash.com/v1alpha1
+kind: BackupConfiguration
+metadata:
+  name: {{ include "ace.fullname" . }}-cluster-resources-backup
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.offshootLabels" . | nindent 4 }}
+spec:
+  backends:
+    - name: default-backend
+      storageRef:
+        name: {{ .Values.global.infra.kubestash.storageRef.name }}
+        namespace: {{ .Values.global.infra.kubestash.storageRef.namespace }}
+      retentionPolicy:
+        name: {{ .Values.global.infra.kubestash.retentionPolicy.name }}
+        namespace: {{ .Values.global.infra.kubestash.retentionPolicy.namespace }}
+  sessions:
+    - name: manifests
+      sessionHistoryLimit: 2
+      scheduler:
+        schedule: {{ .Values.global.infra.kubestash.schedule }}
+        successfulJobsHistoryLimit: 1
+        failedJobsHistoryLimit: 1
+        jobTemplate:
+          backoffLimit: 1
+      repositories:
+        - name: cluster-resources
+          backend: default-backend
+          directory: {{ .Release.Namespace }}/{{ include "ace.fullname" . }}-cluster-manifests
+          encryptionSecret:
+            name: {{ .Values.global.infra.kubestash.encryptionSecret.name }}
+            namespace: {{ .Values.global.infra.kubestash.encryptionSecret.namespace }}
+      addon:
+        name: kubedump-addon
+        tasks:
+          - name: manifest-backup
+        jobTemplate:
+          spec:
+            serviceAccountName: {{ include "ace.fullname" . }}-cluster-resource-reader
