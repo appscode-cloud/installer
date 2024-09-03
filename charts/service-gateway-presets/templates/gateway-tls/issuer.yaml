@@ -30,6 +30,14 @@ spec:
       name: {{ include "service-gateway-presets.fullname" . }}-acme-cred
     solvers:
     # An empty 'selector' means that this solver matches all domains
+    {{- if (eq .Values.infra.tls.acme.solver "Ingress") }}
+    - selector: {}
+      http01:
+        ingress:
+          ingressClassName: nginx-ace
+          serviceType: ClusterIP
+    {{- end }}
+    {{- if (eq .Values.infra.tls.acme.solver "Gateway") }}
     - selector: {}
       http01:
         gatewayHTTPRoute:
@@ -37,5 +45,6 @@ spec:
             - name: backend
               namespace: {{ .Release.Namespace }}
               kind: Gateway
+    {{- end }}
   {{- end }}
 {{- end }}
