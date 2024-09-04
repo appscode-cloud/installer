@@ -56,6 +56,7 @@ The following table lists the configurable parameters of the `service-vault` cha
 | infra.tls.ca.cert          |                                         | <code>""</code>                                                |
 | infra.tls.ca.key           |                                         | <code>""</code>                                                |
 | infra.tls.acme.email       |                                         | <code>ops@appscode.com</code>                                  |
+| infra.tls.acme.solver      |                                         | <code>Gateway</code>                                           |
 | infra.tls.certificate.cert |                                         | <code>""</code>                                                |
 | infra.tls.certificate.key  |                                         | <code>""</code>                                                |
 | infra.tls.jks.keystore     |                                         | <code></code>                                                  |
