@@ -1,3 +1,4 @@
+{{- if (eq .Values.infra.tls.acme.solver "Gateway") }}
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
@@ -7,15 +8,8 @@ spec:
   gatewayClassName: ace
   listeners:
     - name: http
-      protocol: HTTPS
-      port: 443
-      tls:
-        certificateRefs:
-        - group: ""
-          kind: Secret
-          name: {{ include "service-gateway-presets.fullname" . }}-cert
-          namespace: {{ .Release.Namespace }}
-        mode: Terminate
+      protocol: HTTP
+      port: 80
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -99,5 +93,6 @@ spec:
           weight: 1
       matches:
         - path:
-            type: PathPrefix
-            value: /
+            type: Exact
+            value: /info
+{{- end }}

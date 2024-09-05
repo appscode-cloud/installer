@@ -18,6 +18,7 @@ infra:
       key: ""
     acme:
       email: ops@appscode.com
+      solver: Gateway
     certificate:
       cert: ""
       key: ""

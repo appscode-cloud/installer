@@ -294,8 +294,17 @@ type Keystore struct {
 }
 
 type TLSIssuerAcme struct {
-	Email string `json:"email"`
+	Email  string     `json:"email"`
+	Solver AcmeSolver `json:"solver"`
 }
+
+// +kubebuilder:validation:Enum=Gateway;Ingress
+type AcmeSolver string
+
+const (
+	AcmeSolverGateway = "Gateway"
+	AcmeSolverIngress = "Ingress"
+)
 
 // +kubebuilder:validation:Enum=none;external;cloudflare;route53;cloudDNS;azureDNS
 type DNSProvider string

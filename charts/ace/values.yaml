@@ -137,6 +137,7 @@ global:
         key: ""
       acme:
         email: ops@appscode.com
+        solver: Ingress
       certificate:
         cert: ""
         key: ""
