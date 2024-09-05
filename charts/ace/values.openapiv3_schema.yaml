@@ -3750,8 +3750,14 @@ properties:
                 properties:
                   email:
                     type: string
+                  solver:
+                    enum:
+                    - Gateway
+                    - Ingress
+                    type: string
                 required:
                 - email
+                - solver
                 type: object
               ca:
                 properties:
