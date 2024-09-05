@@ -301,6 +301,11 @@ type TLSIssuerAcme struct {
 // +kubebuilder:validation:Enum=Gateway;Ingress
 type AcmeSolver string
 
+const (
+	AcmeSolverGateway = "Gateway"
+	AcmeSolverIngress = "Ingress"
+)
+
 // +kubebuilder:validation:Enum=none;external;cloudflare;route53;cloudDNS;azureDNS
 type DNSProvider string
 
