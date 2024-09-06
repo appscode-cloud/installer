@@ -408,7 +408,12 @@ type GeneratedValues struct {
 	// +optional
 	JKSPassword string `json:"jksPassword"`
 	// +optional
-	GrafanaSecretKey string `json:"grafanaSecretKey"`
+	GrafanaSecretKey string            `json:"grafanaSecretKey"`
+	InboxServer      InboxServerValues `json:"inboxServer"`
+}
+
+type InboxServerValues struct {
+	AdminJWTPrivateKey string `json:"adminJWTPrivateKey"`
 }
 
 type PromotionValues struct {
