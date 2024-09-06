@@ -421,15 +421,16 @@ type InfraFileserver struct {
 }
 
 type Settings struct {
-	DB       DBSettings       `json:"db"`
-	Cache    CacheSettings    `json:"cache"`
-	Smtp     SmtpSettings     `json:"smtp"`
-	Nats     NatsSettings     `json:"nats"`
-	Platform PlatformSettings `json:"platform"`
-	Security SecuritySettings `json:"security"`
-	Grafana  GrafanaSettings  `json:"grafana"`
-	Contract ContractStorage  `json:"contract"`
-	Firebase FirebaseSettings `json:"firebase"`
+	DB          DBSettings          `json:"db"`
+	Cache       CacheSettings       `json:"cache"`
+	Smtp        SmtpSettings        `json:"smtp"`
+	Nats        NatsSettings        `json:"nats"`
+	Platform    PlatformSettings    `json:"platform"`
+	Security    SecuritySettings    `json:"security"`
+	Grafana     GrafanaSettings     `json:"grafana"`
+	InboxServer InboxServerSettings `json:"inboxServer"`
+	Contract    ContractStorage     `json:"contract"`
+	Firebase    FirebaseSettings    `json:"firebase"`
 }
 
 type DBSettings struct {
@@ -529,6 +530,12 @@ type GrafanaSettings struct {
 	AppMode string `json:"appMode"`
 	// +optional
 	SecretKey string `json:"secretKey"`
+}
+
+type InboxServerSettings struct {
+	JmapURL            string `json:"jmapURL"`
+	WebAdminURL        string `json:"webAdminURL"`
+	AdminJWTPrivateKey string `json:"adminJWTPrivateKey"`
 }
 
 type ContractStorage struct {

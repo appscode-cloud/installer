@@ -21814,6 +21814,19 @@ properties:
         required:
         - appMode
         type: object
+      inboxServer:
+        properties:
+          adminJWTPrivateKey:
+            type: string
+          jmapURL:
+            type: string
+          webAdminURL:
+            type: string
+        required:
+        - adminJWTPrivateKey
+        - jmapURL
+        - webAdminURL
+        type: object
       nats:
         properties:
           adminCreds:
@@ -21980,6 +21993,7 @@ properties:
     - db
     - firebase
     - grafana
+    - inboxServer
     - nats
     - platform
     - security

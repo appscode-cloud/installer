@@ -186,6 +186,13 @@ properties:
         type: string
       hostedDomain:
         type: string
+      inboxServer:
+        properties:
+          adminJWTPrivateKey:
+            type: string
+        required:
+          - adminJWTPrivateKey
+        type: object
       installerName:
         type: string
       jksPassword:
@@ -300,6 +307,7 @@ properties:
         type: string
     required:
       - deploymentType
+      - inboxServer
       - installerName
       - licenseOwnerID
       - licenseOwnerName
