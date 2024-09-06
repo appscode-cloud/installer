@@ -40,6 +40,21 @@ opscenter-features:
   ((dig "opscenter-features" "values" "helm" "releases" "stash-presets" "values" (dict) $.Values.helm.releases) | toJson)
   | fromYaml }}
 
+{{ $gate := printf `
+opscenter-features:
+  values:
+    helm:
+      releases:
+        service-gateway-presets:
+          values:
+            infra:
+              tls:
+                acme:
+                  solver: "Gateway"
+`
+   | fromYaml }}
+{{ $helmreleases = mergeOverwrite $helmreleases $gate }}
+
 {{- if has $.Values.deploymentType (list "SelfHostedProduction" "CloudDemo" "OnpremDemo" "AWSMarketplace" "AzureMarketplace" "GoogleCloudMarketplace") }}
 {{ $defaults := printf `
 opscenter-features:
