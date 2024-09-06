@@ -1,4 +1,3 @@
-{{- if (eq .Values.infra.tls.acme.solver "Gateway") }}
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
@@ -9,7 +8,11 @@ spec:
   listeners:
     - name: http
       protocol: HTTP
+    {{- if (eq .Values.infra.tls.acme.solver "Gateway") }}
       port: 80
+    {{- else }}
+      port: 8080  
+    {{- end }}  
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -95,4 +98,3 @@ spec:
         - path:
             type: Exact
             value: /info
-{{- end }}
