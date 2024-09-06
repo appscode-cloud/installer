@@ -1220,6 +1220,19 @@ properties:
             type: object
         type: object
     type: object
+  james:
+    properties:
+      adminToken:
+        type: string
+      enable:
+        type: boolean
+      httpPort:
+        type: string
+      privateKey:
+        type: string
+      url:
+        type: string
+    type: object
   kubedb-ui:
     properties:
       enabled:
@@ -2120,6 +2133,7 @@ required:
   - infra
   - ingress
   - initialSetup
+  - james
   - kubedb-ui
   - marketplace-ui
   - monitoring

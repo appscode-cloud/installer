@@ -6179,6 +6179,19 @@ properties:
     - controller
     - enabled
     type: object
+  james:
+    properties:
+      adminToken:
+        type: string
+      enable:
+        type: boolean
+      httpPort:
+        type: string
+      privateKey:
+        type: string
+      url:
+        type: string
+    type: object
   kubedb-ui:
     properties:
       affinity:
@@ -25439,6 +25452,7 @@ required:
 - image
 - ingress-dns
 - ingress-nginx
+- james
 - kubedb-ui
 - marketplace-ui
 - nats
