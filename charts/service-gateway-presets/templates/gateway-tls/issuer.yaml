@@ -36,8 +36,7 @@ spec:
         ingress:
           ingressClassName: nginx-ace
           serviceType: ClusterIP
-    {{- end }}
-    {{- if (eq .Values.infra.tls.acme.solver "Gateway") }}
+    {{- else }}
     - selector: {}
       http01:
         gatewayHTTPRoute:
