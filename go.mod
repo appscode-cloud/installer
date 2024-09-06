@@ -6,7 +6,7 @@ toolchain go1.22.4
 
 require (
 	go.bytebuilders.dev/resource-model v0.0.13
-	go.bytebuilders.dev/ui-wizards v0.5.1-0.20240828125830-20ac77557ca1
+	go.bytebuilders.dev/ui-wizards v0.5.1-0.20240906125640-c0b24c597575
 	go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0
 	gomodules.xyz/go-sh v0.1.0
 	k8s.io/api v0.30.2
@@ -14,7 +14,7 @@ require (
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
 	kmodules.xyz/client-go v0.30.13-0.20240820121523-30dbfd82b4c6
 	kmodules.xyz/objectstore-api v0.29.1
-	kmodules.xyz/resource-metadata v0.18.13-0.20240827053744-cbee6c3be2fd
+	kmodules.xyz/resource-metadata v0.18.13-0.20240906124638-46438a4d2a94
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
 	sigs.k8s.io/yaml v1.4.0
@@ -101,12 +101,12 @@ require (
 	k8s.io/apiextensions-apiserver v0.30.2 // indirect
 	k8s.io/client-go v0.30.2 // indirect
 	k8s.io/klog/v2 v2.130.1 // indirect
-	k8s.io/kube-openapi v0.0.0-20240430033511-f0e62f92d13f // indirect
+	k8s.io/kube-openapi v0.0.0-20240703190633-0aa61b46e8c2 // indirect
 	k8s.io/utils v0.0.0-20240502163921-fe8a2dddb1d0 // indirect
 	kmodules.xyz/apiversion v0.2.0 // indirect
 	kmodules.xyz/go-containerregistry v0.0.12 // indirect
 	kmodules.xyz/monitoring-agent-api v0.29.0 // indirect
-	kmodules.xyz/offshoot-api v0.29.4 // indirect
+	kmodules.xyz/offshoot-api v0.30.0 // indirect
 	kmodules.xyz/prober v0.29.0 // indirect
 	sigs.k8s.io/controller-runtime v0.18.4 // indirect
 	sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect
