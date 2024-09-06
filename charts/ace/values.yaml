@@ -374,6 +374,11 @@ settings:
     appMode: production
     secretKey: 4nHrUDNw00AjlhAq8hCGYPxBt6I1UCbmdC5ReY19IPWdy8qFDzTZzXkdCr5d6qwP
 
+  inboxServer:
+    jmapURL: ""
+    webAdminURL: ""
+    adminJWTPrivateKey: ""
+
   security:
     oauth2JWTSecret: ""
     csrfSecretKey: ""

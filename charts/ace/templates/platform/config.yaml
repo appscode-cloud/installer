@@ -180,3 +180,8 @@ stringData:
     [grafana]
     # used for signing
     SECRET_KEY = {{ .Values.settings.grafana.secretKey }}
+
+    [inbox_server]
+    JMAP_URL = {{ .Values.settings.inboxServer.jmapURL }}
+    WEB_ADMIN_URL = {{ .Values.settings.inboxServer.webAdminURL }}
+    ENCODED_ADMIN_JWT_PRIVATE_KEY = {{ .Values.settings.inboxServer.adminJWTPrivateKey | b64enc }}
