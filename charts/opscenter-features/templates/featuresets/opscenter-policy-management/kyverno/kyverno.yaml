@@ -1,0 +1,136 @@
+{{ $defaults := printf `
+admissionController:
+  replicas: 3
+backgroundController:
+  replicas: 2
+cleanupController:
+  replicas: 2
+reportsController:
+  replicas: 2
+
+policyReportsCleanup:
+  image:
+    registry: %s
+webhooksCleanup:
+  image:
+    registry: %s
+cleanupJobs:
+  admissionReports:
+    image:
+      registry: %s
+cleanupJobs:
+  clusterAdmissionReports:
+    image:
+      registry: %s
+cleanupJobs:
+  updateRequests:
+    image:
+      registry: %s
+cleanupJobs:
+  ephemeralReports:
+    image:
+      registry: %s
+cleanupJobs:
+  clusterEphemeralReports:
+    image:
+      registry: %s
+
+crds:
+  migration:
+    image:
+      registry: %s
+admissionController:
+  initContainer:
+    image:
+      registry: %s
+admissionController:
+  container:
+    image:
+      registry: %s
+backgroundController:
+  image:
+    registry: %s
+cleanupController:
+  image:
+    registry: %s
+reportsController:
+  image:
+    registry: %s
+`
+  (include "registry.dockerHub" $)
+  (include "registry.dockerHub" $)
+  (include "registry.dockerHub" $)
+  (include "registry.dockerHub" $)
+  (include "registry.dockerHub" $)
+  (include "registry.dockerHub" $)
+  (include "registry.dockerHub" $)
+
+  (include "registry.ghcr" $)
+  (include "registry.ghcr" $)
+  (include "registry.ghcr" $)
+  (include "registry.ghcr" $)
+  (include "registry.ghcr" $)
+  (include "registry.ghcr" $)
+  | fromYaml }}
+
+{{ $vals := dig "kyverno" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: kyverno
+  labels:
+    app.kubernetes.io/part-of: opscenter-policy-management
+spec:
+  title: Kyverno
+  description: |
+    Kubernetes Native Policy Management
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-policy-management
+  featureBlock: kyverno
+  recommended: false
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/component: admission-controller
+          app.kubernetes.io/instance: kyverno
+          app.kubernetes.io/part-of: kyverno
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/component: background-controller
+          app.kubernetes.io/instance: kyverno
+          app.kubernetes.io/part-of: kyverno
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/component: cleanup-controller
+          app.kubernetes.io/instance: kyverno
+          app.kubernetes.io/part-of: kyverno
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/component: reports-controller
+          app.kubernetes.io/instance: kyverno
+          app.kubernetes.io/part-of: kyverno
+  chart:
+    name: kyverno
+    namespace: kyverno
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "kyverno" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
