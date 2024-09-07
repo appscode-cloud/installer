@@ -1,0 +1,28 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: kyverno-policies
+  labels:
+    app.kubernetes.io/part-of: opscenter-policy-management
+spec:
+  title: Kyverno Policies
+  description: |
+    Kubernetes Pod Security Standards implemented as Kyverno policies
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-policy-management
+  featureBlock: kyverno
+  recommended: false
+  requirements:
+    features:
+      - kyverno
+  chart:
+    name: kyverno-policies
+    namespace: kyverno
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "kyverno-policies" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}

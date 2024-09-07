@@ -1,0 +1,20 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: FeatureSet
+metadata:
+  name: opscenter-policy-management
+spec:
+  title: Policy Management
+  description: |
+    Platform Policy Management Tools
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  recommended: false
+  chart:
+    name: uik8sappscodecom-featureset-opscenter-policy-management-editor
+    version: {{ .Chart.AppVersion }}
+    sourceRef:
+      apiGroup: source.toolkit.fluxcd.io
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}

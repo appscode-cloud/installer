@@ -53,7 +53,7 @@ kind: Feature
 metadata:
   name: gatekeeper
   labels:
-    app.kubernetes.io/part-of: opscenter-security
+    app.kubernetes.io/part-of: opscenter-policy-management
 spec:
   title: Gatekeeper
   description: |
@@ -61,7 +61,7 @@ spec:
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
-  featureSet: opscenter-security
+  featureSet: opscenter-policy-management
   featureBlock: gatekeeper
   recommended: false
   readinessChecks:
