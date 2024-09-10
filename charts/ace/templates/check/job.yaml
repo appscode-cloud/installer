@@ -1,0 +1,49 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "ace.fullname" . }}-check
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    "helm.sh/hook-weight": "0"
+    "helm.sh/hook": pre-install,pre-upgrade,pre-rollback
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+spec:
+  # ttlSecondsAfterFinished: 0
+  backoffLimit: 3
+  template:
+    spec:
+      {{- include "appscode.imagePullSecrets" . | nindent 6 }}
+      serviceAccountName: {{ include "appscode.serviceAccountName" . }}-check
+      automountServiceAccountToken: true
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: kubectl
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ include "image.registry" . }}/kubectl-nonroot:1.25"
+          imagePullPolicy: Always
+          command:
+            - kubectl
+            - delete
+            - jobs
+            - --namespace={{ .Release.Namespace }}
+            - --field-selector
+            - status.successful=0
+            - --selector
+            - app.kubernetes.io/instance=ace
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      restartPolicy: Never
