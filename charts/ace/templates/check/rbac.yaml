@@ -1,0 +1,36 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ include "ace.fullname" . }}-check
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    "helm.sh/hook-weight": "0"
+    "helm.sh/hook": pre-install,pre-upgrade,pre-rollback
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+rules:
+# clean up failed setup jobs
+- apiGroups:
+  - batch
+  resources:
+  - jobs
+  verbs: ["get", "list", "watch", "delete"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ include "ace.fullname" . }}-check
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    "helm.sh/hook-weight": "0"
+    "helm.sh/hook": pre-install,pre-upgrade,pre-rollback
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ include "ace.fullname" . }}-check
+subjects:
+- kind: ServiceAccount
+  name: {{ include "appscode.serviceAccountName" . }}-check
+  namespace: {{ .Release.Namespace }}
