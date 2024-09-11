@@ -24,6 +24,8 @@ opscenter-features:
       releases:
         catalog-manager:
           values: %s
+        inbox-agent:
+          values: %s
         service-gateway-presets:
           values: %s
         stash-presets:
@@ -36,6 +38,7 @@ opscenter-features:
   (dig "flux2" "version" "" $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
   ((dig "opscenter-features" "values" "helm" "releases" "catalog-manager" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "opscenter-features" "values" "helm" "releases" "inbox-agent" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "service-gateway-presets" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "stash-presets" "values" (dict) $.Values.helm.releases) | toJson)
   | fromYaml }}
