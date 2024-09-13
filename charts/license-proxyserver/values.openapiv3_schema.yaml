@@ -742,6 +742,10 @@ properties:
     properties:
       baseURL:
         type: string
+      caBundle:
+        type: string
+      insecureSkipTLSVerify:
+        type: boolean
       token:
         type: string
       tokenSecretName:

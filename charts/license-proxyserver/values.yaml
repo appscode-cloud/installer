@@ -109,6 +109,8 @@ platform:
   baseURL: ""
   token: ""
   tokenSecretName: ""
+  caBundle: ""
+  insecureSkipTLSVerify: false
 
 # Offline licenses for various products.
 # Get a license by following the steps from [here](https://license-issuer.appscode.com/).
