@@ -49,6 +49,12 @@ spec:
         - --baseURL={{ .Values.platform.baseURL }}
         - --token=$(PLATFORM_API_TOKEN)
         {{- end }}
+        {{- if .Values.platform.caBundle }}
+        - --ca-file=/var/platform-auth/ca.crt
+        {{- end }}
+        {{- if .Values.platform.insecureSkipTLSVerify }}
+        - --insecure-skip-tls-verify={{ .Values.platform.insecureSkipTLSVerify }}
+        {{- end }}
         - --license-dir=/var/run/secrets/appscode/license
         {{- if .Values.hubKubeconfigSecretName }}
         - --hub-kubeconfig=/var/run/secrets/ocm/auth/kubeconfig
@@ -109,6 +115,10 @@ spec:
         - mountPath: /var/run/secrets/ocm/auth
           name: ocm-auth
         {{- end }}
+        {{- if .Values.platform.caBundle }}
+        - mountPath: /var/platform-auth
+          name: platform-auth
+        {{- end }}
       volumes:
       - name: cache-dir
         emptyDir: {}
@@ -126,6 +136,12 @@ spec:
         secret:
           defaultMode: 420
           secretName: {{ .Values.hubKubeconfigSecretName }}
+      {{- end }}
+      {{- if .Values.platform.caBundle }}
+      - name: platform-auth
+        secret:
+          defaultMode: 420
+          secretName: {{ include "license-proxyserver.fullname" . }}-platform-auth
       {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}

@@ -1,0 +1,12 @@
+{{- if .Values.platform.caBundle }}
+{{ $data := dict "ca.crt" .Values.platform.caBundle }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "license-proxyserver.fullname" . }}-platform-auth
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "license-proxyserver.labels" . | nindent 4 }}
+type: Opaque
+stringData: {{ $data | toJson }}
+{{- end }}

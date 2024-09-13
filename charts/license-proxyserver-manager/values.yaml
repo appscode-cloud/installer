@@ -22,3 +22,5 @@ platform:
   baseURL: ""
   token: ""
   tokenSecretName: ""
+  caBundle: ""
+  insecureSkipTLSVerify: false
