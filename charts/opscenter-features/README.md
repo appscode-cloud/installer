@@ -104,7 +104,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kubevault-opscenter.version                   |                                 | <code>"v2024.1.31"</code>                  |
 | helm.releases.kyverno.version                               |                                 | <code>"3.2.6"</code>                       |
 | helm.releases.kyverno-policies.version                      |                                 | <code>"3.2.5"</code>                       |
-| helm.releases.license-proxyserver.version                   |                                 | <code>"v2024.7.10"</code>                  |
+| helm.releases.license-proxyserver.version                   |                                 | <code>"v2024.8.13"</code>                  |
 | helm.releases.longhorn.version                              |                                 | <code>"1.6.2"</code>                       |
 | helm.releases.metrics-server.version                        |                                 | <code>"3.11.0"</code>                      |
 | helm.releases.monitoring-operator.version                   |                                 | <code>"v0.0.10"</code>                     |
@@ -148,7 +148,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.cluster-auth-manager.version                  |                                 | <code>"v2024.8.9"</code>                   |
 | helm.releases.hub-cluster-robot.version                     |                                 | <code>"v2024.8.9"</code>                   |
 | helm.releases.fluxcd-manager.version                        |                                 | <code>"v2024.7.10"</code>                  |
-| helm.releases.license-proxyserver-manager.version           |                                 | <code>"v2024.7.10"</code>                  |
+| helm.releases.license-proxyserver-manager.version           |                                 | <code>"v2024.9.13"</code>                  |
 | helm.releases.inbox-server.version                          |                                 | <code>"v2024.5.3"</code>                   |
 | helm.releases.inbox-agent.version                           |                                 | <code>"v2024.5.3"</code>                   |
 | helm.releases.inbox-ui.version                              |                                 | <code>"v2024.5.3"</code>                   |
