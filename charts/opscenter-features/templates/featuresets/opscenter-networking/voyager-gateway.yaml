@@ -6,9 +6,12 @@ deployment:
   kubeRbacProxy:
     image:
       repository: %s
+gateway-converter:
+  registryFQDN: %s
 `
   (include "image.ghcr" (merge (dict "_repo" "voyagermesh/gateway") $))
   (include "image.ghcr" (merge (dict "_repo" "appscode/kube-rbac-proxy") $))
+  (include "registry.ghcr" $)
   | fromYaml }}
 
 {{ $vals := dig "voyager-gateway" "values" (dict) .Values.helm.releases }}
