@@ -133,7 +133,7 @@ helm:
     kyverno-policies:
       version: "3.2.5"
     license-proxyserver:
-      version: "v2024.8.13"
+      version: "v2024.9.13"
     longhorn:
       version: "1.6.2"
     metrics-server:
