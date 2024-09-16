@@ -538,6 +538,13 @@ func (in *AceInstallerList) DeepCopyObject() runtime.Object {
 func (in *AceInstallerSpec) DeepCopyInto(out *AceInstallerSpec) {
 	*out = *in
 	in.BootstrapPresets.DeepCopyInto(&out.BootstrapPresets)
+	if in.Licenses != nil {
+		in, out := &in.Licenses, &out.Licenses
+		*out = make(map[string]string, len(*in))
+		for key, val := range *in {
+			(*out)[key] = val
+		}
+	}
 	in.SelfManagement.DeepCopyInto(&out.SelfManagement)
 }
 

@@ -1,0 +1,45 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "ace-installer.fullname" . }}-check
+  labels:
+    {{- include "ace-installer.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook-weight": "0"
+    "helm.sh/hook": pre-install,pre-upgrade,pre-rollback
+    "helm.sh/hook-delete-policy": before-hook-creation
+rules:
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    resourceNames: ["cluster-info"]
+    verbs: ["get"]
+  - apiGroups: ["apps"]
+    resources: ["deployments"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["services"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["storage.k8s.io"]
+    resources: ["storageclasses"]
+    verbs: ["get", "list", "watch"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ include "ace-installer.fullname" . }}-check
+  labels:
+    {{- include "ace-installer.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook-weight": "0"
+    "helm.sh/hook": pre-install,pre-upgrade,pre-rollback
+    "helm.sh/hook-delete-policy": before-hook-creation
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ include "ace-installer.fullname" . }}-check
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "ace-installer.fullname" . }}-check
+    namespace: {{ .Release.Namespace }}
