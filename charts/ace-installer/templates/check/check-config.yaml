@@ -1,0 +1,29 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: {{ include "ace-installer.fullname" . }}-check-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace-installer.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook-weight": "0"
+    "helm.sh/hook": pre-install,pre-upgrade,pre-rollback
+    "helm.sh/hook-delete-policy": before-hook-creation
+stringData:
+  options.yaml: |
+    {{- if .Values.licenses }}
+    licenses:
+      {{- toYaml .Values.licenses | nindent 6 }}
+    {{- end }}
+    {{- if .Values.registry }}
+    registry:
+      {{- .Values.registry | toYaml | nindent 6 }}
+      {{- if .Values.image }}
+      image:
+        {{- .Values.image | toYaml | nindent 8 }}
+      {{- end }}
+    {{- end }}
+    {{- if .Values.selfManagement }}
+    selfManagement:
+      {{- .Values.selfManagement | toYaml | nindent 6 }}
+    {{- end }}
