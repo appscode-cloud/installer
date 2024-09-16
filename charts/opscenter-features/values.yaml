@@ -155,7 +155,7 @@ helm:
     reloader:
       version: "1.0.79"
     scanner:
-      version: "v2024.1.18"
+      version: "v2024.8.21"
     service-backend:
       version: "v2024.2.11"
     service-gateway-presets:
@@ -163,17 +163,17 @@ helm:
     service-provider:
       version: "v2024.2.11"
     sidekick:
-      version: "v2024.2.6"
+      version: "v2024.8.21"
     snapshot-controller:
       version: "3.0.5"
     stash:
-      version: "v2024.4.8"
+      version: "v2024.8.27"
     stash-opscenter:
-      version: "v2024.4.8"
+      version: "v2024.8.27"
     stash-presets:
       version: "v2024.8.21"
     supervisor:
-      version: "v2024.2.6"
+      version: "v2024.8.21"
     topolvm:
       version: "15.0.0"
     voyager:
