@@ -108,6 +108,11 @@ Image Templates
 {{ list .Values.image.proxies.ghcr "appscode/kubectl-nonroot:1.25" | compact | join "/" }}
 {{- end }}
 
+{{- define "clustermanager.rancher" -}}
+{{- ternary "true" "false" (or (has "Rancher" .Values.clusterMetadata.clusterManagers) (and (.Capabilities.APIVersions.Has "management.cattle.io/v3") (not (empty (lookup "management.cattle.io/v3" "Cluster" "" "local"))))) -}}
+{{- end }}
+
 {{- define "prometheus.mode" -}}
-{{- ternary "federated" "standalone" (and (has "Rancher" .Values.clusterMetadata.clusterManagers) (and (.Capabilities.APIVersions.Has "monitoring.coreos.com/v1") (not (empty (lookup "monitoring.coreos.com/v1" "Prometheus" "cattle-monitoring-system" "rancher-monitoring-prometheus"))))) -}}
+{{- $rancher := or (has "Rancher" .Values.clusterMetadata.clusterManagers) (and (.Capabilities.APIVersions.Has "management.cattle.io/v3") (not (empty (lookup "management.cattle.io/v3" "Cluster" "" "local")))) -}}
+{{- ternary "federated" "standalone" (and $rancher (and (.Capabilities.APIVersions.Has "monitoring.coreos.com/v1") (not (empty (lookup "monitoring.coreos.com/v1" "Prometheus" "cattle-monitoring-system" "rancher-monitoring-prometheus"))))) -}}
 {{- end }}

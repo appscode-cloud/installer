@@ -1,5 +1,3 @@
-{{- if eq (include "prometheus.mode" $) "standalone" }}
-
 {{ $alertmanager := printf `
 alertmanager:
   alertmanagerSpec:
@@ -126,9 +124,22 @@ spec:
       - group: apps
         version: v1
         kind: StatefulSet
+        optional: "kube-prometheus-stack"
         selector:
+          app: kube-prometheus-stack-prometheus
+          app.kubernetes.io/instance: kube-prometheus-stack
           app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/part-of: kube-prometheus-stack
+      # rancher-monitoring
+      - group: apps
+        version: v1
+        kind: StatefulSet
+        optional: "kube-prometheus-stack"
+        selector:
+          app: rancher-monitoring-prometheus
+          app.kubernetes.io/instance: rancher-monitoring
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/part-of: rancher-monitoring
   chart:
     name: kube-prometheus-stack
     namespace: monitoring
@@ -140,6 +151,4 @@ spec:
       namespace: {{ .Release.Namespace }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
-{{- end }}
-
 {{- end }}
