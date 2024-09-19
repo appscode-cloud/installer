@@ -78,8 +78,26 @@ type AceOptionsSpec struct {
 	InitialSetup  configapi.AceSetupInlineOptions `json:"initialSetup"`
 }
 
+func (a *AceOptionsSpec) IsOptionsComplete() bool {
+	switch a.Context.DeploymentType {
+	case AWSMarketplaceDeployment:
+		return a.InitialSetup.Subscription != nil &&
+			a.InitialSetup.Subscription.AWS != nil &&
+			a.InitialSetup.Subscription.AWS.MeteringServiceProxyToken != ""
+	case AzureMarketplaceDeployment:
+		return a.InitialSetup.Subscription != nil &&
+			a.InitialSetup.Subscription.Azure != nil &&
+			a.InitialSetup.Subscription.Azure.ApplicationID != ""
+	case GCPMarketplaceDeployment:
+		return a.InitialSetup.Subscription != nil &&
+			a.InitialSetup.Subscription.GCP != nil &&
+			a.InitialSetup.Subscription.GCP.ServiceControlProxyToken != ""
+	}
+	return true
+}
+
 func (a *AceOptionsSpec) Host() string {
-	if a.Infra.DNS.Provider == DNSProviderNone {
+	if a.Infra.DNS.Provider == DNSProviderNone && a.IsOptionsComplete() {
 		if len(a.Infra.DNS.TargetIPs) == 0 {
 			panic("target IPs required when no dns provider is used")
 		}
