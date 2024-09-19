@@ -5,7 +5,7 @@ go 1.22.1
 toolchain go1.22.4
 
 require (
-	go.bytebuilders.dev/resource-model v0.0.13
+	go.bytebuilders.dev/resource-model v0.0.14-0.20240919030221-7ce2665559fa
 	go.bytebuilders.dev/ui-wizards v0.5.1-0.20240906125640-c0b24c597575
 	go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0
 	gomodules.xyz/go-sh v0.1.0

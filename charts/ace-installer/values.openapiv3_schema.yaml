@@ -116,6 +116,10 @@ properties:
         type: boolean
       kubeAPIServer:
         type: string
+      targetIPs:
+        items:
+          type: string
+        type: array
     type: object
 required:
 - fullnameOverride
