@@ -71,6 +71,7 @@ spec:
     features:
       - kube-prometheus-stack
   readinessChecks:
+  {{- if eq (include "clustermanager.rancher" $) "false" }}
     resources:
     - group: metrics.k8s.io
       version: v1beta1
@@ -78,6 +79,7 @@ spec:
     - group: metrics.k8s.io
       version: v1beta1
       kind: PodMetrics
+  {{- end }}
     workloads:
       - group: apps
         version: v1
