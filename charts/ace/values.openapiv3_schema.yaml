@@ -22929,6 +22929,16 @@ properties:
                     required:
                     - accessToken
                     type: object
+                  hetzner:
+                    properties:
+                      sshKeyName:
+                        type: string
+                      token:
+                        type: string
+                    required:
+                    - sshKeyName
+                    - token
+                    type: object
                   linode:
                     properties:
                       token:
@@ -23069,6 +23079,10 @@ properties:
                 type: boolean
               kubeAPIServer:
                 type: string
+              targetIPs:
+                items:
+                  type: string
+                type: array
             type: object
           subscription:
             properties:
