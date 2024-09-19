@@ -84,7 +84,7 @@ spec:
   recommended: false
   requirements:
     features:
-    {{- if eq (include "prometheus.mode" $) "standalone" }}
+    {{- if eq (include "clustermanager.rancher" $) "false" }}
       - kube-prometheus-stack
     {{- end }}
       - monitoring-operator

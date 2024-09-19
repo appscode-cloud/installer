@@ -133,5 +133,6 @@ helm:
 # controls the self management of the ace cluster
 selfManagement:
   import: true
+  targetIPs:
   enableFeatures: []
   disableFeatures: []
