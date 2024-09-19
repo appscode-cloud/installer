@@ -1,5 +1,3 @@
-{{- if eq .Values.clusterMetadata.capi.provider "capa" }}
-
 {{ $defaults := printf `
 image:
   repository: %s
@@ -35,6 +33,7 @@ spec:
   featureSet: capi-capa
   featureBlock: cluster-autoscaler
   recommended: true
+  disabled: {{ not (eq .Values.clusterMetadata.capi.provider "capa") }}
   readinessChecks:
     workloads:
       - group: apps
@@ -54,5 +53,4 @@ spec:
       namespace: {{ .Release.Namespace }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
-{{- end }}
 {{- end }}
