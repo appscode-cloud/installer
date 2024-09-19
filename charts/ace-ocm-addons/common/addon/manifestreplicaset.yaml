@@ -157,6 +157,11 @@ spec:
                   kind: HelmRepository
                   name: bootstrap
                   namespace: kubeops
+            valuesFrom:
+              - kind: ConfigMap
+                name: ace-cluster-info
+                valuesKey: clusterinfo.yaml
+                optional: true
           {{- with $vals }}
             {{- dict "values" . | toYaml | nindent 12 }}
           {{- end }}
