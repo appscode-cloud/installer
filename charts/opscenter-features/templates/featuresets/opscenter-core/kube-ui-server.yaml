@@ -1,4 +1,10 @@
-{{ $defaults := dict "registryFQDN" (include "registry.ghcr" $) }}
+{{ $defaults := printf `
+registryFQDN: %s
+ace-user-roles:
+  enabled: true
+`
+  (include "registry.ghcr" $)
+  | fromYaml }}
 
 {{ $vals := dig "kube-ui-server" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $defaults $vals }}
