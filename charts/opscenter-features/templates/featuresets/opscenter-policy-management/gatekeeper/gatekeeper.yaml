@@ -64,6 +64,7 @@ spec:
   featureSet: opscenter-policy-management
   featureBlock: gatekeeper
   recommended: false
+  disabled: {{ eq (include "clustermanager.rancher" $) "true" }}
   readinessChecks:
     workloads:
       - group: apps
