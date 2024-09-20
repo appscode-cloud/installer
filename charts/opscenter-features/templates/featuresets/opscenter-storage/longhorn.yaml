@@ -63,6 +63,7 @@ spec:
   featureSet: opscenter-storage
   featureBlock: longhorn
   recommended: false
+  disabled: {{ eq (include "clustermanager.rancher" $) "true" }}
   readinessChecks:
     workloads:
       - group: apps
