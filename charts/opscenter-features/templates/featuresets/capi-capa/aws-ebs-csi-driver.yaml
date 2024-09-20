@@ -1,0 +1,51 @@
+{{ $defaults := dict }}
+
+{{ $vals := dig "aws-ebs-csi-driver" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: aws-ebs-csi-driver
+  labels:
+    app.kubernetes.io/part-of: capi-capa
+spec:
+  title: AWS EBS CSI Driver
+  description: |
+    AWS storage driver for Kubernetes cluster
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: capi-capa
+  featureBlock: aws-ebs-csi-driver
+  recommended: true
+  disabled: {{ not (eq .Values.clusterMetadata.capi.provider "capa") }}
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        optional: controller
+        selector:
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: aws-ebs-csi-driver
+      - group: apps
+        version: v1
+        kind: Deployment
+        optional: controller
+        selector:
+          app.kubernetes.io/component: csi-driver
+          app.kubernetes.io/managed-by: EKS
+          app.kubernetes.io/name: aws-ebs-csi-driver
+  chart:
+    name: aws-ebs-csi-driver
+    namespace: capa-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "aws-ebs-csi-driver" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
