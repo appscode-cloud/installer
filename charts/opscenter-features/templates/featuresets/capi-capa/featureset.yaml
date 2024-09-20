@@ -3,7 +3,7 @@ kind: FeatureSet
 metadata:
   name: capi-capa
 spec:
-  title: Cluster API AWS
+  title: Cluster API AWS (CAPA)
   description: |
     Tools for CAPA Clusters
   icons:
