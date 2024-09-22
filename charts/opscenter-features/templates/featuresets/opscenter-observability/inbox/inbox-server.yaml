@@ -54,7 +54,7 @@ spec:
           app.kubernetes.io/name: inbox-server
   chart:
     name: inbox-server
-    namespace: monitoring
+    namespace: ace
     createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "inbox-server" "version" "" $.Values.helm.releases }}
     valuesFiles:
