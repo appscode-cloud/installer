@@ -12,6 +12,9 @@ rules:
   resources:
   - secrets
   - serviceaccounts
+  - namespaces
+  - configmaps
+  - services
   verbs:
   - '*'
 - apiGroups:
@@ -71,6 +74,20 @@ rules:
   resources:
   - services
   verbs: ["get", "list", "watch"]
+# for vcluster
+- apiGroups:
+    - rbac.authorization.k8s.io
+  resources:
+    - roles
+    - rolebindings
+  verbs:
+    - '*'
+- apiGroups:
+    - apps
+  resources:
+    - statefulsets
+  verbs:
+    - '*'
 
 ---
 
