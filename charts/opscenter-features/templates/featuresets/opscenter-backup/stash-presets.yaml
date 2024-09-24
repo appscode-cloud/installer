@@ -1,10 +1,4 @@
-{{ $defaults := printf `
-clusterMetadata:
-  uid: %q
-  name: %q
-` $.Values.clusterMetadata.uid
-  $.Values.clusterMetadata.name
-  | fromYaml }}
+{{ $defaults := dict }}
 
 {{ $vals := dig "stash-presets" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $defaults $vals }}
@@ -34,6 +28,11 @@ spec:
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
+  valuesFrom:
+    - kind: ConfigMap
+      name: ace-cluster-info
+      valuesKey: clusterinfo.yaml
+      optional: true
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
