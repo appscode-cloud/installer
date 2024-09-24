@@ -1,3 +1,5 @@
+# keep in sync with charts/ace-ocm-addons/common/addon/manifestreplicaset.yaml
+
 {{ $defaults := printf `
 registryFQDN: %s
 ace-user-roles:
