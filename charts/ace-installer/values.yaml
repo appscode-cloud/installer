@@ -22,6 +22,7 @@ image:
     quay: quay.io
     # registry.k8s.io/bin:tag
     kubernetes: registry.k8s.io
+    microsoft: mcr.microsoft.com
 
 # image:
 #   proxies:
@@ -30,6 +31,7 @@ image:
 #     ghcr: harbor.appscode.ninja/ghcr
 #     quay: harbor.appscode.ninja/quay
 #     kubernetes: harbor.appscode.ninja/k8s
+#     microsoft: harbor.appscode.ninja/mcr
 #     appscode: harbor.appscode.ninja/ac
 
 registry:
