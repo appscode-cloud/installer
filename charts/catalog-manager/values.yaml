@@ -15,6 +15,7 @@ proxies:
   quay: quay.io
   # registry.k8s.io/bin:tag
   kubernetes: registry.k8s.io
+  microsoft: mcr.microsoft.com
 
 # Overrides name template
 nameOverride: ""
