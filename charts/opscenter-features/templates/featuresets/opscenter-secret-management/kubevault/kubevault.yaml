@@ -2,7 +2,7 @@
 global:
   registryFQDN: %q
 ` (include "registry.ghcr" $) | fromYaml }}
-{{ $_ := set $defaults.global "kubevault-catalog" $.Values.image }}
+{{ $_ := set $defaults "kubevault-catalog" $.Values.image }}
 
 {{ $vals := dig "kubevault" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $defaults $vals }}
