@@ -18,6 +18,7 @@ kubedb-autoscaler:
   enabled: true
 kubedb-kubestash-catalog:
   enabled: true
+  proxies: %v
 kubedb-dashboard:
   enabled: false
 kubedb-schema-manager:
@@ -28,6 +29,7 @@ sidekick:
   enabled: false
 ` (include "registry.ghcr" $)
   ($ips | toJson)
+  ($.Values.image.proxies | toJson )
   ($.Values.image.proxies | toJson )
   | fromYaml }}
 

@@ -12,6 +12,7 @@ clusterMetadata:
   capi:
     provider: ""
     namespace: ""
+    clusterName: ""
 
 offlineInstaller: false
 image:
