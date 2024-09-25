@@ -68,6 +68,10 @@ The following table lists the configurable parameters of the `service-gateway-pr
 | cluster.tls.issuer         |                             | <code>"ca" # ca,vault</code>                                   |
 | cluster.tls.ca.cert        |                             | <code>""</code>                                                |
 | cluster.tls.ca.key         |                             | <code>""</code>                                                |
+| envoy.image                |                             | <code>ghcr.io/voyagermesh/envoy</code>                         |
+| envoy.tag                  |                             | <code>"v1.30.2-ac"</code>                                      |
+| echoserver.image           |                             | <code>ghcr.io/voyagermesh/echoserver</code>                    |
+| echoserver.tag             |                             | <code>"v20221109"</code>                                       |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

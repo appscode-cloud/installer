@@ -21,6 +21,26 @@ properties:
     required:
     - tls
     type: object
+  echoserver:
+    properties:
+      image:
+        type: string
+      tag:
+        type: string
+    required:
+    - image
+    - tag
+    type: object
+  envoy:
+    properties:
+      image:
+        type: string
+      tag:
+        type: string
+    required:
+    - image
+    - tag
+    type: object
   fullnameOverride:
     type: string
   gateway-dns:
@@ -404,6 +424,8 @@ properties:
     type: string
 required:
 - cluster
+- echoserver
+- envoy
 - fullnameOverride
 - gateway-dns
 - infra

@@ -22,7 +22,7 @@ spec:
     kubernetes:
       envoyDeployment:
         container:
-          image: ghcr.io/voyagermesh/envoy:v1.30.2-ac
+          image: "{{ .Values.envoy.image }}:{{ .Values.envoy.tag }}"
           # securityContext:
           #   runAsUser: 1000
     {{- if eq .Values.infra.hostType "domain" }}
