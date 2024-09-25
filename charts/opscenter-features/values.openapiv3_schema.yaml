@@ -3,6 +3,8 @@ properties:
     properties:
       capi:
         properties:
+          clusterName:
+            type: string
           namespace:
             type: string
           provider:
@@ -11,8 +13,6 @@ properties:
             - capg
             - capz
             type: string
-        required:
-        - namespace
         type: object
       clusterManagers:
         items:
