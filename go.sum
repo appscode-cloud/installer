@@ -315,8 +315,8 @@ k8s.io/utils v0.0.0-20240502163921-fe8a2dddb1d0 h1:jgGTlFYnhF1PM1Ax/lAlxUPE+KfCI
 k8s.io/utils v0.0.0-20240502163921-fe8a2dddb1d0/go.mod h1:OLgZIPagt7ERELqWJFomSt595RzquPNLL48iOWgYOg0=
 kmodules.xyz/apiversion v0.2.0 h1:vAQYqZFm4xu4pbB1cAdHbFEPES6EQkcR4wc06xdTOWk=
 kmodules.xyz/apiversion v0.2.0/go.mod h1:oPX8g8LvlPdPX3Yc5YvCzJHQnw3YF/X4/jdW0b1am80=
-kmodules.xyz/client-go v0.30.14 h1:Zi3hoIoJOeEYXzafrbwN8ql+L1I5/pKCjcjRHuwiNfU=
-kmodules.xyz/client-go v0.30.14/go.mod h1:XL3PDQIXG4s3xNRL2SSxIvi8b2WyMGpn26dFnOBz0j4=
+kmodules.xyz/client-go v0.30.16 h1:ph4R2r4+x2eqIyjiSeCksWUnRoniRugA5+thldOdK70=
+kmodules.xyz/client-go v0.30.16/go.mod h1:e8SI8ZW7BiJSQTp+RP5IscYXZbKrr5rTSCIyaVo4bLY=
 kmodules.xyz/go-containerregistry v0.0.12 h1:Tl32QGmSqRVm9PUEb/f3dgDeu9zW5fVzt3qmAFIE37I=
 kmodules.xyz/go-containerregistry v0.0.12/go.mod h1:KgeNg0hDsgeda+qc0NzWk0iVRdF0+ZIg/oRzGoYh78I=
 kmodules.xyz/monitoring-agent-api v0.29.0 h1:gpFl6OZrlMLb/ySMHdREI9EwGtnJ91oZBn9H1UFRwB4=
@@ -327,8 +327,8 @@ kmodules.xyz/offshoot-api v0.30.1 h1:TrulAYO+oBsXe9sZZGTmNWIuI8qD2izMpgcTSPvgAmI
 kmodules.xyz/offshoot-api v0.30.1/go.mod h1:T3mpjR6fui0QzOcmQvIuANytW48fe9ytmy/1cgx6D4g=
 kmodules.xyz/prober v0.29.0 h1:Ex7m4F9rH7uWNNJlLgP63ROOM+nUATJkC2L5OQ7nwMg=
 kmodules.xyz/prober v0.29.0/go.mod h1:UtK+HKyI1lFLEKX+HFLyOCVju6TO93zv3kwGpzqmKOo=
-kmodules.xyz/resource-metadata v0.18.14-0.20240924224747-e2ab11166f23 h1:GYeeRl7Qomdpe6r0WewB2UF3QBJzrHynwibUci1WoAE=
-kmodules.xyz/resource-metadata v0.18.14-0.20240924224747-e2ab11166f23/go.mod h1:6OFjG5wBSIG24xVgN/iOZcAh0fg/YNGYftAmJgF4bjc=
+kmodules.xyz/resource-metadata v0.18.14 h1:ziF+/dYB9pBViNBu5evBTFsoKlZDX36K49/fZK+3Rck=
+kmodules.xyz/resource-metadata v0.18.14/go.mod h1:p9RH0c3G/+hpL7ny1fjWOVGMmMNbqQUTonuMoTT35pg=
 kmodules.xyz/schema-checker v0.4.2 h1:tAbxEtM759GxDM/3sQi/+OKKwUsEF+Ih4KReV3Eb/Xw=
 kmodules.xyz/schema-checker v0.4.2/go.mod h1:N7ETPwfY4LbTHbydC9jjssPmYKKgZ8DC0IuLCU55wwc=
 kubeops.dev/external-dns-operator v0.0.9 h1:lfRDtIKJR8VaJpF01CcOjnA2QcSe43WDnIcqP/ieh1c=
