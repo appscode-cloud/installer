@@ -31,7 +31,7 @@ spec:
     features:
       - cert-manager
       - kubedb
-      - kubevault
+      # - kubevault
       - service-gateway
   readinessChecks:
     workloads:
