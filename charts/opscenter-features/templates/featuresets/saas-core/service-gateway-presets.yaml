@@ -1,8 +1,13 @@
 {{ $defaults := printf `
-registryFQDN: %q
+envoy:
+  image: %s
+echoserver:
+  image: %s
 infra:
   clusterName: %q
-` (include "registry.ghcr" $)
+`
+  (include "image.ghcr" (merge (dict "_repo" "voyagermesh/envoy") $))
+  (include "image.ghcr" (merge (dict "_repo" "voyagermesh/echoserver") $))
   $.Values.clusterMetadata.name
   | fromYaml }}
 
