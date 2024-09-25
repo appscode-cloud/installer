@@ -13,6 +13,10 @@ properties:
             - capg
             - capz
             type: string
+        required:
+        - clusterName
+        - namespace
+        - provider
         type: object
       clusterManagers:
         items:
