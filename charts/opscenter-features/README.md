@@ -54,6 +54,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | clusterMetadata.clusterManagers                             |                                 | <code>[]</code>                            |
 | clusterMetadata.capi.provider                               |                                 | <code>""</code>                            |
 | clusterMetadata.capi.namespace                              |                                 | <code>""</code>                            |
+| clusterMetadata.capi.clusterName                            |                                 | <code>""</code>                            |
 | offlineInstaller                                            |                                 | <code>false</code>                         |
 | image.proxies.appscode                                      | r.appscode.com                  | <code>r.appscode.com</code>                |
 | image.proxies.dockerHub                                     | company/bin:tag                 | <code>""</code>                            |

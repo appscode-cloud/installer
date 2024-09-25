@@ -12,7 +12,7 @@ require (
 	k8s.io/api v0.30.2
 	k8s.io/apimachinery v0.30.2
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
-	kmodules.xyz/client-go v0.30.16
+	kmodules.xyz/client-go v0.30.17-0.20240925072915-b0d7938702e9
 	kmodules.xyz/objectstore-api v0.29.1
 	kmodules.xyz/resource-metadata v0.18.14
 	kmodules.xyz/schema-checker v0.4.2

@@ -14,6 +14,7 @@ global:
   ($ips | toJson)
   | fromYaml }}
 {{ $_ := set $defaults "kubedb-catalog" $.Values.image }}
+{{ $_ := set $defaults "kubedb-kubestash-catalog" $.Values.image }}
 
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $defaults $vals }}
