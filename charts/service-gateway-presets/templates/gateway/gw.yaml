@@ -72,7 +72,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.namespace
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
+            {{- toYaml .Values.echoserver.securityContext | nindent 12 }}
 
 ---
 apiVersion: gateway.networking.k8s.io/v1

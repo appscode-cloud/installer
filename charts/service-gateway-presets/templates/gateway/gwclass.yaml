@@ -23,8 +23,18 @@ spec:
       envoyDeployment:
         container:
           image: "{{ .Values.envoy.image }}:{{ .Values.envoy.tag }}"
-          # securityContext:
-          #   runAsUser: 1000
+          securityContext:
+            {{- toYaml .Values.envoy.securityContext | nindent 12 }}
+        patch:
+          value:
+            spec:
+              template:
+                spec:
+                  containers:
+                  - name: shutdown-manager
+                    securityContext:
+                      {{- toYaml .Values.envoy.securityContext | nindent 22 }}
+
     {{- if eq .Values.infra.hostType "domain" }}
       envoyService:
         annotations:
