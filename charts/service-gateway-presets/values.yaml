@@ -57,3 +57,10 @@ cluster:
     ca:
       cert: ""
       key: ""
+
+envoy:
+  image: ghcr.io/voyagermesh/envoy
+  tag: "v1.30.2-ac"
+echoserver:
+  image: ghcr.io/voyagermesh/echoserver
+  tag: "v20221109"

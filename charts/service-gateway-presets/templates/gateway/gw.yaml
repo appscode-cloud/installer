@@ -11,8 +11,8 @@ spec:
     {{- if (eq .Values.infra.tls.acme.solver "Gateway") }}
       port: 80
     {{- else }}
-      port: 8080  
-    {{- end }}  
+      port: 8080
+    {{- end }}
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -57,7 +57,7 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - image: gcr.io/k8s-staging-ingressconformance/echoserver:v20221109-7ee2f3e
+        - image: "{{ .Values.echoserver.image }}:{{ .Values.echoserver.tag }}"
           imagePullPolicy: IfNotPresent
           name: backend
           ports:

@@ -48,6 +48,8 @@ type ServiceGatewayPresetsSpec struct {
 	Infra            ServiceProviderInfra   `json:"infra"`
 	GatewayDns       ServiceGatewayDns      `json:"gateway-dns"`
 	Cluster          ServiceProviderCluster `json:"cluster"`
+	Envoy            SimpleImageRef         `json:"envoy"`
+	Echoserver       SimpleImageRef         `json:"echoserver"`
 }
 
 type ServiceProviderInfra struct {
@@ -69,6 +71,11 @@ type ServiceProviderCluster struct {
 type ClusterTLS struct {
 	Issuer ClusterTLSIssuerType `json:"issuer"`
 	CA     TLSData              `json:"ca"`
+}
+
+type SimpleImageRef struct {
+	Image string `json:"image"`
+	Tag   string `json:"tag"`
 }
 
 // +kubebuilder:validation:Enum=ca
