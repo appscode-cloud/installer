@@ -60,7 +60,7 @@ cluster:
 
 envoy:
   image: ghcr.io/voyagermesh/envoy
-  tag: "v1.30.2-ac"
+  tag: "v1.29.9-ac"
   securityContext: # +doc-gen:break
     allowPrivilegeEscalation: false
     capabilities:
