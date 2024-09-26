@@ -17,6 +17,7 @@ limitations under the License.
 package v1alpha1
 
 import (
+	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	dnsapi "kubeops.dev/external-dns-operator/apis/external/v1alpha1"
 )
@@ -76,6 +77,8 @@ type ClusterTLS struct {
 type SimpleImageRef struct {
 	Image string `json:"image"`
 	Tag   string `json:"tag"`
+	//+optional
+	SecurityContext *core.SecurityContext `json:"securityContext"`
 }
 
 // +kubebuilder:validation:Enum=ca
