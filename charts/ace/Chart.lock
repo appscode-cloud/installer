@@ -1,37 +1,37 @@
 dependencies:
 - name: platform-ui
   repository: file://../platform-ui
-  version: v2024.8.21
+  version: v2024.9.30
 - name: cluster-ui
   repository: file://../cluster-ui
-  version: v2024.8.21
+  version: v2024.9.30
 - name: deploy-ui
   repository: file://../deploy-ui
-  version: v2023.11.14
+  version: v2024.9.30
 - name: kubedb-ui
   repository: file://../kubedb-ui
-  version: v2024.8.21
+  version: v2024.9.30
 - name: marketplace-ui
   repository: file://../marketplace-ui
   version: v2023.11.14
 - name: platform-api
   repository: file://../platform-api
-  version: v2024.8.21
+  version: v2024.9.30
 - name: platform-links
   repository: file://../platform-links
-  version: v2024.8.21
+  version: v2024.9.30
 - name: billing
   repository: file://../billing
-  version: v2024.8.21
+  version: v2024.9.30
 - name: grafana
   repository: file://../grafana
   version: v2024.7.7
 - name: trickster
   repository: oci://ghcr.io/appscode-charts
-  version: v2024.7.31
+  version: v2024.9.30
 - name: s3proxy
   repository: file://../s3proxy
-  version: v2024.8.21
+  version: v2024.9.30
 - name: dns-proxy
   repository: file://../dns-proxy
   version: v2023.11.14
@@ -47,5 +47,5 @@ dependencies:
 - name: openfga
   repository: oci://ghcr.io/appscode-charts
   version: 0.2.13
-digest: sha256:3e9368469ffedd5f007434efc4d83ba097b15d97732fbecb543a05933873badd
-generated: "2024-09-09T00:18:32.344628-07:00"
+digest: sha256:53fd810997258fc92c9a0621d7330f04806efb1cd8ead902a4ff8301a8b0cb53
+generated: "2024-09-27T02:53:09.171554-07:00"

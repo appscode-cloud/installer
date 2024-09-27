@@ -2,7 +2,7 @@ apiVersion: v2
 name: platform-links
 description: A Helm chart for Kubernetes
 type: application
-version: v2024.8.21
+version: v2024.9.30
 appVersion: v0.0.1
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
