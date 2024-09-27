@@ -54,19 +54,13 @@ helm:
   releases:
     ace:
       enabled: false
-      version: "v2024.8.21"
-    ace-ocm-addons:
-      enabled: true
-      version: "v2024.8.21"
+      version: "v2024.9.30"
     cert-manager:
       enabled: true
       version: "v1.15.2"
     cert-manager-csi-driver-cacerts:
       enabled: true
       version: "v2024.7.28"
-    cluster-manager-spoke:
-      enabled: false
-      version: "v2024.7.10"
     external-dns-operator:
       enabled: true
       version: "v2024.4.19"
@@ -78,7 +72,7 @@ helm:
       version: "v1.1.0"
     kubedb:
       enabled: true
-      version: "v2024.8.21"
+      version: "v2024.9.30"
       values: # +doc-gen:break
         kubedb-provisioner:
           enabled: true
@@ -100,16 +94,16 @@ helm:
           enabled: false
     kubestash:
       enabled: true
-      version: "v2024.8.30"
+      version: "v2024.9.30"
     license-proxyserver:
       enabled: true
-      version: "v2024.9.13"
+      version: "v2024.9.30"
     opscenter-features:
       enabled: true
-      version: "v2024.8.21"
+      version: "v2024.9.30"
     panopticon:
       enabled: true
-      version: "v2024.8.21"
+      version: "v2024.9.30"
       values: # +doc-gen:break
         monitoring:
           agent: prometheus.io/operator
@@ -122,12 +116,15 @@ helm:
       version: "1.0.79"
     stash-presets:
       enabled: false
-      version: "v2024.8.21"
+      version: "v2024.9.30"
 
     # feature less chart versions
+    cluster-manager-spoke:
+      enabled: false
+      version: "v2024.9.30"
     spoke-cluster-addons:
       enabled: false
-      version: "v2024.5.17"
+      version: "v2024.7.10"
     vcluster:
       enabled: false
       version: "0.19.5"

@@ -13,8 +13,6 @@ ace-installer:
 license-proxyserver:
   version: %q
 # b3 import flow
-cluster-manager-spoke:
-  version: %q
 flux2:
   version: %q
 opscenter-features:
@@ -34,7 +32,6 @@ opscenter-features:
   (dig "ace" "version" .Chart.AppVersion $.Values.helm.releases)
   .Chart.Version
   (dig "license-proxyserver" "version" .Chart.AppVersion $.Values.helm.releases)
-  (dig "cluster-manager-spoke" "version" "" $.Values.helm.releases)
   (dig "flux2" "version" "" $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
   ((dig "opscenter-features" "values" "helm" "releases" "catalog-manager" "values" (dict) $.Values.helm.releases) | toJson)
@@ -79,6 +76,20 @@ opscenter-features:
   | fromYaml }}
 {{ $helmreleases = mergeOverwrite $helmreleases $defaults }}
 {{- end }}
+
+{{ $clusterManagerSpoke := printf `
+cluster-manager-spoke:
+  version: %q
+  values:
+    registry: "%s/open-cluster-management"
+    clusteradm:
+      image: %s
+`
+  (dig "cluster-manager-spoke" "version" .Chart.AppVersion $.Values.helm.releases)
+  (include "registry.ghcr" $)
+  (include "image.ghcr" (merge (dict "_repo" "kluster-manager/clusteradm") $))
+  | fromYaml }}
+{{ $helmreleases = mergeOverwrite $helmreleases $clusterManagerSpoke }}
 
 {{ $spokeClusterAddons := printf `
 spoke-cluster-addons:
