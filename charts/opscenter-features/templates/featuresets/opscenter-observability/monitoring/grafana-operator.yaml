@@ -35,11 +35,6 @@ spec:
     namespace: monitoring
     createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "grafana-operator" "version" "" $.Values.helm.releases }}
-    {{- if not ($.Capabilities.APIVersions.Has "policy/v1beta1/PodSecurityPolicy") }}
-    valuesFiles:
-    - values.yaml
-    - ci/ci-values.yaml
-    {{- end }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci
