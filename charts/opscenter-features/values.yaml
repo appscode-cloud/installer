@@ -166,7 +166,7 @@ helm:
     service-provider:
       version: "v2024.9.30"
     sidekick:
-      version: "v2024.9.30"
+      version: "v2024.8.21"
     snapshot-controller:
       version: "3.0.5"
     stash:
