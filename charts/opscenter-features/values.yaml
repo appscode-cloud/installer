@@ -70,7 +70,7 @@ helm:
     docker-machine-operator:
       version: "v2024.7.9"
     catalog-manager:
-      version: "v2024.2.11"
+      version: "v2024.9.30"
     cert-manager:
       version: "v1.15.2"
     cert-manager-csi-driver-cacerts:
@@ -78,9 +78,9 @@ helm:
     cluster-autoscaler:
       version: "9.29.0"
     cluster-presets:
-      version: "v2024.8.21"
+      version: "v2024.9.30"
     config-syncer:
-      version: "v0.14.6"
+      version: "v0.15.2"
     crossplane:
       version: "1.14.0"
     csi-driver-nfs:
@@ -102,9 +102,9 @@ helm:
     gateway-api:
       version: "v1.1.0"
     grafana-operator:
-      version: "v0.0.11"
+      version: "v2024.9.30"
     keda:
-      version: "2.14.2"
+      version: "2.15.1"
     keda-add-ons-http:
       version: "0.8.0"
     kube-grafana-dashboards:
@@ -112,13 +112,13 @@ helm:
     kube-prometheus-stack:
       version: "61.8.0"
     kubedb-ui-presets:
-      version: "v2024.8.21"
+      version: "v2024.9.30"
     kube-ui-server:
-      version: "v2024.8.21"
+      version: "v2024.9.30"
     kubedb:
-      version: "v2024.8.21"
+      version: "v2024.9.30"
     kubedb-opscenter:
-      version: "v2024.8.21"
+      version: "v2024.9.30"
     kubedb-provider-aws:
       version: "v2024.1.31"
     kubedb-provider-azure:
@@ -126,31 +126,31 @@ helm:
     kubedb-provider-gcp:
       version: "v2024.1.31"
     kubestash:
-      version: "v2024.8.30"
+      version: "v2024.9.30"
     kubevault:
-      version: "v2024.3.12"
+      version: "v2024.9.30"
     kubevault-opscenter:
-      version: "v2024.1.31"
+      version: "v2024.9.30"
     kyverno:
       version: "3.2.6"
     kyverno-policies:
       version: "3.2.5"
     license-proxyserver:
-      version: "v2024.9.13"
+      version: "v2024.9.30"
     longhorn:
       version: "1.6.2"
     metrics-server:
       version: "3.11.0"
     monitoring-operator:
-      version: "v0.0.11"
+      version: "v2024.9.30"
     opencost:
       version: "1.18.1"
     opencost-grafana-dashboards:
       version: "v2023.10.1"
     opscenter-features:
-      version: "v2024.8.21"
+      version: "v2024.9.30"
     panopticon:
-      version: "v2024.8.21"
+      version: "v2024.9.30"
     prepare-cluster:
       version: "v2023.12.21"
     prometheus-adapter:
@@ -158,29 +158,29 @@ helm:
     reloader:
       version: "1.0.79"
     scanner:
-      version: "v2024.8.21"
+      version: "v2024.9.30"
     service-backend:
-      version: "v2024.2.11"
+      version: "v2024.9.30"
     service-gateway-presets:
-      version: "v2024.2.11"
+      version: "v2024.9.30"
     service-provider:
-      version: "v2024.2.11"
+      version: "v2024.9.30"
     sidekick:
-      version: "v2024.8.21"
+      version: "v2024.9.30"
     snapshot-controller:
       version: "3.0.5"
     stash:
-      version: "v2024.8.27"
+      version: "v2024.9.30"
     stash-opscenter:
-      version: "v2024.8.27"
+      version: "v2024.9.30"
     stash-presets:
-      version: "v2024.8.21"
+      version: "v2024.9.30"
     supervisor:
-      version: "v2024.8.21"
+      version: "v2024.9.30"
     topolvm:
       version: "15.0.0"
     voyager:
-      version: "v2024.3.18"
+      version: "v2024.8.30"
     voyager-gateway:
       version: "v2024.8.30"
     # secret management
@@ -202,13 +202,13 @@ helm:
       version: "0.27.0"
     # ocm charts
     ace-ocm-addons:
-      version: "v2024.8.21"
+      version: "v2024.9.30"
     ingress-nginx:
       version: "4.11.1"
     cluster-manager-hub:
       version: "v2024.7.10"
     cluster-manager-spoke:
-      version: "v2024.7.10"
+      version: "v2024.9.30"
     multicluster-controlplane:
       version: "v2024.7.10"
     multicluster-ingress-reader:
@@ -218,15 +218,17 @@ helm:
     cluster-proxy-manager:
       version: "v2024.7.10"
     cluster-gateway-manager:
-      version: "v2024.7.10"
+      version: "v2024.9.30"
     cluster-auth-manager:
       version: "v2024.8.9"
+    cluster-profile-manager:
+      version: "v2024.9.30"
     hub-cluster-robot:
       version: "v2024.8.9"
     fluxcd-manager:
       version: "v2024.7.10"
     license-proxyserver-manager:
-      version: "v2024.9.13"
+      version: "v2024.9.30"
 
     inbox-server:
       version: "v2024.5.3"
