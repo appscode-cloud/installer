@@ -121,7 +121,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.service-backend.version                       |                                 | <code>"v2024.9.30"</code>                  |
 | helm.releases.service-gateway-presets.version               |                                 | <code>"v2024.9.30"</code>                  |
 | helm.releases.service-provider.version                      |                                 | <code>"v2024.9.30"</code>                  |
-| helm.releases.sidekick.version                              |                                 | <code>"v2024.9.30"</code>                  |
+| helm.releases.sidekick.version                              |                                 | <code>"v2024.8.21"</code>                  |
 | helm.releases.snapshot-controller.version                   |                                 | <code>"3.0.5"</code>                       |
 | helm.releases.stash.version                                 |                                 | <code>"v2024.9.30"</code>                  |
 | helm.releases.stash-opscenter.version                       |                                 | <code>"v2024.9.30"</code>                  |
