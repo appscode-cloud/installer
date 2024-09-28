@@ -86,7 +86,7 @@ cluster-manager-spoke:
       image: %s
 `
   (dig "cluster-manager-spoke" "version" .Chart.AppVersion $.Values.helm.releases)
-  (include "registry.ghcr" $)
+  (include "registry.quay" $)
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/clusteradm") $))
   | fromYaml }}
 {{ $helmreleases = mergeOverwrite $helmreleases $clusterManagerSpoke }}
