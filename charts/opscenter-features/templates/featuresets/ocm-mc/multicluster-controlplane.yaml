@@ -19,7 +19,7 @@ securityContext:
   runAsGroup: 10001
   runAsUser: 10001
 `
-  (include "image.quay" (merge (dict "_repo" "open-cluster-management") $))
+  (include "image.ghcr" (merge (dict "_repo" "kluster-manager") $))
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/multicluster-controlplane") $))
   $.Values.clusterMetadata.name
   | fromYaml }}

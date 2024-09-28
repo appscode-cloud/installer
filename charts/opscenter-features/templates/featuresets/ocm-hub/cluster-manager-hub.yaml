@@ -2,7 +2,7 @@
 hub:
   registry: %s
 `
-  (include "image.quay" (merge (dict "_repo" "open-cluster-management") $))
+  (include "image.ghcr" (merge (dict "_repo" "kluster-manager") $))
   | fromYaml }}
 
 {{ $vals := dig "cluster-manager-hub" "values" (dict) .Values.helm.releases }}
