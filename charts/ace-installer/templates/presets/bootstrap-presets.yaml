@@ -81,12 +81,12 @@ opscenter-features:
 cluster-manager-spoke:
   version: %q
   values:
-    registry: "%s/open-cluster-management"
+    registry: %s
     clusteradm:
       image: %s
 `
   (dig "cluster-manager-spoke" "version" .Chart.AppVersion $.Values.helm.releases)
-  (include "registry.quay" $)
+  (include "image.ghcr" (merge (dict "_repo" "kluster-manager") $))
   (include "image.ghcr" (merge (dict "_repo" "kluster-manager/clusteradm") $))
   | fromYaml }}
 {{ $helmreleases = mergeOverwrite $helmreleases $clusterManagerSpoke }}
