@@ -3,9 +3,9 @@ kind: FeatureSet
 metadata:
   name: ocm-mc
 spec:
-  title: OCM Multicluster Controlplane
+  title: Multicluster Controlplane
   description: |
-    Deploys an OCM Multicluster Controlplane
+    Deploys a Multicluster Controlplane
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml

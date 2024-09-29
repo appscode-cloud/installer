@@ -3,9 +3,9 @@ kind: FeatureSet
 metadata:
   name: ocm-hub
 spec:
-  title: OCM Hub
+  title: Multicluster Hub
   description: |
-    Deploys an OCM Hub
+    Deploys a Multicluster Hub
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml

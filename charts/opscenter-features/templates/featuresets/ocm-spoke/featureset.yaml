@@ -3,9 +3,9 @@ kind: FeatureSet
 metadata:
   name: ocm-spoke
 spec:
-  title: OCM Spoke
+  title: Multicluster Spoke
   description: |
-    Deploy OCM Spoke Components
+    Connect as a Spoke to a Multicluster Hub
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
