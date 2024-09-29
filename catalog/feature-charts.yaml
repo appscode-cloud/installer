@@ -6,7 +6,7 @@
 - ghcr.io/appscode-charts/catalog-manager:v2024.9.30
 - ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.7.28
 - ghcr.io/appscode-charts/cert-manager:v1.15.2
-- ghcr.io/appscode-charts/cluster-auth-manager:v2024.8.9
+- ghcr.io/appscode-charts/cluster-auth-manager:v2024.9.30
 - ghcr.io/appscode-charts/cluster-autoscaler:9.29.0
 - ghcr.io/appscode-charts/cluster-gateway-manager:v2024.9.30
 - ghcr.io/appscode-charts/cluster-manager-hub:v2024.7.10
@@ -73,7 +73,7 @@
 - ghcr.io/appscode-charts/service-backend:v2024.9.30
 - ghcr.io/appscode-charts/service-gateway-presets:v2024.9.30
 - ghcr.io/appscode-charts/service-provider:v2024.9.30
-- ghcr.io/appscode-charts/sidekick:v2024.9.30
+- ghcr.io/appscode-charts/sidekick:v2024.8.21
 - ghcr.io/appscode-charts/snapshot-controller:3.0.5
 - ghcr.io/appscode-charts/stash-opscenter:v2024.9.30
 - ghcr.io/appscode-charts/stash-presets:v2024.9.30
