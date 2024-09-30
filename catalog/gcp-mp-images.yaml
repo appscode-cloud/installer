@@ -1,6 +1,6 @@
 - alpine:3.20
 - coredns/coredns:1.11.3
-- ghcr.io/appscode/vcluster-plugin:v0.0.1
+- ghcr.io/appscode/vcluster-plugin:v0.0.2
 - ghcr.io/loft-sh/vcluster-oss:0.20.0
 - k0sproject/k0s:v1.30.2-k0s.0
 - rancher/k3s:v1.30.2-k3s1

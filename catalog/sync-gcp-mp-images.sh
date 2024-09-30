@@ -73,7 +73,7 @@ crane cp ghcr.io/appscode/service-provider:v0.0.1 $IMAGE_REGISTRY/service-provid
 crane cp ghcr.io/appscode/sidekick:v0.0.8 $IMAGE_REGISTRY/sidekick:$TAG
 crane cp ghcr.io/appscode/supervisor:v0.0.6 $IMAGE_REGISTRY/supervisor:$TAG
 crane cp ghcr.io/appscode/trickster:v2.0.0-beta3 $IMAGE_REGISTRY/trickster:$TAG
-crane cp ghcr.io/appscode/vcluster-plugin:v0.0.1 $IMAGE_REGISTRY/vcluster-plugin:$TAG
+crane cp ghcr.io/appscode/vcluster-plugin:v0.0.2 $IMAGE_REGISTRY/vcluster-plugin:$TAG
 crane cp ghcr.io/external-secrets/external-secrets:v0.9.12 $IMAGE_REGISTRY/external-secrets:$TAG
 crane cp ghcr.io/fluxcd/helm-controller:v1.0.1 $IMAGE_REGISTRY/flux-helm-controller:$TAG
 crane cp ghcr.io/fluxcd/kustomize-controller:v1.3.0 $IMAGE_REGISTRY/kustomize-controller:$TAG
