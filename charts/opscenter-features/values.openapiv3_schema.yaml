@@ -3,6 +3,8 @@ properties:
     properties:
       capi:
         properties:
+          clusterName:
+            type: string
           namespace:
             type: string
           provider:
@@ -12,7 +14,9 @@ properties:
             - capz
             type: string
         required:
+        - clusterName
         - namespace
+        - provider
         type: object
       clusterManagers:
         items:
@@ -92,6 +96,8 @@ properties:
           ghcr:
             type: string
           kubernetes:
+            type: string
+          microsoft:
             type: string
           quay:
             type: string

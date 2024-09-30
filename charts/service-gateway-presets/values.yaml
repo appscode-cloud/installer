@@ -57,3 +57,31 @@ cluster:
     ca:
       cert: ""
       key: ""
+
+envoy:
+  image: ghcr.io/voyagermesh/envoy
+  tag: "v1.29.9-ac"
+  securityContext: # +doc-gen:break
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
+    # readOnlyRootFilesystem: true
+    privileged: false
+    runAsNonRoot: true
+    runAsUser: 65534
+    seccompProfile:
+      type: RuntimeDefault
+
+echoserver:
+  image: ghcr.io/voyagermesh/echoserver
+  tag: "v20221109"
+  securityContext: # +doc-gen:break
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
+    readOnlyRootFilesystem: true
+    privileged: false
+    runAsNonRoot: true
+    runAsUser: 65534
+    seccompProfile:
+      type: RuntimeDefault

@@ -1,7 +1,13 @@
 {{ $defaults := printf `
 global:
   registryFQDN: %q
-` (include "registry.ghcr" $) | fromYaml }}
+kubestash-catalog:
+  enabled: true
+  proxies: %v
+`
+  (include "registry.ghcr" $)
+  ($.Values.image.proxies | toJson )
+  | fromYaml }}
 
 {{ $vals := dig "kubestash" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $defaults $vals }}
@@ -39,11 +45,6 @@ spec:
     namespace: stash
     createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "kubestash" "version" "" $.Values.helm.releases }}
-    {{- if not ($.Capabilities.APIVersions.Has "policy/v1beta1/PodSecurityPolicy") }}
-    valuesFiles:
-    - values.yaml
-    - ci/ci-values.yaml
-    {{- end }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

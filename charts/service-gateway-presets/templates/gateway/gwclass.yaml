@@ -22,9 +22,19 @@ spec:
     kubernetes:
       envoyDeployment:
         container:
-          image: ghcr.io/voyagermesh/envoy:v1.30.2-ac
-          # securityContext:
-          #   runAsUser: 1000
+          image: "{{ .Values.envoy.image }}:{{ .Values.envoy.tag }}"
+          securityContext:
+            {{- toYaml .Values.envoy.securityContext | nindent 12 }}
+        patch:
+          value:
+            spec:
+              template:
+                spec:
+                  containers:
+                  - name: shutdown-manager
+                    securityContext:
+                      {{- toYaml .Values.envoy.securityContext | nindent 22 }}
+
     {{- if eq .Values.infra.hostType "domain" }}
       envoyService:
         annotations:

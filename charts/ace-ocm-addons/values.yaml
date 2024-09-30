@@ -20,6 +20,7 @@ image:
     quay: quay.io
     # registry.k8s.io/bin:tag
     kubernetes: registry.k8s.io
+    microsoft: mcr.microsoft.com
 
 # image:
 #   proxies:
@@ -28,6 +29,7 @@ image:
 #     ghcr: harbor.appscode.ninja/ghcr
 #     quay: harbor.appscode.ninja/quay
 #     kubernetes: harbor.appscode.ninja/k8s
+#     microsoft: harbor.appscode.ninja/mcr
 #     appscode: harbor.appscode.ninja/ac
 
 registry:
@@ -50,10 +52,10 @@ helm:
   releases:
     kube-ui-server:
       enabled: true
-      version: "v2024.8.21"
+      version: "v2024.9.30"
     opscenter-features:
       enabled: true
-      version: "v2024.8.21"
+      version: "v2024.9.30"
 
 # ocm values
 kubeconfigSecretName: ""

@@ -2,7 +2,7 @@
 global:
   registryFQDN: %q
 ` (include "registry.ghcr" $) | fromYaml }}
-{{ $_ := set $defaults.global "kubevault-catalog" $.Values.image }}
+{{ $_ := set $defaults "kubevault-catalog" $.Values.image }}
 
 {{ $vals := dig "kubevault" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $defaults $vals }}
@@ -39,11 +39,6 @@ spec:
     namespace: kubevault
     createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "kubevault" "version" "" $.Values.helm.releases }}
-    {{- if not ($.Capabilities.APIVersions.Has "policy/v1beta1/PodSecurityPolicy") }}
-    valuesFiles:
-    - values.yaml
-    - ci/ci-values.yaml
-    {{- end }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

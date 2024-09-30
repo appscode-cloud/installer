@@ -13,8 +13,6 @@ ace-installer:
 license-proxyserver:
   version: %q
 # b3 import flow
-cluster-manager-spoke:
-  version: %q
 flux2:
   version: %q
 opscenter-features:
@@ -34,7 +32,6 @@ opscenter-features:
   (dig "ace" "version" .Chart.AppVersion $.Values.helm.releases)
   .Chart.Version
   (dig "license-proxyserver" "version" .Chart.AppVersion $.Values.helm.releases)
-  (dig "cluster-manager-spoke" "version" "" $.Values.helm.releases)
   (dig "flux2" "version" "" $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
   ((dig "opscenter-features" "values" "helm" "releases" "catalog-manager" "values" (dict) $.Values.helm.releases) | toJson)
@@ -80,6 +77,20 @@ opscenter-features:
 {{ $helmreleases = mergeOverwrite $helmreleases $defaults }}
 {{- end }}
 
+{{ $clusterManagerSpoke := printf `
+cluster-manager-spoke:
+  version: %q
+  values:
+    registry: %s
+    clusteradm:
+      image: %s
+`
+  (dig "cluster-manager-spoke" "version" .Chart.AppVersion $.Values.helm.releases)
+  (include "image.ghcr" (merge (dict "_repo" "kluster-manager") $))
+  (include "image.ghcr" (merge (dict "_repo" "kluster-manager/clusteradm") $))
+  | fromYaml }}
+{{ $helmreleases = mergeOverwrite $helmreleases $clusterManagerSpoke }}
+
 {{ $spokeClusterAddons := printf `
 spoke-cluster-addons:
   version: %q
@@ -96,20 +107,67 @@ spoke-cluster-addons:
 vcluster:
   version: %q
   values:
-    vcluster:
-      image: "%s:v1.29.0-k3s1"
-    sync:
-      # persistentvolumes:
-      #   enabled: true
-      # If you want to create custom storage classes
-      # inside the vcluster.
-      hoststorageclasses:
-        enabled: true
     telemetry:
-      disabled: "true"
+      enabled: false
+    sync:
+      fromHost:
+        nodes:
+          enabled: true
+        storageClasses:
+          enabled: true
+      toHost:
+        pods:
+          rewriteHosts:
+            initContainer:
+              image: "%s"
+    controlPlane:
+      distro:
+        k8s:
+          apiServer:
+            image:
+              registry: "%s"
+          controllerManager:
+            image:
+              registry: "%s"
+          scheduler:
+            image:
+              registry: "%s"
+        k3s:
+          image:
+            registry: "%s"
+        k0s:
+          image:
+            registry: "%s"
+      backingStore:
+        etcd:
+          deploy:
+            statefulSet:
+              image:
+                registry: "%s"
+      coredns:
+        deployment:
+          image: ""
+
+      statefulSet:
+        image:
+          registry: "%s"
+          repository: "loft-sh/vcluster-oss"
+        security:
+          podSecurityContext:
+            fsGroup: 65534
+          containerSecurityContext:
+            runAsUser: 65534
+            runAsNonRoot: true
 `
   (dig "vcluster" "version" .Chart.AppVersion $.Values.helm.releases)
-  (include "image.dockerLibrary" (merge (dict "_repo" "rancher/k3s") $))
+  (include "image.dockerLibrary" (merge (dict "_repo" "alpine:3.20") $))
+  (include "registry.kubernetes" $)
+  (include "registry.kubernetes" $)
+  (include "registry.kubernetes" $)
+  (include "registry.dockerLibrary" $)
+  (include "registry.dockerLibrary" $)
+  (include "registry.kubernetes" $)
+  (include "registry.ghcr" $)
   | fromYaml }}
 {{ $helmreleases = mergeOverwrite $helmreleases $vcluster }}
 

@@ -18,6 +18,7 @@ kubedb-autoscaler:
   enabled: true
 kubedb-kubestash-catalog:
   enabled: true
+  proxies: %v
 kubedb-dashboard:
   enabled: false
 kubedb-schema-manager:
@@ -28,6 +29,7 @@ sidekick:
   enabled: false
 ` (include "registry.ghcr" $)
   ($ips | toJson)
+  ($.Values.image.proxies | toJson )
   ($.Values.image.proxies | toJson )
   | fromYaml }}
 
@@ -66,11 +68,6 @@ spec:
     namespace: kubedb
     createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "kubedb" "version" "" $.Values.helm.releases }}
-    {{- if not ($.Capabilities.APIVersions.Has "policy/v1beta1/PodSecurityPolicy") }}
-    valuesFiles:
-    - values.yaml
-    - ci/ci-values.yaml
-    {{- end }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci
