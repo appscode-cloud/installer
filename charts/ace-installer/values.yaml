@@ -127,7 +127,7 @@ helm:
       version: "v2024.7.10"
     vcluster:
       enabled: false
-      version: "0.19.5"
+      version: "0.20.0"
 
 # controls the self management of the ace cluster
 selfManagement:
