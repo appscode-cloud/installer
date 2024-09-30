@@ -12,8 +12,6 @@ rules:
   resources:
   - secrets
   - serviceaccounts
-  - namespaces
-  - configmaps
   verbs:
   - '*'
 - apiGroups:
@@ -72,8 +70,15 @@ rules:
   - ""
   resources:
   - services
-  verbs: ["create","get", "list", "watch"]
+  verbs: ["create", "get", "list", "watch"]
 # for vcluster
+- apiGroups:
+    - ""
+  resources:
+    - namespaces
+    - configmaps
+  verbs:
+    - '*'
 - apiGroups:
     - rbac.authorization.k8s.io
   resources:
