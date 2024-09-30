@@ -1,0 +1,39 @@
+apiVersion: archiver.kubedb.com/v1alpha1
+kind: PostgresArchiver
+metadata:
+  name: {{ include "ace.fullname" . }}-archiver
+  namespace: {{ .Release.Namespace }}
+spec:
+  pause: false
+  databases:
+    namespaces:
+      from: Selector
+      selector:
+        matchLabels:
+         kubernetes.io/metadata.name: {{ .Release.Namespace }}
+    selector:
+      matchLabels:
+        archiver: "true"
+  retentionPolicy:
+    name: {{ .Values.global.infra.kubestash.retentionPolicy.name }}
+    namespace: {{ .Values.global.infra.kubestash.retentionPolicy.namespace }}
+  encryptionSecret:
+    name: {{ .Values.global.infra.kubestash.encryptionSecret.name }}
+    namespace: {{ .Values.global.infra.kubestash.encryptionSecret.namespace }}
+  fullBackup:
+    driver: Restic
+    scheduler:
+      successfulJobsHistoryLimit: 1
+      failedJobsHistoryLimit: 1
+      schedule: {{ .Values.global.infra.kubestash.schedule }}
+    sessionHistoryLimit: 2
+  manifestBackup:
+    scheduler:
+      successfulJobsHistoryLimit: 1
+      failedJobsHistoryLimit: 1
+      schedule: {{ .Values.global.infra.kubestash.schedule }}
+    sessionHistoryLimit: 2
+  backupStorage:
+    ref:
+      name: {{ .Values.global.infra.kubestash.storageRef.name }}
+      namespace: {{ .Values.global.infra.kubestash.storageRef.namespace }}
