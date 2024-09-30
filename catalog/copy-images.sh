@@ -37,7 +37,7 @@ CMD="./crane"
 
 $CMD cp bitnami/kubectl:1.28.5 $IMAGE_REGISTRY/bitnami/kubectl:1.28.5
 $CMD cp bitnami/sealed-secrets-controller:0.25.0 $IMAGE_REGISTRY/bitnami/sealed-secrets-controller:0.25.0
-$CMD cp cassandra:4.1.3 $IMAGE_REGISTRY/library/cassandra:4.1.3
+$CMD cp cassandra:4.1.3 $IMAGE_REGISTRY/cassandra:4.1.3
 $CMD cp falcosecurity/falco-no-driver:0.37.0 $IMAGE_REGISTRY/falcosecurity/falco-no-driver:0.37.0
 $CMD cp falcosecurity/falcoctl:0.7.1 $IMAGE_REGISTRY/falcosecurity/falcoctl:0.7.1
 $CMD cp ghcr.io/appscode-charts/ace-ocm-addons:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/ace-ocm-addons:v2024.9.30
@@ -349,7 +349,7 @@ $CMD cp quay.io/prometheus-operator/prometheus-operator:v0.75.2 $IMAGE_REGISTRY/
 $CMD cp quay.io/prometheus/alertmanager:v0.27.0 $IMAGE_REGISTRY/prometheus/alertmanager:v0.27.0
 $CMD cp quay.io/prometheus/node-exporter:v1.8.2 $IMAGE_REGISTRY/prometheus/node-exporter:v1.8.2
 $CMD cp quay.io/prometheus/prometheus:v2.54.0 $IMAGE_REGISTRY/prometheus/prometheus:v2.54.0
-$CMD cp rabbitmq:3.12.1-management $IMAGE_REGISTRY/library/rabbitmq:3.12.1-management
+$CMD cp rabbitmq:3.12.1-management $IMAGE_REGISTRY/rabbitmq:3.12.1-management
 $CMD cp rancher/kine:v0.11.4 $IMAGE_REGISTRY/rancher/kine:v0.11.4
 $CMD cp registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 $IMAGE_REGISTRY/autoscaling/cluster-autoscaler:v1.27.1
 $CMD cp registry.k8s.io/csi-secrets-store/driver:v1.4.1 $IMAGE_REGISTRY/csi-secrets-store/driver:v1.4.1
