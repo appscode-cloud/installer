@@ -30,7 +30,7 @@
 - ghcr.io/appscode/kube-rbac-proxy:v0.15.0
 - ghcr.io/appscode/kube-ui-server:v0.0.46
 - ghcr.io/appscode/kubedb-ui:0.7.6
-- ghcr.io/appscode/license-proxyserver:v0.0.16
+- ghcr.io/appscode/license-proxyserver:v0.0.17
 - ghcr.io/appscode/maxmind-geoip:city-mmdb-latest
 - ghcr.io/appscode/openfga:v1.6.0
 - ghcr.io/appscode/panopticon:v0.0.14

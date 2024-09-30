@@ -59,7 +59,7 @@ crane cp ghcr.io/appscode/kube-rbac-proxy:v0.13.0 $IMAGE_REGISTRY/kube-rbac-prox
 crane cp ghcr.io/appscode/kube-rbac-proxy:v0.15.0 $IMAGE_REGISTRY/kube-rbac-proxy:$TAG
 crane cp ghcr.io/appscode/kube-ui-server:v0.0.46 $IMAGE_REGISTRY/kube-ui-server:$TAG
 crane cp ghcr.io/appscode/kubedb-ui:0.7.6 $IMAGE_REGISTRY/kubedb-ui:$TAG
-crane cp ghcr.io/appscode/license-proxyserver:v0.0.16 $IMAGE_REGISTRY/license-proxyserver:$TAG
+crane cp ghcr.io/appscode/license-proxyserver:v0.0.17 $IMAGE_REGISTRY/license-proxyserver:$TAG
 crane cp ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/maxmind-geoip:$TAG
 crane cp ghcr.io/appscode/openfga:v1.6.0 $IMAGE_REGISTRY/openfga:$TAG
 crane cp ghcr.io/appscode/panopticon:v0.0.14 $IMAGE_REGISTRY/panopticon:$TAG

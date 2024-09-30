@@ -263,7 +263,7 @@ $CMD push images/appscode-kube-rbac-proxy-v0.13.0.tar $IMAGE_REGISTRY/appscode/k
 $CMD push images/appscode-kube-rbac-proxy-v0.15.0.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.15.0
 $CMD push images/appscode-kube-ui-server-v0.0.46.tar $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.46
 $CMD push images/appscode-kubedb-ui-0.7.6.tar $IMAGE_REGISTRY/appscode/kubedb-ui:0.7.6
-$CMD push images/appscode-license-proxyserver-v0.0.16.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.16
+$CMD push images/appscode-license-proxyserver-v0.0.16.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.17
 $CMD push images/appscode-maxmind-geoip-city-mmdb-latest.tar $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD push images/appscode-openfga-v1.6.0.tar $IMAGE_REGISTRY/appscode/openfga:v1.6.0
 $CMD push images/appscode-panopticon-v0.0.14.tar $IMAGE_REGISTRY/appscode/panopticon:v0.0.14
