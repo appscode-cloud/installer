@@ -272,7 +272,7 @@ $CMD cp ghcr.io/appscode/kube-rbac-proxy:v0.13.0 $IMAGE_REGISTRY/appscode/kube-r
 $CMD cp ghcr.io/appscode/kube-rbac-proxy:v0.15.0 $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.15.0
 $CMD cp ghcr.io/appscode/kube-ui-server:v0.0.46 $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.46
 $CMD cp ghcr.io/appscode/kubedb-ui:0.7.6 $IMAGE_REGISTRY/appscode/kubedb-ui:0.7.6
-$CMD cp ghcr.io/appscode/license-proxyserver:v0.0.16 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.16
+$CMD cp ghcr.io/appscode/license-proxyserver:v0.0.17 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.17
 $CMD cp ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD cp ghcr.io/appscode/openfga:v1.6.0 $IMAGE_REGISTRY/appscode/openfga:v1.6.0
 $CMD cp ghcr.io/appscode/panopticon:v0.0.14 $IMAGE_REGISTRY/appscode/panopticon:v0.0.14
