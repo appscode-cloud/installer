@@ -53,7 +53,7 @@ $CMD pull ghcr.io/appscode-charts/autoscalingkubedbcom-redissentinelautoscaler-e
 $CMD pull ghcr.io/appscode-charts/autoscalingkubedbcom-singlestoreautoscaler-editor:v0.6.0 images/appscode-charts-autoscalingkubedbcom-singlestoreautoscaler-editor-v0.6.0.tar
 $CMD pull ghcr.io/appscode-charts/aws-ebs-csi-driver:2.23.0 images/appscode-charts-aws-ebs-csi-driver-2.23.0.tar
 $CMD pull ghcr.io/appscode-charts/capa-vpc-peering-operator:v2023.12.11 images/appscode-charts-capa-vpc-peering-operator-v2023.12.11.tar
-$CMD pull ghcr.io/appscode-charts/capi-catalog:v2024.7.9 images/appscode-charts-capi-catalog-v2024.7.9.tar
+$CMD pull ghcr.io/appscode-charts/capi-catalog:v2024.9.30 images/appscode-charts-capi-catalog-v2024.9.30.tar
 $CMD pull ghcr.io/appscode-charts/capi-ops-manager:v2024.5.14 images/appscode-charts-capi-ops-manager-v2024.5.14.tar
 $CMD pull ghcr.io/appscode-charts/catalog-manager:v2024.9.30 images/appscode-charts-catalog-manager-v2024.9.30.tar
 $CMD pull ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.7.28 images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.7.28.tar
@@ -76,7 +76,6 @@ $CMD pull ghcr.io/appscode-charts/corekubestashcom-restoresession-editor:v0.6.0 
 $CMD pull ghcr.io/appscode-charts/crossplane:1.14.0 images/appscode-charts-crossplane-1.14.0.tar
 $CMD pull ghcr.io/appscode-charts/csi-driver-nfs:v4.7.0 images/appscode-charts-csi-driver-nfs-v4.7.0.tar
 $CMD pull ghcr.io/appscode-charts/csi-secrets-store-provider-azure:1.5.2 images/appscode-charts-csi-secrets-store-provider-azure-1.5.2.tar
-$CMD pull ghcr.io/appscode-charts/docker-machine-operator:v2024.7.9 images/appscode-charts-docker-machine-operator-v2024.7.9.tar
 $CMD pull ghcr.io/appscode-charts/external-dns-operator:v2024.4.19 images/appscode-charts-external-dns-operator-v2024.4.19.tar
 $CMD pull ghcr.io/appscode-charts/external-secrets:0.9.12 images/appscode-charts-external-secrets-0.9.12.tar
 $CMD pull ghcr.io/appscode-charts/falco-ui-server:v2024.5.17 images/appscode-charts-falco-ui-server-v2024.5.17.tar

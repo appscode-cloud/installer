@@ -56,7 +56,7 @@ $CMD cp ghcr.io/appscode-charts/autoscalingkubedbcom-redissentinelautoscaler-edi
 $CMD cp ghcr.io/appscode-charts/autoscalingkubedbcom-singlestoreautoscaler-editor:v0.6.0 $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-singlestoreautoscaler-editor:v0.6.0
 $CMD cp ghcr.io/appscode-charts/aws-ebs-csi-driver:2.23.0 $IMAGE_REGISTRY/appscode-charts/aws-ebs-csi-driver:2.23.0
 $CMD cp ghcr.io/appscode-charts/capa-vpc-peering-operator:v2023.12.11 $IMAGE_REGISTRY/appscode-charts/capa-vpc-peering-operator:v2023.12.11
-$CMD cp ghcr.io/appscode-charts/capi-catalog:v2024.7.9 $IMAGE_REGISTRY/appscode-charts/capi-catalog:v2024.7.9
+$CMD cp ghcr.io/appscode-charts/capi-catalog:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/capi-catalog:v2024.9.30
 $CMD cp ghcr.io/appscode-charts/capi-ops-manager:v2024.5.14 $IMAGE_REGISTRY/appscode-charts/capi-ops-manager:v2024.5.14
 $CMD cp ghcr.io/appscode-charts/catalog-manager:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2024.9.30
 $CMD cp ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.7.28 $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2024.7.28
@@ -79,7 +79,6 @@ $CMD cp ghcr.io/appscode-charts/corekubestashcom-restoresession-editor:v0.6.0 $I
 $CMD cp ghcr.io/appscode-charts/crossplane:1.14.0 $IMAGE_REGISTRY/appscode-charts/crossplane:1.14.0
 $CMD cp ghcr.io/appscode-charts/csi-driver-nfs:v4.7.0 $IMAGE_REGISTRY/appscode-charts/csi-driver-nfs:v4.7.0
 $CMD cp ghcr.io/appscode-charts/csi-secrets-store-provider-azure:1.5.2 $IMAGE_REGISTRY/appscode-charts/csi-secrets-store-provider-azure:1.5.2
-$CMD cp ghcr.io/appscode-charts/docker-machine-operator:v2024.7.9 $IMAGE_REGISTRY/appscode-charts/docker-machine-operator:v2024.7.9
 $CMD cp ghcr.io/appscode-charts/external-dns-operator:v2024.4.19 $IMAGE_REGISTRY/appscode-charts/external-dns-operator:v2024.4.19
 $CMD cp ghcr.io/appscode-charts/external-secrets:0.9.12 $IMAGE_REGISTRY/appscode-charts/external-secrets:0.9.12
 $CMD cp ghcr.io/appscode-charts/falco-ui-server:v2024.5.17 $IMAGE_REGISTRY/appscode-charts/falco-ui-server:v2024.5.17

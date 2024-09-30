@@ -47,7 +47,7 @@ $CMD push images/appscode-charts-autoscalingkubedbcom-redissentinelautoscaler-ed
 $CMD push images/appscode-charts-autoscalingkubedbcom-singlestoreautoscaler-editor-v0.6.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-singlestoreautoscaler-editor:v0.6.0
 $CMD push images/appscode-charts-aws-ebs-csi-driver-2.23.0.tar $IMAGE_REGISTRY/appscode-charts/aws-ebs-csi-driver:2.23.0
 $CMD push images/appscode-charts-capa-vpc-peering-operator-v2023.12.11.tar $IMAGE_REGISTRY/appscode-charts/capa-vpc-peering-operator:v2023.12.11
-$CMD push images/appscode-charts-capi-catalog-v2024.7.9.tar $IMAGE_REGISTRY/appscode-charts/capi-catalog:v2024.7.9
+$CMD push images/appscode-charts-capi-catalog-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/capi-catalog:v2024.9.30
 $CMD push images/appscode-charts-capi-ops-manager-v2024.5.14.tar $IMAGE_REGISTRY/appscode-charts/capi-ops-manager:v2024.5.14
 $CMD push images/appscode-charts-catalog-manager-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2024.9.30
 $CMD push images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.7.28.tar $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2024.7.28
@@ -70,7 +70,6 @@ $CMD push images/appscode-charts-corekubestashcom-restoresession-editor-v0.6.0.t
 $CMD push images/appscode-charts-crossplane-1.14.0.tar $IMAGE_REGISTRY/appscode-charts/crossplane:1.14.0
 $CMD push images/appscode-charts-csi-driver-nfs-v4.7.0.tar $IMAGE_REGISTRY/appscode-charts/csi-driver-nfs:v4.7.0
 $CMD push images/appscode-charts-csi-secrets-store-provider-azure-1.5.2.tar $IMAGE_REGISTRY/appscode-charts/csi-secrets-store-provider-azure:1.5.2
-$CMD push images/appscode-charts-docker-machine-operator-v2024.7.9.tar $IMAGE_REGISTRY/appscode-charts/docker-machine-operator:v2024.7.9
 $CMD push images/appscode-charts-external-dns-operator-v2024.4.19.tar $IMAGE_REGISTRY/appscode-charts/external-dns-operator:v2024.4.19
 $CMD push images/appscode-charts-external-secrets-0.9.12.tar $IMAGE_REGISTRY/appscode-charts/external-secrets:0.9.12
 $CMD push images/appscode-charts-falco-ui-server-v2024.5.17.tar $IMAGE_REGISTRY/appscode-charts/falco-ui-server:v2024.5.17
