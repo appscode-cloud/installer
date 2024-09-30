@@ -28,7 +28,7 @@ CMD="./crane"
 
 $CMD push images/bitnami-kubectl-1.28.5.tar $IMAGE_REGISTRY/bitnami/kubectl:1.28.5
 $CMD push images/bitnami-sealed-secrets-controller-0.25.0.tar $IMAGE_REGISTRY/bitnami/sealed-secrets-controller:0.25.0
-$CMD push images/library-cassandra-4.1.3.tar $IMAGE_REGISTRY/library/cassandra:4.1.3
+$CMD push images/library-cassandra-4.1.3.tar $IMAGE_REGISTRY/cassandra:4.1.3
 $CMD push images/falcosecurity-falco-no-driver-0.37.0.tar $IMAGE_REGISTRY/falcosecurity/falco-no-driver:0.37.0
 $CMD push images/falcosecurity-falcoctl-0.7.1.tar $IMAGE_REGISTRY/falcosecurity/falcoctl:0.7.1
 $CMD push images/appscode-charts-ace-ocm-addons-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/ace-ocm-addons:v2024.9.30
@@ -340,7 +340,7 @@ $CMD push images/prometheus-operator-prometheus-operator-v0.75.2.tar $IMAGE_REGI
 $CMD push images/prometheus-alertmanager-v0.27.0.tar $IMAGE_REGISTRY/prometheus/alertmanager:v0.27.0
 $CMD push images/prometheus-node-exporter-v1.8.2.tar $IMAGE_REGISTRY/prometheus/node-exporter:v1.8.2
 $CMD push images/prometheus-prometheus-v2.54.0.tar $IMAGE_REGISTRY/prometheus/prometheus:v2.54.0
-$CMD push images/library-rabbitmq-3.12.1-management.tar $IMAGE_REGISTRY/library/rabbitmq:3.12.1-management
+$CMD push images/library-rabbitmq-3.12.1-management.tar $IMAGE_REGISTRY/rabbitmq:3.12.1-management
 $CMD push images/rancher-kine-v0.11.4.tar $IMAGE_REGISTRY/rancher/kine:v0.11.4
 $CMD push images/autoscaling-cluster-autoscaler-v1.27.1.tar $IMAGE_REGISTRY/autoscaling/cluster-autoscaler:v1.27.1
 $CMD push images/csi-secrets-store-driver-v1.4.1.tar $IMAGE_REGISTRY/csi-secrets-store/driver:v1.4.1

@@ -16,4 +16,8 @@ image-packer generate-scripts --output-dir=catalog \
     --src=catalog/editor-charts.yaml \
     --src=catalog/feature-charts.yaml \
     --src=catalog/reusable-ui-charts.yaml
+
+image-packer generate-gcp-script --output-dir=catalog \
+    --src=catalog/ace.yaml \
+    --src=catalog/gcp-mp-images.yaml
 ```

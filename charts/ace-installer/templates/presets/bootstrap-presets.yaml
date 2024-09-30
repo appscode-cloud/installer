@@ -151,6 +151,7 @@ vcluster:
       statefulSet:
         image:
           registry: "%s"
+          repository: "loft-sh/vcluster-oss"
         security:
           podSecurityContext:
             fsGroup: 65534

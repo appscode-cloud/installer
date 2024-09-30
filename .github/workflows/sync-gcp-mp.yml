@@ -1,0 +1,39 @@
+name: Syncer
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Tag'
+        required: true
+        type: string
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.23'
+
+    - uses: imjasonh/setup-crane@v0.1
+
+    - name: Log in to the GitHub Container registry
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: 1gtm
+        password: ${{ secrets.LGTM_GITHUB_TOKEN }}
+
+    - name: Sync
+      env:
+        REGISTRY: ghcr.io/appscode-gcp-mp/ace-mp
+      run: |
+        version=${{ inputs.version }}
+        version=${version#"v"}
+        export TAG=0.1.${version}
+        ./catalog/sync-gcp-mp-images.sh
