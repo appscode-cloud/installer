@@ -269,7 +269,7 @@ $CMD pull ghcr.io/appscode/kube-rbac-proxy:v0.13.0 images/appscode-kube-rbac-pro
 $CMD pull ghcr.io/appscode/kube-rbac-proxy:v0.15.0 images/appscode-kube-rbac-proxy-v0.15.0.tar
 $CMD pull ghcr.io/appscode/kube-ui-server:v0.0.46 images/appscode-kube-ui-server-v0.0.46.tar
 $CMD pull ghcr.io/appscode/kubedb-ui:0.7.6 images/appscode-kubedb-ui-0.7.6.tar
-$CMD pull ghcr.io/appscode/license-proxyserver:v0.0.17 images/appscode-license-proxyserver-v0.0.16.tar
+$CMD pull ghcr.io/appscode/license-proxyserver:v0.0.17 images/appscode-license-proxyserver-v0.0.17.tar
 $CMD pull ghcr.io/appscode/maxmind-geoip:city-mmdb-latest images/appscode-maxmind-geoip-city-mmdb-latest.tar
 $CMD pull ghcr.io/appscode/openfga:v1.6.0 images/appscode-openfga-v1.6.0.tar
 $CMD pull ghcr.io/appscode/panopticon:v0.0.14 images/appscode-panopticon-v0.0.14.tar
@@ -307,8 +307,8 @@ $CMD pull ghcr.io/kluster-manager/registration-operator:v0.14.0 images/kluster-m
 $CMD pull ghcr.io/kluster-manager/registration:v0.14.0 images/kluster-manager-registration-v0.14.0.tar
 $CMD pull ghcr.io/kluster-manager/work:v0.14.0 images/kluster-manager-work-v0.14.0.tar
 $CMD pull ghcr.io/kubedb/kubedb-autoscaler:v0.33.0 images/kubedb-kubedb-autoscaler-v0.33.0.tar
-$CMD pull ghcr.io/kubedb/kubedb-ops-manager:v0.35.0 images/kubedb-kubedb-ops-manager-v0.35.0.tar
-$CMD pull ghcr.io/kubedb/kubedb-provisioner:v0.48.0 images/kubedb-kubedb-provisioner-v0.48.0.tar
+$CMD pull ghcr.io/kubedb/kubedb-ops-manager:v0.35.1 images/kubedb-kubedb-ops-manager-v0.35.1.tar
+$CMD pull ghcr.io/kubedb/kubedb-provisioner:v0.48.1 images/kubedb-kubedb-provisioner-v0.48.1.tar
 $CMD pull ghcr.io/kubedb/kubedb-ui-server:v0.24.0 images/kubedb-kubedb-ui-server-v0.24.0.tar
 $CMD pull ghcr.io/kubedb/kubedb-webhook-server:v0.24.0 images/kubedb-kubedb-webhook-server-v0.24.0.tar
 $CMD pull ghcr.io/kubedb/pg-coordinator:v0.32.0 images/kubedb-pg-coordinator-v0.32.0.tar
