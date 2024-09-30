@@ -64,11 +64,9 @@ helm:
     capa-vpc-peering-operator:
       version: "v2023.12.11"
     capi-catalog:
-      version: "v2024.7.9"
+      version: "v2024.9.30"
     capi-ops-manager:
       version: "v2024.5.14"
-    docker-machine-operator:
-      version: "v2024.7.9"
     catalog-manager:
       version: "v2024.9.30"
     cert-manager:
