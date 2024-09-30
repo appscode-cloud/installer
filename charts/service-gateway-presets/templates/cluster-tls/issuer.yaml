@@ -3,11 +3,11 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: ace
+  name: ace-gw
   labels:
     {{- include "service-gateway-presets.labels" . | nindent 4 }}
 spec:
   ca:
-    secretName: ace-ca
+    secretName: ace-gw-ca
 
 {{- end }}
