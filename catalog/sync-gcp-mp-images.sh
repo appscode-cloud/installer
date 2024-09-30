@@ -98,8 +98,8 @@ crane cp ghcr.io/kluster-manager/registration-operator:v0.14.0 $IMAGE_REGISTRY/r
 crane cp ghcr.io/kluster-manager/registration:v0.14.0 $IMAGE_REGISTRY/registration:$TAG
 crane cp ghcr.io/kluster-manager/work:v0.14.0 $IMAGE_REGISTRY/work:$TAG
 crane cp ghcr.io/kubedb/kubedb-autoscaler:v0.33.0 $IMAGE_REGISTRY/kubedb-autoscaler:$TAG
-crane cp ghcr.io/kubedb/kubedb-ops-manager:v0.35.0 $IMAGE_REGISTRY/kubedb-ops-manager:$TAG
-crane cp ghcr.io/kubedb/kubedb-provisioner:v0.48.0 $IMAGE_REGISTRY/kubedb-provisioner:$TAG
+crane cp ghcr.io/kubedb/kubedb-ops-manager:v0.35.1 $IMAGE_REGISTRY/kubedb-ops-manager:$TAG
+crane cp ghcr.io/kubedb/kubedb-provisioner:v0.48.1 $IMAGE_REGISTRY/kubedb-provisioner:$TAG
 crane cp ghcr.io/kubedb/kubedb-ui-server:v0.24.0 $IMAGE_REGISTRY/kubedb-ui-server:$TAG
 crane cp ghcr.io/kubedb/kubedb-webhook-server:v0.24.0 $IMAGE_REGISTRY/kubedb-webhook-server:$TAG
 crane cp ghcr.io/kubedb/pg-coordinator:v0.32.0 $IMAGE_REGISTRY/pg-coordinator:$TAG

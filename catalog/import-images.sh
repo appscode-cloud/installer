@@ -263,7 +263,7 @@ $CMD push images/appscode-kube-rbac-proxy-v0.13.0.tar $IMAGE_REGISTRY/appscode/k
 $CMD push images/appscode-kube-rbac-proxy-v0.15.0.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.15.0
 $CMD push images/appscode-kube-ui-server-v0.0.46.tar $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.46
 $CMD push images/appscode-kubedb-ui-0.7.6.tar $IMAGE_REGISTRY/appscode/kubedb-ui:0.7.6
-$CMD push images/appscode-license-proxyserver-v0.0.16.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.17
+$CMD push images/appscode-license-proxyserver-v0.0.17.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.17
 $CMD push images/appscode-maxmind-geoip-city-mmdb-latest.tar $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD push images/appscode-openfga-v1.6.0.tar $IMAGE_REGISTRY/appscode/openfga:v1.6.0
 $CMD push images/appscode-panopticon-v0.0.14.tar $IMAGE_REGISTRY/appscode/panopticon:v0.0.14
@@ -301,8 +301,8 @@ $CMD push images/kluster-manager-registration-operator-v0.14.0.tar $IMAGE_REGIST
 $CMD push images/kluster-manager-registration-v0.14.0.tar $IMAGE_REGISTRY/kluster-manager/registration:v0.14.0
 $CMD push images/kluster-manager-work-v0.14.0.tar $IMAGE_REGISTRY/kluster-manager/work:v0.14.0
 $CMD push images/kubedb-kubedb-autoscaler-v0.33.0.tar $IMAGE_REGISTRY/kubedb/kubedb-autoscaler:v0.33.0
-$CMD push images/kubedb-kubedb-ops-manager-v0.35.0.tar $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.35.0
-$CMD push images/kubedb-kubedb-provisioner-v0.48.0.tar $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.48.0
+$CMD push images/kubedb-kubedb-ops-manager-v0.35.1.tar $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.35.1
+$CMD push images/kubedb-kubedb-provisioner-v0.48.1.tar $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.48.1
 $CMD push images/kubedb-kubedb-ui-server-v0.24.0.tar $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.24.0
 $CMD push images/kubedb-kubedb-webhook-server-v0.24.0.tar $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.24.0
 $CMD push images/kubedb-pg-coordinator-v0.32.0.tar $IMAGE_REGISTRY/kubedb/pg-coordinator:v0.32.0
