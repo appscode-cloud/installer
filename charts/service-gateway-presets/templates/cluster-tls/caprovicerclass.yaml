@@ -1,4 +1,4 @@
-{{- if (eq .Values.cluster.tls.issuer "ca") }}
+{{- if and (eq .Values.cluster.tls.issuer "ca") (ne .Values.infra.hostType "ip") }}
 
 apiVersion: cacerts.csi.cert-manager.io/v1alpha1
 kind: CAProviderClass
