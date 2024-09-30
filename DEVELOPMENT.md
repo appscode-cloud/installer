@@ -20,4 +20,6 @@ image-packer generate-scripts --output-dir=catalog \
 image-packer generate-gcp-script --output-dir=catalog \
     --src=catalog/ace.yaml \
     --src=catalog/gcp-mp-images.yaml
+
+make add-license fmt
 ```
