@@ -82,14 +82,17 @@ rules:
   verbs:
     - '*'
 - apiGroups:
-    - apps
     - batch
   resources:
-    - statefulsets
     - jobs
   verbs:
     - '*'
-
+- apiGroups:
+    - apps
+  resources:
+    - statefulsets
+  verbs:
+    - '*'
 ---
 
 apiVersion: rbac.authorization.k8s.io/v1
