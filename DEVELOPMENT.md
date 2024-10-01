@@ -5,7 +5,7 @@
 Uses [image-packer](https://github.com/kmodules/image-packer)
 
 ```bash
-# image-packer list --root-dir=charts --output-dir=catalog
+image-packer list --root-dir=charts --output-dir=catalog
 
 image-packer list-feature-charts --root-dir=charts --output-dir=catalog
 

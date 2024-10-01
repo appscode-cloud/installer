@@ -87,7 +87,7 @@ grafana:
 `
   (include "image.dockerHub" (merge (dict "_repo" "grafana/grafana") $))
   (include "image.dockerLibrary" (merge (dict "_repo" "busybox") $))
-  (include "image.dockerHub" (merge (dict "_repo" "bats/bats") $))
+  (include "image.dockerHub" (merge (dict "_repo" "bats/bats:1.11.0") $))
   (include "image.dockerHub" (merge (dict "_repo" "curlimages/curl") $))
   (include "image.dockerHub" (merge (dict "_repo" "grafana/grafana-image-renderer") $))
   (include "image.quay" (merge (dict "_repo" "kiwigrid/k8s-sidecar") $))
