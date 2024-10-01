@@ -1,15 +1,15 @@
 {{ $defaults := printf `
 image:
   keda:
-    repository: %s
+    registry: %q
   metricsApiServer:
-    repository: %s
+    registry: %q
   webhooks:
-    repository: %s
+    registry: %q
 `
-  (include "image.ghcr" (merge (dict "_repo" "kedacore/keda") $))
-  (include "image.ghcr" (merge (dict "_repo" "kedacore/keda-metrics-apiserver") $))
-  (include "image.ghcr" (merge (dict "_repo" "kedacore/keda-admission-webhooks") $))
+  (include "registry.ghcr" $)
+  (include "registry.ghcr" $)
+  (include "registry.ghcr" $)
   | fromYaml }}
 
 {{ $vals := dig "keda" "values" (dict) .Values.helm.releases }}
