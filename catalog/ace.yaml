@@ -5,6 +5,7 @@
 - falcosecurity/falcoctl:0.7.1
 - ghcr.io/appscode-charts/ace-installer:v2024.9.30
 - ghcr.io/appscode-charts/ace:v2024.9.30
+- ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10
 - ghcr.io/appscode-images/nats:2.10.18-alpine
 - ghcr.io/appscode-images/postgres:15.5-alpine
 - ghcr.io/appscode-images/redis:7.2.4-bookworm

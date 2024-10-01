@@ -34,6 +34,7 @@ crane cp falcosecurity/falco-no-driver:0.37.0 $IMAGE_REGISTRY/falco-no-driver:$T
 crane cp falcosecurity/falcoctl:0.7.1 $IMAGE_REGISTRY/falcoctl:$TAG
 crane cp ghcr.io/appscode-charts/ace-installer:v2024.9.30 $IMAGE_REGISTRY/ace-installer:$TAG
 crane cp ghcr.io/appscode-charts/ace:v2024.9.30 $IMAGE_REGISTRY/ace:$TAG
+crane cp ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 $IMAGE_REGISTRY/spoke-cluster-addons:$TAG
 crane cp ghcr.io/appscode-images/nats:2.10.18-alpine $IMAGE_REGISTRY/nats:$TAG
 crane cp ghcr.io/appscode-images/postgres:15.5-alpine $IMAGE_REGISTRY/postgres:$TAG
 crane cp ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/redis:$TAG
