@@ -14,9 +14,9 @@ metadata:
   labels:
     app.kubernetes.io/part-of: ocm-spoke
 spec:
-  title: OCM Spoke Components
+  title: Multicluster Spoke
   description: |
-    Deploy OCM Spoke Components
+    Deploy Multicluster Spoke Components
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
