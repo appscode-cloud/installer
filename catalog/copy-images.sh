@@ -197,6 +197,7 @@ $CMD cp ghcr.io/appscode-charts/service-gateway-presets:v2024.9.30 $IMAGE_REGIST
 $CMD cp ghcr.io/appscode-charts/service-provider:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/service-provider:v2024.9.30
 $CMD cp ghcr.io/appscode-charts/sidekick:v2024.8.21 $IMAGE_REGISTRY/appscode-charts/sidekick:v2024.8.21
 $CMD cp ghcr.io/appscode-charts/snapshot-controller:3.0.5 $IMAGE_REGISTRY/appscode-charts/snapshot-controller:3.0.5
+$CMD cp ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 $IMAGE_REGISTRY/appscode-charts/spoke-cluster-addons:v2024.7.10
 $CMD cp ghcr.io/appscode-charts/stash-opscenter:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/stash-opscenter:v2024.9.30
 $CMD cp ghcr.io/appscode-charts/stash-presets:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/stash-presets:v2024.9.30
 $CMD cp ghcr.io/appscode-charts/stash:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/stash:v2024.9.30

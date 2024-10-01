@@ -194,6 +194,7 @@ $CMD pull ghcr.io/appscode-charts/service-gateway-presets:v2024.9.30 images/apps
 $CMD pull ghcr.io/appscode-charts/service-provider:v2024.9.30 images/appscode-charts-service-provider-v2024.9.30.tar
 $CMD pull ghcr.io/appscode-charts/sidekick:v2024.8.21 images/appscode-charts-sidekick-v2024.8.21.tar
 $CMD pull ghcr.io/appscode-charts/snapshot-controller:3.0.5 images/appscode-charts-snapshot-controller-3.0.5.tar
+$CMD pull ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 images/appscode-charts-spoke-cluster-addons-v2024.7.10.tar
 $CMD pull ghcr.io/appscode-charts/stash-opscenter:v2024.9.30 images/appscode-charts-stash-opscenter-v2024.9.30.tar
 $CMD pull ghcr.io/appscode-charts/stash-presets:v2024.9.30 images/appscode-charts-stash-presets-v2024.9.30.tar
 $CMD pull ghcr.io/appscode-charts/stash:v2024.9.30 images/appscode-charts-stash-v2024.9.30.tar

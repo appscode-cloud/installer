@@ -188,6 +188,7 @@ $CMD push images/appscode-charts-service-gateway-presets-v2024.9.30.tar $IMAGE_R
 $CMD push images/appscode-charts-service-provider-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/service-provider:v2024.9.30
 $CMD push images/appscode-charts-sidekick-v2024.8.21.tar $IMAGE_REGISTRY/appscode-charts/sidekick:v2024.8.21
 $CMD push images/appscode-charts-snapshot-controller-3.0.5.tar $IMAGE_REGISTRY/appscode-charts/snapshot-controller:3.0.5
+$CMD push images/appscode-charts-spoke-cluster-addons-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/spoke-cluster-addons:v2024.7.10
 $CMD push images/appscode-charts-stash-opscenter-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/stash-opscenter:v2024.9.30
 $CMD push images/appscode-charts-stash-presets-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/stash-presets:v2024.9.30
 $CMD push images/appscode-charts-stash-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/stash:v2024.9.30
