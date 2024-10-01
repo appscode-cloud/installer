@@ -32,6 +32,8 @@ crane cp cassandra:4.1.3 $IMAGE_REGISTRY/cassandra:$TAG
 crane cp coredns/coredns:1.11.3 $IMAGE_REGISTRY/coredns:$TAG
 crane cp falcosecurity/falco-no-driver:0.37.0 $IMAGE_REGISTRY/falco-no-driver:$TAG
 crane cp falcosecurity/falcoctl:0.7.1 $IMAGE_REGISTRY/falcoctl:$TAG
+crane cp ghcr.io/appscode-charts/ace-installer:v2024.9.30 $IMAGE_REGISTRY/ace-installer:$TAG
+crane cp ghcr.io/appscode-charts/ace:v2024.9.30 $IMAGE_REGISTRY/ace:$TAG
 crane cp ghcr.io/appscode-images/nats:2.10.18-alpine $IMAGE_REGISTRY/nats:$TAG
 crane cp ghcr.io/appscode-images/postgres:15.5-alpine $IMAGE_REGISTRY/postgres:$TAG
 crane cp ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/redis:$TAG
@@ -58,6 +60,7 @@ crane cp ghcr.io/appscode/kube-rbac-proxy:v0.11.0 $IMAGE_REGISTRY/kube-rbac-prox
 crane cp ghcr.io/appscode/kube-rbac-proxy:v0.13.0 $IMAGE_REGISTRY/kube-rbac-proxy:$TAG
 crane cp ghcr.io/appscode/kube-rbac-proxy:v0.15.0 $IMAGE_REGISTRY/kube-rbac-proxy:$TAG
 crane cp ghcr.io/appscode/kube-ui-server:v0.0.46 $IMAGE_REGISTRY/kube-ui-server:$TAG
+crane cp ghcr.io/appscode/kubectl-nonroot:1.25 $IMAGE_REGISTRY/kubectl-nonroot:$TAG
 crane cp ghcr.io/appscode/kubedb-ui:0.7.6 $IMAGE_REGISTRY/kubedb-ui:$TAG
 crane cp ghcr.io/appscode/license-proxyserver:v0.0.17 $IMAGE_REGISTRY/license-proxyserver:$TAG
 crane cp ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/maxmind-geoip:$TAG
@@ -98,6 +101,7 @@ crane cp ghcr.io/kluster-manager/registration-operator:v0.14.0 $IMAGE_REGISTRY/r
 crane cp ghcr.io/kluster-manager/registration:v0.14.0 $IMAGE_REGISTRY/registration:$TAG
 crane cp ghcr.io/kluster-manager/work:v0.14.0 $IMAGE_REGISTRY/work:$TAG
 crane cp ghcr.io/kubedb/kubedb-autoscaler:v0.33.0 $IMAGE_REGISTRY/kubedb-autoscaler:$TAG
+crane cp ghcr.io/kubedb/kubedb-crd-manager:v0.3.0 $IMAGE_REGISTRY/kubedb-crd-manager:$TAG
 crane cp ghcr.io/kubedb/kubedb-ops-manager:v0.35.1 $IMAGE_REGISTRY/kubedb-ops-manager:$TAG
 crane cp ghcr.io/kubedb/kubedb-provisioner:v0.48.1 $IMAGE_REGISTRY/kubedb-provisioner:$TAG
 crane cp ghcr.io/kubedb/kubedb-ui-server:v0.24.0 $IMAGE_REGISTRY/kubedb-ui-server:$TAG
@@ -132,6 +136,7 @@ crane cp opensearchproject/opensearch:2.1.0 $IMAGE_REGISTRY/opensearch:$TAG
 crane cp prometheuscommunity/postgres-exporter:v0.15.0 $IMAGE_REGISTRY/postgres-exporter:$TAG
 crane cp quay.io/jetstack/cert-manager-cainjector:v1.15.2 $IMAGE_REGISTRY/cert-manager-cainjector:$TAG
 crane cp quay.io/jetstack/cert-manager-controller:v1.15.2 $IMAGE_REGISTRY/cert-manager-controller:$TAG
+crane cp quay.io/jetstack/cert-manager-startupapicheck:v1.15.2 $IMAGE_REGISTRY/cert-manager-startupapicheck:$TAG
 crane cp quay.io/jetstack/cert-manager-webhook:v1.15.2 $IMAGE_REGISTRY/cert-manager-webhook:$TAG
 crane cp quay.io/prometheus-operator/prometheus-config-reloader:v0.75.2 $IMAGE_REGISTRY/prometheus-config-reloader:$TAG
 crane cp quay.io/prometheus-operator/prometheus-operator:v0.75.2 crane cp quay.io/prometheus/alertmanager:v0.27.0 $IMAGE_REGISTRY/alertmanager:$TAG
@@ -143,6 +148,7 @@ crane cp rancher/kine:v0.11.4 $IMAGE_REGISTRY/kine:$TAG
 crane cp registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 $IMAGE_REGISTRY/cluster-autoscaler:$TAG
 crane cp registry.k8s.io/csi-secrets-store/driver:v1.4.1 $IMAGE_REGISTRY/driver:$TAG
 crane cp registry.k8s.io/ingress-nginx/controller:v1.11.1 $IMAGE_REGISTRY/ingress-nginx-controller:$TAG
+crane cp registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 $IMAGE_REGISTRY/ingress-nginx-kube-webhook-certgen:$TAG
 crane cp registry.k8s.io/kube-apiserver:v1.30.2 $IMAGE_REGISTRY/kube-apiserver:$TAG
 crane cp registry.k8s.io/kube-controller-manager:v1.30.2 $IMAGE_REGISTRY/kube-controller-manager:$TAG
 crane cp registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0 $IMAGE_REGISTRY/kube-state-metrics:$TAG

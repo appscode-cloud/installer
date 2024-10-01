@@ -37,7 +37,9 @@ $CMD pull bitnami/sealed-secrets-controller:0.25.0 images/bitnami-sealed-secrets
 $CMD pull cassandra:4.1.3 images/library-cassandra-4.1.3.tar
 $CMD pull falcosecurity/falco-no-driver:0.37.0 images/falcosecurity-falco-no-driver-0.37.0.tar
 $CMD pull falcosecurity/falcoctl:0.7.1 images/falcosecurity-falcoctl-0.7.1.tar
+$CMD pull ghcr.io/appscode-charts/ace-installer:v2024.9.30 images/appscode-charts-ace-installer-v2024.9.30.tar
 $CMD pull ghcr.io/appscode-charts/ace-ocm-addons:v2024.9.30 images/appscode-charts-ace-ocm-addons-v2024.9.30.tar
+$CMD pull ghcr.io/appscode-charts/ace:v2024.9.30 images/appscode-charts-ace-v2024.9.30.tar
 $CMD pull ghcr.io/appscode-charts/autoscalingkubedbcom-elasticsearchautoscaler-editor:v0.6.0 images/appscode-charts-autoscalingkubedbcom-elasticsearchautoscaler-editor-v0.6.0.tar
 $CMD pull ghcr.io/appscode-charts/autoscalingkubedbcom-kafkaautoscaler-editor:v0.6.0 images/appscode-charts-autoscalingkubedbcom-kafkaautoscaler-editor-v0.6.0.tar
 $CMD pull ghcr.io/appscode-charts/autoscalingkubedbcom-mariadbautoscaler-editor:v0.6.0 images/appscode-charts-autoscalingkubedbcom-mariadbautoscaler-editor-v0.6.0.tar
@@ -268,6 +270,7 @@ $CMD pull ghcr.io/appscode/kube-rbac-proxy:v0.11.0 images/appscode-kube-rbac-pro
 $CMD pull ghcr.io/appscode/kube-rbac-proxy:v0.13.0 images/appscode-kube-rbac-proxy-v0.13.0.tar
 $CMD pull ghcr.io/appscode/kube-rbac-proxy:v0.15.0 images/appscode-kube-rbac-proxy-v0.15.0.tar
 $CMD pull ghcr.io/appscode/kube-ui-server:v0.0.46 images/appscode-kube-ui-server-v0.0.46.tar
+$CMD pull ghcr.io/appscode/kubectl-nonroot:1.25 images/appscode-kubectl-nonroot-1.25.tar
 $CMD pull ghcr.io/appscode/kubedb-ui:0.7.6 images/appscode-kubedb-ui-0.7.6.tar
 $CMD pull ghcr.io/appscode/license-proxyserver:v0.0.17 images/appscode-license-proxyserver-v0.0.17.tar
 $CMD pull ghcr.io/appscode/maxmind-geoip:city-mmdb-latest images/appscode-maxmind-geoip-city-mmdb-latest.tar
@@ -307,6 +310,7 @@ $CMD pull ghcr.io/kluster-manager/registration-operator:v0.14.0 images/kluster-m
 $CMD pull ghcr.io/kluster-manager/registration:v0.14.0 images/kluster-manager-registration-v0.14.0.tar
 $CMD pull ghcr.io/kluster-manager/work:v0.14.0 images/kluster-manager-work-v0.14.0.tar
 $CMD pull ghcr.io/kubedb/kubedb-autoscaler:v0.33.0 images/kubedb-kubedb-autoscaler-v0.33.0.tar
+$CMD pull ghcr.io/kubedb/kubedb-crd-manager:v0.3.0 images/kubedb-kubedb-crd-manager-v0.3.0.tar
 $CMD pull ghcr.io/kubedb/kubedb-ops-manager:v0.35.1 images/kubedb-kubedb-ops-manager-v0.35.1.tar
 $CMD pull ghcr.io/kubedb/kubedb-provisioner:v0.48.1 images/kubedb-kubedb-provisioner-v0.48.1.tar
 $CMD pull ghcr.io/kubedb/kubedb-ui-server:v0.24.0 images/kubedb-kubedb-ui-server-v0.24.0.tar
@@ -339,6 +343,7 @@ $CMD pull opensearchproject/opensearch:2.1.0 images/opensearchproject-opensearch
 $CMD pull prometheuscommunity/postgres-exporter:v0.15.0 images/prometheuscommunity-postgres-exporter-v0.15.0.tar
 $CMD pull quay.io/jetstack/cert-manager-cainjector:v1.15.2 images/jetstack-cert-manager-cainjector-v1.15.2.tar
 $CMD pull quay.io/jetstack/cert-manager-controller:v1.15.2 images/jetstack-cert-manager-controller-v1.15.2.tar
+$CMD pull quay.io/jetstack/cert-manager-startupapicheck:v1.15.2 images/jetstack-cert-manager-startupapicheck-v1.15.2.tar
 $CMD pull quay.io/jetstack/cert-manager-webhook:v1.15.2 images/jetstack-cert-manager-webhook-v1.15.2.tar
 $CMD pull quay.io/prometheus-operator/prometheus-config-reloader:v0.75.2 images/prometheus-operator-prometheus-config-reloader-v0.75.2.tar
 $CMD pull quay.io/prometheus-operator/prometheus-operator:v0.75.2 images/prometheus-operator-prometheus-operator-v0.75.2.tar
@@ -350,6 +355,7 @@ $CMD pull rancher/kine:v0.11.4 images/rancher-kine-v0.11.4.tar
 $CMD pull registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 images/autoscaling-cluster-autoscaler-v1.27.1.tar
 $CMD pull registry.k8s.io/csi-secrets-store/driver:v1.4.1 images/csi-secrets-store-driver-v1.4.1.tar
 $CMD pull registry.k8s.io/ingress-nginx/controller:v1.11.1 images/ingress-nginx-controller-v1.11.1.tar
+$CMD pull registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar
 $CMD pull registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0 images/kube-state-metrics-kube-state-metrics-v2.13.0.tar
 $CMD pull registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2 images/prometheus-adapter-prometheus-adapter-v0.11.2.tar
 $CMD pull registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.10.0 images/sig-storage-csi-node-driver-registrar-v2.10.0.tar

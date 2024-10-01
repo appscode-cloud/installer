@@ -31,7 +31,9 @@ $CMD push images/bitnami-sealed-secrets-controller-0.25.0.tar $IMAGE_REGISTRY/bi
 $CMD push images/library-cassandra-4.1.3.tar $IMAGE_REGISTRY/cassandra:4.1.3
 $CMD push images/falcosecurity-falco-no-driver-0.37.0.tar $IMAGE_REGISTRY/falcosecurity/falco-no-driver:0.37.0
 $CMD push images/falcosecurity-falcoctl-0.7.1.tar $IMAGE_REGISTRY/falcosecurity/falcoctl:0.7.1
+$CMD push images/appscode-charts-ace-installer-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/ace-installer:v2024.9.30
 $CMD push images/appscode-charts-ace-ocm-addons-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/ace-ocm-addons:v2024.9.30
+$CMD push images/appscode-charts-ace-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/ace:v2024.9.30
 $CMD push images/appscode-charts-autoscalingkubedbcom-elasticsearchautoscaler-editor-v0.6.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-elasticsearchautoscaler-editor:v0.6.0
 $CMD push images/appscode-charts-autoscalingkubedbcom-kafkaautoscaler-editor-v0.6.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-kafkaautoscaler-editor:v0.6.0
 $CMD push images/appscode-charts-autoscalingkubedbcom-mariadbautoscaler-editor-v0.6.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-mariadbautoscaler-editor:v0.6.0
@@ -262,6 +264,7 @@ $CMD push images/appscode-kube-rbac-proxy-v0.11.0.tar $IMAGE_REGISTRY/appscode/k
 $CMD push images/appscode-kube-rbac-proxy-v0.13.0.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.13.0
 $CMD push images/appscode-kube-rbac-proxy-v0.15.0.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.15.0
 $CMD push images/appscode-kube-ui-server-v0.0.46.tar $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.46
+$CMD push images/appscode-kubectl-nonroot-1.25.tar $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.25
 $CMD push images/appscode-kubedb-ui-0.7.6.tar $IMAGE_REGISTRY/appscode/kubedb-ui:0.7.6
 $CMD push images/appscode-license-proxyserver-v0.0.17.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.17
 $CMD push images/appscode-maxmind-geoip-city-mmdb-latest.tar $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
@@ -301,6 +304,7 @@ $CMD push images/kluster-manager-registration-operator-v0.14.0.tar $IMAGE_REGIST
 $CMD push images/kluster-manager-registration-v0.14.0.tar $IMAGE_REGISTRY/kluster-manager/registration:v0.14.0
 $CMD push images/kluster-manager-work-v0.14.0.tar $IMAGE_REGISTRY/kluster-manager/work:v0.14.0
 $CMD push images/kubedb-kubedb-autoscaler-v0.33.0.tar $IMAGE_REGISTRY/kubedb/kubedb-autoscaler:v0.33.0
+$CMD push images/kubedb-kubedb-crd-manager-v0.3.0.tar $IMAGE_REGISTRY/kubedb/kubedb-crd-manager:v0.3.0
 $CMD push images/kubedb-kubedb-ops-manager-v0.35.1.tar $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.35.1
 $CMD push images/kubedb-kubedb-provisioner-v0.48.1.tar $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.48.1
 $CMD push images/kubedb-kubedb-ui-server-v0.24.0.tar $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.24.0
@@ -333,6 +337,7 @@ $CMD push images/opensearchproject-opensearch-2.1.0.tar $IMAGE_REGISTRY/opensear
 $CMD push images/prometheuscommunity-postgres-exporter-v0.15.0.tar $IMAGE_REGISTRY/prometheuscommunity/postgres-exporter:v0.15.0
 $CMD push images/jetstack-cert-manager-cainjector-v1.15.2.tar $IMAGE_REGISTRY/jetstack/cert-manager-cainjector:v1.15.2
 $CMD push images/jetstack-cert-manager-controller-v1.15.2.tar $IMAGE_REGISTRY/jetstack/cert-manager-controller:v1.15.2
+$CMD push images/jetstack-cert-manager-startupapicheck-v1.15.2.tar $IMAGE_REGISTRY/jetstack/cert-manager-startupapicheck:v1.15.2
 $CMD push images/jetstack-cert-manager-webhook-v1.15.2.tar $IMAGE_REGISTRY/jetstack/cert-manager-webhook:v1.15.2
 $CMD push images/prometheus-operator-prometheus-config-reloader-v0.75.2.tar $IMAGE_REGISTRY/prometheus-operator/prometheus-config-reloader:v0.75.2
 $CMD push images/prometheus-operator-prometheus-operator-v0.75.2.tar $IMAGE_REGISTRY/prometheus-operator/prometheus-operator:v0.75.2
@@ -344,6 +349,7 @@ $CMD push images/rancher-kine-v0.11.4.tar $IMAGE_REGISTRY/rancher/kine:v0.11.4
 $CMD push images/autoscaling-cluster-autoscaler-v1.27.1.tar $IMAGE_REGISTRY/autoscaling/cluster-autoscaler:v1.27.1
 $CMD push images/csi-secrets-store-driver-v1.4.1.tar $IMAGE_REGISTRY/csi-secrets-store/driver:v1.4.1
 $CMD push images/ingress-nginx-controller-v1.11.1.tar $IMAGE_REGISTRY/ingress-nginx/controller:v1.11.1
+$CMD push images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar $IMAGE_REGISTRY/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
 $CMD push images/kube-state-metrics-kube-state-metrics-v2.13.0.tar $IMAGE_REGISTRY/kube-state-metrics/kube-state-metrics:v2.13.0
 $CMD push images/prometheus-adapter-prometheus-adapter-v0.11.2.tar $IMAGE_REGISTRY/prometheus-adapter/prometheus-adapter:v0.11.2
 $CMD push images/sig-storage-csi-node-driver-registrar-v2.10.0.tar $IMAGE_REGISTRY/sig-storage/csi-node-driver-registrar:v2.10.0
