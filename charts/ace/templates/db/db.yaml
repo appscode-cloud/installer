@@ -4,6 +4,7 @@ metadata:
   name: {{ include "ace.fullname" . }}-db
   namespace: {{ .Release.Namespace }}
   labels:
+    archiver: "true"
     {{- include "ace.labels" . | nindent 4 }}
 spec:
   version: "{{ .Values.settings.db.version }}"
