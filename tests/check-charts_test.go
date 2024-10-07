@@ -35,9 +35,6 @@ func Test_checkVersions(t *testing.T) {
 	if err := checkAceInstallerVersions(); err != nil {
 		t.Errorf("checkVersions() error = %v", err)
 	}
-	if err := checkAceOcmAddonsVersions(); err != nil {
-		t.Errorf("checkVersions() error = %v", err)
-	}
 	if err := checkOpscenterFeaturesVersions(); err != nil {
 		t.Errorf("checkVersions() error = %v", err)
 	}
@@ -55,38 +52,6 @@ func checkAceInstallerVersions() error {
 	}
 
 	var spec v1alpha1.AceInstallerSpec
-	err = yaml.Unmarshal(data, &spec)
-	if err != nil {
-		return err
-	}
-
-	sh := shell.NewSession()
-	sh.SetDir("/tmp")
-	sh.ShowCMD = true
-
-	for k, v := range spec.Helm.Releases {
-		// helm pull appscode/ace-installer --version=v2023.03.23
-		fullname := ociReg + k
-		err := sh.Command("helm", "pull", fullname, "--version", v.Version).Run()
-		if err != nil {
-			return err
-		}
-	}
-	return nil
-}
-
-func checkAceOcmAddonsVersions() error {
-	_, file, _, ok := runtime.Caller(1)
-	if !ok {
-		return errors.New("failed to locate opscenter-features/values.yaml")
-	}
-
-	data, err := os.ReadFile(filepath.Join(filepath.Dir(file), "../charts/ace-ocm-addons/values.yaml"))
-	if err != nil {
-		return err
-	}
-
-	var spec v1alpha1.AceOcmAddonsSpec
 	err = yaml.Unmarshal(data, &spec)
 	if err != nil {
 		return err

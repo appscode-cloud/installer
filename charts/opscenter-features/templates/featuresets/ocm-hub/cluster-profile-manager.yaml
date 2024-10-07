@@ -1,9 +1,14 @@
 {{ $defaults := printf `
+registryFQDN: %s
+manager:
+  image: %s
 kubectl:
   image: %s
 helm:
   createNamespace: %v
 `
+  (include "registry.ghcr" $)
+  (include "image.ghcr" (merge (dict "_repo" "kluster-manager/cluster-profile") $))
   (include "kubectl.image" $)
   $.Values.helm.createNamespace
   | fromYaml }}
@@ -14,7 +19,7 @@ helm:
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: ace-ocm-addons
+  name: cluster-profile-manager
   labels:
     app.kubernetes.io/part-of: ocm-hub
 spec:
@@ -30,21 +35,20 @@ spec:
   requirements:
     features:
       - cluster-manager-hub
-  # readinessChecks:
-  #   workloads:
-  #     - group: apps
-  #       version: v1
-  #       kind: Deployment
-  #       selector:
-  #         app.kubernetes.io/instance: ace-ocm-addons
-  #         app.kubernetes.io/managed-by: Helm
-  #         app.kubernetes.io/name: voyager-gateway
-  #         control-plane: envoy-gateway
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/instance: cluster-profile-manager
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: cluster-profile-manager
   chart:
-    name: ace-ocm-addons
+    name: cluster-profile-manager
     namespace: open-cluster-management-addon
     createNamespace: {{ $.Values.helm.createNamespace }}
-    version: {{ dig "ace-ocm-addons" "version" "" $.Values.helm.releases }}
+    version: {{ dig "cluster-profile-manager" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci
@@ -52,7 +56,7 @@ spec:
   valuesFrom:
     - kind: Secret
       name: ace-features-cred
-      valuesKey: ace-ocm-addons.yaml
+      valuesKey: cluster-profile-manager.yaml
       optional: true
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
