@@ -2,8 +2,8 @@ apiVersion: v2
 name: ace
 description: A Helm chart for Kubernetes
 type: application
-version: v2024.9.30
-appVersion: v2024.9.30
+version: v2024.10.7
+appVersion: v2024.10.7
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
@@ -15,19 +15,19 @@ dependencies:
 - name: platform-ui
   repository: file://../platform-ui
   condition: platform-ui.enabled
-  version: v2024.9.30
+  version: v2024.10.7
 - name: cluster-ui
   repository: file://../cluster-ui
   condition: cluster-ui.enabled
-  version: v2024.9.30
+  version: v2024.10.7
 - name: deploy-ui
   repository: file://../deploy-ui
   condition: deploy-ui.enabled
-  version: v2024.9.30
+  version: v2024.10.7
 - name: kubedb-ui
   repository: file://../kubedb-ui
   condition: kubedb-ui.enabled
-  version: v2024.9.30
+  version: v2024.10.7
 - name: marketplace-ui
   repository: file://../marketplace-ui
   condition: marketplace-ui.enabled
@@ -35,15 +35,15 @@ dependencies:
 - name: platform-api
   repository: file://../platform-api
   condition: platform-api.enabled
-  version: v2024.9.30
+  version: v2024.10.7
 - name: platform-links
   repository: file://../platform-links
   condition: platform-links.enabled
-  version: v2024.9.30
+  version: v2024.10.7
 - name: billing
   repository: file://../billing
   condition: billing.enabled
-  version: v2024.9.30
+  version: v2024.10.7
 - name: grafana
   repository: file://../grafana
   condition: grafana.enabled
@@ -55,7 +55,7 @@ dependencies:
 - name: s3proxy
   repository: file://../s3proxy
   condition: s3proxy.enabled
-  version: v2024.9.30
+  version: v2024.10.7
 - name: dns-proxy
   repository: file://../dns-proxy
   condition: dns-proxy.enabled
