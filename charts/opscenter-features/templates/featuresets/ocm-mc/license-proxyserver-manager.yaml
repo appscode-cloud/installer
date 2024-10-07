@@ -35,7 +35,7 @@ spec:
   requirements:
     features:
       - multicluster-controlplane
-      - ace-mc-addons
+      - mc-profile-manager
   readinessChecks:
     workloads:
       - group: apps

@@ -33,7 +33,7 @@ spec:
   requirements:
     features:
       - cluster-manager-hub
-      - ace-ocm-addons
+      - cluster-profile-manager
       - managed-serviceaccount-manager
   readinessChecks:
     workloads:

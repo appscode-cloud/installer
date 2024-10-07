@@ -53,7 +53,7 @@ spec:
   requirements:
     features:
       - cluster-manager-hub
-      - ace-ocm-addons
+      - cluster-profile-manager
   readinessChecks:
     workloads:
       - group: apps

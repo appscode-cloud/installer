@@ -39,7 +39,7 @@ spec:
   requirements:
     features:
       - multicluster-controlplane
-      - ace-mc-addons
+      - mc-profile-manager
       - mc-serviceaccount-manager
       - mc-proxy-manager
   readinessChecks:
