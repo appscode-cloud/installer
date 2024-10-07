@@ -1,7 +1,7 @@
 apiVersion: archiver.kubedb.com/v1alpha1
 kind: PostgresArchiver
 metadata:
-  name: {{ include "ace.fullname" . }}-archiver
+  name: {{ include "ace.fullname" . }}-db
   namespace: {{ .Release.Namespace }}
 spec:
   pause: false
