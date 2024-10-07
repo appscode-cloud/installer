@@ -64,6 +64,8 @@ helm uninstall -n kubeops ace-installer || true
 # helm uninstall -n cert-manager cert-manager-csi-driver-cacerts || true
 helm uninstall -n cert-manager cert-manager-webhook-ace || true
 
+helm uninstall -n stash kubestash || true
+
 helm uninstall -n monitoring grafana-operator || true
 # helm uninstall -n monitoring kube-grafana-dashboards || true
 # helm uninstall -n monitoring kube-prometheus-stack || true
