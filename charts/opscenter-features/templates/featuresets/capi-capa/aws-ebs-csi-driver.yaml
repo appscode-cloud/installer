@@ -3,6 +3,8 @@
 {{ $vals := dig "aws-ebs-csi-driver" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $defaults $vals }}
 
+{{ $capiProvider := dig "capi" "provider" "" .Values.clusterMetadata }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -19,7 +21,7 @@ spec:
   featureSet: capi-capa
   featureBlock: aws-ebs-csi-driver
   recommended: true
-  disabled: {{ not (eq .Values.clusterMetadata.capi.provider "capa") }}
+  disabled: {{ not (eq $capiProvider "capa") }}
   readinessChecks:
     workloads:
       - group: apps
