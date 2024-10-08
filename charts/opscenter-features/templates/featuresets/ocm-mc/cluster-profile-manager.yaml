@@ -25,9 +25,9 @@ metadata:
   labels:
     app.kubernetes.io/part-of: ocm-mc
 spec:
-  title: ACE OCM Addons
+  title: Cluster Profile Manager
   description: |
-    ACE OCM Addons
+    Deploy Cluster Profile Manager
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
