@@ -141,7 +141,6 @@ properties:
     - skip
     type: string
 required:
-- clusterMetadata
 - kubestash
 - tool
 - usePrefix
