@@ -33,7 +33,6 @@ spec:
   requirements:
     features:
       - cluster-manager-hub
-      - cluster-profile-manager
       - managed-serviceaccount-manager
   readinessChecks:
     workloads:
