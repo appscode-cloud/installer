@@ -45,10 +45,10 @@ type StashPresets struct {
 
 type StashPresetsSpec struct {
 	// +kubebuilder:default=KubeStash
-	Tool            BackupTool           `json:"tool"`
-	ClusterMetadata StashClusterMetadata `json:"clusterMetadata"`
-	KubeStash       KubeStashInfo        `json:"kubestash"`
-	UsePrefix       UsePrefix            `json:"usePrefix"`
+	Tool            BackupTool            `json:"tool"`
+	ClusterMetadata *StashClusterMetadata `json:"clusterMetadata,omitempty"`
+	KubeStash       KubeStashInfo         `json:"kubestash"`
+	UsePrefix       UsePrefix             `json:"usePrefix"`
 }
 
 // +kubebuilder:validation:Enum=uid;name;skip
