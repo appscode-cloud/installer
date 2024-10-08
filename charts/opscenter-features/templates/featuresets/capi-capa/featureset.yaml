@@ -1,3 +1,5 @@
+{{ $capiProvider := dig "capi" "provider" "" .Values.clusterMetadata }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: FeatureSet
 metadata:
@@ -10,7 +12,7 @@ spec:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   recommended: false
-  disabled: {{ not (eq .Values.clusterMetadata.capi.provider "capa") }}
+  disabled: {{ not (eq $capiProvider "capa") }}
   chart:
     name: uik8sappscodecom-featureset-capi-capa-editor
     version: {{ .Chart.AppVersion }}
