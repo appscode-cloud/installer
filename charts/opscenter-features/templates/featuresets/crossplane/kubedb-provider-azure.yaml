@@ -3,6 +3,8 @@
 {{ $vals := dig "kubedb-provider-azure" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $defaults $vals }}
 
+{{ $capiProvider := dig "capi" "provider" "" .Values.clusterMetadata }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -18,7 +20,7 @@ spec:
       type: image/svg+xml
   featureSet: crossplane
   featureBlock: crossplane
-  recommended: {{ eq .Values.clusterMetadata.capi.provider "capz" }}
+  recommended: {{ eq $capiProvider "capz" }}
   requirements:
     features:
       - crossplane
