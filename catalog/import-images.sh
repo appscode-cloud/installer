@@ -272,7 +272,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubedb-u
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-license-proxyserver-v0.0.18.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.18
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-maxmind-geoip-city-mmdb-latest.tar $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-openfga-v1.6.0.tar $IMAGE_REGISTRY/appscode/openfga:v1.6.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-panopticon-v0.0.14.tar $IMAGE_REGISTRY/appscode/panopticon:v0.0.15
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-panopticon-v0.0.15.tar $IMAGE_REGISTRY/appscode/panopticon:v0.0.15
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-petset-v0.0.7.tar $IMAGE_REGISTRY/appscode/petset:v0.0.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-platform-ui-0.8.6.tar $IMAGE_REGISTRY/appscode/platform-ui:0.8.6
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-prom-authproxy-v0.0.1.tar $IMAGE_REGISTRY/appscode/prom-authproxy:v0.0.1
@@ -309,10 +309,10 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-r
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-work-v0.14.0.tar $IMAGE_REGISTRY/kluster-manager/work:v0.14.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-autoscaler-v0.33.0.tar $IMAGE_REGISTRY/kubedb/kubedb-autoscaler:v0.33.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-crd-manager-v0.3.0.tar $IMAGE_REGISTRY/kubedb/kubedb-crd-manager:v0.3.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ops-manager-v0.35.1.tar $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.35.1
-$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-provisioner-v0.48.1.tar $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.48.1
+$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ops-manager-v0.35.2.tar $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.35.2
+$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-provisioner-v0.48.2.tar $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.48.2
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ui-server-v0.24.0.tar $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.24.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-webhook-server-v0.24.0.tar $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.24.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-webhook-server-v0.24.1.tar $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.24.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-pg-coordinator-v0.32.0.tar $IMAGE_REGISTRY/kubedb/pg-coordinator:v0.32.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-postgres-init-0.15.0.tar $IMAGE_REGISTRY/kubedb/postgres-init:0.15.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-postgres-restic-plugin-v0.11.0_16.1.tar $IMAGE_REGISTRY/kubedb/postgres-restic-plugin:v0.11.0_16.1
