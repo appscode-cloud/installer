@@ -23020,6 +23020,7 @@ properties:
                     - Scaleway
                     - Vultr
                     - Swift
+                    - Hetzner
                     type: string
                   vultr:
                     properties:
@@ -23067,6 +23068,8 @@ properties:
             type: object
           selfManagement:
             properties:
+              createCAPICluster:
+                type: boolean
               disableFeatures:
                 items:
                   type: string
