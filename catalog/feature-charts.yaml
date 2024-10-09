@@ -49,8 +49,8 @@
 - ghcr.io/appscode-charts/kubevault:v2024.9.30
 - ghcr.io/appscode-charts/kyverno-policies:3.2.5
 - ghcr.io/appscode-charts/kyverno:3.2.6
-- ghcr.io/appscode-charts/license-proxyserver-manager:v2024.9.30
-- ghcr.io/appscode-charts/license-proxyserver:v2024.9.30
+- ghcr.io/appscode-charts/license-proxyserver-manager:v2024.10.7
+- ghcr.io/appscode-charts/license-proxyserver:v2024.10.7
 - ghcr.io/appscode-charts/longhorn:1.6.2
 - ghcr.io/appscode-charts/managed-serviceaccount-manager:v2024.7.10
 - ghcr.io/appscode-charts/metrics-server:3.11.0

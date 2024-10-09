@@ -148,8 +148,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-k
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubevault-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/kubevault:v2024.9.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kyverno-policies-3.2.5.tar $IMAGE_REGISTRY/appscode-charts/kyverno-policies:3.2.5
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kyverno-3.2.6.tar $IMAGE_REGISTRY/appscode-charts/kyverno:3.2.6
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-license-proxyserver-manager-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/license-proxyserver-manager:v2024.9.30
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-license-proxyserver-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/license-proxyserver:v2024.9.30
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-license-proxyserver-manager-v2024.10.7.tar $IMAGE_REGISTRY/appscode-charts/license-proxyserver-manager:v2024.10.7
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-license-proxyserver-v2024.10.7.tar $IMAGE_REGISTRY/appscode-charts/license-proxyserver:v2024.10.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-longhorn-1.6.2.tar $IMAGE_REGISTRY/appscode-charts/longhorn:1.6.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-managed-serviceaccount-manager-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/managed-serviceaccount-manager:v2024.7.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-metrics-server-3.11.0.tar $IMAGE_REGISTRY/appscode-charts/metrics-server:3.11.0
@@ -269,7 +269,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rba
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-ui-server-v0.0.47.tar $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.47
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-nonroot-1.25.tar $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.25
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubedb-ui-0.7.7.tar $IMAGE_REGISTRY/appscode/kubedb-ui:0.7.7
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-license-proxyserver-v0.0.17.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.17
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-license-proxyserver-v0.0.18.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.18
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-maxmind-geoip-city-mmdb-latest.tar $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-openfga-v1.6.0.tar $IMAGE_REGISTRY/appscode/openfga:v1.6.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-panopticon-v0.0.14.tar $IMAGE_REGISTRY/appscode/panopticon:v0.0.14

@@ -157,8 +157,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ku
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubevault:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/kubevault:v2024.9.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno-policies:3.2.5 $IMAGE_REGISTRY/appscode-charts/kyverno-policies:3.2.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno:3.2.6 $IMAGE_REGISTRY/appscode-charts/kyverno:3.2.6
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver-manager:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/license-proxyserver-manager:v2024.9.30
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/license-proxyserver:v2024.9.30
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver-manager:v2024.10.7 $IMAGE_REGISTRY/appscode-charts/license-proxyserver-manager:v2024.10.7
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver:v2024.10.7 $IMAGE_REGISTRY/appscode-charts/license-proxyserver:v2024.10.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/longhorn:1.6.2 $IMAGE_REGISTRY/appscode-charts/longhorn:1.6.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/managed-serviceaccount-manager:v2024.7.10 $IMAGE_REGISTRY/appscode-charts/managed-serviceaccount-manager:v2024.7.10
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/metrics-server:3.11.0 $IMAGE_REGISTRY/appscode-charts/metrics-server:3.11.0
@@ -278,7 +278,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-ui-server:v0.0.47 $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.47
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.25 $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.25
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:0.7.7 $IMAGE_REGISTRY/appscode/kubedb-ui:0.7.7
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.17 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.17
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.18 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.18
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.6.0 $IMAGE_REGISTRY/appscode/openfga:v1.6.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.14 $IMAGE_REGISTRY/appscode/panopticon:v0.0.14

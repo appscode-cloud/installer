@@ -34,7 +34,7 @@
 - ghcr.io/appscode/kube-ui-server:v0.0.47
 - ghcr.io/appscode/kubectl-nonroot:1.25
 - ghcr.io/appscode/kubedb-ui:0.7.7
-- ghcr.io/appscode/license-proxyserver:v0.0.17
+- ghcr.io/appscode/license-proxyserver:v0.0.18
 - ghcr.io/appscode/maxmind-geoip:city-mmdb-latest
 - ghcr.io/appscode/openfga:v1.6.0
 - ghcr.io/appscode/panopticon:v0.0.14
