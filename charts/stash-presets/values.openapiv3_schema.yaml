@@ -67,7 +67,28 @@ properties:
             required:
             - spec
             type: object
+          local:
+            properties:
+              mountPath:
+                type: string
+              persistentVolumeClaim:
+                properties:
+                  claimName:
+                    type: string
+                  readOnly:
+                    type: boolean
+                required:
+                - claimName
+                type: object
+              subPath:
+                type: string
+            type: object
           provider:
+            enum:
+            - s3
+            - azure
+            - gcs
+            - local
             type: string
           s3:
             properties:
