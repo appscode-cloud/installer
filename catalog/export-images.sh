@@ -182,7 +182,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.7.0 images/appscode-charts-opskubedbcom-singlestoreopsrequest-editor-v0.7.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-solropsrequest-editor:v0.7.0 images/appscode-charts-opskubedbcom-solropsrequest-editor-v0.7.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.7.0 images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.7.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2024.9.30 images/appscode-charts-panopticon-v2024.9.30.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2024.10.7 images/appscode-charts-panopticon-v2024.10.7.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prepare-cluster:v2023.12.21 images/appscode-charts-prepare-cluster-v2023.12.21.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prometheus-adapter:4.9.0 images/appscode-charts-prometheus-adapter-4.9.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/reloader:1.0.79 images/appscode-charts-reloader-1.0.79.tar
@@ -278,7 +278,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.18 images/appscode-license-proxyserver-v0.0.18.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest images/appscode-maxmind-geoip-city-mmdb-latest.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.6.0 images/appscode-openfga-v1.6.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.14 images/appscode-panopticon-v0.0.14.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.15 images/appscode-panopticon-v0.0.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.7 images/appscode-petset-v0.0.7.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:0.8.6 images/appscode-platform-ui-0.8.6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/prom-authproxy:v0.0.1 images/appscode-prom-authproxy-v0.0.1.tar

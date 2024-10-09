@@ -176,7 +176,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-o
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-singlestoreopsrequest-editor-v0.7.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.7.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-solropsrequest-editor-v0.7.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-solropsrequest-editor:v0.7.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.7.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.7.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-panopticon-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/panopticon:v2024.9.30
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-panopticon-v2024.10.7.tar $IMAGE_REGISTRY/appscode-charts/panopticon:v2024.10.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prepare-cluster-v2023.12.21.tar $IMAGE_REGISTRY/appscode-charts/prepare-cluster:v2023.12.21
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prometheus-adapter-4.9.0.tar $IMAGE_REGISTRY/appscode-charts/prometheus-adapter:4.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-reloader-1.0.79.tar $IMAGE_REGISTRY/appscode-charts/reloader:1.0.79
@@ -272,7 +272,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubedb-u
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-license-proxyserver-v0.0.18.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.18
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-maxmind-geoip-city-mmdb-latest.tar $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-openfga-v1.6.0.tar $IMAGE_REGISTRY/appscode/openfga:v1.6.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-panopticon-v0.0.14.tar $IMAGE_REGISTRY/appscode/panopticon:v0.0.14
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-panopticon-v0.0.14.tar $IMAGE_REGISTRY/appscode/panopticon:v0.0.15
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-petset-v0.0.7.tar $IMAGE_REGISTRY/appscode/petset:v0.0.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-platform-ui-0.8.6.tar $IMAGE_REGISTRY/appscode/platform-ui:0.8.6
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-prom-authproxy-v0.0.1.tar $IMAGE_REGISTRY/appscode/prom-authproxy:v0.0.1
