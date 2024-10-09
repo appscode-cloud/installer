@@ -146,8 +146,8 @@ k3s ctr images import images/appscode-charts-kubevault-opscenter-v2024.9.30.tar
 k3s ctr images import images/appscode-charts-kubevault-v2024.9.30.tar
 k3s ctr images import images/appscode-charts-kyverno-policies-3.2.5.tar
 k3s ctr images import images/appscode-charts-kyverno-3.2.6.tar
-k3s ctr images import images/appscode-charts-license-proxyserver-manager-v2024.9.30.tar
-k3s ctr images import images/appscode-charts-license-proxyserver-v2024.9.30.tar
+k3s ctr images import images/appscode-charts-license-proxyserver-manager-v2024.10.7.tar
+k3s ctr images import images/appscode-charts-license-proxyserver-v2024.10.7.tar
 k3s ctr images import images/appscode-charts-longhorn-1.6.2.tar
 k3s ctr images import images/appscode-charts-managed-serviceaccount-manager-v2024.7.10.tar
 k3s ctr images import images/appscode-charts-metrics-server-3.11.0.tar
@@ -267,7 +267,7 @@ k3s ctr images import images/appscode-kube-rbac-proxy-v0.15.0.tar
 k3s ctr images import images/appscode-kube-ui-server-v0.0.47.tar
 k3s ctr images import images/appscode-kubectl-nonroot-1.25.tar
 k3s ctr images import images/appscode-kubedb-ui-0.7.7.tar
-k3s ctr images import images/appscode-license-proxyserver-v0.0.17.tar
+k3s ctr images import images/appscode-license-proxyserver-v0.0.18.tar
 k3s ctr images import images/appscode-maxmind-geoip-city-mmdb-latest.tar
 k3s ctr images import images/appscode-openfga-v1.6.0.tar
 k3s ctr images import images/appscode-panopticon-v0.0.14.tar
