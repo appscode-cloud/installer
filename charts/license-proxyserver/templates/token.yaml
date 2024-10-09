@@ -1,4 +1,4 @@
-{{- if .Values.platform.token }}
+{{- if and .Values.platform.token (empty .Values.hubKubeconfigSecretName) }}
 apiVersion: v1
 kind: Secret
 metadata:

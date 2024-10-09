@@ -45,7 +45,11 @@ spec:
         - --tls-private-key-file=/var/serving-cert/tls.key
         - --cache-dir=/tmp/licenses
         - --use-kubeapiserver-fqdn-for-aks={{ .Values.apiserver.useKubeapiserverFqdnForAks }}
-        {{- if and (include "platform.tokenSecretName" .) (empty .Values.hubKubeconfigSecretName) }}
+        - --license-dir=/var/run/secrets/appscode/license
+        {{- if .Values.hubKubeconfigSecretName }}
+        - --hub-kubeconfig=/var/run/secrets/ocm/auth/kubeconfig
+        {{- else }}
+        {{- if include "platform.tokenSecretName" . }}
         - --baseURL={{ .Values.platform.baseURL }}
         - --token=$(PLATFORM_API_TOKEN)
         {{- end }}
@@ -55,9 +59,6 @@ spec:
         {{- if .Values.platform.insecureSkipTLSVerify }}
         - --insecure-skip-tls-verify={{ .Values.platform.insecureSkipTLSVerify }}
         {{- end }}
-        - --license-dir=/var/run/secrets/appscode/license
-        {{- if .Values.hubKubeconfigSecretName }}
-        - --hub-kubeconfig=/var/run/secrets/ocm/auth/kubeconfig
         {{- end }}
         {{- if .Values.clusterName }}
         - --cluster-name={{ .Values.clusterName }}
@@ -73,11 +74,11 @@ spec:
         {{- with .Values.env }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
-        {{- with include "platform.tokenSecretName" . }}
+        {{- if and (include "platform.tokenSecretName" .) (empty .Values.hubKubeconfigSecretName) }}
         - name: PLATFORM_API_TOKEN
           valueFrom:
             secretKeyRef:
-              name: {{ . }}
+              name: {{ include "platform.tokenSecretName" . }}
               key: token
         {{- end }}
         - name: POD_NAME
@@ -114,10 +115,11 @@ spec:
         {{- if .Values.hubKubeconfigSecretName }}
         - mountPath: /var/run/secrets/ocm/auth
           name: ocm-auth
-        {{- end }}
+        {{- else }}
         {{- if .Values.platform.caBundle }}
         - mountPath: /var/platform-auth
           name: platform-auth
+        {{- end }}
         {{- end }}
       volumes:
       - name: cache-dir

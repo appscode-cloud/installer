@@ -1,4 +1,4 @@
-{{- if .Values.platform.caBundle }}
+{{- if and .Values.platform.caBundle (empty .Values.hubKubeconfigSecretName) }}
 {{ $data := dict "ca.crt" .Values.platform.caBundle }}
 apiVersion: v1
 kind: Secret
