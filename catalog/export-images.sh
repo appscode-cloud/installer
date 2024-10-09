@@ -278,7 +278,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.18 images/appscode-license-proxyserver-v0.0.18.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest images/appscode-maxmind-geoip-city-mmdb-latest.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.6.0 images/appscode-openfga-v1.6.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.15 images/appscode-panopticon-v0.0.14.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.15 images/appscode-panopticon-v0.0.15.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.7 images/appscode-petset-v0.0.7.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:0.8.6 images/appscode-platform-ui-0.8.6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/prom-authproxy:v0.0.1 images/appscode-prom-authproxy-v0.0.1.tar
@@ -315,10 +315,10 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/work:v0.14.0 images/kluster-manager-work-v0.14.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-autoscaler:v0.33.0 images/kubedb-kubedb-autoscaler-v0.33.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-crd-manager:v0.3.0 images/kubedb-kubedb-crd-manager-v0.3.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.35.1 images/kubedb-kubedb-ops-manager-v0.35.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.48.1 images/kubedb-kubedb-provisioner-v0.48.1.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.35.2 images/kubedb-kubedb-ops-manager-v0.35.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.48.2 images/kubedb-kubedb-provisioner-v0.48.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ui-server:v0.24.0 images/kubedb-kubedb-ui-server-v0.24.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.24.0 images/kubedb-kubedb-webhook-server-v0.24.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.24.1 images/kubedb-kubedb-webhook-server-v0.24.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/pg-coordinator:v0.32.0 images/kubedb-pg-coordinator-v0.32.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-init:0.15.0 images/kubedb-postgres-init-0.15.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-restic-plugin:v0.11.0_16.1 images/kubedb-postgres-restic-plugin-v0.11.0_16.1.tar
