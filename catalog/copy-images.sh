@@ -185,7 +185,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/op
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.7.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.7.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-solropsrequest-editor:v0.7.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-solropsrequest-editor:v0.7.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.7.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.7.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/panopticon:v2024.9.30
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2024.10.7 $IMAGE_REGISTRY/appscode-charts/panopticon:v2024.10.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prepare-cluster:v2023.12.21 $IMAGE_REGISTRY/appscode-charts/prepare-cluster:v2023.12.21
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prometheus-adapter:4.9.0 $IMAGE_REGISTRY/appscode-charts/prometheus-adapter:4.9.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/reloader:1.0.79 $IMAGE_REGISTRY/appscode-charts/reloader:1.0.79
@@ -281,7 +281,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.18 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.18
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.6.0 $IMAGE_REGISTRY/appscode/openfga:v1.6.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.14 $IMAGE_REGISTRY/appscode/panopticon:v0.0.14
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.15 $IMAGE_REGISTRY/appscode/panopticon:v0.0.15
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.7 $IMAGE_REGISTRY/appscode/petset:v0.0.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:0.8.6 $IMAGE_REGISTRY/appscode/platform-ui:0.8.6
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/prom-authproxy:v0.0.1 $IMAGE_REGISTRY/appscode/prom-authproxy:v0.0.1
