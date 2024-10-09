@@ -134,14 +134,7 @@ properties:
     - KubeStash
     - Stash
     type: string
-  usePrefix:
-    enum:
-    - uid
-    - name
-    - skip
-    type: string
 required:
 - kubestash
 - tool
-- usePrefix
 type: object

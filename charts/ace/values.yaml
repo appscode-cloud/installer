@@ -463,6 +463,7 @@ setupJob:
       orgname: ""
     # controls the self management of the ace cluster
     selfManagement:
+      createCAPICluster: false
       import: true
       targetIPs:
       enableFeatures: []
