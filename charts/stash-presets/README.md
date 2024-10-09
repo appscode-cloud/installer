@@ -45,27 +45,26 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `stash-presets` chart and their default values.
 
-|                         Parameter                          | Description |                Default                |
-|------------------------------------------------------------|-------------|---------------------------------------|
-| tool                                                       |             | <code>KubeStash # Stash</code>        |
-| clusterMetadata.uid                                        |             | <code>""</code>                       |
-| clusterMetadata.name                                       |             | <code>""</code>                       |
-| usePrefix                                                  |             | <code>name # uid, name or skip</code> |
-| kubestash.schedule                                         |             | <code>"0 */2 * * *"</code>            |
-| kubestash.retentionPolicy                                  |             | <code>keep-1mo</code>                 |
-| kubestash.encryptionSecret                                 |             | <code>""</code>                       |
-| kubestash.storageSecret.create                             |             | <code>true</code>                     |
-| kubestash.backend.provider                                 |             | <code>s3 # s3,gcs,azure</code>        |
-| kubestash.backend.s3.spec.endpoint                         |             | <code>""</code>                       |
-| kubestash.backend.s3.spec.bucket                           |             | <code>""</code>                       |
-| kubestash.backend.s3.auth.AWS_ACCESS_KEY_ID                |             | <code>""</code>                       |
-| kubestash.backend.s3.auth.AWS_SECRET_ACCESS_KEY            |             | <code>""</code>                       |
-| kubestash.backend.azure.spec.container                     |             | <code>""</code>                       |
-| kubestash.backend.azure.auth.AZURE_ACCOUNT_NAME            |             | <code>""</code>                       |
-| kubestash.backend.azure.auth.AZURE_ACCOUNT_KEY             |             | <code>""</code>                       |
-| kubestash.backend.gcs.spec.bucket                          |             | <code>""</code>                       |
-| kubestash.backend.gcs.auth.GOOGLE_PROJECT_ID               |             | <code>""</code>                       |
-| kubestash.backend.gcs.auth.GOOGLE_SERVICE_ACCOUNT_JSON_KEY |             | <code>""</code>                       |
+|                         Parameter                          | Description |            Default             |
+|------------------------------------------------------------|-------------|--------------------------------|
+| tool                                                       |             | <code>KubeStash # Stash</code> |
+| clusterMetadata.uid                                        |             | <code>""</code>                |
+| clusterMetadata.name                                       |             | <code>""</code>                |
+| kubestash.schedule                                         |             | <code>"0 */2 * * *"</code>     |
+| kubestash.retentionPolicy                                  |             | <code>keep-1mo</code>          |
+| kubestash.encryptionSecret                                 |             | <code>""</code>                |
+| kubestash.storageSecret.create                             |             | <code>true</code>              |
+| kubestash.backend.provider                                 |             | <code>s3 # s3,gcs,azure</code> |
+| kubestash.backend.s3.spec.endpoint                         |             | <code>""</code>                |
+| kubestash.backend.s3.spec.bucket                           |             | <code>""</code>                |
+| kubestash.backend.s3.auth.AWS_ACCESS_KEY_ID                |             | <code>""</code>                |
+| kubestash.backend.s3.auth.AWS_SECRET_ACCESS_KEY            |             | <code>""</code>                |
+| kubestash.backend.azure.spec.container                     |             | <code>""</code>                |
+| kubestash.backend.azure.auth.AZURE_ACCOUNT_NAME            |             | <code>""</code>                |
+| kubestash.backend.azure.auth.AZURE_ACCOUNT_KEY             |             | <code>""</code>                |
+| kubestash.backend.gcs.spec.bucket                          |             | <code>""</code>                |
+| kubestash.backend.gcs.auth.GOOGLE_PROJECT_ID               |             | <code>""</code>                |
+| kubestash.backend.gcs.auth.GOOGLE_SERVICE_ACCOUNT_JSON_KEY |             | <code>""</code>                |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
