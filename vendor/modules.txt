@@ -252,7 +252,7 @@ github.com/zeebo/xxh3
 ## explicit; go 1.22.0
 go.appscode.dev/alerts/apis/alerts
 go.appscode.dev/alerts/apis/alerts/v1alpha1
-# go.bytebuilders.dev/resource-model v0.0.14-0.20240919030221-7ce2665559fa
+# go.bytebuilders.dev/resource-model v0.0.14-0.20241009072854-21714e465242
 ## explicit; go 1.22.1
 go.bytebuilders.dev/resource-model/apis/cloud
 go.bytebuilders.dev/resource-model/apis/cloud/v1alpha1
