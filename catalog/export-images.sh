@@ -304,7 +304,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-auth:v0.0.5 images/kluster-manager-cluster-auth-v0.0.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway-manager:v1.9.1 images/kluster-manager-cluster-gateway-manager-v1.9.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway:v1.9.1 images/kluster-manager-cluster-gateway-v1.9.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile-manager:v0.0.2 images/kluster-manager-cluster-profile-manager-v0.0.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile:v0.0.5 images/kluster-manager-cluster-profile-v0.0.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-proxy:v0.5.0 images/kluster-manager-cluster-proxy-v0.5.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/clusteradm:v0.9.0 images/kluster-manager-clusteradm-v0.9.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/fluxcd-addon:v0.0.4 images/kluster-manager-fluxcd-addon-v0.0.4.tar
