@@ -298,7 +298,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-a
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-auth-v0.0.5.tar $IMAGE_REGISTRY/kluster-manager/cluster-auth:v0.0.5
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-gateway-manager-v1.9.1.tar $IMAGE_REGISTRY/kluster-manager/cluster-gateway-manager:v1.9.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-gateway-v1.9.1.tar $IMAGE_REGISTRY/kluster-manager/cluster-gateway:v1.9.1
-$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-profile-v0.0.5.tar $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.0.5
+$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-profile-v0.0.5.tar $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.0.6
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-proxy-v0.5.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-proxy:v0.5.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-clusteradm-v0.9.0.tar $IMAGE_REGISTRY/kluster-manager/clusteradm:v0.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-fluxcd-addon-v0.0.4.tar $IMAGE_REGISTRY/kluster-manager/fluxcd-addon:v0.0.4

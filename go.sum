@@ -196,8 +196,8 @@ go.appscode.dev/alerts v0.2.1-0.20240604101218-3069fbd7c6b8 h1:7FP18GEp6Jm0OUt5l
 go.appscode.dev/alerts v0.2.1-0.20240604101218-3069fbd7c6b8/go.mod h1:5+qwuxF78YiFg/CEGfgfXREj7KEJYLgQeFhke4+lQ8k=
 go.bytebuilders.dev/resource-model v0.0.14-0.20241009072854-21714e465242 h1:9kx0uCTbzFVfFVwtS/5COtw2JZd6AIrTqxLi6Rk6xW0=
 go.bytebuilders.dev/resource-model v0.0.14-0.20241009072854-21714e465242/go.mod h1:xZ2tTSIhjcoMr5z62pRL2nKO3ACtThWQP1otMIRjr8Y=
-go.bytebuilders.dev/ui-wizards v0.4.21-0.20240919121230-b57dde42b70f h1:OMBICTWWuL/7d0aQLXt5t0+VvMGAc046al6KXDBEkgg=
-go.bytebuilders.dev/ui-wizards v0.4.21-0.20240919121230-b57dde42b70f/go.mod h1:BHoFXgxqgPlGJjKZE4yNNG9DljrcgFWSjOdrfSgR7IU=
+go.bytebuilders.dev/ui-wizards v0.7.0 h1:G8FN5Mpmx7sCWZcOVXuflw/sLtfO6daKqgXnE5TDl+o=
+go.bytebuilders.dev/ui-wizards v0.7.0/go.mod h1:BHoFXgxqgPlGJjKZE4yNNG9DljrcgFWSjOdrfSgR7IU=
 go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0 h1:zA5/psft6xJPNZZfDh7VpOlEEzqVOWoLQlXRFyOeyjc=
 go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0/go.mod h1:5q9Z38No4Xw0RGJnWYqAWPpXSG4XQYqiLzGHMv4pTPI=
 go.uber.org/goleak v1.3.0 h1:2K3zAYmnTNqV73imy9J1T3WC+gmCePx2hEGkimedGto=
@@ -315,8 +315,8 @@ k8s.io/utils v0.0.0-20240502163921-fe8a2dddb1d0 h1:jgGTlFYnhF1PM1Ax/lAlxUPE+KfCI
 k8s.io/utils v0.0.0-20240502163921-fe8a2dddb1d0/go.mod h1:OLgZIPagt7ERELqWJFomSt595RzquPNLL48iOWgYOg0=
 kmodules.xyz/apiversion v0.2.0 h1:vAQYqZFm4xu4pbB1cAdHbFEPES6EQkcR4wc06xdTOWk=
 kmodules.xyz/apiversion v0.2.0/go.mod h1:oPX8g8LvlPdPX3Yc5YvCzJHQnw3YF/X4/jdW0b1am80=
-kmodules.xyz/client-go v0.30.21 h1:Uye+aPmqgcO4qb1GeIgQEVZ9q5XK/9V3Xu+Vglj3L/0=
-kmodules.xyz/client-go v0.30.21/go.mod h1:CAu+JlA8RVGtj6LQHu0Q1w2mnFUajuti49c7T1AvGdM=
+kmodules.xyz/client-go v0.30.26 h1:cPoNid/Eq38EwznsZ27gu2AEXOjqcshn+/7kjlaaQNQ=
+kmodules.xyz/client-go v0.30.26/go.mod h1:CAu+JlA8RVGtj6LQHu0Q1w2mnFUajuti49c7T1AvGdM=
 kmodules.xyz/go-containerregistry v0.0.12 h1:Tl32QGmSqRVm9PUEb/f3dgDeu9zW5fVzt3qmAFIE37I=
 kmodules.xyz/go-containerregistry v0.0.12/go.mod h1:KgeNg0hDsgeda+qc0NzWk0iVRdF0+ZIg/oRzGoYh78I=
 kmodules.xyz/monitoring-agent-api v0.29.0 h1:gpFl6OZrlMLb/ySMHdREI9EwGtnJ91oZBn9H1UFRwB4=
