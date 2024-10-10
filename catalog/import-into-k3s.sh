@@ -296,7 +296,7 @@ k3s ctr images import images/kluster-manager-addon-manager-v0.14.0.tar
 k3s ctr images import images/kluster-manager-cluster-auth-v0.0.5.tar
 k3s ctr images import images/kluster-manager-cluster-gateway-manager-v1.9.1.tar
 k3s ctr images import images/kluster-manager-cluster-gateway-v1.9.1.tar
-k3s ctr images import images/kluster-manager-cluster-profile-manager-v0.0.2.tar
+k3s ctr images import images/kluster-manager-cluster-profile-v0.0.5.tar
 k3s ctr images import images/kluster-manager-cluster-proxy-v0.5.0.tar
 k3s ctr images import images/kluster-manager-clusteradm-v0.9.0.tar
 k3s ctr images import images/kluster-manager-fluxcd-addon-v0.0.4.tar

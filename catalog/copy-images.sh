@@ -307,7 +307,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/ad
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-auth:v0.0.5 $IMAGE_REGISTRY/kluster-manager/cluster-auth:v0.0.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway-manager:v1.9.1 $IMAGE_REGISTRY/kluster-manager/cluster-gateway-manager:v1.9.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway:v1.9.1 $IMAGE_REGISTRY/kluster-manager/cluster-gateway:v1.9.1
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile-manager:v0.0.2 $IMAGE_REGISTRY/kluster-manager/cluster-profile-manager:v0.0.2
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile:v0.0.5 $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.0.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-proxy:v0.5.0 $IMAGE_REGISTRY/kluster-manager/cluster-proxy:v0.5.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/clusteradm:v0.9.0 $IMAGE_REGISTRY/kluster-manager/clusteradm:v0.9.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/fluxcd-addon:v0.0.4 $IMAGE_REGISTRY/kluster-manager/fluxcd-addon:v0.0.4
