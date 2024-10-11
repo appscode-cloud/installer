@@ -1,7 +1,7 @@
 {{- with (index .Values "helm" "releases" "opscenter-features") }}
 {{- if .enabled }}
 
-{{ $defaults := dict "image" $.Values.image "registry" $.Values.registry "helm" dict }}
+{{ $defaults := dict "offlineInstaller" $.Values.offlineInstaller "image" $.Values.image "registry" $.Values.registry "helm" dict }}
 
 {{ $helmrepos := dig "repositories" dict $.Values.helm | deepCopy }}
 {{ $_ := set $defaults.helm "repositories" $helmrepos }}
