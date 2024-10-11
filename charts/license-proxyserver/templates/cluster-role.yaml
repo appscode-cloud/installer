@@ -23,3 +23,8 @@ rules:
   resources:
   - clusterclaims
   verbs: ["get", "list", "watch", "create", "update", "patch"]
+- apiGroups:
+  - operator.open-cluster-management.io
+  resources:
+  - klusterlets
+  verbs: ["get", "list", "watch"]
