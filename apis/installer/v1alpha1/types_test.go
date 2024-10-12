@@ -18,11 +18,14 @@ package v1alpha1_test
 
 import (
 	"os"
+	"path/filepath"
+	"runtime"
 	"testing"
 
 	"go.bytebuilders.dev/installer/apis/installer/v1alpha1"
 
 	sc "kmodules.xyz/schema-checker"
+	"sigs.k8s.io/yaml"
 )
 
 func TestDefaultValues(t *testing.T) {
@@ -63,4 +66,21 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.ReloaderSpec{}, File: "https://github.com/stakater/Reloader/raw/v1.0.79/deployments/kubernetes/chart/reloader/values.yaml"},
 	)
 	checker.TestAll(t)
+}
+
+func TestOptionsJson(t *testing.T) {
+	_, file, _, ok := runtime.Caller(0)
+	if !ok {
+		t.Fatal("failed to detect caller")
+	}
+
+	var obj v1alpha1.AceOptionsSpec
+	data, err := os.ReadFile(filepath.Join(filepath.Dir(file), "../../../tests/testdata/options.old.yaml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	err = yaml.Unmarshal(data, &obj)
+	if err != nil {
+		t.Fatal(err)
+	}
 }
