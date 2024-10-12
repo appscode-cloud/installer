@@ -1206,9 +1206,17 @@ properties:
             type: array
           enableFeatures:
             additionalProperties:
-              items:
-                type: string
-              type: array
+              properties:
+                enabled:
+                  type: boolean
+                features:
+                  items:
+                    type: string
+                  type: array
+              required:
+                - enabled
+                - features
+              type: object
             type: object
           import:
             type: boolean
