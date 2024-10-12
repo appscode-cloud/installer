@@ -1,0 +1,396 @@
+billing:
+  enabled: false
+  nodeSelector: null
+  resources: {}
+branding:
+  favicon: ""
+  logo: ""
+  primaryColor: '#009948'
+cluster-ui:
+  enabled: true
+  nodeSelector: null
+  resources: {}
+context:
+  adminPassword: Oh)ozG.1g(U~23j.xQho
+  backupPassword: 1UT3wOui8xD5ZBBp
+  clusterCA:
+    cert: |
+      -----BEGIN CERTIFICATE-----
+      MIIC9TCCAd2gAwIBAgIBADANBgkqhkiG9w0BAQsFADAbMQwwCgYDVQQKEwNhY2Ux
+      CzAJBgNVBAMTAmNhMCAXDTI0MTAxMjE0MDkzMFoYDzIxMjQwOTE4MTQwOTMwWjAb
+      MQwwCgYDVQQKEwNhY2UxCzAJBgNVBAMTAmNhMIIBIjANBgkqhkiG9w0BAQEFAAOC
+      AQ8AMIIBCgKCAQEA14IIgzKK5jjQx6oVJiAPEwYhYC5xwbAuRzDbf6CifpLAsqft
+      UQHXmETa9x7iVC1vXT5+0ROplnzEa2o54e6KoE7KqOPJjXS7hqV/Su7LMfsAcRof
+      7iuXA3b/PM1xsexxpG54c798mI9t0LMRJ+qSQMqxWL4OFtImAg6m2nJVGBfomIDP
+      sh+yUYq7hp/u1cqWaSV70r294nhGMa241deYZeUhAyMi86ESFAHFU5S8aJwzXglu
+      yTFsb46soLuKKKxuu3qPx+EiBCmWRHCLcxDP6N00Wu95hqUoD/uvqYMxA3yOEfxA
+      S2UqOyPgWKKOQvwJ737BL+/O8O0jdRHFT0aTtQIDAQABo0IwQDAOBgNVHQ8BAf8E
+      BAMCAqQwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUdryjDXpFmnMAS4Lz3+fa
+      6yODmz0wDQYJKoZIhvcNAQELBQADggEBAA2UQLSmSDdHRu2ZQIvsxXiGbWZopW7y
+      CtNLw6tVVQ/xKwlR93GMuDlV+DWMJ6GiDSbzSeDrSv4LFOOZY3R/2UgBv8LWT3B4
+      WdeQgScTAKmk6Q6zER525xsIxEjj1v0s6blQJW4kYcxeRShIkzGWbR1kfdJg1C13
+      nYPe5oqlRgPmQyB1dtJrZABMPj/aEHXXIjrLqOHSVE6wL/d8zV2knVafAsa+dKzU
+      nbCeXb7BZr6igj4nweMcTvzKb5NrEBGTMLhffyQkfua5UT0HPRBugExGMy0AlJu9
+      WLAcF77KVlVkfRhXN7OP+W3c/2AuBlrwGQWSkYlNrqjUGOyHj05MTcw=
+      -----END CERTIFICATE-----
+    key: |
+      -----BEGIN RSA PRIVATE KEY-----
+      MIIEpAIBAAKCAQEA14IIgzKK5jjQx6oVJiAPEwYhYC5xwbAuRzDbf6CifpLAsqft
+      UQHXmETa9x7iVC1vXT5+0ROplnzEa2o54e6KoE7KqOPJjXS7hqV/Su7LMfsAcRof
+      7iuXA3b/PM1xsexxpG54c798mI9t0LMRJ+qSQMqxWL4OFtImAg6m2nJVGBfomIDP
+      sh+yUYq7hp/u1cqWaSV70r294nhGMa241deYZeUhAyMi86ESFAHFU5S8aJwzXglu
+      yTFsb46soLuKKKxuu3qPx+EiBCmWRHCLcxDP6N00Wu95hqUoD/uvqYMxA3yOEfxA
+      S2UqOyPgWKKOQvwJ737BL+/O8O0jdRHFT0aTtQIDAQABAoIBACzn045DAd5nCFoS
+      fsWq+HkmVd4Mz3dklsAO1i4J8tIdEjon87Nlht8bueS0csTHkuUDGLnINxY8eVFI
+      mTcS1aABywjWLjFjmY+8/IFIsN6BRt5Ka0zdmGIIcbbhuEcy1ZtFyaOUywmfGWrb
+      ZT/ECSWnFr0/HQB0WackFnB+UmzqbG1R1DG5Pcq06gVP7+kyPTaQ5s+VhKBUQQxD
+      jeMI3KghTQoCgDdC8a7z2bLpJt3hfbA802YsvHGPNURjrNIbGfbl1nbvMewTJUUt
+      iwUmkDof54qFiS8TcXuMygiOqcNwLD6nYsrbx14riInFVibUchRaDI+z9jo98dvw
+      qyzXZgECgYEA3oKIgISn1rlfWq2eUtxBdNVQ+BSpHY8X982a1bUAUwQS6/s1NIdW
+      YGMRZDFRuE1tNdY4MIZVnqHEd0z6AP8wKFdZZy+mJ7pOYReCm3eJdWyL0kO21PXA
+      XG2dEzAlfAJpkUsv+LKuurZaRYLqhXp1VT+g5zLFQl1/gIgRpgqKBBECgYEA9/G1
+      saRLBo/ezfwQDvslIWmS4GpQ1efUqF0WvwMFKvf65vvwvTMX/H2x+rog8Hpogx89
+      mpY9YsG5SJsf2Dz7rHvUH4HHVY8ynYyO2i+wWDkg6VGdWotCERbt4OkUxxx7hd8s
+      1W0/d5ShSXOHJTMbT0q1fgYnlqhYkEtI3+CoaWUCgYEAlnezEyWh0iSdBNbvf50O
+      bpFqJbji++guDxbso6O4ymqw2P+RZSo4EQotUpG/b2B8f7GTYc0VzSYbk4lsbowi
+      5sTa4lpog+kK48FgQv286Lk0fEXqN2zQXjCJzdX7IzcGaIhtskIywnRZ6zOyn/zF
+      p5ZVmsLMfip39FUPijcKSeECgYEAu7jaetPMJfy5kTU9p0oIs8Jt/NEhwMJUpOBN
+      /3K27/Bum4G2pFjR2U4FebKAi/HxvQzjJG6JrYLE2K7yLlMFrXLXiL9Gf4X6qYQp
+      CBLBLhqay2wKeeojrDKzCe0O2S28bAArvq+HNO9oKed5M/X8wEztGqxoPs3Yt+74
+      DuDWQW0CgYAQ+xNgS8/XEKqPskbNx/tNlYwt2NlJoJPtbn4bqFDvdpAN+zldwAGZ
+      MzDffaASSUhnGHoTCFO1KC5B2+gtuuQ6hZpCR4YssR/qQ+6B2U2OOoDUzcxNV9fp
+      otroYPtyyAkeSpPPExxuYs9XnjdAVVM2Bbw8scTJtp7Dq4Jp6zlodA==
+      -----END RSA PRIVATE KEY-----
+  clusterID: ""
+  csrfSecretKey: cVAkUKOh1saRnOJCkM4r41GqTyuiSfftjildVmEZ5QGFNedqYnMGa8yLHsUG6ZVj
+  deploymentType: CloudDemo
+  grafanaSecretKey: n4hRRKJrr0n6murD8h8bFjAEQYm4FBsJG9W2WkV5XU0QzDxVFiwHMCBNPEl34Mb5
+  hostedDomain: example-com-brgxc.bytebuilders.xyz
+  inboxServer:
+    adminJWTPrivateKey: |
+      -----BEGIN RSA PRIVATE KEY-----
+      MIIEpQIBAAKCAQEAx0gFbee6MxZ+G3sf46KbE/EXZO2wHgwzHRfHPXJbsiD2UJ0v
+      Iwzb9FdfIGNiRIeEooy2dDwOtmevevoXRp9EWPmEGiJKcGNwF4rTnID8cG6RFG+w
+      DnkN1lJ+xsQfNv2orLWeup3EEQIXQocgu85btIDF8nV5dkahVDY+vEOqFcMIlfXk
+      dpMskvdJ4CO1l3mFGWGRvfc2EUomMpeKlJ+LAa7a6bEVlsTo6OPHE66QAp4UPgik
+      gUUWyLIj/LBZV+OwCkiSIL53RTj5O/kjHFCIEfXO9VKPI4esQH6hDYZMv72GEk+h
+      LEzr7KoUc2tCYvw5EIgv+wwuFPgOl+8Yfo0E0QIDAQABAoIBAQCcPuPC4EUleSU2
+      9rpyCDP+1rC4+YN0i6wny1Tz4I30g9OcMSGcIaDzWu3Cvyl1AawEpr8HM291pKX5
+      jcxiGs3D1R62PtyOceiZDMgNlTRYEti9ZTRspI0s1VGBFpRC0W9Gur/RIZFwpGsI
+      Rlpr5cgRJkYNa/3ntkkXddCKW6Mnm3aa/9bQyuQUJ8UGx5VbRQIdBbjto8hDVSj8
+      EIoOfjAIOvGmQ01ReHPKKNiB3NMBbLrfoDNs5u4X8jA9Ohke93fKm7TIkl9quavk
+      K5YV2xcGtNMf45SM2YOt4o9GID5anWE7QADOOLPyPX4MzdiPW3GssSSVi0QPUpXB
+      dsH0GiSBAoGBAP5H5u6oR7VE4kJRK3/zHBT19UDLM40mVs/b3KQz+8EmQ8uF7nLr
+      PqFBEhTU8lQabDZiXiyOndJNBNyhNXSWqAyOFhwrEdUIqgRPYqQ6dQ7df0pleltm
+      sO9dEgAeNNXxwA/vAUNMt1f8zNm7/UPiM76tMdGXptdX/ofKcZK6IRPVAoGBAMig
+      7au1ftEvz8rdJURVwXOiufenA1JQPUo3Wu8mm20J4FllzuS6j8eK+sZ6ktajwxVR
+      Jfgud3beHyYKPYW7IccbU+dUsnPv/PfiYxvpJS8kYaniWsAw1ObcTHp4OoYs1KEF
+      Sa7pONw49E4TUeiEHHN9/M3fyiDrLOqfrCNOi3cNAoGBAITqbsMXgYw2OpLxvOw/
+      1tD6FD3POd4xSTWTtoy6g4FeEBgFpTO61d0Sl3H+McFWonP3DUT7M3HnQoBVYAzW
+      Z3dQmiwVM1gJFF32ZRh1WhTwIQZxbvjx/9DO9IbNQ08F9CAgDafxJPFAOpAh3Ows
+      BGJKQ/1L6TEtVOYEI0PQOVQVAoGAUaRTMzW3No77QvU9DhLLly/X93RqQJvQZRwj
+      kAAo7XVAa4CncaKNkcj3hb8pc9jOMSWFivn1uVRoXoV6RapB85EmUpO/zrgRPBpO
+      9HOqowVuDMDE50K30H5DTO8R+bnSiPfq5ReZANzYZdEs2q6wGTtinbB8w2qQK6Xw
+      WanDzR0CgYEA71Ia+ho0PX9asYpz/4BXju1XPQTI2gSqBBRnJPBtnBvGsxzVRdrR
+      iJP9XcRvbvswNToN31hju+/1g9yMvnyBPioIbjFlKezsT27yz604xeyVZSZcdTty
+      wi/nChDt6IQQ/YRisDG6LF7TMmwjZn1IPZEktRg3vbgUqQQ6nktOY0c=
+      -----END RSA PRIVATE KEY-----
+  installerName: tamal-test
+  jksPassword: 7hcvLa6P9hrGityzCvD3
+  licenseOwnerID: 332800
+  licenseOwnerName: appscode-dev
+  nats:
+    Admin.creds: |
+      -----BEGIN NATS ACCOUNT JWT-----
+      eyJ0eXAiOiJKV1QiLCJhbGciOiJlZDI1NTE5LW5rZXkifQ.eyJqdGkiOiJaSTJLN0pKRzJDV1ZCTjM0R1lZTFJESEY0WUlKUTNTRkdRNlNXVTVMQUpWRUlBQzJBVVpRIiwiaWF0IjoxNzI4NzQyMTcwLCJpc3MiOiJPQUxHVkFTNk1FTU5FVktXNVg1MlJGT01SSjVHUEo0RkZIRlhQWFA0Q1EyRVNWNkMzUU5WVzNPRyIsIm5hbWUiOiJBZG1pbiIsInN1YiI6IkFCUlo3TU9WQ0xKQjJMSzVTSE82REc0Wk1LTUlLWUczSTNFREFFSlZOVjJQTE9JNVVXM0ZRS1RTIiwibmF0cyI6eyJsaW1pdHMiOnsic3VicyI6LTEsImRhdGEiOi0xLCJwYXlsb2FkIjotMSwiaW1wb3J0cyI6LTEsImV4cG9ydHMiOi0xLCJ3aWxkY2FyZHMiOnRydWUsImNvbm4iOi0xLCJsZWFmIjotMSwibWVtX3N0b3JhZ2UiOi0xLCJkaXNrX3N0b3JhZ2UiOi0xLCJzdHJlYW1zIjotMSwiY29uc3VtZXIiOi0xfSwiZGVmYXVsdF9wZXJtaXNzaW9ucyI6eyJwdWIiOnt9LCJzdWIiOnt9fSwiYXV0aG9yaXphdGlvbiI6e30sInR5cGUiOiJhY2NvdW50IiwidmVyc2lvbiI6Mn19.nf9gwLydJgYafY8MJsp9sBJGLBB28F3vpc3UJW1Os5L7c1jrrHjof7GMGT6Y2QbZIY4iDsPflhW9b8BWTAHoAQ
+      ------END NATS ACCOUNT JWT------
+
+      ************************* IMPORTANT *************************
+      NKEY Seed printed below can be used to sign and prove identity.
+      NKEYs are sensitive and should be treated as secrets.
+
+      -----BEGIN ACCOUNT NKEY SEED-----
+      SAAAMHWXGU5MQDVJNPSFZLBV7XJCE5SLKFSDKGT6UVZOUKQ5HETSUDWQ6E
+      ------END ACCOUNT NKEY SEED------
+
+      *************************************************************
+    Admin.jwt: eyJ0eXAiOiJKV1QiLCJhbGciOiJlZDI1NTE5LW5rZXkifQ.eyJqdGkiOiJaSTJLN0pKRzJDV1ZCTjM0R1lZTFJESEY0WUlKUTNTRkdRNlNXVTVMQUpWRUlBQzJBVVpRIiwiaWF0IjoxNzI4NzQyMTcwLCJpc3MiOiJPQUxHVkFTNk1FTU5FVktXNVg1MlJGT01SSjVHUEo0RkZIRlhQWFA0Q1EyRVNWNkMzUU5WVzNPRyIsIm5hbWUiOiJBZG1pbiIsInN1YiI6IkFCUlo3TU9WQ0xKQjJMSzVTSE82REc0Wk1LTUlLWUczSTNFREFFSlZOVjJQTE9JNVVXM0ZRS1RTIiwibmF0cyI6eyJsaW1pdHMiOnsic3VicyI6LTEsImRhdGEiOi0xLCJwYXlsb2FkIjotMSwiaW1wb3J0cyI6LTEsImV4cG9ydHMiOi0xLCJ3aWxkY2FyZHMiOnRydWUsImNvbm4iOi0xLCJsZWFmIjotMSwibWVtX3N0b3JhZ2UiOi0xLCJkaXNrX3N0b3JhZ2UiOi0xLCJzdHJlYW1zIjotMSwiY29uc3VtZXIiOi0xfSwiZGVmYXVsdF9wZXJtaXNzaW9ucyI6eyJwdWIiOnt9LCJzdWIiOnt9fSwiYXV0aG9yaXphdGlvbiI6e30sInR5cGUiOiJhY2NvdW50IiwidmVyc2lvbiI6Mn19.nf9gwLydJgYafY8MJsp9sBJGLBB28F3vpc3UJW1Os5L7c1jrrHjof7GMGT6Y2QbZIY4iDsPflhW9b8BWTAHoAQ
+    Admin.nk: SAAAMHWXGU5MQDVJNPSFZLBV7XJCE5SLKFSDKGT6UVZOUKQ5HETSUDWQ6E
+    Admin.pub: ABRZ7MOVCLJB2LK5SHO6DG4ZMKMIKYG3I3EDAEJVNV2PLOI5UW3FQKTS
+    Operator.creds: |
+      -----BEGIN NATS OPERATOR JWT-----
+      eyJ0eXAiOiJKV1QiLCJhbGciOiJlZDI1NTE5LW5rZXkifQ.eyJhdWQiOiJPQUxHVkFTNk1FTU5FVktXNVg1MlJGT01SSjVHUEo0RkZIRlhQWFA0Q1EyRVNWNkMzUU5WVzNPRyIsImV4cCI6NDg4NDQxNTc3MCwianRpIjoiVlhJQVROVktEWkVDNzJQNFZLMzRZWU1LNjJVVUlQT0xNTjNJVlhYQlZZQUlMUkJEVVY2QSIsImlhdCI6MTcyODc0MjE3MCwiaXNzIjoiT0FMR1ZBUzZNRU1ORVZLVzVYNTJSRk9NUko1R1BKNEZGSEZYUFhQNENRMkVTVjZDM1FOVlczT0ciLCJuYW1lIjoiT3BlcmF0b3IiLCJuYmYiOjE3Mjg3NDIxNzAsInN1YiI6Ik9BTEdWQVM2TUVNTkVWS1c1WDUyUkZPTVJKNUdQSjRGRkhGWFBYUDRDUTJFU1Y2QzNRTlZXM09HIiwibmF0cyI6eyJzaWduaW5nX2tleXMiOlsiT0FMR1ZBUzZNRU1ORVZLVzVYNTJSRk9NUko1R1BKNEZGSEZYUFhQNENRMkVTVjZDM1FOVlczT0ciXSwidHlwZSI6Im9wZXJhdG9yIiwidmVyc2lvbiI6Mn19.qYlu1STSud611KZHlAlnONU-21EcDM0NBm9_OY6LszXnx0oQqbIqf1blDmqfOvvXtBRN1Abop2kz4lYtnzcUBQ
+      ------END NATS OPERATOR JWT------
+
+      ************************* IMPORTANT *************************
+      NKEY Seed printed below can be used to sign and prove identity.
+      NKEYs are sensitive and should be treated as secrets.
+
+      -----BEGIN OPERATOR NKEY SEED-----
+      SOAJE4PLJYRSZDE3KYZFBXVOLOVWD2VVGDGLFSKXL5IOAYZP263ROQLT54
+      ------END OPERATOR NKEY SEED------
+
+      *************************************************************
+    Operator.jwt: eyJ0eXAiOiJKV1QiLCJhbGciOiJlZDI1NTE5LW5rZXkifQ.eyJhdWQiOiJPQUxHVkFTNk1FTU5FVktXNVg1MlJGT01SSjVHUEo0RkZIRlhQWFA0Q1EyRVNWNkMzUU5WVzNPRyIsImV4cCI6NDg4NDQxNTc3MCwianRpIjoiVlhJQVROVktEWkVDNzJQNFZLMzRZWU1LNjJVVUlQT0xNTjNJVlhYQlZZQUlMUkJEVVY2QSIsImlhdCI6MTcyODc0MjE3MCwiaXNzIjoiT0FMR1ZBUzZNRU1ORVZLVzVYNTJSRk9NUko1R1BKNEZGSEZYUFhQNENRMkVTVjZDM1FOVlczT0ciLCJuYW1lIjoiT3BlcmF0b3IiLCJuYmYiOjE3Mjg3NDIxNzAsInN1YiI6Ik9BTEdWQVM2TUVNTkVWS1c1WDUyUkZPTVJKNUdQSjRGRkhGWFBYUDRDUTJFU1Y2QzNRTlZXM09HIiwibmF0cyI6eyJzaWduaW5nX2tleXMiOlsiT0FMR1ZBUzZNRU1ORVZLVzVYNTJSRk9NUko1R1BKNEZGSEZYUFhQNENRMkVTVjZDM1FOVlczT0ciXSwidHlwZSI6Im9wZXJhdG9yIiwidmVyc2lvbiI6Mn19.qYlu1STSud611KZHlAlnONU-21EcDM0NBm9_OY6LszXnx0oQqbIqf1blDmqfOvvXtBRN1Abop2kz4lYtnzcUBQ
+    Operator.nk: SOAJE4PLJYRSZDE3KYZFBXVOLOVWD2VVGDGLFSKXL5IOAYZP263ROQLT54
+    Operator.pub: OALGVAS6MEMNEVKW5X52RFOMRJ5GPJ4FFHFXPXP4CQ2ESV6C3QNVW3OG
+    SYS.creds: |
+      -----BEGIN NATS ACCOUNT JWT-----
+      eyJ0eXAiOiJKV1QiLCJhbGciOiJlZDI1NTE5LW5rZXkifQ.eyJqdGkiOiJTR0FNNkJUR1U0WFlTMzNWV05VNktHTUJESkxCUk9GUFpaNTZTRjJNVzNHUEhBWEdGMklRIiwiaWF0IjoxNzI4NzQyMTcwLCJpc3MiOiJPQUxHVkFTNk1FTU5FVktXNVg1MlJGT01SSjVHUEo0RkZIRlhQWFA0Q1EyRVNWNkMzUU5WVzNPRyIsIm5hbWUiOiJTWVMiLCJzdWIiOiJBRDZBM1VYQjZSV0pHTVRUUEpPV00zMjdTVkNTNDdZUkQ3SlNYTjJRU0FOM1RBVFJTQ05BTkdNRiIsIm5hdHMiOnsibGltaXRzIjp7InN1YnMiOi0xLCJkYXRhIjotMSwicGF5bG9hZCI6LTEsImltcG9ydHMiOi0xLCJleHBvcnRzIjotMSwid2lsZGNhcmRzIjp0cnVlLCJjb25uIjotMSwibGVhZiI6LTF9LCJkZWZhdWx0X3Blcm1pc3Npb25zIjp7InB1YiI6e30sInN1YiI6e319LCJhdXRob3JpemF0aW9uIjp7fSwidHlwZSI6ImFjY291bnQiLCJ2ZXJzaW9uIjoyfX0.VoOFnMPWabRFHQPJXrrHkOoICnsqPdF2KcKo5Rz6qRxK_DQPgX8WZp3qXbx49iLj33EYL1rD-6LDJZ8hBrzTCQ
+      ------END NATS ACCOUNT JWT------
+
+      ************************* IMPORTANT *************************
+      NKEY Seed printed below can be used to sign and prove identity.
+      NKEYs are sensitive and should be treated as secrets.
+
+      -----BEGIN ACCOUNT NKEY SEED-----
+      SAAGWA2HZVE6HSFEX3ECC3G6KTOCLJ5ZFCYSEN4NOBPEFYCM4LANBYIFIQ
+      ------END ACCOUNT NKEY SEED------
+
+      *************************************************************
+    SYS.jwt: eyJ0eXAiOiJKV1QiLCJhbGciOiJlZDI1NTE5LW5rZXkifQ.eyJqdGkiOiJTR0FNNkJUR1U0WFlTMzNWV05VNktHTUJESkxCUk9GUFpaNTZTRjJNVzNHUEhBWEdGMklRIiwiaWF0IjoxNzI4NzQyMTcwLCJpc3MiOiJPQUxHVkFTNk1FTU5FVktXNVg1MlJGT01SSjVHUEo0RkZIRlhQWFA0Q1EyRVNWNkMzUU5WVzNPRyIsIm5hbWUiOiJTWVMiLCJzdWIiOiJBRDZBM1VYQjZSV0pHTVRUUEpPV00zMjdTVkNTNDdZUkQ3SlNYTjJRU0FOM1RBVFJTQ05BTkdNRiIsIm5hdHMiOnsibGltaXRzIjp7InN1YnMiOi0xLCJkYXRhIjotMSwicGF5bG9hZCI6LTEsImltcG9ydHMiOi0xLCJleHBvcnRzIjotMSwid2lsZGNhcmRzIjp0cnVlLCJjb25uIjotMSwibGVhZiI6LTF9LCJkZWZhdWx0X3Blcm1pc3Npb25zIjp7InB1YiI6e30sInN1YiI6e319LCJhdXRob3JpemF0aW9uIjp7fSwidHlwZSI6ImFjY291bnQiLCJ2ZXJzaW9uIjoyfX0.VoOFnMPWabRFHQPJXrrHkOoICnsqPdF2KcKo5Rz6qRxK_DQPgX8WZp3qXbx49iLj33EYL1rD-6LDJZ8hBrzTCQ
+    SYS.nk: SAAGWA2HZVE6HSFEX3ECC3G6KTOCLJ5ZFCYSEN4NOBPEFYCM4LANBYIFIQ
+    SYS.pub: AD6A3UXB6RWJGMTTPJOWM327SVCS47YRD7JSXN2QSAN3TATRSCNANGMF
+    admin.creds: |
+      -----BEGIN NATS USER JWT-----
+      eyJ0eXAiOiJKV1QiLCJhbGciOiJlZDI1NTE5LW5rZXkifQ.eyJqdGkiOiJDNkFaV0FJVU1WTlAzNk9HNldEVlZJQ1VNNFlORDdKVVNURkhINUtKSVpCSlNWSUhHT1FRIiwiaWF0IjoxNzI4NzQyMTcwLCJpc3MiOiJBQlJaN01PVkNMSkIyTEs1U0hPNkRHNFpNS01JS1lHM0kzRURBRUpWTlYyUExPSTVVVzNGUUtUUyIsIm5hbWUiOiJhZG1pbiIsInN1YiI6IlVCSUE0UlU3WkxTTUg1RENSUFJRSENBN1BaWVlZRlZORkFNQTdLQ1UzN0FOM0tBWFM1NVREUEpEIiwibmF0cyI6eyJwdWIiOnt9LCJzdWIiOnt9LCJzdWJzIjotMSwiZGF0YSI6LTEsInBheWxvYWQiOi0xLCJ0eXBlIjoidXNlciIsInZlcnNpb24iOjJ9fQ.BghPkacMKXsTfUzb6GP2ftMFzUMz_H7_92c85fIbbvJfYNHdGXgpS378_um_cc_ea4-PFMsKCi77kdbg4GeeAQ
+      ------END NATS USER JWT------
+
+      ************************* IMPORTANT *************************
+      NKEY Seed printed below can be used to sign and prove identity.
+      NKEYs are sensitive and should be treated as secrets.
+
+      -----BEGIN USER NKEY SEED-----
+      SUAOHZIPLJWX4MUHSCAEZQNWI4X342DVWQPB7LH7OBZIIYRRH3QFFR4ENU
+      ------END USER NKEY SEED------
+
+      *************************************************************
+    admin.jwt: eyJ0eXAiOiJKV1QiLCJhbGciOiJlZDI1NTE5LW5rZXkifQ.eyJqdGkiOiJDNkFaV0FJVU1WTlAzNk9HNldEVlZJQ1VNNFlORDdKVVNURkhINUtKSVpCSlNWSUhHT1FRIiwiaWF0IjoxNzI4NzQyMTcwLCJpc3MiOiJBQlJaN01PVkNMSkIyTEs1U0hPNkRHNFpNS01JS1lHM0kzRURBRUpWTlYyUExPSTVVVzNGUUtUUyIsIm5hbWUiOiJhZG1pbiIsInN1YiI6IlVCSUE0UlU3WkxTTUg1RENSUFJRSENBN1BaWVlZRlZORkFNQTdLQ1UzN0FOM0tBWFM1NVREUEpEIiwibmF0cyI6eyJwdWIiOnt9LCJzdWIiOnt9LCJzdWJzIjotMSwiZGF0YSI6LTEsInBheWxvYWQiOi0xLCJ0eXBlIjoidXNlciIsInZlcnNpb24iOjJ9fQ.BghPkacMKXsTfUzb6GP2ftMFzUMz_H7_92c85fIbbvJfYNHdGXgpS378_um_cc_ea4-PFMsKCi77kdbg4GeeAQ
+    admin.nk: SUAOHZIPLJWX4MUHSCAEZQNWI4X342DVWQPB7LH7OBZIIYRRH3QFFR4ENU
+    admin.pub: UBIA4RU7ZLSMH5DCRPRQHCA7PZYYYFVNFAMA7KCU37AN3KAXS55TDPJD
+    sys.creds: |
+      -----BEGIN NATS USER JWT-----
+      eyJ0eXAiOiJKV1QiLCJhbGciOiJlZDI1NTE5LW5rZXkifQ.eyJqdGkiOiJZTkFBWVYyWjdGU1pUS1ZLSkRQU0hLRE9aVktXRjNVM1RWRkQ3RjQyV1BXMkI3WUY2UEJBIiwiaWF0IjoxNzI4NzQyMTcwLCJpc3MiOiJBRDZBM1VYQjZSV0pHTVRUUEpPV00zMjdTVkNTNDdZUkQ3SlNYTjJRU0FOM1RBVFJTQ05BTkdNRiIsIm5hbWUiOiJzeXMiLCJzdWIiOiJVQUEzNVRFQUVONlI2NVQ0M0hCUFRXQklWSFVMNzZUT1lYRTJTVldUNDJPT1BHNERJQVZTU1dTRSIsIm5hdHMiOnsicHViIjp7fSwic3ViIjp7fSwic3VicyI6LTEsImRhdGEiOi0xLCJwYXlsb2FkIjotMSwidHlwZSI6InVzZXIiLCJ2ZXJzaW9uIjoyfX0.JD3Iy2I_FBiT1d_XWWen4fFdInqQf3-_-M4aJtOo5A2t0nyB3PCllW1tOglf26tB9fTx4b8HquyX0h7cCrUJAQ
+      ------END NATS USER JWT------
+
+      ************************* IMPORTANT *************************
+      NKEY Seed printed below can be used to sign and prove identity.
+      NKEYs are sensitive and should be treated as secrets.
+
+      -----BEGIN USER NKEY SEED-----
+      SUAAGIMD2ZCDOTK6ZBSONPAP4XPXYE4DXYTMYPVLD7IUNDQFMTKTPAIMJ4
+      ------END USER NKEY SEED------
+
+      *************************************************************
+    sys.jwt: eyJ0eXAiOiJKV1QiLCJhbGciOiJlZDI1NTE5LW5rZXkifQ.eyJqdGkiOiJZTkFBWVYyWjdGU1pUS1ZLSkRQU0hLRE9aVktXRjNVM1RWRkQ3RjQyV1BXMkI3WUY2UEJBIiwiaWF0IjoxNzI4NzQyMTcwLCJpc3MiOiJBRDZBM1VYQjZSV0pHTVRUUEpPV00zMjdTVkNTNDdZUkQ3SlNYTjJRU0FOM1RBVFJTQ05BTkdNRiIsIm5hbWUiOiJzeXMiLCJzdWIiOiJVQUEzNVRFQUVONlI2NVQ0M0hCUFRXQklWSFVMNzZUT1lYRTJTVldUNDJPT1BHNERJQVZTU1dTRSIsIm5hdHMiOnsicHViIjp7fSwic3ViIjp7fSwic3VicyI6LTEsImRhdGEiOi0xLCJwYXlsb2FkIjotMSwidHlwZSI6InVzZXIiLCJ2ZXJzaW9uIjoyfX0.JD3Iy2I_FBiT1d_XWWen4fFdInqQf3-_-M4aJtOo5A2t0nyB3PCllW1tOglf26tB9fTx4b8HquyX0h7cCrUJAQ
+    sys.nk: SUAAGIMD2ZCDOTK6ZBSONPAP4XPXYE4DXYTMYPVLD7IUNDQFMTKTPAIMJ4
+    sys.pub: UAA35TEAEN6R65T43HBPTWBIVHUL76TOYXE2SVWT42OOPG4DIAVSSWSE
+  oauth2JWTSecret: ShylyguU1o8R7EI4sWnRvDf2pG3632NvqXvGJa7cgCM
+  offlineInstaller: false
+  postgresPassword: apCyBNZioo2oiVG3
+  proxyServiceDomain: appscode.com
+  redisPassword: E6QW0oODhmlDwcXY
+  requestedDomain: example.com
+  requesterDisplayName: Tamal Saha
+  requesterUsername: appscode
+  s3AccessKeyID: dnY6GZZNBYJkaJinwGmm
+  s3AccessKeySecret: 4IiHbFGItJjUOIGM1lXp
+  serviceBackendCookie:
+    encryptionKey: kCuMegxHv+vetqIeECfNCylkopkwNhRrELtF8WNzy/M=
+    signingKey: fMIUhMhVYR+yHW0SuSRxSJ65/xol0UFzr9AS8FCFGN4=
+  token: b784f6b1af42c52ef966272418e5dc729422bbde
+  uploadID: cs5866kml1sc73c0mcd0-dskmgcw4z8
+deploy-ui:
+  enabled: false
+  nodeSelector: null
+  resources: {}
+dns-proxy:
+  enabled: false
+  nodeSelector: null
+  resources: {}
+grafana:
+  enabled: true
+  nodeSelector: null
+  resources: {}
+infra:
+  cloudServices:
+    objstore:
+      auth:
+        s3:
+          AWS_ACCESS_KEY_ID: dnY6GZZNBYJkaJinwGmm
+          AWS_SECRET_ACCESS_KEY: 4IiHbFGItJjUOIGM1lXp
+      bucket: s3://backupbucket?s3ForcePathStyle=true
+      endpoint: https://example-com-brgxc.bytebuilders.xyz:4224
+      region: us-east-1
+    provider: s3
+  dns:
+    auth:
+      cloudflare:
+        baseURL: https://dns-proxy.appscode.com
+        token: b784f6b1af42c52ef966272418e5dc729422bbde
+    provider: cloudflare
+    targetIPs: null
+  kubestash:
+    backend:
+      azure:
+        container: ""
+      gcs:
+        bucket: ""
+      provider: ""
+      s3:
+        bucket: ""
+        endpoint: ""
+    retentionPolicy: keep-1mo
+    schedule: 0 */2 * * *
+    storageSecret:
+      create: true
+  storageClass:
+    name: ""
+  tls:
+    acme:
+      email: tamal@appscode.com
+      solver: Ingress
+    ca:
+      cert: ""
+      key: ""
+    certificate:
+      cert: ""
+      key: ""
+    issuer: letsencrypt
+    jks:
+      keystore: null
+      password: 7hcvLa6P9hrGityzCvD3
+      truststore: null
+ingress:
+  exposeVia: LoadBalancer
+  externalIPs: []
+  managedRecordTypes:
+  - A
+  nodeSelector: {}
+  resources: {}
+initialSetup:
+  admin:
+    displayName: Tamal Saha
+    email: tamal@appscode.com
+    orgname: appscode
+    password: Oh)ozG.1g(U~23j.xQho
+    username: admin
+  cloudCredential:
+    metadata:
+      creationTimestamp: null
+    spec:
+      name: ""
+      ownerID: 0
+      type: ""
+    status: {}
+  selfManagement:
+    createCAPICluster: false
+    disableFeatures: null
+    enableFeatures:
+      monitoring:
+      - panopticon
+      - monitoring-operator
+      - grafana-operator
+    import: true
+kubedb-ui:
+  enabled: true
+  nodeSelector: null
+  resources: {}
+marketplace-ui:
+  enabled: false
+  nodeSelector: null
+  resources: {}
+monitoring:
+  agent: prometheus.io/operator
+  exporter:
+    resources:
+      limits:
+        memory: 128Mi
+      requests:
+        memory: 128Mi
+  serviceMonitor:
+    labels:
+      release: kube-prometheus-stack
+nats:
+  exposeVia: Ingress
+  nodeSelector: {}
+  replicas: 1
+  resources: {}
+openfga:
+  enabled: true
+  nodeSelector: null
+  resources: {}
+platform-api:
+  enabled: true
+  nodeSelector: null
+  resources: {}
+platform-links:
+  enabled: true
+  nodeSelector: null
+  resources: {}
+platform-ui:
+  enabled: true
+  nodeSelector: null
+  resources: {}
+registry:
+  allowNondistributableArtifacts: true
+  certs: {}
+  credentials:
+    password: ""
+    username: ""
+  helm:
+    createNamespace: true
+    repositories:
+      appscode-charts-oci: oci://ghcr.io/appscode-charts
+  image:
+    proxies:
+      appscode: r.appscode.com
+      dockerHub: ""
+      dockerLibrary: ""
+      ghcr: ghcr.io
+      kubernetes: registry.k8s.io
+      microsoft: ""
+      quay: quay.io
+  imagePullSecrets: null
+  insecure: true
+release:
+  name: ace
+  namespace: ace
+s3proxy:
+  enabled: true
+  nodeSelector: null
+  resources: {}
+settings:
+  cache:
+    persistence:
+      size: 10Gi
+    resources:
+      limits:
+        memory: 256Mi
+      requests:
+        memory: 256Mi
+  db:
+    persistence:
+      size: 10Gi
+    resources:
+      limits:
+        memory: 128Mi
+      requests:
+        memory: 128Mi
+  domainWhiteList: []
+  smtp:
+    enabled: true
+    from: example-com-brgxc@bytebuilders.xyz
+    host: smtprelay.appscode.xyz:587
+    password: b784f6b1af42c52ef966272418e5dc729422bbde
+    sendAsPlainText: false
+    tlsEnabled: false
+    username: example-com-brgxc@bytebuilders.xyz
+smtprelay:
+  enabled: false
+  nodeSelector: null
+  resources: {}
+trickster:
+  enabled: true
+  nodeSelector: null
+  resources: {}
