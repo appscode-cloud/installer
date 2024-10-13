@@ -8,7 +8,7 @@
 - ghcr.io/appscode-charts/ace-installer:v2024.10.7
 - ghcr.io/appscode-charts/ace:v2024.10.7
 - ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10
-- ghcr.io/appscode-images/nats:2.10.18-alpine
+- ghcr.io/appscode-images/nats:2.10.21-alpine
 - ghcr.io/appscode-images/postgres:15.5-alpine
 - ghcr.io/appscode-images/redis:7.2.4-bookworm
 - ghcr.io/appscode/b3:v2024.10.7
@@ -103,7 +103,8 @@
 - hashicorp/vault-csi-provider:1.4.1
 - hashicorp/vault-secrets-operator:0.4.3
 - hashicorp/vault:1.15.2
-- natsio/nats-server-config-reloader:0.15.0
+- natsio/nats-boot-config:0.16.0
+- natsio/nats-server-config-reloader:0.16.0
 - natsio/prometheus-nats-exporter:0.15.0
 - openpolicyagent/gatekeeper:v3.13.3
 - opensearchproject/opensearch:2.1.0
