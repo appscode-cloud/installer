@@ -32,9 +32,11 @@ mv /tmp/crane images
 
 CMD="./images/crane"
 
+$CMD pull --allow-nondistributable-artifacts --insecure alpine:3.20 images/library-alpine-3.20.tar
 $CMD pull --allow-nondistributable-artifacts --insecure bitnami/kubectl:1.28.5 images/bitnami-kubectl-1.28.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure bitnami/sealed-secrets-controller:0.25.0 images/bitnami-sealed-secrets-controller-0.25.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure cassandra:4.1.3 images/library-cassandra-4.1.3.tar
+$CMD pull --allow-nondistributable-artifacts --insecure coredns/coredns:1.11.3 images/coredns-coredns-1.11.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure falcosecurity/falco-no-driver:0.37.0 images/falcosecurity-falco-no-driver-0.37.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure falcosecurity/falcoctl:0.7.1 images/falcosecurity-falcoctl-0.7.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace-installer:v2024.10.7 images/appscode-charts-ace-installer-v2024.10.7.tar
@@ -289,6 +291,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/service
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/sidekick:v0.0.8 images/appscode-sidekick-v0.0.8.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/supervisor:v0.0.6 images/appscode-supervisor-v0.0.6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/trickster:v2.0.0-beta3 images/appscode-trickster-v2.0.0-beta3.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/vcluster-plugin:v0.0.2 images/appscode-vcluster-plugin-v0.0.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/external-secrets/external-secrets:v0.9.12 images/external-secrets-external-secrets-v0.9.12.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/helm-controller:v1.0.1 images/fluxcd-helm-controller-v1.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/kustomize-controller:v1.3.0 images/fluxcd-kustomize-controller-v1.3.0.tar
@@ -304,7 +307,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-auth:v0.0.5 images/kluster-manager-cluster-auth-v0.0.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway-manager:v1.9.1 images/kluster-manager-cluster-gateway-manager-v1.9.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway:v1.9.1 images/kluster-manager-cluster-gateway-v1.9.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile:v0.1.0 images/kluster-manager-cluster-profile-v0.0.5.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile:v0.1.0 images/kluster-manager-cluster-profile-v0.1.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-proxy:v0.5.0 images/kluster-manager-cluster-proxy-v0.5.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/clusteradm:v0.9.0 images/kluster-manager-clusteradm-v0.9.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/fluxcd-addon:v0.0.4 images/kluster-manager-fluxcd-addon-v0.0.4.tar
@@ -333,6 +336,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/cleanup-
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyverno:v1.12.5 images/kyverno-kyverno-v1.12.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyvernopre:v1.12.5 images/kyverno-kyvernopre-v1.12.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/reports-controller:v1.12.5 images/kyverno-reports-controller-v1.12.5.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster-oss:0.20.0 images/loft-sh-vcluster-oss-0.20.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/echoserver:v20221109 images/voyagermesh-echoserver-v20221109.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.29.9-ac images/voyagermesh-envoy-v1.29.9-ac.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway-converter:v0.0.1 images/voyagermesh-gateway-converter-v0.0.1.tar
@@ -360,6 +364,8 @@ $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/autoscal
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/csi-secrets-store/driver:v1.4.1 images/csi-secrets-store-driver-v1.4.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/controller:v1.11.1 images/ingress-nginx-controller-v1.11.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar
+$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.30.2 images/kube-apiserver-v1.30.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.30.2 images/kube-controller-manager-v1.30.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0 images/kube-state-metrics-kube-state-metrics-v2.13.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2 images/prometheus-adapter-prometheus-adapter-v0.11.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.10.0 images/sig-storage-csi-node-driver-registrar-v2.10.0.tar

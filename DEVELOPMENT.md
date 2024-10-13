@@ -20,8 +20,7 @@ image-packer generate-scripts --insecure --allow-nondistributable-artifacts \
 
 image-packer generate-gcp-script --allow-nondistributable-artifacts \
     --output-dir=catalog \
-    --src=catalog/ace.yaml \
-    --src=catalog/gcp-mp-images.yaml
+    --src=catalog/ace.yaml
 
 make add-license fmt
 ```

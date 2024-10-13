@@ -130,7 +130,6 @@ crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/gateway:v1.1.1 $
 crane cp --allow-nondistributable-artifacts hashicorp/vault-csi-provider:1.4.1 $IMAGE_REGISTRY/vault-csi-provider:$TAG
 crane cp --allow-nondistributable-artifacts hashicorp/vault-secrets-operator:0.4.3 $IMAGE_REGISTRY/vault-secrets-operator:$TAG
 crane cp --allow-nondistributable-artifacts hashicorp/vault:1.15.2 $IMAGE_REGISTRY/vault:$TAG
-crane cp --allow-nondistributable-artifacts k0sproject/k0s:v1.30.2-k0s.0 $IMAGE_REGISTRY/k0s:$TAG
 crane cp --allow-nondistributable-artifacts natsio/nats-server-config-reloader:0.15.0 $IMAGE_REGISTRY/nats-server-config-reloader:$TAG
 crane cp --allow-nondistributable-artifacts natsio/prometheus-nats-exporter:0.15.0 $IMAGE_REGISTRY/prometheus-nats-exporter:$TAG
 crane cp --allow-nondistributable-artifacts openpolicyagent/gatekeeper:v3.13.3 $IMAGE_REGISTRY/gatekeeper:$TAG
@@ -145,7 +144,6 @@ crane cp --allow-nondistributable-artifacts quay.io/prometheus-operator/promethe
 crane cp --allow-nondistributable-artifacts quay.io/prometheus/node-exporter:v1.8.2 $IMAGE_REGISTRY/node-exporter:$TAG
 crane cp --allow-nondistributable-artifacts quay.io/prometheus/prometheus:v2.54.0 $IMAGE_REGISTRY/prometheus:$TAG
 crane cp --allow-nondistributable-artifacts rabbitmq:3.12.1-management $IMAGE_REGISTRY/rabbitmq:$TAG
-crane cp --allow-nondistributable-artifacts rancher/k3s:v1.30.2-k3s1 $IMAGE_REGISTRY/k3s:$TAG
 crane cp --allow-nondistributable-artifacts rancher/kine:v0.11.4 $IMAGE_REGISTRY/kine:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 $IMAGE_REGISTRY/cluster-autoscaler:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/csi-secrets-store/driver:v1.4.1 $IMAGE_REGISTRY/driver:$TAG

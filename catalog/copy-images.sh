@@ -35,9 +35,11 @@ mv /tmp/crane .
 
 CMD="./crane"
 
+$CMD cp --allow-nondistributable-artifacts --insecure alpine:3.20 $IMAGE_REGISTRY/alpine:3.20
 $CMD cp --allow-nondistributable-artifacts --insecure bitnami/kubectl:1.28.5 $IMAGE_REGISTRY/bitnami/kubectl:1.28.5
 $CMD cp --allow-nondistributable-artifacts --insecure bitnami/sealed-secrets-controller:0.25.0 $IMAGE_REGISTRY/bitnami/sealed-secrets-controller:0.25.0
 $CMD cp --allow-nondistributable-artifacts --insecure cassandra:4.1.3 $IMAGE_REGISTRY/cassandra:4.1.3
+$CMD cp --allow-nondistributable-artifacts --insecure coredns/coredns:1.11.3 $IMAGE_REGISTRY/coredns/coredns:1.11.3
 $CMD cp --allow-nondistributable-artifacts --insecure falcosecurity/falco-no-driver:0.37.0 $IMAGE_REGISTRY/falcosecurity/falco-no-driver:0.37.0
 $CMD cp --allow-nondistributable-artifacts --insecure falcosecurity/falcoctl:0.7.1 $IMAGE_REGISTRY/falcosecurity/falcoctl:0.7.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace-installer:v2024.10.7 $IMAGE_REGISTRY/appscode-charts/ace-installer:v2024.10.7
@@ -292,6 +294,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/service-p
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/sidekick:v0.0.8 $IMAGE_REGISTRY/appscode/sidekick:v0.0.8
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/supervisor:v0.0.6 $IMAGE_REGISTRY/appscode/supervisor:v0.0.6
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/trickster:v2.0.0-beta3 $IMAGE_REGISTRY/appscode/trickster:v2.0.0-beta3
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/vcluster-plugin:v0.0.2 $IMAGE_REGISTRY/appscode/vcluster-plugin:v0.0.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/external-secrets/external-secrets:v0.9.12 $IMAGE_REGISTRY/external-secrets/external-secrets:v0.9.12
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/helm-controller:v1.0.1 $IMAGE_REGISTRY/fluxcd/helm-controller:v1.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/kustomize-controller:v1.3.0 $IMAGE_REGISTRY/fluxcd/kustomize-controller:v1.3.0
@@ -336,6 +339,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/cleanup-co
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyverno:v1.12.5 $IMAGE_REGISTRY/kyverno/kyverno:v1.12.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyvernopre:v1.12.5 $IMAGE_REGISTRY/kyverno/kyvernopre:v1.12.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/reports-controller:v1.12.5 $IMAGE_REGISTRY/kyverno/reports-controller:v1.12.5
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster-oss:0.20.0 $IMAGE_REGISTRY/loft-sh/vcluster-oss:0.20.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/echoserver:v20221109 $IMAGE_REGISTRY/voyagermesh/echoserver:v20221109
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.29.9-ac $IMAGE_REGISTRY/voyagermesh/envoy:v1.29.9-ac
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway-converter:v0.0.1 $IMAGE_REGISTRY/voyagermesh/gateway-converter:v0.0.1
@@ -363,6 +367,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/autoscalin
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/csi-secrets-store/driver:v1.4.1 $IMAGE_REGISTRY/csi-secrets-store/driver:v1.4.1
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/controller:v1.11.1 $IMAGE_REGISTRY/ingress-nginx/controller:v1.11.1
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 $IMAGE_REGISTRY/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
+$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.30.2 $IMAGE_REGISTRY/kube-apiserver:v1.30.2
+$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.30.2 $IMAGE_REGISTRY/kube-controller-manager:v1.30.2
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0 $IMAGE_REGISTRY/kube-state-metrics/kube-state-metrics:v2.13.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2 $IMAGE_REGISTRY/prometheus-adapter/prometheus-adapter:v0.11.2
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.10.0 $IMAGE_REGISTRY/sig-storage/csi-node-driver-registrar:v2.10.0
