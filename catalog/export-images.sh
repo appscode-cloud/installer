@@ -249,7 +249,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault:0.27.0 images/appscode-charts-vault-0.27.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2024.8.30 images/appscode-charts-voyager-gateway-v2024.8.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2024.8.30 images/appscode-charts-voyager-v2024.8.30.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.18-alpine images/appscode-images-nats-2.10.18-alpine.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.21-alpine images/appscode-images-nats-2.10.21-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:15.5-alpine images/appscode-images-postgres-15.5-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.2.4-bookworm images/appscode-images-redis-7.2.4-bookworm.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/b3:v2024.10.7 images/appscode-b3-v2024.10.7.tar
@@ -344,7 +344,8 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gate
 $CMD pull --allow-nondistributable-artifacts --insecure hashicorp/vault-csi-provider:1.4.1 images/hashicorp-vault-csi-provider-1.4.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure hashicorp/vault-secrets-operator:0.4.3 images/hashicorp-vault-secrets-operator-0.4.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure hashicorp/vault:1.15.2 images/hashicorp-vault-1.15.2.tar
-$CMD pull --allow-nondistributable-artifacts --insecure natsio/nats-server-config-reloader:0.15.0 images/natsio-nats-server-config-reloader-0.15.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure natsio/nats-boot-config:0.16.0 images/natsio-nats-boot-config-0.16.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure natsio/nats-server-config-reloader:0.16.0 images/natsio-nats-server-config-reloader-0.16.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure natsio/prometheus-nats-exporter:0.15.0 images/natsio-prometheus-nats-exporter-0.15.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure openpolicyagent/gatekeeper:v3.13.3 images/openpolicyagent-gatekeeper-v3.13.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure opensearchproject/opensearch:2.1.0 images/opensearchproject-opensearch-2.1.0.tar

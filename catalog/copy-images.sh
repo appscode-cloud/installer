@@ -252,7 +252,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/va
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault:0.27.0 $IMAGE_REGISTRY/appscode-charts/vault:0.27.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2024.8.30 $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2024.8.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2024.8.30 $IMAGE_REGISTRY/appscode-charts/voyager:v2024.8.30
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.18-alpine $IMAGE_REGISTRY/appscode-images/nats:2.10.18-alpine
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.21-alpine $IMAGE_REGISTRY/appscode-images/nats:2.10.21-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:15.5-alpine $IMAGE_REGISTRY/appscode-images/postgres:15.5-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/b3:v2024.10.7 $IMAGE_REGISTRY/appscode/b3:v2024.10.7
@@ -347,7 +347,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gatewa
 $CMD cp --allow-nondistributable-artifacts --insecure hashicorp/vault-csi-provider:1.4.1 $IMAGE_REGISTRY/hashicorp/vault-csi-provider:1.4.1
 $CMD cp --allow-nondistributable-artifacts --insecure hashicorp/vault-secrets-operator:0.4.3 $IMAGE_REGISTRY/hashicorp/vault-secrets-operator:0.4.3
 $CMD cp --allow-nondistributable-artifacts --insecure hashicorp/vault:1.15.2 $IMAGE_REGISTRY/hashicorp/vault:1.15.2
-$CMD cp --allow-nondistributable-artifacts --insecure natsio/nats-server-config-reloader:0.15.0 $IMAGE_REGISTRY/natsio/nats-server-config-reloader:0.15.0
+$CMD cp --allow-nondistributable-artifacts --insecure natsio/nats-boot-config:0.16.0 $IMAGE_REGISTRY/natsio/nats-boot-config:0.16.0
+$CMD cp --allow-nondistributable-artifacts --insecure natsio/nats-server-config-reloader:0.16.0 $IMAGE_REGISTRY/natsio/nats-server-config-reloader:0.16.0
 $CMD cp --allow-nondistributable-artifacts --insecure natsio/prometheus-nats-exporter:0.15.0 $IMAGE_REGISTRY/natsio/prometheus-nats-exporter:0.15.0
 $CMD cp --allow-nondistributable-artifacts --insecure openpolicyagent/gatekeeper:v3.13.3 $IMAGE_REGISTRY/openpolicyagent/gatekeeper:v3.13.3
 $CMD cp --allow-nondistributable-artifacts --insecure opensearchproject/opensearch:2.1.0 $IMAGE_REGISTRY/opensearchproject/opensearch:2.1.0

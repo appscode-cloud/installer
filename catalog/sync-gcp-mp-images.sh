@@ -35,7 +35,7 @@ crane cp --allow-nondistributable-artifacts falcosecurity/falcoctl:0.7.1 $IMAGE_
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace-installer:v2024.10.7 $IMAGE_REGISTRY/ace-installer:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace:v2024.10.7 $IMAGE_REGISTRY/ace:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 $IMAGE_REGISTRY/spoke-cluster-addons:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/nats:2.10.18-alpine $IMAGE_REGISTRY/nats:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/nats:2.10.21-alpine $IMAGE_REGISTRY/nats:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/postgres:15.5-alpine $IMAGE_REGISTRY/postgres:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/redis:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/b3:v2024.10.7 $IMAGE_REGISTRY/b3:$TAG
@@ -130,7 +130,8 @@ crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/gateway:v1.1.1 $
 crane cp --allow-nondistributable-artifacts hashicorp/vault-csi-provider:1.4.1 $IMAGE_REGISTRY/vault-csi-provider:$TAG
 crane cp --allow-nondistributable-artifacts hashicorp/vault-secrets-operator:0.4.3 $IMAGE_REGISTRY/vault-secrets-operator:$TAG
 crane cp --allow-nondistributable-artifacts hashicorp/vault:1.15.2 $IMAGE_REGISTRY/vault:$TAG
-crane cp --allow-nondistributable-artifacts natsio/nats-server-config-reloader:0.15.0 $IMAGE_REGISTRY/nats-server-config-reloader:$TAG
+crane cp --allow-nondistributable-artifacts natsio/nats-boot-config:0.16.0 $IMAGE_REGISTRY/nats-boot-config:$TAG
+crane cp --allow-nondistributable-artifacts natsio/nats-server-config-reloader:0.16.0 $IMAGE_REGISTRY/nats-server-config-reloader:$TAG
 crane cp --allow-nondistributable-artifacts natsio/prometheus-nats-exporter:0.15.0 $IMAGE_REGISTRY/prometheus-nats-exporter:$TAG
 crane cp --allow-nondistributable-artifacts openpolicyagent/gatekeeper:v3.13.3 $IMAGE_REGISTRY/gatekeeper:$TAG
 crane cp --allow-nondistributable-artifacts opensearchproject/opensearch:2.1.0 $IMAGE_REGISTRY/opensearch:$TAG
