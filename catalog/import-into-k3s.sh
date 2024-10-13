@@ -24,9 +24,11 @@ fi
 TARBALL=${1:-}
 tar -zxvf $TARBALL
 
+k3s ctr images import images/library-alpine-3.20.tar
 k3s ctr images import images/bitnami-kubectl-1.28.5.tar
 k3s ctr images import images/bitnami-sealed-secrets-controller-0.25.0.tar
 k3s ctr images import images/library-cassandra-4.1.3.tar
+k3s ctr images import images/coredns-coredns-1.11.3.tar
 k3s ctr images import images/falcosecurity-falco-no-driver-0.37.0.tar
 k3s ctr images import images/falcosecurity-falcoctl-0.7.1.tar
 k3s ctr images import images/appscode-charts-ace-installer-v2024.10.7.tar
@@ -281,6 +283,7 @@ k3s ctr images import images/appscode-service-provider-v0.0.1.tar
 k3s ctr images import images/appscode-sidekick-v0.0.8.tar
 k3s ctr images import images/appscode-supervisor-v0.0.6.tar
 k3s ctr images import images/appscode-trickster-v2.0.0-beta3.tar
+k3s ctr images import images/appscode-vcluster-plugin-v0.0.2.tar
 k3s ctr images import images/external-secrets-external-secrets-v0.9.12.tar
 k3s ctr images import images/fluxcd-helm-controller-v1.0.1.tar
 k3s ctr images import images/fluxcd-kustomize-controller-v1.3.0.tar
@@ -296,7 +299,7 @@ k3s ctr images import images/kluster-manager-addon-manager-v0.14.0.tar
 k3s ctr images import images/kluster-manager-cluster-auth-v0.0.5.tar
 k3s ctr images import images/kluster-manager-cluster-gateway-manager-v1.9.1.tar
 k3s ctr images import images/kluster-manager-cluster-gateway-v1.9.1.tar
-k3s ctr images import images/kluster-manager-cluster-profile-v0.0.5.tar
+k3s ctr images import images/kluster-manager-cluster-profile-v0.1.0.tar
 k3s ctr images import images/kluster-manager-cluster-proxy-v0.5.0.tar
 k3s ctr images import images/kluster-manager-clusteradm-v0.9.0.tar
 k3s ctr images import images/kluster-manager-fluxcd-addon-v0.0.4.tar
@@ -325,6 +328,7 @@ k3s ctr images import images/kyverno-cleanup-controller-v1.12.5.tar
 k3s ctr images import images/kyverno-kyverno-v1.12.5.tar
 k3s ctr images import images/kyverno-kyvernopre-v1.12.5.tar
 k3s ctr images import images/kyverno-reports-controller-v1.12.5.tar
+k3s ctr images import images/loft-sh-vcluster-oss-0.20.0.tar
 k3s ctr images import images/voyagermesh-echoserver-v20221109.tar
 k3s ctr images import images/voyagermesh-envoy-v1.29.9-ac.tar
 k3s ctr images import images/voyagermesh-gateway-converter-v0.0.1.tar
@@ -352,6 +356,8 @@ k3s ctr images import images/autoscaling-cluster-autoscaler-v1.27.1.tar
 k3s ctr images import images/csi-secrets-store-driver-v1.4.1.tar
 k3s ctr images import images/ingress-nginx-controller-v1.11.1.tar
 k3s ctr images import images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar
+k3s ctr images import images/kube-apiserver-v1.30.2.tar
+k3s ctr images import images/kube-controller-manager-v1.30.2.tar
 k3s ctr images import images/kube-state-metrics-kube-state-metrics-v2.13.0.tar
 k3s ctr images import images/prometheus-adapter-prometheus-adapter-v0.11.2.tar
 k3s ctr images import images/sig-storage-csi-node-driver-registrar-v2.10.0.tar

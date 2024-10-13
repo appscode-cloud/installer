@@ -26,9 +26,11 @@ tar -zxvf $TARBALL
 
 CMD="./crane"
 
+$CMD push --allow-nondistributable-artifacts --insecure images/library-alpine-3.20.tar $IMAGE_REGISTRY/alpine:3.20
 $CMD push --allow-nondistributable-artifacts --insecure images/bitnami-kubectl-1.28.5.tar $IMAGE_REGISTRY/bitnami/kubectl:1.28.5
 $CMD push --allow-nondistributable-artifacts --insecure images/bitnami-sealed-secrets-controller-0.25.0.tar $IMAGE_REGISTRY/bitnami/sealed-secrets-controller:0.25.0
 $CMD push --allow-nondistributable-artifacts --insecure images/library-cassandra-4.1.3.tar $IMAGE_REGISTRY/cassandra:4.1.3
+$CMD push --allow-nondistributable-artifacts --insecure images/coredns-coredns-1.11.3.tar $IMAGE_REGISTRY/coredns/coredns:1.11.3
 $CMD push --allow-nondistributable-artifacts --insecure images/falcosecurity-falco-no-driver-0.37.0.tar $IMAGE_REGISTRY/falcosecurity/falco-no-driver:0.37.0
 $CMD push --allow-nondistributable-artifacts --insecure images/falcosecurity-falcoctl-0.7.1.tar $IMAGE_REGISTRY/falcosecurity/falcoctl:0.7.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ace-installer-v2024.10.7.tar $IMAGE_REGISTRY/appscode-charts/ace-installer:v2024.10.7
@@ -283,6 +285,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-service-
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-sidekick-v0.0.8.tar $IMAGE_REGISTRY/appscode/sidekick:v0.0.8
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-supervisor-v0.0.6.tar $IMAGE_REGISTRY/appscode/supervisor:v0.0.6
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-trickster-v2.0.0-beta3.tar $IMAGE_REGISTRY/appscode/trickster:v2.0.0-beta3
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-vcluster-plugin-v0.0.2.tar $IMAGE_REGISTRY/appscode/vcluster-plugin:v0.0.2
 $CMD push --allow-nondistributable-artifacts --insecure images/external-secrets-external-secrets-v0.9.12.tar $IMAGE_REGISTRY/external-secrets/external-secrets:v0.9.12
 $CMD push --allow-nondistributable-artifacts --insecure images/fluxcd-helm-controller-v1.0.1.tar $IMAGE_REGISTRY/fluxcd/helm-controller:v1.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/fluxcd-kustomize-controller-v1.3.0.tar $IMAGE_REGISTRY/fluxcd/kustomize-controller:v1.3.0
@@ -298,7 +301,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-a
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-auth-v0.0.5.tar $IMAGE_REGISTRY/kluster-manager/cluster-auth:v0.0.5
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-gateway-manager-v1.9.1.tar $IMAGE_REGISTRY/kluster-manager/cluster-gateway-manager:v1.9.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-gateway-v1.9.1.tar $IMAGE_REGISTRY/kluster-manager/cluster-gateway:v1.9.1
-$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-profile-v0.0.5.tar $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.1.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-profile-v0.1.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.1.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-proxy-v0.5.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-proxy:v0.5.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-clusteradm-v0.9.0.tar $IMAGE_REGISTRY/kluster-manager/clusteradm:v0.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-fluxcd-addon-v0.0.4.tar $IMAGE_REGISTRY/kluster-manager/fluxcd-addon:v0.0.4
@@ -327,6 +330,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kyverno-cleanup-c
 $CMD push --allow-nondistributable-artifacts --insecure images/kyverno-kyverno-v1.12.5.tar $IMAGE_REGISTRY/kyverno/kyverno:v1.12.5
 $CMD push --allow-nondistributable-artifacts --insecure images/kyverno-kyvernopre-v1.12.5.tar $IMAGE_REGISTRY/kyverno/kyvernopre:v1.12.5
 $CMD push --allow-nondistributable-artifacts --insecure images/kyverno-reports-controller-v1.12.5.tar $IMAGE_REGISTRY/kyverno/reports-controller:v1.12.5
+$CMD push --allow-nondistributable-artifacts --insecure images/loft-sh-vcluster-oss-0.20.0.tar $IMAGE_REGISTRY/loft-sh/vcluster-oss:0.20.0
 $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-echoserver-v20221109.tar $IMAGE_REGISTRY/voyagermesh/echoserver:v20221109
 $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-envoy-v1.29.9-ac.tar $IMAGE_REGISTRY/voyagermesh/envoy:v1.29.9-ac
 $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-gateway-converter-v0.0.1.tar $IMAGE_REGISTRY/voyagermesh/gateway-converter:v0.0.1
@@ -354,6 +358,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/autoscaling-clust
 $CMD push --allow-nondistributable-artifacts --insecure images/csi-secrets-store-driver-v1.4.1.tar $IMAGE_REGISTRY/csi-secrets-store/driver:v1.4.1
 $CMD push --allow-nondistributable-artifacts --insecure images/ingress-nginx-controller-v1.11.1.tar $IMAGE_REGISTRY/ingress-nginx/controller:v1.11.1
 $CMD push --allow-nondistributable-artifacts --insecure images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar $IMAGE_REGISTRY/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
+$CMD push --allow-nondistributable-artifacts --insecure images/kube-apiserver-v1.30.2.tar $IMAGE_REGISTRY/kube-apiserver:v1.30.2
+$CMD push --allow-nondistributable-artifacts --insecure images/kube-controller-manager-v1.30.2.tar $IMAGE_REGISTRY/kube-controller-manager:v1.30.2
 $CMD push --allow-nondistributable-artifacts --insecure images/kube-state-metrics-kube-state-metrics-v2.13.0.tar $IMAGE_REGISTRY/kube-state-metrics/kube-state-metrics:v2.13.0
 $CMD push --allow-nondistributable-artifacts --insecure images/prometheus-adapter-prometheus-adapter-v0.11.2.tar $IMAGE_REGISTRY/prometheus-adapter/prometheus-adapter:v0.11.2
 $CMD push --allow-nondistributable-artifacts --insecure images/sig-storage-csi-node-driver-registrar-v2.10.0.tar $IMAGE_REGISTRY/sig-storage/csi-node-driver-registrar:v2.10.0
