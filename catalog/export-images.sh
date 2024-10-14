@@ -61,7 +61,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/catalog-manager:v2024.10.7 images/appscode-charts-catalog-manager-v2024.10.7.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.7.28 images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.7.28.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager:v1.15.2 images/appscode-charts-cert-manager-v1.15.2.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-auth-manager:v2024.9.30 images/appscode-charts-cluster-auth-manager-v2024.9.30.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-auth-manager:v2024.10.7 images/appscode-charts-cluster-auth-manager-v2024.10.7.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-autoscaler:9.29.0 images/appscode-charts-cluster-autoscaler-9.29.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-gateway-manager:v2024.9.30 images/appscode-charts-cluster-gateway-manager-v2024.9.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-hub:v2024.7.10 images/appscode-charts-cluster-manager-hub-v2024.7.10.tar
@@ -304,7 +304,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kedacore/keda-ad
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kedacore/keda-metrics-apiserver:2.15.1 images/kedacore-keda-metrics-apiserver-2.15.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kedacore/keda:2.15.1 images/kedacore-keda-2.15.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/addon-manager:v0.14.0 images/kluster-manager-addon-manager-v0.14.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-auth:v0.0.5 images/kluster-manager-cluster-auth-v0.0.5.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-auth:v0.1.0 images/kluster-manager-cluster-auth-v0.1.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway-manager:v1.9.1 images/kluster-manager-cluster-gateway-manager-v1.9.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway:v1.9.1 images/kluster-manager-cluster-gateway-v1.9.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile:v0.1.0 images/kluster-manager-cluster-profile-v0.1.0.tar

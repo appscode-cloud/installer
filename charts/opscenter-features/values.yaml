@@ -216,7 +216,7 @@ helm:
     cluster-gateway-manager:
       version: "v2024.9.30"
     cluster-auth-manager:
-      version: "v2024.9.30"
+      version: "v2024.10.7"
     cluster-profile-manager:
       version: "v2024.9.30"
     hub-cluster-robot:
