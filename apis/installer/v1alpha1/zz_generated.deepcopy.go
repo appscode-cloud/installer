@@ -1249,6 +1249,7 @@ func (in *AceSpec) DeepCopyInto(out *AceSpec) {
 	in.Global.DeepCopyInto(&out.Global)
 	in.Settings.DeepCopyInto(&out.Settings)
 	out.Image = in.Image
+	out.Kubectl = in.Kubectl
 	if in.PodAnnotations != nil {
 		in, out := &in.PodAnnotations, &out.PodAnnotations
 		*out = make(map[string]string, len(*in))

@@ -73,6 +73,7 @@ type AceSpec struct {
 	//+optional
 	RegistryFQDN       string                    `json:"registryFQDN"`
 	Image              ImageReference            `json:"image"`
+	Kubectl            ImageReference            `json:"kubectl"`
 	PodAnnotations     map[string]string         `json:"podAnnotations"`
 	PodSecurityContext *core.PodSecurityContext  `json:"podSecurityContext"`
 	SecurityContext    *core.SecurityContext     `json:"securityContext"`

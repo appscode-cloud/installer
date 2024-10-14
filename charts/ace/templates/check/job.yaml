@@ -21,8 +21,8 @@ spec:
         - name: kubectl
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ include "image.registry" . }}/kubectl-nonroot:1.25"
-          imagePullPolicy: Always
+          image: "{{ include "kubectl.registry" . }}/{{ .Values.kubectl.repository }}:{{ .Values.kubectl.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.kubectl.pullPolicy }}
           command:
             - kubectl
             - delete
