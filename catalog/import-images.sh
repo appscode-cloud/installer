@@ -55,7 +55,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-c
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-catalog-manager-v2024.10.7.tar $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2024.10.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.7.28.tar $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2024.7.28
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cert-manager-v1.15.2.tar $IMAGE_REGISTRY/appscode-charts/cert-manager:v1.15.2
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-auth-manager-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/cluster-auth-manager:v2024.9.30
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-auth-manager-v2024.10.7.tar $IMAGE_REGISTRY/appscode-charts/cluster-auth-manager:v2024.10.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-autoscaler-9.29.0.tar $IMAGE_REGISTRY/appscode-charts/cluster-autoscaler:9.29.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-gateway-manager-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/cluster-gateway-manager:v2024.9.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-manager-hub-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/cluster-manager-hub:v2024.7.10
@@ -298,7 +298,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kedacore-keda-adm
 $CMD push --allow-nondistributable-artifacts --insecure images/kedacore-keda-metrics-apiserver-2.15.1.tar $IMAGE_REGISTRY/kedacore/keda-metrics-apiserver:2.15.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kedacore-keda-2.15.1.tar $IMAGE_REGISTRY/kedacore/keda:2.15.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-addon-manager-v0.14.0.tar $IMAGE_REGISTRY/kluster-manager/addon-manager:v0.14.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-auth-v0.0.5.tar $IMAGE_REGISTRY/kluster-manager/cluster-auth:v0.0.5
+$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-auth-v0.1.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-auth:v0.1.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-gateway-manager-v1.9.1.tar $IMAGE_REGISTRY/kluster-manager/cluster-gateway-manager:v1.9.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-gateway-v1.9.1.tar $IMAGE_REGISTRY/kluster-manager/cluster-gateway:v1.9.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-profile-v0.1.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.1.0

@@ -63,7 +63,7 @@
 - ghcr.io/kedacore/keda-metrics-apiserver:2.15.1
 - ghcr.io/kedacore/keda:2.15.1
 - ghcr.io/kluster-manager/addon-manager:v0.14.0
-- ghcr.io/kluster-manager/cluster-auth:v0.0.5
+- ghcr.io/kluster-manager/cluster-auth:v0.1.0
 - ghcr.io/kluster-manager/cluster-gateway-manager:v1.9.1
 - ghcr.io/kluster-manager/cluster-gateway:v1.9.1
 - ghcr.io/kluster-manager/cluster-profile:v0.1.0

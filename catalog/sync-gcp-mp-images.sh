@@ -90,7 +90,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kedacore/keda-admission-webh
 crane cp --allow-nondistributable-artifacts ghcr.io/kedacore/keda-metrics-apiserver:2.15.1 $IMAGE_REGISTRY/keda-metrics-apiserver:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kedacore/keda:2.15.1 $IMAGE_REGISTRY/keda:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/addon-manager:v0.14.0 $IMAGE_REGISTRY/addon-manager:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/cluster-auth:v0.0.5 $IMAGE_REGISTRY/cluster-auth:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/cluster-auth:v0.1.0 $IMAGE_REGISTRY/cluster-auth:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/cluster-gateway-manager:v1.9.1 $IMAGE_REGISTRY/cluster-gateway-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/cluster-gateway:v1.9.1 $IMAGE_REGISTRY/cluster-gateway:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/cluster-profile:v0.1.0 $IMAGE_REGISTRY/cluster-profile:$TAG

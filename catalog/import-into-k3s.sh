@@ -53,7 +53,7 @@ k3s ctr images import images/appscode-charts-capi-ops-manager-v2024.8.14.tar
 k3s ctr images import images/appscode-charts-catalog-manager-v2024.10.7.tar
 k3s ctr images import images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.7.28.tar
 k3s ctr images import images/appscode-charts-cert-manager-v1.15.2.tar
-k3s ctr images import images/appscode-charts-cluster-auth-manager-v2024.9.30.tar
+k3s ctr images import images/appscode-charts-cluster-auth-manager-v2024.10.7.tar
 k3s ctr images import images/appscode-charts-cluster-autoscaler-9.29.0.tar
 k3s ctr images import images/appscode-charts-cluster-gateway-manager-v2024.9.30.tar
 k3s ctr images import images/appscode-charts-cluster-manager-hub-v2024.7.10.tar
@@ -296,7 +296,7 @@ k3s ctr images import images/kedacore-keda-admission-webhooks-2.15.1.tar
 k3s ctr images import images/kedacore-keda-metrics-apiserver-2.15.1.tar
 k3s ctr images import images/kedacore-keda-2.15.1.tar
 k3s ctr images import images/kluster-manager-addon-manager-v0.14.0.tar
-k3s ctr images import images/kluster-manager-cluster-auth-v0.0.5.tar
+k3s ctr images import images/kluster-manager-cluster-auth-v0.1.0.tar
 k3s ctr images import images/kluster-manager-cluster-gateway-manager-v1.9.1.tar
 k3s ctr images import images/kluster-manager-cluster-gateway-v1.9.1.tar
 k3s ctr images import images/kluster-manager-cluster-profile-v0.1.0.tar

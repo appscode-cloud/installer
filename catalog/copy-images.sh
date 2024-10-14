@@ -64,7 +64,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ca
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/catalog-manager:v2024.10.7 $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2024.10.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.7.28 $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2024.7.28
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager:v1.15.2 $IMAGE_REGISTRY/appscode-charts/cert-manager:v1.15.2
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-auth-manager:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/cluster-auth-manager:v2024.9.30
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-auth-manager:v2024.10.7 $IMAGE_REGISTRY/appscode-charts/cluster-auth-manager:v2024.10.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-autoscaler:9.29.0 $IMAGE_REGISTRY/appscode-charts/cluster-autoscaler:9.29.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-gateway-manager:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/cluster-gateway-manager:v2024.9.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-hub:v2024.7.10 $IMAGE_REGISTRY/appscode-charts/cluster-manager-hub:v2024.7.10
@@ -307,7 +307,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kedacore/keda-admi
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kedacore/keda-metrics-apiserver:2.15.1 $IMAGE_REGISTRY/kedacore/keda-metrics-apiserver:2.15.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kedacore/keda:2.15.1 $IMAGE_REGISTRY/kedacore/keda:2.15.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/addon-manager:v0.14.0 $IMAGE_REGISTRY/kluster-manager/addon-manager:v0.14.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-auth:v0.0.5 $IMAGE_REGISTRY/kluster-manager/cluster-auth:v0.0.5
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-auth:v0.1.0 $IMAGE_REGISTRY/kluster-manager/cluster-auth:v0.1.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway-manager:v1.9.1 $IMAGE_REGISTRY/kluster-manager/cluster-gateway-manager:v1.9.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway:v1.9.1 $IMAGE_REGISTRY/kluster-manager/cluster-gateway:v1.9.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile:v0.1.0 $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.1.0
