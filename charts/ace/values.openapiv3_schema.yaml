@@ -6179,6 +6179,22 @@ properties:
     - controller
     - enabled
     type: object
+  kubectl:
+    properties:
+      pullPolicy:
+        type: string
+      registry:
+        type: string
+      repository:
+        type: string
+      tag:
+        type: string
+    required:
+    - pullPolicy
+    - registry
+    - repository
+    - tag
+    type: object
   kubedb-ui:
     properties:
       affinity:
@@ -26283,6 +26299,7 @@ required:
 - image
 - ingress-dns
 - ingress-nginx
+- kubectl
 - kubedb-ui
 - marketplace-ui
 - nats

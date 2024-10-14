@@ -10,7 +10,7 @@ stringData:
     APP_NAME = {{ .Values.settings.platform.appName }}
     RUN_MODE = {{ .Values.settings.platform.runMode }}
     DEPLOYMENT_TYPE = {{ .Values.global.platform.deploymentType }}
-    
+
     [server]
     PROTOCOL      = http
     DOMAIN        = {{ .Values.global.platform.host }}

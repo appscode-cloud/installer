@@ -396,7 +396,7 @@ settings:
 # Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image}
 registryFQDN: ghcr.io
 
-# Docker registry containing app images
+# Docker registry containing app image
 image:
   # Docker registry used to pull app container image
   registry: appscode
@@ -404,6 +404,16 @@ image:
   repository: b3
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
+  pullPolicy: Always
+
+# Docker registry containing kubectl image
+kubectl:
+  # Docker registry used to pull app container image
+  registry: appscode
+  # App container image
+  repository: kubectl-nonroot
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "1.25"
   pullPolicy: Always
 
 podAnnotations: {}
