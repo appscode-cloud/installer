@@ -275,7 +275,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rb
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.13.0 images/appscode-kube-rbac-proxy-v0.13.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.15.0 images/appscode-kube-rbac-proxy-v0.15.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-ui-server:v0.0.47 images/appscode-kube-ui-server-v0.0.47.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.25 images/appscode-kubectl-nonroot-1.25.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.31 images/appscode-kubectl-nonroot-1.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:0.7.7 images/appscode-kubedb-ui-0.7.7.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.18 images/appscode-license-proxyserver-v0.0.18.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest images/appscode-maxmind-geoip-city-mmdb-latest.tar

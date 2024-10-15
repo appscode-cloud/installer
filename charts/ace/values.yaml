@@ -413,7 +413,7 @@ kubectl:
   # App container image
   repository: kubectl-nonroot
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.25"
+  tag: "1.31"
   pullPolicy: Always
 
 podAnnotations: {}
