@@ -7,6 +7,7 @@
 - falcosecurity/falcoctl:0.7.1
 - ghcr.io/appscode-charts/ace-installer:v2024.10.7
 - ghcr.io/appscode-charts/ace:v2024.10.7
+- ghcr.io/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.7.0
 - ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10
 - ghcr.io/appscode-images/nats:2.10.21-alpine
 - ghcr.io/appscode-images/postgres:15.5-alpine
