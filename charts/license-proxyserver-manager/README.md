@@ -57,7 +57,7 @@ The following table lists the configurable parameters of the `license-proxyserve
 | addonManagerNamespace          |                                                                     | <code>open-cluster-management-license-proxyserver</code> |
 | placement.create               |                                                                     | <code>true</code>                                        |
 | placement.name                 |                                                                     | <code>global</code>                                      |
-| kubectl.image                  |                                                                     | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code>       |
+| kubectl.image                  |                                                                     | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code>       |
 | platform.baseURL               |                                                                     | <code>""</code>                                          |
 | platform.token                 |                                                                     | <code>""</code>                                          |
 | platform.tokenSecretName       |                                                                     | <code>""</code>                                          |

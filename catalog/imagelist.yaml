@@ -16,7 +16,7 @@
 - ghcr.io/appscode/inbox-server:latest
 - ghcr.io/appscode/inbox-ui:0.0.2
 - ghcr.io/appscode/kube-rbac-proxy:v0.15.0
-- ghcr.io/appscode/kubectl-nonroot:1.25
+- ghcr.io/appscode/kubectl-nonroot:1.31
 - ghcr.io/appscode/kubedb-ui:0.7.7
 - ghcr.io/appscode/license-proxyserver
 - ghcr.io/appscode/license-proxyserver:v0.0.18

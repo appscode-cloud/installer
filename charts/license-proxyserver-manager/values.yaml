@@ -16,7 +16,7 @@ placement:
   name: global
 
 kubectl:
-  image: ghcr.io/appscode/kubectl-nonroot:1.25
+  image: ghcr.io/appscode/kubectl-nonroot:1.31
 
 platform:
   baseURL: ""
