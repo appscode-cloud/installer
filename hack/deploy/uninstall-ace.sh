@@ -70,7 +70,10 @@ helm uninstall -n monitoring grafana-operator || true
 # helm uninstall -n monitoring kube-grafana-dashboards || true
 # helm uninstall -n monitoring kube-prometheus-stack || true
 helm uninstall -n monitoring monitoring-operator || true
+
+kubectl delete apiservices v1alpha1.validators.metrics.appscode.com || true
 helm uninstall -n monitoring panopticon || true
+
 # helm uninstall -n monitoring prometheus-adapter || true
 
 helm uninstall -n stash stash-presets || true
