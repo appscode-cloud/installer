@@ -34,6 +34,7 @@ crane cp --allow-nondistributable-artifacts falcosecurity/falco-no-driver:0.37.0
 crane cp --allow-nondistributable-artifacts falcosecurity/falcoctl:0.7.1 $IMAGE_REGISTRY/falcoctl:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace-installer:v2024.10.7 $IMAGE_REGISTRY/ace-installer:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace:v2024.10.7 $IMAGE_REGISTRY/ace:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.7.0 $IMAGE_REGISTRY/chartsxhelmdev-clusterchartpreset-editor-options:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 $IMAGE_REGISTRY/spoke-cluster-addons:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/nats:2.10.21-alpine $IMAGE_REGISTRY/nats:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/postgres:15.5-alpine $IMAGE_REGISTRY/postgres:$TAG

@@ -64,6 +64,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ca
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/catalog-manager:v2024.10.7 $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2024.10.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.7.28 $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2024.7.28
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager:v1.15.2 $IMAGE_REGISTRY/appscode-charts/cert-manager:v1.15.2
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.7.0 $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.7.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-auth-manager:v2024.10.7 $IMAGE_REGISTRY/appscode-charts/cluster-auth-manager:v2024.10.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-autoscaler:9.29.0 $IMAGE_REGISTRY/appscode-charts/cluster-autoscaler:9.29.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-gateway-manager:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/cluster-gateway-manager:v2024.9.30

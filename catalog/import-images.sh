@@ -55,6 +55,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-c
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-catalog-manager-v2024.10.7.tar $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2024.10.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.7.28.tar $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2024.7.28
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cert-manager-v1.15.2.tar $IMAGE_REGISTRY/appscode-charts/cert-manager:v1.15.2
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-chartsxhelmdev-clusterchartpreset-editor-options-v0.7.0.tar $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.7.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-auth-manager-v2024.10.7.tar $IMAGE_REGISTRY/appscode-charts/cluster-auth-manager:v2024.10.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-autoscaler-9.29.0.tar $IMAGE_REGISTRY/appscode-charts/cluster-autoscaler:9.29.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-gateway-manager-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/cluster-gateway-manager:v2024.9.30
