@@ -95,6 +95,9 @@ helm:
     kubestash:
       enabled: true
       version: "v2024.9.30"
+    kube-ui-server:
+      enabled: true
+      version: "v2024.10.7"
     license-proxyserver:
       enabled: true
       version: "v2024.10.7"

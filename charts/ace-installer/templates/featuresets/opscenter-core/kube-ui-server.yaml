@@ -1,0 +1,62 @@
+# required for clusters where self import is disabled
+
+{{- with (index .Values "helm" "releases" "kube-ui-server") }}
+{{- if .enabled }}
+
+{{ $defaults := printf `
+registryFQDN: %s
+ace-user-roles:
+  enabled: true
+`
+  (include "registry.ghcr" $)
+  | fromYaml }}
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kube-ui-server
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: kube-ui-server
+    app.kubernetes.io/part-of: opscenter-core
+spec:
+  interval: 5m
+  timeout: 30m
+  releaseName: kube-ui-server
+  targetNamespace: kubeops
+  storageNamespace: kubeops
+  install:
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    # crds: CreateReplace
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
+  dependsOn:
+  - name: opscenter-features
+    namespace: {{ $.Release.Namespace }}
+  chart:
+    spec:
+      chart: kube-ui-server
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: appscode-charts-oci
+        namespace: {{ $.Release.Namespace }}
+  valuesFrom:
+    - kind: Secret
+      name: ace-features-cred
+      valuesKey: kube-ui-server.yaml
+      optional: true
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}
