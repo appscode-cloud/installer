@@ -15,6 +15,8 @@ github.com/codegangsta/inject v0.0.0-20150114235600-33e0aa1cb7c0/go.mod h1:4Zcju
 github.com/containerd/stargz-snapshotter/estargz v0.14.3 h1:OqlDCK3ZVUO6C3B/5FSkDwbkEETK84kQgEeFwDC+62k=
 github.com/containerd/stargz-snapshotter/estargz v0.14.3/go.mod h1:KY//uOCIkSuNAHhJogcZtrNHdKrA99/FCCRjE3HD36o=
 github.com/cpuguy83/go-md2man/v2 v2.0.2/go.mod h1:tgQtvFlXSQOSOSIRvRPT7W67SCa46tRHOmNcaadrF8o=
+github.com/cyphar/filepath-securejoin v0.2.4 h1:Ugdm7cg7i6ZK6x3xDF1oEu1nfkyfH53EtKeQYTC3kyg=
+github.com/cyphar/filepath-securejoin v0.2.4/go.mod h1:aPGpWjXOXUn2NCNjFvBE6aRxGGx79pTxQpKOJNYHHl4=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc h1:U9qPSI2PIWSS1VwoXQT9A3Wy9MM3WgvqSxFWenqJduM=
@@ -196,8 +198,8 @@ go.appscode.dev/alerts v0.2.1-0.20240604101218-3069fbd7c6b8 h1:7FP18GEp6Jm0OUt5l
 go.appscode.dev/alerts v0.2.1-0.20240604101218-3069fbd7c6b8/go.mod h1:5+qwuxF78YiFg/CEGfgfXREj7KEJYLgQeFhke4+lQ8k=
 go.bytebuilders.dev/resource-model v0.0.14-0.20241012171647-540a1dd297bd h1:manu/OuOk6jvSqOvDP4NARtH/XwCT/oI6iblhGRFEoI=
 go.bytebuilders.dev/resource-model v0.0.14-0.20241012171647-540a1dd297bd/go.mod h1:goQODaKSZ4REUF+aGel/KBTbk54CKkGcgjAijbrfDvc=
-go.bytebuilders.dev/ui-wizards v0.7.0 h1:G8FN5Mpmx7sCWZcOVXuflw/sLtfO6daKqgXnE5TDl+o=
-go.bytebuilders.dev/ui-wizards v0.7.0/go.mod h1:BHoFXgxqgPlGJjKZE4yNNG9DljrcgFWSjOdrfSgR7IU=
+go.bytebuilders.dev/ui-wizards v0.7.2-0.20241016102938-a700620a7958 h1:cn7sioGzefzERUeMz7umBSEu94gPZ7U/3nM/RyvNJGo=
+go.bytebuilders.dev/ui-wizards v0.7.2-0.20241016102938-a700620a7958/go.mod h1:YLvTstlr8KjXF92NOtFKFJSmRY/06/A3u/EwnWKpM0c=
 go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0 h1:zA5/psft6xJPNZZfDh7VpOlEEzqVOWoLQlXRFyOeyjc=
 go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0/go.mod h1:5q9Z38No4Xw0RGJnWYqAWPpXSG4XQYqiLzGHMv4pTPI=
 go.uber.org/goleak v1.3.0 h1:2K3zAYmnTNqV73imy9J1T3WC+gmCePx2hEGkimedGto=
@@ -277,6 +279,8 @@ gomodules.xyz/jsonpatch/v2 v2.4.0 h1:Ci3iUJyx9UeRx7CeFN8ARgGbkESwJK+KB9lLcWxY/Zw
 gomodules.xyz/jsonpatch/v2 v2.4.0/go.mod h1:AH3dM2RI6uoBZxn3LVrfvJ3E0/9dG4cSrbuBJT4moAY=
 gomodules.xyz/pointer v0.1.0 h1:sG2UKrYVSo6E3r4itAjXfPfe4fuXMi0KdyTHpR3vGCg=
 gomodules.xyz/pointer v0.1.0/go.mod h1:sPLsC0+yLTRecUiC5yVlyvXhZ6LAGojNCRWNNqoplvo=
+gomodules.xyz/x v0.0.17 h1:Ik3wf0suCMiYPY0miFUh+q8BpjsUHc/7zvANbFViBQA=
+gomodules.xyz/x v0.0.17/go.mod h1:7R5182LvgWj1ZGlnpbhfSLsxM3lFN7LBettztpX+A2I=
 google.golang.org/protobuf v1.34.2 h1:6xV6lTsCfpGD21XK49h7MhtcApnLqkfYgPcdHftf6hg=
 google.golang.org/protobuf v1.34.2/go.mod h1:qYOHts0dSfpeUzUFpOMr/WGzszTmLH+DiWniOlNbLDw=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
@@ -333,6 +337,8 @@ kmodules.xyz/schema-checker v0.4.2 h1:tAbxEtM759GxDM/3sQi/+OKKwUsEF+Ih4KReV3Eb/X
 kmodules.xyz/schema-checker v0.4.2/go.mod h1:N7ETPwfY4LbTHbydC9jjssPmYKKgZ8DC0IuLCU55wwc=
 kubeops.dev/external-dns-operator v0.0.9 h1:lfRDtIKJR8VaJpF01CcOjnA2QcSe43WDnIcqP/ieh1c=
 kubeops.dev/external-dns-operator v0.0.9/go.mod h1:4y15PI4XisC9qgDg1IQAIwH4a2aotIJ2AzAJEJFnYR0=
+kubestash.dev/apimachinery v0.13.0 h1:c1K5QzUR/x1Og56+oUufPq7cDX3QljPw9CQrEpVnPrI=
+kubestash.dev/apimachinery v0.13.0/go.mod h1:OuO8kh4EcAerSpllIXM7JaPQfKDGsQoAm3jAt4m0a1E=
 sigs.k8s.io/controller-runtime v0.18.4 h1:87+guW1zhvuPLh1PHybKdYFLU0YJp4FhJRmiHvm5BZw=
 sigs.k8s.io/controller-runtime v0.18.4/go.mod h1:TVoGrfdpbA9VRFaRnKgk9P5/atA0pMwq+f+msb9M8Sg=
 sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd h1:EDPBXCAspyGV4jQlpZSudPeMmr1bNJefnuqLsRAsHZo=

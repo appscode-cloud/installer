@@ -65,6 +65,7 @@ The following table lists the configurable parameters of the `stash-presets` cha
 | kubestash.backend.gcs.spec.bucket                          |             | <code>""</code>                |
 | kubestash.backend.gcs.auth.GOOGLE_PROJECT_ID               |             | <code>""</code>                |
 | kubestash.backend.gcs.auth.GOOGLE_SERVICE_ACCOUNT_JSON_KEY |             | <code>""</code>                |
+| kubestash.backend.local.persistentVolumeClaim.claimName    |             | <code>""</code>                |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
