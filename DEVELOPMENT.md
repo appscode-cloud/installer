@@ -9,7 +9,11 @@ image-packer list --root-dir=charts --output-dir=catalog
 
 image-packer list-feature-charts --root-dir=charts --output-dir=catalog
 
-image-packer list-editor-charts --apiGroup=kubedb.com --apiGroup=core.kubestash.com --output-dir=catalog
+image-packer list-editor-charts \
+    --output-dir=catalog \
+    --apiGroup=kubedb.com \
+    --apiGroup=core.kubestash.com \
+    --apiGroup=charts.x-helm.dev
 
 image-packer generate-scripts --insecure --allow-nondistributable-artifacts \
     --output-dir=catalog \

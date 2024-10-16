@@ -1,7 +1,7 @@
 - alpine:3.20
 - bats/bats:1.11.0
 - ghcr.io/appscode/ace:v0.0.2
-- ghcr.io/appscode/b3:v2024.10.7
+- ghcr.io/appscode/b3:v2024.10.17
 - ghcr.io/appscode/billing-ui:0.2.3
 - ghcr.io/appscode/catalog-manager:v0.0.1
 - ghcr.io/appscode/cert-manager-webhook-ace:v0.0.1
