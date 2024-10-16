@@ -42,7 +42,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/b3:v2024.10.17 $IMA
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 $IMAGE_REGISTRY/capa-vpc-peering-operator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/capi-ops-manager:v0.0.1 $IMAGE_REGISTRY/capi-ops-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/catalog-manager:v0.0.1 $IMAGE_REGISTRY/catalog-manager:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/cluster-presets:v0.0.3 $IMAGE_REGISTRY/cluster-presets:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/cluster-presets:v0.0.4 $IMAGE_REGISTRY/cluster-presets:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/cluster-ui:0.9.8 $IMAGE_REGISTRY/cluster-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/config-syncer:v0.15.2-ent $IMAGE_REGISTRY/config-syncer:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/csi-driver-cacerts:v0.0.4 $IMAGE_REGISTRY/csi-driver-cacerts:$TAG
