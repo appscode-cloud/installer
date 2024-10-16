@@ -32,14 +32,13 @@ crane cp --allow-nondistributable-artifacts cassandra:4.1.3 $IMAGE_REGISTRY/cass
 crane cp --allow-nondistributable-artifacts coredns/coredns:1.11.3 $IMAGE_REGISTRY/coredns:$TAG
 crane cp --allow-nondistributable-artifacts falcosecurity/falco-no-driver:0.37.0 $IMAGE_REGISTRY/falco-no-driver:$TAG
 crane cp --allow-nondistributable-artifacts falcosecurity/falcoctl:0.7.1 $IMAGE_REGISTRY/falcoctl:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace-installer:v2024.10.7 $IMAGE_REGISTRY/ace-installer:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace:v2024.10.7 $IMAGE_REGISTRY/ace:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.7.0 $IMAGE_REGISTRY/chartsxhelmdev-clusterchartpreset-editor-options:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace-installer:v2024.10.17 $IMAGE_REGISTRY/ace-installer:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace:v2024.10.17 $IMAGE_REGISTRY/ace:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 $IMAGE_REGISTRY/spoke-cluster-addons:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/nats:2.10.21-alpine $IMAGE_REGISTRY/nats:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/postgres:15.5-alpine $IMAGE_REGISTRY/postgres:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/redis:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/b3:v2024.10.7 $IMAGE_REGISTRY/b3:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/b3:v2024.10.17 $IMAGE_REGISTRY/b3:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 $IMAGE_REGISTRY/capa-vpc-peering-operator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/capi-ops-manager:v0.0.1 $IMAGE_REGISTRY/capi-ops-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/catalog-manager:v0.0.1 $IMAGE_REGISTRY/catalog-manager:$TAG
@@ -61,7 +60,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/k8s-wait-for:v2.0 $
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-rbac-proxy:v0.11.0 $IMAGE_REGISTRY/kube-rbac-proxy:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-rbac-proxy:v0.13.0 $IMAGE_REGISTRY/kube-rbac-proxy:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-rbac-proxy:v0.15.0 $IMAGE_REGISTRY/kube-rbac-proxy:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-ui-server:v0.0.47 $IMAGE_REGISTRY/kube-ui-server:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-ui-server:v0.0.48 $IMAGE_REGISTRY/kube-ui-server:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubectl-nonroot:1.31 $IMAGE_REGISTRY/kubectl-nonroot:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubedb-ui:0.7.8 $IMAGE_REGISTRY/kubedb-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/license-proxyserver:v0.0.18 $IMAGE_REGISTRY/license-proxyserver:$TAG
@@ -94,7 +93,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/addon-manage
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/cluster-auth:v0.1.0 $IMAGE_REGISTRY/cluster-auth:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/cluster-gateway-manager:v1.9.1 $IMAGE_REGISTRY/cluster-gateway-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/cluster-gateway:v1.9.1 $IMAGE_REGISTRY/cluster-gateway:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/cluster-profile:v0.1.0 $IMAGE_REGISTRY/cluster-profile:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/cluster-profile:v0.2.0 $IMAGE_REGISTRY/cluster-profile:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/cluster-proxy:v0.5.0 $IMAGE_REGISTRY/cluster-proxy:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/clusteradm:v0.9.0 $IMAGE_REGISTRY/clusteradm:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/fluxcd-addon:v0.0.4 $IMAGE_REGISTRY/fluxcd-addon:$TAG

@@ -5,14 +5,13 @@
 - coredns/coredns:1.11.3
 - falcosecurity/falco-no-driver:0.37.0
 - falcosecurity/falcoctl:0.7.1
-- ghcr.io/appscode-charts/ace-installer:v2024.10.7
-- ghcr.io/appscode-charts/ace:v2024.10.7
-- ghcr.io/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.7.0
+- ghcr.io/appscode-charts/ace-installer:v2024.10.17
+- ghcr.io/appscode-charts/ace:v2024.10.17
 - ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10
 - ghcr.io/appscode-images/nats:2.10.21-alpine
 - ghcr.io/appscode-images/postgres:15.5-alpine
 - ghcr.io/appscode-images/redis:7.2.4-bookworm
-- ghcr.io/appscode/b3:v2024.10.7
+- ghcr.io/appscode/b3:v2024.10.17
 - ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4
 - ghcr.io/appscode/capi-ops-manager:v0.0.1
 - ghcr.io/appscode/catalog-manager:v0.0.1
@@ -34,7 +33,7 @@
 - ghcr.io/appscode/kube-rbac-proxy:v0.11.0
 - ghcr.io/appscode/kube-rbac-proxy:v0.13.0
 - ghcr.io/appscode/kube-rbac-proxy:v0.15.0
-- ghcr.io/appscode/kube-ui-server:v0.0.47
+- ghcr.io/appscode/kube-ui-server:v0.0.48
 - ghcr.io/appscode/kubectl-nonroot:1.31
 - ghcr.io/appscode/kubedb-ui:0.7.8
 - ghcr.io/appscode/license-proxyserver:v0.0.18
@@ -67,7 +66,7 @@
 - ghcr.io/kluster-manager/cluster-auth:v0.1.0
 - ghcr.io/kluster-manager/cluster-gateway-manager:v1.9.1
 - ghcr.io/kluster-manager/cluster-gateway:v1.9.1
-- ghcr.io/kluster-manager/cluster-profile:v0.1.0
+- ghcr.io/kluster-manager/cluster-profile:v0.2.0
 - ghcr.io/kluster-manager/cluster-proxy:v0.5.0
 - ghcr.io/kluster-manager/clusteradm:v0.9.0
 - ghcr.io/kluster-manager/fluxcd-addon:v0.0.4

@@ -45,13 +45,6 @@ crd-importer \
     --out=./charts/ace-installer/crds
 
 crd-importer \
-    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta1/0000_02_clusters.open-cluster-management.io_placements.crd.yaml \
-    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta2/0000_01_clusters.open-cluster-management.io_managedclustersetbindings.crd.yaml \
-    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/work/v1alpha1/0000_00_work.open-cluster-management.io_manifestworkreplicasets.crd.yaml \
-    --input=https://github.com/kluster-manager/cluster-auth/raw/${KLUSTER_MANAGER_CLUSTER_AUTH_TAG}/crds/authentication.k8s.appscode.com_accounts.yaml \
-    --out=./charts/ace-ocm-addons/crds
-
-crd-importer \
     --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_druidbindings.yaml \
     --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_elasticsearchbindings.yaml \
     --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_ferretdbbindings.yaml \

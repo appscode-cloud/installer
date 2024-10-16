@@ -6,15 +6,15 @@ toolchain go1.22.4
 
 require (
 	go.bytebuilders.dev/resource-model v0.0.14-0.20241012171647-540a1dd297bd
-	go.bytebuilders.dev/ui-wizards v0.7.2-0.20241016102938-a700620a7958
+	go.bytebuilders.dev/ui-wizards v0.8.0
 	go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0
 	gomodules.xyz/go-sh v0.1.0
 	k8s.io/api v0.30.2
 	k8s.io/apimachinery v0.30.2
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
-	kmodules.xyz/client-go v0.30.27
+	kmodules.xyz/client-go v0.30.28
 	kmodules.xyz/objectstore-api v0.29.1
-	kmodules.xyz/resource-metadata v0.19.0
+	kmodules.xyz/resource-metadata v0.20.0
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
 	sigs.k8s.io/yaml v1.4.0
@@ -108,7 +108,7 @@ require (
 	k8s.io/utils v0.0.0-20240502163921-fe8a2dddb1d0 // indirect
 	kmodules.xyz/apiversion v0.2.0 // indirect
 	kmodules.xyz/go-containerregistry v0.0.12 // indirect
-	kmodules.xyz/monitoring-agent-api v0.29.0 // indirect
+	kmodules.xyz/monitoring-agent-api v0.30.2 // indirect
 	kmodules.xyz/offshoot-api v0.30.1 // indirect
 	kmodules.xyz/prober v0.29.0 // indirect
 	kubestash.dev/apimachinery v0.13.0 // indirect
