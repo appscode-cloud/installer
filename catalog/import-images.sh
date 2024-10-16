@@ -316,7 +316,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-w
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-autoscaler-v0.33.0.tar $IMAGE_REGISTRY/kubedb/kubedb-autoscaler:v0.33.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-crd-manager-v0.3.0.tar $IMAGE_REGISTRY/kubedb/kubedb-crd-manager:v0.3.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ops-manager-v0.35.2.tar $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.35.2
-$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-provisioner-v0.48.2.tar $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.48.2
+$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-provisioner-v0.48.3.tar $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.48.3
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ui-server-v0.24.0.tar $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.24.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-webhook-server-v0.24.1.tar $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.24.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-pg-coordinator-v0.32.0.tar $IMAGE_REGISTRY/kubedb/pg-coordinator:v0.32.0

@@ -325,7 +325,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/wo
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-autoscaler:v0.33.0 $IMAGE_REGISTRY/kubedb/kubedb-autoscaler:v0.33.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-crd-manager:v0.3.0 $IMAGE_REGISTRY/kubedb/kubedb-crd-manager:v0.3.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.35.2 $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.35.2
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.48.2 $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.48.2
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.48.3 $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.48.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ui-server:v0.24.0 $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.24.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.24.1 $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.24.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/pg-coordinator:v0.32.0 $IMAGE_REGISTRY/kubedb/pg-coordinator:v0.32.0
