@@ -251,7 +251,7 @@ k3s ctr images import images/appscode-b3-v2024.10.17.tar
 k3s ctr images import images/appscode-capa-vpc-peering-operator-v0.0.4.tar
 k3s ctr images import images/appscode-capi-ops-manager-v0.0.1.tar
 k3s ctr images import images/appscode-catalog-manager-v0.0.1.tar
-k3s ctr images import images/appscode-cluster-presets-v0.0.3.tar
+k3s ctr images import images/appscode-cluster-presets-v0.0.4.tar
 k3s ctr images import images/appscode-cluster-ui-0.9.8.tar
 k3s ctr images import images/appscode-config-syncer-v0.15.2-ent.tar
 k3s ctr images import images/appscode-csi-driver-cacerts-v0.0.4.tar

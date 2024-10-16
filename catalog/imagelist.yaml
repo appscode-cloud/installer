@@ -6,7 +6,7 @@
 - ghcr.io/appscode/catalog-manager:v0.0.1
 - ghcr.io/appscode/cert-manager-webhook-ace:v0.0.1
 - ghcr.io/appscode/cloudflare-dns-proxy:v0.0.3
-- ghcr.io/appscode/cluster-presets:v0.0.3
+- ghcr.io/appscode/cluster-presets:v0.0.4
 - ghcr.io/appscode/cluster-ui:0.9.8
 - ghcr.io/appscode/curl:alpine
 - ghcr.io/appscode/deploy-ui:0.3.6-rc.1
