@@ -63,7 +63,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-rbac-proxy:v0.
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-rbac-proxy:v0.15.0 $IMAGE_REGISTRY/kube-rbac-proxy:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-ui-server:v0.0.47 $IMAGE_REGISTRY/kube-ui-server:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubectl-nonroot:1.31 $IMAGE_REGISTRY/kubectl-nonroot:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubedb-ui:0.7.7 $IMAGE_REGISTRY/kubedb-ui:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubedb-ui:0.7.8 $IMAGE_REGISTRY/kubedb-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/license-proxyserver:v0.0.18 $IMAGE_REGISTRY/license-proxyserver:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/maxmind-geoip:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/openfga:v1.6.0 $IMAGE_REGISTRY/openfga:$TAG
