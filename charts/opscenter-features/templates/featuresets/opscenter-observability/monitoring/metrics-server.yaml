@@ -50,7 +50,6 @@ spec:
         kind: Deployment
         optional: "metrics-server"
         selector:
-          addonmanager.kubernetes.io/mode: Reconcile
           k8s-app: metrics-server
   chart:
     name: metrics-server
