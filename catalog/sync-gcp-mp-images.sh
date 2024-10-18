@@ -66,7 +66,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/maxmind-geoip:city-
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/openfga:v1.6.0 $IMAGE_REGISTRY/openfga:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/panopticon:v0.0.15 $IMAGE_REGISTRY/panopticon:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/petset:v0.0.7 $IMAGE_REGISTRY/petset:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/platform-ui:0.8.7 $IMAGE_REGISTRY/platform-ui:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/platform-ui:0.8.8 $IMAGE_REGISTRY/platform-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/prom-authproxy:v0.0.1 $IMAGE_REGISTRY/prom-authproxy:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/reloader:v1.0.79 $IMAGE_REGISTRY/reloader:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/s3proxy:sha-a82ca68 $IMAGE_REGISTRY/s3proxy:$TAG

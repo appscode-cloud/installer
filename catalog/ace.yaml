@@ -41,7 +41,7 @@
 - ghcr.io/appscode/openfga:v1.6.0
 - ghcr.io/appscode/panopticon:v0.0.15
 - ghcr.io/appscode/petset:v0.0.7
-- ghcr.io/appscode/platform-ui:0.8.7
+- ghcr.io/appscode/platform-ui:0.8.8
 - ghcr.io/appscode/prom-authproxy:v0.0.1
 - ghcr.io/appscode/reloader:v1.0.79
 - ghcr.io/appscode/s3proxy:sha-a82ca68
