@@ -8,8 +8,11 @@ on:
         required: true
         type: string
 
-jobs:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 
+jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
@@ -22,14 +25,40 @@ jobs:
 
     - uses: imjasonh/setup-crane@v0.1
 
-    - name: Log in to the GitHub Container registry
+    - name: Log into GCR
+      env:
+        GCP_MP_SERVICE_ACCOUNT_JSON_KEY: ${{ secrets.GCP_MP_SERVICE_ACCOUNT_JSON_KEY }}
+      run: |
+        echo "install gcloud cli"
+        curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+        echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+        sudo apt-get -qq update || true
+        sudo apt-get install google-cloud-cli
+        echo
+        echo "configure gcloud auth"
+        echo "$GCP_MP_SERVICE_ACCOUNT_JSON_KEY" > "$HOME"/gcloud.json
+        gcloud auth activate-service-account --key-file=$HOME/gcloud.json
+        gcloud auth configure-docker us-docker.pkg.dev
+
+    - name: Log into GHCR
       uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: 1gtm
         password: ${{ secrets.LGTM_GITHUB_TOKEN }}
 
-    - name: Sync
+    - name: Sync to GCR
+      env:
+        IMAGE_REGISTRY: us-docker.pkg.dev/appscode-public/ace-mp
+        TAG: ${{ inputs.version }}
+      run: |
+        ./catalog/sync-gcp-mp-images.sh
+        crane cp ghcr.io/appscode-gcp-mp/ace-mp/deployer:$TAG $IMAGE_REGISTRY/deployer:$TAG
+        TRACK_ID=$(echo "$TAG" | sed 's/\.[^.]*$//')
+        crane cp ghcr.io/appscode-gcp-mp/ace-mp/prometheus-operator:$TAG $IMAGE_REGISTRY/prometheus-operator:$TAG
+        crane cp ghcr.io/appscode-gcp-mp/ace-mp/deployer:$TAG $IMAGE_REGISTRY/deployer:$TRACK_ID
+
+    - name: Sync to GHCR
       env:
         IMAGE_REGISTRY: ghcr.io/appscode-gcp-mp/ace-mp
         TAG: ${{ inputs.version }}
