@@ -275,7 +275,7 @@ k3s ctr images import images/appscode-maxmind-geoip-city-mmdb-latest.tar
 k3s ctr images import images/appscode-openfga-v1.6.0.tar
 k3s ctr images import images/appscode-panopticon-v0.0.15.tar
 k3s ctr images import images/appscode-petset-v0.0.7.tar
-k3s ctr images import images/appscode-platform-ui-0.8.7.tar
+k3s ctr images import images/appscode-platform-ui-0.8.8.tar
 k3s ctr images import images/appscode-prom-authproxy-v0.0.1.tar
 k3s ctr images import images/appscode-reloader-v1.0.79.tar
 k3s ctr images import images/appscode-s3proxy-sha-a82ca68.tar

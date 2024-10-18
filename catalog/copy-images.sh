@@ -286,7 +286,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-g
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.6.0 $IMAGE_REGISTRY/appscode/openfga:v1.6.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.15 $IMAGE_REGISTRY/appscode/panopticon:v0.0.15
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.7 $IMAGE_REGISTRY/appscode/petset:v0.0.7
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:0.8.7 $IMAGE_REGISTRY/appscode/platform-ui:0.8.7
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:0.8.8 $IMAGE_REGISTRY/appscode/platform-ui:0.8.8
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/prom-authproxy:v0.0.1 $IMAGE_REGISTRY/appscode/prom-authproxy:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/reloader:v1.0.79 $IMAGE_REGISTRY/appscode/reloader:v1.0.79
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/s3proxy:sha-a82ca68 $IMAGE_REGISTRY/appscode/s3proxy:sha-a82ca68
