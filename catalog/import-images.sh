@@ -317,6 +317,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-aut
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-crd-manager-v0.3.0.tar $IMAGE_REGISTRY/kubedb/kubedb-crd-manager:v0.3.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ops-manager-v0.35.2.tar $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.35.2
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-provisioner-v0.48.3.tar $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.48.3
+$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-schema-manager-v0.24.0.tar $IMAGE_REGISTRY/kubedb/kubedb-schema-manager:v0.24.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ui-server-v0.24.0.tar $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.24.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-webhook-server-v0.24.1.tar $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.24.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-pg-coordinator-v0.32.0.tar $IMAGE_REGISTRY/kubedb/pg-coordinator:v0.32.0
@@ -347,6 +348,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/natsio-prometheus
 $CMD push --allow-nondistributable-artifacts --insecure images/openpolicyagent-gatekeeper-v3.13.3.tar $IMAGE_REGISTRY/openpolicyagent/gatekeeper:v3.13.3
 $CMD push --allow-nondistributable-artifacts --insecure images/opensearchproject-opensearch-2.1.0.tar $IMAGE_REGISTRY/opensearchproject/opensearch:2.1.0
 $CMD push --allow-nondistributable-artifacts --insecure images/prometheuscommunity-postgres-exporter-v0.15.0.tar $IMAGE_REGISTRY/prometheuscommunity/postgres-exporter:v0.15.0
+$CMD push --allow-nondistributable-artifacts --insecure images/jetstack-cert-manager-acmesolver-v1.15.2.tar $IMAGE_REGISTRY/jetstack/cert-manager-acmesolver:v1.15.2
 $CMD push --allow-nondistributable-artifacts --insecure images/jetstack-cert-manager-cainjector-v1.15.2.tar $IMAGE_REGISTRY/jetstack/cert-manager-cainjector:v1.15.2
 $CMD push --allow-nondistributable-artifacts --insecure images/jetstack-cert-manager-controller-v1.15.2.tar $IMAGE_REGISTRY/jetstack/cert-manager-controller:v1.15.2
 $CMD push --allow-nondistributable-artifacts --insecure images/jetstack-cert-manager-startupapicheck-v1.15.2.tar $IMAGE_REGISTRY/jetstack/cert-manager-startupapicheck:v1.15.2
@@ -356,6 +358,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/prometheus-operat
 $CMD push --allow-nondistributable-artifacts --insecure images/prometheus-alertmanager-v0.27.0.tar $IMAGE_REGISTRY/prometheus/alertmanager:v0.27.0
 $CMD push --allow-nondistributable-artifacts --insecure images/prometheus-node-exporter-v1.8.2.tar $IMAGE_REGISTRY/prometheus/node-exporter:v1.8.2
 $CMD push --allow-nondistributable-artifacts --insecure images/prometheus-prometheus-v2.54.0.tar $IMAGE_REGISTRY/prometheus/prometheus:v2.54.0
+$CMD push --allow-nondistributable-artifacts --insecure images/thanos-thanos-v0.32.5.tar $IMAGE_REGISTRY/thanos/thanos:v0.32.5
 $CMD push --allow-nondistributable-artifacts --insecure images/library-rabbitmq-3.12.1-management.tar $IMAGE_REGISTRY/rabbitmq:3.12.1-management
 $CMD push --allow-nondistributable-artifacts --insecure images/rancher-kine-v0.11.4.tar $IMAGE_REGISTRY/rancher/kine:v0.11.4
 $CMD push --allow-nondistributable-artifacts --insecure images/autoscaling-cluster-autoscaler-v1.27.1.tar $IMAGE_REGISTRY/autoscaling/cluster-autoscaler:v1.27.1

@@ -79,6 +79,7 @@
 - ghcr.io/kubedb/kubedb-crd-manager:v0.3.0
 - ghcr.io/kubedb/kubedb-ops-manager:v0.35.2
 - ghcr.io/kubedb/kubedb-provisioner:v0.48.3
+- ghcr.io/kubedb/kubedb-schema-manager:v0.24.0
 - ghcr.io/kubedb/kubedb-ui-server:v0.24.0
 - ghcr.io/kubedb/kubedb-webhook-server:v0.24.1
 - ghcr.io/kubedb/pg-coordinator:v0.32.0
@@ -109,6 +110,7 @@
 - openpolicyagent/gatekeeper:v3.13.3
 - opensearchproject/opensearch:2.1.0
 - prometheuscommunity/postgres-exporter:v0.15.0
+- quay.io/jetstack/cert-manager-acmesolver:v1.15.2
 - quay.io/jetstack/cert-manager-cainjector:v1.15.2
 - quay.io/jetstack/cert-manager-controller:v1.15.2
 - quay.io/jetstack/cert-manager-startupapicheck:v1.15.2
@@ -118,6 +120,7 @@
 - quay.io/prometheus/alertmanager:v0.27.0
 - quay.io/prometheus/node-exporter:v1.8.2
 - quay.io/prometheus/prometheus:v2.54.0
+- quay.io/thanos/thanos:v0.32.5
 - rabbitmq:3.12.1-management
 - rancher/kine:v0.11.4
 - registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1

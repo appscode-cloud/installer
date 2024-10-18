@@ -315,6 +315,7 @@ k3s ctr images import images/kubedb-kubedb-autoscaler-v0.33.0.tar
 k3s ctr images import images/kubedb-kubedb-crd-manager-v0.3.0.tar
 k3s ctr images import images/kubedb-kubedb-ops-manager-v0.35.2.tar
 k3s ctr images import images/kubedb-kubedb-provisioner-v0.48.3.tar
+k3s ctr images import images/kubedb-kubedb-schema-manager-v0.24.0.tar
 k3s ctr images import images/kubedb-kubedb-ui-server-v0.24.0.tar
 k3s ctr images import images/kubedb-kubedb-webhook-server-v0.24.1.tar
 k3s ctr images import images/kubedb-pg-coordinator-v0.32.0.tar
@@ -345,6 +346,7 @@ k3s ctr images import images/natsio-prometheus-nats-exporter-0.15.0.tar
 k3s ctr images import images/openpolicyagent-gatekeeper-v3.13.3.tar
 k3s ctr images import images/opensearchproject-opensearch-2.1.0.tar
 k3s ctr images import images/prometheuscommunity-postgres-exporter-v0.15.0.tar
+k3s ctr images import images/jetstack-cert-manager-acmesolver-v1.15.2.tar
 k3s ctr images import images/jetstack-cert-manager-cainjector-v1.15.2.tar
 k3s ctr images import images/jetstack-cert-manager-controller-v1.15.2.tar
 k3s ctr images import images/jetstack-cert-manager-startupapicheck-v1.15.2.tar
@@ -354,6 +356,7 @@ k3s ctr images import images/prometheus-operator-prometheus-operator-v0.75.2.tar
 k3s ctr images import images/prometheus-alertmanager-v0.27.0.tar
 k3s ctr images import images/prometheus-node-exporter-v1.8.2.tar
 k3s ctr images import images/prometheus-prometheus-v2.54.0.tar
+k3s ctr images import images/thanos-thanos-v0.32.5.tar
 k3s ctr images import images/library-rabbitmq-3.12.1-management.tar
 k3s ctr images import images/rancher-kine-v0.11.4.tar
 k3s ctr images import images/autoscaling-cluster-autoscaler-v1.27.1.tar

@@ -106,6 +106,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-autoscaler:v0.
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-crd-manager:v0.3.0 $IMAGE_REGISTRY/kubedb-crd-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-ops-manager:v0.35.2 $IMAGE_REGISTRY/kubedb-ops-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-provisioner:v0.48.3 $IMAGE_REGISTRY/kubedb-provisioner:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-schema-manager:v0.24.0 $IMAGE_REGISTRY/kubedb-schema-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-ui-server:v0.24.0 $IMAGE_REGISTRY/kubedb-ui-server:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-webhook-server:v0.24.1 $IMAGE_REGISTRY/kubedb-webhook-server:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/pg-coordinator:v0.32.0 $IMAGE_REGISTRY/pg-coordinator:$TAG
@@ -136,6 +137,7 @@ crane cp --allow-nondistributable-artifacts natsio/prometheus-nats-exporter:0.15
 crane cp --allow-nondistributable-artifacts openpolicyagent/gatekeeper:v3.13.3 $IMAGE_REGISTRY/gatekeeper:$TAG
 crane cp --allow-nondistributable-artifacts opensearchproject/opensearch:2.1.0 $IMAGE_REGISTRY/opensearch:$TAG
 crane cp --allow-nondistributable-artifacts prometheuscommunity/postgres-exporter:v0.15.0 $IMAGE_REGISTRY/postgres-exporter:$TAG
+crane cp --allow-nondistributable-artifacts quay.io/jetstack/cert-manager-acmesolver:v1.15.2 $IMAGE_REGISTRY/cert-manager-acmesolver:$TAG
 crane cp --allow-nondistributable-artifacts quay.io/jetstack/cert-manager-cainjector:v1.15.2 $IMAGE_REGISTRY/cert-manager-cainjector:$TAG
 crane cp --allow-nondistributable-artifacts quay.io/jetstack/cert-manager-controller:v1.15.2 $IMAGE_REGISTRY/cert-manager-controller:$TAG
 crane cp --allow-nondistributable-artifacts quay.io/jetstack/cert-manager-startupapicheck:v1.15.2 $IMAGE_REGISTRY/cert-manager-startupapicheck:$TAG
@@ -144,6 +146,7 @@ crane cp --allow-nondistributable-artifacts quay.io/prometheus-operator/promethe
 crane cp --allow-nondistributable-artifacts quay.io/prometheus-operator/prometheus-operator:v0.75.2 crane cp --allow-nondistributable-artifacts quay.io/prometheus/alertmanager:v0.27.0 $IMAGE_REGISTRY/alertmanager:$TAG
 crane cp --allow-nondistributable-artifacts quay.io/prometheus/node-exporter:v1.8.2 $IMAGE_REGISTRY/node-exporter:$TAG
 crane cp --allow-nondistributable-artifacts quay.io/prometheus/prometheus:v2.54.0 $IMAGE_REGISTRY/prometheus:$TAG
+crane cp --allow-nondistributable-artifacts quay.io/thanos/thanos:v0.32.5 $IMAGE_REGISTRY/thanos:$TAG
 crane cp --allow-nondistributable-artifacts rabbitmq:3.12.1-management $IMAGE_REGISTRY/rabbitmq:$TAG
 crane cp --allow-nondistributable-artifacts rancher/kine:v0.11.4 $IMAGE_REGISTRY/kine:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 $IMAGE_REGISTRY/cluster-autoscaler:$TAG

@@ -323,6 +323,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-au
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-crd-manager:v0.3.0 images/kubedb-kubedb-crd-manager-v0.3.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.35.2 images/kubedb-kubedb-ops-manager-v0.35.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.48.3 images/kubedb-kubedb-provisioner-v0.48.3.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-schema-manager:v0.24.0 images/kubedb-kubedb-schema-manager-v0.24.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ui-server:v0.24.0 images/kubedb-kubedb-ui-server-v0.24.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.24.1 images/kubedb-kubedb-webhook-server-v0.24.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/pg-coordinator:v0.32.0 images/kubedb-pg-coordinator-v0.32.0.tar
@@ -353,6 +354,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure natsio/prometheus-nats-e
 $CMD pull --allow-nondistributable-artifacts --insecure openpolicyagent/gatekeeper:v3.13.3 images/openpolicyagent-gatekeeper-v3.13.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure opensearchproject/opensearch:2.1.0 images/opensearchproject-opensearch-2.1.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure prometheuscommunity/postgres-exporter:v0.15.0 images/prometheuscommunity-postgres-exporter-v0.15.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-acmesolver:v1.15.2 images/jetstack-cert-manager-acmesolver-v1.15.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-cainjector:v1.15.2 images/jetstack-cert-manager-cainjector-v1.15.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-controller:v1.15.2 images/jetstack-cert-manager-controller-v1.15.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-startupapicheck:v1.15.2 images/jetstack-cert-manager-startupapicheck-v1.15.2.tar
@@ -362,6 +364,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure quay.io/prometheus-opera
 $CMD pull --allow-nondistributable-artifacts --insecure quay.io/prometheus/alertmanager:v0.27.0 images/prometheus-alertmanager-v0.27.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure quay.io/prometheus/node-exporter:v1.8.2 images/prometheus-node-exporter-v1.8.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure quay.io/prometheus/prometheus:v2.54.0 images/prometheus-prometheus-v2.54.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure quay.io/thanos/thanos:v0.32.5 images/thanos-thanos-v0.32.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure rabbitmq:3.12.1-management images/library-rabbitmq-3.12.1-management.tar
 $CMD pull --allow-nondistributable-artifacts --insecure rancher/kine:v0.11.4 images/rancher-kine-v0.11.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 images/autoscaling-cluster-autoscaler-v1.27.1.tar

@@ -326,6 +326,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-auto
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-crd-manager:v0.3.0 $IMAGE_REGISTRY/kubedb/kubedb-crd-manager:v0.3.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.35.2 $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.35.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.48.3 $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.48.3
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-schema-manager:v0.24.0 $IMAGE_REGISTRY/kubedb/kubedb-schema-manager:v0.24.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ui-server:v0.24.0 $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.24.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.24.1 $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.24.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/pg-coordinator:v0.32.0 $IMAGE_REGISTRY/kubedb/pg-coordinator:v0.32.0
@@ -356,6 +357,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure natsio/prometheus-nats-exp
 $CMD cp --allow-nondistributable-artifacts --insecure openpolicyagent/gatekeeper:v3.13.3 $IMAGE_REGISTRY/openpolicyagent/gatekeeper:v3.13.3
 $CMD cp --allow-nondistributable-artifacts --insecure opensearchproject/opensearch:2.1.0 $IMAGE_REGISTRY/opensearchproject/opensearch:2.1.0
 $CMD cp --allow-nondistributable-artifacts --insecure prometheuscommunity/postgres-exporter:v0.15.0 $IMAGE_REGISTRY/prometheuscommunity/postgres-exporter:v0.15.0
+$CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-acmesolver:v1.15.2 $IMAGE_REGISTRY/jetstack/cert-manager-acmesolver:v1.15.2
 $CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-cainjector:v1.15.2 $IMAGE_REGISTRY/jetstack/cert-manager-cainjector:v1.15.2
 $CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-controller:v1.15.2 $IMAGE_REGISTRY/jetstack/cert-manager-controller:v1.15.2
 $CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-startupapicheck:v1.15.2 $IMAGE_REGISTRY/jetstack/cert-manager-startupapicheck:v1.15.2
@@ -365,6 +367,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus-operato
 $CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus/alertmanager:v0.27.0 $IMAGE_REGISTRY/prometheus/alertmanager:v0.27.0
 $CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus/node-exporter:v1.8.2 $IMAGE_REGISTRY/prometheus/node-exporter:v1.8.2
 $CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus/prometheus:v2.54.0 $IMAGE_REGISTRY/prometheus/prometheus:v2.54.0
+$CMD cp --allow-nondistributable-artifacts --insecure quay.io/thanos/thanos:v0.32.5 $IMAGE_REGISTRY/thanos/thanos:v0.32.5
 $CMD cp --allow-nondistributable-artifacts --insecure rabbitmq:3.12.1-management $IMAGE_REGISTRY/rabbitmq:3.12.1-management
 $CMD cp --allow-nondistributable-artifacts --insecure rancher/kine:v0.11.4 $IMAGE_REGISTRY/rancher/kine:v0.11.4
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 $IMAGE_REGISTRY/autoscaling/cluster-autoscaler:v1.27.1
