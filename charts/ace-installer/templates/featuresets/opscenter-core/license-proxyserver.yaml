@@ -46,6 +46,12 @@ spec:
     name: ace-licenseserver-cred
     valuesKey: license-proxyserver.yaml
     optional: true
+  {{- if eq (include "clustermanager.openshift" $) "true" }}
+    - kind: ConfigMap
+      name: ace-openshift-scc
+      valuesKey: license-proxyserver.yaml
+      optional: true
+  {{- end }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}

@@ -54,6 +54,12 @@ spec:
       name: ace-features-cred
       valuesKey: kube-ui-server.yaml
       optional: true
+  {{- if eq (include "clustermanager.openshift" $) "true" }}
+    - kind: ConfigMap
+      name: ace-openshift-scc
+      valuesKey: kube-ui-server.yaml
+      optional: true
+  {{- end }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
