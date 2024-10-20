@@ -107,3 +107,7 @@ Image Templates
 {{- define "kubectl.image" -}}
 {{ list .Values.image.proxies.ghcr "appscode/kubectl-nonroot:1.31" | compact | join "/" }}
 {{- end }}
+
+{{- define "clustermanager.openshift" -}}
+{{- ternary "true" "false" (.Capabilities.APIVersions.Has "project.openshift.io/v1/Project") -}}
+{{- end }}

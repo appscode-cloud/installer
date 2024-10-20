@@ -50,6 +50,13 @@ spec:
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
+  valuesFrom:
+  {{- if eq (include "clustermanager.openshift" $) "true" }}
+    - kind: ConfigMap
+      name: ace-openshift-scc
+      valuesKey: reloader.yaml
+      optional: true
+  {{- end }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
