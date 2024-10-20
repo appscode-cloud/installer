@@ -42,10 +42,10 @@ spec:
         name: appscode-charts-oci
         namespace: {{ $.Release.Namespace }}
   valuesFrom:
-  - kind: Secret
-    name: ace-licenseserver-cred
-    valuesKey: license-proxyserver.yaml
-    optional: true
+    - kind: Secret
+      name: ace-licenseserver-cred
+      valuesKey: license-proxyserver.yaml
+      optional: true
   {{- if eq (include "clustermanager.openshift" $) "true" }}
     - kind: ConfigMap
       name: ace-openshift-scc
