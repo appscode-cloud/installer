@@ -35,7 +35,7 @@ spec:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   featureSet: saas-core
-  featureBlock: service-provider
+  featureBlock: service-gateway
   recommended: true
   readinessChecks:
     workloads:
