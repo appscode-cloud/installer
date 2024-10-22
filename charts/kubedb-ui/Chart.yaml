@@ -3,7 +3,7 @@ name: kubedb-ui
 description: A Helm chart for Kubernetes
 type: application
 version: v2024.10.17
-appVersion: 0.7.8
+appVersion: 0.7.7
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:

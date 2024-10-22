@@ -277,7 +277,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/k8s-wai
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.15.0 images/appscode-kube-rbac-proxy-v0.15.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-ui-server:v0.0.48 images/appscode-kube-ui-server-v0.0.48.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.31 images/appscode-kubectl-nonroot-1.31.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:0.7.8 images/appscode-kubedb-ui-0.7.8.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:0.7.7 images/appscode-kubedb-ui-0.7.7.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.18 images/appscode-license-proxyserver-v0.0.18.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest images/appscode-maxmind-geoip-city-mmdb-latest.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.6.0 images/appscode-openfga-v1.6.0.tar
