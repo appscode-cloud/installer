@@ -374,6 +374,7 @@ type AceDeploymentContext struct {
 	DeploymentType DeploymentType `json:"deploymentType"`
 	InstallerName  string         `json:"installerName"`
 	UploadID       string         `json:"uploadID"`
+	Version        string         `json:"version"`
 	// +optional
 	RequestedDomain      string `json:"requestedDomain"`
 	HostedDomain         string `json:"hostedDomain,omitempty"`
