@@ -277,6 +277,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-age
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-server:latest $IMAGE_REGISTRY/appscode/inbox-server:latest
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-ui:0.0.2 $IMAGE_REGISTRY/appscode/inbox-ui:0.0.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/k8s-wait-for:v2.0 $IMAGE_REGISTRY/appscode/k8s-wait-for:v2.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.11.0 $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.11.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.13.0 $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.13.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.15.0 $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.15.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-ui-server:v0.0.48 $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.48
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.31 $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.31
@@ -380,9 +382,13 @@ $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-contr
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0 $IMAGE_REGISTRY/kube-state-metrics/kube-state-metrics:v2.13.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/metrics-server/metrics-server:v0.7.2 $IMAGE_REGISTRY/metrics-server/metrics-server:v0.7.2
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2 $IMAGE_REGISTRY/prometheus-adapter/prometheus-adapter:v0.11.2
+$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.10.0 $IMAGE_REGISTRY/sig-storage/csi-node-driver-registrar:v2.10.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.11.1 $IMAGE_REGISTRY/sig-storage/csi-node-driver-registrar:v2.11.1
+$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.8.0 $IMAGE_REGISTRY/sig-storage/csi-node-driver-registrar:v2.8.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/csi-provisioner:v4.0.0 $IMAGE_REGISTRY/sig-storage/csi-provisioner:v4.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/csi-snapshotter:v6.3.3 $IMAGE_REGISTRY/sig-storage/csi-snapshotter:v6.3.3
+$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/livenessprobe:v2.10.0 $IMAGE_REGISTRY/sig-storage/livenessprobe:v2.10.0
+$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/livenessprobe:v2.12.0 $IMAGE_REGISTRY/sig-storage/livenessprobe:v2.12.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/livenessprobe:v2.13.1 $IMAGE_REGISTRY/sig-storage/livenessprobe:v2.13.1
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/nfsplugin:v4.7.0 $IMAGE_REGISTRY/sig-storage/nfsplugin:v4.7.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/snapshot-controller:v8.0.1 $IMAGE_REGISTRY/sig-storage/snapshot-controller:v8.0.1

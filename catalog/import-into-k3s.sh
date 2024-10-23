@@ -266,6 +266,8 @@ k3s ctr images import images/appscode-inbox-agent-v0.0.1.tar
 k3s ctr images import images/appscode-inbox-server-latest.tar
 k3s ctr images import images/appscode-inbox-ui-0.0.2.tar
 k3s ctr images import images/appscode-k8s-wait-for-v2.0.tar
+k3s ctr images import images/appscode-kube-rbac-proxy-v0.11.0.tar
+k3s ctr images import images/appscode-kube-rbac-proxy-v0.13.0.tar
 k3s ctr images import images/appscode-kube-rbac-proxy-v0.15.0.tar
 k3s ctr images import images/appscode-kube-ui-server-v0.0.48.tar
 k3s ctr images import images/appscode-kubectl-nonroot-1.31.tar
@@ -369,9 +371,13 @@ k3s ctr images import images/kube-controller-manager-v1.30.2.tar
 k3s ctr images import images/kube-state-metrics-kube-state-metrics-v2.13.0.tar
 k3s ctr images import images/metrics-server-metrics-server-v0.7.2.tar
 k3s ctr images import images/prometheus-adapter-prometheus-adapter-v0.11.2.tar
+k3s ctr images import images/sig-storage-csi-node-driver-registrar-v2.10.0.tar
 k3s ctr images import images/sig-storage-csi-node-driver-registrar-v2.11.1.tar
+k3s ctr images import images/sig-storage-csi-node-driver-registrar-v2.8.0.tar
 k3s ctr images import images/sig-storage-csi-provisioner-v4.0.0.tar
 k3s ctr images import images/sig-storage-csi-snapshotter-v6.3.3.tar
+k3s ctr images import images/sig-storage-livenessprobe-v2.10.0.tar
+k3s ctr images import images/sig-storage-livenessprobe-v2.12.0.tar
 k3s ctr images import images/sig-storage-livenessprobe-v2.13.1.tar
 k3s ctr images import images/sig-storage-nfsplugin-v4.7.0.tar
 k3s ctr images import images/sig-storage-snapshot-controller-v8.0.1.tar
