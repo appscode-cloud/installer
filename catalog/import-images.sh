@@ -268,6 +268,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-ag
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-server-latest.tar $IMAGE_REGISTRY/appscode/inbox-server:latest
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-ui-0.0.2.tar $IMAGE_REGISTRY/appscode/inbox-ui:0.0.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-k8s-wait-for-v2.0.tar $IMAGE_REGISTRY/appscode/k8s-wait-for:v2.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rbac-proxy-v0.11.0.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.11.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rbac-proxy-v0.13.0.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.13.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rbac-proxy-v0.15.0.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.15.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-ui-server-v0.0.48.tar $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.48
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-nonroot-1.31.tar $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.31
@@ -371,9 +373,13 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kube-controller-m
 $CMD push --allow-nondistributable-artifacts --insecure images/kube-state-metrics-kube-state-metrics-v2.13.0.tar $IMAGE_REGISTRY/kube-state-metrics/kube-state-metrics:v2.13.0
 $CMD push --allow-nondistributable-artifacts --insecure images/metrics-server-metrics-server-v0.7.2.tar $IMAGE_REGISTRY/metrics-server/metrics-server:v0.7.2
 $CMD push --allow-nondistributable-artifacts --insecure images/prometheus-adapter-prometheus-adapter-v0.11.2.tar $IMAGE_REGISTRY/prometheus-adapter/prometheus-adapter:v0.11.2
+$CMD push --allow-nondistributable-artifacts --insecure images/sig-storage-csi-node-driver-registrar-v2.10.0.tar $IMAGE_REGISTRY/sig-storage/csi-node-driver-registrar:v2.10.0
 $CMD push --allow-nondistributable-artifacts --insecure images/sig-storage-csi-node-driver-registrar-v2.11.1.tar $IMAGE_REGISTRY/sig-storage/csi-node-driver-registrar:v2.11.1
+$CMD push --allow-nondistributable-artifacts --insecure images/sig-storage-csi-node-driver-registrar-v2.8.0.tar $IMAGE_REGISTRY/sig-storage/csi-node-driver-registrar:v2.8.0
 $CMD push --allow-nondistributable-artifacts --insecure images/sig-storage-csi-provisioner-v4.0.0.tar $IMAGE_REGISTRY/sig-storage/csi-provisioner:v4.0.0
 $CMD push --allow-nondistributable-artifacts --insecure images/sig-storage-csi-snapshotter-v6.3.3.tar $IMAGE_REGISTRY/sig-storage/csi-snapshotter:v6.3.3
+$CMD push --allow-nondistributable-artifacts --insecure images/sig-storage-livenessprobe-v2.10.0.tar $IMAGE_REGISTRY/sig-storage/livenessprobe:v2.10.0
+$CMD push --allow-nondistributable-artifacts --insecure images/sig-storage-livenessprobe-v2.12.0.tar $IMAGE_REGISTRY/sig-storage/livenessprobe:v2.12.0
 $CMD push --allow-nondistributable-artifacts --insecure images/sig-storage-livenessprobe-v2.13.1.tar $IMAGE_REGISTRY/sig-storage/livenessprobe:v2.13.1
 $CMD push --allow-nondistributable-artifacts --insecure images/sig-storage-nfsplugin-v4.7.0.tar $IMAGE_REGISTRY/sig-storage/nfsplugin:v4.7.0
 $CMD push --allow-nondistributable-artifacts --insecure images/sig-storage-snapshot-controller-v8.0.1.tar $IMAGE_REGISTRY/sig-storage/snapshot-controller:v8.0.1

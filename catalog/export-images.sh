@@ -274,6 +274,8 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-a
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-server:latest images/appscode-inbox-server-latest.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-ui:0.0.2 images/appscode-inbox-ui-0.0.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/k8s-wait-for:v2.0 images/appscode-k8s-wait-for-v2.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.11.0 images/appscode-kube-rbac-proxy-v0.11.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.13.0 images/appscode-kube-rbac-proxy-v0.13.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.15.0 images/appscode-kube-rbac-proxy-v0.15.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-ui-server:v0.0.48 images/appscode-kube-ui-server-v0.0.48.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.31 images/appscode-kubectl-nonroot-1.31.tar
@@ -377,9 +379,13 @@ $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-con
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0 images/kube-state-metrics-kube-state-metrics-v2.13.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/metrics-server/metrics-server:v0.7.2 images/metrics-server-metrics-server-v0.7.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2 images/prometheus-adapter-prometheus-adapter-v0.11.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.10.0 images/sig-storage-csi-node-driver-registrar-v2.10.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.11.1 images/sig-storage-csi-node-driver-registrar-v2.11.1.tar
+$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.8.0 images/sig-storage-csi-node-driver-registrar-v2.8.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/csi-provisioner:v4.0.0 images/sig-storage-csi-provisioner-v4.0.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/csi-snapshotter:v6.3.3 images/sig-storage-csi-snapshotter-v6.3.3.tar
+$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/livenessprobe:v2.10.0 images/sig-storage-livenessprobe-v2.10.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/livenessprobe:v2.12.0 images/sig-storage-livenessprobe-v2.12.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/livenessprobe:v2.13.1 images/sig-storage-livenessprobe-v2.13.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/nfsplugin:v4.7.0 images/sig-storage-nfsplugin-v4.7.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/snapshot-controller:v8.0.1 images/sig-storage-snapshot-controller-v8.0.1.tar
