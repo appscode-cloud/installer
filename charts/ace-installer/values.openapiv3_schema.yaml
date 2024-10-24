@@ -85,6 +85,10 @@ properties:
             type: string
         type: object
     type: object
+  licenses:
+    additionalProperties:
+      type: string
+    type: object
   nameOverride:
     type: string
   offlineInstaller:
