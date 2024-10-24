@@ -51,7 +51,7 @@ k3s ctr images import images/appscode-charts-capa-vpc-peering-operator-v2023.12.
 k3s ctr images import images/appscode-charts-capi-catalog-v2024.9.30.tar
 k3s ctr images import images/appscode-charts-capi-ops-manager-v2024.8.14.tar
 k3s ctr images import images/appscode-charts-catalog-manager-v2024.10.17.tar
-k3s ctr images import images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.7.28.tar
+k3s ctr images import images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.10.17.tar
 k3s ctr images import images/appscode-charts-cert-manager-v1.15.2.tar
 k3s ctr images import images/appscode-charts-chartsxhelmdev-chartpreset-editor-v0.8.0.tar
 k3s ctr images import images/appscode-charts-chartsxhelmdev-clusterchartpreset-editor-options-v0.8.0.tar
@@ -254,7 +254,7 @@ k3s ctr images import images/appscode-catalog-manager-v0.0.1.tar
 k3s ctr images import images/appscode-cluster-presets-v0.0.4.tar
 k3s ctr images import images/appscode-cluster-ui-0.9.8.tar
 k3s ctr images import images/appscode-config-syncer-v0.15.2-ent.tar
-k3s ctr images import images/appscode-csi-driver-cacerts-v0.0.4.tar
+k3s ctr images import images/appscode-csi-driver-cacerts-v0.1.0.tar
 k3s ctr images import images/appscode-docker-machine-operator-v0.0.4.tar
 k3s ctr images import images/appscode-external-dns-operator-v0.0.8.tar
 k3s ctr images import images/appscode-falco-ui-server-v0.0.4.tar
