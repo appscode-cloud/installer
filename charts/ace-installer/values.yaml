@@ -54,7 +54,7 @@ helm:
   releases:
     ace:
       enabled: false
-      version: "v2024.10.17"
+      version: "v2024.10.24"
     cert-manager:
       enabled: true
       version: "v1.15.2"
@@ -103,7 +103,7 @@ helm:
       version: "v2024.10.7"
     opscenter-features:
       enabled: true
-      version: "v2024.10.17"
+      version: "v2024.10.24"
     panopticon:
       enabled: true
       version: "v2024.10.7"
@@ -119,7 +119,7 @@ helm:
       version: "1.0.79"
     stash-presets:
       enabled: false
-      version: "v2024.10.17"
+      version: "v2024.10.24"
 
     # feature less chart versions
     cluster-manager-spoke:
