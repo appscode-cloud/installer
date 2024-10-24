@@ -255,7 +255,6 @@ k3s ctr images import images/appscode-cluster-presets-v0.0.4.tar
 k3s ctr images import images/appscode-cluster-ui-0.9.8.tar
 k3s ctr images import images/appscode-config-syncer-v0.15.2-ent.tar
 k3s ctr images import images/appscode-csi-driver-cacerts-v0.1.0.tar
-k3s ctr images import images/appscode-docker-machine-operator-v0.0.4.tar
 k3s ctr images import images/appscode-external-dns-operator-v0.0.8.tar
 k3s ctr images import images/appscode-falco-ui-server-v0.0.4.tar
 k3s ctr images import images/appscode-fileserver-v0.0.1.tar

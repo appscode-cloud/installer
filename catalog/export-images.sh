@@ -263,7 +263,6 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:0.9.8 images/appscode-cluster-ui-0.9.8.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/config-syncer:v0.15.2-ent images/appscode-config-syncer-v0.15.2-ent.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/csi-driver-cacerts:v0.1.0 images/appscode-csi-driver-cacerts-v0.1.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/docker-machine-operator:v0.0.4 images/appscode-docker-machine-operator-v0.0.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/external-dns-operator:v0.0.8 images/appscode-external-dns-operator-v0.0.8.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/falco-ui-server:v0.0.4 images/appscode-falco-ui-server-v0.0.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/fileserver:v0.0.1 images/appscode-fileserver-v0.0.1.tar

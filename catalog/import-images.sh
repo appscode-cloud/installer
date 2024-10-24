@@ -257,7 +257,6 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-cluster-
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-cluster-ui-0.9.8.tar $IMAGE_REGISTRY/appscode/cluster-ui:0.9.8
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-config-syncer-v0.15.2-ent.tar $IMAGE_REGISTRY/appscode/config-syncer:v0.15.2-ent
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-csi-driver-cacerts-v0.1.0.tar $IMAGE_REGISTRY/appscode/csi-driver-cacerts:v0.1.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-docker-machine-operator-v0.0.4.tar $IMAGE_REGISTRY/appscode/docker-machine-operator:v0.0.4
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-external-dns-operator-v0.0.8.tar $IMAGE_REGISTRY/appscode/external-dns-operator:v0.0.8
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-falco-ui-server-v0.0.4.tar $IMAGE_REGISTRY/appscode/falco-ui-server:v0.0.4
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-fileserver-v0.0.1.tar $IMAGE_REGISTRY/appscode/fileserver:v0.0.1

@@ -19,7 +19,6 @@
 - ghcr.io/appscode/cluster-ui:0.9.8
 - ghcr.io/appscode/config-syncer:v0.15.2-ent
 - ghcr.io/appscode/csi-driver-cacerts:v0.1.0
-- ghcr.io/appscode/docker-machine-operator:v0.0.4
 - ghcr.io/appscode/external-dns-operator:v0.0.8
 - ghcr.io/appscode/falco-ui-server:v0.0.4
 - ghcr.io/appscode/fileserver:v0.0.1
