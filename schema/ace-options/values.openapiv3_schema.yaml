@@ -305,6 +305,8 @@ properties:
         type: string
       uploadID:
         type: string
+      version:
+        type: string
     required:
       - deploymentType
       - inboxServer
@@ -312,6 +314,7 @@ properties:
       - licenseOwnerID
       - licenseOwnerName
       - uploadID
+      - version
     type: object
   deploy-ui:
     properties:
