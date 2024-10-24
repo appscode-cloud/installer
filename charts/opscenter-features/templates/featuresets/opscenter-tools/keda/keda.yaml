@@ -20,7 +20,7 @@ kind: Feature
 metadata:
   name: keda
   labels:
-    app.kubernetes.io/part-of: opscenter-cost
+    app.kubernetes.io/part-of: opscenter-tools
 spec:
   title: Keda
   description: |
@@ -28,7 +28,7 @@ spec:
   icons:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
-  featureSet: opscenter-cost
+  featureSet: opscenter-tools
   featureBlock: keda
   recommended: false
   readinessChecks:
