@@ -266,7 +266,6 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-p
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:0.9.8 $IMAGE_REGISTRY/appscode/cluster-ui:0.9.8
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/config-syncer:v0.15.2-ent $IMAGE_REGISTRY/appscode/config-syncer:v0.15.2-ent
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/csi-driver-cacerts:v0.1.0 $IMAGE_REGISTRY/appscode/csi-driver-cacerts:v0.1.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/docker-machine-operator:v0.0.4 $IMAGE_REGISTRY/appscode/docker-machine-operator:v0.0.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/external-dns-operator:v0.0.8 $IMAGE_REGISTRY/appscode/external-dns-operator:v0.0.8
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/falco-ui-server:v0.0.4 $IMAGE_REGISTRY/appscode/falco-ui-server:v0.0.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/fileserver:v0.0.1 $IMAGE_REGISTRY/appscode/fileserver:v0.0.1

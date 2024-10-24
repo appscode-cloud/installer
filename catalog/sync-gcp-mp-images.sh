@@ -46,7 +46,6 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/cluster-presets:v0.
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/cluster-ui:0.9.8 $IMAGE_REGISTRY/cluster-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/config-syncer:v0.15.2-ent $IMAGE_REGISTRY/config-syncer:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/csi-driver-cacerts:v0.1.0 $IMAGE_REGISTRY/csi-driver-cacerts:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/docker-machine-operator:v0.0.4 $IMAGE_REGISTRY/docker-machine-operator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/external-dns-operator:v0.0.8 $IMAGE_REGISTRY/external-dns-operator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/falco-ui-server:v0.0.4 $IMAGE_REGISTRY/falco-ui-server:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/fileserver:v0.0.1 $IMAGE_REGISTRY/fileserver:$TAG
