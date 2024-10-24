@@ -39,8 +39,8 @@ $CMD pull --allow-nondistributable-artifacts --insecure cassandra:4.1.3 images/l
 $CMD pull --allow-nondistributable-artifacts --insecure coredns/coredns:1.11.3 images/coredns-coredns-1.11.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure falcosecurity/falco-no-driver:0.37.0 images/falcosecurity-falco-no-driver-0.37.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure falcosecurity/falcoctl:0.7.1 images/falcosecurity-falcoctl-0.7.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace-installer:v2024.10.17 images/appscode-charts-ace-installer-v2024.10.17.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace:v2024.10.17 images/appscode-charts-ace-v2024.10.17.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace-installer:v2024.10.24 images/appscode-charts-ace-installer-v2024.10.24.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace:v2024.10.24 images/appscode-charts-ace-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-elasticsearchautoscaler-editor:v0.8.0 images/appscode-charts-autoscalingkubedbcom-elasticsearchautoscaler-editor-v0.8.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-kafkaautoscaler-editor:v0.8.0 images/appscode-charts-autoscalingkubedbcom-kafkaautoscaler-editor-v0.8.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-mariadbautoscaler-editor:v0.8.0 images/appscode-charts-autoscalingkubedbcom-mariadbautoscaler-editor-v0.8.0.tar
@@ -58,7 +58,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capa-vpc-peering-operator:v2023.12.11 images/appscode-charts-capa-vpc-peering-operator-v2023.12.11.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-catalog:v2024.9.30 images/appscode-charts-capi-catalog-v2024.9.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-ops-manager:v2024.8.14 images/appscode-charts-capi-ops-manager-v2024.8.14.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/catalog-manager:v2024.10.17 images/appscode-charts-catalog-manager-v2024.10.17.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/catalog-manager:v2024.10.24 images/appscode-charts-catalog-manager-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17 images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.10.17.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager:v1.15.2 images/appscode-charts-cert-manager-v1.15.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-chartpreset-editor:v0.8.0 images/appscode-charts-chartsxhelmdev-chartpreset-editor-v0.8.0.tar
@@ -69,7 +69,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-gateway-manager:v2024.9.30 images/appscode-charts-cluster-gateway-manager-v2024.9.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-hub:v2024.7.10 images/appscode-charts-cluster-manager-hub-v2024.7.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-spoke:v2024.9.30 images/appscode-charts-cluster-manager-spoke-v2024.9.30.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-presets:v2024.10.17 images/appscode-charts-cluster-presets-v2024.10.17.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-presets:v2024.10.24 images/appscode-charts-cluster-presets-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-profile-manager:v2024.10.17 images/appscode-charts-cluster-profile-manager-v2024.10.17.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-proxy-manager:v2024.7.10 images/appscode-charts-cluster-proxy-manager-v2024.7.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/config-syncer:v0.15.2 images/appscode-charts-config-syncer-v0.15.2.tar
@@ -110,7 +110,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-provider-aws:v2024.1.31 images/appscode-charts-kubedb-provider-aws-v2024.1.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-provider-azure:v2024.1.31 images/appscode-charts-kubedb-provider-azure-v2024.1.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-provider-gcp:v2024.1.31 images/appscode-charts-kubedb-provider-gcp-v2024.1.31.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-ui-presets:v2024.10.17 images/appscode-charts-kubedb-ui-presets-v2024.10.17.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-ui-presets:v2024.10.24 images/appscode-charts-kubedb-ui-presets-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb:v2024.9.30 images/appscode-charts-kubedb-v2024.9.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-cassandra-editor:v0.8.0 images/appscode-charts-kubedbcom-cassandra-editor-v0.8.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-clickhouse-editor-options:v0.8.0 images/appscode-charts-kubedbcom-clickhouse-editor-options-v0.8.0.tar
@@ -169,7 +169,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/multicluster-ingress-reader:v2024.7.10 images/appscode-charts-multicluster-ingress-reader-v2024.7.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opencost-grafana-dashboards:v2023.10.1 images/appscode-charts-opencost-grafana-dashboards-v2023.10.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opencost:1.18.1 images/appscode-charts-opencost-1.18.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opscenter-features:v2024.10.17 images/appscode-charts-opscenter-features-v2024.10.17.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opscenter-features:v2024.10.24 images/appscode-charts-opscenter-features-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-elasticsearchopsrequest-editor:v0.8.0 images/appscode-charts-opskubedbcom-elasticsearchopsrequest-editor-v0.8.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-kafkaopsrequest-editor:v0.8.0 images/appscode-charts-opskubedbcom-kafkaopsrequest-editor-v0.8.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-mariadbopsrequest-editor:v0.8.0 images/appscode-charts-opskubedbcom-mariadbopsrequest-editor-v0.8.0.tar
@@ -196,14 +196,14 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-aws:0.3.6 images/appscode-charts-secrets-store-csi-driver-provider-aws-0.3.6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-gcp:0.1.0 images/appscode-charts-secrets-store-csi-driver-provider-gcp-0.1.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver:1.4.1 images/appscode-charts-secrets-store-csi-driver-1.4.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-backend:v2024.10.17 images/appscode-charts-service-backend-v2024.10.17.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway-presets:v2024.10.17 images/appscode-charts-service-gateway-presets-v2024.10.17.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-provider:v2024.10.17 images/appscode-charts-service-provider-v2024.10.17.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-backend:v2024.10.24 images/appscode-charts-service-backend-v2024.10.24.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway-presets:v2024.10.24 images/appscode-charts-service-gateway-presets-v2024.10.24.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-provider:v2024.10.24 images/appscode-charts-service-provider-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sidekick:v2024.8.21 images/appscode-charts-sidekick-v2024.8.21.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/snapshot-controller:3.0.5 images/appscode-charts-snapshot-controller-3.0.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 images/appscode-charts-spoke-cluster-addons-v2024.7.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash-opscenter:v2024.9.30 images/appscode-charts-stash-opscenter-v2024.9.30.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash-presets:v2024.10.17 images/appscode-charts-stash-presets-v2024.10.17.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash-presets:v2024.10.24 images/appscode-charts-stash-presets-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash:v2024.9.30 images/appscode-charts-stash-v2024.9.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/supervisor:v2024.9.30 images/appscode-charts-supervisor-v2024.9.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/topolvm:15.0.0 images/appscode-charts-topolvm-15.0.0.tar
@@ -255,7 +255,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.21-alpine images/appscode-images-nats-2.10.21-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:15.5-alpine images/appscode-images-postgres-15.5-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.2.4-bookworm images/appscode-images-redis-7.2.4-bookworm.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/b3:v2024.10.17 images/appscode-b3-v2024.10.17.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/b3:v2024.10.24 images/appscode-b3-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 images/appscode-capa-vpc-peering-operator-v0.0.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capi-ops-manager:v0.0.1 images/appscode-capi-ops-manager-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog-manager:v0.0.1 images/appscode-catalog-manager-v0.0.1.tar

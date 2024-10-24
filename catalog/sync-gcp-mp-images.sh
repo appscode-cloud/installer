@@ -32,13 +32,13 @@ crane cp --allow-nondistributable-artifacts cassandra:4.1.3 $IMAGE_REGISTRY/cass
 crane cp --allow-nondistributable-artifacts coredns/coredns:1.11.3 $IMAGE_REGISTRY/coredns:$TAG
 crane cp --allow-nondistributable-artifacts falcosecurity/falco-no-driver:0.37.0 $IMAGE_REGISTRY/falco-no-driver:$TAG
 crane cp --allow-nondistributable-artifacts falcosecurity/falcoctl:0.7.1 $IMAGE_REGISTRY/falcoctl:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace-installer:v2024.10.17 $IMAGE_REGISTRY/ace-installer:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace:v2024.10.17 $IMAGE_REGISTRY/ace:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace-installer:v2024.10.24 $IMAGE_REGISTRY/ace-installer:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace:v2024.10.24 $IMAGE_REGISTRY/ace:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 $IMAGE_REGISTRY/spoke-cluster-addons:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/nats:2.10.21-alpine $IMAGE_REGISTRY/nats:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/postgres:15.5-alpine $IMAGE_REGISTRY/postgres:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/redis:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/b3:v2024.10.17 $IMAGE_REGISTRY/b3:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/b3:v2024.10.24 $IMAGE_REGISTRY/b3:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 $IMAGE_REGISTRY/capa-vpc-peering-operator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/capi-ops-manager:v0.0.1 $IMAGE_REGISTRY/capi-ops-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/catalog-manager:v0.0.1 $IMAGE_REGISTRY/catalog-manager:$TAG

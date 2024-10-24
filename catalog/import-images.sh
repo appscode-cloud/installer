@@ -33,8 +33,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/library-cassandra
 $CMD push --allow-nondistributable-artifacts --insecure images/coredns-coredns-1.11.3.tar $IMAGE_REGISTRY/coredns/coredns:1.11.3
 $CMD push --allow-nondistributable-artifacts --insecure images/falcosecurity-falco-no-driver-0.37.0.tar $IMAGE_REGISTRY/falcosecurity/falco-no-driver:0.37.0
 $CMD push --allow-nondistributable-artifacts --insecure images/falcosecurity-falcoctl-0.7.1.tar $IMAGE_REGISTRY/falcosecurity/falcoctl:0.7.1
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ace-installer-v2024.10.17.tar $IMAGE_REGISTRY/appscode-charts/ace-installer:v2024.10.17
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ace-v2024.10.17.tar $IMAGE_REGISTRY/appscode-charts/ace:v2024.10.17
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ace-installer-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/ace-installer:v2024.10.24
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ace-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/ace:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-elasticsearchautoscaler-editor-v0.8.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-elasticsearchautoscaler-editor:v0.8.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-kafkaautoscaler-editor-v0.8.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-kafkaautoscaler-editor:v0.8.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-mariadbautoscaler-editor-v0.8.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-mariadbautoscaler-editor:v0.8.0
@@ -52,7 +52,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-a
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-capa-vpc-peering-operator-v2023.12.11.tar $IMAGE_REGISTRY/appscode-charts/capa-vpc-peering-operator:v2023.12.11
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-capi-catalog-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/capi-catalog:v2024.9.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-capi-ops-manager-v2024.8.14.tar $IMAGE_REGISTRY/appscode-charts/capi-ops-manager:v2024.8.14
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-catalog-manager-v2024.10.17.tar $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2024.10.17
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-catalog-manager-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.10.17.tar $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cert-manager-v1.15.2.tar $IMAGE_REGISTRY/appscode-charts/cert-manager:v1.15.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-chartsxhelmdev-chartpreset-editor-v0.8.0.tar $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-chartpreset-editor:v0.8.0
@@ -63,7 +63,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-c
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-gateway-manager-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/cluster-gateway-manager:v2024.9.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-manager-hub-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/cluster-manager-hub:v2024.7.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-manager-spoke-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/cluster-manager-spoke:v2024.9.30
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-presets-v2024.10.17.tar $IMAGE_REGISTRY/appscode-charts/cluster-presets:v2024.10.17
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-presets-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/cluster-presets:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-profile-manager-v2024.10.17.tar $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2024.10.17
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-proxy-manager-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/cluster-proxy-manager:v2024.7.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-config-syncer-v0.15.2.tar $IMAGE_REGISTRY/appscode-charts/config-syncer:v0.15.2
@@ -104,7 +104,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-k
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedb-provider-aws-v2024.1.31.tar $IMAGE_REGISTRY/appscode-charts/kubedb-provider-aws:v2024.1.31
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedb-provider-azure-v2024.1.31.tar $IMAGE_REGISTRY/appscode-charts/kubedb-provider-azure:v2024.1.31
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedb-provider-gcp-v2024.1.31.tar $IMAGE_REGISTRY/appscode-charts/kubedb-provider-gcp:v2024.1.31
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedb-ui-presets-v2024.10.17.tar $IMAGE_REGISTRY/appscode-charts/kubedb-ui-presets:v2024.10.17
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedb-ui-presets-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/kubedb-ui-presets:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedb-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/kubedb:v2024.9.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedbcom-cassandra-editor-v0.8.0.tar $IMAGE_REGISTRY/appscode-charts/kubedbcom-cassandra-editor:v0.8.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedbcom-clickhouse-editor-options-v0.8.0.tar $IMAGE_REGISTRY/appscode-charts/kubedbcom-clickhouse-editor-options:v0.8.0
@@ -163,7 +163,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-m
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-multicluster-ingress-reader-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/multicluster-ingress-reader:v2024.7.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opencost-grafana-dashboards-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/opencost-grafana-dashboards:v2023.10.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opencost-1.18.1.tar $IMAGE_REGISTRY/appscode-charts/opencost:1.18.1
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opscenter-features-v2024.10.17.tar $IMAGE_REGISTRY/appscode-charts/opscenter-features:v2024.10.17
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opscenter-features-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/opscenter-features:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-elasticsearchopsrequest-editor-v0.8.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-elasticsearchopsrequest-editor:v0.8.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-kafkaopsrequest-editor-v0.8.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-kafkaopsrequest-editor:v0.8.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-mariadbopsrequest-editor-v0.8.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-mariadbopsrequest-editor:v0.8.0
@@ -190,14 +190,14 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-s
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-secrets-store-csi-driver-provider-aws-0.3.6.tar $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-aws:0.3.6
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-secrets-store-csi-driver-provider-gcp-0.1.0.tar $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-gcp:0.1.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-secrets-store-csi-driver-1.4.1.tar $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver:1.4.1
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-backend-v2024.10.17.tar $IMAGE_REGISTRY/appscode-charts/service-backend:v2024.10.17
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-gateway-presets-v2024.10.17.tar $IMAGE_REGISTRY/appscode-charts/service-gateway-presets:v2024.10.17
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-provider-v2024.10.17.tar $IMAGE_REGISTRY/appscode-charts/service-provider:v2024.10.17
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-backend-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/service-backend:v2024.10.24
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-gateway-presets-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/service-gateway-presets:v2024.10.24
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-provider-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/service-provider:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-sidekick-v2024.8.21.tar $IMAGE_REGISTRY/appscode-charts/sidekick:v2024.8.21
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-snapshot-controller-3.0.5.tar $IMAGE_REGISTRY/appscode-charts/snapshot-controller:3.0.5
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-spoke-cluster-addons-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/spoke-cluster-addons:v2024.7.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-stash-opscenter-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/stash-opscenter:v2024.9.30
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-stash-presets-v2024.10.17.tar $IMAGE_REGISTRY/appscode-charts/stash-presets:v2024.10.17
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-stash-presets-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/stash-presets:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-stash-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/stash:v2024.9.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-supervisor-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/supervisor:v2024.9.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-topolvm-15.0.0.tar $IMAGE_REGISTRY/appscode-charts/topolvm:15.0.0
@@ -249,7 +249,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-v
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-nats-2.10.21-alpine.tar $IMAGE_REGISTRY/appscode-images/nats:2.10.21-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-postgres-15.5-alpine.tar $IMAGE_REGISTRY/appscode-images/postgres:15.5-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-redis-7.2.4-bookworm.tar $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-b3-v2024.10.17.tar $IMAGE_REGISTRY/appscode/b3:v2024.10.17
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-b3-v2024.10.24.tar $IMAGE_REGISTRY/appscode/b3:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-capa-vpc-peering-operator-v0.0.4.tar $IMAGE_REGISTRY/appscode/capa-vpc-peering-operator:v0.0.4
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-capi-ops-manager-v0.0.1.tar $IMAGE_REGISTRY/appscode/capi-ops-manager:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-catalog-manager-v0.0.1.tar $IMAGE_REGISTRY/appscode/catalog-manager:v0.0.1
