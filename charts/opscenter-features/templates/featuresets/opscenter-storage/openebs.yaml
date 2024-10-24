@@ -1,0 +1,133 @@
+{{ $overrides := printf `
+localpv-provisioner:
+  localpv:
+    image:
+      # Make sure that registry name end with a '/'.
+      # For example : quay.io/ is a correct value here and quay.io is incorrect
+      registry:
+      repository: openebs/provisioner-localpv
+  helperPod:
+    image:
+      registry: ""
+      repository: openebs/linux-utils
+  analytics:
+    enabled: false
+
+lvm-localpv:
+  lvmNode:
+    driverRegistrar:
+      image:
+        registry: registry.k8s.io/
+        repository: sig-storage/csi-node-driver-registrar
+  lvmController:
+    resizer:
+      name: "csi-resizer"
+      image:
+        registry: registry.k8s.io/
+        repository: sig-storage/csi-resizer
+    snapshotter:
+      name: "csi-snapshotter"
+      image:
+        registry: registry.k8s.io/
+        repository: sig-storage/csi-snapshotter
+    snapshotController:
+      name: "snapshot-controller"
+      image:
+        registry: registry.k8s.io/
+        repository: sig-storage/snapshot-controller
+    provisioner:
+      name: "csi-provisioner"
+      image:
+        registry: registry.k8s.io/
+        repository: sig-storage/csi-provisioner
+  lvmPlugin:
+    image:
+      registry:
+      repository: openebs/lvm-driver
+  analytics:
+    enabled: false
+
+mayastor:
+  # 2 level of nested charts
+
+zfs-localpv:
+  zfsNode:
+    driverRegistrar:
+      image:
+        registry: registry.k8s.io/
+        repository: sig-storage/csi-node-driver-registrar
+  zfsController:
+    resizer:
+      image:
+        registry: registry.k8s.io/
+        repository: sig-storage/csi-resizer
+    snapshotter:
+      image:
+        registry: registry.k8s.io/
+        repository: sig-storage/csi-snapshotter
+    snapshotController:
+      image:
+        registry: registry.k8s.io/
+        repository: sig-storage/snapshot-controller
+    provisioner:
+      image:
+        registry: registry.k8s.io/
+        repository: sig-storage/csi-provisioner
+  zfsPlugin:
+    image:
+      registry:
+      repository: openebs/zfs-driver
+  analytics:
+    enabled: false
+
+`
+  (include "registry.kubernetes" $)
+  | fromYaml }}
+
+{{ $vals := dict }}
+{{ $vals = mergeOverwrite $vals $overrides }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: openebs
+  labels:
+    app.kubernetes.io/part-of: opscenter-storage
+spec:
+  title: NFS CSI driver for Kubernetes
+  description: |
+    CSI driver to access NFS server on Kubernetes Linux nodes
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-storage
+  featureBlock: openebs
+  recommended: false
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/instance: openebs
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: openebs
+      - group: apps
+        version: v1
+        kind: DaemonSet
+        selector:
+          app.kubernetes.io/instance: openebs
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: openebs
+  chart:
+    name: openebs
+    namespace: openebs
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "openebs" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
