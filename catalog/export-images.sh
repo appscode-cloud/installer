@@ -59,7 +59,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-catalog:v2024.9.30 images/appscode-charts-capi-catalog-v2024.9.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-ops-manager:v2024.8.14 images/appscode-charts-capi-ops-manager-v2024.8.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/catalog-manager:v2024.10.17 images/appscode-charts-catalog-manager-v2024.10.17.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.7.28 images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.7.28.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17 images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.10.17.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager:v1.15.2 images/appscode-charts-cert-manager-v1.15.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-chartpreset-editor:v0.8.0 images/appscode-charts-chartsxhelmdev-chartpreset-editor-v0.8.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.8.0 images/appscode-charts-chartsxhelmdev-clusterchartpreset-editor-options-v0.8.0.tar
@@ -262,7 +262,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-presets:v0.0.4 images/appscode-cluster-presets-v0.0.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:0.9.8 images/appscode-cluster-ui-0.9.8.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/config-syncer:v0.15.2-ent images/appscode-config-syncer-v0.15.2-ent.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/csi-driver-cacerts:v0.0.4 images/appscode-csi-driver-cacerts-v0.0.4.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/csi-driver-cacerts:v0.1.0 images/appscode-csi-driver-cacerts-v0.1.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/docker-machine-operator:v0.0.4 images/appscode-docker-machine-operator-v0.0.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/external-dns-operator:v0.0.8 images/appscode-external-dns-operator-v0.0.8.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/falco-ui-server:v0.0.4 images/appscode-falco-ui-server-v0.0.4.tar

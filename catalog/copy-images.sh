@@ -62,7 +62,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ca
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-catalog:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/capi-catalog:v2024.9.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-ops-manager:v2024.8.14 $IMAGE_REGISTRY/appscode-charts/capi-ops-manager:v2024.8.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/catalog-manager:v2024.10.17 $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2024.10.17
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.7.28 $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2024.7.28
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17 $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager:v1.15.2 $IMAGE_REGISTRY/appscode-charts/cert-manager:v1.15.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-chartpreset-editor:v0.8.0 $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-chartpreset-editor:v0.8.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.8.0 $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.8.0
@@ -265,7 +265,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog-m
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-presets:v0.0.4 $IMAGE_REGISTRY/appscode/cluster-presets:v0.0.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:0.9.8 $IMAGE_REGISTRY/appscode/cluster-ui:0.9.8
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/config-syncer:v0.15.2-ent $IMAGE_REGISTRY/appscode/config-syncer:v0.15.2-ent
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/csi-driver-cacerts:v0.0.4 $IMAGE_REGISTRY/appscode/csi-driver-cacerts:v0.0.4
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/csi-driver-cacerts:v0.1.0 $IMAGE_REGISTRY/appscode/csi-driver-cacerts:v0.1.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/docker-machine-operator:v0.0.4 $IMAGE_REGISTRY/appscode/docker-machine-operator:v0.0.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/external-dns-operator:v0.0.8 $IMAGE_REGISTRY/appscode/external-dns-operator:v0.0.8
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/falco-ui-server:v0.0.4 $IMAGE_REGISTRY/appscode/falco-ui-server:v0.0.4
