@@ -111,3 +111,11 @@ Image Templates
 {{- define "clustermanager.openshift" -}}
 {{- ternary "true" "false" (.Capabilities.APIVersions.Has "project.openshift.io/v1/Project") -}}
 {{- end }}
+
+{{/*
+Returns the registry used for app docker image
+*/}}
+{{- define "precheck.image.registry" -}}
+{{- list .Values.image.proxies.ghcr .Values.precheck.image.registry | compact | join "/" }}
+{{- end }}
+
