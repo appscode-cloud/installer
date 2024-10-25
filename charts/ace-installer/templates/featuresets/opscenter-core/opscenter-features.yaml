@@ -7,33 +7,6 @@
 {{ $_ := set $defaults.helm "repositories" $helmrepos }}
 {{ $_ := set $defaults.helm "createNamespace" $.Values.helm.createNamespace }}
 
-{{ $targetIPs := dig "releases" "ace" "values" "global" "infra" "dns" "targetIPs" list $.Values.helm }}
-{{ if $targetIPs }}
-{{ $hrs := printf `
-helm:
-  releases:
-    inbox-server:
-      values:
-        dns:
-          targetIPs: %v
-    inbox-ui:
-      values:
-        ingress:
-          dns:
-            targetIPs: %v
-    service-backend:
-      values:
-        ingress:
-          dns:
-            targetIPs: %v
-`
-  ($targetIPs | toJson)
-  ($targetIPs | toJson)
-  ($targetIPs | toJson)
-  | fromYaml }}
-{{ $defaults = mergeOverwrite $defaults $hrs }}
-{{ end }}
-
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $defaults $vals }}
 
