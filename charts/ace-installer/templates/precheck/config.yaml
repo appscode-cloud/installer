@@ -1,19 +1,26 @@
+{{- if .Values.precheck.enabled }}
+
+{{- $encodedLicenses := dig "license-proxyserver" "values" "encodedLicenses" (dict) .Values.helm.releases -}}
+{{- $licenses := dict -}}
+{{- range $k, $v := $encodedLicenses }}
+{{ $_ := set $licenses $k (b64dec $v) }}
+{{- end }}
+
 kind: Secret
 apiVersion: v1
 metadata:
-  name: {{ include "ace-installer.fullname" . }}-check-config
+  name: {{ include "ace-installer.fullname" . }}-precheck-config
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "ace-installer.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook-weight": "0"
     "helm.sh/hook": pre-install,pre-upgrade,pre-rollback
-    "helm.sh/hook-delete-policy": before-hook-creation
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 stringData:
   options.yaml: |
-    {{- if .Values.licenses }}
-    licenses:
-      {{- toYaml .Values.licenses | nindent 6 }}
+    {{- with $licenses }}
+    licenses: {{ . | toJson }}
     {{- end }}
     {{- if .Values.registry }}
     registry:
@@ -27,3 +34,5 @@ stringData:
     selfManagement:
       {{- .Values.selfManagement | toYaml | nindent 6 }}
     {{- end }}
+
+{{- end }}

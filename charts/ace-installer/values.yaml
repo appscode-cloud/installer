@@ -51,44 +51,6 @@ registry:
   imagePullSecrets: []
   # imagePullSecrets: ["abc", "xyz"]
 
-# Docker registry fqdn used to pull app related images.
-# Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image}
-registryFQDN: ghcr.io
-
-podAnnotations: {}
-
-podSecurityContext: {}
-# fsGroup: 2000
-
-securityContext: # +doc-gen:break
-  allowPrivilegeEscalation: false
-  capabilities:
-    drop: ["ALL"]
-  readOnlyRootFilesystem: true
-  runAsNonRoot: true
-  runAsUser: 65534
-  seccompProfile:
-    type: RuntimeDefault
-
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-#   memory: 128Mi
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
-
-
 helm:
   createNamespace: true
 
@@ -186,4 +148,48 @@ selfManagement:
   enableFeatures: []
   disableFeatures: []
 
-licenses: {}
+precheck:
+  enabled: true
+
+  # Docker registry containing app image
+  image:
+    # Docker registry used to pull app container image
+    registry: appscode
+    # App container image
+    repository: ace
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: "v0.1.0"
+    pullPolicy: Always
+
+  podAnnotations: {}
+
+  podSecurityContext: {}
+  # fsGroup: 2000
+
+  securityContext: # +doc-gen:break
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 65534
+    seccompProfile:
+      type: RuntimeDefault
+
+  resources: {}
+    # We usually recommend not to specify default resources and to leave this as a conscious
+    # choice for the user. This also increases chances charts run on environments with little
+    # resources, such as Minikube. If you do want to specify resources, uncomment the following
+    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+  #   memory: 128Mi
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}

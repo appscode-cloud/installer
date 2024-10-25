@@ -1,12 +1,14 @@
+{{- if .Values.precheck.enabled }}
+
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "ace-installer.fullname" . }}-check
+  name: {{ include "ace-installer.fullname" . }}-precheck
   namespace: {{ .Release.Namespace }}
   annotations:
-    "helm.sh/hook-weight": "1"
+    "helm.sh/hook-weight": "0"
     "helm.sh/hook": pre-install,pre-upgrade,pre-rollback
-    "helm.sh/hook-delete-policy": before-hook-creation
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 spec:
   backoffLimit: 4
   manualSelector: true
@@ -15,28 +17,28 @@ spec:
       {{- include "ace-installer.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
+      {{- with .Values.precheck.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
         {{- include "ace-installer.selectorLabels" . | nindent 8 }}
     spec:
-      serviceAccountName: {{ include "ace-installer.fullname" . }}-check
+      serviceAccountName: {{ include "ace-installer.fullname" . }}-precheck
       securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+        {{- toYaml .Values.precheck.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Values.helm.releases.ace.version }}"
+            {{- toYaml .Values.precheck.securityContext | nindent 12 }}
+          image: "{{ include "precheck.image.registry" . }}/{{ .Values.precheck.image.repository }}:{{ .Values.precheck.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: Always
           args:
             - installer
             - validate
             - --options=/data/installer/options.yaml
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{- toYaml .Values.precheck.resources | nindent 12 }}
           volumeMounts:
             - name: tmp
               mountPath: /tmp
@@ -53,17 +55,19 @@ spec:
         - name: installer-options
           secret:
             defaultMode: 420
-            secretName: {{ include "ace-installer.fullname" . }}-check-config
-      {{- with .Values.nodeSelector }}
+            secretName: {{ include "ace-installer.fullname" . }}-precheck-config
+      {{- with .Values.precheck.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.affinity }}
+      {{- with .Values.precheck.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.tolerations }}
+      {{- with .Values.precheck.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       restartPolicy: Never
+
+{{- end }}
