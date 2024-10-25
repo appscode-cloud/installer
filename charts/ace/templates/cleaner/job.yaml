@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "ace.fullname" . }}-check
+  name: {{ include "ace.fullname" . }}-cleaner
   namespace: {{ .Release.Namespace }}
   annotations:
     "helm.sh/hook-weight": "0"
@@ -13,7 +13,7 @@ spec:
   template:
     spec:
       {{- include "appscode.imagePullSecrets" . | nindent 6 }}
-      serviceAccountName: {{ include "appscode.serviceAccountName" . }}-check
+      serviceAccountName: {{ include "appscode.serviceAccountName" . }}-cleaner
       automountServiceAccountToken: true
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
@@ -28,8 +28,6 @@ spec:
             - delete
             - jobs
             - --namespace={{ .Release.Namespace }}
-            - --field-selector
-            - status.successful=0
             - --selector
             - app.kubernetes.io/instance=ace
           resources:
