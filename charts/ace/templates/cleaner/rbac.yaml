@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: {{ include "ace.fullname" . }}-check
+  name: {{ include "ace.fullname" . }}-cleaner
   namespace: {{ .Release.Namespace }}
   annotations:
     "helm.sh/hook-weight": "0"
@@ -20,7 +20,7 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: {{ include "ace.fullname" . }}-check
+  name: {{ include "ace.fullname" . }}-cleaner
   namespace: {{ .Release.Namespace }}
   annotations:
     "helm.sh/hook-weight": "0"
@@ -29,8 +29,8 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: {{ include "ace.fullname" . }}-check
+  name: {{ include "ace.fullname" . }}-cleaner
 subjects:
 - kind: ServiceAccount
-  name: {{ include "appscode.serviceAccountName" . }}-check
+  name: {{ include "appscode.serviceAccountName" . }}-cleaner
   namespace: {{ .Release.Namespace }}
