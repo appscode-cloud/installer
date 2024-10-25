@@ -12,14 +12,10 @@ metadata:
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 rules:
   - apiGroups: [""]
-    resources: ["configmaps"]
-    resourceNames: ["cluster-info"]
-    verbs: ["get"]
+    resources: ["configmaps", "namespaces", "secrets", "services"]
+    verbs: [ "get", "list", "watch" ]
   - apiGroups: ["apps"]
     resources: ["deployments"]
-    verbs: ["get", "list", "watch"]
-  - apiGroups: [""]
-    resources: ["services"]
     verbs: ["get", "list", "watch"]
   - apiGroups: ["storage.k8s.io"]
     resources: ["storageclasses"]

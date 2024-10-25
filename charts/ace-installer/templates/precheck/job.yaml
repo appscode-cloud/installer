@@ -6,11 +6,11 @@ metadata:
   name: {{ include "ace-installer.fullname" . }}-precheck
   namespace: {{ .Release.Namespace }}
   annotations:
-    "helm.sh/hook-weight": "0"
+    "helm.sh/hook-weight": "1"
     "helm.sh/hook": pre-install,pre-upgrade,pre-rollback
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 spec:
-  backoffLimit: 4
+  backoffLimit: 0
   manualSelector: true
   selector:
     matchLabels:
