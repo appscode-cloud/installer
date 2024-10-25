@@ -24,14 +24,6 @@ image:
     kubernetes: registry.k8s.io
     microsoft: mcr.microsoft.com
 
-  # Docker registry used to pull app container image
-  registry: appscode
-  # App container image
-  repository: ace
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
-  pullPolicy: Always
-
 # image:
 #   proxies:
 #     dockerHub: harbor.appscode.ninja/dockerhub
@@ -156,9 +148,9 @@ precheck:
     # Docker registry used to pull app container image
     registry: appscode
     # App container image
-    repository: ace
+    repository: b3
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "v0.1.0"
+    tag: ""
     pullPolicy: Always
 
   podAnnotations: {}
