@@ -34,8 +34,7 @@ spec:
           image: "{{ include "precheck.image.registry" . }}/{{ .Values.precheck.image.repository }}:{{ .Values.precheck.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: Always
           args:
-            - installer
-            - validate
+            - validate-installer
             - --options=/data/installer/options.yaml
           resources:
             {{- toYaml .Values.precheck.resources | nindent 12 }}
