@@ -42,7 +42,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-cost
   featureBlock: keda
-  recommended: false
+  recommended: true
   requirements:
     features:
       - keda
