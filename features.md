@@ -73,6 +73,7 @@ graph TD;
   kubevault-opscenter-->kubevault;
   kubevault-opscenter-->grafana-operator;
   kubevault-->license-proxyserver;
+  cert-manager-csi-driver-cacerts-->cert-manager;
   cert-manager-->gateway-api;
   falco-ui-server-->falco;
   falco-ui-server-->grafana-operator;
