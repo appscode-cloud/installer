@@ -50,7 +50,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-a
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-singlestoreautoscaler-editor-v0.8.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-singlestoreautoscaler-editor:v0.8.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-aws-ebs-csi-driver-2.23.0.tar $IMAGE_REGISTRY/appscode-charts/aws-ebs-csi-driver:2.23.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-capa-vpc-peering-operator-v2023.12.11.tar $IMAGE_REGISTRY/appscode-charts/capa-vpc-peering-operator:v2023.12.11
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-capi-catalog-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/capi-catalog:v2024.9.30
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-capi-catalog-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/capi-catalog:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-capi-ops-manager-v2024.8.14.tar $IMAGE_REGISTRY/appscode-charts/capi-ops-manager:v2024.8.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-catalog-manager-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.10.17.tar $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17
