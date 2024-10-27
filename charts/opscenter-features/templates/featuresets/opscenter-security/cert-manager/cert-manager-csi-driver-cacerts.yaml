@@ -29,6 +29,9 @@ spec:
   featureSet: opscenter-security
   featureBlock: cert-manager
   recommended: false
+  requirements:
+    features:
+      - cert-manager
   readinessChecks:
     workloads:
       - group: apps
