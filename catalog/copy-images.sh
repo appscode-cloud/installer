@@ -59,7 +59,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/au
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-singlestoreautoscaler-editor:v0.8.0 $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-singlestoreautoscaler-editor:v0.8.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-ebs-csi-driver:2.23.0 $IMAGE_REGISTRY/appscode-charts/aws-ebs-csi-driver:2.23.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capa-vpc-peering-operator:v2023.12.11 $IMAGE_REGISTRY/appscode-charts/capa-vpc-peering-operator:v2023.12.11
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-catalog:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/capi-catalog:v2024.9.30
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-catalog:v2024.10.24 $IMAGE_REGISTRY/appscode-charts/capi-catalog:v2024.10.24
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-ops-manager:v2024.8.14 $IMAGE_REGISTRY/appscode-charts/capi-ops-manager:v2024.8.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/catalog-manager:v2024.10.24 $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2024.10.24
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17 $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17

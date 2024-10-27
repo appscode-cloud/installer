@@ -56,7 +56,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-singlestoreautoscaler-editor:v0.8.0 images/appscode-charts-autoscalingkubedbcom-singlestoreautoscaler-editor-v0.8.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-ebs-csi-driver:2.23.0 images/appscode-charts-aws-ebs-csi-driver-2.23.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capa-vpc-peering-operator:v2023.12.11 images/appscode-charts-capa-vpc-peering-operator-v2023.12.11.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-catalog:v2024.9.30 images/appscode-charts-capi-catalog-v2024.9.30.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-catalog:v2024.10.24 images/appscode-charts-capi-catalog-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-ops-manager:v2024.8.14 images/appscode-charts-capi-ops-manager-v2024.8.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/catalog-manager:v2024.10.24 images/appscode-charts-catalog-manager-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17 images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.10.17.tar
