@@ -7,12 +7,15 @@ nameOverride: ""
 # Overrides fullname template
 fullnameOverride: ""
 
+clusterMetadata:
+  uid: TBD
+  name: TBD
+
 infra:
-  clusterName: "c1"
   host: chart-example.local
   hostType: domain
   tls:
-    issuer: "ca" # ca,letsencrypt,letsencrypt-staging
+    issuer: "ca" # ca,letsencrypt,letsencrypt-staging,external
     ca:
       cert: ""
       key: ""

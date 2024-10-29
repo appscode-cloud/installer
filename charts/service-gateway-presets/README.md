@@ -49,7 +49,8 @@ The following table lists the configurable parameters of the `service-gateway-pr
 |----------------------------|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | nameOverride               | Overrides name template     | <code>""</code>                                                                                                                                                                                                   |
 | fullnameOverride           | Overrides fullname template | <code>""</code>                                                                                                                                                                                                   |
-| infra.clusterName          |                             | <code>"c1"</code>                                                                                                                                                                                                 |
+| clusterMetadata.uid        |                             | <code>TBD</code>                                                                                                                                                                                                  |
+| clusterMetadata.name       |                             | <code>TBD</code>                                                                                                                                                                                                  |
 | infra.host                 |                             | <code>chart-example.local</code>                                                                                                                                                                                  |
 | infra.hostType             |                             | <code>domain</code>                                                                                                                                                                                               |
 | infra.tls.issuer           |                             | <code>"ca" # ca,letsencrypt,letsencrypt-staging</code>                                                                                                                                                            |
@@ -79,7 +80,7 @@ The following table lists the configurable parameters of the `service-gateway-pr
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i service-gateway-presets appscode/service-gateway-presets -n ace --create-namespace --version=v2024.10.24 --set infra.clusterName="c1"
+$ helm upgrade -i service-gateway-presets appscode/service-gateway-presets -n ace --create-namespace --version=v2024.10.24 --set clusterMetadata.uid=TBD
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while

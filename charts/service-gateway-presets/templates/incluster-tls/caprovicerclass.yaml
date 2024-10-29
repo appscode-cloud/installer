@@ -3,7 +3,7 @@
 apiVersion: cacerts.csi.cert-manager.io/v1alpha1
 kind: CAProviderClass
 metadata:
-  name: ace-gw
+  name: {{ include "tenant.name" . }}-incluster
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "service-gateway-presets.labels" . | nindent 4 }}
@@ -12,7 +12,7 @@ spec:
   - apiGroup: ""
     kind: Secret
     namespace: cert-manager
-    name: ace-gw-ca
+    name: {{ include "tenant.name" . }}-incluster-ca
     key: "tls.crt"
 
 {{- end }}

@@ -6,7 +6,7 @@
 apiVersion: cacerts.csi.cert-manager.io/v1alpha1
 kind: CAProviderClass
 metadata:
-  name: {{ include "service-gateway-presets.fullname" . }}
+  name: {{ include "tenant.name" . }}-gw
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "service-gateway-presets.labels" . | nindent 4 }}
@@ -15,6 +15,6 @@ spec:
   - apiGroup: ""
     kind: Secret
     namespace: {{ .Release.Namespace }}
-    name: {{ include "service-gateway-presets.fullname" . }}-cert
+    name: {{ include "tenant.name" . }}-gw-cert
     key: "ca.crt"
 {{- end}}

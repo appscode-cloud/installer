@@ -49,3 +49,17 @@ Selector labels
 app.kubernetes.io/name: {{ include "service-gateway-presets.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
+
+{{/*
+The name of the tenant.
+*/}}
+{{- define "tenant.name" -}}
+{{- ternary (trimSuffix "-gw" .Release.Namespace) .Release.Namespace (hasSuffix "-gw" .Release.Namespace) }}
+{{- end }}
+
+{{/*
+The domain name used for the gateway.
+*/}}
+{{- define "gateway.domain" -}}
+{{- ternary (printf "%s.%s" (trimSuffix "-gw" .Release.Namespace) .Values.infra.host) (printf "gw-%s.%s" .Values.clusterMetadata.name .Values.infra.host) (hasSuffix "-gw" .Release.Namespace) }}
+{{- end }}

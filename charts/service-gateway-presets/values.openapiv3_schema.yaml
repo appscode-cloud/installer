@@ -21,6 +21,16 @@ properties:
     required:
     - tls
     type: object
+  clusterMetadata:
+    properties:
+      name:
+        type: string
+      uid:
+        type: string
+    required:
+    - name
+    - uid
+    type: object
   echoserver:
     properties:
       image:
@@ -418,8 +428,6 @@ properties:
     type: object
   infra:
     properties:
-      clusterName:
-        type: string
       dns:
         properties:
           auth:
@@ -558,7 +566,6 @@ properties:
         - jks
         type: object
     required:
-    - clusterName
     - dns
     - host
     - hostType
@@ -568,6 +575,7 @@ properties:
     type: string
 required:
 - cluster
+- clusterMetadata
 - echoserver
 - envoy
 - fullnameOverride

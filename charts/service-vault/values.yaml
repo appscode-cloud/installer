@@ -8,7 +8,6 @@ nameOverride: ""
 fullnameOverride: ""
 
 infra:
-  clusterName: "c1"
   host: chart-example.local
   hostType: domain
   tls:

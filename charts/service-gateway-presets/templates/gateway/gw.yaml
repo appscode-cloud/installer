@@ -1,10 +1,10 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: {{ include "service-gateway-presets.fullname" . }}-backend
+  name: {{ include "tenant.name" . }}-gw-seed-backend
   namespace: {{ .Release.Namespace }}
 spec:
-  gatewayClassName: ace
+  gatewayClassName: {{ include "tenant.name" . }}
   listeners:
     - name: http
       protocol: HTTP
@@ -17,13 +17,13 @@ spec:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: {{ include "service-gateway-presets.fullname" . }}-backend
+  name: {{ include "tenant.name" . }}-gw-seed-backend
   namespace: {{ .Release.Namespace }}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "service-gateway-presets.fullname" . }}-backend
+  name: {{ include "tenant.name" . }}-gw-seed-backend
   namespace: {{ .Release.Namespace }}
 spec:
   ports:
@@ -31,24 +31,24 @@ spec:
       port: 3000
       targetPort: 3000
   selector:
-    app: {{ include "service-gateway-presets.fullname" . }}-backend
+    app: {{ include "tenant.name" . }}-gw-seed-backend
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "service-gateway-presets.fullname" . }}-backend
+  name: {{ include "tenant.name" . }}-gw-seed-backend
   namespace: {{ .Release.Namespace }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "service-gateway-presets.fullname" . }}-backend
+      app: {{ include "tenant.name" . }}-gw-seed-backend
   template:
     metadata:
       labels:
-        app: {{ include "service-gateway-presets.fullname" . }}-backend
+        app: {{ include "tenant.name" . }}-gw-seed-backend
     spec:
-      serviceAccountName: {{ include "service-gateway-presets.fullname" . }}-backend
+      serviceAccountName: {{ include "tenant.name" . }}-gw-seed-backend
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -73,20 +73,20 @@ spec:
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: {{ include "service-gateway-presets.fullname" . }}-backend
+  name: {{ include "tenant.name" . }}-gw-seed-backend
   namespace: {{ .Release.Namespace }}
 spec:
   parentRefs:
-    - name: {{ include "service-gateway-presets.fullname" . }}-backend
+    - name: {{ include "tenant.name" . }}-gw-seed-backend
   {{- if eq .Values.infra.hostType "domain" }}
   hostnames:
-    - "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.host }}"
+    - {{ include "gateway.domain" . }}
   {{- end }}
   rules:
     - backendRefs:
         - group: ""
           kind: Service
-          name: {{ include "service-gateway-presets.fullname" . }}-backend
+          name: {{ include "tenant.name" . }}-gw-seed-backend
           port: 3000
           weight: 1
       matches:

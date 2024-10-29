@@ -1,19 +1,19 @@
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: GatewayClass
 metadata:
-  name: ace
+  name: {{ include "tenant.name" . }}
 spec:
   controllerName: gateway.voyagermesh.com/service-gateway
   parametersRef:
     group: gateway.envoyproxy.io
     kind: EnvoyProxy
-    name: ace-gw-proxy-config
+    name: {{ include "tenant.name" . }}-gw-proxy-config
     namespace: {{ .Release.Namespace }}
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: EnvoyProxy
 metadata:
-  name: ace-gw-proxy-config
+  name: {{ include "tenant.name" . }}-gw-proxy-config
   namespace: {{ .Release.Namespace }}
 spec:
   mergeGateways: true
@@ -38,5 +38,5 @@ spec:
     {{- if eq .Values.infra.hostType "domain" }}
       envoyService:
         annotations:
-          external-dns.alpha.kubernetes.io/hostname: "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.host }}"
+          external-dns.alpha.kubernetes.io/hostname: {{ include "gateway.domain" . }}
     {{- end }}

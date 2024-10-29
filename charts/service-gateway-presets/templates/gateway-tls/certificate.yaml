@@ -1,23 +1,25 @@
+{{- if not (eq .Values.infra.tls.issuer "external") }}
+
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: {{ include "service-gateway-presets.fullname" . }}
+  name: {{ include "tenant.name" . }}-gw
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "service-gateway-presets.labels" . | nindent 4 }}
 spec:
-  secretName: {{ include "service-gateway-presets.fullname" . }}-cert
+  secretName: {{ include "tenant.name" . }}-gw-cert
   secretTemplate:
     annotations:
       vcluster.loft.sh/force-sync: "true"
   issuerRef:
     group: cert-manager.io
     kind: Issuer
-    name: {{ include "service-gateway-presets.fullname" . }}
+    name: {{ include "tenant.name" . }}-gw
   {{- if eq .Values.infra.hostType "domain" }}
-  commonName: "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.host }}"
+  commonName: {{ include "gateway.domain" . }}
   dnsNames:
-    - "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.host }}"
+    - {{ include "gateway.domain" . }}
   {{- else }}
   ipAddresses:
     - "{{ .Values.infra.host }}"
@@ -32,6 +34,8 @@ spec:
       create: true
       alias: aws
       passwordSecretRef:
-        name: {{ include "service-gateway-presets.fullname" . }}-jkscred
+        name: {{ include "tenant.name" . }}-gw-jkscred
         key: password
   {{- end }}
+
+{{- end }}

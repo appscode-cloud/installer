@@ -46,6 +46,7 @@ type ServiceGatewayPresets struct {
 type ServiceGatewayPresetsSpec struct {
 	NameOverride     string                 `json:"nameOverride"`
 	FullnameOverride string                 `json:"fullnameOverride"`
+	ClusterMetadata  StashClusterMetadata   `json:"clusterMetadata"`
 	Infra            ServiceProviderInfra   `json:"infra"`
 	GatewayDns       ServiceGatewayDns      `json:"gateway-dns"`
 	Cluster          ServiceProviderCluster `json:"cluster"`
@@ -54,10 +55,9 @@ type ServiceGatewayPresetsSpec struct {
 }
 
 type ServiceProviderInfra struct {
-	ClusterName string `json:"clusterName"`
-	HostInfo    `json:",inline"`
-	TLS         InfraTLS   `json:"tls"`
-	DNS         GatewayDns `json:"dns"`
+	HostInfo `json:",inline"`
+	TLS      InfraTLS   `json:"tls"`
+	DNS      GatewayDns `json:"dns"`
 }
 
 type ServiceGatewayDns struct {
