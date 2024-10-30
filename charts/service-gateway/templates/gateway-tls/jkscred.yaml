@@ -5,7 +5,7 @@ metadata:
   name: {{ include "tenant.name" . }}-gw-jkscred
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "service-gateway-presets.labels" . | nindent 4 }}
+    {{- include "service-gateway.labels" . | nindent 4 }}
 stringData:
   password: {{ .Values.infra.tls.jks.password | quote }}
 {{- end }}

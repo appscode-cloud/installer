@@ -1,19 +1,19 @@
-# ACE Service Gateway Presets
+# ACE Service Gateway
 
-[ACE Service Gateway Presets by AppsCode](https://github.com/appscode-cloud) - ACE Service Gateway Presets
+[ACE Service Gateway by AppsCode](https://github.com/appscode-cloud) - ACE Service Gateway
 
 ## TL;DR;
 
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/service-gateway-presets --version=v2024.10.24
-$ helm upgrade -i service-gateway-presets appscode/service-gateway-presets -n ace --create-namespace --version=v2024.10.24
+$ helm search repo appscode/service-gateway --version=v2024.10.24
+$ helm upgrade -i service-gateway appscode/service-gateway -n ace --create-namespace --version=v2024.10.24
 ```
 
 ## Introduction
 
-This chart deploys ACE Service Gateway Presets on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart deploys ACE Service Gateway on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
@@ -21,29 +21,29 @@ This chart deploys ACE Service Gateway Presets on a [Kubernetes](http://kubernet
 
 ## Installing the Chart
 
-To install/upgrade the chart with the release name `service-gateway-presets`:
+To install/upgrade the chart with the release name `service-gateway`:
 
 ```bash
-$ helm upgrade -i service-gateway-presets appscode/service-gateway-presets -n ace --create-namespace --version=v2024.10.24
+$ helm upgrade -i service-gateway appscode/service-gateway -n ace --create-namespace --version=v2024.10.24
 ```
 
-The command deploys ACE Service Gateway Presets on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
+The command deploys ACE Service Gateway on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
 
 > **Tip**: List all releases using `helm list`
 
 ## Uninstalling the Chart
 
-To uninstall the `service-gateway-presets`:
+To uninstall the `service-gateway`:
 
 ```bash
-$ helm uninstall service-gateway-presets -n ace
+$ helm uninstall service-gateway -n ace
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
 
 ## Configuration
 
-The following table lists the configurable parameters of the `service-gateway-presets` chart and their default values.
+The following table lists the configurable parameters of the `service-gateway` chart and their default values.
 
 |         Parameter          |         Description         |                                                                                                      Default                                                                                                      |
 |----------------------------|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -53,7 +53,7 @@ The following table lists the configurable parameters of the `service-gateway-pr
 | clusterMetadata.name       |                             | <code>TBD</code>                                                                                                                                                                                                  |
 | infra.host                 |                             | <code>chart-example.local</code>                                                                                                                                                                                  |
 | infra.hostType             |                             | <code>domain</code>                                                                                                                                                                                               |
-| infra.tls.issuer           |                             | <code>"ca" # ca,letsencrypt,letsencrypt-staging</code>                                                                                                                                                            |
+| infra.tls.issuer           |                             | <code>"ca" # ca,letsencrypt,letsencrypt-staging,external</code>                                                                                                                                                   |
 | infra.tls.ca.cert          |                             | <code>""</code>                                                                                                                                                                                                   |
 | infra.tls.ca.key           |                             | <code>""</code>                                                                                                                                                                                                   |
 | infra.tls.acme.email       |                             | <code>ops@appscode.com</code>                                                                                                                                                                                     |
@@ -80,12 +80,12 @@ The following table lists the configurable parameters of the `service-gateway-pr
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i service-gateway-presets appscode/service-gateway-presets -n ace --create-namespace --version=v2024.10.24 --set clusterMetadata.uid=TBD
+$ helm upgrade -i service-gateway appscode/service-gateway -n ace --create-namespace --version=v2024.10.24 --set clusterMetadata.uid=TBD
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i service-gateway-presets appscode/service-gateway-presets -n ace --create-namespace --version=v2024.10.24 --values values.yaml
+$ helm upgrade -i service-gateway appscode/service-gateway -n ace --create-namespace --version=v2024.10.24 --values values.yaml
 ```

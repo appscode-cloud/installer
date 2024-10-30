@@ -5,7 +5,7 @@ metadata:
   name: {{ include "tenant.name" . }}-gw-dns-cred
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "service-gateway-presets.labels" . | nindent 4 }}
+    {{- include "service-gateway.labels" . | nindent 4 }}
 type: Opaque
 stringData:
 {{- if eq .Values.infra.dns.provider "cloudflare" }}

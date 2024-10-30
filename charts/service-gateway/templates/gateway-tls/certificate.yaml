@@ -6,7 +6,7 @@ metadata:
   name: {{ include "tenant.name" . }}-gw
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "service-gateway-presets.labels" . | nindent 4 }}
+    {{- include "service-gateway.labels" . | nindent 4 }}
 spec:
   secretName: {{ include "tenant.name" . }}-gw-cert
   secretTemplate:

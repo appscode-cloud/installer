@@ -1,18 +1,30 @@
 {{ $defaults := printf `
-config:
-  envoyGateway:
-    gateway:
-      controllerName: gateway.voyagermesh.com/service-gateway
-deployment:
-  envoyGateway:
-    image:
-      repository: %s
-  kubeRbacProxy:
-    image:
-      repository: %s
-gateway-converter:
-  registryFQDN: %s
+clusterMetadata:
+  uid: %q
+  name: %q
+envoy:
+  image: %s
+echoserver:
+  image: %s
+gateway:
+  config:
+    envoyGateway:
+      gateway:
+        controllerName: gateway.voyagermesh.com/service-gateway
+  deployment:
+    envoyGateway:
+      image:
+        repository: %s
+    kubeRbacProxy:
+      image:
+        repository: %s
+  gateway-converter:
+    registryFQDN: %s
 `
+  $.Values.clusterMetadata.uid
+  $.Values.clusterMetadata.name
+  (include "image.ghcr" (merge (dict "_repo" "voyagermesh/envoy") $))
+  (include "image.ghcr" (merge (dict "_repo" "voyagermesh/echoserver") $))
   (include "image.ghcr" (merge (dict "_repo" "voyagermesh/gateway") $))
   (include "image.ghcr" (merge (dict "_repo" "appscode/kube-rbac-proxy") $))
   (include "registry.ghcr" $)
@@ -45,13 +57,13 @@ spec:
         selector:
           app.kubernetes.io/instance: service-gateway
           app.kubernetes.io/managed-by: Helm
-          app.kubernetes.io/name: voyager-gateway
+          app.kubernetes.io/name: service-gateway
           control-plane: envoy-gateway
   chart:
-    name: voyager-gateway
+    name: service-gateway
     namespace: ace
     createNamespace: {{ $.Values.helm.createNamespace }}
-    version: {{ dig "voyager-gateway" "version" "" $.Values.helm.releases }}
+    version: {{ dig "service-gateway" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci
@@ -60,7 +72,7 @@ spec:
   {{- if eq (include "clustermanager.openshift" $) "true" }}
     - kind: ConfigMap
       name: ace-openshift-scc
-      valuesKey: voyager-gateway.yaml
+      valuesKey: service-gateway.yaml
       optional: true
   {{- end }}
 {{- with $vals }}

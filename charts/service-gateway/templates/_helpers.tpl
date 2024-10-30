@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "service-gateway-presets.name" -}}
+{{- define "service-gateway.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "service-gateway-presets.fullname" -}}
+{{- define "service-gateway.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "service-gateway-presets.chart" -}}
+{{- define "service-gateway.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "service-gateway-presets.labels" -}}
-helm.sh/chart: {{ include "service-gateway-presets.chart" . }}
-{{ include "service-gateway-presets.selectorLabels" . }}
+{{- define "service-gateway.labels" -}}
+helm.sh/chart: {{ include "service-gateway.chart" . }}
+{{ include "service-gateway.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,8 +45,8 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "service-gateway-presets.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "service-gateway-presets.name" . }}
+{{- define "service-gateway.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "service-gateway.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
@@ -61,5 +61,5 @@ The name of the tenant.
 The domain name used for the gateway.
 */}}
 {{- define "gateway.domain" -}}
-{{- ternary (printf "%s.%s" (trimSuffix "-gw" .Release.Namespace) .Values.infra.host) (printf "gw-%s.%s" .Values.clusterMetadata.name .Values.infra.host) (hasSuffix "-gw" .Release.Namespace) }}
+{{- ternary (printf "%s.%s" (trimSuffix "-gw" .Release.Namespace) .Values.infra.host) (printf "gw-%s.%s" (required "A valid .Values.clusterMetadata.name entry required!" .Values.clusterMetadata.name) .Values.infra.host) (hasSuffix "-gw" .Release.Namespace) }}
 {{- end }}

@@ -5,7 +5,7 @@ kind: ClusterIssuer
 metadata:
   name: {{ include "tenant.name" . }}-incluster
   labels:
-    {{- include "service-gateway-presets.labels" . | nindent 4 }}
+    {{- include "service-gateway.labels" . | nindent 4 }}
 spec:
   ca:
     secretName: {{ include "tenant.name" . }}-incluster-ca
