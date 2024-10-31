@@ -8,8 +8,8 @@ nameOverride: ""
 fullnameOverride: ""
 
 clusterMetadata:
-  uid: TBD
-  name: TBD
+  uid: tbd
+  name: tbd
 
 infra:
   host: chart-example.local
@@ -52,10 +52,12 @@ infra:
 
 gateway:
   enabled: true
-  # config:
-  #   envoyGateway:
-  #     gateway:
-  #       controllerName: gateway.voyagermesh.com/ace
+  gateway-converter:
+    enabled: false
+  config:
+    envoyGateway:
+      gateway:
+        controllerName: gateway.voyagermesh.com/ace
 
 # https://github.com/kubernetes-sigs/external-dns/blob/master/docs/sources/service.md
 gateway-dns:

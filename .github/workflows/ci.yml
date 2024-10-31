@@ -33,7 +33,7 @@ jobs:
           sudo mv yqq /usr/local/bin/yqq
           pipx install yq
           # install kubectl
-          curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.21.1/bin/linux/amd64/kubectl
+          curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.31.0/bin/linux/amd64/kubectl
           chmod +x ./kubectl
           sudo mv ./kubectl /usr/local/bin/kubectl
 
@@ -82,3 +82,12 @@ jobs:
         run: |
           export KUBECONFIG="${HOME}/.kube/config"
           ./hack/scripts/ct.sh
+
+      - name: Test Service Gateway
+        run: |
+          export KUBECONFIG="${HOME}/.kube/config"
+          kubectl delete crds --all
+          kubectl apply --validate=false -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml
+          sleep 10
+          kubectl wait --for=Create --for=condition=Ready pods -n cert-manager --all --timeout=5m
+          ./hack/scripts/test-service-gateway.sh

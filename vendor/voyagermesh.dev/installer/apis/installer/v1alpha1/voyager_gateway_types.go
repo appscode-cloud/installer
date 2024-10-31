@@ -43,14 +43,14 @@ type VoyagerGateway struct {
 
 // VoyagerGatewaySpec is the schema for Operator Operator values file
 type VoyagerGatewaySpec struct {
-	Global                  VoyagerGatewayGlobal    `json:"global"`
-	PodDisruptionBudget     PodDisruptionBudgetSpec `json:"podDisruptionBudget"`
-	Deployment              DeploymentSpec          `json:"deployment"`
-	Config                  EnvoyGatewayConfig      `json:"config"`
-	CreateNamespace         bool                    `json:"createNamespace"`
-	KubernetesClusterDomain string                  `json:"kubernetesClusterDomain"`
-	Certgen                 CertgenSpec             `json:"certgen"`
-	GatewayConverter        VoyagerGatewayConverter `json:"gateway-converter"`
+	Global                  *VoyagerGatewayGlobal    `json:"global,omitempty"`
+	PodDisruptionBudget     *PodDisruptionBudgetSpec `json:"podDisruptionBudget,omitempty"`
+	Deployment              *DeploymentSpec          `json:"deployment,omitempty"`
+	Config                  *EnvoyGatewayConfig      `json:"config,omitempty"`
+	CreateNamespace         *bool                    `json:"createNamespace,omitempty"`
+	KubernetesClusterDomain *string                  `json:"kubernetesClusterDomain,omitempty"`
+	Certgen                 *CertgenSpec             `json:"certgen,omitempty"`
+	GatewayConverter        *VoyagerGatewayConverter `json:"gateway-converter,omitempty"`
 }
 
 type VoyagerGatewayGlobal struct {
@@ -111,9 +111,9 @@ type EnvoyGatewayConfig struct {
 }
 
 type EnvoyGatewaySpec struct {
-	Gateway  GatewayControllerSpec `json:"gateway"`
-	Provider GatewayProviderSpec   `json:"provider"`
-	Logging  LoggingSpec           `json:"logging"`
+	Gateway  *GatewayControllerSpec `json:"gateway,omitempty"`
+	Provider *GatewayProviderSpec   `json:"provider,omitempty"`
+	Logging  *LoggingSpec           `json:"logging,omitempty"`
 }
 
 type GatewayControllerSpec struct {

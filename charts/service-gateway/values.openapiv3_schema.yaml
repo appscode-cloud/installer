@@ -365,10 +365,6 @@ properties:
                 required:
                 - type
                 type: object
-            required:
-            - gateway
-            - logging
-            - provider
             type: object
         required:
         - envoyGateway
@@ -1875,15 +1871,7 @@ properties:
         - minAvailable
         type: object
     required:
-    - certgen
-    - config
-    - createNamespace
-    - deployment
     - enabled
-    - gateway-converter
-    - global
-    - kubernetesClusterDomain
-    - podDisruptionBudget
     type: object
   gateway-dns:
     properties:
