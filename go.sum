@@ -333,8 +333,8 @@ kmodules.xyz/offshoot-api v0.30.1 h1:TrulAYO+oBsXe9sZZGTmNWIuI8qD2izMpgcTSPvgAmI
 kmodules.xyz/offshoot-api v0.30.1/go.mod h1:T3mpjR6fui0QzOcmQvIuANytW48fe9ytmy/1cgx6D4g=
 kmodules.xyz/prober v0.29.0 h1:Ex7m4F9rH7uWNNJlLgP63ROOM+nUATJkC2L5OQ7nwMg=
 kmodules.xyz/prober v0.29.0/go.mod h1:UtK+HKyI1lFLEKX+HFLyOCVju6TO93zv3kwGpzqmKOo=
-kmodules.xyz/resource-metadata v0.20.0 h1:3nb/K0F6N2s0BOMrHC6+moK60q0Jqvac8UjWI3kW0kY=
-kmodules.xyz/resource-metadata v0.20.0/go.mod h1:yPqwR6xSTXuIgOjR6kNPDDJUe++sS+h7gtCmevJR60g=
+kmodules.xyz/resource-metadata v0.21.0 h1:sFH2sIeKo1a5xwOwBnx5RRXjEvisY2xakka2l2wK+XY=
+kmodules.xyz/resource-metadata v0.21.0/go.mod h1:pdge27Crf30IeiBGhy1QIveRiUtJ/QnSSOaO2VxHAmI=
 kmodules.xyz/schema-checker v0.4.2 h1:tAbxEtM759GxDM/3sQi/+OKKwUsEF+Ih4KReV3Eb/Xw=
 kmodules.xyz/schema-checker v0.4.2/go.mod h1:N7ETPwfY4LbTHbydC9jjssPmYKKgZ8DC0IuLCU55wwc=
 kubeops.dev/external-dns-operator v0.0.9 h1:lfRDtIKJR8VaJpF01CcOjnA2QcSe43WDnIcqP/ieh1c=
