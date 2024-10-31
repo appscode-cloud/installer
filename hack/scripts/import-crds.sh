@@ -105,9 +105,8 @@ crd-importer \
     --out=./charts/service-gateway/crds
 
 crd-importer \
-    --input=https://github.com/envoyproxy/gateway/raw/${ENVOYPROXY_GATEWAY_TAG}/charts/gateway-helm/crds/generated/gateway.envoyproxy.io_envoyproxies.yaml \
-    --input=https://github.com/kubeops/csi-driver-cacerts/raw/${KUBEOPS_CSI_DRIVER_CACERTS_TAG}/crds/cacerts.csi.cert-manager.io_caproviderclasses.yaml \
-    --input=https://github.com/kubeops/external-dns-operator/raw/${KUBEOPS_EXTERNAL_DNS_OPERATOR}/crds/external-dns.appscode.com_externaldnses.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/multi-api/crds/gateway.catalog.appscode.com_gatewayconfigs.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/multi-api/crds/gateway.catalog.appscode.com_gatewaypresets.yaml \
     --out=./charts/service-gateway-presets/crds
 
 crd-importer \

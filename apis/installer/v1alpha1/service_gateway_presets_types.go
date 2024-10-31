@@ -18,6 +18,7 @@ package v1alpha1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	uiapi "kmodules.xyz/resource-metadata/apis/ui/v1alpha1"
 )
 
 const (
@@ -42,8 +43,12 @@ type ServiceGatewayPresets struct {
 }
 
 type ServiceGatewayPresetsSpec struct {
-	NameOverride     string `json:"nameOverride"`
-	FullnameOverride string `json:"fullnameOverride"`
+	ServiceGatewaysSpec `json:",inline,omitempty"`
+	ClusterMetadata     *StashClusterMetadata `json:"clusterMetadata,omitempty"`
+	SkipGatewayPreset   bool                  `json:"skipGatewayPreset"`
+	// Chart specifies the chart information that will be used by the FluxCD to install the respective feature
+	// +optional
+	Chart uiapi.ChartInfo `json:"chart,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

@@ -1,0 +1,102 @@
+# Default values for ace.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Overrides name template
+nameOverride: ""
+# Overrides fullname template
+fullnameOverride: ""
+
+clusterMetadata:
+  uid: ""
+  name: ""
+
+skipGatewayPreset: false
+
+infra:
+  host: chart-example.local
+  hostType: domain
+  tls:
+    issuer: "ca" # ca,letsencrypt,letsencrypt-staging
+    ca:
+      cert: ""
+      key: ""
+    acme:
+      email: ops@appscode.com
+      solver: Gateway
+    certificate:
+      cert: ""
+      key: ""
+    jks:
+      keystore:
+      truststore:
+      password: ""
+  dns:
+    provider: "external" # external,cloudflare,route53,cloudDNS
+    auth: {}
+      # cloudflare:
+        # token: xyz
+      # cloudDNS:
+        # GOOGLE_PROJECT_ID: "project-id"
+        # GOOGLE_SERVICE_ACCOUNT_JSON_KEY: xyz
+      # azureDNS:
+        # subscriptionID: "azure-subscription-id"
+        # tenantID: "azure-tenant-id"
+        # resourceGroupName: "resource-group-name"
+        # hostedZoneName: "zone-name-for-hosted-domain"
+        # servicePrincipalAppID: "service-principal-id"
+        # servicePrincipalAppPassword: "service-principal-app"
+        # environment: AzurePublicCloud
+      # route53:
+        # AWS_ACCESS_KEY_ID: "access-id"
+        # AWS_SECRET_ACCESS_KEY: "secret-key"
+        # AWS_REGION: "us-east-1"
+
+# https://github.com/kubernetes-sigs/external-dns/blob/master/docs/sources/service.md
+gateway-dns:
+  enabled: false
+
+cluster:
+  tls:
+    issuer: "ca" # ca,vault
+    ca:
+      cert: ""
+      key: ""
+
+envoy:
+  image: ghcr.io/voyagermesh/envoy
+  tag: "v1.29.9-ac"
+  securityContext: # +doc-gen:break
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
+    # readOnlyRootFilesystem: true
+    privileged: false
+    runAsNonRoot: true
+    runAsUser: 65534
+    seccompProfile:
+      type: RuntimeDefault
+
+echoserver:
+  image: ghcr.io/voyagermesh/echoserver
+  tag: "v20221109"
+  securityContext: # +doc-gen:break
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
+    readOnlyRootFilesystem: true
+    privileged: false
+    runAsNonRoot: true
+    runAsUser: 65534
+    seccompProfile:
+      type: RuntimeDefault
+
+chart:
+  name: service-gateway
+  namespace: ace
+  createNamespace: true
+  version: "v2024.10.24"
+  sourceRef:
+    kind: HelmRepository
+    name: appscode-charts-oci
+    namespace: kubeops

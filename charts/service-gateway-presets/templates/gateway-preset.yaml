@@ -1,0 +1,17 @@
+{{- if .Values.skipGatewayPreset }}
+
+apiVersion: gateway.catalog.appscode.com/v1alpha1
+kind: GatewayPreset
+metadata:
+  name: ace
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-gateway-presets.labels" . | nindent 4 }}
+spec:
+  parametersRef:
+    group: gateway.catalog.appscode.com
+    kind: GatewayConfig
+    name: ace
+    namespace: {{ .Release.Namespace }}
+
+{{- end }}
