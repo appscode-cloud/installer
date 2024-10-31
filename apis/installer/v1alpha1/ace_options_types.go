@@ -20,6 +20,7 @@ import (
 	"fmt"
 	"net/url"
 
+	catgwapi "go.bytebuilders.dev/catalog/api/gateway/v1alpha1"
 	configapi "go.bytebuilders.dev/resource-model/apis/config/v1alpha1"
 	wizardsapi "go.bytebuilders.dev/ui-wizards/apis/wizards/v1alpha1"
 
@@ -97,7 +98,7 @@ func (a *AceOptionsSpec) IsOptionsComplete() bool {
 }
 
 func (a *AceOptionsSpec) Host() string {
-	if a.Infra.DNS.Provider == DNSProviderNone && a.IsOptionsComplete() {
+	if a.Infra.DNS.Provider == catgwapi.DNSProviderNone && a.IsOptionsComplete() {
 		if len(a.Infra.DNS.TargetIPs) == 0 {
 			panic("target IPs required when no dns provider is used")
 		}
@@ -107,7 +108,7 @@ func (a *AceOptionsSpec) Host() string {
 }
 
 func (a *AceOptionsSpec) HostType() HostType {
-	if a.Infra.DNS.Provider == DNSProviderNone {
+	if a.Infra.DNS.Provider == catgwapi.DNSProviderNone {
 		return HostTypeIP
 	}
 	return HostTypeDomain
@@ -214,7 +215,7 @@ type AceOptionsNatsSettings struct {
 type AceOptionsPlatformInfra struct {
 	StorageClass  LocalObjectReference         `json:"storageClass"`
 	KubeStash     KubeStashOptions             `json:"kubestash"`
-	TLS           InfraTLS                     `json:"tls"`
+	TLS           catgwapi.InfraTLS            `json:"tls"`
 	DNS           InfraDns                     `json:"dns"`
 	CloudServices AceOptionsInfraCloudServices `json:"cloudServices"`
 }
@@ -422,7 +423,7 @@ type GeneratedValues struct {
 	// +optional
 	ServiceBackendCookie Cookie `json:"serviceBackendCookie"`
 	// +optional
-	ClusterCA TLSData `json:"clusterCA"`
+	ClusterCA catgwapi.TLSData `json:"clusterCA"`
 	// JKS password is used to create keystore for s3proxy
 	// +optional
 	JKSPassword string `json:"jksPassword"`
