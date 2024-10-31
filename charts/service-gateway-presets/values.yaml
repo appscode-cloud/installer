@@ -7,8 +7,13 @@ nameOverride: ""
 # Overrides fullname template
 fullnameOverride: ""
 
+clusterMetadata:
+  uid: ""
+  name: ""
+
+skipGatewayPreset: false
+
 infra:
-  clusterName: "c1"
   host: chart-example.local
   hostType: domain
   tls:
@@ -46,6 +51,9 @@ infra:
         # AWS_ACCESS_KEY_ID: "access-id"
         # AWS_SECRET_ACCESS_KEY: "secret-key"
         # AWS_REGION: "us-east-1"
+
+gateway:
+  enabled: true
 
 # https://github.com/kubernetes-sigs/external-dns/blob/master/docs/sources/service.md
 gateway-dns:
@@ -85,3 +93,13 @@ echoserver:
     runAsUser: 65534
     seccompProfile:
       type: RuntimeDefault
+
+chart:
+  name: service-gateway
+  namespace: ace
+  createNamespace: true
+  version: "v2024.10.24"
+  sourceRef:
+    kind: HelmRepository
+    name: appscode-charts-oci
+    namespace: kubeops

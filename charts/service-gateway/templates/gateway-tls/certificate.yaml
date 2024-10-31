@@ -1,0 +1,41 @@
+{{- if not (eq .Values.infra.tls.issuer "external") }}
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "tenant.name" . }}-gw
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-gateway.labels" . | nindent 4 }}
+spec:
+  secretName: {{ include "tenant.name" . }}-gw-cert
+  secretTemplate:
+    annotations:
+      vcluster.loft.sh/force-sync: "true"
+  issuerRef:
+    group: cert-manager.io
+    kind: Issuer
+    name: {{ include "tenant.name" . }}-gw
+  {{- if eq .Values.infra.hostType "domain" }}
+  commonName: {{ include "gateway.domain" . }}
+  dnsNames:
+    - {{ include "gateway.domain" . }}
+  {{- else }}
+  ipAddresses:
+    - "{{ .Values.infra.host }}"
+  {{- end }}
+  usages:
+    - key agreement
+    - digital signature
+    - server auth
+  {{- if .Values.infra.tls.jks.password }}
+  keystores:
+    jks:
+      create: true
+      alias: aws
+      passwordSecretRef:
+        name: {{ include "tenant.name" . }}-gw-jkscred
+        key: password
+  {{- end }}
+
+{{- end }}

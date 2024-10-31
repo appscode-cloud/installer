@@ -1,0 +1,49 @@
+{{- if not (eq .Values.infra.dns.provider "external") }}
+
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: {{ include "tenant.name" . }}-gw
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-gateway.labels" . | nindent 4 }}
+spec:
+  {{- if eq .Values.infra.tls.issuer "ca" }}
+  {{- if and .Values.infra.tls.ca.cert .Values.infra.tls.ca.key }}
+  ca:
+    secretName: {{ include "tenant.name" . }}-gw-ca
+  {{- else }}
+  selfSigned: {}
+  {{- end }}
+  {{- end }}
+  {{- if has .Values.infra.tls.issuer (list "letsencrypt" "letsencrypt-staging") }}
+  acme:
+    {{- if (eq .Values.infra.tls.issuer "letsencrypt") }}
+    server: https://acme-v02.api.letsencrypt.org/directory
+    {{- end }}
+    {{- if (eq .Values.infra.tls.issuer "letsencrypt-staging") }}
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    {{- end }}
+    email: {{ .Values.infra.tls.acme.email }}
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: {{ include "tenant.name" . }}-gw-acme-cred
+    solvers:
+    # An empty 'selector' means that this solver matches all domains
+    {{- if (eq .Values.infra.tls.acme.solver "Ingress") }}
+    - selector: {}
+      http01:
+        ingress:
+          ingressClassName: nginx-ace
+          serviceType: ClusterIP
+    {{- else }}
+    - selector: {}
+      http01:
+        gatewayHTTPRoute:
+          parentRefs:
+            - name: backend
+              namespace: {{ .Release.Namespace }}
+              kind: Gateway
+    {{- end }}
+  {{- end }}
+{{- end }}

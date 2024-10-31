@@ -118,6 +118,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&ReloaderList{},
 		&S3proxy{},
 		&S3proxyList{},
+		&ServiceGateway{},
+		&ServiceGatewayList{},
 		&ServiceGatewayPresets{},
 		&ServiceGatewayPresetsList{},
 		&ServiceProvider{},

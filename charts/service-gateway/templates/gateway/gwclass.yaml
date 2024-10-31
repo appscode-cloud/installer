@@ -1,0 +1,42 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: GatewayClass
+metadata:
+  name: {{ include "tenant.name" . }}
+spec:
+  controllerName: {{ .Values.gateway.config.envoyGateway.gateway.controllerName }}
+  parametersRef:
+    group: gateway.envoyproxy.io
+    kind: EnvoyProxy
+    name: {{ include "tenant.name" . }}-gw-proxy-config
+    namespace: {{ .Release.Namespace }}
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: EnvoyProxy
+metadata:
+  name: {{ include "tenant.name" . }}-gw-proxy-config
+  namespace: {{ .Release.Namespace }}
+spec:
+  mergeGateways: true
+  provider:
+    type: Kubernetes
+    kubernetes:
+      envoyDeployment:
+        container:
+          image: "{{ .Values.envoy.image }}:{{ .Values.envoy.tag }}"
+          securityContext:
+            {{- toYaml .Values.envoy.securityContext | nindent 12 }}
+        patch:
+          value:
+            spec:
+              template:
+                spec:
+                  containers:
+                  - name: shutdown-manager
+                    securityContext:
+                      {{- toYaml .Values.envoy.securityContext | nindent 22 }}
+
+    {{- if eq .Values.infra.hostType "domain" }}
+      envoyService:
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: {{ include "gateway.domain" . }}
+    {{- end }}

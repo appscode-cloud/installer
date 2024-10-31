@@ -232,8 +232,6 @@ properties:
     type: object
   infra:
     properties:
-      clusterName:
-        type: string
       dns:
         properties:
           auth:
@@ -372,7 +370,6 @@ properties:
         - jks
         type: object
     required:
-    - clusterName
     - dns
     - host
     - hostType

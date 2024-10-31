@@ -5,6 +5,7 @@ go 1.22.1
 toolchain go1.22.4
 
 require (
+	go.bytebuilders.dev/catalog v0.0.9-0.20241031222826-93edd792353a
 	go.bytebuilders.dev/resource-model v0.1.0
 	go.bytebuilders.dev/ui-wizards v0.8.0
 	go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0
@@ -12,7 +13,7 @@ require (
 	k8s.io/api v0.30.2
 	k8s.io/apimachinery v0.30.2
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
-	kmodules.xyz/client-go v0.30.28
+	kmodules.xyz/client-go v0.30.31
 	kmodules.xyz/objectstore-api v0.29.1
 	kmodules.xyz/resource-metadata v0.20.0
 	kmodules.xyz/schema-checker v0.4.2
@@ -116,6 +117,7 @@ require (
 	sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.4.1 // indirect
 	stash.appscode.dev/apimachinery v0.34.0 // indirect
+	voyagermesh.dev/installer v0.0.0-20241031222143-9bbc52d51300 // indirect
 	x-helm.dev/apimachinery v0.0.16 // indirect
 )
 
