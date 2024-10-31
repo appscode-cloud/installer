@@ -23,12 +23,12 @@ import (
 )
 
 const (
-	ResourceKindServiceGateways = "ServiceGateways"
-	ResourceServiceGateways     = "servicegateways"
-	ResourceServiceGatewayss    = "servicegatewayss"
+	ResourceKindServiceGateway = "ServiceGateway"
+	ResourceServiceGateway     = "servicegateways"
+	ResourceServiceGateways    = "servicegateways"
 )
 
-// ServiceGateways defines the schama for ServiceGateways chart.
+// ServiceGateway defines the schama for ServiceGateway chart.
 
 // +genclient
 // +genclient:skipVerbs=updateStatus
@@ -36,22 +36,18 @@ const (
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:path=servicegatewayss,singular=servicegateways,categories={kubeops,appscode}
-type ServiceGateways struct {
+// +kubebuilder:resource:path=servicegateways,singular=servicegateways,categories={kubeops,appscode}
+type ServiceGateway struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              ServiceGatewaysSpec `json:"spec,omitempty"`
+	Spec              ServiceGatewaySpec `json:"spec,omitempty"`
 }
 
-type ServiceGatewaysSpec struct {
-	NameOverride     string                          `json:"nameOverride"`
-	FullnameOverride string                          `json:"fullnameOverride"`
-	ClusterMetadata  StashClusterMetadata            `json:"clusterMetadata"`
-	Infra            catgwapi.ServiceProviderInfra   `json:"infra"`
-	GatewayDns       catgwapi.ServiceGatewayDns      `json:"gateway-dns"`
-	Cluster          catgwapi.ServiceProviderCluster `json:"cluster"`
-	Envoy            catgwapi.SimpleImageRef         `json:"envoy"`
-	Echoserver       catgwapi.SimpleImageRef         `json:"echoserver"`
+type ServiceGatewaySpec struct {
+	NameOverride         string               `json:"nameOverride"`
+	FullnameOverride     string               `json:"fullnameOverride"`
+	ClusterMetadata      StashClusterMetadata `json:"clusterMetadata"`
+	catgwapi.GatewaySpec `json:",inline,omitempty"`
 }
 
 // +kubebuilder:validation:Enum=ca
@@ -59,10 +55,10 @@ type ClusterTLSIssuerType string
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// ServiceGatewaysList is a list of ServiceGatewayss
-type ServiceGatewaysList struct {
+// ServiceGatewayList is a list of ServiceGateways
+type ServiceGatewayList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of ServiceGateways CRD objects
-	Items []ServiceGateways `json:"items,omitempty"`
+	// Items is a list of ServiceGateway CRD objects
+	Items []ServiceGateway `json:"items,omitempty"`
 }

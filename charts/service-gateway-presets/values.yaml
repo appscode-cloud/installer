@@ -52,6 +52,9 @@ infra:
         # AWS_SECRET_ACCESS_KEY: "secret-key"
         # AWS_REGION: "us-east-1"
 
+gateway:
+  enabled: true
+
 # https://github.com/kubernetes-sigs/external-dns/blob/master/docs/sources/service.md
 gateway-dns:
   enabled: false

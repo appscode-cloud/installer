@@ -17,8 +17,9 @@ limitations under the License.
 package v1alpha1
 
 import (
+	catgwapi "go.bytebuilders.dev/catalog/api/gateway/v1alpha1"
+
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	uiapi "kmodules.xyz/resource-metadata/apis/ui/v1alpha1"
 )
 
 const (
@@ -43,12 +44,11 @@ type ServiceGatewayPresets struct {
 }
 
 type ServiceGatewayPresetsSpec struct {
-	ServiceGatewaysSpec `json:",inline,omitempty"`
-	ClusterMetadata     *StashClusterMetadata `json:"clusterMetadata,omitempty"`
-	SkipGatewayPreset   bool                  `json:"skipGatewayPreset"`
-	// Chart specifies the chart information that will be used by the FluxCD to install the respective feature
-	// +optional
-	Chart uiapi.ChartInfo `json:"chart,omitempty"`
+	NameOverride               string               `json:"nameOverride"`
+	FullnameOverride           string               `json:"fullnameOverride"`
+	ClusterMetadata            StashClusterMetadata `json:"clusterMetadata"`
+	SkipGatewayPreset          bool                 `json:"skipGatewayPreset"`
+	catgwapi.GatewayConfigSpec `json:",inline,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

@@ -107,11 +107,11 @@ func (a *AceOptionsSpec) Host() string {
 	return a.Context.HostedDomain
 }
 
-func (a *AceOptionsSpec) HostType() HostType {
+func (a *AceOptionsSpec) HostType() catgwapi.HostType {
 	if a.Infra.DNS.Provider == catgwapi.DNSProviderNone {
-		return HostTypeIP
+		return catgwapi.HostTypeIP
 	}
-	return HostTypeDomain
+	return catgwapi.HostTypeDomain
 }
 
 type RegistrySpec struct {

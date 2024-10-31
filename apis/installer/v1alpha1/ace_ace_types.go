@@ -212,18 +212,9 @@ type AcePlatformSettings struct {
 }
 
 type HostInfo struct {
-	Host     string   `json:"host"`
-	HostType HostType `json:"hostType"`
+	Host     string            `json:"host"`
+	HostType catgwapi.HostType `json:"hostType"`
 }
-
-// +kubebuilder:validation:Enum=domain;ip
-// +kubebuilder:default=ip
-type HostType string
-
-const (
-	HostTypeDomain HostType = "domain"
-	HostTypeIP     HostType = "ip"
-)
 
 type GlobalMonitoring struct {
 	Agent          string                   `json:"agent"`

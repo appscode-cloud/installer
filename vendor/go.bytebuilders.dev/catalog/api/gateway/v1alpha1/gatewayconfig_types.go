@@ -19,12 +19,22 @@ package v1alpha1
 import (
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	uiapi "kmodules.xyz/resource-metadata/apis/ui/v1alpha1"
 	dnsapi "kubeops.dev/external-dns-operator/apis/external/v1alpha1"
+	voyagerinstaller "voyagermesh.dev/installer/apis/installer/v1alpha1"
 )
 
 // GatewayConfigSpec defines the desired state of GatewayConfig.
 type GatewayConfigSpec struct {
+	GatewaySpec `json:",inline"`
+	// Chart specifies the chart information that will be used by the FluxCD to install the respective feature
+	// +optional
+	Chart uiapi.ChartInfo `json:"chart,omitempty"`
+}
+
+type GatewaySpec struct {
 	Infra      ServiceProviderInfra   `json:"infra"`
+	Gateway    ServiceGateway         `json:"gateway"`
 	GatewayDns ServiceGatewayDns      `json:"gateway-dns"`
 	Cluster    ServiceProviderCluster `json:"cluster"`
 	Envoy      SimpleImageRef         `json:"envoy"`
@@ -159,6 +169,11 @@ type AzureDNSAuth struct {
 type ServiceGatewayDns struct {
 	Enabled bool                    `json:"enabled"`
 	Spec    *dnsapi.ExternalDNSSpec `json:"spec,omitempty"`
+}
+
+type ServiceGateway struct {
+	Enabled                              bool `json:"enabled"`
+	*voyagerinstaller.VoyagerGatewaySpec `json:",inline,omitempty"`
 }
 
 type ServiceProviderCluster struct {

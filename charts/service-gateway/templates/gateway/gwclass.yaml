@@ -3,7 +3,7 @@ kind: GatewayClass
 metadata:
   name: {{ include "tenant.name" . }}
 spec:
-  controllerName: gateway.voyagermesh.com/service-gateway
+  controllerName: {{ .Values.gateway.config.envoyGateway.gateway.controllerName }}
   parametersRef:
     group: gateway.envoyproxy.io
     kind: EnvoyProxy

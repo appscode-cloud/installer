@@ -56,6 +56,7 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.PlatformUiSpec{}},
 		sc.TestCase{Obj: v1alpha1.S3proxySpec{}},
 		sc.TestCase{Obj: v1alpha1.ServiceBackendSpec{}},
+		sc.TestCase{Obj: v1alpha1.ServiceGatewaySpec{}},
 		sc.TestCase{Obj: v1alpha1.ServiceGatewayPresetsSpec{}},
 		sc.TestCase{Obj: v1alpha1.ServiceProviderSpec{}},
 		sc.TestCase{Obj: v1alpha1.ServiceVaultSpec{}},
