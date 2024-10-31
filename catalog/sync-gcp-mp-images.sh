@@ -57,7 +57,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/inbox-server:latest
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/inbox-ui:0.0.2 $IMAGE_REGISTRY/inbox-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/k8s-wait-for:v2.0 $IMAGE_REGISTRY/k8s-wait-for:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-rbac-proxy:v0.15.0 $IMAGE_REGISTRY/kube-rbac-proxy:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-ui-server:v0.0.48 $IMAGE_REGISTRY/kube-ui-server:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-ui-server:v0.0.49 $IMAGE_REGISTRY/kube-ui-server:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubectl-nonroot:1.31 $IMAGE_REGISTRY/kubectl-nonroot:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubedb-ui:0.7.8 $IMAGE_REGISTRY/kubedb-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/license-proxyserver:v0.0.18 $IMAGE_REGISTRY/license-proxyserver:$TAG

@@ -112,7 +112,7 @@ helm:
     kubedb-ui-presets:
       version: "v2024.10.24"
     kube-ui-server:
-      version: "v2024.10.17"
+      version: "v2024.10.24"
     kubedb:
       version: "v2024.9.30"
     kubedb-opscenter:

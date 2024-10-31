@@ -37,7 +37,7 @@
 - ghcr.io/appscode-charts/keda:2.15.1
 - ghcr.io/appscode-charts/kube-grafana-dashboards:v2023.10.1
 - ghcr.io/appscode-charts/kube-prometheus-stack:61.8.0
-- ghcr.io/appscode-charts/kube-ui-server:v2024.10.17
+- ghcr.io/appscode-charts/kube-ui-server:v2024.10.24
 - ghcr.io/appscode-charts/kubedb-opscenter:v2024.9.30
 - ghcr.io/appscode-charts/kubedb-provider-aws:v2024.1.31
 - ghcr.io/appscode-charts/kubedb-provider-azure:v2024.1.31

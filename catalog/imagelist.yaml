@@ -45,4 +45,5 @@
 - ghcr.io/voyagermesh/echoserver:v20221109
 - ghcr.io/voyagermesh/envoy
 - ghcr.io/voyagermesh/envoy:v1.29.9-ac
+- ghcr.io/voyagermesh/gateway:v1.1.1
 - minio/minio:RELEASE.2023-01-12T02-06-16Z
