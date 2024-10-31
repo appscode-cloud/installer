@@ -1,0 +1,18 @@
+{{- if (eq .Values.cluster.tls.issuer "ca") }}
+
+apiVersion: cacerts.csi.cert-manager.io/v1alpha1
+kind: CAProviderClass
+metadata:
+  name: {{ include "tenant.name" . }}-incluster
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-gateway.labels" . | nindent 4 }}
+spec:
+  refs:
+  - apiGroup: ""
+    kind: Secret
+    namespace: cert-manager
+    name: {{ include "tenant.name" . }}-incluster-ca
+    key: "tls.crt"
+
+{{- end }}

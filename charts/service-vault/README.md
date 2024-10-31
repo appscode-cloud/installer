@@ -49,7 +49,6 @@ The following table lists the configurable parameters of the `service-vault` cha
 |----------------------------|-----------------------------------------|----------------------------------------------------------------|
 | nameOverride               | Overrides name template                 | <code>""</code>                                                |
 | fullnameOverride           | Overrides fullname template             | <code>""</code>                                                |
-| infra.clusterName          |                                         | <code>"c1"</code>                                              |
 | infra.host                 |                                         | <code>chart-example.local</code>                               |
 | infra.hostType             |                                         | <code>domain</code>                                            |
 | infra.tls.issuer           |                                         | <code>"ca" # ca,letsencrypt,letsencrypt-staging</code>         |
@@ -71,7 +70,7 @@ The following table lists the configurable parameters of the `service-vault` cha
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i service-vault appscode/service-vault -n ace --create-namespace --version=v2024.2.11 --set infra.clusterName="c1"
+$ helm upgrade -i service-vault appscode/service-vault -n ace --create-namespace --version=v2024.2.11 --set infra.host=chart-example.local
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while

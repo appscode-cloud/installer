@@ -1,0 +1,3 @@
+List all cluster presets by running these commands:
+
+  kubectl get vaultserver,clusterissuer,issuer,gatewayclass,certificates,externaldns -n {{ .Release.Namespace }}

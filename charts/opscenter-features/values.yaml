@@ -159,6 +159,8 @@ helm:
       version: "v2024.9.30"
     service-backend:
       version: "v2024.10.24"
+    service-gateway:
+      version: "v2024.10.24"
     service-gateway-presets:
       version: "v2024.10.24"
     service-provider:

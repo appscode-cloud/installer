@@ -1,0 +1,11 @@
+apiVersion: gateway.catalog.appscode.com/v1alpha1
+kind: GatewayConfig
+metadata:
+  name: ace
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    catalog.appscode.com/is-default-service-gateway: "true"
+  labels:
+    {{- include "service-gateway-presets.labels" . | nindent 4 }}
+spec:
+  {{- omit $.Values "nameOverride" "fullnameOverride" "clusterMetadata" "skipGatewayPreset" | toYaml | nindent 2 }}

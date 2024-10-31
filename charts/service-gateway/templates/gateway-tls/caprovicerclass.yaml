@@ -1,0 +1,20 @@
+{{- if or
+  (has .Values.infra.tls.issuer (list "ca" "letsencrypt-staging"))
+  (and (eq .Values.infra.tls.issuer "external") .Values.infra.tls.ca.cert)
+}}
+
+apiVersion: cacerts.csi.cert-manager.io/v1alpha1
+kind: CAProviderClass
+metadata:
+  name: {{ include "tenant.name" . }}-gw
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-gateway.labels" . | nindent 4 }}
+spec:
+  refs:
+  - apiGroup: ""
+    kind: Secret
+    namespace: {{ .Release.Namespace }}
+    name: {{ include "tenant.name" . }}-gw-cert
+    key: "ca.crt"
+{{- end}}
