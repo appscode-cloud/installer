@@ -257,9 +257,9 @@ k3s ctr images import images/appscode-images-redis-7.2.4-bookworm.tar
 k3s ctr images import images/appscode-b3-v2024.10.24.tar
 k3s ctr images import images/appscode-capa-vpc-peering-operator-v0.0.4.tar
 k3s ctr images import images/appscode-capi-ops-manager-v0.0.1.tar
-k3s ctr images import images/appscode-catalog-manager-v0.0.1.tar
+k3s ctr images import images/appscode-catalog-manager-v0.0.2.tar
 k3s ctr images import images/appscode-cluster-presets-v0.0.4.tar
-k3s ctr images import images/appscode-cluster-ui-0.9.8.tar
+k3s ctr images import images/appscode-cluster-ui-0.9.10.tar
 k3s ctr images import images/appscode-config-syncer-v0.15.2-ent.tar
 k3s ctr images import images/appscode-csi-driver-cacerts-v0.1.0.tar
 k3s ctr images import images/appscode-external-dns-operator-v0.0.8.tar
@@ -267,7 +267,7 @@ k3s ctr images import images/appscode-falco-ui-server-v0.0.4.tar
 k3s ctr images import images/appscode-fileserver-v0.0.1.tar
 k3s ctr images import images/appscode-flux-cli-v2.3.0.tar
 k3s ctr images import images/appscode-grafana-tools-v0.0.12.tar
-k3s ctr images import images/appscode-grafana-v2024.7.7.tar
+k3s ctr images import images/appscode-grafana-v2024.10.31.tar
 k3s ctr images import images/appscode-inbox-agent-v0.0.1.tar
 k3s ctr images import images/appscode-inbox-server-latest.tar
 k3s ctr images import images/appscode-inbox-ui-0.0.2.tar
@@ -277,13 +277,13 @@ k3s ctr images import images/appscode-kube-rbac-proxy-v0.13.0.tar
 k3s ctr images import images/appscode-kube-rbac-proxy-v0.15.0.tar
 k3s ctr images import images/appscode-kube-ui-server-v0.0.49.tar
 k3s ctr images import images/appscode-kubectl-nonroot-1.31.tar
-k3s ctr images import images/appscode-kubedb-ui-0.7.8.tar
+k3s ctr images import images/appscode-kubedb-ui-0.7.9.tar
 k3s ctr images import images/appscode-license-proxyserver-v0.0.18.tar
 k3s ctr images import images/appscode-maxmind-geoip-city-mmdb-latest.tar
 k3s ctr images import images/appscode-openfga-v1.6.0.tar
 k3s ctr images import images/appscode-panopticon-v0.0.15.tar
 k3s ctr images import images/appscode-petset-v0.0.7.tar
-k3s ctr images import images/appscode-platform-ui-0.8.8.tar
+k3s ctr images import images/appscode-platform-ui-0.8.9.tar
 k3s ctr images import images/appscode-prom-authproxy-v0.0.1.tar
 k3s ctr images import images/appscode-reloader-v1.0.79.tar
 k3s ctr images import images/appscode-s3proxy-sha-a82ca68.tar
