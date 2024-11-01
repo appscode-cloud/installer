@@ -81,8 +81,6 @@ graph TD;
   scanner-->grafana-operator;
   catalog-manager-->cert-manager;
   catalog-manager-->kubedb;
-  catalog-manager-->service-gateway;
   service-gateway-presets-->cert-manager;
   service-gateway-presets-->external-dns-operator;
-  service-gateway-presets-->service-gateway;
 ```

@@ -18,9 +18,9 @@ metadata:
   labels:
     app.kubernetes.io/part-of: saas-core
 spec:
-  title: Services Catalog
+  title: Service Catalog
   description: |
-    Services Catalog
+    Service Catalog
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
@@ -32,7 +32,6 @@ spec:
       - cert-manager
       - kubedb
       # - kubevault
-      - service-gateway
   readinessChecks:
     workloads:
       - group: apps
