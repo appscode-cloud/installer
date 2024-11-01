@@ -4,7 +4,7 @@ metadata:
   name: ace
   namespace: {{ .Release.Namespace }}
   annotations:
-    catalog.appscode.com/is-default-service-gateway: "true"
+    catalog.appscode.com/is-default-gateway-config: "true"
   labels:
     {{- include "service-gateway-presets.labels" . | nindent 4 }}
 spec:
