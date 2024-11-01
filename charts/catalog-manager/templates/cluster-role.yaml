@@ -12,8 +12,35 @@ rules:
   verbs:
   - get
   - list
-  - watch
   - patch
+  - update
+  - watch
+- apiGroups:
+  - gateway.catalog.appscode.com
+  resources:
+  - '*'
+  verbs:
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - gateway.catalog.appscode.com
+  resources:
+  - gatewayconfigs/finalizers
+  - gatewaypresets/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - gateway.catalog.appscode.com
+  resources:
+  - gatewayconfigs/status
+  - gatewaypresets/status
+  verbs:
+  - get
+  - patch
+  - update
 - apiGroups:
   - kubedb.com
   resources:

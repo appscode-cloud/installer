@@ -440,33 +440,6 @@ properties:
     type: object
   fullnameOverride:
     type: string
-  gateway:
-    properties:
-      className:
-        type: string
-      name:
-        type: string
-      nodeportRange:
-        type: string
-      portRange:
-        type: string
-      tlsSecretRef:
-        properties:
-          name:
-            type: string
-          namespace:
-            type: string
-        required:
-        - name
-        - namespace
-        type: object
-    required:
-    - className
-    - name
-    - nodeportRange
-    - portRange
-    - tlsSecretRef
-    type: object
   helmrepo:
     properties:
       name:
@@ -787,16 +760,6 @@ properties:
           type: string
       type: object
     type: array
-  vaultServer:
-    properties:
-      name:
-        type: string
-      namespace:
-        type: string
-    required:
-    - name
-    - namespace
-    type: object
 required:
 - image
 - imagePullPolicy

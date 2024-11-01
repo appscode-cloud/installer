@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-APPSCODE_CLOUD_CATALOG_TAG=${APPSCODE_CLOUD_CATALOG_TAG:-v0.0.7}
+APPSCODE_CLOUD_CATALOG_TAG=${APPSCODE_CLOUD_CATALOG_TAG:-v0.0.8}
 APPSCODE_CLOUD_KUBE_BIND_TAG=${APPSCODE_CLOUD_KUBE_BIND_TAG:-master}
 ENVOYPROXY_GATEWAY_TAG=${ENVOYPROXY_GATEWAY_TAG:-v1.1.0}
 FLUXCD_HELM_CONTROLLER=${FLUXCD_HELM_CONTROLLER:-v1.0.1}
@@ -68,6 +68,8 @@ crd-importer \
     --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_singlestorebindings.yaml \
     --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_solrbindings.yaml \
     --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_zookeeperbindings.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/master/crds/gateway.catalog.appscode.com_gatewayconfigs.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/master/crds/gateway.catalog.appscode.com_gatewaypresets.yaml \
     --out=./charts/catalog-manager/crds
 
 crd-importer \
@@ -105,8 +107,8 @@ crd-importer \
     --out=./charts/service-gateway/crds
 
 crd-importer \
-    --input=https://github.com/appscode-cloud/catalog/raw/multi-api/crds/gateway.catalog.appscode.com_gatewayconfigs.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/multi-api/crds/gateway.catalog.appscode.com_gatewaypresets.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/master/crds/gateway.catalog.appscode.com_gatewayconfigs.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/master/crds/gateway.catalog.appscode.com_gatewaypresets.yaml \
     --out=./charts/service-gateway-presets/crds
 
 crd-importer \

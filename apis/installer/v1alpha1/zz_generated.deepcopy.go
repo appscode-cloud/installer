@@ -2021,9 +2021,7 @@ func (in *CatalogManagerSpec) DeepCopyInto(out *CatalogManagerSpec) {
 		(*in).DeepCopyInto(*out)
 	}
 	in.Monitoring.DeepCopyInto(&out.Monitoring)
-	out.VaultServer = in.VaultServer
 	out.ServiceProviderServiceAccount = in.ServiceProviderServiceAccount
-	out.Gateway = in.Gateway
 	out.Keda = in.Keda
 	out.Helmrepo = in.Helmrepo
 	out.Platform = in.Platform
