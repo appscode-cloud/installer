@@ -51,7 +51,6 @@ infra:
         # AWS_REGION: "us-east-1"
 
 gateway:
-  enabled: true
   gateway-converter:
     enabled: false
   config:
@@ -73,6 +72,11 @@ cluster:
 envoy:
   image: ghcr.io/voyagermesh/envoy
   tag: "v1.29.9-ac"
+  service:
+    # Default listener portmanager range to use for gateway exposure
+    portRange: "10000-12767"
+    # Default node portmanager range to use for gateway exposure
+    nodeportRange: "30000-32767"
   securityContext: # +doc-gen:break
     allowPrivilegeEscalation: false
     capabilities:
@@ -97,3 +101,9 @@ echoserver:
     runAsUser: 65534
     seccompProfile:
       type: RuntimeDefault
+
+vaultServer:
+  # Vault server name that exist on cluster
+  name: "vault"
+  # Vault server namespace that exist on cluster
+  namespace: "ace"

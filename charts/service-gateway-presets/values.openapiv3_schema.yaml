@@ -220,10 +220,21 @@ properties:
                 type: string
             type: object
         type: object
+      service:
+        properties:
+          nodeportRange:
+            type: string
+          portRange:
+            type: string
+        required:
+        - nodeportRange
+        - portRange
+        type: object
       tag:
         type: string
     required:
     - image
+    - service
     - tag
     type: object
   fullnameOverride:
@@ -1085,8 +1096,6 @@ properties:
         - ports
         - replicas
         type: object
-      enabled:
-        type: boolean
       gateway-converter:
         properties:
           affinity:
@@ -1901,8 +1910,6 @@ properties:
         required:
         - minAvailable
         type: object
-    required:
-    - enabled
     type: object
   gateway-dns:
     properties:
@@ -2282,6 +2289,15 @@ properties:
     type: string
   skipGatewayPreset:
     type: boolean
+  vaultServer:
+    properties:
+      name:
+        type: string
+      namespace:
+        type: string
+    required:
+    - name
+    type: object
 required:
 - cluster
 - clusterMetadata

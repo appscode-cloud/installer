@@ -45,3 +45,8 @@ rules:
   resources:
   - "*"
   verbs: ["get", "list", "watch"]
+- apiGroups:
+  - gateway.catalog.appscode.com
+  resources:
+  - "*"
+  verbs: ["get", "list", "watch"]

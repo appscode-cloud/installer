@@ -19,6 +19,7 @@ package v1alpha1
 import (
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	kmapi "kmodules.xyz/client-go/api/v1"
 	uiapi "kmodules.xyz/resource-metadata/apis/ui/v1alpha1"
 	dnsapi "kubeops.dev/external-dns-operator/apis/external/v1alpha1"
 	voyagerinstaller "voyagermesh.dev/installer/apis/installer/v1alpha1"
@@ -33,12 +34,14 @@ type GatewayConfigSpec struct {
 }
 
 type GatewaySpec struct {
-	Infra      ServiceProviderInfra   `json:"infra"`
-	Gateway    ServiceGateway         `json:"gateway"`
-	GatewayDns ServiceGatewayDns      `json:"gateway-dns"`
-	Cluster    ServiceProviderCluster `json:"cluster"`
-	Envoy      SimpleImageRef         `json:"envoy"`
-	Echoserver SimpleImageRef         `json:"echoserver"`
+	Infra      ServiceProviderInfra                `json:"infra"`
+	Gateway    voyagerinstaller.VoyagerGatewaySpec `json:"gateway"`
+	GatewayDns ServiceGatewayDns                   `json:"gateway-dns"`
+	Cluster    ServiceProviderCluster              `json:"cluster"`
+	Envoy      EnvoySpec                           `json:"envoy"`
+	Echoserver EchoserverSpec                      `json:"echoserver"`
+	// +optional
+	VaultServer kmapi.ObjectReference `json:"vaultServer"`
 }
 
 type ServiceProviderInfra struct {
@@ -171,11 +174,6 @@ type ServiceGatewayDns struct {
 	Spec    *dnsapi.ExternalDNSSpec `json:"spec,omitempty"`
 }
 
-type ServiceGateway struct {
-	Enabled                              bool `json:"enabled"`
-	*voyagerinstaller.VoyagerGatewaySpec `json:",inline,omitempty"`
-}
-
 type ServiceProviderCluster struct {
 	TLS ClusterTLS `json:"tls"`
 }
@@ -185,7 +183,20 @@ type ClusterTLS struct {
 	CA     TLSData              `json:"ca"`
 }
 
-type SimpleImageRef struct {
+type EnvoySpec struct {
+	Image string `json:"image"`
+	Tag   string `json:"tag"`
+	//+optional
+	SecurityContext *core.SecurityContext `json:"securityContext"`
+	Service         EnvoyServiceSpec      `json:"service"`
+}
+
+type EnvoyServiceSpec struct {
+	PortRange     string `json:"portRange"`
+	NodeportRange string `json:"nodeportRange"`
+}
+
+type EchoserverSpec struct {
 	Image string `json:"image"`
 	Tag   string `json:"tag"`
 	//+optional
