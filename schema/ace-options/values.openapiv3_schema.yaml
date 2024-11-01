@@ -1026,6 +1026,19 @@ properties:
                   - account
                   - key
                 type: object
+              cloudflareStorage:
+                properties:
+                  accessKeyID:
+                    type: string
+                  accountID:
+                    type: string
+                  secretAccessKey:
+                    type: string
+                required:
+                  - accessKeyID
+                  - accountID
+                  - secretAccessKey
+                type: object
               digitalocean:
                 properties:
                   token:
@@ -1068,6 +1081,16 @@ properties:
                 required:
                   - sshKeyName
                   - token
+                type: object
+              hetznerStorage:
+                properties:
+                  accessKeyID:
+                    type: string
+                  secretAccessKey:
+                    type: string
+                required:
+                  - accessKeyID
+                  - secretAccessKey
                 type: object
               linode:
                 properties:
@@ -1141,9 +1164,12 @@ properties:
                   - Aws
                   - Azure
                   - AzureStorage
+                  - CloudflareStorage
                   - DigitalOcean
                   - GoogleCloud
                   - GoogleOAuth
+                  - Hetzner
+                  - HetznerStorage
                   - Linode
                   - Packet
                   - Rancher
