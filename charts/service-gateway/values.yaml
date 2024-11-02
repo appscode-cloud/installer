@@ -107,3 +107,8 @@ vaultServer:
   name: "vault"
   # Vault server namespace that exist on cluster
   namespace: "ace"
+
+gatewayClass:
+  annotations: {}
+    # catalog.appscode.com/is-default-gatewayclass: "true"
+  description: ""

@@ -48,6 +48,12 @@ type ServiceGatewaySpec struct {
 	FullnameOverride     string               `json:"fullnameOverride"`
 	ClusterMetadata      StashClusterMetadata `json:"clusterMetadata"`
 	catgwapi.GatewaySpec `json:",inline,omitempty"`
+	GatewayClass         GatewayClassSpec `json:"gatewayclass"`
+}
+
+type GatewayClassSpec struct {
+	Annotations map[string]string `json:"annotations"`
+	Description string            `json:"description"`
 }
 
 // +kubebuilder:validation:Enum=ca

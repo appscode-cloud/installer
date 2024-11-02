@@ -2,18 +2,26 @@ apiVersion: gateway.networking.k8s.io/v1beta1
 kind: GatewayClass
 metadata:
   name: {{ include "tenant.name" . }}
+  annotations:
+    {{- dict "catalog.appscode.com/gateway-config" (dict "service" .Values.envoy.service "vaultServer" .Values.vaultServer | toYaml) | toYaml | nindent 4 }}
+    {{- with .Values.gatewayClass.annotations }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   controllerName: {{ .Values.gateway.config.envoyGateway.gateway.controllerName }}
+  {{- with .Values.gatewayClass.description }}
+  description: {{ . | quote }}
+  {{- end }}
   parametersRef:
     group: gateway.envoyproxy.io
     kind: EnvoyProxy
-    name: {{ include "tenant.name" . }}-gw-proxy-config
+    name: {{ include "tenant.name" . }}
     namespace: {{ .Release.Namespace }}
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: EnvoyProxy
 metadata:
-  name: {{ include "tenant.name" . }}-gw-proxy-config
+  name: {{ include "tenant.name" . }}
   namespace: {{ .Release.Namespace }}
 spec:
   mergeGateways: true
