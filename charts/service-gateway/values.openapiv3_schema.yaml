@@ -392,9 +392,6 @@ properties:
                     type: string
                   tag:
                     type: string
-                required:
-                - repository
-                - tag
                 type: object
               imagePullPolicy:
                 type: string
@@ -510,11 +507,6 @@ properties:
                         type: string
                     type: object
                 type: object
-            required:
-            - image
-            - imagePullPolicy
-            - imagePullSecrets
-            - resources
             type: object
           pod:
             properties:
@@ -1035,12 +1027,6 @@ properties:
                   - whenUnsatisfiable
                   type: object
                 type: array
-            required:
-            - affinity
-            - annotations
-            - labels
-            - tolerations
-            - topologySpreadConstraints
             type: object
           ports:
             items:
@@ -1059,11 +1045,6 @@ properties:
             type: array
           replicas:
             type: integer
-        required:
-        - envoyGateway
-        - pod
-        - ports
-        - replicas
         type: object
       gateway-converter:
         properties:
@@ -1811,13 +1792,6 @@ properties:
             type: array
         required:
         - enabled
-        - hostNetwork
-        - imagePullPolicy
-        - monitoring
-        - registryFQDN
-        - replicaCount
-        - server
-        - serviceAccount
         type: object
       global:
         properties:
@@ -2242,11 +2216,7 @@ properties:
             - password
             type: object
         required:
-        - acme
-        - ca
-        - certificate
         - issuer
-        - jks
         type: object
     required:
     - dns

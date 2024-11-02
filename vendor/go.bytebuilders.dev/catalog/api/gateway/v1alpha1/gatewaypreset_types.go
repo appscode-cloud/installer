@@ -22,6 +22,11 @@ import (
 	kmapi "kmodules.xyz/client-go/api/v1"
 )
 
+const (
+	DefaultConfigKey = "catalog.appscode.com/is-default-gateway-config"
+	DefaultPresetKey = "catalog.appscode.com/is-default-gateway-preset"
+)
+
 // GatewayPresetSpec defines the desired state of GatewayPreset.
 type GatewayPresetSpec struct {
 	ParametersRef *kmapi.TypedObjectReference `json:"parametersRef,omitempty"`

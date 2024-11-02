@@ -61,11 +61,11 @@ const (
 )
 
 type InfraTLS struct {
-	Issuer      TLSIssuerType `json:"issuer"`
-	CA          TLSData       `json:"ca"`
-	Acme        TLSIssuerAcme `json:"acme"`
-	Certificate TLSData       `json:"certificate"`
-	JKS         Keystore      `json:"jks"`
+	Issuer      TLSIssuerType  `json:"issuer"`
+	CA          *TLSData       `json:"ca,omitempty"`
+	Acme        *TLSIssuerAcme `json:"acme,omitempty"`
+	Certificate *TLSData       `json:"certificate,omitempty"`
+	JKS         *Keystore      `json:"jks,omitempty"`
 }
 
 type TLSData struct {
