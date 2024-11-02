@@ -3794,11 +3794,7 @@ properties:
                 - password
                 type: object
             required:
-            - acme
-            - ca
-            - certificate
             - issuer
-            - jks
             type: object
         required:
         - badger
