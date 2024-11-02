@@ -11,6 +11,11 @@ clusterMetadata:
   uid: tbd
   name: tbd
 
+gatewayClass:
+  annotations: {}
+    # catalog.appscode.com/is-default-gatewayclass: "true"
+  description: ""
+
 infra:
   host: chart-example.local
   hostType: domain

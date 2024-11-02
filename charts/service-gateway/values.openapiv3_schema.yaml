@@ -2083,6 +2083,18 @@ properties:
     required:
     - enabled
     type: object
+  gatewayClass:
+    properties:
+      annotations:
+        additionalProperties:
+          type: string
+        type: object
+      description:
+        type: string
+    required:
+    - annotations
+    - description
+    type: object
   infra:
     properties:
       dns:
@@ -2243,6 +2255,7 @@ required:
 - fullnameOverride
 - gateway
 - gateway-dns
+- gatewayClass
 - infra
 - nameOverride
 type: object

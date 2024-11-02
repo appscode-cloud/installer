@@ -44,6 +44,13 @@ type GatewaySpec struct {
 	VaultServer kmapi.ObjectReference `json:"vaultServer"`
 }
 
+type GatewayParameter struct {
+	GatewayClassName     string                `json:"-"`
+	Service              EnvoyServiceSpec      `json:"service"`
+	VaultServer          kmapi.ObjectReference `json:"vaultServer"`
+	FrontendTLSSecretRef kmapi.ObjectReference `json:"frontendTLSSecretRef"`
+}
+
 type ServiceProviderInfra struct {
 	HostInfo `json:",inline"`
 	TLS      InfraTLS   `json:"tls"`

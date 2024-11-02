@@ -23,8 +23,10 @@ import (
 )
 
 const (
-	DefaultConfigKey = "catalog.appscode.com/is-default-gateway-config"
-	DefaultPresetKey = "catalog.appscode.com/is-default-gateway-preset"
+	GatewayConfigKey       = "catalog.appscode.com/gateway-config"
+	DefaultGatewayClassKey = "catalog.appscode.com/is-default-gatewayclass"
+	DefaultConfigKey       = "catalog.appscode.com/is-default-gateway-config"
+	DefaultPresetKey       = "catalog.appscode.com/is-default-gateway-preset"
 )
 
 // GatewayPresetSpec defines the desired state of GatewayPreset.
