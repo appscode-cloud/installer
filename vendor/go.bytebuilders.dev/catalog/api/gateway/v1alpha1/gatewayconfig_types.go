@@ -201,7 +201,9 @@ type EnvoySpec struct {
 }
 
 type EnvoyServiceSpec struct {
-	PortRange     string `json:"portRange"`
+	// +kubebuilder:default="10000-12767"
+	PortRange string `json:"portRange"`
+	// +kubebuilder:default="30000-32767"
 	NodeportRange string `json:"nodeportRange"`
 }
 
