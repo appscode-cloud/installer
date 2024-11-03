@@ -6,49 +6,37 @@ metadata:
     {{- include "catalog-manager.labels" . | nindent 4 }}
 rules:
 - apiGroups:
+  - apiextensions.k8s.io
+  resources:
+  - customresourcedefinitions
+  verbs: ["get", "list", "watch"]
+- apiGroups:
   - catalog.appscode.com
   resources:
-  - '*'
-  verbs:
-  - get
-  - list
-  - patch
-  - update
-  - watch
+  - "*"
+  verbs: ["get", "list", "patch", "update", "watch"]
 - apiGroups:
   - gateway.catalog.appscode.com
   resources:
-  - '*'
-  verbs:
-  - get
-  - list
-  - patch
-  - update
-  - watch
+  - "*"
+  verbs: ["get", "list", "patch", "update", "watch"]
 - apiGroups:
   - gateway.catalog.appscode.com
   resources:
   - gatewayconfigs/finalizers
   - gatewaypresets/finalizers
-  verbs:
-  - update
+  verbs: ["update"]
 - apiGroups:
   - gateway.catalog.appscode.com
   resources:
   - gatewayconfigs/status
   - gatewaypresets/status
-  verbs:
-  - get
-  - patch
-  - update
+  verbs: ["get", "patch", "update"]
 - apiGroups:
   - kubedb.com
   resources:
-  - '*'
-  verbs:
-  - get
-  - list
-  - watch
+  - "*"
+  verbs: ["get", "list", "watch"]
 - apiGroups:
   - kubedb.com
   resources:
@@ -64,61 +52,36 @@ rules:
   - postgreses/status
   - proxysqls/status
   - redises/status
-  verbs:
-  - get
-  - list
-  - watch
-  - patch
-  - update
+  verbs: ["get", "patch", "update"]
 - apiGroups:
   - kubevault.com
   resources:
   - vaultservers
-  verbs:
-  - get
-  - list
-  - watch
+  verbs: ["get", "list", "watch"]
 - apiGroups:
   - engine.kubevault.com
   resources:
-  - '*'
-  verbs:
-  - get
-  - list
-  - watch
-  - create
-  - patch
-  - delete
+  - "*"
+  verbs: ["get", "list", "watch", "create", "patch", "update", "delete"]
 - apiGroups:
   - engine.kubevault.com
   resources:
   - secretaccessrequests/status
-  verbs:
-  - get
-  - list
-  - patch
+  verbs: ["get", "patch", "update"]
 - apiGroups:
   - ""
   resources:
+  - namespaces
   - serviceaccounts
   - secrets
   - configmaps
   - services
-  verbs:
-  - get
-  - list
-  - watch
-  - create
-  - delete
-  - update
+  verbs: ["get", "list", "watch"]
 - apiGroups:
   - catalog.kubedb.com
   resources:
-  - '*'
-  verbs:
-  - get
-  - list
-  - watch
+  - "*"
+  verbs: ["get", "list", "watch"]
 - apiGroups:
   - gateway.networking.k8s.io
   resources:
@@ -128,57 +91,25 @@ rules:
   - referencegrants
   - tcproutes
   - backendtlspolicies
-  verbs:
-  - get
-  - list
-  - watch
-  - create
-  - patch
-  - delete
+  verbs: ["get", "list", "watch", "create", "patch", "update", "delete"]
 - apiGroups:
   - gateway.voyagermesh.com
   resources:
-  - '*'
-  verbs:
-  - get
-  - list
-  - watch
-  - create
-  - patch
-  - delete
+  - "*"
+  verbs: ["get", "list", "watch", "create", "patch", "update", "delete"]
 - apiGroups:
   - gateway.envoyproxy.io
   resources:
   - envoyproxies
-  verbs:
-  - get
-  - list
-  - watch
+  verbs: ["get", "list", "watch"]
 - apiGroups:
   - rbac.authorization.k8s.io
   resources:
   - roles
   - rolebindings
-  verbs:
-  - get
-  - list
-  - watch
-  - create
-  - patch
-  - delete
+  verbs: ["get", "list", "watch", "create", "patch", "update", "delete"]
 - apiGroups:
-  - notification.toolkit.fluxcd.io
-  - source.toolkit.fluxcd.io
   - helm.toolkit.fluxcd.io
-  - image.toolkit.fluxcd.io
-  - kustomize.toolkit.fluxcd.io
   resources:
-  - '*'
-  verbs:
-  - create
-  - delete
-  - deletecollection
-  - patch
-  - update
-  - list
-  - watch
+  - "*"
+  verbs: ["get", "list", "watch", "create", "patch", "update", "delete"]
