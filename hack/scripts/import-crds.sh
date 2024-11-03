@@ -16,7 +16,7 @@
 
 APPSCODE_CLOUD_CATALOG_TAG=${APPSCODE_CLOUD_CATALOG_TAG:-v0.0.8}
 APPSCODE_CLOUD_KUBE_BIND_TAG=${APPSCODE_CLOUD_KUBE_BIND_TAG:-master}
-ENVOYPROXY_GATEWAY_TAG=${ENVOYPROXY_GATEWAY_TAG:-v1.1.0}
+ENVOYPROXY_GATEWAY_TAG=${ENVOYPROXY_GATEWAY_TAG:-v1.1.2}
 FLUXCD_HELM_CONTROLLER=${FLUXCD_HELM_CONTROLLER:-v1.0.1}
 FLUXCD_SOURCE_CONTROLLER=${FLUXCD_SOURCE_CONTROLLER:-v1.3.0}
 KLUSTER_MANAGER_CLUSTER_AUTH_TAG=${KLUSTER_MANAGER_CLUSTER_AUTH_TAG:-master}
@@ -70,6 +70,10 @@ crd-importer \
     --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_zookeeperbindings.yaml \
     --input=https://github.com/appscode-cloud/catalog/raw/master/crds/gateway.catalog.appscode.com_gatewayconfigs.yaml \
     --input=https://github.com/appscode-cloud/catalog/raw/master/crds/gateway.catalog.appscode.com_gatewaypresets.yaml \
+    --out=./charts/catalog-manager/crds
+
+crd-importer \
+    --input=https://github.com/envoyproxy/gateway/raw/${ENVOYPROXY_GATEWAY_TAG}/charts/gateway-helm/crds/generated/gateway.envoyproxy.io_envoyproxies.yaml \
     --out=./charts/catalog-manager/crds
 
 crd-importer \
