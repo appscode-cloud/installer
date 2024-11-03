@@ -519,8 +519,10 @@ spec:
                   service:
                     properties:
                       nodeportRange:
+                        default: 30000-32767
                         type: string
                       portRange:
+                        default: 10000-12767
                         type: string
                     required:
                     - nodeportRange
