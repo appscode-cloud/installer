@@ -20,6 +20,7 @@ import (
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	kmapi "kmodules.xyz/client-go/api/v1"
+	gwv1 "sigs.k8s.io/gateway-api/apis/v1"
 )
 
 const (
@@ -31,7 +32,8 @@ const (
 
 // GatewayPresetSpec defines the desired state of GatewayPreset.
 type GatewayPresetSpec struct {
-	ParametersRef *kmapi.TypedObjectReference `json:"parametersRef,omitempty"`
+	// +optional
+	ParametersRef *gwv1.ParametersReference `json:"parametersRef,omitempty"`
 }
 
 // GatewayPresetStatus defines the observed state of GatewayPreset.

@@ -5,7 +5,7 @@ go 1.22.1
 toolchain go1.22.4
 
 require (
-	go.bytebuilders.dev/catalog v0.0.9-0.20241102194539-f9410e0d5d09
+	go.bytebuilders.dev/catalog v0.0.9-0.20241103004602-10dc4bee2a24
 	go.bytebuilders.dev/resource-model v0.1.1-0.20241023004602-2c43ef3bb37b
 	go.bytebuilders.dev/ui-wizards v0.8.0
 	go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0
@@ -114,6 +114,7 @@ require (
 	kmodules.xyz/prober v0.29.0 // indirect
 	kubestash.dev/apimachinery v0.13.0 // indirect
 	sigs.k8s.io/controller-runtime v0.18.4 // indirect
+	sigs.k8s.io/gateway-api v1.0.0 // indirect
 	sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.4.1 // indirect
 	stash.appscode.dev/apimachinery v0.34.0 // indirect

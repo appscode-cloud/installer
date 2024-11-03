@@ -40,23 +40,38 @@ spec:
             description: GatewayPresetSpec defines the desired state of GatewayPreset.
             properties:
               parametersRef:
-                description: TypedObjectReference represents an typed namespaced object.
+                description: |-
+                  ParametersReference identifies an API object containing controller-specific
+                  configuration resource within the cluster.
                 properties:
-                  apiGroup:
+                  group:
+                    description: Group is the group of the referent.
+                    maxLength: 253
+                    pattern: ^$|^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$
                     type: string
                   kind:
+                    description: Kind is kind of the referent.
+                    maxLength: 63
+                    minLength: 1
+                    pattern: ^[a-zA-Z]([-a-zA-Z0-9]*[a-zA-Z0-9])?$
                     type: string
                   name:
-                    description: |-
-                      Name of the referent.
-                      More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+                    description: Name is the name of the referent.
+                    maxLength: 253
+                    minLength: 1
                     type: string
                   namespace:
                     description: |-
-                      Namespace of the referent.
-                      More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+                      Namespace is the namespace of the referent.
+                      This field is required when referring to a Namespace-scoped resource and
+                      MUST be unset when referring to a Cluster-scoped resource.
+                    maxLength: 63
+                    minLength: 1
+                    pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
                     type: string
                 required:
+                - group
+                - kind
                 - name
                 type: object
             type: object
