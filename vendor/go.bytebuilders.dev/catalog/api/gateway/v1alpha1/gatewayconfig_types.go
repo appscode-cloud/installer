@@ -17,6 +17,7 @@ limitations under the License.
 package v1alpha1
 
 import (
+	egv1a1 "github.com/envoyproxy/gateway/api/v1alpha1"
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	kmapi "kmodules.xyz/client-go/api/v1"
@@ -46,6 +47,7 @@ type GatewaySpec struct {
 
 type GatewayParameter struct {
 	GatewayClassName     string                `json:"-"`
+	ServiceType          egv1a1.ServiceType    `json:"-"`
 	Service              EnvoyServiceSpec      `json:"service"`
 	VaultServer          kmapi.ObjectReference `json:"vaultServer"`
 	FrontendTLSSecretRef kmapi.ObjectReference `json:"frontendTLSSecretRef"`
