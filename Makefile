@@ -349,6 +349,8 @@ ct: $(BUILD_DIRS)
 	    $(CHART_TEST_IMAGE)                                     \
 	    /bin/sh -c "                                            \
 	      set -x; \
+	      kubectl patch $(kubectl get gatewayclass -o name) -p '{"metadata":{"finalizers":null}}' --type=merge || true; \
+	      kubectl delete gatewayclass -A --all || true; \
 	      kubectl delete crds --all; \
 	      kubectl apply --validate=false -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml; \
 	      kubectl wait --for=condition=Ready pods -n cert-manager --all --timeout=5m; \
