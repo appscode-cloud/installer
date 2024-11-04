@@ -22,13 +22,13 @@ stringData:
     {{- with $licenses }}
     licenses: {{ . | toJson }}
     {{- end }}
-    {{- if .Values.registry }}
+    {{- with .Values.registry }}
     registry:
-      {{- .Values.registry | toYaml | nindent 6 }}
-      {{- if .Values.image }}
-      image:
-        {{- .Values.image | toYaml | nindent 8 }}
-      {{- end }}
+      {{- . | toYaml | nindent 6 }}
+    {{- end }}
+    {{- with .Values.image }}
+    image:
+      {{- . | toYaml | nindent 6 }}
     {{- end }}
     {{- if .Values.selfManagement }}
     selfManagement:
