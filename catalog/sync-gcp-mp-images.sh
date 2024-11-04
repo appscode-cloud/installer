@@ -105,7 +105,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-ops-manager:v0
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-provisioner:v0.48.3 $IMAGE_REGISTRY/kubedb-provisioner:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-schema-manager:v0.24.0 $IMAGE_REGISTRY/kubedb-schema-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-ui-server:v0.24.0 $IMAGE_REGISTRY/kubedb-ui-server:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-webhook-server:v0.24.1 $IMAGE_REGISTRY/kubedb-webhook-server:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-webhook-server:v0.24.2 $IMAGE_REGISTRY/kubedb-webhook-server:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/pg-coordinator:v0.32.0 $IMAGE_REGISTRY/pg-coordinator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/postgres-archiver:v0.9.0_15.5-alpine $IMAGE_REGISTRY/postgres-archiver:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/postgres-init:0.15.0 $IMAGE_REGISTRY/postgres-init:$TAG

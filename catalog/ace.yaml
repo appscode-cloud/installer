@@ -80,7 +80,7 @@
 - ghcr.io/kubedb/kubedb-provisioner:v0.48.3
 - ghcr.io/kubedb/kubedb-schema-manager:v0.24.0
 - ghcr.io/kubedb/kubedb-ui-server:v0.24.0
-- ghcr.io/kubedb/kubedb-webhook-server:v0.24.1
+- ghcr.io/kubedb/kubedb-webhook-server:v0.24.2
 - ghcr.io/kubedb/pg-coordinator:v0.32.0
 - ghcr.io/kubedb/postgres-archiver:v0.9.0_15.5-alpine
 - ghcr.io/kubedb/postgres-init:0.15.0

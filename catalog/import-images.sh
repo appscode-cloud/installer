@@ -325,7 +325,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ops
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-provisioner-v0.48.3.tar $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.48.3
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-schema-manager-v0.24.0.tar $IMAGE_REGISTRY/kubedb/kubedb-schema-manager:v0.24.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ui-server-v0.24.0.tar $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.24.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-webhook-server-v0.24.1.tar $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.24.1
+$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-webhook-server-v0.24.1.tar $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.24.2
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-pg-coordinator-v0.32.0.tar $IMAGE_REGISTRY/kubedb/pg-coordinator:v0.32.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-postgres-archiver-v0.9.0_15.5-alpine.tar $IMAGE_REGISTRY/kubedb/postgres-archiver:v0.9.0_15.5-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-postgres-init-0.15.0.tar $IMAGE_REGISTRY/kubedb/postgres-init:0.15.0
