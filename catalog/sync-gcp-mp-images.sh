@@ -126,7 +126,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/loft-sh/vcluster-oss:0.20.0 
 crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/echoserver:v20221109 $IMAGE_REGISTRY/echoserver:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/envoy:v1.29.9-ac $IMAGE_REGISTRY/envoy:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/gateway-converter:v0.0.1 $IMAGE_REGISTRY/gateway-converter:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/gateway:v1.1.1 $IMAGE_REGISTRY/gateway:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/gateway:v1.1.2 $IMAGE_REGISTRY/gateway:$TAG
 crane cp --allow-nondistributable-artifacts hashicorp/vault-csi-provider:1.4.1 $IMAGE_REGISTRY/vault-csi-provider:$TAG
 crane cp --allow-nondistributable-artifacts hashicorp/vault-secrets-operator:0.4.3 $IMAGE_REGISTRY/vault-secrets-operator:$TAG
 crane cp --allow-nondistributable-artifacts hashicorp/vault:1.15.2 $IMAGE_REGISTRY/vault:$TAG

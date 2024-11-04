@@ -36,6 +36,7 @@ for dir in charts/*/; do
         [[ "$dir" = "service-backend" ]] ||
         [[ "$dir" = "service-gateway-presets" ]] ||
         [[ "$dir" = "service-provider" ]] ||
+        [[ "$dir" = "service-vault" ]] ||
         [[ "$dir" = "smtprelay" ]]; then
         make ct CT_COMMAND=lint TEST_CHARTS=charts/$dir
     elif [[ "$dir" = "cert-manager-webhook-ace" ]]; then
