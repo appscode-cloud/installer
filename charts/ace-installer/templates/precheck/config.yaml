@@ -19,7 +19,7 @@ metadata:
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 stringData:
   options.yaml: |
-    version: {{ .Chart.AppVersion }}}
+    version: {{ .Chart.AppVersion }}
     {{- with $licenses }}
     licenses: {{ . | toJson }}
     {{- end }}
