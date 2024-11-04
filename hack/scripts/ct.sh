@@ -45,6 +45,8 @@ for dir in charts/*/; do
         kubectl create ns $ns
         kubectl label ns $ns pod-security.kubernetes.io/enforce=restricted
         make ct TEST_CHARTS=charts/$dir KUBE_NAMESPACE=$ns
+        kubectl patch $(kubectl get gatewayclass -o name) -p '{"metadata":{"finalizers":null}}' --type=merge || true
+        kubectl delete gatewayclass -A --all || true
         kubectl delete ns $ns || true
     fi
 done
