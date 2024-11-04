@@ -25,6 +25,7 @@ spec:
     type: image/svg+xml
   featureSet: opscenter-observability
   featureBlock: metrics-server
+  featureExclusionGroup: metrics-server
   recommended: false
   readinessChecks:
     resources:
