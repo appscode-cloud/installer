@@ -68,6 +68,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | registry.imagePullSecrets                                   | ca.crt: "***"                   | <code>[]</code>                            |
 | helm.createNamespace                                        |                                 | <code>true</code>                          |
 | helm.repositories.appscode-charts-oci.url                   |                                 | <code>oci://ghcr.io/appscode-charts</code> |
+| helm.releases.aceshifter.version                            |                                 | <code>"v2024.10.24"</code>                 |
 | helm.releases.aws-ebs-csi-driver.version                    |                                 | <code>"2.23.0"</code>                      |
 | helm.releases.capa-vpc-peering-operator.version             |                                 | <code>"v2023.12.11"</code>                 |
 | helm.releases.capi-catalog.version                          |                                 | <code>"v2024.10.24"</code>                 |

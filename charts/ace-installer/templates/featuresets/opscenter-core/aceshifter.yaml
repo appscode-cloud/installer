@@ -1,15 +1,7 @@
-# required for clusters where self import is disabled
+{{- with (index .Values "helm" "releases" "aceshifter") }}
+{{- if and .enabled (eq (include "clustermanager.openshift" $) "true") }}
 
-{{- with (index .Values "helm" "releases" "kube-ui-server") }}
-{{- if .enabled }}
-
-{{ $defaults := printf `
-registryFQDN: %s
-ace-user-roles:
-  enabled: true
-`
-  (include "registry.ghcr" $)
-  | fromYaml }}
+{{ $defaults := dict "registryFQDN" (include "registry.ghcr" $) }}
 
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $defaults $vals }}
@@ -17,15 +9,15 @@ ace-user-roles:
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: kube-ui-server
+  name: aceshifter
   namespace: {{ $.Release.Namespace }}
   labels:
-    app.kubernetes.io/component: kube-ui-server
+    app.kubernetes.io/component: aceshifter
     app.kubernetes.io/part-of: opscenter-core
 spec:
   interval: 5m
   timeout: 30m
-  releaseName: kube-ui-server
+  releaseName: aceshifter
   targetNamespace: kubeops
   storageNamespace: kubeops
   install:
@@ -40,13 +32,9 @@ spec:
   dependsOn:
   - name: opscenter-features
     namespace: {{ $.Release.Namespace }}
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
-  - name: aceshifter
-    namespace: {{ $.Release.Namespace }}
-  {{- end }}
   chart:
     spec:
-      chart: kube-ui-server
+      chart: aceshifter
       version: {{ .version | quote }}
       interval: 60m
       sourceRef:
@@ -54,14 +42,10 @@ spec:
         name: appscode-charts-oci
         namespace: {{ $.Release.Namespace }}
   valuesFrom:
-    - kind: Secret
-      name: ace-features-cred
-      valuesKey: kube-ui-server.yaml
-      optional: true
   {{- if eq (include "clustermanager.openshift" $) "true" }}
     - kind: ConfigMap
       name: ace-openshift-scc
-      valuesKey: kube-ui-server.yaml
+      valuesKey: aceshifter.yaml
       optional: true
   {{- end }}
 {{- with $vals }}

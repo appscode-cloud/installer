@@ -118,4 +118,3 @@ Returns the registry used for app docker image
 {{- define "precheck.image.registry" -}}
 {{- list .Values.image.proxies.ghcr .Values.precheck.image.registry | compact | join "/" }}
 {{- end }}
-

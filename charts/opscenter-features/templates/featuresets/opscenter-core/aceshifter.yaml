@@ -1,35 +1,24 @@
-{{ $defaults := printf `
-registryFQDN: %s
-ace-user-roles:
-  enabled: true
-`
-  (include "registry.ghcr" $)
-  | fromYaml }}
+{{ $defaults := dict "registryFQDN" (include "registry.ghcr" $) }}
 
-{{ $vals := dig "kube-ui-server" "values" (dict) .Values.helm.releases }}
+{{ $vals := dig "aceshifter" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
-  name: kube-ui-server
+  name: aceshifter
   labels:
     app.kubernetes.io/part-of: opscenter-core
 spec:
-  title: Kube UI Server
+  title: OpenShift Adapter
   description: |
-    Kube UI Server provides the APIs to interact with your cluster from the dashboard.
+    OpenShift Adapter for ACE
   icons:
   - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
     type: image/svg+xml
   featureSet: opscenter-core
-  featureBlock: kube-ui-server
-  recommended: true
-  requirements:
-    features:
-    {{- if eq (include "clustermanager.openshift" $) "true" }}
-      - aceshifter
-    {{- end }}
+  featureBlock: aceshifter
+  recommended: false
   readinessChecks:
     workloads:
     - group: apps
@@ -37,26 +26,21 @@ spec:
       kind: Deployment
       selector:
         app.kubernetes.io/managed-by: Helm
-        app.kubernetes.io/name: kube-ui-server
-        app.kubernetes.io/instance: kube-ui-server
+        app.kubernetes.io/name: aceshifter
   chart:
-    name: kube-ui-server
+    name: aceshifter
     namespace: kubeops
     createNamespace: {{ $.Values.helm.createNamespace }}
-    version: {{ dig "kube-ui-server" "version" "" $.Values.helm.releases }}
+    version: {{ dig "aceshifter" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
   valuesFrom:
-    - kind: Secret
-      name: ace-features-cred
-      valuesKey: kube-ui-server.yaml
-      optional: true
   {{- if eq (include "clustermanager.openshift" $) "true" }}
     - kind: ConfigMap
       name: ace-openshift-scc
-      valuesKey: kube-ui-server.yaml
+      valuesKey: aceshifter.yaml
       optional: true
   {{- end }}
 {{- with $vals }}

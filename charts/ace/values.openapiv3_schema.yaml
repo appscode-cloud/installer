@@ -3871,9 +3871,11 @@ properties:
             enum:
             - Hosted
             - SelfHostedProduction
+            - OpenShiftProduction
             - CloudDemo
             - OnpremDemo
             - KubeAppDemo
+            - OpenShiftDemo
             - AWSMarketplace
             - AzureMarketplace
             - GoogleCloudMarketplace
@@ -21228,9 +21230,11 @@ properties:
             enum:
             - Hosted
             - SelfHostedProduction
+            - OpenShiftProduction
             - CloudDemo
             - OnpremDemo
             - KubeAppDemo
+            - OpenShiftDemo
             - AWSMarketplace
             - AzureMarketplace
             - GoogleCloudMarketplace
