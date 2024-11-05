@@ -59,6 +59,8 @@ helm:
       url: oci://ghcr.io/appscode-charts
 
   releases:
+    aceshifter:
+      version: "v2024.10.24"
     aws-ebs-csi-driver:
       version: "2.23.0"
     capa-vpc-peering-operator:

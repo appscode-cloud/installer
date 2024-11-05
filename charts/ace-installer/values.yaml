@@ -55,6 +55,9 @@ helm:
     ace:
       enabled: false
       version: "v2024.10.24"
+    aceshifter:
+      enabled: true
+      version: "v2024.10.24"
     cert-manager:
       enabled: true
       version: "v1.15.2"

@@ -109,7 +109,7 @@ Image Templates
 {{- end }}
 
 {{- define "clustermanager.openshift" -}}
-{{- ternary "true" "false" (or (has "OpenShift" .Values.clusterMetadata.clusterManagers) (.Capabilities.APIVersions.Has "project.openshift.io/v1/Project")) -}}
+{{- ternary "true" "false" (.Capabilities.APIVersions.Has "project.openshift.io/v1/Project") -}}
 {{- end }}
 
 {{- define "clustermanager.rancher" -}}
