@@ -44,6 +44,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure falcosecurity/falco-no-dri
 $CMD cp --allow-nondistributable-artifacts --insecure falcosecurity/falcoctl:0.7.1 $IMAGE_REGISTRY/falcosecurity/falcoctl:0.7.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace-installer:v2024.10.24 $IMAGE_REGISTRY/appscode-charts/ace-installer:v2024.10.24
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace:v2024.10.24 $IMAGE_REGISTRY/appscode-charts/ace:v2024.10.24
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aceshifter:v2024.10.24 $IMAGE_REGISTRY/appscode-charts/aceshifter:v2024.10.24
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-elasticsearchautoscaler-editor:v0.9.0 $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-elasticsearchautoscaler-editor:v0.9.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-ferretdbautoscaler-editor:v0.9.0 $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-ferretdbautoscaler-editor:v0.9.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-kafkaautoscaler-editor:v0.9.0 $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-kafkaautoscaler-editor:v0.9.0
@@ -265,6 +266,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vo
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.21-alpine $IMAGE_REGISTRY/appscode-images/nats:2.10.21-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:15.5-alpine $IMAGE_REGISTRY/appscode-images/postgres:15.5-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/aceshifter:v0.0.1 $IMAGE_REGISTRY/appscode/aceshifter:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/b3:v2024.10.24 $IMAGE_REGISTRY/appscode/b3:v2024.10.24
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 $IMAGE_REGISTRY/appscode/capa-vpc-peering-operator:v0.0.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capi-ops-manager:v0.0.1 $IMAGE_REGISTRY/appscode/capi-ops-manager:v0.0.1

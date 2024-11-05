@@ -35,6 +35,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/falcosecurity-fal
 $CMD push --allow-nondistributable-artifacts --insecure images/falcosecurity-falcoctl-0.7.1.tar $IMAGE_REGISTRY/falcosecurity/falcoctl:0.7.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ace-installer-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/ace-installer:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ace-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/ace:v2024.10.24
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-aceshifter-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/aceshifter:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-elasticsearchautoscaler-editor-v0.9.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-elasticsearchautoscaler-editor:v0.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-ferretdbautoscaler-editor-v0.9.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-ferretdbautoscaler-editor:v0.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-kafkaautoscaler-editor-v0.9.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-kafkaautoscaler-editor:v0.9.0
@@ -256,6 +257,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-v
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-nats-2.10.21-alpine.tar $IMAGE_REGISTRY/appscode-images/nats:2.10.21-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-postgres-15.5-alpine.tar $IMAGE_REGISTRY/appscode-images/postgres:15.5-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-redis-7.2.4-bookworm.tar $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-aceshifter-v0.0.1.tar $IMAGE_REGISTRY/appscode/aceshifter:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-b3-v2024.10.24.tar $IMAGE_REGISTRY/appscode/b3:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-capa-vpc-peering-operator-v0.0.4.tar $IMAGE_REGISTRY/appscode/capa-vpc-peering-operator:v0.0.4
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-capi-ops-manager-v0.0.1.tar $IMAGE_REGISTRY/appscode/capi-ops-manager:v0.0.1
@@ -325,7 +327,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ops
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-provisioner-v0.48.3.tar $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.48.3
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-schema-manager-v0.24.0.tar $IMAGE_REGISTRY/kubedb/kubedb-schema-manager:v0.24.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ui-server-v0.24.0.tar $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.24.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-webhook-server-v0.24.1.tar $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.24.2
+$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-webhook-server-v0.24.2.tar $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.24.2
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-pg-coordinator-v0.32.0.tar $IMAGE_REGISTRY/kubedb/pg-coordinator:v0.32.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-postgres-archiver-v0.9.0_15.5-alpine.tar $IMAGE_REGISTRY/kubedb/postgres-archiver:v0.9.0_15.5-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-postgres-init-0.15.0.tar $IMAGE_REGISTRY/kubedb/postgres-init:0.15.0

@@ -41,6 +41,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure falcosecurity/falco-no-d
 $CMD pull --allow-nondistributable-artifacts --insecure falcosecurity/falcoctl:0.7.1 images/falcosecurity-falcoctl-0.7.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace-installer:v2024.10.24 images/appscode-charts-ace-installer-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace:v2024.10.24 images/appscode-charts-ace-v2024.10.24.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aceshifter:v2024.10.24 images/appscode-charts-aceshifter-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-elasticsearchautoscaler-editor:v0.9.0 images/appscode-charts-autoscalingkubedbcom-elasticsearchautoscaler-editor-v0.9.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-ferretdbautoscaler-editor:v0.9.0 images/appscode-charts-autoscalingkubedbcom-ferretdbautoscaler-editor-v0.9.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-kafkaautoscaler-editor:v0.9.0 images/appscode-charts-autoscalingkubedbcom-kafkaautoscaler-editor-v0.9.0.tar
@@ -262,6 +263,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.21-alpine images/appscode-images-nats-2.10.21-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:15.5-alpine images/appscode-images-postgres-15.5-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.2.4-bookworm images/appscode-images-redis-7.2.4-bookworm.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/aceshifter:v0.0.1 images/appscode-aceshifter-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/b3:v2024.10.24 images/appscode-b3-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 images/appscode-capa-vpc-peering-operator-v0.0.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capi-ops-manager:v0.0.1 images/appscode-capi-ops-manager-v0.0.1.tar
@@ -331,7 +333,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-op
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.48.3 images/kubedb-kubedb-provisioner-v0.48.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-schema-manager:v0.24.0 images/kubedb-kubedb-schema-manager-v0.24.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ui-server:v0.24.0 images/kubedb-kubedb-ui-server-v0.24.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.24.2 images/kubedb-kubedb-webhook-server-v0.24.1.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.24.2 images/kubedb-kubedb-webhook-server-v0.24.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/pg-coordinator:v0.32.0 images/kubedb-pg-coordinator-v0.32.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-archiver:v0.9.0_15.5-alpine images/kubedb-postgres-archiver-v0.9.0_15.5-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-init:0.15.0 images/kubedb-postgres-init-0.15.0.tar

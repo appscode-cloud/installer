@@ -11,6 +11,7 @@
 - ghcr.io/appscode-images/nats:2.10.21-alpine
 - ghcr.io/appscode-images/postgres:15.5-alpine
 - ghcr.io/appscode-images/redis:7.2.4-bookworm
+- ghcr.io/appscode/aceshifter:v0.0.1
 - ghcr.io/appscode/b3:v2024.10.24
 - ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4
 - ghcr.io/appscode/capi-ops-manager:v0.0.1

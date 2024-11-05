@@ -38,6 +38,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/spoke-cluste
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/nats:2.10.21-alpine $IMAGE_REGISTRY/nats:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/postgres:15.5-alpine $IMAGE_REGISTRY/postgres:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/redis:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/aceshifter:v0.0.1 $IMAGE_REGISTRY/aceshifter:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/b3:v2024.10.24 $IMAGE_REGISTRY/b3:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 $IMAGE_REGISTRY/capa-vpc-peering-operator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/capi-ops-manager:v0.0.1 $IMAGE_REGISTRY/capi-ops-manager:$TAG

@@ -33,6 +33,7 @@ k3s ctr images import images/falcosecurity-falco-no-driver-0.37.0.tar
 k3s ctr images import images/falcosecurity-falcoctl-0.7.1.tar
 k3s ctr images import images/appscode-charts-ace-installer-v2024.10.24.tar
 k3s ctr images import images/appscode-charts-ace-v2024.10.24.tar
+k3s ctr images import images/appscode-charts-aceshifter-v2024.10.24.tar
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-elasticsearchautoscaler-editor-v0.9.0.tar
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-ferretdbautoscaler-editor-v0.9.0.tar
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-kafkaautoscaler-editor-v0.9.0.tar
@@ -254,6 +255,7 @@ k3s ctr images import images/appscode-charts-voyager-v2024.8.30.tar
 k3s ctr images import images/appscode-images-nats-2.10.21-alpine.tar
 k3s ctr images import images/appscode-images-postgres-15.5-alpine.tar
 k3s ctr images import images/appscode-images-redis-7.2.4-bookworm.tar
+k3s ctr images import images/appscode-aceshifter-v0.0.1.tar
 k3s ctr images import images/appscode-b3-v2024.10.24.tar
 k3s ctr images import images/appscode-capa-vpc-peering-operator-v0.0.4.tar
 k3s ctr images import images/appscode-capi-ops-manager-v0.0.1.tar
@@ -323,7 +325,7 @@ k3s ctr images import images/kubedb-kubedb-ops-manager-v0.35.2.tar
 k3s ctr images import images/kubedb-kubedb-provisioner-v0.48.3.tar
 k3s ctr images import images/kubedb-kubedb-schema-manager-v0.24.0.tar
 k3s ctr images import images/kubedb-kubedb-ui-server-v0.24.0.tar
-k3s ctr images import images/kubedb-kubedb-webhook-server-v0.24.1.tar
+k3s ctr images import images/kubedb-kubedb-webhook-server-v0.24.2.tar
 k3s ctr images import images/kubedb-pg-coordinator-v0.32.0.tar
 k3s ctr images import images/kubedb-postgres-archiver-v0.9.0_15.5-alpine.tar
 k3s ctr images import images/kubedb-postgres-init-0.15.0.tar

@@ -1,3 +1,4 @@
+- ghcr.io/appscode-charts/aceshifter:v2024.10.24
 - ghcr.io/appscode-charts/aws-ebs-csi-driver:2.23.0
 - ghcr.io/appscode-charts/capa-vpc-peering-operator:v2023.12.11
 - ghcr.io/appscode-charts/capi-catalog:v2024.10.24
