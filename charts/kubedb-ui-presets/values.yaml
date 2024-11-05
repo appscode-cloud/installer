@@ -23,8 +23,16 @@ databases:
       available: []
       default: ""
       toggle: true
+    mode:
+      available: []
+      default: ""
+      toggle: true
   Druid:
     versions:
+      available: []
+      default: ""
+      toggle: true
+    mode:
       available: []
       default: ""
       toggle: true
@@ -33,8 +41,16 @@ databases:
       available: []
       default: ""
       toggle: true
+    mode:
+      available: []
+      default: ""
+      toggle: true
   FerretDB:
     versions:
+      available: []
+      default: ""
+      toggle: true
+    mode:
       available: []
       default: ""
       toggle: true
@@ -43,8 +59,16 @@ databases:
       available: []
       default: ""
       toggle: true
+    mode:
+      available: []
+      default: ""
+      toggle: true
   MariaDB:
     versions:
+      available: []
+      default: ""
+      toggle: true
+    mode:
       available: []
       default: ""
       toggle: true
@@ -53,8 +77,16 @@ databases:
       available: []
       default: ""
       toggle: true
+    mode:
+      available: []
+      default: ""
+      toggle: true
   MongoDB:
     versions:
+      available: []
+      default: ""
+      toggle: true
+    mode:
       available: []
       default: ""
       toggle: true
@@ -63,8 +95,16 @@ databases:
       available: []
       default: ""
       toggle: true
+    mode:
+      available: []
+      default: ""
+      toggle: true
   MySQL:
     versions:
+      available: []
+      default: ""
+      toggle: true
+    mode:
       available: []
       default: ""
       toggle: true
@@ -73,8 +113,16 @@ databases:
       available: []
       default: ""
       toggle: true
+    mode:
+      available: []
+      default: ""
+      toggle: true
   PgBouncer:
     versions:
+      available: []
+      default: ""
+      toggle: true
+    mode:
       available: []
       default: ""
       toggle: true
@@ -83,8 +131,16 @@ databases:
       available: []
       default: ""
       toggle: true
+    mode:
+      available: []
+      default: ""
+      toggle: true
   Postgres:
     versions:
+      available: []
+      default: ""
+      toggle: true
+    mode:
       available: []
       default: ""
       toggle: true
@@ -93,8 +149,16 @@ databases:
       available: []
       default: ""
       toggle: true
+    mode:
+      available: []
+      default: ""
+      toggle: true
   RabbitMQ:
     versions:
+      available: []
+      default: ""
+      toggle: true
+    mode:
       available: []
       default: ""
       toggle: true
@@ -103,8 +167,16 @@ databases:
       available: []
       default: ""
       toggle: true
+    mode:
+      available: []
+      default: ""
+      toggle: true
   Singlestore:
     versions:
+      available: []
+      default: ""
+      toggle: true
+    mode:
       available: []
       default: ""
       toggle: true
@@ -113,8 +185,16 @@ databases:
       available: []
       default: ""
       toggle: true
+    mode:
+      available: []
+      default: ""
+      toggle: true
   ZooKeeper:
     versions:
+      available: []
+      default: ""
+      toggle: true
+    mode:
       available: []
       default: ""
       toggle: true
@@ -135,6 +215,15 @@ expose:
   default: true
   toggle: true
 showPreview: false
+leftPanel:
+  showInsights: true
+  showVaultInfo: true
+  showOperations: true
+  showBackup: true
+  showBackupLegacy: false
+  showSecurity: false
+nodeSelector: {}
+tolerations: []
 
 monitoring:
   # Name of monitoring agent (one of "prometheus.io", "prometheus.io/operator", "prometheus.io/builtin")
@@ -145,6 +234,15 @@ monitoring:
 alert:
   toggle: true
 
-archiver:
+deletionPolicy:
+  default: WipeOut
   toggle: true
+backup:
   default: true
+  toggle: true
+archiver:
+  default: false
+  toggle: true
+pointInTimeRecovery:
+  default: false
+  toggle: true
