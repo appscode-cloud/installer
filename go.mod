@@ -7,7 +7,7 @@ toolchain go1.23.2
 require (
 	go.bytebuilders.dev/catalog v0.0.9-0.20241103203407-01a77a6813c9
 	go.bytebuilders.dev/resource-model v0.1.1-0.20241023004602-2c43ef3bb37b
-	go.bytebuilders.dev/ui-wizards v0.8.0
+	go.bytebuilders.dev/ui-wizards v0.8.1-0.20241107085111-1f7fd6efa56d
 	go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0
 	gomodules.xyz/go-sh v0.1.0
 	k8s.io/api v0.30.2
@@ -85,7 +85,7 @@ require (
 	github.com/yudai/gojsondiff v1.0.0 // indirect
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 	github.com/zeebo/xxh3 v1.0.2 // indirect
-	go.appscode.dev/alerts v0.2.1-0.20240604101218-3069fbd7c6b8 // indirect
+	go.appscode.dev/alerts v0.2.1-0.20240918094400-626962340a86 // indirect
 	golang.org/x/crypto v0.27.0 // indirect
 	golang.org/x/exp v0.0.0-20240613232115-7f521ea00fb8 // indirect
 	golang.org/x/net v0.29.0 // indirect
