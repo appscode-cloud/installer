@@ -364,6 +364,11 @@ func (dt DeploymentType) Onprem() bool {
 	return dt == OnpremDemoDeployment
 }
 
+func (dt DeploymentType) OpenShift() bool {
+	return dt == OpenShiftProductionDeployment ||
+		dt == OpenShiftDemoDeployment
+}
+
 func (dt DeploymentType) MarketplaceDeployment() bool {
 	return dt == AWSMarketplaceDeployment ||
 		dt == AzureMarketplaceDeployment ||

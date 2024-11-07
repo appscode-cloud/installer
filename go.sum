@@ -190,8 +190,8 @@ go.bytebuilders.dev/catalog v0.0.9-0.20241103203407-01a77a6813c9 h1:ESCaEsrR0XJr
 go.bytebuilders.dev/catalog v0.0.9-0.20241103203407-01a77a6813c9/go.mod h1:ndC200F9L1RM0MjYG19Bc2+nEikgPpTlGZ60d4oc+kU=
 go.bytebuilders.dev/resource-model v0.1.1-0.20241023004602-2c43ef3bb37b h1:loq3wv7NQY9givjW8djFMqe/1d+8j2wE4k5hueDIWC0=
 go.bytebuilders.dev/resource-model v0.1.1-0.20241023004602-2c43ef3bb37b/go.mod h1:/uMIfxqPIrDmiYWA28OW3xzogijxpwkicR4kK7jam9g=
-go.bytebuilders.dev/ui-wizards v0.8.1-0.20241107085111-1f7fd6efa56d h1:DtEjx2u89fgsqU6dRQiR5h3GnQPlzTNqPmn+dxuvK3o=
-go.bytebuilders.dev/ui-wizards v0.8.1-0.20241107085111-1f7fd6efa56d/go.mod h1:uIhI+FJJnC0Lg7NU6u1XkoLuo4QkkF+3BcWpT30KhZA=
+go.bytebuilders.dev/ui-wizards v0.9.1-0.20241107205555-a29f0b8ff4de h1:mm8InEwBTP2NFQTt7TW8vuPhG6gIBeGc+N9QOZOc23Y=
+go.bytebuilders.dev/ui-wizards v0.9.1-0.20241107205555-a29f0b8ff4de/go.mod h1:uIhI+FJJnC0Lg7NU6u1XkoLuo4QkkF+3BcWpT30KhZA=
 go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0 h1:zA5/psft6xJPNZZfDh7VpOlEEzqVOWoLQlXRFyOeyjc=
 go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0/go.mod h1:5q9Z38No4Xw0RGJnWYqAWPpXSG4XQYqiLzGHMv4pTPI=
 go.uber.org/goleak v1.3.0 h1:2K3zAYmnTNqV73imy9J1T3WC+gmCePx2hEGkimedGto=
@@ -311,8 +311,8 @@ k8s.io/utils v0.0.0-20240502163921-fe8a2dddb1d0 h1:jgGTlFYnhF1PM1Ax/lAlxUPE+KfCI
 k8s.io/utils v0.0.0-20240502163921-fe8a2dddb1d0/go.mod h1:OLgZIPagt7ERELqWJFomSt595RzquPNLL48iOWgYOg0=
 kmodules.xyz/apiversion v0.2.0 h1:vAQYqZFm4xu4pbB1cAdHbFEPES6EQkcR4wc06xdTOWk=
 kmodules.xyz/apiversion v0.2.0/go.mod h1:oPX8g8LvlPdPX3Yc5YvCzJHQnw3YF/X4/jdW0b1am80=
-kmodules.xyz/client-go v0.30.31 h1:P+ZslW5QcgMnMoxo1ZMJrNNcwRwA1BiFct1JvcRQEj0=
-kmodules.xyz/client-go v0.30.31/go.mod h1:CAu+JlA8RVGtj6LQHu0Q1w2mnFUajuti49c7T1AvGdM=
+kmodules.xyz/client-go v0.30.32 h1:y1qb4IJwYdkROLcc7e0UcJSDj8D2YeLsawAWHnCF+JU=
+kmodules.xyz/client-go v0.30.32/go.mod h1:CAu+JlA8RVGtj6LQHu0Q1w2mnFUajuti49c7T1AvGdM=
 kmodules.xyz/go-containerregistry v0.0.12 h1:Tl32QGmSqRVm9PUEb/f3dgDeu9zW5fVzt3qmAFIE37I=
 kmodules.xyz/go-containerregistry v0.0.12/go.mod h1:KgeNg0hDsgeda+qc0NzWk0iVRdF0+ZIg/oRzGoYh78I=
 kmodules.xyz/monitoring-agent-api v0.30.2 h1:sAgz5P5EXZqhlj1NzJ+QltAgeIx5bGSMj+aYy2EiKaw=

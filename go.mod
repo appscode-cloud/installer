@@ -7,13 +7,13 @@ toolchain go1.23.2
 require (
 	go.bytebuilders.dev/catalog v0.0.9-0.20241103203407-01a77a6813c9
 	go.bytebuilders.dev/resource-model v0.1.1-0.20241023004602-2c43ef3bb37b
-	go.bytebuilders.dev/ui-wizards v0.8.1-0.20241107085111-1f7fd6efa56d
+	go.bytebuilders.dev/ui-wizards v0.9.1-0.20241107205555-a29f0b8ff4de
 	go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0
 	gomodules.xyz/go-sh v0.1.0
 	k8s.io/api v0.30.2
 	k8s.io/apimachinery v0.30.2
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
-	kmodules.xyz/client-go v0.30.31
+	kmodules.xyz/client-go v0.30.32
 	kmodules.xyz/objectstore-api v0.29.1
 	kmodules.xyz/resource-metadata v0.21.0
 	kmodules.xyz/schema-checker v0.4.2
