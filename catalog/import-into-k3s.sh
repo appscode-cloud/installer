@@ -91,7 +91,7 @@ k3s ctr images import images/appscode-charts-gatekeeper-grafana-dashboards-v2023
 k3s ctr images import images/appscode-charts-gatekeeper-library-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-gatekeeper-3.13.3.tar
 k3s ctr images import images/appscode-charts-gateway-api-v1.1.0.tar
-k3s ctr images import images/appscode-charts-grafana-operator-v2024.9.30.tar
+k3s ctr images import images/appscode-charts-grafana-operator-v2024.11.8.tar
 k3s ctr images import images/appscode-charts-hub-cluster-robot-v2024.8.9.tar
 k3s ctr images import images/appscode-charts-inbox-agent-v2024.5.3.tar
 k3s ctr images import images/appscode-charts-inbox-server-v2024.5.3.tar
@@ -160,7 +160,7 @@ k3s ctr images import images/appscode-charts-license-proxyserver-v2024.10.7.tar
 k3s ctr images import images/appscode-charts-longhorn-1.6.2.tar
 k3s ctr images import images/appscode-charts-managed-serviceaccount-manager-v2024.7.10.tar
 k3s ctr images import images/appscode-charts-metrics-server-3.11.0.tar
-k3s ctr images import images/appscode-charts-monitoring-operator-v2024.9.30.tar
+k3s ctr images import images/appscode-charts-monitoring-operator-v2024.11.8.tar
 k3s ctr images import images/appscode-charts-multicluster-controlplane-v2024.7.10.tar
 k3s ctr images import images/appscode-charts-multicluster-ingress-reader-v2024.7.10.tar
 k3s ctr images import images/appscode-charts-opencost-grafana-dashboards-v2023.10.1.tar
@@ -268,7 +268,7 @@ k3s ctr images import images/appscode-external-dns-operator-v0.0.8.tar
 k3s ctr images import images/appscode-falco-ui-server-v0.0.4.tar
 k3s ctr images import images/appscode-fileserver-v0.0.1.tar
 k3s ctr images import images/appscode-flux-cli-v2.3.0.tar
-k3s ctr images import images/appscode-grafana-tools-v0.0.12.tar
+k3s ctr images import images/appscode-grafana-tools-v0.1.0.tar
 k3s ctr images import images/appscode-grafana-v2024.10.31.tar
 k3s ctr images import images/appscode-inbox-agent-v0.0.1.tar
 k3s ctr images import images/appscode-inbox-server-latest.tar

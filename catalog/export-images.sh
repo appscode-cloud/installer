@@ -99,7 +99,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1 images/appscode-charts-gatekeeper-library-v2023.10.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper:3.13.3 images/appscode-charts-gatekeeper-3.13.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gateway-api:v1.1.0 images/appscode-charts-gateway-api-v1.1.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/grafana-operator:v2024.9.30 images/appscode-charts-grafana-operator-v2024.9.30.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/grafana-operator:v2024.11.8 images/appscode-charts-grafana-operator-v2024.11.8.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/hub-cluster-robot:v2024.8.9 images/appscode-charts-hub-cluster-robot-v2024.8.9.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/inbox-agent:v2024.5.3 images/appscode-charts-inbox-agent-v2024.5.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/inbox-server:v2024.5.3 images/appscode-charts-inbox-server-v2024.5.3.tar
@@ -168,7 +168,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/longhorn:1.6.2 images/appscode-charts-longhorn-1.6.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/managed-serviceaccount-manager:v2024.7.10 images/appscode-charts-managed-serviceaccount-manager-v2024.7.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/metrics-server:3.11.0 images/appscode-charts-metrics-server-3.11.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/monitoring-operator:v2024.9.30 images/appscode-charts-monitoring-operator-v2024.9.30.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/monitoring-operator:v2024.11.8 images/appscode-charts-monitoring-operator-v2024.11.8.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/multicluster-controlplane:v2024.7.10 images/appscode-charts-multicluster-controlplane-v2024.7.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/multicluster-ingress-reader:v2024.7.10 images/appscode-charts-multicluster-ingress-reader-v2024.7.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opencost-grafana-dashboards:v2023.10.1 images/appscode-charts-opencost-grafana-dashboards-v2023.10.1.tar
@@ -276,7 +276,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/externa
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/falco-ui-server:v0.0.4 images/appscode-falco-ui-server-v0.0.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/fileserver:v0.0.1 images/appscode-fileserver-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/flux-cli:v2.3.0 images/appscode-flux-cli-v2.3.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana-tools:v0.0.12 images/appscode-grafana-tools-v0.0.12.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana-tools:v0.1.0 images/appscode-grafana-tools-v0.1.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana:v2024.10.31 images/appscode-grafana-v2024.10.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-agent:v0.0.1 images/appscode-inbox-agent-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-server:latest images/appscode-inbox-server-latest.tar

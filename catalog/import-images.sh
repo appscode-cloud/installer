@@ -93,7 +93,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-g
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gatekeeper-library-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/gatekeeper-library:v2023.10.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gatekeeper-3.13.3.tar $IMAGE_REGISTRY/appscode-charts/gatekeeper:3.13.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gateway-api-v1.1.0.tar $IMAGE_REGISTRY/appscode-charts/gateway-api:v1.1.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-grafana-operator-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/grafana-operator:v2024.9.30
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-grafana-operator-v2024.11.8.tar $IMAGE_REGISTRY/appscode-charts/grafana-operator:v2024.11.8
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-hub-cluster-robot-v2024.8.9.tar $IMAGE_REGISTRY/appscode-charts/hub-cluster-robot:v2024.8.9
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-inbox-agent-v2024.5.3.tar $IMAGE_REGISTRY/appscode-charts/inbox-agent:v2024.5.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-inbox-server-v2024.5.3.tar $IMAGE_REGISTRY/appscode-charts/inbox-server:v2024.5.3
@@ -162,7 +162,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-l
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-longhorn-1.6.2.tar $IMAGE_REGISTRY/appscode-charts/longhorn:1.6.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-managed-serviceaccount-manager-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/managed-serviceaccount-manager:v2024.7.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-metrics-server-3.11.0.tar $IMAGE_REGISTRY/appscode-charts/metrics-server:3.11.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-monitoring-operator-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/monitoring-operator:v2024.9.30
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-monitoring-operator-v2024.11.8.tar $IMAGE_REGISTRY/appscode-charts/monitoring-operator:v2024.11.8
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-multicluster-controlplane-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/multicluster-controlplane:v2024.7.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-multicluster-ingress-reader-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/multicluster-ingress-reader:v2024.7.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opencost-grafana-dashboards-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/opencost-grafana-dashboards:v2023.10.1
@@ -270,7 +270,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-external
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-falco-ui-server-v0.0.4.tar $IMAGE_REGISTRY/appscode/falco-ui-server:v0.0.4
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-fileserver-v0.0.1.tar $IMAGE_REGISTRY/appscode/fileserver:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-flux-cli-v2.3.0.tar $IMAGE_REGISTRY/appscode/flux-cli:v2.3.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-grafana-tools-v0.0.12.tar $IMAGE_REGISTRY/appscode/grafana-tools:v0.0.12
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-grafana-tools-v0.1.0.tar $IMAGE_REGISTRY/appscode/grafana-tools:v0.1.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-grafana-v2024.10.31.tar $IMAGE_REGISTRY/appscode/grafana:v2024.10.31
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-agent-v0.0.1.tar $IMAGE_REGISTRY/appscode/inbox-agent:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-server-latest.tar $IMAGE_REGISTRY/appscode/inbox-server:latest

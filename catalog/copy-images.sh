@@ -102,7 +102,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ga
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/gatekeeper-library:v2023.10.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper:3.13.3 $IMAGE_REGISTRY/appscode-charts/gatekeeper:3.13.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gateway-api:v1.1.0 $IMAGE_REGISTRY/appscode-charts/gateway-api:v1.1.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/grafana-operator:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/grafana-operator:v2024.9.30
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/grafana-operator:v2024.11.8 $IMAGE_REGISTRY/appscode-charts/grafana-operator:v2024.11.8
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/hub-cluster-robot:v2024.8.9 $IMAGE_REGISTRY/appscode-charts/hub-cluster-robot:v2024.8.9
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/inbox-agent:v2024.5.3 $IMAGE_REGISTRY/appscode-charts/inbox-agent:v2024.5.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/inbox-server:v2024.5.3 $IMAGE_REGISTRY/appscode-charts/inbox-server:v2024.5.3
@@ -171,7 +171,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/li
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/longhorn:1.6.2 $IMAGE_REGISTRY/appscode-charts/longhorn:1.6.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/managed-serviceaccount-manager:v2024.7.10 $IMAGE_REGISTRY/appscode-charts/managed-serviceaccount-manager:v2024.7.10
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/metrics-server:3.11.0 $IMAGE_REGISTRY/appscode-charts/metrics-server:3.11.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/monitoring-operator:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/monitoring-operator:v2024.9.30
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/monitoring-operator:v2024.11.8 $IMAGE_REGISTRY/appscode-charts/monitoring-operator:v2024.11.8
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/multicluster-controlplane:v2024.7.10 $IMAGE_REGISTRY/appscode-charts/multicluster-controlplane:v2024.7.10
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/multicluster-ingress-reader:v2024.7.10 $IMAGE_REGISTRY/appscode-charts/multicluster-ingress-reader:v2024.7.10
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opencost-grafana-dashboards:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/opencost-grafana-dashboards:v2023.10.1
@@ -279,7 +279,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/external-
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/falco-ui-server:v0.0.4 $IMAGE_REGISTRY/appscode/falco-ui-server:v0.0.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/fileserver:v0.0.1 $IMAGE_REGISTRY/appscode/fileserver:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/flux-cli:v2.3.0 $IMAGE_REGISTRY/appscode/flux-cli:v2.3.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana-tools:v0.0.12 $IMAGE_REGISTRY/appscode/grafana-tools:v0.0.12
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana-tools:v0.1.0 $IMAGE_REGISTRY/appscode/grafana-tools:v0.1.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana:v2024.10.31 $IMAGE_REGISTRY/appscode/grafana:v2024.10.31
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-agent:v0.0.1 $IMAGE_REGISTRY/appscode/inbox-agent:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-server:latest $IMAGE_REGISTRY/appscode/inbox-server:latest

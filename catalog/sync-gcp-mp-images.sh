@@ -51,7 +51,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/external-dns-operat
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/falco-ui-server:v0.0.4 $IMAGE_REGISTRY/falco-ui-server:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/fileserver:v0.0.1 $IMAGE_REGISTRY/fileserver:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/flux-cli:v2.3.0 $IMAGE_REGISTRY/flux-cli:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/grafana-tools:v0.0.12 $IMAGE_REGISTRY/grafana-tools:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/grafana-tools:v0.1.0 $IMAGE_REGISTRY/grafana-tools:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/grafana:v2024.10.31 $IMAGE_REGISTRY/grafana:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/inbox-agent:v0.0.1 $IMAGE_REGISTRY/inbox-agent:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/inbox-server:latest $IMAGE_REGISTRY/inbox-server:$TAG
