@@ -61,7 +61,7 @@
 - ghcr.io/appscode-charts/opencost-grafana-dashboards:v2023.10.1
 - ghcr.io/appscode-charts/opencost:1.18.1
 - ghcr.io/appscode-charts/opscenter-features:v2024.10.24
-- ghcr.io/appscode-charts/panopticon:v2024.10.7
+- ghcr.io/appscode-charts/panopticon:v2024.11.8
 - ghcr.io/appscode-charts/prepare-cluster:v2023.12.21
 - ghcr.io/appscode-charts/prometheus-adapter:4.9.0
 - ghcr.io/appscode-charts/reloader:1.0.79
@@ -73,12 +73,12 @@
 - ghcr.io/appscode-charts/service-backend:v2024.10.24
 - ghcr.io/appscode-charts/service-gateway-presets:v2024.10.24
 - ghcr.io/appscode-charts/service-provider:v2024.10.24
-- ghcr.io/appscode-charts/sidekick:v2024.8.21
+- ghcr.io/appscode-charts/sidekick:v2024.11.8
 - ghcr.io/appscode-charts/snapshot-controller:3.0.5
 - ghcr.io/appscode-charts/stash-opscenter:v2024.9.30
 - ghcr.io/appscode-charts/stash-presets:v2024.10.24
 - ghcr.io/appscode-charts/stash:v2024.9.30
-- ghcr.io/appscode-charts/supervisor:v2024.9.30
+- ghcr.io/appscode-charts/supervisor:v2024.11.8
 - ghcr.io/appscode-charts/topolvm:15.0.0
 - ghcr.io/appscode-charts/uik8sappscodecom-featureset-capi-capa-editor:v0.9.0
 - ghcr.io/appscode-charts/uik8sappscodecom-featureset-capi-core-editor:v0.9.0

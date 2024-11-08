@@ -195,7 +195,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.9.0 images/appscode-charts-opskubedbcom-singlestoreopsrequest-editor-v0.9.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-solropsrequest-editor:v0.9.0 images/appscode-charts-opskubedbcom-solropsrequest-editor-v0.9.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.9.0 images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.9.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2024.10.7 images/appscode-charts-panopticon-v2024.10.7.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2024.11.8 images/appscode-charts-panopticon-v2024.11.8.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prepare-cluster:v2023.12.21 images/appscode-charts-prepare-cluster-v2023.12.21.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prometheus-adapter:4.9.0 images/appscode-charts-prometheus-adapter-4.9.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/reloader:1.0.79 images/appscode-charts-reloader-1.0.79.tar
@@ -207,13 +207,13 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-backend:v2024.10.24 images/appscode-charts-service-backend-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway-presets:v2024.10.24 images/appscode-charts-service-gateway-presets-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-provider:v2024.10.24 images/appscode-charts-service-provider-v2024.10.24.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sidekick:v2024.8.21 images/appscode-charts-sidekick-v2024.8.21.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sidekick:v2024.11.8 images/appscode-charts-sidekick-v2024.11.8.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/snapshot-controller:3.0.5 images/appscode-charts-snapshot-controller-3.0.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 images/appscode-charts-spoke-cluster-addons-v2024.7.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash-opscenter:v2024.9.30 images/appscode-charts-stash-opscenter-v2024.9.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash-presets:v2024.10.24 images/appscode-charts-stash-presets-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash:v2024.9.30 images/appscode-charts-stash-v2024.9.30.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/supervisor:v2024.9.30 images/appscode-charts-supervisor-v2024.9.30.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/supervisor:v2024.11.8 images/appscode-charts-supervisor-v2024.11.8.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/topolvm:15.0.0 images/appscode-charts-topolvm-15.0.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-alert:v0.9.0 images/appscode-charts-uibytebuildersdev-component-alert-v0.9.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-backup-option:v0.9.0 images/appscode-charts-uibytebuildersdev-component-backup-option-v0.9.0.tar
@@ -291,7 +291,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.18 images/appscode-license-proxyserver-v0.0.18.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest images/appscode-maxmind-geoip-city-mmdb-latest.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.6.0 images/appscode-openfga-v1.6.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.15 images/appscode-panopticon-v0.0.15.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.16 images/appscode-panopticon-v0.0.16.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.7 images/appscode-petset-v0.0.7.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:0.8.9 images/appscode-platform-ui-0.8.9.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/prom-authproxy:v0.0.1 images/appscode-prom-authproxy-v0.0.1.tar
@@ -299,8 +299,8 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/reloade
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/s3proxy:sha-a82ca68 images/appscode-s3proxy-sha-a82ca68.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/scanner:v0.0.19 images/appscode-scanner-v0.0.19.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/service-provider:v0.0.1 images/appscode-service-provider-v0.0.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/sidekick:v0.0.8 images/appscode-sidekick-v0.0.8.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/supervisor:v0.0.6 images/appscode-supervisor-v0.0.6.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/sidekick:v0.0.9 images/appscode-sidekick-v0.0.9.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/supervisor:v0.0.7 images/appscode-supervisor-v0.0.7.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/trickster:v2.0.0-beta3 images/appscode-trickster-v2.0.0-beta3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/vcluster-plugin:v0.0.2 images/appscode-vcluster-plugin-v0.0.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/external-secrets/external-secrets:v0.9.12 images/external-secrets-external-secrets-v0.9.12.tar

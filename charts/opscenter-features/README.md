@@ -113,7 +113,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.opencost.version                              |                                 | <code>"1.18.1"</code>                      |
 | helm.releases.opencost-grafana-dashboards.version           |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.opscenter-features.version                    |                                 | <code>"v2024.10.24"</code>                 |
-| helm.releases.panopticon.version                            |                                 | <code>"v2024.10.7"</code>                  |
+| helm.releases.panopticon.version                            |                                 | <code>"v2024.11.8"</code>                  |
 | helm.releases.prepare-cluster.version                       |                                 | <code>"v2023.12.21"</code>                 |
 | helm.releases.prometheus-adapter.version                    |                                 | <code>"4.9.0"</code>                       |
 | helm.releases.reloader.version                              |                                 | <code>"1.0.79"</code>                      |
@@ -122,12 +122,12 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.service-gateway.version                       |                                 | <code>"v2024.10.24"</code>                 |
 | helm.releases.service-gateway-presets.version               |                                 | <code>"v2024.10.24"</code>                 |
 | helm.releases.service-provider.version                      |                                 | <code>"v2024.10.24"</code>                 |
-| helm.releases.sidekick.version                              |                                 | <code>"v2024.8.21"</code>                  |
+| helm.releases.sidekick.version                              |                                 | <code>"v2024.11.8"</code>                  |
 | helm.releases.snapshot-controller.version                   |                                 | <code>"3.0.5"</code>                       |
 | helm.releases.stash.version                                 |                                 | <code>"v2024.9.30"</code>                  |
 | helm.releases.stash-opscenter.version                       |                                 | <code>"v2024.9.30"</code>                  |
 | helm.releases.stash-presets.version                         |                                 | <code>"v2024.10.24"</code>                 |
-| helm.releases.supervisor.version                            |                                 | <code>"v2024.9.30"</code>                  |
+| helm.releases.supervisor.version                            |                                 | <code>"v2024.11.8"</code>                  |
 | helm.releases.topolvm.version                               |                                 | <code>"15.0.0"</code>                      |
 | helm.releases.voyager.version                               |                                 | <code>"v2024.8.30"</code>                  |
 | helm.releases.voyager-gateway.version                       |                                 | <code>"v2024.8.30"</code>                  |

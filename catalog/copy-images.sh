@@ -198,7 +198,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/op
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.9.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.9.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-solropsrequest-editor:v0.9.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-solropsrequest-editor:v0.9.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.9.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.9.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2024.10.7 $IMAGE_REGISTRY/appscode-charts/panopticon:v2024.10.7
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2024.11.8 $IMAGE_REGISTRY/appscode-charts/panopticon:v2024.11.8
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prepare-cluster:v2023.12.21 $IMAGE_REGISTRY/appscode-charts/prepare-cluster:v2023.12.21
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prometheus-adapter:4.9.0 $IMAGE_REGISTRY/appscode-charts/prometheus-adapter:4.9.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/reloader:1.0.79 $IMAGE_REGISTRY/appscode-charts/reloader:1.0.79
@@ -210,13 +210,13 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/se
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-backend:v2024.10.24 $IMAGE_REGISTRY/appscode-charts/service-backend:v2024.10.24
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway-presets:v2024.10.24 $IMAGE_REGISTRY/appscode-charts/service-gateway-presets:v2024.10.24
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-provider:v2024.10.24 $IMAGE_REGISTRY/appscode-charts/service-provider:v2024.10.24
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sidekick:v2024.8.21 $IMAGE_REGISTRY/appscode-charts/sidekick:v2024.8.21
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sidekick:v2024.11.8 $IMAGE_REGISTRY/appscode-charts/sidekick:v2024.11.8
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/snapshot-controller:3.0.5 $IMAGE_REGISTRY/appscode-charts/snapshot-controller:3.0.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 $IMAGE_REGISTRY/appscode-charts/spoke-cluster-addons:v2024.7.10
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash-opscenter:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/stash-opscenter:v2024.9.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash-presets:v2024.10.24 $IMAGE_REGISTRY/appscode-charts/stash-presets:v2024.10.24
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/stash:v2024.9.30
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/supervisor:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/supervisor:v2024.9.30
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/supervisor:v2024.11.8 $IMAGE_REGISTRY/appscode-charts/supervisor:v2024.11.8
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/topolvm:15.0.0 $IMAGE_REGISTRY/appscode-charts/topolvm:15.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-alert:v0.9.0 $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-alert:v0.9.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-backup-option:v0.9.0 $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-backup-option:v0.9.0
@@ -294,7 +294,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.18 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.18
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.6.0 $IMAGE_REGISTRY/appscode/openfga:v1.6.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.15 $IMAGE_REGISTRY/appscode/panopticon:v0.0.15
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.16 $IMAGE_REGISTRY/appscode/panopticon:v0.0.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.7 $IMAGE_REGISTRY/appscode/petset:v0.0.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:0.8.9 $IMAGE_REGISTRY/appscode/platform-ui:0.8.9
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/prom-authproxy:v0.0.1 $IMAGE_REGISTRY/appscode/prom-authproxy:v0.0.1
@@ -302,8 +302,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/reloader:
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/s3proxy:sha-a82ca68 $IMAGE_REGISTRY/appscode/s3proxy:sha-a82ca68
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/scanner:v0.0.19 $IMAGE_REGISTRY/appscode/scanner:v0.0.19
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/service-provider:v0.0.1 $IMAGE_REGISTRY/appscode/service-provider:v0.0.1
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/sidekick:v0.0.8 $IMAGE_REGISTRY/appscode/sidekick:v0.0.8
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/supervisor:v0.0.6 $IMAGE_REGISTRY/appscode/supervisor:v0.0.6
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/sidekick:v0.0.9 $IMAGE_REGISTRY/appscode/sidekick:v0.0.9
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/supervisor:v0.0.7 $IMAGE_REGISTRY/appscode/supervisor:v0.0.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/trickster:v2.0.0-beta3 $IMAGE_REGISTRY/appscode/trickster:v2.0.0-beta3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/vcluster-plugin:v0.0.2 $IMAGE_REGISTRY/appscode/vcluster-plugin:v0.0.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/external-secrets/external-secrets:v0.9.12 $IMAGE_REGISTRY/external-secrets/external-secrets:v0.9.12

@@ -150,7 +150,7 @@ helm:
     opscenter-features:
       version: "v2024.10.24"
     panopticon:
-      version: "v2024.10.7"
+      version: "v2024.11.8"
     prepare-cluster:
       version: "v2023.12.21"
     prometheus-adapter:
@@ -168,7 +168,7 @@ helm:
     service-provider:
       version: "v2024.10.24"
     sidekick:
-      version: "v2024.8.21"
+      version: "v2024.11.8"
     snapshot-controller:
       version: "3.0.5"
     stash:
@@ -178,7 +178,7 @@ helm:
     stash-presets:
       version: "v2024.10.24"
     supervisor:
-      version: "v2024.9.30"
+      version: "v2024.11.8"
     topolvm:
       version: "15.0.0"
     voyager:

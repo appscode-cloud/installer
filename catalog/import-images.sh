@@ -189,7 +189,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-o
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-singlestoreopsrequest-editor-v0.9.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-solropsrequest-editor-v0.9.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-solropsrequest-editor:v0.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.9.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.9.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-panopticon-v2024.10.7.tar $IMAGE_REGISTRY/appscode-charts/panopticon:v2024.10.7
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-panopticon-v2024.11.8.tar $IMAGE_REGISTRY/appscode-charts/panopticon:v2024.11.8
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prepare-cluster-v2023.12.21.tar $IMAGE_REGISTRY/appscode-charts/prepare-cluster:v2023.12.21
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prometheus-adapter-4.9.0.tar $IMAGE_REGISTRY/appscode-charts/prometheus-adapter:4.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-reloader-1.0.79.tar $IMAGE_REGISTRY/appscode-charts/reloader:1.0.79
@@ -201,13 +201,13 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-s
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-backend-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/service-backend:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-gateway-presets-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/service-gateway-presets:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-provider-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/service-provider:v2024.10.24
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-sidekick-v2024.8.21.tar $IMAGE_REGISTRY/appscode-charts/sidekick:v2024.8.21
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-sidekick-v2024.11.8.tar $IMAGE_REGISTRY/appscode-charts/sidekick:v2024.11.8
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-snapshot-controller-3.0.5.tar $IMAGE_REGISTRY/appscode-charts/snapshot-controller:3.0.5
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-spoke-cluster-addons-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/spoke-cluster-addons:v2024.7.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-stash-opscenter-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/stash-opscenter:v2024.9.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-stash-presets-v2024.10.24.tar $IMAGE_REGISTRY/appscode-charts/stash-presets:v2024.10.24
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-stash-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/stash:v2024.9.30
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-supervisor-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/supervisor:v2024.9.30
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-supervisor-v2024.11.8.tar $IMAGE_REGISTRY/appscode-charts/supervisor:v2024.11.8
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-topolvm-15.0.0.tar $IMAGE_REGISTRY/appscode-charts/topolvm:15.0.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uibytebuildersdev-component-alert-v0.9.0.tar $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-alert:v0.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uibytebuildersdev-component-backup-option-v0.9.0.tar $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-backup-option:v0.9.0
@@ -285,7 +285,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubedb-u
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-license-proxyserver-v0.0.18.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.18
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-maxmind-geoip-city-mmdb-latest.tar $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-openfga-v1.6.0.tar $IMAGE_REGISTRY/appscode/openfga:v1.6.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-panopticon-v0.0.15.tar $IMAGE_REGISTRY/appscode/panopticon:v0.0.15
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-panopticon-v0.0.16.tar $IMAGE_REGISTRY/appscode/panopticon:v0.0.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-petset-v0.0.7.tar $IMAGE_REGISTRY/appscode/petset:v0.0.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-platform-ui-0.8.9.tar $IMAGE_REGISTRY/appscode/platform-ui:0.8.9
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-prom-authproxy-v0.0.1.tar $IMAGE_REGISTRY/appscode/prom-authproxy:v0.0.1
@@ -293,8 +293,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-reloader
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-s3proxy-sha-a82ca68.tar $IMAGE_REGISTRY/appscode/s3proxy:sha-a82ca68
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-scanner-v0.0.19.tar $IMAGE_REGISTRY/appscode/scanner:v0.0.19
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-service-provider-v0.0.1.tar $IMAGE_REGISTRY/appscode/service-provider:v0.0.1
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-sidekick-v0.0.8.tar $IMAGE_REGISTRY/appscode/sidekick:v0.0.8
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-supervisor-v0.0.6.tar $IMAGE_REGISTRY/appscode/supervisor:v0.0.6
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-sidekick-v0.0.9.tar $IMAGE_REGISTRY/appscode/sidekick:v0.0.9
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-supervisor-v0.0.7.tar $IMAGE_REGISTRY/appscode/supervisor:v0.0.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-trickster-v2.0.0-beta3.tar $IMAGE_REGISTRY/appscode/trickster:v2.0.0-beta3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-vcluster-plugin-v0.0.2.tar $IMAGE_REGISTRY/appscode/vcluster-plugin:v0.0.2
 $CMD push --allow-nondistributable-artifacts --insecure images/external-secrets-external-secrets-v0.9.12.tar $IMAGE_REGISTRY/external-secrets/external-secrets:v0.9.12

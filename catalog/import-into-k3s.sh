@@ -187,7 +187,7 @@ k3s ctr images import images/appscode-charts-opskubedbcom-redissentinelopsreques
 k3s ctr images import images/appscode-charts-opskubedbcom-singlestoreopsrequest-editor-v0.9.0.tar
 k3s ctr images import images/appscode-charts-opskubedbcom-solropsrequest-editor-v0.9.0.tar
 k3s ctr images import images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.9.0.tar
-k3s ctr images import images/appscode-charts-panopticon-v2024.10.7.tar
+k3s ctr images import images/appscode-charts-panopticon-v2024.11.8.tar
 k3s ctr images import images/appscode-charts-prepare-cluster-v2023.12.21.tar
 k3s ctr images import images/appscode-charts-prometheus-adapter-4.9.0.tar
 k3s ctr images import images/appscode-charts-reloader-1.0.79.tar
@@ -199,13 +199,13 @@ k3s ctr images import images/appscode-charts-secrets-store-csi-driver-1.4.1.tar
 k3s ctr images import images/appscode-charts-service-backend-v2024.10.24.tar
 k3s ctr images import images/appscode-charts-service-gateway-presets-v2024.10.24.tar
 k3s ctr images import images/appscode-charts-service-provider-v2024.10.24.tar
-k3s ctr images import images/appscode-charts-sidekick-v2024.8.21.tar
+k3s ctr images import images/appscode-charts-sidekick-v2024.11.8.tar
 k3s ctr images import images/appscode-charts-snapshot-controller-3.0.5.tar
 k3s ctr images import images/appscode-charts-spoke-cluster-addons-v2024.7.10.tar
 k3s ctr images import images/appscode-charts-stash-opscenter-v2024.9.30.tar
 k3s ctr images import images/appscode-charts-stash-presets-v2024.10.24.tar
 k3s ctr images import images/appscode-charts-stash-v2024.9.30.tar
-k3s ctr images import images/appscode-charts-supervisor-v2024.9.30.tar
+k3s ctr images import images/appscode-charts-supervisor-v2024.11.8.tar
 k3s ctr images import images/appscode-charts-topolvm-15.0.0.tar
 k3s ctr images import images/appscode-charts-uibytebuildersdev-component-alert-v0.9.0.tar
 k3s ctr images import images/appscode-charts-uibytebuildersdev-component-backup-option-v0.9.0.tar
@@ -283,7 +283,7 @@ k3s ctr images import images/appscode-kubedb-ui-0.7.9.tar
 k3s ctr images import images/appscode-license-proxyserver-v0.0.18.tar
 k3s ctr images import images/appscode-maxmind-geoip-city-mmdb-latest.tar
 k3s ctr images import images/appscode-openfga-v1.6.0.tar
-k3s ctr images import images/appscode-panopticon-v0.0.15.tar
+k3s ctr images import images/appscode-panopticon-v0.0.16.tar
 k3s ctr images import images/appscode-petset-v0.0.7.tar
 k3s ctr images import images/appscode-platform-ui-0.8.9.tar
 k3s ctr images import images/appscode-prom-authproxy-v0.0.1.tar
@@ -291,8 +291,8 @@ k3s ctr images import images/appscode-reloader-v1.0.79.tar
 k3s ctr images import images/appscode-s3proxy-sha-a82ca68.tar
 k3s ctr images import images/appscode-scanner-v0.0.19.tar
 k3s ctr images import images/appscode-service-provider-v0.0.1.tar
-k3s ctr images import images/appscode-sidekick-v0.0.8.tar
-k3s ctr images import images/appscode-supervisor-v0.0.6.tar
+k3s ctr images import images/appscode-sidekick-v0.0.9.tar
+k3s ctr images import images/appscode-supervisor-v0.0.7.tar
 k3s ctr images import images/appscode-trickster-v2.0.0-beta3.tar
 k3s ctr images import images/appscode-vcluster-plugin-v0.0.2.tar
 k3s ctr images import images/external-secrets-external-secrets-v0.9.12.tar

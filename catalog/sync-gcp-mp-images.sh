@@ -64,7 +64,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubedb-ui:0.7.9 $IM
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/license-proxyserver:v0.0.18 $IMAGE_REGISTRY/license-proxyserver:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/maxmind-geoip:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/openfga:v1.6.0 $IMAGE_REGISTRY/openfga:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/panopticon:v0.0.15 $IMAGE_REGISTRY/panopticon:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/panopticon:v0.0.16 $IMAGE_REGISTRY/panopticon:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/petset:v0.0.7 $IMAGE_REGISTRY/petset:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/platform-ui:0.8.9 $IMAGE_REGISTRY/platform-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/prom-authproxy:v0.0.1 $IMAGE_REGISTRY/prom-authproxy:$TAG
@@ -72,8 +72,8 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/reloader:v1.0.79 $I
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/s3proxy:sha-a82ca68 $IMAGE_REGISTRY/s3proxy:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/scanner:v0.0.19 $IMAGE_REGISTRY/scanner:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/service-provider:v0.0.1 $IMAGE_REGISTRY/service-provider:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/sidekick:v0.0.8 $IMAGE_REGISTRY/sidekick:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/supervisor:v0.0.6 $IMAGE_REGISTRY/supervisor:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/sidekick:v0.0.9 $IMAGE_REGISTRY/sidekick:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/supervisor:v0.0.7 $IMAGE_REGISTRY/supervisor:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/trickster:v2.0.0-beta3 $IMAGE_REGISTRY/trickster:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/vcluster-plugin:v0.0.2 $IMAGE_REGISTRY/vcluster-plugin:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/external-secrets/external-secrets:v0.9.12 $IMAGE_REGISTRY/external-secrets:$TAG
