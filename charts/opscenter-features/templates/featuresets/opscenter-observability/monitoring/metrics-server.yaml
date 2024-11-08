@@ -66,7 +66,6 @@ spec:
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: metrics-server.yaml
-      optional: true
   {{- end }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}

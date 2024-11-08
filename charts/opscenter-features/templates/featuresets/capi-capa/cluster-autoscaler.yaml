@@ -58,7 +58,6 @@ spec:
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: cluster-autoscaler.yaml
-      optional: true
   {{- end }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}

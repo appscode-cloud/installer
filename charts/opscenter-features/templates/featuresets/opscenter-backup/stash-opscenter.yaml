@@ -51,7 +51,6 @@ spec:
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: stash-opscenter.yaml
-      optional: true
   {{- end }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}

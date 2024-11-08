@@ -136,7 +136,6 @@ spec:
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: kyverno.yaml
-      optional: true
   {{- end }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}

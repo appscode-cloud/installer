@@ -53,7 +53,6 @@ spec:
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: multicluster-ingress-reader.yaml
-      optional: true
   {{- end }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
