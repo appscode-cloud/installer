@@ -25,11 +25,11 @@ spec:
   featureSet: opscenter-core
   featureBlock: kube-ui-server
   recommended: true
+  {{- if eq (include "clustermanager.openshift" $) "true" }}
   requirements:
     features:
-    {{- if eq (include "clustermanager.openshift" $) "true" }}
       - aceshifter
-    {{- end }}
+  {{- end }}
   readinessChecks:
     workloads:
     - group: apps

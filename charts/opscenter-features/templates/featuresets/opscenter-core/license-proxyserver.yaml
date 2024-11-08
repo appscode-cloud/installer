@@ -19,6 +19,11 @@ spec:
   featureSet: opscenter-core
   featureBlock: license-proxyserver
   recommended: {{ not $.Values.offlineInstaller }}
+  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  requirements:
+    features:
+      - aceshifter
+  {{- end }}
   readinessChecks:
     workloads:
     - group: apps

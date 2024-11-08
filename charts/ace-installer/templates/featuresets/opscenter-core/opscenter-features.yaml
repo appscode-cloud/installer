@@ -33,6 +33,11 @@ spec:
     crds: CreateReplace
     remediation:
       retries: -1
+  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  dependsOn:
+  - name: aceshifter
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
   chart:
     spec:
       chart: opscenter-features

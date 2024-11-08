@@ -40,10 +40,6 @@ spec:
   dependsOn:
   - name: opscenter-features
     namespace: {{ $.Release.Namespace }}
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
-  - name: aceshifter
-    namespace: {{ $.Release.Namespace }}
-  {{- end }}
   chart:
     spec:
       chart: kube-ui-server

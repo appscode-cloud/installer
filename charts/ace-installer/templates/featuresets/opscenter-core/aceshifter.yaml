@@ -29,9 +29,6 @@ spec:
     crds: CreateReplace
     remediation:
       retries: -1
-  dependsOn:
-  - name: opscenter-features
-    namespace: {{ $.Release.Namespace }}
   chart:
     spec:
       chart: aceshifter
@@ -39,7 +36,7 @@ spec:
       interval: 60m
       sourceRef:
         kind: HelmRepository
-        name: appscode-charts-oci
+        name: bootstrap
         namespace: {{ $.Release.Namespace }}
   valuesFrom:
   {{- if eq (include "clustermanager.openshift" $) "true" }}
