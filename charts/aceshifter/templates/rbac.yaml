@@ -64,6 +64,7 @@ rules:
   - get
   - list
   - watch
+  - create
 - apiGroups:
   - cluster.open-cluster-management.io
   resources:
@@ -79,6 +80,14 @@ rules:
   - operator.open-cluster-management.io
   resources:
   - klusterlets
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - helm.toolkit.fluxcd.io
+  resources:
+  - helmreleases
   verbs:
   - get
   - list
