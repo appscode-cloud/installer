@@ -185,3 +185,7 @@ Determine database host name
 {{- printf "base64key://%s" (randAlphaNum 64) -}}
 {{- end -}}
 {{- end -}}
+
+{{- define "clustermanager.openshift" -}}
+{{- ternary "true" "false" (.Capabilities.APIVersions.Has "project.openshift.io/v1/Project") -}}
+{{- end }}
