@@ -82,6 +82,7 @@ envoy:
     portRange: "10000-12767"
     # Default node portmanager range to use for gateway exposure
     nodeportRange: "30000-32767"
+    seedBackendPort: 8080
   securityContext: # +doc-gen:break
     allowPrivilegeEscalation: false
     capabilities:

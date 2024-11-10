@@ -29,6 +29,7 @@ import (
 // GatewayConfigSpec defines the desired state of GatewayConfig.
 type GatewayConfigSpec struct {
 	GatewaySpec `json:",inline"`
+	Envoy       EnvoySpec `json:"envoy"`
 	// Chart specifies the chart information that will be used by the FluxCD to install the respective feature
 	// +optional
 	Chart uiapi.ChartInfo `json:"chart,omitempty"`
@@ -39,10 +40,14 @@ type GatewaySpec struct {
 	Gateway    voyagerinstaller.VoyagerGatewaySpec `json:"gateway"`
 	GatewayDns ServiceGatewayDns                   `json:"gateway-dns"`
 	Cluster    ServiceProviderCluster              `json:"cluster"`
-	Envoy      EnvoySpec                           `json:"envoy"`
 	Echoserver EchoserverSpec                      `json:"echoserver"`
 	// +optional
 	VaultServer kmapi.ObjectReference `json:"vaultServer"`
+}
+
+type GatewayValues struct {
+	GatewaySpec `json:",inline"`
+	Envoy       EnvoyValues `json:"envoy"`
 }
 
 type GatewayParameter struct {
@@ -200,11 +205,25 @@ type EnvoySpec struct {
 	Service         EnvoyServiceSpec      `json:"service"`
 }
 
+type EnvoyValues struct {
+	Image string `json:"image"`
+	Tag   string `json:"tag"`
+	//+optional
+	SecurityContext *core.SecurityContext `json:"securityContext"`
+	Service         EnvoyServiceValues    `json:"service"`
+}
+
 type EnvoyServiceSpec struct {
 	// +kubebuilder:default="10000-12767"
 	PortRange string `json:"portRange"`
 	// +kubebuilder:default="30000-32767"
 	NodeportRange string `json:"nodeportRange"`
+}
+
+type EnvoyServiceValues struct {
+	EnvoyServiceSpec `json:",inline"`
+	// +kubebuilder:default=8080
+	SeedBackendPort int32 `json:"seedBackendPort"`
 }
 
 type EchoserverSpec struct {

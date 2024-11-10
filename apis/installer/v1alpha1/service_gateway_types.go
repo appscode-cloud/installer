@@ -44,11 +44,11 @@ type ServiceGateway struct {
 }
 
 type ServiceGatewaySpec struct {
-	NameOverride         string               `json:"nameOverride"`
-	FullnameOverride     string               `json:"fullnameOverride"`
-	ClusterMetadata      StashClusterMetadata `json:"clusterMetadata"`
-	GatewayClass         GatewayClassSpec     `json:"gatewayClass"`
-	catgwapi.GatewaySpec `json:",inline,omitempty"`
+	NameOverride           string               `json:"nameOverride"`
+	FullnameOverride       string               `json:"fullnameOverride"`
+	ClusterMetadata        StashClusterMetadata `json:"clusterMetadata"`
+	GatewayClass           GatewayClassSpec     `json:"gatewayClass"`
+	catgwapi.GatewayValues `json:",inline,omitempty"`
 }
 
 type GatewayClassSpec struct {

@@ -21,7 +21,7 @@ import egv1a1 "github.com/envoyproxy/gateway/api/v1alpha1"
 func (i InfraTLS) MountCACerts() bool {
 	return i.Issuer == TLSIssuerTypeCA ||
 		i.Issuer == TLSIssuerTypeLEStaging ||
-		(i.Issuer == TLSIssuerTypeExternal && i.CA.Cert != "")
+		(i.Issuer == TLSIssuerTypeExternal && i.CA != nil && i.CA.Cert != "")
 }
 
 func (gwp GatewayParameter) UsesNodePort() bool {

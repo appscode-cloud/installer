@@ -197,9 +197,14 @@ properties:
           portRange:
             default: 10000-12767
             type: string
+          seedBackendPort:
+            default: 8080
+            format: int32
+            type: integer
         required:
         - nodeportRange
         - portRange
+        - seedBackendPort
         type: object
       tag:
         type: string

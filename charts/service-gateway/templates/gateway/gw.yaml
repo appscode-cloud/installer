@@ -11,7 +11,7 @@ spec:
     {{- if (eq .Values.infra.tls.acme.solver "Gateway") }}
       port: 80
     {{- else }}
-      port: 8080
+      port: {{ .Values.envoy.service.seedBackendPort }}
     {{- end }}
 ---
 apiVersion: v1
