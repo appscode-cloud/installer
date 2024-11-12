@@ -60,7 +60,7 @@ helm:
 
   releases:
     aceshifter:
-      version: "v2024.10.24"
+      version: "v2024.11.18"
     aws-ebs-csi-driver:
       version: "2.23.0"
     capa-vpc-peering-operator:
@@ -70,7 +70,7 @@ helm:
     capi-ops-manager:
       version: "v2024.8.14"
     catalog-manager:
-      version: "v2024.10.24"
+      version: "v2024.11.18"
     cert-manager:
       version: "v1.15.2"
     cert-manager-csi-driver-cacerts:
@@ -78,7 +78,7 @@ helm:
     cluster-autoscaler:
       version: "9.29.0"
     cluster-presets:
-      version: "v2024.10.24"
+      version: "v2024.11.18"
     config-syncer:
       version: "v0.15.2"
     crossplane:
@@ -102,7 +102,7 @@ helm:
     gateway-api:
       version: "v1.1.0"
     grafana-operator:
-      version: "v2024.11.8"
+      version: "v2024.11.18"
     keda:
       version: "2.15.1"
     keda-add-ons-http:
@@ -112,11 +112,11 @@ helm:
     kube-prometheus-stack:
       version: "61.8.0"
     kubedb-ui-presets:
-      version: "v2024.10.24"
+      version: "v2024.11.18"
     kube-ui-server:
-      version: "v2024.10.24"
+      version: "v2024.11.18"
     kubedb:
-      version: "v2024.9.30"
+      version: "v2024.11.8-rc.0"
     kubedb-opscenter:
       version: "v2024.9.30"
     kubedb-provider-aws:
@@ -142,13 +142,13 @@ helm:
     metrics-server:
       version: "3.11.0"
     monitoring-operator:
-      version: "v2024.11.8"
+      version: "v2024.11.18"
     opencost:
       version: "1.18.1"
     opencost-grafana-dashboards:
       version: "v2023.10.1"
     opscenter-features:
-      version: "v2024.10.24"
+      version: "v2024.11.18"
     panopticon:
       version: "v2024.11.8"
     prepare-cluster:
@@ -160,13 +160,13 @@ helm:
     scanner:
       version: "v2024.9.30"
     service-backend:
-      version: "v2024.10.24"
+      version: "v2024.11.18"
     service-gateway:
-      version: "v2024.10.24"
+      version: "v2024.11.18"
     service-gateway-presets:
-      version: "v2024.10.24"
+      version: "v2024.11.18"
     service-provider:
-      version: "v2024.10.24"
+      version: "v2024.11.18"
     sidekick:
       version: "v2024.11.8"
     snapshot-controller:
@@ -176,7 +176,7 @@ helm:
     stash-opscenter:
       version: "v2024.9.30"
     stash-presets:
-      version: "v2024.10.24"
+      version: "v2024.11.18"
     supervisor:
       version: "v2024.11.8"
     topolvm:
@@ -222,7 +222,7 @@ helm:
     cluster-auth-manager:
       version: "v2024.10.7"
     cluster-profile-manager:
-      version: "v2024.10.17"
+      version: "v2024.11.18"
     hub-cluster-robot:
       version: "v2024.8.9"
     fluxcd-manager:
