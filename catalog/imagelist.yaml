@@ -2,9 +2,9 @@
 - bats/bats:1.11.0
 - ghcr.io/appscode/ace:v0.0.2
 - ghcr.io/appscode/aceshifter:v0.0.1
-- ghcr.io/appscode/b3:v2024.10.24
+- ghcr.io/appscode/b3:v2024.11.18
 - ghcr.io/appscode/billing-ui:0.2.3
-- ghcr.io/appscode/catalog-manager:v0.0.2
+- ghcr.io/appscode/catalog-manager:v0.1.0
 - ghcr.io/appscode/cert-manager-webhook-ace:v0.0.1
 - ghcr.io/appscode/cloudflare-dns-proxy:v0.0.3
 - ghcr.io/appscode/cluster-presets:v0.0.4
@@ -44,6 +44,6 @@
 - ghcr.io/voyagermesh/echoserver
 - ghcr.io/voyagermesh/echoserver:v20221109
 - ghcr.io/voyagermesh/envoy
-- ghcr.io/voyagermesh/envoy:v1.29.9-ac
+- ghcr.io/voyagermesh/envoy:v1.31.2-ac
 - ghcr.io/voyagermesh/gateway:v1.1.2
 - minio/minio:RELEASE.2023-01-12T02-06-16Z
