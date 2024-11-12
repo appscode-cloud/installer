@@ -17,10 +17,9 @@ metadata:
 ---
 
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   name: {{ include "ace.fullname" . }}-scc-anyuid
-  namespace: {{ .Release.Namespace }}
 rules:
 - apiGroups:
   - security.openshift.io
@@ -42,7 +41,7 @@ subjects:
   - kind: ServiceAccount
     name: {{ include "appscode.serviceAccountName" . }}-anyuid
 roleRef:
-  kind: Role
+  kind: ClusterRole
   name: {{ include "ace.fullname" . }}-scc-anyuid
   apiGroup: rbac.authorization.k8s.io
 
@@ -58,7 +57,7 @@ subjects:
   - kind: ServiceAccount
     name: {{ include "appscode.serviceAccountName" . }}-ingress
 roleRef:
-  kind: Role
+  kind: ClusterRole
   name: {{ include "ace.fullname" . }}-scc-anyuid
   apiGroup: rbac.authorization.k8s.io
 
