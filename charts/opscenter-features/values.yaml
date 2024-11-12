@@ -218,9 +218,9 @@ helm:
     cluster-proxy-manager:
       version: "v2024.7.10"
     cluster-gateway-manager:
-      version: "v2024.9.30"
+      version: "v2024.11.18"
     cluster-auth-manager:
-      version: "v2024.10.7"
+      version: "v2024.11.18"
     cluster-profile-manager:
       version: "v2024.11.18"
     hub-cluster-robot:

@@ -146,8 +146,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.multicluster-ingress-reader.version           |                                 | <code>"v2024.7.10"</code>                  |
 | helm.releases.managed-serviceaccount-manager.version        |                                 | <code>"v2024.7.10"</code>                  |
 | helm.releases.cluster-proxy-manager.version                 |                                 | <code>"v2024.7.10"</code>                  |
-| helm.releases.cluster-gateway-manager.version               |                                 | <code>"v2024.9.30"</code>                  |
-| helm.releases.cluster-auth-manager.version                  |                                 | <code>"v2024.10.7"</code>                  |
+| helm.releases.cluster-gateway-manager.version               |                                 | <code>"v2024.11.18"</code>                 |
+| helm.releases.cluster-auth-manager.version                  |                                 | <code>"v2024.11.18"</code>                 |
 | helm.releases.cluster-profile-manager.version               |                                 | <code>"v2024.11.18"</code>                 |
 | helm.releases.hub-cluster-robot.version                     |                                 | <code>"v2024.8.9"</code>                   |
 | helm.releases.fluxcd-manager.version                        |                                 | <code>"v2024.7.10"</code>                  |
