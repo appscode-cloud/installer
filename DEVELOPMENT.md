@@ -11,8 +11,12 @@ image-packer list-feature-charts --root-dir=charts --output-dir=catalog
 
 image-packer list-editor-charts \
     --output-dir=catalog \
+    --apiGroup=autoscaling.kubedb.com \
     --apiGroup=kubedb.com \
+    --apiGroup=ops.kubedb.com \
+    --apiGroup=addon.kubestash.com \
     --apiGroup=core.kubestash.com \
+    --apiGroup=storage.kubestash.com \
     --apiGroup=charts.x-helm.dev
 
 image-packer generate-scripts --insecure --allow-nondistributable-artifacts \

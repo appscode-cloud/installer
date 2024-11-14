@@ -6,9 +6,9 @@
 - ghcr.io/appscode-charts/catalog-manager:v2024.11.18
 - ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17
 - ghcr.io/appscode-charts/cert-manager:v1.15.2
-- ghcr.io/appscode-charts/cluster-auth-manager:v2024.10.7
+- ghcr.io/appscode-charts/cluster-auth-manager:v2024.11.18
 - ghcr.io/appscode-charts/cluster-autoscaler:9.29.0
-- ghcr.io/appscode-charts/cluster-gateway-manager:v2024.9.30
+- ghcr.io/appscode-charts/cluster-gateway-manager:v2024.11.18
 - ghcr.io/appscode-charts/cluster-manager-hub:v2024.7.10
 - ghcr.io/appscode-charts/cluster-manager-spoke:v2024.9.30
 - ghcr.io/appscode-charts/cluster-presets:v2024.11.18
