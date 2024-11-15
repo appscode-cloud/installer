@@ -190,8 +190,8 @@ go.bytebuilders.dev/catalog v0.0.9-0.20241110111745-dbbe35f56fb2 h1:At8ZUTPEzcDG
 go.bytebuilders.dev/catalog v0.0.9-0.20241110111745-dbbe35f56fb2/go.mod h1:5fIo9FlnLsG2wtApcPcCTur6ljmFzAS2B9lbUncyq4I=
 go.bytebuilders.dev/resource-model v0.1.1-0.20241023004602-2c43ef3bb37b h1:loq3wv7NQY9givjW8djFMqe/1d+8j2wE4k5hueDIWC0=
 go.bytebuilders.dev/resource-model v0.1.1-0.20241023004602-2c43ef3bb37b/go.mod h1:/uMIfxqPIrDmiYWA28OW3xzogijxpwkicR4kK7jam9g=
-go.bytebuilders.dev/ui-wizards v0.9.1-0.20241107205555-a29f0b8ff4de h1:mm8InEwBTP2NFQTt7TW8vuPhG6gIBeGc+N9QOZOc23Y=
-go.bytebuilders.dev/ui-wizards v0.9.1-0.20241107205555-a29f0b8ff4de/go.mod h1:uIhI+FJJnC0Lg7NU6u1XkoLuo4QkkF+3BcWpT30KhZA=
+go.bytebuilders.dev/ui-wizards v0.8.1-0.20241114122607-da73eb53788b h1:GpAHSyY/XJ6ZrFXtXpa0+VKcmw3gYKQcuNOAL4viF5g=
+go.bytebuilders.dev/ui-wizards v0.8.1-0.20241114122607-da73eb53788b/go.mod h1:drufpgFOFkOn1vxW1z2xnjN8rsgMysiV2wM6IP5MVrU=
 go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0 h1:zA5/psft6xJPNZZfDh7VpOlEEzqVOWoLQlXRFyOeyjc=
 go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0/go.mod h1:5q9Z38No4Xw0RGJnWYqAWPpXSG4XQYqiLzGHMv4pTPI=
 go.uber.org/goleak v1.3.0 h1:2K3zAYmnTNqV73imy9J1T3WC+gmCePx2hEGkimedGto=
@@ -311,12 +311,12 @@ k8s.io/utils v0.0.0-20240502163921-fe8a2dddb1d0 h1:jgGTlFYnhF1PM1Ax/lAlxUPE+KfCI
 k8s.io/utils v0.0.0-20240502163921-fe8a2dddb1d0/go.mod h1:OLgZIPagt7ERELqWJFomSt595RzquPNLL48iOWgYOg0=
 kmodules.xyz/apiversion v0.2.0 h1:vAQYqZFm4xu4pbB1cAdHbFEPES6EQkcR4wc06xdTOWk=
 kmodules.xyz/apiversion v0.2.0/go.mod h1:oPX8g8LvlPdPX3Yc5YvCzJHQnw3YF/X4/jdW0b1am80=
-kmodules.xyz/client-go v0.30.32 h1:y1qb4IJwYdkROLcc7e0UcJSDj8D2YeLsawAWHnCF+JU=
-kmodules.xyz/client-go v0.30.32/go.mod h1:CAu+JlA8RVGtj6LQHu0Q1w2mnFUajuti49c7T1AvGdM=
+kmodules.xyz/client-go v0.30.38-0.20241115070154-e3c282c80e9d h1:U5Say1JQAPdkXkF/go13CDLP/08jpz6BuDdUpR470gY=
+kmodules.xyz/client-go v0.30.38-0.20241115070154-e3c282c80e9d/go.mod h1:CAu+JlA8RVGtj6LQHu0Q1w2mnFUajuti49c7T1AvGdM=
 kmodules.xyz/go-containerregistry v0.0.12 h1:Tl32QGmSqRVm9PUEb/f3dgDeu9zW5fVzt3qmAFIE37I=
 kmodules.xyz/go-containerregistry v0.0.12/go.mod h1:KgeNg0hDsgeda+qc0NzWk0iVRdF0+ZIg/oRzGoYh78I=
-kmodules.xyz/monitoring-agent-api v0.30.2 h1:sAgz5P5EXZqhlj1NzJ+QltAgeIx5bGSMj+aYy2EiKaw=
-kmodules.xyz/monitoring-agent-api v0.30.2/go.mod h1:BoZFPDDRB7J39CcUsSDlzgW8PQCwik4ILPleyUob+Mg=
+kmodules.xyz/monitoring-agent-api v0.30.3 h1:DVGwcRvtaTmRA7Wj4PJ5xR5ADzLo/IB3X2XmAJikbEo=
+kmodules.xyz/monitoring-agent-api v0.30.3/go.mod h1:L586zE2BvTQeOmf7VHkuBY+QM1UWGdNzwyVJDtVcZsI=
 kmodules.xyz/objectstore-api v0.29.1 h1:uUsjf8KU0w4LYowSEOnl0AbHT3hsHIu1wNLHqGe1o6s=
 kmodules.xyz/objectstore-api v0.29.1/go.mod h1:xG+5awH1SXYKxwN/+k1FEQvzixd5tgNqEN/1LEiB2FE=
 kmodules.xyz/offshoot-api v0.30.1 h1:TrulAYO+oBsXe9sZZGTmNWIuI8qD2izMpgcTSPvgAmI=
