@@ -126,6 +126,8 @@ properties:
     properties:
       adminPassword:
         type: string
+      apiSecret:
+        type: string
       backupPassword:
         type: string
       clusterCA:
@@ -310,6 +312,7 @@ properties:
       version:
         type: string
     required:
+      - apiSecret
       - deploymentType
       - inboxServer
       - installerName
