@@ -385,7 +385,6 @@ type AceDeploymentContext struct {
 	InstallerName  string         `json:"installerName"`
 	UploadID       string         `json:"uploadID"`
 	Version        string         `json:"version"`
-	ApiSecret      string         `json:"apiSecret"`
 	// +optional
 	RequestedDomain      string `json:"requestedDomain"`
 	HostedDomain         string `json:"hostedDomain,omitempty"`
@@ -440,6 +439,10 @@ type GeneratedValues struct {
 	// +optional
 	GrafanaSecretKey string            `json:"grafanaSecretKey"`
 	InboxServer      InboxServerValues `json:"inboxServer"`
+	// InstallerSecret used by hosted mode (prod and ninja)
+	// to generate and validate marketplace self-hosted installer options
+	// +optional
+	InstallerSecret string `json:"installerSecret,omitempty"`
 }
 
 type InboxServerValues struct {

@@ -126,8 +126,6 @@ properties:
     properties:
       adminPassword:
         type: string
-      apiSecret:
-        type: string
       backupPassword:
         type: string
       clusterCA:
@@ -198,6 +196,10 @@ properties:
           - adminJWTPrivateKey
         type: object
       installerName:
+        type: string
+      installerSecret:
+        description: InstallerSecret used by hosted mode (prod and ninja) to generate
+          and validate marketplace self-hosted installer options
         type: string
       jksPassword:
         description: JKS password is used to create keystore for s3proxy
@@ -312,7 +314,6 @@ properties:
       version:
         type: string
     required:
-      - apiSecret
       - deploymentType
       - inboxServer
       - installerName
