@@ -2,7 +2,7 @@
 - ghcr.io/appscode-charts/autoscalingkubedbcom-clickhouseautoscaler-editor:v0.10.0
 - ghcr.io/appscode-charts/autoscalingkubedbcom-druidautoscaler-editor:v0.10.0
 - ghcr.io/appscode-charts/autoscalingkubedbcom-elasticsearchautoscaler-editor:v0.10.0
-- ghcr.io/appscode-charts/autoscalingkubedbcom-etcdautoscaler-editor:v0.9.0
+- ghcr.io/appscode-charts/autoscalingkubedbcom-etcdautoscaler-editor:v0.10.0
 - ghcr.io/appscode-charts/autoscalingkubedbcom-ferretdbautoscaler-editor:v0.10.0
 - ghcr.io/appscode-charts/autoscalingkubedbcom-kafkaautoscaler-editor:v0.10.0
 - ghcr.io/appscode-charts/autoscalingkubedbcom-mariadbautoscaler-editor:v0.10.0
@@ -40,7 +40,7 @@
 - ghcr.io/appscode-charts/kubedbcom-druid-editor:v0.10.0
 - ghcr.io/appscode-charts/kubedbcom-elasticsearch-editor-options:v0.10.0
 - ghcr.io/appscode-charts/kubedbcom-elasticsearch-editor:v0.10.0
-- ghcr.io/appscode-charts/kubedbcom-etcd-editor:v0.9.0
+- ghcr.io/appscode-charts/kubedbcom-etcd-editor:v0.10.0
 - ghcr.io/appscode-charts/kubedbcom-ferretdb-editor-options:v0.10.0
 - ghcr.io/appscode-charts/kubedbcom-ferretdb-editor:v0.10.0
 - ghcr.io/appscode-charts/kubedbcom-kafka-editor-options:v0.10.0
@@ -79,7 +79,7 @@
 - ghcr.io/appscode-charts/opskubedbcom-clickhouseopsrequest-editor:v0.10.0
 - ghcr.io/appscode-charts/opskubedbcom-druidopsrequest-editor:v0.10.0
 - ghcr.io/appscode-charts/opskubedbcom-elasticsearchopsrequest-editor:v0.10.0
-- ghcr.io/appscode-charts/opskubedbcom-etcdopsrequest-editor:v0.9.0
+- ghcr.io/appscode-charts/opskubedbcom-etcdopsrequest-editor:v0.10.0
 - ghcr.io/appscode-charts/opskubedbcom-ferretdbopsrequest-editor:v0.10.0
 - ghcr.io/appscode-charts/opskubedbcom-kafkaopsrequest-editor:v0.10.0
 - ghcr.io/appscode-charts/opskubedbcom-mariadbopsrequest-editor:v0.10.0
@@ -103,5 +103,4 @@
 - ghcr.io/appscode-charts/storagekubestashcom-repository-editor-options:v0.10.0
 - ghcr.io/appscode-charts/storagekubestashcom-repository-editor:v0.10.0
 - ghcr.io/appscode-charts/storagekubestashcom-retentionpolicy-editor:v0.10.0
-- ghcr.io/appscode-charts/storagekubestashcom-snapshot-editor-options:v0.10.0
 - ghcr.io/appscode-charts/storagekubestashcom-snapshot-editor:v0.10.0

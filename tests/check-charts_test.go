@@ -18,88 +18,84 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
+	"strings"
 	"testing"
 
-	"go.bytebuilders.dev/installer/apis/installer/v1alpha1"
-
-	shell "gomodules.xyz/go-sh"
+	"k8s.io/apimachinery/pkg/util/sets"
+	"kmodules.xyz/image-packer/pkg/lib"
 	"sigs.k8s.io/yaml"
 )
 
-const ociReg = "oci://ghcr.io/appscode-charts/"
-
-func Test_checkVersions(t *testing.T) {
-	if err := checkAceInstallerVersions(); err != nil {
-		t.Errorf("checkVersions() error = %v", err)
-	}
-	if err := checkOpscenterFeaturesVersions(); err != nil {
-		t.Errorf("checkVersions() error = %v", err)
+func Test_checkImages(t *testing.T) {
+	if err := checkImages(); err != nil {
+		t.Errorf("checkImages() error = %v", err)
 	}
 }
 
-func checkAceInstallerVersions() error {
-	_, file, _, ok := runtime.Caller(1)
-	if !ok {
-		return errors.New("failed to locate opscenter-features/values.yaml")
-	}
-
-	data, err := os.ReadFile(filepath.Join(filepath.Dir(file), "../charts/ace-installer/values.yaml"))
+func checkImages() error {
+	dir, err := rootDir()
 	if err != nil {
 		return err
 	}
 
-	var spec v1alpha1.AceInstallerSpec
-	err = yaml.Unmarshal(data, &spec)
+	images, err := ListImages([]string{
+		filepath.Join(dir, "catalog", "ace.yaml"),
+		filepath.Join(dir, "catalog", "editor-charts.yaml"),
+		filepath.Join(dir, "catalog", "feature-charts.yaml"),
+		filepath.Join(dir, "catalog", "imagelist.yaml"),
+		filepath.Join(dir, "catalog", "reusable-ui-charts.yaml"),
+	})
 	if err != nil {
 		return err
 	}
 
-	sh := shell.NewSession()
-	sh.SetDir("/tmp")
-	sh.ShowCMD = true
-
-	for k, v := range spec.Helm.Releases {
-		// helm pull appscode/ace-installer --version=v2023.03.23
-		fullname := ociReg + k
-		err := sh.Command("helm", "pull", fullname, "--version", v.Version).Run()
-		if err != nil {
-			return err
+	var missing []string
+	for _, img := range images {
+		_, found, err := lib.ImageDigest(img)
+		if err != nil || !found {
+			missing = append(missing, img)
+			continue
 		}
+		fmt.Println("✔ " + img)
 	}
+
+	if len(missing) > 0 {
+		fmt.Println("----------------------------------------")
+		fmt.Println("Missing Images:")
+		fmt.Println(strings.Join(missing, "\n"))
+		return fmt.Errorf("missing %d images", len(missing))
+	}
+
 	return nil
 }
 
-func checkOpscenterFeaturesVersions() error {
+func ListImages(files []string) ([]string, error) {
+	imgs := sets.New[string]()
+	for _, filename := range files {
+		data, err := os.ReadFile(filename)
+		if err != nil {
+			return nil, err
+		}
+
+		var images []string
+		err = yaml.Unmarshal(data, &images)
+		if err != nil {
+			return nil, err
+		}
+		imgs.Insert(images...)
+	}
+	return sets.List(imgs), nil
+}
+
+func rootDir() (string, error) {
 	_, file, _, ok := runtime.Caller(1)
 	if !ok {
-		return errors.New("failed to locate opscenter-features/values.yaml")
+		return "", errors.New("failed to locate root dir")
 	}
 
-	data, err := os.ReadFile(filepath.Join(filepath.Dir(file), "../charts/opscenter-features/values.yaml"))
-	if err != nil {
-		return err
-	}
-
-	var spec v1alpha1.OpscenterFeaturesSpec
-	err = yaml.Unmarshal(data, &spec)
-	if err != nil {
-		return err
-	}
-
-	sh := shell.NewSession()
-	sh.SetDir("/tmp")
-	sh.ShowCMD = true
-
-	for k, v := range spec.Helm.Releases {
-		// helm pull appscode/ace-installer --version=v2023.03.23
-		fullname := ociReg + k
-		err := sh.Command("helm", "pull", fullname, "--version", v.Version).Run()
-		if err != nil {
-			return err
-		}
-	}
-	return nil
+	return filepath.Clean(filepath.Join(filepath.Dir(file), "..")), nil
 }
