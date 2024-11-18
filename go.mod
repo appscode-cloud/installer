@@ -5,7 +5,7 @@ go 1.22.7
 toolchain go1.23.2
 
 require (
-	go.bytebuilders.dev/catalog v0.0.9-0.20241110111745-dbbe35f56fb2
+	go.bytebuilders.dev/catalog v0.0.10-0.20241118142249-9eda162b62b0
 	go.bytebuilders.dev/resource-model v0.1.1-0.20241023004602-2c43ef3bb37b
 	go.bytebuilders.dev/ui-wizards v0.8.1-0.20241114122607-da73eb53788b
 	go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0
@@ -16,7 +16,7 @@ require (
 	kmodules.xyz/client-go v0.30.38
 	kmodules.xyz/image-packer v0.0.0-20241112111847-67230c1388dd
 	kmodules.xyz/objectstore-api v0.29.1
-	kmodules.xyz/resource-metadata v0.22.3
+	kmodules.xyz/resource-metadata v0.22.4
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
 	sigs.k8s.io/yaml v1.4.0
