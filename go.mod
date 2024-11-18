@@ -13,9 +13,10 @@ require (
 	k8s.io/api v0.30.2
 	k8s.io/apimachinery v0.30.2
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
-	kmodules.xyz/client-go v0.30.38-0.20241115070154-e3c282c80e9d
+	kmodules.xyz/client-go v0.30.38
+	kmodules.xyz/image-packer v0.0.0-20241112111847-67230c1388dd
 	kmodules.xyz/objectstore-api v0.29.1
-	kmodules.xyz/resource-metadata v0.21.0
+	kmodules.xyz/resource-metadata v0.22.3
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
 	sigs.k8s.io/yaml v1.4.0
@@ -31,7 +32,7 @@ require (
 	github.com/containerd/stargz-snapshotter/estargz v0.15.1 // indirect
 	github.com/cyphar/filepath-securejoin v0.2.5 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
-	github.com/docker/cli v27.0.3+incompatible // indirect
+	github.com/docker/cli v27.1.1+incompatible // indirect
 	github.com/docker/distribution v2.8.3+incompatible // indirect
 	github.com/docker/docker-credential-helpers v0.8.2 // indirect
 	github.com/emicklei/go-restful/v3 v3.12.1 // indirect
@@ -106,12 +107,13 @@ require (
 	k8s.io/client-go v0.30.2 // indirect
 	k8s.io/klog/v2 v2.130.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20240703190633-0aa61b46e8c2 // indirect
-	k8s.io/utils v0.0.0-20240502163921-fe8a2dddb1d0 // indirect
+	k8s.io/utils v0.0.0-20240711033017-18e509b52bc8 // indirect
 	kmodules.xyz/apiversion v0.2.0 // indirect
 	kmodules.xyz/go-containerregistry v0.0.12 // indirect
 	kmodules.xyz/monitoring-agent-api v0.30.3 // indirect
 	kmodules.xyz/offshoot-api v0.30.1 // indirect
 	kmodules.xyz/prober v0.29.0 // indirect
+	kubeops.dev/scanner v0.0.19 // indirect
 	kubestash.dev/apimachinery v0.13.0 // indirect
 	sigs.k8s.io/controller-runtime v0.18.4 // indirect
 	sigs.k8s.io/gateway-api v1.1.0 // indirect

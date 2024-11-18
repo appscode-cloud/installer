@@ -26,7 +26,7 @@ github.com/cyphar/filepath-securejoin
 # github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc
 ## explicit
 github.com/davecgh/go-spew/spew
-# github.com/docker/cli v27.0.3+incompatible
+# github.com/docker/cli v27.1.1+incompatible
 ## explicit
 github.com/docker/cli/cli/config
 github.com/docker/cli/cli/config/configfile
@@ -688,7 +688,7 @@ k8s.io/kube-openapi/pkg/schemaconv
 k8s.io/kube-openapi/pkg/spec3
 k8s.io/kube-openapi/pkg/util/proto
 k8s.io/kube-openapi/pkg/validation/spec
-# k8s.io/utils v0.0.0-20240502163921-fe8a2dddb1d0
+# k8s.io/utils v0.0.0-20240711033017-18e509b52bc8
 ## explicit; go 1.18
 k8s.io/utils/buffer
 k8s.io/utils/clock
@@ -702,7 +702,7 @@ k8s.io/utils/trace
 # kmodules.xyz/apiversion v0.2.0
 ## explicit; go 1.14
 kmodules.xyz/apiversion
-# kmodules.xyz/client-go v0.30.38-0.20241115070154-e3c282c80e9d
+# kmodules.xyz/client-go v0.30.38
 ## explicit; go 1.22.0
 kmodules.xyz/client-go
 kmodules.xyz/client-go/api/v1
@@ -716,6 +716,9 @@ kmodules.xyz/client-go/tools/parser
 # kmodules.xyz/go-containerregistry v0.0.12
 ## explicit; go 1.21.5
 kmodules.xyz/go-containerregistry/name
+# kmodules.xyz/image-packer v0.0.0-20241112111847-67230c1388dd
+## explicit; go 1.22.1
+kmodules.xyz/image-packer/pkg/lib
 # kmodules.xyz/monitoring-agent-api v0.30.3
 ## explicit; go 1.22.0
 kmodules.xyz/monitoring-agent-api/api/v1
@@ -728,7 +731,7 @@ kmodules.xyz/offshoot-api/api/v1
 # kmodules.xyz/prober v0.29.0
 ## explicit; go 1.21.5
 kmodules.xyz/prober/api/v1
-# kmodules.xyz/resource-metadata v0.21.0
+# kmodules.xyz/resource-metadata v0.22.3
 ## explicit; go 1.22.1
 kmodules.xyz/resource-metadata/apis/shared
 kmodules.xyz/resource-metadata/apis/ui
@@ -741,6 +744,9 @@ kmodules.xyz/schema-checker
 ## explicit; go 1.22.0
 kubeops.dev/external-dns-operator/apis/external
 kubeops.dev/external-dns-operator/apis/external/v1alpha1
+# kubeops.dev/scanner v0.0.19
+## explicit; go 1.22.1
+kubeops.dev/scanner/apis/trivy
 # kubestash.dev/apimachinery v0.13.0
 ## explicit; go 1.22.0
 kubestash.dev/apimachinery/apis
