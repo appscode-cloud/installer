@@ -18,7 +18,7 @@ gatewayClass:
 
 infra:
   host: chart-example.local
-  hostType: oo
+  hostType: domain
   tls:
     issuer: "ca" # ca,letsencrypt,letsencrypt-staging,external
     ca:
