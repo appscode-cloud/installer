@@ -48,8 +48,16 @@ spec:
                     securityContext:
                       {{- toYaml .Values.envoy.securityContext | nindent 22 }}
 
-    {{- if eq .Values.infra.hostType "domain" }}
       envoyService:
+        {{- if eq .Values.infra.hostType "domain" }}
         annotations:
           external-dns.alpha.kubernetes.io/hostname: {{ include "gateway.domain" . }}
-    {{- end }}
+        {{- end }}
+        externalTrafficPolicy: {{ .Values.envoy.service.externalTrafficPolicy }}
+        {{- if .Values.envoy.service.externalIPs }}
+        patch:
+          value:
+            spec:
+              externalIPs: {{- toYaml .Values.envoy.service.externalIPs | nindent 14 }}
+        {{- end }}
+        type: {{ .Values.envoy.service.type }}

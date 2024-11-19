@@ -191,6 +191,16 @@ properties:
         type: object
       service:
         properties:
+          externalIPs:
+            items:
+              type: string
+            type: array
+          externalTrafficPolicy:
+            default: Cluster
+            enum:
+            - Local
+            - Cluster
+            type: string
           nodeportRange:
             default: 30000-32767
             type: string
@@ -201,10 +211,19 @@ properties:
             default: 8080
             format: int32
             type: integer
+          type:
+            default: LoadBalancer
+            enum:
+            - ClusterIP
+            - LoadBalancer
+            - NodePort
+            type: string
         required:
+        - externalTrafficPolicy
         - nodeportRange
         - portRange
         - seedBackendPort
+        - type
         type: object
       tag:
         type: string

@@ -79,6 +79,9 @@ envoy:
     portRange: "10000-12767"
     # Default node portmanager range to use for gateway exposure
     nodeportRange: "30000-32767"
+    type: LoadBalancer # ClusterIP, LoadBalancer, NodePort
+    externalTrafficPolicy: Cluster
+    # externalIPs: []
   securityContext: # +doc-gen:break
     allowPrivilegeEscalation: false
     capabilities:
