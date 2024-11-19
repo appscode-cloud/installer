@@ -219,7 +219,6 @@ properties:
             - NodePort
             type: string
         required:
-        - externalIPs
         - externalTrafficPolicy
         - nodeportRange
         - portRange
