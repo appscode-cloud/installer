@@ -8,7 +8,7 @@ spec:
   listeners:
     - name: http
       protocol: HTTP
-    {{- if (eq .Values.infra.tls.acme.solver "Gateway") }}
+    {{- if and (or (eq .Values.infra.tls.issuer "letsencrypt") (eq .Values.infra.tls.issuer "letsencrypt-staging")) (eq .Values.infra.tls.acme.solver "Gateway") }}
       port: 80
     {{- else }}
       port: {{ .Values.envoy.service.seedBackendPort }}
