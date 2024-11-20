@@ -39,12 +39,12 @@
 - ghcr.io/appscode-charts/kube-grafana-dashboards:v2023.10.1
 - ghcr.io/appscode-charts/kube-prometheus-stack:61.8.0
 - ghcr.io/appscode-charts/kube-ui-server:v2024.11.18
-- ghcr.io/appscode-charts/kubedb-opscenter:v2024.9.30
+- ghcr.io/appscode-charts/kubedb-opscenter:v2024.11.18
 - ghcr.io/appscode-charts/kubedb-provider-aws:v2024.1.31
 - ghcr.io/appscode-charts/kubedb-provider-azure:v2024.1.31
 - ghcr.io/appscode-charts/kubedb-provider-gcp:v2024.1.31
 - ghcr.io/appscode-charts/kubedb-ui-presets:v2024.11.18
-- ghcr.io/appscode-charts/kubedb:v2024.11.8-rc.0
+- ghcr.io/appscode-charts/kubedb:v2024.11.18
 - ghcr.io/appscode-charts/kubestash:v2024.9.30
 - ghcr.io/appscode-charts/kubevault-opscenter:v2024.9.30
 - ghcr.io/appscode-charts/kubevault:v2024.9.30

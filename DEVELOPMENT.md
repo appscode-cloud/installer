@@ -30,5 +30,7 @@ image-packer generate-gcp-script --allow-nondistributable-artifacts \
     --output-dir=catalog \
     --src=catalog/ace.yaml
 
+image-packer ace-up --dir=catalog
+
 make add-license fmt
 ```
