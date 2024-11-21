@@ -218,6 +218,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/se
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver:1.4.1 $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver:1.4.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-backend:v2024.11.18 $IMAGE_REGISTRY/appscode-charts/service-backend:v2024.11.18
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway-presets:v2024.11.18 $IMAGE_REGISTRY/appscode-charts/service-gateway-presets:v2024.11.18
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway:v2024.11.18 $IMAGE_REGISTRY/appscode-charts/service-gateway:v2024.11.18
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-provider:v2024.11.18 $IMAGE_REGISTRY/appscode-charts/service-provider:v2024.11.18
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sidekick:v2024.11.8 $IMAGE_REGISTRY/appscode-charts/sidekick:v2024.11.8
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/snapshot-controller:3.0.5 $IMAGE_REGISTRY/appscode-charts/snapshot-controller:3.0.5
@@ -279,8 +280,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/va
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2024.8.30 $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2024.8.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2024.8.30 $IMAGE_REGISTRY/appscode-charts/voyager:v2024.8.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.21-alpine $IMAGE_REGISTRY/appscode-images/nats:2.10.21-alpine
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:16.4-bookworm $IMAGE_REGISTRY/appscode-images/postgres:16.4-bookworm
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.4.0-bookworm $IMAGE_REGISTRY/appscode-images/redis:7.4.0-bookworm
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:16.4-alpine $IMAGE_REGISTRY/appscode-images/postgres:16.4-alpine
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/aceshifter:v0.0.1 $IMAGE_REGISTRY/appscode/aceshifter:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/b3:v2024.11.18 $IMAGE_REGISTRY/appscode/b3:v2024.11.18
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 $IMAGE_REGISTRY/appscode/capa-vpc-peering-operator:v0.0.4
@@ -353,7 +354,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-sche
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ui-server:v0.25.0 $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.25.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.25.0 $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.25.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/pg-coordinator:v0.33.0 $IMAGE_REGISTRY/kubedb/pg-coordinator:v0.33.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-archiver:v0.10.0_11.22-alpine $IMAGE_REGISTRY/kubedb/postgres-archiver:v0.10.0_11.22-alpine
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-archiver:v0.10.0_16.1-alpine $IMAGE_REGISTRY/kubedb/postgres-archiver:v0.10.0_16.1-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-init:0.16.0 $IMAGE_REGISTRY/kubedb/postgres-init:0.16.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-restic-plugin:v0.12.0_16.1 $IMAGE_REGISTRY/kubedb/postgres-restic-plugin:v0.12.0_16.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis-coordinator:v0.28.0 $IMAGE_REGISTRY/kubedb/redis-coordinator:v0.28.0

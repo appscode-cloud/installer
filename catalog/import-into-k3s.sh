@@ -207,6 +207,7 @@ k3s ctr images import images/appscode-charts-secrets-store-csi-driver-provider-g
 k3s ctr images import images/appscode-charts-secrets-store-csi-driver-1.4.1.tar
 k3s ctr images import images/appscode-charts-service-backend-v2024.11.18.tar
 k3s ctr images import images/appscode-charts-service-gateway-presets-v2024.11.18.tar
+k3s ctr images import images/appscode-charts-service-gateway-v2024.11.18.tar
 k3s ctr images import images/appscode-charts-service-provider-v2024.11.18.tar
 k3s ctr images import images/appscode-charts-sidekick-v2024.11.8.tar
 k3s ctr images import images/appscode-charts-snapshot-controller-3.0.5.tar
@@ -268,8 +269,8 @@ k3s ctr images import images/appscode-charts-vault-0.27.0.tar
 k3s ctr images import images/appscode-charts-voyager-gateway-v2024.8.30.tar
 k3s ctr images import images/appscode-charts-voyager-v2024.8.30.tar
 k3s ctr images import images/appscode-images-nats-2.10.21-alpine.tar
-k3s ctr images import images/appscode-images-postgres-16.4-bookworm.tar
-k3s ctr images import images/appscode-images-redis-7.4.0-bookworm.tar
+k3s ctr images import images/appscode-images-postgres-16.4-alpine.tar
+k3s ctr images import images/appscode-images-redis-7.2.4-bookworm.tar
 k3s ctr images import images/appscode-aceshifter-v0.0.1.tar
 k3s ctr images import images/appscode-b3-v2024.11.18.tar
 k3s ctr images import images/appscode-capa-vpc-peering-operator-v0.0.4.tar
@@ -342,7 +343,7 @@ k3s ctr images import images/kubedb-kubedb-schema-manager-v0.25.0.tar
 k3s ctr images import images/kubedb-kubedb-ui-server-v0.25.0.tar
 k3s ctr images import images/kubedb-kubedb-webhook-server-v0.25.0.tar
 k3s ctr images import images/kubedb-pg-coordinator-v0.33.0.tar
-k3s ctr images import images/kubedb-postgres-archiver-v0.10.0_11.22-alpine.tar
+k3s ctr images import images/kubedb-postgres-archiver-v0.10.0_16.1-alpine.tar
 k3s ctr images import images/kubedb-postgres-init-0.16.0.tar
 k3s ctr images import images/kubedb-postgres-restic-plugin-v0.12.0_16.1.tar
 k3s ctr images import images/kubedb-redis-coordinator-v0.28.0.tar

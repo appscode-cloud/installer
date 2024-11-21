@@ -222,7 +222,7 @@ global:
 
 settings:
   db:
-    version: "15.5"
+    version: "16.4"
     databaseName: bb
     deletionPolicy: Delete
     persistence:

@@ -9,6 +9,8 @@ image-packer list --root-dir=charts --output-dir=catalog
 
 image-packer list-feature-charts --root-dir=charts --output-dir=catalog
 
+image-packer ace-up --dir=.
+
 image-packer list-editor-charts \
     --output-dir=catalog \
     --apiGroup=autoscaling.kubedb.com \
@@ -29,8 +31,6 @@ image-packer generate-scripts --insecure --allow-nondistributable-artifacts \
 image-packer generate-gcp-script --allow-nondistributable-artifacts \
     --output-dir=catalog \
     --src=catalog/ace.yaml
-
-image-packer ace-up --dir=catalog
 
 make add-license fmt
 ```

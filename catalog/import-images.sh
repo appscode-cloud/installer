@@ -209,6 +209,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-s
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-secrets-store-csi-driver-1.4.1.tar $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver:1.4.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-backend-v2024.11.18.tar $IMAGE_REGISTRY/appscode-charts/service-backend:v2024.11.18
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-gateway-presets-v2024.11.18.tar $IMAGE_REGISTRY/appscode-charts/service-gateway-presets:v2024.11.18
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-gateway-v2024.11.18.tar $IMAGE_REGISTRY/appscode-charts/service-gateway:v2024.11.18
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-provider-v2024.11.18.tar $IMAGE_REGISTRY/appscode-charts/service-provider:v2024.11.18
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-sidekick-v2024.11.8.tar $IMAGE_REGISTRY/appscode-charts/sidekick:v2024.11.8
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-snapshot-controller-3.0.5.tar $IMAGE_REGISTRY/appscode-charts/snapshot-controller:3.0.5
@@ -270,8 +271,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-v
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-gateway-v2024.8.30.tar $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2024.8.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-v2024.8.30.tar $IMAGE_REGISTRY/appscode-charts/voyager:v2024.8.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-nats-2.10.21-alpine.tar $IMAGE_REGISTRY/appscode-images/nats:2.10.21-alpine
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-postgres-16.4-bookworm.tar $IMAGE_REGISTRY/appscode-images/postgres:16.4-bookworm
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-redis-7.4.0-bookworm.tar $IMAGE_REGISTRY/appscode-images/redis:7.4.0-bookworm
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-postgres-16.4-alpine.tar $IMAGE_REGISTRY/appscode-images/postgres:16.4-alpine
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-redis-7.2.4-bookworm.tar $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-aceshifter-v0.0.1.tar $IMAGE_REGISTRY/appscode/aceshifter:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-b3-v2024.11.18.tar $IMAGE_REGISTRY/appscode/b3:v2024.11.18
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-capa-vpc-peering-operator-v0.0.4.tar $IMAGE_REGISTRY/appscode/capa-vpc-peering-operator:v0.0.4
@@ -344,7 +345,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-sch
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ui-server-v0.25.0.tar $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.25.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-webhook-server-v0.25.0.tar $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.25.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-pg-coordinator-v0.33.0.tar $IMAGE_REGISTRY/kubedb/pg-coordinator:v0.33.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-postgres-archiver-v0.10.0_11.22-alpine.tar $IMAGE_REGISTRY/kubedb/postgres-archiver:v0.10.0_11.22-alpine
+$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-postgres-archiver-v0.10.0_16.1-alpine.tar $IMAGE_REGISTRY/kubedb/postgres-archiver:v0.10.0_16.1-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-postgres-init-0.16.0.tar $IMAGE_REGISTRY/kubedb/postgres-init:0.16.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-postgres-restic-plugin-v0.12.0_16.1.tar $IMAGE_REGISTRY/kubedb/postgres-restic-plugin:v0.12.0_16.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-redis-coordinator-v0.28.0.tar $IMAGE_REGISTRY/kubedb/redis-coordinator:v0.28.0
