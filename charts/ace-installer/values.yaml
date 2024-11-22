@@ -134,6 +134,9 @@ helm:
     vcluster:
       enabled: false
       version: "0.20.0"
+    vcluster-plugin:
+      enabled: false
+      version: "v0.0.2"
 
 # controls the self management of the ace cluster
 selfManagement:
