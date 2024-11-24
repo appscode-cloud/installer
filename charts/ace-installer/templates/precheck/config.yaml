@@ -21,7 +21,7 @@ stringData:
   options.yaml: |
     version: {{ .Chart.AppVersion }}
     # https://github.com/appscode-cloud/installer/blob/9dda4240d61d836cea9e24a55c71e2ac81dd85bd/apis/installer/v1alpha1/ace_options_types.go#L110
-    hostType: {{ ternary "ip" "domain" (eq (dig "releases" "ace" "values" "global" "infra" "dns" "provider" "none" .Values.helm) "none" }}
+    hostType: {{ ternary "ip" "domain" (eq (dig "releases" "ace" "values" "global" "infra" "dns" "provider" "none" .Values.helm) "none") }}
     {{- with $licenses }}
     licenses: {{ . | toJson }}
     {{- end }}
