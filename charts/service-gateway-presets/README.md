@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/service-gateway-presets --version=v2024.11.18
-$ helm upgrade -i service-gateway-presets appscode/service-gateway-presets -n ace --create-namespace --version=v2024.11.18
+$ helm search repo appscode/service-gateway-presets --version=v2024.12.9
+$ helm upgrade -i service-gateway-presets appscode/service-gateway-presets -n ace --create-namespace --version=v2024.12.9
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys ACE Service Gateway Presets on a [Kubernetes](http://kubernet
 To install/upgrade the chart with the release name `service-gateway-presets`:
 
 ```bash
-$ helm upgrade -i service-gateway-presets appscode/service-gateway-presets -n ace --create-namespace --version=v2024.11.18
+$ helm upgrade -i service-gateway-presets appscode/service-gateway-presets -n ace --create-namespace --version=v2024.12.9
 ```
 
 The command deploys ACE Service Gateway Presets on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -87,7 +87,7 @@ The following table lists the configurable parameters of the `service-gateway-pr
 | chart.name                                         |                                                                | <code>service-gateway</code>                                                                                                                                                                                      |
 | chart.namespace                                    |                                                                | <code>ace</code>                                                                                                                                                                                                  |
 | chart.createNamespace                              |                                                                | <code>true</code>                                                                                                                                                                                                 |
-| chart.version                                      |                                                                | <code>"v2024.11.18"</code>                                                                                                                                                                                        |
+| chart.version                                      |                                                                | <code>"v2024.12.9"</code>                                                                                                                                                                                         |
 | chart.sourceRef.kind                               |                                                                | <code>HelmRepository</code>                                                                                                                                                                                       |
 | chart.sourceRef.name                               |                                                                | <code>appscode-charts-oci</code>                                                                                                                                                                                  |
 | chart.sourceRef.namespace                          |                                                                | <code>kubeops</code>                                                                                                                                                                                              |
@@ -96,12 +96,12 @@ The following table lists the configurable parameters of the `service-gateway-pr
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i service-gateway-presets appscode/service-gateway-presets -n ace --create-namespace --version=v2024.11.18 --set infra.host=chart-example.local
+$ helm upgrade -i service-gateway-presets appscode/service-gateway-presets -n ace --create-namespace --version=v2024.12.9 --set infra.host=chart-example.local
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i service-gateway-presets appscode/service-gateway-presets -n ace --create-namespace --version=v2024.11.18 --values values.yaml
+$ helm upgrade -i service-gateway-presets appscode/service-gateway-presets -n ace --create-namespace --version=v2024.12.9 --values values.yaml
 ```
