@@ -65,7 +65,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-c
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-capi-ops-manager-v2024.8.14.tar $IMAGE_REGISTRY/appscode-charts/capi-ops-manager:v2024.8.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-catalog-manager-v2024.12.9.tar $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2024.12.9
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.10.17.tar $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cert-manager-v1.15.2.tar $IMAGE_REGISTRY/appscode-charts/cert-manager:v1.15.2
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cert-manager-v1.15.4.tar $IMAGE_REGISTRY/appscode-charts/cert-manager:v1.15.4
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-chartsxhelmdev-chartpreset-editor-v0.11.0.tar $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-chartpreset-editor:v0.11.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-chartsxhelmdev-clusterchartpreset-editor-options-v0.11.0.tar $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.11.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-chartsxhelmdev-clusterchartpreset-editor-v0.11.0.tar $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-clusterchartpreset-editor:v0.11.0
@@ -374,11 +374,11 @@ $CMD push --allow-nondistributable-artifacts --insecure images/natsio-prometheus
 $CMD push --allow-nondistributable-artifacts --insecure images/openpolicyagent-gatekeeper-v3.13.3.tar $IMAGE_REGISTRY/openpolicyagent/gatekeeper:v3.13.3
 $CMD push --allow-nondistributable-artifacts --insecure images/opensearchproject-opensearch-2.1.0.tar $IMAGE_REGISTRY/opensearchproject/opensearch:2.1.0
 $CMD push --allow-nondistributable-artifacts --insecure images/prometheuscommunity-postgres-exporter-v0.15.0.tar $IMAGE_REGISTRY/prometheuscommunity/postgres-exporter:v0.15.0
-$CMD push --allow-nondistributable-artifacts --insecure images/jetstack-cert-manager-acmesolver-v1.15.2.tar $IMAGE_REGISTRY/jetstack/cert-manager-acmesolver:v1.15.2
-$CMD push --allow-nondistributable-artifacts --insecure images/jetstack-cert-manager-cainjector-v1.15.2.tar $IMAGE_REGISTRY/jetstack/cert-manager-cainjector:v1.15.2
-$CMD push --allow-nondistributable-artifacts --insecure images/jetstack-cert-manager-controller-v1.15.2.tar $IMAGE_REGISTRY/jetstack/cert-manager-controller:v1.15.2
-$CMD push --allow-nondistributable-artifacts --insecure images/jetstack-cert-manager-startupapicheck-v1.15.2.tar $IMAGE_REGISTRY/jetstack/cert-manager-startupapicheck:v1.15.2
-$CMD push --allow-nondistributable-artifacts --insecure images/jetstack-cert-manager-webhook-v1.15.2.tar $IMAGE_REGISTRY/jetstack/cert-manager-webhook:v1.15.2
+$CMD push --allow-nondistributable-artifacts --insecure images/jetstack-cert-manager-acmesolver-v1.15.4.tar $IMAGE_REGISTRY/jetstack/cert-manager-acmesolver:v1.15.4
+$CMD push --allow-nondistributable-artifacts --insecure images/jetstack-cert-manager-cainjector-v1.15.4.tar $IMAGE_REGISTRY/jetstack/cert-manager-cainjector:v1.15.4
+$CMD push --allow-nondistributable-artifacts --insecure images/jetstack-cert-manager-controller-v1.15.4.tar $IMAGE_REGISTRY/jetstack/cert-manager-controller:v1.15.4
+$CMD push --allow-nondistributable-artifacts --insecure images/jetstack-cert-manager-startupapicheck-v1.15.4.tar $IMAGE_REGISTRY/jetstack/cert-manager-startupapicheck:v1.15.4
+$CMD push --allow-nondistributable-artifacts --insecure images/jetstack-cert-manager-webhook-v1.15.4.tar $IMAGE_REGISTRY/jetstack/cert-manager-webhook:v1.15.4
 $CMD push --allow-nondistributable-artifacts --insecure images/prometheus-operator-prometheus-config-reloader-v0.75.2.tar $IMAGE_REGISTRY/prometheus-operator/prometheus-config-reloader:v0.75.2
 $CMD push --allow-nondistributable-artifacts --insecure images/prometheus-operator-prometheus-operator-v0.75.2.tar $IMAGE_REGISTRY/prometheus-operator/prometheus-operator:v0.75.2
 $CMD push --allow-nondistributable-artifacts --insecure images/prometheus-alertmanager-v0.27.0.tar $IMAGE_REGISTRY/prometheus/alertmanager:v0.27.0
