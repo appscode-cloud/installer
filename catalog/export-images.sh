@@ -71,7 +71,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-ops-manager:v2024.8.14 images/appscode-charts-capi-ops-manager-v2024.8.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/catalog-manager:v2024.12.9 images/appscode-charts-catalog-manager-v2024.12.9.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17 images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.10.17.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager:v1.15.2 images/appscode-charts-cert-manager-v1.15.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager:v1.15.4 images/appscode-charts-cert-manager-v1.15.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-chartpreset-editor:v0.11.0 images/appscode-charts-chartsxhelmdev-chartpreset-editor-v0.11.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.11.0 images/appscode-charts-chartsxhelmdev-clusterchartpreset-editor-options-v0.11.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-clusterchartpreset-editor:v0.11.0 images/appscode-charts-chartsxhelmdev-clusterchartpreset-editor-v0.11.0.tar
@@ -380,11 +380,11 @@ $CMD pull --allow-nondistributable-artifacts --insecure natsio/prometheus-nats-e
 $CMD pull --allow-nondistributable-artifacts --insecure openpolicyagent/gatekeeper:v3.13.3 images/openpolicyagent-gatekeeper-v3.13.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure opensearchproject/opensearch:2.1.0 images/opensearchproject-opensearch-2.1.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure prometheuscommunity/postgres-exporter:v0.15.0 images/prometheuscommunity-postgres-exporter-v0.15.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-acmesolver:v1.15.2 images/jetstack-cert-manager-acmesolver-v1.15.2.tar
-$CMD pull --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-cainjector:v1.15.2 images/jetstack-cert-manager-cainjector-v1.15.2.tar
-$CMD pull --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-controller:v1.15.2 images/jetstack-cert-manager-controller-v1.15.2.tar
-$CMD pull --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-startupapicheck:v1.15.2 images/jetstack-cert-manager-startupapicheck-v1.15.2.tar
-$CMD pull --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-webhook:v1.15.2 images/jetstack-cert-manager-webhook-v1.15.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-acmesolver:v1.15.4 images/jetstack-cert-manager-acmesolver-v1.15.4.tar
+$CMD pull --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-cainjector:v1.15.4 images/jetstack-cert-manager-cainjector-v1.15.4.tar
+$CMD pull --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-controller:v1.15.4 images/jetstack-cert-manager-controller-v1.15.4.tar
+$CMD pull --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-startupapicheck:v1.15.4 images/jetstack-cert-manager-startupapicheck-v1.15.4.tar
+$CMD pull --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-webhook:v1.15.4 images/jetstack-cert-manager-webhook-v1.15.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure quay.io/prometheus-operator/prometheus-config-reloader:v0.75.2 images/prometheus-operator-prometheus-config-reloader-v0.75.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure quay.io/prometheus-operator/prometheus-operator:v0.75.2 images/prometheus-operator-prometheus-operator-v0.75.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure quay.io/prometheus/alertmanager:v0.27.0 images/prometheus-alertmanager-v0.27.0.tar

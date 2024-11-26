@@ -74,7 +74,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ca
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-ops-manager:v2024.8.14 $IMAGE_REGISTRY/appscode-charts/capi-ops-manager:v2024.8.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/catalog-manager:v2024.12.9 $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2024.12.9
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17 $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager:v1.15.2 $IMAGE_REGISTRY/appscode-charts/cert-manager:v1.15.2
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager:v1.15.4 $IMAGE_REGISTRY/appscode-charts/cert-manager:v1.15.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-chartpreset-editor:v0.11.0 $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-chartpreset-editor:v0.11.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.11.0 $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.11.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-clusterchartpreset-editor:v0.11.0 $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-clusterchartpreset-editor:v0.11.0
@@ -383,11 +383,11 @@ $CMD cp --allow-nondistributable-artifacts --insecure natsio/prometheus-nats-exp
 $CMD cp --allow-nondistributable-artifacts --insecure openpolicyagent/gatekeeper:v3.13.3 $IMAGE_REGISTRY/openpolicyagent/gatekeeper:v3.13.3
 $CMD cp --allow-nondistributable-artifacts --insecure opensearchproject/opensearch:2.1.0 $IMAGE_REGISTRY/opensearchproject/opensearch:2.1.0
 $CMD cp --allow-nondistributable-artifacts --insecure prometheuscommunity/postgres-exporter:v0.15.0 $IMAGE_REGISTRY/prometheuscommunity/postgres-exporter:v0.15.0
-$CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-acmesolver:v1.15.2 $IMAGE_REGISTRY/jetstack/cert-manager-acmesolver:v1.15.2
-$CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-cainjector:v1.15.2 $IMAGE_REGISTRY/jetstack/cert-manager-cainjector:v1.15.2
-$CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-controller:v1.15.2 $IMAGE_REGISTRY/jetstack/cert-manager-controller:v1.15.2
-$CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-startupapicheck:v1.15.2 $IMAGE_REGISTRY/jetstack/cert-manager-startupapicheck:v1.15.2
-$CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-webhook:v1.15.2 $IMAGE_REGISTRY/jetstack/cert-manager-webhook:v1.15.2
+$CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-acmesolver:v1.15.4 $IMAGE_REGISTRY/jetstack/cert-manager-acmesolver:v1.15.4
+$CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-cainjector:v1.15.4 $IMAGE_REGISTRY/jetstack/cert-manager-cainjector:v1.15.4
+$CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-controller:v1.15.4 $IMAGE_REGISTRY/jetstack/cert-manager-controller:v1.15.4
+$CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-startupapicheck:v1.15.4 $IMAGE_REGISTRY/jetstack/cert-manager-startupapicheck:v1.15.4
+$CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-webhook:v1.15.4 $IMAGE_REGISTRY/jetstack/cert-manager-webhook:v1.15.4
 $CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus-operator/prometheus-config-reloader:v0.75.2 $IMAGE_REGISTRY/prometheus-operator/prometheus-config-reloader:v0.75.2
 $CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus-operator/prometheus-operator:v0.75.2 $IMAGE_REGISTRY/prometheus-operator/prometheus-operator:v0.75.2
 $CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus/alertmanager:v0.27.0 $IMAGE_REGISTRY/prometheus/alertmanager:v0.27.0

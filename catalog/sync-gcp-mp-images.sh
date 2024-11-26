@@ -138,11 +138,11 @@ crane cp --allow-nondistributable-artifacts natsio/prometheus-nats-exporter:0.15
 crane cp --allow-nondistributable-artifacts openpolicyagent/gatekeeper:v3.13.3 $IMAGE_REGISTRY/gatekeeper:$TAG
 crane cp --allow-nondistributable-artifacts opensearchproject/opensearch:2.1.0 $IMAGE_REGISTRY/opensearch:$TAG
 crane cp --allow-nondistributable-artifacts prometheuscommunity/postgres-exporter:v0.15.0 $IMAGE_REGISTRY/postgres-exporter:$TAG
-crane cp --allow-nondistributable-artifacts quay.io/jetstack/cert-manager-acmesolver:v1.15.2 $IMAGE_REGISTRY/cert-manager-acmesolver:$TAG
-crane cp --allow-nondistributable-artifacts quay.io/jetstack/cert-manager-cainjector:v1.15.2 $IMAGE_REGISTRY/cert-manager-cainjector:$TAG
-crane cp --allow-nondistributable-artifacts quay.io/jetstack/cert-manager-controller:v1.15.2 $IMAGE_REGISTRY/cert-manager-controller:$TAG
-crane cp --allow-nondistributable-artifacts quay.io/jetstack/cert-manager-startupapicheck:v1.15.2 $IMAGE_REGISTRY/cert-manager-startupapicheck:$TAG
-crane cp --allow-nondistributable-artifacts quay.io/jetstack/cert-manager-webhook:v1.15.2 $IMAGE_REGISTRY/cert-manager-webhook:$TAG
+crane cp --allow-nondistributable-artifacts quay.io/jetstack/cert-manager-acmesolver:v1.15.4 $IMAGE_REGISTRY/cert-manager-acmesolver:$TAG
+crane cp --allow-nondistributable-artifacts quay.io/jetstack/cert-manager-cainjector:v1.15.4 $IMAGE_REGISTRY/cert-manager-cainjector:$TAG
+crane cp --allow-nondistributable-artifacts quay.io/jetstack/cert-manager-controller:v1.15.4 $IMAGE_REGISTRY/cert-manager-controller:$TAG
+crane cp --allow-nondistributable-artifacts quay.io/jetstack/cert-manager-startupapicheck:v1.15.4 $IMAGE_REGISTRY/cert-manager-startupapicheck:$TAG
+crane cp --allow-nondistributable-artifacts quay.io/jetstack/cert-manager-webhook:v1.15.4 $IMAGE_REGISTRY/cert-manager-webhook:$TAG
 crane cp --allow-nondistributable-artifacts quay.io/prometheus-operator/prometheus-config-reloader:v0.75.2 $IMAGE_REGISTRY/prometheus-config-reloader:$TAG
 crane cp --allow-nondistributable-artifacts quay.io/prometheus/alertmanager:v0.27.0 $IMAGE_REGISTRY/alertmanager:$TAG
 crane cp --allow-nondistributable-artifacts quay.io/prometheus/node-exporter:v1.8.2 $IMAGE_REGISTRY/prometheus-node-exporter:$TAG

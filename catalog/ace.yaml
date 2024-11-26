@@ -113,11 +113,11 @@
 - openpolicyagent/gatekeeper:v3.13.3
 - opensearchproject/opensearch:2.1.0
 - prometheuscommunity/postgres-exporter:v0.15.0
-- quay.io/jetstack/cert-manager-acmesolver:v1.15.2
-- quay.io/jetstack/cert-manager-cainjector:v1.15.2
-- quay.io/jetstack/cert-manager-controller:v1.15.2
-- quay.io/jetstack/cert-manager-startupapicheck:v1.15.2
-- quay.io/jetstack/cert-manager-webhook:v1.15.2
+- quay.io/jetstack/cert-manager-acmesolver:v1.15.4
+- quay.io/jetstack/cert-manager-cainjector:v1.15.4
+- quay.io/jetstack/cert-manager-controller:v1.15.4
+- quay.io/jetstack/cert-manager-startupapicheck:v1.15.4
+- quay.io/jetstack/cert-manager-webhook:v1.15.4
 - quay.io/prometheus-operator/prometheus-config-reloader:v0.75.2
 - quay.io/prometheus-operator/prometheus-operator:v0.75.2
 - quay.io/prometheus/alertmanager:v0.27.0

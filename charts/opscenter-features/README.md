@@ -74,7 +74,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.capi-catalog.version                          |                                 | <code>"v2024.10.24"</code>                 |
 | helm.releases.capi-ops-manager.version                      |                                 | <code>"v2024.8.14"</code>                  |
 | helm.releases.catalog-manager.version                       |                                 | <code>"v2024.12.9"</code>                  |
-| helm.releases.cert-manager.version                          |                                 | <code>"v1.15.2"</code>                     |
+| helm.releases.cert-manager.version                          |                                 | <code>"v1.15.4"</code>                     |
 | helm.releases.cert-manager-csi-driver-cacerts.version       |                                 | <code>"v2024.10.17"</code>                 |
 | helm.releases.cluster-autoscaler.version                    |                                 | <code>"9.29.0"</code>                      |
 | helm.releases.cluster-presets.version                       |                                 | <code>"v2024.12.9"</code>                  |

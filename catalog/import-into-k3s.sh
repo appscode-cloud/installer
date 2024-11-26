@@ -63,7 +63,7 @@ k3s ctr images import images/appscode-charts-capi-catalog-v2024.10.24.tar
 k3s ctr images import images/appscode-charts-capi-ops-manager-v2024.8.14.tar
 k3s ctr images import images/appscode-charts-catalog-manager-v2024.12.9.tar
 k3s ctr images import images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.10.17.tar
-k3s ctr images import images/appscode-charts-cert-manager-v1.15.2.tar
+k3s ctr images import images/appscode-charts-cert-manager-v1.15.4.tar
 k3s ctr images import images/appscode-charts-chartsxhelmdev-chartpreset-editor-v0.11.0.tar
 k3s ctr images import images/appscode-charts-chartsxhelmdev-clusterchartpreset-editor-options-v0.11.0.tar
 k3s ctr images import images/appscode-charts-chartsxhelmdev-clusterchartpreset-editor-v0.11.0.tar
@@ -372,11 +372,11 @@ k3s ctr images import images/natsio-prometheus-nats-exporter-0.15.0.tar
 k3s ctr images import images/openpolicyagent-gatekeeper-v3.13.3.tar
 k3s ctr images import images/opensearchproject-opensearch-2.1.0.tar
 k3s ctr images import images/prometheuscommunity-postgres-exporter-v0.15.0.tar
-k3s ctr images import images/jetstack-cert-manager-acmesolver-v1.15.2.tar
-k3s ctr images import images/jetstack-cert-manager-cainjector-v1.15.2.tar
-k3s ctr images import images/jetstack-cert-manager-controller-v1.15.2.tar
-k3s ctr images import images/jetstack-cert-manager-startupapicheck-v1.15.2.tar
-k3s ctr images import images/jetstack-cert-manager-webhook-v1.15.2.tar
+k3s ctr images import images/jetstack-cert-manager-acmesolver-v1.15.4.tar
+k3s ctr images import images/jetstack-cert-manager-cainjector-v1.15.4.tar
+k3s ctr images import images/jetstack-cert-manager-controller-v1.15.4.tar
+k3s ctr images import images/jetstack-cert-manager-startupapicheck-v1.15.4.tar
+k3s ctr images import images/jetstack-cert-manager-webhook-v1.15.4.tar
 k3s ctr images import images/prometheus-operator-prometheus-config-reloader-v0.75.2.tar
 k3s ctr images import images/prometheus-operator-prometheus-operator-v0.75.2.tar
 k3s ctr images import images/prometheus-alertmanager-v0.27.0.tar
