@@ -30,6 +30,14 @@ prometheus:
   prometheusSpec:
     image:
       registry: %s
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          # storageClassName: ""
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 50Gi
 ` (include "registry.quay" $) | fromYaml }}
 
 {{ $thanosRuler := printf `
