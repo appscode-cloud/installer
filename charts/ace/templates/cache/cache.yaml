@@ -21,6 +21,30 @@ spec:
       - name: redis
         resources:
           {{- toYaml .Values.settings.cache.resources | nindent 10 }}
+    {{- if eq (include "clustermanager.openshift" $) "true" }}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsGroup: {{ .Values.securityContext.runAsUser }}
+          runAsNonRoot: true
+          runAsUser: {{ .Values.securityContext.runAsUser }}
+          seccompProfile:
+            type: RuntimeDefault
+      initContainers:
+      - name: redis-init
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsGroup: {{ .Values.securityContext.runAsUser }}
+          runAsNonRoot: true
+          runAsUser: {{ .Values.securityContext.runAsUser }}
+          seccompProfile:
+            type: RuntimeDefault
+    {{- end }}
   deletionPolicy: {{ .Values.settings.cache.deletionPolicy }}
   authSecret:
     name: {{ include "ace.fullname" . }}-cache-auth
@@ -29,10 +53,22 @@ spec:
   monitor:
     agent: {{ .Values.global.monitoring.agent }}
     prometheus:
-      {{- with .Values.global.monitoring.exporter.resources }}
       exporter:
+      {{- with .Values.global.monitoring.exporter.resources }}
         resources:
           {{- toYaml . | nindent 10 }}
+      {{- end }}
+      {{- if eq (include "clustermanager.openshift" $) "true" }}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsGroup: {{ .Values.securityContext.runAsUser }}
+          runAsNonRoot: true
+          runAsUser: {{ .Values.securityContext.runAsUser }}
+          seccompProfile:
+            type: RuntimeDefault
       {{- end }}
       serviceMonitor:
         interval: 30s
