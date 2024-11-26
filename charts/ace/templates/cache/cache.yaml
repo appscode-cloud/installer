@@ -44,6 +44,10 @@ spec:
           runAsUser: {{ .Values.securityContext.runAsUser }}
           seccompProfile:
             type: RuntimeDefault
+      securityContext:
+        fsGroup: {{ .Values.securityContext.runAsUser }}
+        runAsUser: {{ .Values.securityContext.runAsUser }}
+        runAsGroup: {{ .Values.securityContext.runAsUser }}
     {{- end }}
   deletionPolicy: {{ .Values.settings.cache.deletionPolicy }}
   authSecret:

@@ -1,4 +1,3 @@
-
 apiVersion: kubedb.com/v1
 kind: Postgres
 metadata:
