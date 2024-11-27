@@ -276,6 +276,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault:0.27.0 images/appscode-charts-vault-0.27.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2024.8.30 images/appscode-charts-voyager-gateway-v2024.8.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2024.8.30 images/appscode-charts-voyager-v2024.8.30.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/ingress-nginx-controller:v1.11.1 images/appscode-images-ingress-nginx-controller-v1.11.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.21-alpine images/appscode-images-nats-2.10.21-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:16.4-alpine images/appscode-images-postgres-16.4-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.2.4-bookworm images/appscode-images-redis-7.2.4-bookworm.tar
@@ -396,7 +397,6 @@ $CMD pull --allow-nondistributable-artifacts --insecure rancher/kine:v0.11.4 ima
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 images/autoscaling-cluster-autoscaler-v1.27.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/csi-secrets-store/driver:v1.4.1 images/csi-secrets-store-driver-v1.4.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/defaultbackend-amd64:1.5 images/defaultbackend-amd64-1.5.tar
-$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/controller:v1.11.1 images/ingress-nginx-controller-v1.11.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.30.2 images/kube-apiserver-v1.30.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.30.2 images/kube-controller-manager-v1.30.2.tar

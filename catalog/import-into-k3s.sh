@@ -268,6 +268,7 @@ k3s ctr images import images/appscode-charts-vault-secrets-operator-0.4.3.tar
 k3s ctr images import images/appscode-charts-vault-0.27.0.tar
 k3s ctr images import images/appscode-charts-voyager-gateway-v2024.8.30.tar
 k3s ctr images import images/appscode-charts-voyager-v2024.8.30.tar
+k3s ctr images import images/appscode-images-ingress-nginx-controller-v1.11.1.tar
 k3s ctr images import images/appscode-images-nats-2.10.21-alpine.tar
 k3s ctr images import images/appscode-images-postgres-16.4-alpine.tar
 k3s ctr images import images/appscode-images-redis-7.2.4-bookworm.tar
@@ -388,7 +389,6 @@ k3s ctr images import images/rancher-kine-v0.11.4.tar
 k3s ctr images import images/autoscaling-cluster-autoscaler-v1.27.1.tar
 k3s ctr images import images/csi-secrets-store-driver-v1.4.1.tar
 k3s ctr images import images/defaultbackend-amd64-1.5.tar
-k3s ctr images import images/ingress-nginx-controller-v1.11.1.tar
 k3s ctr images import images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar
 k3s ctr images import images/kube-apiserver-v1.30.2.tar
 k3s ctr images import images/kube-controller-manager-v1.30.2.tar

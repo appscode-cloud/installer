@@ -36,6 +36,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace-installe
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace:v2024.12.9 $IMAGE_REGISTRY/ace:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/service-gateway:v2024.12.9 $IMAGE_REGISTRY/service-gateway:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 $IMAGE_REGISTRY/spoke-cluster-addons:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/ingress-nginx-controller:v1.11.1 $IMAGE_REGISTRY/ingress-nginx-controller:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/nats:2.10.21-alpine $IMAGE_REGISTRY/nats:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/postgres:16.4-alpine $IMAGE_REGISTRY/postgres:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/redis:$TAG
@@ -153,7 +154,6 @@ crane cp --allow-nondistributable-artifacts rancher/kine:v0.11.4 $IMAGE_REGISTRY
 crane cp --allow-nondistributable-artifacts registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 $IMAGE_REGISTRY/cluster-autoscaler:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/csi-secrets-store/driver:v1.4.1 $IMAGE_REGISTRY/driver:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/defaultbackend-amd64:1.5 $IMAGE_REGISTRY/ingress-nginx-defaultbackend:$TAG
-crane cp --allow-nondistributable-artifacts registry.k8s.io/ingress-nginx/controller:v1.11.1 $IMAGE_REGISTRY/ingress-nginx-controller:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 $IMAGE_REGISTRY/ingress-nginx-kube-webhook-certgen:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/kube-apiserver:v1.30.2 $IMAGE_REGISTRY/kube-apiserver:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/kube-controller-manager:v1.30.2 $IMAGE_REGISTRY/kube-controller-manager:$TAG

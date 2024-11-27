@@ -270,6 +270,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-v
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-vault-0.27.0.tar $IMAGE_REGISTRY/appscode-charts/vault:0.27.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-gateway-v2024.8.30.tar $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2024.8.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-v2024.8.30.tar $IMAGE_REGISTRY/appscode-charts/voyager:v2024.8.30
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-ingress-nginx-controller-v1.11.1.tar $IMAGE_REGISTRY/appscode-images/ingress-nginx-controller:v1.11.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-nats-2.10.21-alpine.tar $IMAGE_REGISTRY/appscode-images/nats:2.10.21-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-postgres-16.4-alpine.tar $IMAGE_REGISTRY/appscode-images/postgres:16.4-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-redis-7.2.4-bookworm.tar $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
@@ -390,7 +391,6 @@ $CMD push --allow-nondistributable-artifacts --insecure images/rancher-kine-v0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/autoscaling-cluster-autoscaler-v1.27.1.tar $IMAGE_REGISTRY/autoscaling/cluster-autoscaler:v1.27.1
 $CMD push --allow-nondistributable-artifacts --insecure images/csi-secrets-store-driver-v1.4.1.tar $IMAGE_REGISTRY/csi-secrets-store/driver:v1.4.1
 $CMD push --allow-nondistributable-artifacts --insecure images/defaultbackend-amd64-1.5.tar $IMAGE_REGISTRY/defaultbackend-amd64:1.5
-$CMD push --allow-nondistributable-artifacts --insecure images/ingress-nginx-controller-v1.11.1.tar $IMAGE_REGISTRY/ingress-nginx/controller:v1.11.1
 $CMD push --allow-nondistributable-artifacts --insecure images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar $IMAGE_REGISTRY/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
 $CMD push --allow-nondistributable-artifacts --insecure images/kube-apiserver-v1.30.2.tar $IMAGE_REGISTRY/kube-apiserver:v1.30.2
 $CMD push --allow-nondistributable-artifacts --insecure images/kube-controller-manager-v1.30.2.tar $IMAGE_REGISTRY/kube-controller-manager:v1.30.2

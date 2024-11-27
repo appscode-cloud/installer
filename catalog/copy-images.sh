@@ -279,6 +279,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/va
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault:0.27.0 $IMAGE_REGISTRY/appscode-charts/vault:0.27.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2024.8.30 $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2024.8.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2024.8.30 $IMAGE_REGISTRY/appscode-charts/voyager:v2024.8.30
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/ingress-nginx-controller:v1.11.1 $IMAGE_REGISTRY/appscode-images/ingress-nginx-controller:v1.11.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.21-alpine $IMAGE_REGISTRY/appscode-images/nats:2.10.21-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:16.4-alpine $IMAGE_REGISTRY/appscode-images/postgres:16.4-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
@@ -399,7 +400,6 @@ $CMD cp --allow-nondistributable-artifacts --insecure rancher/kine:v0.11.4 $IMAG
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 $IMAGE_REGISTRY/autoscaling/cluster-autoscaler:v1.27.1
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/csi-secrets-store/driver:v1.4.1 $IMAGE_REGISTRY/csi-secrets-store/driver:v1.4.1
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/defaultbackend-amd64:1.5 $IMAGE_REGISTRY/defaultbackend-amd64:1.5
-$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/controller:v1.11.1 $IMAGE_REGISTRY/ingress-nginx/controller:v1.11.1
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 $IMAGE_REGISTRY/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.30.2 $IMAGE_REGISTRY/kube-apiserver:v1.30.2
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.30.2 $IMAGE_REGISTRY/kube-controller-manager:v1.30.2
