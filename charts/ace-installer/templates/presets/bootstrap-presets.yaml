@@ -55,7 +55,7 @@ opscenter-features:
    | fromYaml }}
 {{ $helmreleases = mergeOverwrite $helmreleases $gate }}
 
-{{- if has $.Values.deploymentType (list "SelfHostedProduction" "CloudDemo" "OnpremDemo" "AWSMarketplace" "AzureMarketplace" "GoogleCloudMarketplace") }}
+{{- if not (has $.Values.deploymentType (list "Hosted")) }}
 {{ $defaults := printf `
 opscenter-features:
   values:
