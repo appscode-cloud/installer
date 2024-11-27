@@ -19084,9 +19084,12 @@ properties:
             - objstore
             - platformConfig
             type: object
+          skipGCPMarketplaceMeteringService:
+            type: boolean
         required:
         - caProviderClass
         - secretName
+        - skipGCPMarketplaceMeteringService
         type: object
       tolerations:
         items:
