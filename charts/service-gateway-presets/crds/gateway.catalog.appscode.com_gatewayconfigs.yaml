@@ -827,10 +827,6 @@ spec:
                             type: object
                           ttlSecondsAfterFinished:
                             type: integer
-                        required:
-                        - annotations
-                        - resources
-                        - ttlSecondsAfterFinished
                         type: object
                       rbac:
                         properties:
@@ -848,7 +844,6 @@ spec:
                         type: object
                     required:
                     - job
-                    - rbac
                     type: object
                   config:
                     properties:
@@ -3834,10 +3829,6 @@ spec:
                             type: object
                           tag:
                             type: string
-                        required:
-                        - registry
-                        - repository
-                        - tag
                         type: object
                       serviceAccount:
                         properties:
