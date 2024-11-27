@@ -66,6 +66,8 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
+            - name: GCP_MARKETPLACE_SKIP_METERING_SERVICE
+              value: {{ .Values.settings.skipGCPMarketplaceMeteringService | quote }}
           {{- with .Values.settings.secretName.gcpMarketplaceReportingSecret }}
             - name: GCP_MARKETPLACE_ENCODED_KEY
               valueFrom:

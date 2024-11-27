@@ -128,6 +128,7 @@ infra:
 
 settings:
   caProviderClass: ""
+  skipGCPMarketplaceMeteringService: true
   secretName:
     platformConfig: ""
     grafanaConfig: ""
