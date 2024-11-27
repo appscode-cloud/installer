@@ -33,9 +33,6 @@ stringData:
     image:
       {{- . | toYaml | nindent 6 }}
     {{- end }}
-    {{- if .Values.selfManagement }}
     selfManagement:
-      {{- .Values.selfManagement | toYaml | nindent 6 }}
-    {{- end }}
-
+      {{- (dig "releases" "ace" "values" "setupJob" "config" "selfManagement" (dict) .Values.helm) | toYaml | nindent 6 }}
 {{- end }}
