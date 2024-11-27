@@ -13,8 +13,6 @@ securityContext:
   privileged: false
   readOnlyRootFilesystem: true
   runAsNonRoot: true
-  runAsUser: 1000
-  runAsGroup: 1000
   seccompProfile:
     type: RuntimeDefault
 `
@@ -23,6 +21,16 @@ securityContext:
   (include "image.ghcr" (merge (dict "_repo" "kedacore/http-add-on-scaler") $))
   (include "image.ghcr" (merge (dict "_repo" "appscode/kube-rbac-proxy") $))
   | fromYaml }}
+
+{{- if eq (include "clustermanager.openshift" $) "false" }}
+{{ $scc := `
+securityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
+`
+  | fromYaml }}
+{{ $defaults = mergeOverwrite $defaults $scc }}
+{{- end }}
 
 {{ $vals := dig "keda-add-ons-http" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $defaults $vals }}
