@@ -20,6 +20,9 @@ rules:
   - apiGroups: ["storage.k8s.io"]
     resources: ["storageclasses"]
     verbs: ["get", "list", "watch"]
+  - apiGroups: [ "kubedb.com" ]
+    resources: [ "postgreses" ]
+    verbs: ["get", "list", "watch"]
 
 ---
 
