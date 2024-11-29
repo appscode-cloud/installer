@@ -57,7 +57,7 @@ spec:
       # - kubevault
   chart:
     name: service-gateway-presets
-    namespace: ace
+    namespace: ace-gw
     createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "service-gateway-presets" "version" "" $.Values.helm.releases }}
     sourceRef:
