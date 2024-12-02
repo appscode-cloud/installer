@@ -238,11 +238,16 @@ deletionPolicy:
   default: WipeOut
   toggle: true
 backup:
-  default: true
-  toggle: true
+  enable:
+    default: true
+    toggle: true
+  by: BackupConfiguration
+  via: Dump
 archiver:
-  default: false
-  toggle: true
+  enable:
+    toggle: true
+    default: false
+  via: Dump
 pointInTimeRecovery:
   default: false
   toggle: true
