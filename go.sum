@@ -190,8 +190,8 @@ go.bytebuilders.dev/catalog v0.0.10 h1:j+ai/xmvqnipxnc/4zcdMBlKJwCaBzb4czZvI/+jT
 go.bytebuilders.dev/catalog v0.0.10/go.mod h1:xzfRUZPNBMwmw+en9Y5o6xAq8EOfx8VXJP57oLLllBM=
 go.bytebuilders.dev/resource-model v0.1.1-0.20241023004602-2c43ef3bb37b h1:loq3wv7NQY9givjW8djFMqe/1d+8j2wE4k5hueDIWC0=
 go.bytebuilders.dev/resource-model v0.1.1-0.20241023004602-2c43ef3bb37b/go.mod h1:/uMIfxqPIrDmiYWA28OW3xzogijxpwkicR4kK7jam9g=
-go.bytebuilders.dev/ui-wizards v0.8.1-0.20241114122607-da73eb53788b h1:GpAHSyY/XJ6ZrFXtXpa0+VKcmw3gYKQcuNOAL4viF5g=
-go.bytebuilders.dev/ui-wizards v0.8.1-0.20241114122607-da73eb53788b/go.mod h1:drufpgFOFkOn1vxW1z2xnjN8rsgMysiV2wM6IP5MVrU=
+go.bytebuilders.dev/ui-wizards v0.11.1-0.20241202040940-6efda032196a h1:fCYDYE8KORmKt4muB24K17qn6ZhR1teWf6MwWF2cJrI=
+go.bytebuilders.dev/ui-wizards v0.11.1-0.20241202040940-6efda032196a/go.mod h1:IygAkCSiRohg0lT+nbUGoIqzUy7PdSL+hkG90Cbik5g=
 go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0 h1:zA5/psft6xJPNZZfDh7VpOlEEzqVOWoLQlXRFyOeyjc=
 go.openviz.dev/installer v0.0.0-20240731074805-a62b13eaedb0/go.mod h1:5q9Z38No4Xw0RGJnWYqAWPpXSG4XQYqiLzGHMv4pTPI=
 go.uber.org/goleak v1.3.0 h1:2K3zAYmnTNqV73imy9J1T3WC+gmCePx2hEGkimedGto=
@@ -315,8 +315,8 @@ k8s.io/utils v0.0.0-20240711033017-18e509b52bc8 h1:pUdcCO1Lk/tbT5ztQWOBi5HBgbBP1
 k8s.io/utils v0.0.0-20240711033017-18e509b52bc8/go.mod h1:OLgZIPagt7ERELqWJFomSt595RzquPNLL48iOWgYOg0=
 kmodules.xyz/apiversion v0.2.0 h1:vAQYqZFm4xu4pbB1cAdHbFEPES6EQkcR4wc06xdTOWk=
 kmodules.xyz/apiversion v0.2.0/go.mod h1:oPX8g8LvlPdPX3Yc5YvCzJHQnw3YF/X4/jdW0b1am80=
-kmodules.xyz/client-go v0.30.38 h1:kAQ3FdgX2HbkmfFGEoeKz7fmJYWo1Ndgdum50aaHyI0=
-kmodules.xyz/client-go v0.30.38/go.mod h1:CAu+JlA8RVGtj6LQHu0Q1w2mnFUajuti49c7T1AvGdM=
+kmodules.xyz/client-go v0.30.40 h1:X9Ic8D19D5Gy4C5UvQWSU/kyIObULFHG0B2HHx8ZW+E=
+kmodules.xyz/client-go v0.30.40/go.mod h1:CAu+JlA8RVGtj6LQHu0Q1w2mnFUajuti49c7T1AvGdM=
 kmodules.xyz/go-containerregistry v0.0.12 h1:Tl32QGmSqRVm9PUEb/f3dgDeu9zW5fVzt3qmAFIE37I=
 kmodules.xyz/go-containerregistry v0.0.12/go.mod h1:KgeNg0hDsgeda+qc0NzWk0iVRdF0+ZIg/oRzGoYh78I=
 kmodules.xyz/image-packer v0.0.0-20241112111847-67230c1388dd h1:WJS7//NxCfPqM6TBFadRNh1s8B/7BY4U7OSv/G1rP7c=
