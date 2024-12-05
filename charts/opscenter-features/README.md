@@ -107,7 +107,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kyverno.version                               |                                 | <code>"3.2.6"</code>                       |
 | helm.releases.kyverno-policies.version                      |                                 | <code>"3.2.5"</code>                       |
 | helm.releases.license-proxyserver.version                   |                                 | <code>"v2024.10.7"</code>                  |
-| helm.releases.longhorn.version                              |                                 | <code>"1.6.2"</code>                       |
+| helm.releases.longhorn.version                              |                                 | <code>"1.7.2"</code>                       |
 | helm.releases.metrics-server.version                        |                                 | <code>"3.11.0"</code>                      |
 | helm.releases.monitoring-operator.version                   |                                 | <code>"v2024.11.18"</code>                 |
 | helm.releases.opencost.version                              |                                 | <code>"1.18.1"</code>                      |
@@ -123,7 +123,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.service-gateway-presets.version               |                                 | <code>"v2024.12.9"</code>                  |
 | helm.releases.service-provider.version                      |                                 | <code>"v2024.12.9"</code>                  |
 | helm.releases.sidekick.version                              |                                 | <code>"v2024.11.8"</code>                  |
-| helm.releases.snapshot-controller.version                   |                                 | <code>"3.0.5"</code>                       |
+| helm.releases.snapshot-controller.version                   |                                 | <code>"3.0.6"</code>                       |
 | helm.releases.stash.version                                 |                                 | <code>"v2024.9.30"</code>                  |
 | helm.releases.stash-opscenter.version                       |                                 | <code>"v2024.9.30"</code>                  |
 | helm.releases.stash-presets.version                         |                                 | <code>"v2024.12.9"</code>                  |
