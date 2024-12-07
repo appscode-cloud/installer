@@ -173,7 +173,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno:3.2.6 images/appscode-charts-kyverno-3.2.6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver-manager:v2024.10.7 images/appscode-charts-license-proxyserver-manager-v2024.10.7.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver:v2024.10.7 images/appscode-charts-license-proxyserver-v2024.10.7.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/longhorn:1.6.2 images/appscode-charts-longhorn-1.6.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/longhorn:1.7.2 images/appscode-charts-longhorn-1.7.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/managed-serviceaccount-manager:v2024.7.10 images/appscode-charts-managed-serviceaccount-manager-v2024.7.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/metrics-server:3.11.0 images/appscode-charts-metrics-server-3.11.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/monitoring-operator:v2024.11.18 images/appscode-charts-monitoring-operator-v2024.11.18.tar
@@ -218,7 +218,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway:v2024.12.9 images/appscode-charts-service-gateway-v2024.12.9.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-provider:v2024.12.9 images/appscode-charts-service-provider-v2024.12.9.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sidekick:v2024.11.8 images/appscode-charts-sidekick-v2024.11.8.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/snapshot-controller:3.0.5 images/appscode-charts-snapshot-controller-3.0.5.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/snapshot-controller:3.0.6 images/appscode-charts-snapshot-controller-3.0.6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 images/appscode-charts-spoke-cluster-addons-v2024.7.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash-opscenter:v2024.9.30 images/appscode-charts-stash-opscenter-v2024.9.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash-presets:v2024.12.9 images/appscode-charts-stash-presets-v2024.12.9.tar

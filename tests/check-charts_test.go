@@ -18,77 +18,47 @@ package main
 
 import (
 	"errors"
-	"fmt"
-	"os"
 	"path/filepath"
 	"runtime"
-	"strings"
 	"testing"
 
-	"k8s.io/apimachinery/pkg/util/sets"
 	"kmodules.xyz/image-packer/pkg/lib"
-	"sigs.k8s.io/yaml"
 )
 
-func Test_checkImages(t *testing.T) {
-	if err := checkImages(); err != nil {
-		t.Errorf("checkImages() error = %v", err)
-	}
-}
-
-func checkImages() error {
+func Test_CheckImageArchitectures(t *testing.T) {
 	dir, err := rootDir()
 	if err != nil {
-		return err
+		t.Error(err)
 	}
 
-	images, err := ListImages([]string{
+	if err := lib.CheckImageArchitectures([]string{
 		filepath.Join(dir, "catalog", "ace.yaml"),
 		filepath.Join(dir, "catalog", "editor-charts.yaml"),
 		filepath.Join(dir, "catalog", "feature-charts.yaml"),
 		filepath.Join(dir, "catalog", "imagelist.yaml"),
 		filepath.Join(dir, "catalog", "reusable-ui-charts.yaml"),
-	})
-	if err != nil {
-		return err
+	}, []string{
+		"ghcr.io/appscode/billing-ui:0.2.3",
+		"ghcr.io/appscode/deploy-ui:0.3.6-rc.1",
+		"ghcr.io/appscode/inbox-server:latest",
+		"ghcr.io/appscode/inbox-ui:0.0.2",
+		"ghcr.io/appscode/marketplace-ui:0.3.1-rc.1",
+		"ghcr.io/kluster-manager/addon-manager:v0.14.0",
+		"ghcr.io/kluster-manager/cluster-gateway-manager:v1.9.2",
+		"ghcr.io/kluster-manager/cluster-gateway:v1.9.2",
+		"ghcr.io/kluster-manager/cluster-proxy:v0.5.0",
+		"ghcr.io/kluster-manager/clusteradm:v0.9.0",
+		"ghcr.io/kluster-manager/managed-serviceaccount:v0.6.0",
+		"ghcr.io/kluster-manager/multicluster-controlplane:latest",
+		"ghcr.io/kluster-manager/placement:v0.14.0",
+		"ghcr.io/kluster-manager/registration-operator:v0.14.0",
+		"ghcr.io/kluster-manager/registration:v0.14.0",
+		"ghcr.io/kluster-manager/work:v0.14.0",
+		"ghcr.io/voyagermesh/envoy:v1.31.2-ac",
+		"registry.k8s.io/defaultbackend-amd64:1.5",
+	}); err != nil {
+		t.Errorf("CheckImageArchitectures() error = %v", err)
 	}
-
-	var missing []string
-	for _, img := range images {
-		_, found, err := lib.ImageDigest(img)
-		if err != nil || !found {
-			missing = append(missing, img)
-			continue
-		}
-		fmt.Println("✔ " + img)
-	}
-
-	if len(missing) > 0 {
-		fmt.Println("----------------------------------------")
-		fmt.Println("Missing Images:")
-		fmt.Println(strings.Join(missing, "\n"))
-		return fmt.Errorf("missing %d images", len(missing))
-	}
-
-	return nil
-}
-
-func ListImages(files []string) ([]string, error) {
-	imgs := sets.New[string]()
-	for _, filename := range files {
-		data, err := os.ReadFile(filename)
-		if err != nil {
-			return nil, err
-		}
-
-		var images []string
-		err = yaml.Unmarshal(data, &images)
-		if err != nil {
-			return nil, err
-		}
-		imgs.Insert(images...)
-	}
-	return sets.List(imgs), nil
 }
 
 func rootDir() (string, error) {

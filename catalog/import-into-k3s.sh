@@ -165,7 +165,7 @@ k3s ctr images import images/appscode-charts-kyverno-policies-3.2.5.tar
 k3s ctr images import images/appscode-charts-kyverno-3.2.6.tar
 k3s ctr images import images/appscode-charts-license-proxyserver-manager-v2024.10.7.tar
 k3s ctr images import images/appscode-charts-license-proxyserver-v2024.10.7.tar
-k3s ctr images import images/appscode-charts-longhorn-1.6.2.tar
+k3s ctr images import images/appscode-charts-longhorn-1.7.2.tar
 k3s ctr images import images/appscode-charts-managed-serviceaccount-manager-v2024.7.10.tar
 k3s ctr images import images/appscode-charts-metrics-server-3.11.0.tar
 k3s ctr images import images/appscode-charts-monitoring-operator-v2024.11.18.tar
@@ -210,7 +210,7 @@ k3s ctr images import images/appscode-charts-service-gateway-presets-v2024.12.9.
 k3s ctr images import images/appscode-charts-service-gateway-v2024.12.9.tar
 k3s ctr images import images/appscode-charts-service-provider-v2024.12.9.tar
 k3s ctr images import images/appscode-charts-sidekick-v2024.11.8.tar
-k3s ctr images import images/appscode-charts-snapshot-controller-3.0.5.tar
+k3s ctr images import images/appscode-charts-snapshot-controller-3.0.6.tar
 k3s ctr images import images/appscode-charts-spoke-cluster-addons-v2024.7.10.tar
 k3s ctr images import images/appscode-charts-stash-opscenter-v2024.9.30.tar
 k3s ctr images import images/appscode-charts-stash-presets-v2024.12.9.tar

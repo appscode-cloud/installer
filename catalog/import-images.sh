@@ -167,7 +167,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-k
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kyverno-3.2.6.tar $IMAGE_REGISTRY/appscode-charts/kyverno:3.2.6
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-license-proxyserver-manager-v2024.10.7.tar $IMAGE_REGISTRY/appscode-charts/license-proxyserver-manager:v2024.10.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-license-proxyserver-v2024.10.7.tar $IMAGE_REGISTRY/appscode-charts/license-proxyserver:v2024.10.7
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-longhorn-1.6.2.tar $IMAGE_REGISTRY/appscode-charts/longhorn:1.6.2
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-longhorn-1.7.2.tar $IMAGE_REGISTRY/appscode-charts/longhorn:1.7.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-managed-serviceaccount-manager-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/managed-serviceaccount-manager:v2024.7.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-metrics-server-3.11.0.tar $IMAGE_REGISTRY/appscode-charts/metrics-server:3.11.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-monitoring-operator-v2024.11.18.tar $IMAGE_REGISTRY/appscode-charts/monitoring-operator:v2024.11.18
@@ -212,7 +212,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-s
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-gateway-v2024.12.9.tar $IMAGE_REGISTRY/appscode-charts/service-gateway:v2024.12.9
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-provider-v2024.12.9.tar $IMAGE_REGISTRY/appscode-charts/service-provider:v2024.12.9
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-sidekick-v2024.11.8.tar $IMAGE_REGISTRY/appscode-charts/sidekick:v2024.11.8
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-snapshot-controller-3.0.5.tar $IMAGE_REGISTRY/appscode-charts/snapshot-controller:3.0.5
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-snapshot-controller-3.0.6.tar $IMAGE_REGISTRY/appscode-charts/snapshot-controller:3.0.6
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-spoke-cluster-addons-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/spoke-cluster-addons:v2024.7.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-stash-opscenter-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/stash-opscenter:v2024.9.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-stash-presets-v2024.12.9.tar $IMAGE_REGISTRY/appscode-charts/stash-presets:v2024.12.9

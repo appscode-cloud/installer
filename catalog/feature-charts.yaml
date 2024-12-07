@@ -52,7 +52,7 @@
 - ghcr.io/appscode-charts/kyverno:3.2.6
 - ghcr.io/appscode-charts/license-proxyserver-manager:v2024.10.7
 - ghcr.io/appscode-charts/license-proxyserver:v2024.10.7
-- ghcr.io/appscode-charts/longhorn:1.6.2
+- ghcr.io/appscode-charts/longhorn:1.7.2
 - ghcr.io/appscode-charts/managed-serviceaccount-manager:v2024.7.10
 - ghcr.io/appscode-charts/metrics-server:3.11.0
 - ghcr.io/appscode-charts/monitoring-operator:v2024.11.18
@@ -74,7 +74,7 @@
 - ghcr.io/appscode-charts/service-gateway-presets:v2024.12.9
 - ghcr.io/appscode-charts/service-provider:v2024.12.9
 - ghcr.io/appscode-charts/sidekick:v2024.11.8
-- ghcr.io/appscode-charts/snapshot-controller:3.0.5
+- ghcr.io/appscode-charts/snapshot-controller:3.0.6
 - ghcr.io/appscode-charts/stash-opscenter:v2024.9.30
 - ghcr.io/appscode-charts/stash-presets:v2024.12.9
 - ghcr.io/appscode-charts/stash:v2024.9.30
