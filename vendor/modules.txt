@@ -716,8 +716,8 @@ kmodules.xyz/client-go/tools/parser
 # kmodules.xyz/go-containerregistry v0.0.12
 ## explicit; go 1.21.5
 kmodules.xyz/go-containerregistry/name
-# kmodules.xyz/image-packer v0.0.0-20241112111847-67230c1388dd
-## explicit; go 1.22.1
+# kmodules.xyz/image-packer v0.0.0-20241207204410-7a879392f877
+## explicit; go 1.22.7
 kmodules.xyz/image-packer/pkg/lib
 # kmodules.xyz/monitoring-agent-api v0.30.3
 ## explicit; go 1.22.0
@@ -731,7 +731,7 @@ kmodules.xyz/offshoot-api/api/v1
 # kmodules.xyz/prober v0.29.0
 ## explicit; go 1.21.5
 kmodules.xyz/prober/api/v1
-# kmodules.xyz/resource-metadata v0.22.4
+# kmodules.xyz/resource-metadata v0.23.0
 ## explicit; go 1.22.1
 kmodules.xyz/resource-metadata/apis/shared
 kmodules.xyz/resource-metadata/apis/ui

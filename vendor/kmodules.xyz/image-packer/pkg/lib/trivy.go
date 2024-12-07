@@ -17,11 +17,14 @@ limitations under the License.
 package lib
 
 import (
+	"encoding/json"
 	"errors"
+	"fmt"
 	"net/http"
 
 	"github.com/google/go-containerregistry/pkg/authn"
 	"github.com/google/go-containerregistry/pkg/crane"
+	v1 "github.com/google/go-containerregistry/pkg/v1"
 	"github.com/google/go-containerregistry/pkg/v1/remote/transport"
 	shell "gomodules.xyz/go-sh"
 	"kubeops.dev/scanner/apis/trivy"
@@ -71,6 +74,34 @@ func ImageDigest(ref string) (string, bool, error) {
 		return "", false, err
 	}
 	return digest, true, nil
+}
+
+func ImageManifest(ref string) (any, bool, error) {
+	data, err := crane.Manifest(ref, crane.WithAuthFromKeychain(authn.DefaultKeychain))
+	if err != nil {
+		if ImageNotFound(err) {
+			return nil, false, nil
+		}
+		return nil, false, err
+	}
+	var obj map[string]any
+	if err = json.Unmarshal(data, &obj); err != nil {
+		return nil, false, err
+	}
+	if _, ok := obj["manifests"]; ok {
+		var mf v1.IndexManifest
+		if err := json.Unmarshal(data, &mf); err != nil {
+			return nil, false, err
+		}
+		return &mf, true, nil
+	} else if _, ok := obj["layers"]; ok {
+		var mf v1.Manifest
+		if err := json.Unmarshal(data, &mf); err != nil {
+			return nil, false, err
+		}
+		return &mf, true, nil
+	}
+	return nil, false, fmt.Errorf("unknown image manifest format")
 }
 
 func ImageNotFound(err error) bool {

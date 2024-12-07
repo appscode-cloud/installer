@@ -176,7 +176,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ky
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno:3.2.6 $IMAGE_REGISTRY/appscode-charts/kyverno:3.2.6
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver-manager:v2024.10.7 $IMAGE_REGISTRY/appscode-charts/license-proxyserver-manager:v2024.10.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver:v2024.10.7 $IMAGE_REGISTRY/appscode-charts/license-proxyserver:v2024.10.7
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/longhorn:1.6.2 $IMAGE_REGISTRY/appscode-charts/longhorn:1.6.2
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/longhorn:1.7.2 $IMAGE_REGISTRY/appscode-charts/longhorn:1.7.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/managed-serviceaccount-manager:v2024.7.10 $IMAGE_REGISTRY/appscode-charts/managed-serviceaccount-manager:v2024.7.10
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/metrics-server:3.11.0 $IMAGE_REGISTRY/appscode-charts/metrics-server:3.11.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/monitoring-operator:v2024.11.18 $IMAGE_REGISTRY/appscode-charts/monitoring-operator:v2024.11.18
@@ -221,7 +221,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/se
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway:v2024.12.9 $IMAGE_REGISTRY/appscode-charts/service-gateway:v2024.12.9
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-provider:v2024.12.9 $IMAGE_REGISTRY/appscode-charts/service-provider:v2024.12.9
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sidekick:v2024.11.8 $IMAGE_REGISTRY/appscode-charts/sidekick:v2024.11.8
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/snapshot-controller:3.0.5 $IMAGE_REGISTRY/appscode-charts/snapshot-controller:3.0.5
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/snapshot-controller:3.0.6 $IMAGE_REGISTRY/appscode-charts/snapshot-controller:3.0.6
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 $IMAGE_REGISTRY/appscode-charts/spoke-cluster-addons:v2024.7.10
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash-opscenter:v2024.9.30 $IMAGE_REGISTRY/appscode-charts/stash-opscenter:v2024.9.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash-presets:v2024.12.9 $IMAGE_REGISTRY/appscode-charts/stash-presets:v2024.12.9
