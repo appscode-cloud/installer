@@ -160,7 +160,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-k
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedbcom-solr-editor-v0.11.0.tar $IMAGE_REGISTRY/appscode-charts/kubedbcom-solr-editor:v0.11.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedbcom-zookeeper-editor-options-v0.11.0.tar $IMAGE_REGISTRY/appscode-charts/kubedbcom-zookeeper-editor-options:v0.11.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedbcom-zookeeper-editor-v0.11.0.tar $IMAGE_REGISTRY/appscode-charts/kubedbcom-zookeeper-editor:v0.11.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubestash-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/kubestash:v2024.9.30
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubestash-v2024.12.9.tar $IMAGE_REGISTRY/appscode-charts/kubestash:v2024.12.9
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubevault-opscenter-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/kubevault-opscenter:v2024.9.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubevault-v2024.9.30.tar $IMAGE_REGISTRY/appscode-charts/kubevault:v2024.9.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kyverno-policies-3.2.5.tar $IMAGE_REGISTRY/appscode-charts/kyverno-policies:3.2.5
@@ -353,8 +353,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-redis-coor
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-redis-init-0.9.0.tar $IMAGE_REGISTRY/kubedb/redis-init:0.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-redis-restic-plugin-v0.12.0.tar $IMAGE_REGISTRY/kubedb/redis-restic-plugin:v0.12.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-redis_exporter-1.66.0.tar $IMAGE_REGISTRY/kubedb/redis_exporter:1.66.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubedump-v0.12.0.tar $IMAGE_REGISTRY/kubestash/kubedump:v0.12.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubestash-v0.13.0.tar $IMAGE_REGISTRY/kubestash/kubestash:v0.13.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubedump-v0.13.0.tar $IMAGE_REGISTRY/kubestash/kubedump:v0.13.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubestash-kubestash-v0.14.0.tar $IMAGE_REGISTRY/kubestash/kubestash:v0.14.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubevault-vault-operator-v0.19.0.tar $IMAGE_REGISTRY/kubevault/vault-operator:v0.19.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kyverno-background-controller-v1.12.5.tar $IMAGE_REGISTRY/kyverno/background-controller:v1.12.5
 $CMD push --allow-nondistributable-artifacts --insecure images/kyverno-cleanup-controller-v1.12.5.tar $IMAGE_REGISTRY/kyverno/cleanup-controller:v1.12.5

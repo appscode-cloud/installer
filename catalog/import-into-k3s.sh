@@ -158,7 +158,7 @@ k3s ctr images import images/appscode-charts-kubedbcom-solr-editor-options-v0.11
 k3s ctr images import images/appscode-charts-kubedbcom-solr-editor-v0.11.0.tar
 k3s ctr images import images/appscode-charts-kubedbcom-zookeeper-editor-options-v0.11.0.tar
 k3s ctr images import images/appscode-charts-kubedbcom-zookeeper-editor-v0.11.0.tar
-k3s ctr images import images/appscode-charts-kubestash-v2024.9.30.tar
+k3s ctr images import images/appscode-charts-kubestash-v2024.12.9.tar
 k3s ctr images import images/appscode-charts-kubevault-opscenter-v2024.9.30.tar
 k3s ctr images import images/appscode-charts-kubevault-v2024.9.30.tar
 k3s ctr images import images/appscode-charts-kyverno-policies-3.2.5.tar
@@ -351,8 +351,8 @@ k3s ctr images import images/kubedb-redis-coordinator-v0.28.0.tar
 k3s ctr images import images/kubedb-redis-init-0.9.0.tar
 k3s ctr images import images/kubedb-redis-restic-plugin-v0.12.0.tar
 k3s ctr images import images/kubedb-redis_exporter-1.66.0.tar
-k3s ctr images import images/kubestash-kubedump-v0.12.0.tar
-k3s ctr images import images/kubestash-kubestash-v0.13.0.tar
+k3s ctr images import images/kubestash-kubedump-v0.13.0.tar
+k3s ctr images import images/kubestash-kubestash-v0.14.0.tar
 k3s ctr images import images/kubevault-vault-operator-v0.19.0.tar
 k3s ctr images import images/kyverno-background-controller-v1.12.5.tar
 k3s ctr images import images/kyverno-cleanup-controller-v1.12.5.tar

@@ -166,7 +166,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-solr-editor:v0.11.0 images/appscode-charts-kubedbcom-solr-editor-v0.11.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-zookeeper-editor-options:v0.11.0 images/appscode-charts-kubedbcom-zookeeper-editor-options-v0.11.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-zookeeper-editor:v0.11.0 images/appscode-charts-kubedbcom-zookeeper-editor-v0.11.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubestash:v2024.9.30 images/appscode-charts-kubestash-v2024.9.30.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubestash:v2024.12.9 images/appscode-charts-kubestash-v2024.12.9.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubevault-opscenter:v2024.9.30 images/appscode-charts-kubevault-opscenter-v2024.9.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubevault:v2024.9.30 images/appscode-charts-kubevault-v2024.9.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno-policies:3.2.5 images/appscode-charts-kyverno-policies-3.2.5.tar
@@ -359,8 +359,8 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis-coo
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis-init:0.9.0 images/kubedb-redis-init-0.9.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis-restic-plugin:v0.12.0 images/kubedb-redis-restic-plugin-v0.12.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis_exporter:1.66.0 images/kubedb-redis_exporter-1.66.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubedump:v0.12.0 images/kubestash-kubedump-v0.12.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash:v0.13.0 images/kubestash-kubestash-v0.13.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubedump:v0.13.0 images/kubestash-kubedump-v0.13.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash:v0.14.0 images/kubestash-kubestash-v0.14.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubevault/vault-operator:v0.19.0 images/kubevault-vault-operator-v0.19.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/background-controller:v1.12.5 images/kyverno-background-controller-v1.12.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/cleanup-controller:v1.12.5 images/kyverno-cleanup-controller-v1.12.5.tar
