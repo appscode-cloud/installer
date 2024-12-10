@@ -2027,6 +2027,8 @@ properties:
         items:
           type: string
         type: array
+      logoutURL:
+        type: string
       smtp:
         properties:
           enabled:

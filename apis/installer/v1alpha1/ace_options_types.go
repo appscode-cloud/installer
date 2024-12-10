@@ -308,6 +308,8 @@ type AceOptionsSettings struct {
 	// such as 'example.com' or 'appscode.com' etc.
 	// +optional
 	DomainWhiteList []string `json:"domainWhiteList"`
+	// +optional
+	LogoutURL string `json:"logoutURL"`
 }
 
 type AceOptionsDBSettings struct {

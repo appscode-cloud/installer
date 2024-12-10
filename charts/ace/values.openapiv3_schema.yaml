@@ -22718,6 +22718,8 @@ properties:
             type: string
           logMode:
             type: string
+          logoutURL:
+            type: string
           otherShowFooterBranding:
             type: boolean
           otherShowFooterTemplateLoadTime:
