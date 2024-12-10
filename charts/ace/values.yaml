@@ -406,6 +406,9 @@ settings:
     # to auto sign in
     cookieRememberName: ace_incredible
 
+    # redirect url after logout
+    logoutURL: https://appscode.ninja
+
   grafana:
     # possible values : production, development
     appMode: production

@@ -15,6 +15,7 @@ stringData:
     PROTOCOL      = http
     DOMAIN        = {{ .Values.global.platform.host }}
     BASE_URL      = https://{{ .Values.global.platform.host }}/
+    LOGOUT_URL    = {{ .Values.settings.platform.logoutURL }}
     LANDING_PAGE  = {{ .Values.settings.platform.serverLandingPage }}
     APP_DATA_PATH = /data
     {{- if .Values.global.infra.tls.ca.cert }}

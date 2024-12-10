@@ -407,6 +407,8 @@ type PlatformSettings struct {
 	OtherShowFooterVersion          bool     `json:"otherShowFooterVersion"`
 	OtherShowFooterTemplateLoadTime bool     `json:"otherShowFooterTemplateLoadTime"`
 	EnableCSRFCookieHttpOnly        bool     `json:"enableCSRFCookieHttpOnly"`
+	// +optional
+	LogoutURL string `json:"logoutURL"`
 }
 
 type SecuritySettings struct {
