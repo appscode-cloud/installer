@@ -407,7 +407,7 @@ settings:
     cookieRememberName: ace_incredible
 
     # redirect url after logout
-    logoutURL: appscode.ninja
+    logoutURL: https://appscode.ninja
 
   grafana:
     # possible values : production, development
