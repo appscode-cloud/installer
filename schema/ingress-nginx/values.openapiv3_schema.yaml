@@ -379,10 +379,16 @@ properties:
         type: boolean
       image:
         properties:
+          image:
+            type: string
           registry:
             type: string
+          tag:
+            type: string
         required:
+        - image
         - registry
+        - tag
         type: object
       name:
         type: string
