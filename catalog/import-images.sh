@@ -362,6 +362,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kyverno-kyverno-v
 $CMD push --allow-nondistributable-artifacts --insecure images/kyverno-kyvernopre-v1.12.5.tar $IMAGE_REGISTRY/kyverno/kyvernopre:v1.12.5
 $CMD push --allow-nondistributable-artifacts --insecure images/kyverno-reports-controller-v1.12.5.tar $IMAGE_REGISTRY/kyverno/reports-controller:v1.12.5
 $CMD push --allow-nondistributable-artifacts --insecure images/loft-sh-vcluster-oss-0.20.0.tar $IMAGE_REGISTRY/loft-sh/vcluster-oss:0.20.0
+$CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-defaultbackend-1.5.tar $IMAGE_REGISTRY/voyagermesh/defaultbackend:1.5
 $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-echoserver-v20221109.tar $IMAGE_REGISTRY/voyagermesh/echoserver:v20221109
 $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-envoy-v1.31.2-ac.tar $IMAGE_REGISTRY/voyagermesh/envoy:v1.31.2-ac
 $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-gateway-converter-v0.0.1.tar $IMAGE_REGISTRY/voyagermesh/gateway-converter:v0.0.1
@@ -390,7 +391,6 @@ $CMD push --allow-nondistributable-artifacts --insecure images/library-rabbitmq-
 $CMD push --allow-nondistributable-artifacts --insecure images/rancher-kine-v0.11.4.tar $IMAGE_REGISTRY/rancher/kine:v0.11.4
 $CMD push --allow-nondistributable-artifacts --insecure images/autoscaling-cluster-autoscaler-v1.27.1.tar $IMAGE_REGISTRY/autoscaling/cluster-autoscaler:v1.27.1
 $CMD push --allow-nondistributable-artifacts --insecure images/csi-secrets-store-driver-v1.4.1.tar $IMAGE_REGISTRY/csi-secrets-store/driver:v1.4.1
-$CMD push --allow-nondistributable-artifacts --insecure images/defaultbackend-amd64-1.5.tar $IMAGE_REGISTRY/defaultbackend-amd64:1.5
 $CMD push --allow-nondistributable-artifacts --insecure images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar $IMAGE_REGISTRY/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
 $CMD push --allow-nondistributable-artifacts --insecure images/kube-apiserver-v1.30.2.tar $IMAGE_REGISTRY/kube-apiserver:v1.30.2
 $CMD push --allow-nondistributable-artifacts --insecure images/kube-controller-manager-v1.30.2.tar $IMAGE_REGISTRY/kube-controller-manager:v1.30.2

@@ -368,6 +368,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyverno:
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyvernopre:v1.12.5 images/kyverno-kyvernopre-v1.12.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/reports-controller:v1.12.5 images/kyverno-reports-controller-v1.12.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster-oss:0.20.0 images/loft-sh-vcluster-oss-0.20.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/defaultbackend:1.5 images/voyagermesh-defaultbackend-1.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/echoserver:v20221109 images/voyagermesh-echoserver-v20221109.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.31.2-ac images/voyagermesh-envoy-v1.31.2-ac.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway-converter:v0.0.1 images/voyagermesh-gateway-converter-v0.0.1.tar
@@ -396,7 +397,6 @@ $CMD pull --allow-nondistributable-artifacts --insecure rabbitmq:3.12.1-manageme
 $CMD pull --allow-nondistributable-artifacts --insecure rancher/kine:v0.11.4 images/rancher-kine-v0.11.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 images/autoscaling-cluster-autoscaler-v1.27.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/csi-secrets-store/driver:v1.4.1 images/csi-secrets-store-driver-v1.4.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/defaultbackend-amd64:1.5 images/defaultbackend-amd64-1.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.30.2 images/kube-apiserver-v1.30.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.30.2 images/kube-controller-manager-v1.30.2.tar

@@ -371,6 +371,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyverno:v1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyvernopre:v1.12.5 $IMAGE_REGISTRY/kyverno/kyvernopre:v1.12.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/reports-controller:v1.12.5 $IMAGE_REGISTRY/kyverno/reports-controller:v1.12.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster-oss:0.20.0 $IMAGE_REGISTRY/loft-sh/vcluster-oss:0.20.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/defaultbackend:1.5 $IMAGE_REGISTRY/voyagermesh/defaultbackend:1.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/echoserver:v20221109 $IMAGE_REGISTRY/voyagermesh/echoserver:v20221109
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.31.2-ac $IMAGE_REGISTRY/voyagermesh/envoy:v1.31.2-ac
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway-converter:v0.0.1 $IMAGE_REGISTRY/voyagermesh/gateway-converter:v0.0.1
@@ -399,7 +400,6 @@ $CMD cp --allow-nondistributable-artifacts --insecure rabbitmq:3.12.1-management
 $CMD cp --allow-nondistributable-artifacts --insecure rancher/kine:v0.11.4 $IMAGE_REGISTRY/rancher/kine:v0.11.4
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 $IMAGE_REGISTRY/autoscaling/cluster-autoscaler:v1.27.1
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/csi-secrets-store/driver:v1.4.1 $IMAGE_REGISTRY/csi-secrets-store/driver:v1.4.1
-$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/defaultbackend-amd64:1.5 $IMAGE_REGISTRY/defaultbackend-amd64:1.5
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 $IMAGE_REGISTRY/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.30.2 $IMAGE_REGISTRY/kube-apiserver:v1.30.2
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.30.2 $IMAGE_REGISTRY/kube-controller-manager:v1.30.2

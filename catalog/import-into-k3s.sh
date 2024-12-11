@@ -360,6 +360,7 @@ k3s ctr images import images/kyverno-kyverno-v1.12.5.tar
 k3s ctr images import images/kyverno-kyvernopre-v1.12.5.tar
 k3s ctr images import images/kyverno-reports-controller-v1.12.5.tar
 k3s ctr images import images/loft-sh-vcluster-oss-0.20.0.tar
+k3s ctr images import images/voyagermesh-defaultbackend-1.5.tar
 k3s ctr images import images/voyagermesh-echoserver-v20221109.tar
 k3s ctr images import images/voyagermesh-envoy-v1.31.2-ac.tar
 k3s ctr images import images/voyagermesh-gateway-converter-v0.0.1.tar
@@ -388,7 +389,6 @@ k3s ctr images import images/library-rabbitmq-3.12.1-management.tar
 k3s ctr images import images/rancher-kine-v0.11.4.tar
 k3s ctr images import images/autoscaling-cluster-autoscaler-v1.27.1.tar
 k3s ctr images import images/csi-secrets-store-driver-v1.4.1.tar
-k3s ctr images import images/defaultbackend-amd64-1.5.tar
 k3s ctr images import images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar
 k3s ctr images import images/kube-apiserver-v1.30.2.tar
 k3s ctr images import images/kube-controller-manager-v1.30.2.tar
