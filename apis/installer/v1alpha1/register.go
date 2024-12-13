@@ -56,6 +56,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(SchemeGroupVersion,
 		&AccountsUi{},
 		&AccountsUiList{},
+		&Acaas{},
+		&AcaasList{},
 		&Ace{},
 		&AceList{},
 		&AceInstaller{},

@@ -1,0 +1,38 @@
+apiVersion: v2
+name: acaas
+description: A Helm chart for ACE Hosted Service
+type: application
+version: v2024.12.9
+appVersion: v2024.12.9
+home: https://github.com/appscode-cloud
+icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
+sources:
+- https://github.com/appscode-cloud
+maintainers:
+- name: appscode
+  email: support@appscode.com
+dependencies:
+- name: billing
+  repository: file://../billing
+  condition: billing.enabled
+  version: v2024.12.9
+- name: deploy-ui
+  repository: file://../deploy-ui
+  condition: deploy-ui.enabled
+  version: v2024.12.9
+- name: dns-proxy
+  repository: file://../dns-proxy
+  condition: dns-proxy.enabled
+  version: v2023.11.14
+- name: marketplace-ui
+  repository: file://../marketplace-ui
+  condition: marketplace-ui.enabled
+  version: v2023.11.14
+- name: platform-links
+  repository: file://../platform-links
+  condition: platform-links.enabled
+  version: v2024.12.9
+- name: smtprelay
+  repository: file://../smtprelay
+  condition: smtprelay.enabled
+  version: v2023.11.14

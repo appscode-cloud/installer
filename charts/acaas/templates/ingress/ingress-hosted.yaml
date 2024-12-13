@@ -1,0 +1,64 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "acaas.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "acaas.labels" . | nindent 4 }}
+spec:
+  {{- if and .Values.ingress.className (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion) }}
+  ingressClassName: {{ .Values.ingress.className }}
+  {{- end }}
+  rules:
+  - http:
+      paths:
+      {{- if (index .Values "deploy-ui" "enabled") }}
+      - backend:
+          service:
+            name: {{ include "acaas.fullname" . }}-deploy-ui
+            port:
+              number: 80
+        path: /deploy
+        pathType: Prefix
+      {{- end }}
+      {{- if (index .Values "platform-links" "enabled") }}
+      - backend:
+          service:
+            name: {{ include "acaas.fullname" . }}-platform-links
+            port:
+              number: 80
+        path: /links
+        pathType: Prefix
+      {{- end }}
+      {{- if (index .Values "marketplace-ui" "enabled") }}
+      - backend:
+          service:
+            name: {{ include "acaas.fullname" . }}-marketplace-ui
+            port:
+              number: 80
+        path: /marketplace
+        pathType: Prefix
+      {{- end }}
+    host: {{ .Values.global.platform.host }}
+{{- if (index .Values "dns-proxy" "enabled") }}
+  - host: dns-proxy.{{ .Values.global.platform.host }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "acaas.fullname" . }}-dns-proxy
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+{{- end }}
+  tls:
+  - secretName: {{ include "acaas.fullname" . }}-cert
+    hosts:
+    - '{{ .Values.global.platform.host }}'
+    {{- if (index .Values "dns-proxy" "enabled") }}
+    - 'dns-proxy.{{ .Values.global.platform.host }}'
+    {{- end }}
+    {{- if (index .Values "smtprelay" "enabled") }}
+    - 'smtprelay.{{ .Values.global.platform.host }}'
+    {{- end }}

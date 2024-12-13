@@ -1,6 +1,6 @@
 apiVersion: v2
 name: ace
-description: A Helm chart for Kubernetes
+description: A Helm chart for AppsCode Container Engine
 type: application
 version: v2024.12.9
 appVersion: v2024.12.9
@@ -20,29 +20,13 @@ dependencies:
   repository: file://../cluster-ui
   condition: cluster-ui.enabled
   version: v2024.12.9
-- name: deploy-ui
-  repository: file://../deploy-ui
-  condition: deploy-ui.enabled
-  version: v2024.12.9
 - name: kubedb-ui
   repository: file://../kubedb-ui
   condition: kubedb-ui.enabled
   version: v2024.12.9
-- name: marketplace-ui
-  repository: file://../marketplace-ui
-  condition: marketplace-ui.enabled
-  version: v2023.11.14
 - name: platform-api
   repository: file://../platform-api
   condition: platform-api.enabled
-  version: v2024.12.9
-- name: platform-links
-  repository: file://../platform-links
-  condition: platform-links.enabled
-  version: v2024.12.9
-- name: billing
-  repository: file://../billing
-  condition: billing.enabled
   version: v2024.12.9
 - name: grafana
   repository: file://../grafana
@@ -56,14 +40,6 @@ dependencies:
   repository: file://../s3proxy
   condition: s3proxy.enabled
   version: v2024.12.9
-- name: dns-proxy
-  repository: file://../dns-proxy
-  condition: dns-proxy.enabled
-  version: v2023.11.14
-- name: smtprelay
-  repository: file://../smtprelay
-  condition: smtprelay.enabled
-  version: v2023.11.14
 - name: ingress-nginx
   repository: oci://ghcr.io/appscode-charts
   condition: ingress-nginx.enabled
