@@ -84,14 +84,14 @@ Returns the appscode license
 Returns the registry used for app docker image
 */}}
 {{- define "image.registry" -}}
-{{- list (default .Values.registryFQDN .Values.global.registryFQDN) (default .Values.image.registry .Values.global.registry) | compact | join "/" }}
+{{- list .Values.global.registryFQDN (default .Values.image.registry .Values.global.registry) | compact | join "/" }}
 {{- end }}
 
 {{/*
 Returns the registry used for kubectl docker image
 */}}
 {{- define "kubectl.registry" -}}
-{{- list (default .Values.registryFQDN .Values.global.registryFQDN) (default .Values.kubectl.registry .Values.global.registry) | compact | join "/" }}
+{{- list .Values.global.registryFQDN (default .Values.kubectl.registry .Values.global.registry) | compact | join "/" }}
 {{- end }}
 
 {{/*

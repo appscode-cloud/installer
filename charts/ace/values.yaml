@@ -2,16 +2,10 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-billing:
-  enabled: false
-
 platform-ui:
   enabled: false
 
 cluster-ui:
-  enabled: false
-
-deploy-ui:
   enabled: false
 
 grafana:
@@ -20,13 +14,7 @@ grafana:
 kubedb-ui:
   enabled: false
 
-marketplace-ui:
-  enabled: false
-
 platform-api:
-  enabled: false
-
-platform-links:
   enabled: false
 
 ingress-nginx:
@@ -77,9 +65,6 @@ trickster:
 s3proxy:
   enabled: false
 
-dns-proxy:
-  enabled: false
-
 openfga:
   enabled: false
   datastoreURI: ""
@@ -96,9 +81,6 @@ openfga:
   #   runAsUser: 65534
   #   seccompProfile:
   #     type: RuntimeDefault
-
-smtprelay:
-  enabled: false
 
 # kube-bind-server:
 #   enabled: false
@@ -431,10 +413,6 @@ settings:
   firebase:
     project: ""
     database: ""
-
-# Docker registry fqdn used to pull app related images.
-# Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image}
-registryFQDN: ghcr.io
 
 # Docker registry containing app image
 image:

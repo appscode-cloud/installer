@@ -36,6 +36,7 @@ _testmain.go
 .DS_Store
 /.crds
 
+/charts/acaas/charts
 /charts/ace/charts
 /charts/opscenter-features/charts
 /charts/service-gateway/charts

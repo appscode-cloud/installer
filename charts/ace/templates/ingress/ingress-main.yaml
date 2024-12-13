@@ -50,15 +50,6 @@ spec:
         path: /db
         pathType: Prefix
       {{- end }}
-      {{- if (index .Values "deploy-ui" "enabled") }}
-      - backend:
-          service:
-            name: {{ include "ace.fullname" . }}-deploy-ui
-            port:
-              number: 80
-        path: /deploy
-        pathType: Prefix
-      {{- end }}
       {{- if (index .Values "platform-ui" "enabled") }}
       - backend:
           service:
@@ -68,15 +59,6 @@ spec:
         path: /id
         pathType: Prefix
       {{- end }}
-      {{- if (index .Values "platform-links" "enabled") }}
-      - backend:
-          service:
-            name: {{ include "ace.fullname" . }}-platform-links
-            port:
-              number: 80
-        path: /links
-        pathType: Prefix
-      {{- end }}
       {{ if .Values.grafana.enabled }}
       - backend:
           service:
@@ -84,15 +66,6 @@ spec:
             port:
               number: 80
         path: /grafana
-        pathType: Prefix
-      {{- end }}
-      {{- if (index .Values "marketplace-ui" "enabled") }}
-      - backend:
-          service:
-            name: {{ include "ace.fullname" . }}-marketplace-ui
-            port:
-              number: 80
-        path: /marketplace
         pathType: Prefix
       {{- end }}
       {{- if (index .Values "trickster" "enabled") }}
@@ -107,28 +80,10 @@ spec:
     {{- if eq .Values.global.platform.hostType "domain" }}
     host: {{ .Values.global.platform.host }}
     {{- end }}
-{{- if and (index .Values "dns-proxy" "enabled") (eq .Values.global.platform.hostType "domain") }}
-  - host: dns-proxy.{{ .Values.global.platform.host }}
-    http:
-      paths:
-      - backend:
-          service:
-            name: {{ include "ace.fullname" . }}-dns-proxy
-            port:
-              number: 80
-        path: /
-        pathType: Prefix
-{{- end }}
   tls:
   - secretName: {{ include "ace.fullname" . }}-cert
     {{- if eq .Values.global.platform.hostType "domain" }}
     hosts:
     - '{{ .Values.global.platform.host }}'
-    {{- if (index .Values "dns-proxy" "enabled") }}
-    - 'dns-proxy.{{ .Values.global.platform.host }}'
-    {{- end }}
-    {{- if (index .Values "smtprelay" "enabled") }}
-    - 'smtprelay.{{ .Values.global.platform.host }}'
-    {{- end }}
     {{- end }}
 {{- end }}

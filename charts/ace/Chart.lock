@@ -5,23 +5,11 @@ dependencies:
 - name: cluster-ui
   repository: file://../cluster-ui
   version: v2024.12.9
-- name: deploy-ui
-  repository: file://../deploy-ui
-  version: v2024.12.9
 - name: kubedb-ui
   repository: file://../kubedb-ui
   version: v2024.12.9
-- name: marketplace-ui
-  repository: file://../marketplace-ui
-  version: v2023.11.14
 - name: platform-api
   repository: file://../platform-api
-  version: v2024.12.9
-- name: platform-links
-  repository: file://../platform-links
-  version: v2024.12.9
-- name: billing
-  repository: file://../billing
   version: v2024.12.9
 - name: grafana
   repository: file://../grafana
@@ -32,12 +20,6 @@ dependencies:
 - name: s3proxy
   repository: file://../s3proxy
   version: v2024.12.9
-- name: dns-proxy
-  repository: file://../dns-proxy
-  version: v2023.11.14
-- name: smtprelay
-  repository: file://../smtprelay
-  version: v2023.11.14
 - name: ingress-nginx
   repository: oci://ghcr.io/appscode-charts
   version: 4.11.1
@@ -47,5 +29,5 @@ dependencies:
 - name: openfga
   repository: oci://ghcr.io/appscode-charts
   version: 0.2.13
-digest: sha256:264e0be8d99fa939021b5439b12d4f8a508ba2890cb5dc4fd06e67bef2a68229
-generated: "2024-11-25T00:48:18.78852-08:00"
+digest: sha256:40124216c43a55cc2a3c6f681f07cf93323553e2eada74bdbc4c859a7200da6c
+generated: "2024-12-12T17:21:45.092345-08:00"

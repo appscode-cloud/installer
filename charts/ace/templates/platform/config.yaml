@@ -138,7 +138,7 @@ stringData:
     ENABLE_FEDERATED_AVATAR = true
     AVATAR_UPLOAD_PATH      = avatars
 
-  {{- if .Values.billing.enabled }}
+  {{- if eq .Values.global.platform.deploymentType "Hosted" }}
     [badger]
     PATH   = {{ .Values.global.infra.badger.mountPath }}
     LEVELS = {{ .Values.global.infra.badger.levels }}
@@ -153,9 +153,7 @@ stringData:
     BUCKET          = {{ .Values.settings.contract.bucket }}
     PREFIX          = {{ .Values.settings.contract.prefix }}
     LICENSE_BUCKET  = {{ .Values.settings.contract.licenseBucket }}
-  {{- end }}
 
-  {{- if eq .Values.global.platform.deploymentType "Hosted" }}
     [fileserver]
     BASE_URL         = {{ .Values.global.infra.fileserver.baseURL }}
     BUCKET           = {{ .Values.global.infra.fileserver.bucket }}
