@@ -14,7 +14,7 @@ require (
 	k8s.io/apimachinery v0.30.2
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
 	kmodules.xyz/client-go v0.30.40
-	kmodules.xyz/image-packer v0.0.0-20241207204410-7a879392f877
+	kmodules.xyz/image-packer v0.0.0-20241213044824-5b4eb7f75cf4
 	kmodules.xyz/objectstore-api v0.29.1
 	kmodules.xyz/resource-metadata v0.23.0
 	kmodules.xyz/schema-checker v0.4.2

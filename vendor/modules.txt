@@ -716,7 +716,7 @@ kmodules.xyz/client-go/tools/parser
 # kmodules.xyz/go-containerregistry v0.0.12
 ## explicit; go 1.21.5
 kmodules.xyz/go-containerregistry/name
-# kmodules.xyz/image-packer v0.0.0-20241207204410-7a879392f877
+# kmodules.xyz/image-packer v0.0.0-20241213044824-5b4eb7f75cf4
 ## explicit; go 1.22.7
 kmodules.xyz/image-packer/pkg/lib
 # kmodules.xyz/monitoring-agent-api v0.30.3

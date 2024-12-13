@@ -54,6 +54,7 @@ func Test_CheckImageArchitectures(t *testing.T) {
 		"ghcr.io/kluster-manager/registration-operator:v0.14.0",
 		"ghcr.io/kluster-manager/registration:v0.14.0",
 		"ghcr.io/kluster-manager/work:v0.14.0",
+		"ghcr.io/voyagermesh/defaultbackend:1.5",
 	}); err != nil {
 		t.Errorf("CheckImageArchitectures() error = %v", err)
 	}
