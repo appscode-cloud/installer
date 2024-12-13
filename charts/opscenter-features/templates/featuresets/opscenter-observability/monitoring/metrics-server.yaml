@@ -41,8 +41,6 @@ spec:
         kind: Deployment
         optional: "metrics-server"
         selector:
-          app.kubernetes.io/instance: metrics-server
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: metrics-server
       # AKS uses the following label selectors found in k8s addons
       # https://github.com/kubernetes/kubernetes/blob/v1.30.3/cluster/addons/metrics-server/metrics-server-deployment.yaml#L26-L31
