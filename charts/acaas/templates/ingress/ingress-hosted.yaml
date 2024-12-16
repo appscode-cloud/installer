@@ -1,17 +1,24 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "acaas.fullname" . }}
+  name: ace-hosted
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "acaas.labels" . | nindent 4 }}
 spec:
-  {{- if and .Values.ingress.className (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion) }}
   ingressClassName: {{ .Values.ingress.className }}
-  {{- end }}
   rules:
   - http:
       paths:
+      {{- if (index .Values "billing-ui" "enabled") }}
+      - backend:
+          service:
+            name: {{ include "acaas.fullname" . }}-billing-ui
+            port:
+              number: 80
+        path: /billing
+        pathType: Prefix
+      {{- end }}
       {{- if (index .Values "deploy-ui" "enabled") }}
       - backend:
           service:
@@ -19,6 +26,24 @@ spec:
             port:
               number: 80
         path: /deploy
+        pathType: Prefix
+      {{- end }}
+      {{- if (index .Values "marketplace-api" "enabled") }}
+      - backend:
+          service:
+            name: {{ include "acaas.fullname" . }}-marketplace-api
+            port:
+              number: 80
+        path: /marketplace/api
+        pathType: Prefix
+      {{- end }}
+      {{- if (index .Values "marketplace-ui" "enabled") }}
+      - backend:
+          service:
+            name: {{ include "acaas.fullname" . }}-marketplace-ui
+            port:
+              number: 80
+        path: /marketplace
         pathType: Prefix
       {{- end }}
       {{- if (index .Values "platform-links" "enabled") }}
@@ -30,13 +55,13 @@ spec:
         path: /links
         pathType: Prefix
       {{- end }}
-      {{- if (index .Values "marketplace-ui" "enabled") }}
+      {{- if (index .Values "website" "enabled") }}
       - backend:
           service:
-            name: {{ include "acaas.fullname" . }}-marketplace-ui
+            name: {{ include "acaas.fullname" . }}-website
             port:
               number: 80
-        path: /marketplace
+        path: /
         pathType: Prefix
       {{- end }}
     host: {{ .Values.global.platform.host }}
@@ -53,7 +78,7 @@ spec:
         pathType: Prefix
 {{- end }}
   tls:
-  - secretName: {{ include "acaas.fullname" . }}-cert
+  - secretName: {{ default (printf "%s-cert" (include "acaas.fullname" .)) .Values.ingress.tls.secret.name }}
     hosts:
     - '{{ .Values.global.platform.host }}'
     {{- if (index .Values "dns-proxy" "enabled") }}

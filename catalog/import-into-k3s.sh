@@ -289,7 +289,7 @@ k3s ctr images import images/appscode-grafana-tools-v0.2.0.tar
 k3s ctr images import images/appscode-grafana-v2024.10.31.tar
 k3s ctr images import images/appscode-inbox-agent-v0.0.1.tar
 k3s ctr images import images/appscode-inbox-server-latest.tar
-k3s ctr images import images/appscode-inbox-ui-0.0.2.tar
+k3s ctr images import images/appscode-inbox-ui-0.0.3.tar
 k3s ctr images import images/appscode-k8s-wait-for-v2.0.tar
 k3s ctr images import images/appscode-kube-rbac-proxy-v0.11.0.tar
 k3s ctr images import images/appscode-kube-rbac-proxy-v0.13.0.tar

@@ -297,7 +297,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana:v2024.10.31 images/appscode-grafana-v2024.10.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-agent:v0.0.1 images/appscode-inbox-agent-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-server:latest images/appscode-inbox-server-latest.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-ui:0.0.2 images/appscode-inbox-ui-0.0.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-ui:0.0.3 images/appscode-inbox-ui-0.0.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/k8s-wait-for:v2.0 images/appscode-k8s-wait-for-v2.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.11.0 images/appscode-kube-rbac-proxy-v0.11.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.13.0 images/appscode-kube-rbac-proxy-v0.13.0.tar

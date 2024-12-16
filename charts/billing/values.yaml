@@ -72,7 +72,7 @@ monitoring:
     # Only usable when monitoring agent is `prometheus.io/operator`.
     labels: {}
 
-summary:
+aggregator:
   schedule: "0 8 */1 */1 *"
 
 persistence:
@@ -93,6 +93,4 @@ settings:
   caProviderClass: ""
   secretName:
     platformConfig: ""
-    grafanaConfig: ""
     objstore: ""
-    nats: ""

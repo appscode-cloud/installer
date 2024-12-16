@@ -6,13 +6,13 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ include "billing.fullname" . }}-summary
+  name: {{ include "billing.fullname" . }}-aggregator
   namespace: {{ .Release.Namespace }}
   labels:
-    app.kubernetes.io/component: "billing-summary"
+    app.kubernetes.io/component: "aggregator"
     {{- include "billing.labels" . | nindent 4 }}
 spec:
-  schedule: {{ .Values.summary.schedule }}
+  schedule: {{ .Values.aggregator.schedule }}
   jobTemplate:
     spec:
       template:
@@ -28,7 +28,7 @@ spec:
               image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
               imagePullPolicy: {{ .Values.image.pullPolicy }}
               args:
-                - summary
+                - aggregator
               resources:
                 {{- toYaml .Values.resources | nindent 16 }}
               env:

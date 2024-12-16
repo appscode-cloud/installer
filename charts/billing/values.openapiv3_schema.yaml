@@ -438,6 +438,13 @@ properties:
             x-kubernetes-list-type: atomic
         type: object
     type: object
+  aggregator:
+    properties:
+      schedule:
+        type: string
+    required:
+    - schedule
+    type: object
   fullnameOverride:
     type: string
   image:
@@ -744,30 +751,17 @@ properties:
         type: string
       secretName:
         properties:
-          grafanaConfig:
-            type: string
-          nats:
-            type: string
           objstore:
             type: string
           platformConfig:
             type: string
         required:
-        - grafanaConfig
-        - nats
         - objstore
         - platformConfig
         type: object
     required:
     - caProviderClass
     - secretName
-    type: object
-  summary:
-    properties:
-      schedule:
-        type: string
-    required:
-    - schedule
     type: object
   tolerations:
     items:
@@ -786,6 +780,7 @@ properties:
       type: object
     type: array
 required:
+- aggregator
 - image
 - infra
 - monitoring
@@ -794,5 +789,4 @@ required:
 - service
 - serviceAccount
 - settings
-- summary
 type: object

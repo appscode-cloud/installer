@@ -5,7 +5,7 @@ metadata:
   name: {{ include "billing.fullname" . }}-processor
   namespace: {{ .Release.Namespace }}
   labels:
-    app.kubernetes.io/component: "billing-processor"
+    app.kubernetes.io/component: "processor"
   {{- if eq "true" ( include "monitoring.apply-servicemonitor-label" . ) }}
     {{- include "monitoring.servicemonitor-label" . | nindent 4 }}
   {{- else }}
@@ -17,7 +17,7 @@ spec:
     - {{ .Release.Namespace }}
   selector:
     matchLabels:
-      app.kubernetes.io/component: "billing-processor"
+      app.kubernetes.io/component: "processor"
       {{- include "billing.selectorLabels" . | nindent 6 }}
   endpoints:
   - path: /metrics

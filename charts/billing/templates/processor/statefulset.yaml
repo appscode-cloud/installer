@@ -9,14 +9,14 @@ metadata:
   name: {{ include "billing.fullname" . }}-processor
   namespace: {{ .Release.Namespace }}
   labels:
-    app.kubernetes.io/component: "billing-processor"
+    app.kubernetes.io/component: "processor"
     {{- include "billing.labels" . | nindent 4 }}
 spec:
   podManagementPolicy: Parallel
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/component: "billing-processor"
+      app.kubernetes.io/component: "processor"
       {{- include "billing.selectorLabels" . | nindent 6 }}
   serviceName: {{ include "billing.fullname" . }}-processor
   template:
@@ -26,7 +26,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        app.kubernetes.io/component: "billing-processor"
+        app.kubernetes.io/component: "processor"
         {{- include "billing.selectorLabels" . | nindent 8 }}
     spec:
       {{- include "appscode.imagePullSecrets" . | nindent 6 }}

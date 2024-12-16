@@ -45,20 +45,33 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `acaas` chart and their default values.
 
-|        Parameter        |                                                             Description                                                              |           Default           |
-|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
-| billing.enabled         |                                                                                                                                      | <code>false</code>          |
-| deploy-ui.enabled       |                                                                                                                                      | <code>false</code>          |
-| marketplace-ui.enabled  |                                                                                                                                      | <code>false</code>          |
-| dns-proxy.enabled       |                                                                                                                                      | <code>false</code>          |
-| platform-links.enabled  |                                                                                                                                      | <code>false</code>          |
-| smtprelay.enabled       |                                                                                                                                      | <code>false</code>          |
-| global.nameOverride     |                                                                                                                                      | <code>"ace"</code>          |
-| global.fullnameOverride |                                                                                                                                      | <code>""</code>             |
-| global.platform.host    |                                                                                                                                      | <code>appscode.ninja</code> |
-| global.registry         | Docker registry used to pull app related images                                                                                      | <code>""</code>             |
-| global.registryFQDN     | Docker registry fqdn used to pull app related images. Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image} | <code>ghcr.io</code>        |
-| ingress.className       | enabled: false                                                                                                                       | <code>""</code>             |
+|             Parameter              |                                                             Description                                                              |           Default           |
+|------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
+| billing.enabled                    |                                                                                                                                      | <code>false</code>          |
+| billing-ui.enabled                 |                                                                                                                                      | <code>false</code>          |
+| deploy-ui.enabled                  |                                                                                                                                      | <code>false</code>          |
+| marketplace-api.enabled            |                                                                                                                                      | <code>false</code>          |
+| marketplace-ui.enabled             |                                                                                                                                      | <code>false</code>          |
+| dns-proxy.enabled                  |                                                                                                                                      | <code>false</code>          |
+| platform-links.enabled             |                                                                                                                                      | <code>false</code>          |
+| smtprelay.enabled                  |                                                                                                                                      | <code>false</code>          |
+| website.enabled                    |                                                                                                                                      | <code>false</code>          |
+| global.nameOverride                |                                                                                                                                      | <code>"ace"</code>          |
+| global.fullnameOverride            |                                                                                                                                      | <code>""</code>             |
+| global.platform.host               |                                                                                                                                      | <code>appscode.ninja</code> |
+| global.registry                    | Docker registry used to pull app related images                                                                                      | <code>""</code>             |
+| global.registryFQDN                | Docker registry fqdn used to pull app related images. Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image} | <code>ghcr.io</code>        |
+| settings.caProviderClass           |                                                                                                                                      | <code>""</code>             |
+| settings.secretName.platformConfig |                                                                                                                                      | <code>""</code>             |
+| settings.secretName.objstore       |                                                                                                                                      | <code>""</code>             |
+| ingress.className                  |                                                                                                                                      | <code>"nginx-ace"</code>    |
+| ingress.tls.enable                 |                                                                                                                                      | <code>true</code>           |
+| ingress.tls.secret.name            |                                                                                                                                      | <code>"ace-cert"</code>     |
+| ingress.rules.blog.upstream        |                                                                                                                                      | <code>""</code>             |
+| ingress.rules.docs.upstream        |                                                                                                                                      | <code>""</code>             |
+| ingress.rules.learn.upstream       |                                                                                                                                      | <code>""</code>             |
+| ingress.rules.license.upstream     |                                                                                                                                      | <code>""</code>             |
+| ingress.rules.selfhost.upstream    |                                                                                                                                      | <code>""</code>             |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

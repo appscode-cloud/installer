@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    nginx.ingress.kubernetes.io/upstream-vhost: {{ .Values.ingress.rules.blog.upstream }}
+  name: blog
+  namespace: {{ .Release.Namespace }}
+spec:
+  ingressClassName: {{ .Values.ingress.className }}
+  rules:
+  - host: {{ .Values.global.platform.host }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: blog
+            port:
+              number: 443
+        path: /blog
+        pathType: Prefix
+  {{- if .Values.ingress.tls.enable }}
+  tls:
+    - hosts:
+        - '{{ .Values.global.platform.host }}'
+      secretName: {{ default (printf "%s-cert" (include "acaas.fullname" .)) .Values.ingress.tls.secret.name }}
+  {{- end }}

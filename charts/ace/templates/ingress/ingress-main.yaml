@@ -80,10 +80,43 @@ spec:
     {{- if eq .Values.global.platform.hostType "domain" }}
     host: {{ .Values.global.platform.host }}
     {{- end }}
+
+{{- if eq .Values.global.platform.hostType "domain" }}
+{{- if eq .Values.global.platform.deploymentType "Hosted" }}
+  - host: api.{{ .Values.global.platform.host }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-platform-api
+            port:
+              number: 80
+        path: /api
+        pathType: Prefix
+{{- end }}
+{{- if eq .Values.global.platform.host "appscode.com" }}
+  - host: api.byte.builders
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-platform-api
+            port:
+              number: 80
+        path: /api
+        pathType: Prefix
+{{- end }}
+{{- end }}
   tls:
   - secretName: {{ include "ace.fullname" . }}-cert
     {{- if eq .Values.global.platform.hostType "domain" }}
     hosts:
     - '{{ .Values.global.platform.host }}'
+    {{- if eq .Values.global.platform.deploymentType "Hosted" }}
+    - 'api.{{ .Values.global.platform.host }}'
+    {{- end }}
+    {{- if eq .Values.global.platform.host "appscode.com" }}
+    - 'api.byte.builders'
+    {{- end }}
     {{- end }}
 {{- end }}

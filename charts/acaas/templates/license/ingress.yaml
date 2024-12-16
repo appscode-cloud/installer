@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    nginx.ingress.kubernetes.io/proxy-ssl-name: {{ .Values.ingress.rules.license.upstream }}
+    nginx.ingress.kubernetes.io/proxy-ssl-server-name: "on"
+    nginx.ingress.kubernetes.io/upstream-vhost: {{ .Values.ingress.rules.license.upstream }}
+  name: license
+  namespace: {{ .Release.Namespace }}
+spec:
+  ingressClassName: {{ .Values.ingress.className }}
+  rules:
+  # x.appscode.com -> appscode.com/issue-license
+  # license-issuer.appscode.com -> appscode.com/issue-license
+  - host: {{ .Values.global.platform.host }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: license
+            port:
+              number: 443
+        path: /issue-license
+        pathType: Prefix
+  {{- if .Values.ingress.tls.enable }}
+  tls:
+    - hosts:
+        - '{{ .Values.global.platform.host }}'
+      secretName: {{ default (printf "%s-cert" (include "acaas.fullname" .)) .Values.ingress.tls.secret.name }}
+  {{- end }}
