@@ -30,6 +30,7 @@ for dir in charts/*/; do
         [[ "$dir" = "dns-proxy" ]] ||
         [[ "$dir" = "grafana" ]] ||
         [[ "$dir" = "license-proxyserver-manager" ]] ||
+        [[ "$dir" = "marketplace-api" ]] ||
         [[ "$dir" = "opscenter-features" ]] ||
         [[ "$dir" = "platform-api" ]] ||
         [[ "$dir" = "platform-links" ]] ||
@@ -38,7 +39,8 @@ for dir in charts/*/; do
         [[ "$dir" = "service-gateway-presets" ]] ||
         [[ "$dir" = "service-provider" ]] ||
         [[ "$dir" = "service-vault" ]] ||
-        [[ "$dir" = "smtprelay" ]]; then
+        [[ "$dir" = "smtprelay" ]] ||
+        [[ "$dir" = "website" ]]; then
         make ct CT_COMMAND=lint TEST_CHARTS=charts/$dir
     elif [[ "$dir" = "cert-manager-webhook-ace" ]]; then
         make ct TEST_CHARTS=charts/$dir || true
