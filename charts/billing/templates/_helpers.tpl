@@ -98,16 +98,8 @@ Returns the ServiceMonitor labels
 {{- .Values.settings.secretName.platformConfig }}
 {{- end }}
 
-{{- define "settings.grafanaConfigSecretName" -}}
-{{- .Values.settings.secretName.grafanaConfig }}
-{{- end }}
-
 {{- define "settings.objstoreSecretName" -}}
 {{- .Values.settings.secretName.objstore }}
-{{- end }}
-
-{{- define "settings.natsSecretName" -}}
-{{- .Values.settings.secretName.nats -}}
 {{- end }}
 
 {{- define "settings.caProviderClass" -}}

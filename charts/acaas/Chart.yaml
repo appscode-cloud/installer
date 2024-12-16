@@ -16,6 +16,10 @@ dependencies:
   repository: file://../billing
   condition: billing.enabled
   version: v2024.12.9
+- name: billing-ui
+  repository: file://../billing-ui
+  condition: billing-ui.enabled
+  version: v2024.12.9
 - name: deploy-ui
   repository: file://../deploy-ui
   condition: deploy-ui.enabled
@@ -24,6 +28,10 @@ dependencies:
   repository: file://../dns-proxy
   condition: dns-proxy.enabled
   version: v2023.11.14
+- name: marketplace-api
+  repository: file://../marketplace-api
+  condition: marketplace-api.enabled
+  version: v2024.12.9
 - name: marketplace-ui
   repository: file://../marketplace-ui
   condition: marketplace-ui.enabled
@@ -36,3 +44,7 @@ dependencies:
   repository: file://../smtprelay
   condition: smtprelay.enabled
   version: v2023.11.14
+- name: website
+  repository: file://../website
+  condition: website.enabled
+  version: v2024.12.9

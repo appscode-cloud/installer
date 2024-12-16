@@ -43,19 +43,29 @@ type Acaas struct {
 
 // AcaasSpec is the schema for Ace Operator values file
 type AcaasSpec struct {
-	Billing       AceBilling        `json:"billing"`
-	DeployUi      AceDeployUi       `json:"deploy-ui"`
-	DNSProxy      AceDnsProxy       `json:"dns-proxy"`
-	MarketplaceUi AceMarketplaceUi  `json:"marketplace-ui"`
-	PlatformLinks AcePlatformLinks  `json:"platform-links"`
-	SMTPRelay     AceSmtprelay      `json:"smtprelay"`
-	Global        AcaasGlobalValues `json:"global"`
-	Ingress       AcaasIngress      `json:"ingress"`
+	Billing        AceBilling        `json:"billing"`
+	BillingUi      AceBillingUi      `json:"billing-ui"`
+	DeployUi       AceDeployUi       `json:"deploy-ui"`
+	DNSProxy       AceDnsProxy       `json:"dns-proxy"`
+	MarketplaceApi AceMarketplaceApi `json:"marketplace-api"`
+	MarketplaceUi  AceMarketplaceUi  `json:"marketplace-ui"`
+	PlatformLinks  AcePlatformLinks  `json:"platform-links"`
+	SMTPRelay      AceSmtprelay      `json:"smtprelay"`
+	Website        AceWebsite        `json:"website"`
+
+	Global   AcaasGlobalValues `json:"global"`
+	Settings AcaasSettings     `json:"settings"`
+	Ingress  AcaasIngress      `json:"ingress"`
 }
 
 type AceBilling struct {
 	Enabled      bool `json:"enabled"`
 	*BillingSpec `json:",inline,omitempty"`
+}
+
+type AceBillingUi struct {
+	Enabled        bool `json:"enabled"`
+	*BillingUiSpec `json:",inline,omitempty"`
 }
 
 type AceDeployUi struct {
@@ -66,6 +76,11 @@ type AceDeployUi struct {
 type AceDnsProxy struct {
 	Enabled       bool `json:"enabled"`
 	*DnsProxySpec `json:",inline,omitempty"`
+}
+
+type AceMarketplaceApi struct {
+	Enabled             bool `json:"enabled"`
+	*MarketplaceApiSpec `json:",inline,omitempty"`
 }
 
 type AceMarketplaceUi struct {
@@ -83,6 +98,11 @@ type AceSmtprelay struct {
 	*SmtprelaySpec `json:",inline,omitempty"`
 }
 
+type AceWebsite struct {
+	Enabled      bool `json:"enabled"`
+	*WebsiteSpec `json:",inline,omitempty"`
+}
+
 type AcaasGlobalValues struct {
 	NameOverride     string                `json:"nameOverride"`
 	FullnameOverride string                `json:"fullnameOverride"`
@@ -95,8 +115,37 @@ type AcaasPlatformSettings struct {
 	Host string `json:"host"`
 }
 
+type AcaasSettings struct {
+	CAProviderClass         string `json:"caProviderClass"`
+	AcaasSettingsSecretName `json:"secretName"`
+}
+
+type AcaasSettingsSecretName struct {
+	PlatformConfig string `json:"platformConfig"`
+	Objstore       string `json:"objstore"`
+}
+
 type AcaasIngress struct {
-	ClassName string `json:"className"`
+	ClassName string            `json:"className"`
+	TLS       AcaasIngressTLS   `json:"tls"`
+	Rules     AcaasIngressRules `json:"rules"`
+}
+
+type AcaasIngressTLS struct {
+	Enable bool                 `json:"enable"`
+	Secret LocalObjectReference `json:"secret"`
+}
+
+type AcaasIngressRules struct {
+	Blog     ExternalService `json:"blog"`
+	Docs     ExternalService `json:"docs"`
+	Learn    ExternalService `json:"learn"`
+	License  ExternalService `json:"license"`
+	Selfhost ExternalService `json:"selfhost"`
+}
+
+type ExternalService struct {
+	Upstream string `json:"upstream"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

@@ -57,7 +57,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/grafana-tools:v0.2.
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/grafana:v2024.10.31 $IMAGE_REGISTRY/grafana:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/inbox-agent:v0.0.1 $IMAGE_REGISTRY/inbox-agent:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/inbox-server:latest $IMAGE_REGISTRY/inbox-server:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/inbox-ui:0.0.2 $IMAGE_REGISTRY/inbox-ui:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/inbox-ui:0.0.3 $IMAGE_REGISTRY/inbox-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/k8s-wait-for:v2.0 $IMAGE_REGISTRY/k8s-wait-for:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-rbac-proxy:v0.15.0 $IMAGE_REGISTRY/kube-rbac-proxy:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-ui-server:v0.0.50 $IMAGE_REGISTRY/kube-ui-server:$TAG

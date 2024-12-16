@@ -291,7 +291,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-grafana-
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-grafana-v2024.10.31.tar $IMAGE_REGISTRY/appscode/grafana:v2024.10.31
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-agent-v0.0.1.tar $IMAGE_REGISTRY/appscode/inbox-agent:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-server-latest.tar $IMAGE_REGISTRY/appscode/inbox-server:latest
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-ui-0.0.2.tar $IMAGE_REGISTRY/appscode/inbox-ui:0.0.2
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-ui-0.0.3.tar $IMAGE_REGISTRY/appscode/inbox-ui:0.0.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-k8s-wait-for-v2.0.tar $IMAGE_REGISTRY/appscode/k8s-wait-for:v2.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rbac-proxy-v0.11.0.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.11.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rbac-proxy-v0.13.0.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.13.0

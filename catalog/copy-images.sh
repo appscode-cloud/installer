@@ -300,7 +300,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana-t
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana:v2024.10.31 $IMAGE_REGISTRY/appscode/grafana:v2024.10.31
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-agent:v0.0.1 $IMAGE_REGISTRY/appscode/inbox-agent:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-server:latest $IMAGE_REGISTRY/appscode/inbox-server:latest
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-ui:0.0.2 $IMAGE_REGISTRY/appscode/inbox-ui:0.0.2
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-ui:0.0.3 $IMAGE_REGISTRY/appscode/inbox-ui:0.0.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/k8s-wait-for:v2.0 $IMAGE_REGISTRY/appscode/k8s-wait-for:v2.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.11.0 $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.11.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.13.0 $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.13.0

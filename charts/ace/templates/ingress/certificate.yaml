@@ -18,6 +18,12 @@ spec:
   commonName: "{{ .Values.global.platform.host }}"
   dnsNames:
     - "{{ .Values.global.platform.host }}"
+    {{- if eq .Values.global.platform.deploymentType "Hosted" }}
+    - "api.{{ .Values.global.platform.host }}"
+    {{- end }}
+    {{- if eq .Values.global.platform.host "appscode.com" }}
+    - "api.byte.builders"
+    {{- end }}
   {{- else }}
   ipAddresses:
     - "{{ .Values.global.platform.host }}"

@@ -2,12 +2,18 @@ dependencies:
 - name: billing
   repository: file://../billing
   version: v2024.12.9
+- name: billing-ui
+  repository: file://../billing-ui
+  version: v2024.12.9
 - name: deploy-ui
   repository: file://../deploy-ui
   version: v2024.12.9
 - name: dns-proxy
   repository: file://../dns-proxy
   version: v2023.11.14
+- name: marketplace-api
+  repository: file://../marketplace-api
+  version: v2024.12.9
 - name: marketplace-ui
   repository: file://../marketplace-ui
   version: v2023.11.14
@@ -17,5 +23,8 @@ dependencies:
 - name: smtprelay
   repository: file://../smtprelay
   version: v2023.11.14
-digest: sha256:9a436c1decc967232a5b6c743543278624ffa134ce67b194518db31d2afa970e
-generated: "2024-12-12T17:21:36.967394-08:00"
+- name: website
+  repository: file://../website
+  version: v2024.12.9
+digest: sha256:9befb2a4db3dae2047cec48c2351e15501fef7271fce70d6b8bbfcf9cd9aea16
+generated: "2024-12-15T19:43:53.155892-08:00"

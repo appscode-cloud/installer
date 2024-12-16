@@ -38,11 +38,7 @@ func Test_CheckImageArchitectures(t *testing.T) {
 		filepath.Join(dir, "catalog", "imagelist.yaml"),
 		filepath.Join(dir, "catalog", "reusable-ui-charts.yaml"),
 	}, []string{
-		"ghcr.io/appscode/billing-ui:0.2.3",
-		"ghcr.io/appscode/deploy-ui:0.3.6-rc.1",
 		"ghcr.io/appscode/inbox-server:latest",
-		"ghcr.io/appscode/inbox-ui:0.0.2",
-		"ghcr.io/appscode/marketplace-ui:0.3.1-rc.1",
 		"ghcr.io/kluster-manager/addon-manager:v0.14.0",
 		"ghcr.io/kluster-manager/cluster-gateway-manager:v1.9.2",
 		"ghcr.io/kluster-manager/cluster-gateway:v1.9.2",

@@ -1,0 +1,16 @@
+global:
+  platform:
+    host: appscode.ninja
+
+ingress:
+  rules:
+    blog:
+      upstream: blog-prod.web.app
+    docs:
+      upstream: bb-docs-qa.web.app
+    learn:
+      upstream: learn-qa.web.app
+    license:
+      upstream: x.appscode.com
+    selfhost:
+      upstream: selfhosting-qa.web.app

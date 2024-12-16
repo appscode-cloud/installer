@@ -30,7 +30,7 @@
 - ghcr.io/appscode/grafana:v2024.10.31
 - ghcr.io/appscode/inbox-agent:v0.0.1
 - ghcr.io/appscode/inbox-server:latest
-- ghcr.io/appscode/inbox-ui:0.0.2
+- ghcr.io/appscode/inbox-ui:0.0.3
 - ghcr.io/appscode/k8s-wait-for:v2.0
 - ghcr.io/appscode/kube-rbac-proxy:v0.11.0
 - ghcr.io/appscode/kube-rbac-proxy:v0.13.0
