@@ -58,10 +58,19 @@ spec:
       - group: apps
         version: v1
         kind: Deployment
+        optional: "cert-manager-webhook"
         selector:
           app.kubernetes.io/component: webhook
           app.kubernetes.io/instance: cert-manager
           app.kubernetes.io/name: webhook
+      - group: apps
+        version: v1
+        kind: Deployment
+        optional: "cert-manager-webhook"
+        selector:
+          app.kubernetes.io/component: webhook
+          app.kubernetes.io/instance: cert-manager
+          app.kubernetes.io/name: cert-manager
   chart:
     name: cert-manager
     namespace: cert-manager
