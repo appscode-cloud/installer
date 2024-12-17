@@ -269,7 +269,7 @@ k3s ctr images import images/appscode-charts-vault-0.27.0.tar
 k3s ctr images import images/appscode-charts-voyager-gateway-v2024.8.30.tar
 k3s ctr images import images/appscode-charts-voyager-v2024.8.30.tar
 k3s ctr images import images/appscode-images-ingress-nginx-controller-v1.11.1.tar
-k3s ctr images import images/appscode-images-nats-2.10.21-alpine.tar
+k3s ctr images import images/appscode-images-nats-2.10.24-alpine.tar
 k3s ctr images import images/appscode-images-postgres-16.4-alpine.tar
 k3s ctr images import images/appscode-images-redis-7.2.4-bookworm.tar
 k3s ctr images import images/appscode-aceshifter-v0.0.1.tar
@@ -368,9 +368,9 @@ k3s ctr images import images/voyagermesh-gateway-v1.1.2.tar
 k3s ctr images import images/hashicorp-vault-csi-provider-1.4.1.tar
 k3s ctr images import images/hashicorp-vault-secrets-operator-0.4.3.tar
 k3s ctr images import images/hashicorp-vault-1.15.2.tar
-k3s ctr images import images/natsio-nats-boot-config-0.16.0.tar
-k3s ctr images import images/natsio-nats-server-config-reloader-0.16.0.tar
-k3s ctr images import images/natsio-prometheus-nats-exporter-0.15.0.tar
+k3s ctr images import images/natsio-nats-boot-config-0.16.1.tar
+k3s ctr images import images/natsio-nats-server-config-reloader-0.16.1.tar
+k3s ctr images import images/natsio-prometheus-nats-exporter-0.16.0.tar
 k3s ctr images import images/openpolicyagent-gatekeeper-v3.13.3.tar
 k3s ctr images import images/opensearchproject-opensearch-2.1.0.tar
 k3s ctr images import images/prometheuscommunity-postgres-exporter-v0.15.0.tar

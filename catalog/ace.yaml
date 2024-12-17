@@ -10,7 +10,7 @@
 - ghcr.io/appscode-charts/service-gateway:v2024.12.9
 - ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10
 - ghcr.io/appscode-images/ingress-nginx-controller:v1.11.1
-- ghcr.io/appscode-images/nats:2.10.21-alpine
+- ghcr.io/appscode-images/nats:2.10.24-alpine
 - ghcr.io/appscode-images/postgres:16.4-alpine
 - ghcr.io/appscode-images/redis:7.2.4-bookworm
 - ghcr.io/appscode/aceshifter:v0.0.1
@@ -109,9 +109,9 @@
 - hashicorp/vault-csi-provider:1.4.1
 - hashicorp/vault-secrets-operator:0.4.3
 - hashicorp/vault:1.15.2
-- natsio/nats-boot-config:0.16.0
-- natsio/nats-server-config-reloader:0.16.0
-- natsio/prometheus-nats-exporter:0.15.0
+- natsio/nats-boot-config:0.16.1
+- natsio/nats-server-config-reloader:0.16.1
+- natsio/prometheus-nats-exporter:0.16.0
 - openpolicyagent/gatekeeper:v3.13.3
 - opensearchproject/opensearch:2.1.0
 - prometheuscommunity/postgres-exporter:v0.15.0

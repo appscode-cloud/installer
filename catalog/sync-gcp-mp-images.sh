@@ -37,7 +37,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace:v2024.12
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/service-gateway:v2024.12.9 $IMAGE_REGISTRY/service-gateway:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 $IMAGE_REGISTRY/spoke-cluster-addons:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/ingress-nginx-controller:v1.11.1 $IMAGE_REGISTRY/ingress-nginx-controller:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/nats:2.10.21-alpine $IMAGE_REGISTRY/nats:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/nats:2.10.24-alpine $IMAGE_REGISTRY/nats:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/postgres:16.4-alpine $IMAGE_REGISTRY/postgres:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/redis:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/aceshifter:v0.0.1 $IMAGE_REGISTRY/aceshifter:$TAG
@@ -134,9 +134,9 @@ crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/gateway:v1.1.2 $
 crane cp --allow-nondistributable-artifacts hashicorp/vault-csi-provider:1.4.1 $IMAGE_REGISTRY/vault-csi-provider:$TAG
 crane cp --allow-nondistributable-artifacts hashicorp/vault-secrets-operator:0.4.3 $IMAGE_REGISTRY/vault-secrets-operator:$TAG
 crane cp --allow-nondistributable-artifacts hashicorp/vault:1.15.2 $IMAGE_REGISTRY/vault:$TAG
-crane cp --allow-nondistributable-artifacts natsio/nats-boot-config:0.16.0 $IMAGE_REGISTRY/nats-boot-config:$TAG
-crane cp --allow-nondistributable-artifacts natsio/nats-server-config-reloader:0.16.0 $IMAGE_REGISTRY/nats-server-config-reloader:$TAG
-crane cp --allow-nondistributable-artifacts natsio/prometheus-nats-exporter:0.15.0 $IMAGE_REGISTRY/prometheus-nats-exporter:$TAG
+crane cp --allow-nondistributable-artifacts natsio/nats-boot-config:0.16.1 $IMAGE_REGISTRY/nats-boot-config:$TAG
+crane cp --allow-nondistributable-artifacts natsio/nats-server-config-reloader:0.16.1 $IMAGE_REGISTRY/nats-server-config-reloader:$TAG
+crane cp --allow-nondistributable-artifacts natsio/prometheus-nats-exporter:0.16.0 $IMAGE_REGISTRY/prometheus-nats-exporter:$TAG
 crane cp --allow-nondistributable-artifacts openpolicyagent/gatekeeper:v3.13.3 $IMAGE_REGISTRY/gatekeeper:$TAG
 crane cp --allow-nondistributable-artifacts opensearchproject/opensearch:2.1.0 $IMAGE_REGISTRY/opensearch:$TAG
 crane cp --allow-nondistributable-artifacts prometheuscommunity/postgres-exporter:v0.15.0 $IMAGE_REGISTRY/postgres-exporter:$TAG

@@ -271,7 +271,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-v
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-gateway-v2024.8.30.tar $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2024.8.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-v2024.8.30.tar $IMAGE_REGISTRY/appscode-charts/voyager:v2024.8.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-ingress-nginx-controller-v1.11.1.tar $IMAGE_REGISTRY/appscode-images/ingress-nginx-controller:v1.11.1
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-nats-2.10.21-alpine.tar $IMAGE_REGISTRY/appscode-images/nats:2.10.21-alpine
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-nats-2.10.24-alpine.tar $IMAGE_REGISTRY/appscode-images/nats:2.10.24-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-postgres-16.4-alpine.tar $IMAGE_REGISTRY/appscode-images/postgres:16.4-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-redis-7.2.4-bookworm.tar $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-aceshifter-v0.0.1.tar $IMAGE_REGISTRY/appscode/aceshifter:v0.0.1
@@ -370,9 +370,9 @@ $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-gatew
 $CMD push --allow-nondistributable-artifacts --insecure images/hashicorp-vault-csi-provider-1.4.1.tar $IMAGE_REGISTRY/hashicorp/vault-csi-provider:1.4.1
 $CMD push --allow-nondistributable-artifacts --insecure images/hashicorp-vault-secrets-operator-0.4.3.tar $IMAGE_REGISTRY/hashicorp/vault-secrets-operator:0.4.3
 $CMD push --allow-nondistributable-artifacts --insecure images/hashicorp-vault-1.15.2.tar $IMAGE_REGISTRY/hashicorp/vault:1.15.2
-$CMD push --allow-nondistributable-artifacts --insecure images/natsio-nats-boot-config-0.16.0.tar $IMAGE_REGISTRY/natsio/nats-boot-config:0.16.0
-$CMD push --allow-nondistributable-artifacts --insecure images/natsio-nats-server-config-reloader-0.16.0.tar $IMAGE_REGISTRY/natsio/nats-server-config-reloader:0.16.0
-$CMD push --allow-nondistributable-artifacts --insecure images/natsio-prometheus-nats-exporter-0.15.0.tar $IMAGE_REGISTRY/natsio/prometheus-nats-exporter:0.15.0
+$CMD push --allow-nondistributable-artifacts --insecure images/natsio-nats-boot-config-0.16.1.tar $IMAGE_REGISTRY/natsio/nats-boot-config:0.16.1
+$CMD push --allow-nondistributable-artifacts --insecure images/natsio-nats-server-config-reloader-0.16.1.tar $IMAGE_REGISTRY/natsio/nats-server-config-reloader:0.16.1
+$CMD push --allow-nondistributable-artifacts --insecure images/natsio-prometheus-nats-exporter-0.16.0.tar $IMAGE_REGISTRY/natsio/prometheus-nats-exporter:0.16.0
 $CMD push --allow-nondistributable-artifacts --insecure images/openpolicyagent-gatekeeper-v3.13.3.tar $IMAGE_REGISTRY/openpolicyagent/gatekeeper:v3.13.3
 $CMD push --allow-nondistributable-artifacts --insecure images/opensearchproject-opensearch-2.1.0.tar $IMAGE_REGISTRY/opensearchproject/opensearch:2.1.0
 $CMD push --allow-nondistributable-artifacts --insecure images/prometheuscommunity-postgres-exporter-v0.15.0.tar $IMAGE_REGISTRY/prometheuscommunity/postgres-exporter:v0.15.0
