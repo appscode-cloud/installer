@@ -3,9 +3,9 @@ kind: FeatureSet
 metadata:
   name: capi-core
 spec:
-  title: Cluster API
+  title: Cluster Management
   description: |
-    Components for Cluster API
+    Cluster Management Tools
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
