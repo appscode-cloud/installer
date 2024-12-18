@@ -205,10 +205,8 @@ The following table lists the configurable parameters of the `kubedb-ui-presets`
 | backup.enable.default                      |                                                                                                      | <code>true</code>                   |
 | backup.enable.toggle                       |                                                                                                      | <code>true</code>                   |
 | backup.by                                  |                                                                                                      | <code>BackupConfiguration</code>    |
-| backup.via                                 |                                                                                                      | <code>Dump</code>                   |
 | archiver.enable.toggle                     |                                                                                                      | <code>true</code>                   |
 | archiver.enable.default                    |                                                                                                      | <code>false</code>                  |
-| archiver.via                               |                                                                                                      | <code>Dump</code>                   |
 | pointInTimeRecovery.default                |                                                                                                      | <code>false</code>                  |
 | pointInTimeRecovery.toggle                 |                                                                                                      | <code>true</code>                   |
 
