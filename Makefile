@@ -387,6 +387,7 @@ verify: verify-gen verify-modules
 
 .PHONY: verify-modules
 verify-modules:
+	rm -rf go.sum vendor
 	go mod tidy
 	go mod vendor
 	@if !(git diff --exit-code HEAD); then \
