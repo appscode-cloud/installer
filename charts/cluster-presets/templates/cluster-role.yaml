@@ -11,6 +11,12 @@ rules:
   resources:
   - namespaces
   verbs: ["get"]
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  resourceNames: ["capi-credential"]
+  verbs: ["get", "list", "watch"]
 # Get Cluster Topology
 - apiGroups:
   - ""
