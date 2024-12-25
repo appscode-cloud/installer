@@ -95,6 +95,7 @@ crd-importer \
     --out=./charts/license-proxyserver-manager/crds
 
 crd-importer \
+    --input=https://github.com/kmodules/resource-metadata/raw/${KMODULES_RESOURCE_METADATA_TAG}/crds/ui.k8s.appscode.com_resourceoutlinefilters.yaml \
     --input=https://github.com/x-helm/apimachinery/raw/${X_HELM_APIMACHINERY_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
     --out=./charts/kubedb-ui-presets/crds
 
