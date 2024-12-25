@@ -1,0 +1,105 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: ResourceOutlineFilter
+metadata:
+  name: kubedb.com-v1alpha2-rabbitmqs-kubedb
+spec:
+  actions:
+  - items:
+      Update Version: true
+    name: ""
+    show: true
+  - items:
+      Reconfigure: true
+      Restart: true
+    name: Operations
+    show: true
+  - items:
+      Expand Volume: true
+      Horizontal Scale: true
+      Vertical Scale: true
+    name: Scaling
+    show: true
+  - items:
+      Compute: true
+      Storage: true
+    name: Autoscaling
+    show: true
+  - items:
+      Monitoring: true
+      TLS Configure: true
+    name: Security & Monitoring
+    show: true
+  header: true
+  pages:
+  - name: Overview
+    sections:
+    - blocks:
+        Nodes: true
+      info: true
+      insight: false
+      show: true
+    show: true
+  - name: Insights
+    sections:
+    - blocks:
+        Grafana Dashboards: true
+      info: false
+      insight: false
+      show: true
+    show: true
+  - name: Operations
+    sections:
+    - blocks:
+        Recent Operations: true
+        Recommendations: true
+      info: false
+      insight: false
+      show: true
+    show: true
+  - name: Security
+    sections:
+    - blocks:
+        CVE Report: true
+      info: false
+      insight: false
+      name: CVE Report
+      show: true
+    - blocks:
+        ClusterRoleBindings: true
+        ClusterRoles: true
+        RoleBindings: true
+        Roles: true
+        Service Account: true
+      info: false
+      insight: false
+      name: Access Control
+      show: true
+    - blocks:
+        Certificates: true
+        Cluster Issuer: true
+        Issuer: true
+        Secrets: true
+      info: false
+      insight: false
+      name: TLS
+      show: true
+    - blocks:
+        Policy Report: true
+      info: false
+      insight: false
+      name: Policies
+      show: true
+    - blocks:
+        Falco Events: true
+      info: false
+      insight: false
+      name: Runtime Security
+      show: true
+    show: false
+  resource:
+    group: kubedb.com
+    kind: RabbitMQ
+    name: rabbitmqs
+    scope: Namespaced
+    version: v1alpha2
+  tabBar: true

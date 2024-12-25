@@ -1,0 +1,136 @@
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: ResourceOutlineFilter
+metadata:
+  name: kubedb.com-v1-perconaxtradbs-kubedb
+spec:
+  actions:
+  - items:
+      Reconfigure: true
+      Restart: true
+    name: Operations
+    show: true
+  - items:
+      Expand Volume: true
+      Horizontal Scale: true
+      Vertical Scale: true
+    name: Scaling
+    show: true
+  - items:
+      Compute: true
+      Storage: true
+    name: Autoscaling
+    show: true
+  - items:
+      Monitoring: true
+      TLS Configure: true
+    name: Security & Monitoring
+    show: true
+  header: true
+  pages:
+  - name: Overview
+    sections:
+    - blocks:
+        Dashboards: true
+        Nodes: true
+      info: true
+      insight: true
+      show: true
+    show: true
+  - name: Insights
+    sections:
+    - blocks:
+        Grafana Dashboards: true
+        Replication Status: true
+      info: true
+      insight: true
+      show: true
+    show: true
+  - name: Users
+    sections:
+    - blocks:
+        AppBindings: true
+        Root User: true
+        SecretAccessRequests: true
+        SecretEngines: true
+        VaultServers: true
+      info: false
+      insight: false
+      show: true
+    show: true
+  - name: Operations
+    sections:
+    - blocks:
+        Recent Operations: true
+        Recommendations: true
+      info: false
+      insight: false
+      show: true
+    show: true
+  - name: Backup
+    sections:
+    - blocks:
+        Backup Configuration: true
+        CronJobs: true
+        Recent Backups: true
+        Recent Restores: true
+        Repository: true
+      info: false
+      insight: false
+      show: true
+    show: true
+  - name: Backup (Legacy)
+    sections:
+    - blocks:
+        Recent Backups: true
+        Recent Restores: true
+      info: true
+      insight: false
+      show: true
+    show: false
+  - name: Security
+    sections:
+    - blocks:
+        CVE Report: true
+      info: false
+      insight: false
+      name: CVE Report
+      show: true
+    - blocks:
+        ClusterRoleBindings: true
+        ClusterRoles: true
+        RoleBindings: true
+        Roles: true
+        Service Account: true
+      info: false
+      insight: false
+      name: Access Control
+      show: true
+    - blocks:
+        Certificates: true
+        Cluster Issuer: true
+        Issuer: true
+        Secrets: true
+      info: false
+      insight: false
+      name: TLS
+      show: true
+    - blocks:
+        Policy Report: true
+      info: false
+      insight: false
+      name: Policies
+      show: true
+    - blocks:
+        Falco Events: true
+      info: false
+      insight: false
+      name: Runtime Security
+      show: true
+    show: false
+  resource:
+    group: kubedb.com
+    kind: PerconaXtraDB
+    name: perconaxtradbs
+    scope: Namespaced
+    version: v1
+  tabBar: true
