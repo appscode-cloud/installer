@@ -342,7 +342,7 @@ k3s ctr images import images/kubedb-kubedb-ops-manager-v0.37.0.tar
 k3s ctr images import images/kubedb-kubedb-provisioner-v0.50.0.tar
 k3s ctr images import images/kubedb-kubedb-schema-manager-v0.26.0.tar
 k3s ctr images import images/kubedb-kubedb-ui-server-v0.26.0.tar
-k3s ctr images import images/kubedb-kubedb-webhook-server-v0.26.0.tar
+k3s ctr images import images/kubedb-kubedb-webhook-server-v0.26.1.tar
 k3s ctr images import images/kubedb-pg-coordinator-v0.34.0.tar
 k3s ctr images import images/kubedb-postgres-archiver-v0.11.0_16.1-alpine.tar
 k3s ctr images import images/kubedb-postgres-init-0.17.0.tar
