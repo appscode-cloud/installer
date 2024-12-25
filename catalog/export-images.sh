@@ -286,7 +286,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vp
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capi-ops-manager:v0.0.2 images/appscode-capi-ops-manager-v0.0.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog-manager:v0.1.1 images/appscode-catalog-manager-v0.1.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-presets:v0.0.7 images/appscode-cluster-presets-v0.0.7.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:0.9.12 images/appscode-cluster-ui-0.9.12.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:0.9.13 images/appscode-cluster-ui-0.9.13.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/config-syncer:v0.15.2-ent images/appscode-config-syncer-v0.15.2-ent.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/csi-driver-cacerts:v0.1.0 images/appscode-csi-driver-cacerts-v0.1.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/external-dns-operator:v0.0.8 images/appscode-external-dns-operator-v0.0.8.tar
@@ -304,7 +304,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rb
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.15.0 images/appscode-kube-rbac-proxy-v0.15.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-ui-server:v0.0.50 images/appscode-kube-ui-server-v0.0.50.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.31 images/appscode-kubectl-nonroot-1.31.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:0.7.11 images/appscode-kubedb-ui-0.7.11.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:0.7.12 images/appscode-kubedb-ui-0.7.12.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.18 images/appscode-license-proxyserver-v0.0.18.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest images/appscode-maxmind-geoip-city-mmdb-latest.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.6.0 images/appscode-openfga-v1.6.0.tar

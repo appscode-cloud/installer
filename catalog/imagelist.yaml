@@ -8,7 +8,7 @@
 - ghcr.io/appscode/cert-manager-webhook-ace:v0.0.1
 - ghcr.io/appscode/cloudflare-dns-proxy:v0.0.3
 - ghcr.io/appscode/cluster-presets:v0.0.7
-- ghcr.io/appscode/cluster-ui:0.9.12
+- ghcr.io/appscode/cluster-ui:0.9.13
 - ghcr.io/appscode/curl:alpine
 - ghcr.io/appscode/deploy-ui:0.3.6
 - ghcr.io/appscode/fileserver:v0.0.1
@@ -17,7 +17,7 @@
 - ghcr.io/appscode/inbox-ui:0.0.3
 - ghcr.io/appscode/kube-rbac-proxy:v0.15.0
 - ghcr.io/appscode/kubectl-nonroot:1.31
-- ghcr.io/appscode/kubedb-ui:0.7.11
+- ghcr.io/appscode/kubedb-ui:0.7.12
 - ghcr.io/appscode/license-proxyserver:v0.0.18
 - ghcr.io/appscode/marketplace-ui:0.3.1
 - ghcr.io/appscode/maxmind-geoip:city-mmdb-latest
