@@ -2,8 +2,8 @@ apiVersion: v2
 name: kubedb-ui-presets
 description: KubeDB UI Presets
 type: application
-version: v2024.12.9
-appVersion: v2024.12.9
+version: v2025.1.17
+appVersion: v2025.1.17
 home: https://github.com/bytebuilders
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:

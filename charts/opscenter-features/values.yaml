@@ -60,7 +60,7 @@ helm:
 
   releases:
     aceshifter:
-      version: "v2024.12.9"
+      version: "v2025.1.17"
     aws-ebs-csi-driver:
       version: "2.23.0"
     capa-vpc-peering-operator:
@@ -70,7 +70,7 @@ helm:
     capi-ops-manager:
       version: "v2024.8.14"
     catalog-manager:
-      version: "v2024.12.9"
+      version: "v2025.1.17"
     cert-manager:
       version: "v1.15.4"
     cert-manager-csi-driver-cacerts:
@@ -78,7 +78,7 @@ helm:
     cluster-autoscaler:
       version: "9.29.0"
     cluster-presets:
-      version: "v2024.12.9"
+      version: "v2025.1.17"
     config-syncer:
       version: "v0.15.2"
     crossplane:
@@ -112,9 +112,9 @@ helm:
     kube-prometheus-stack:
       version: "61.8.0"
     kubedb-ui-presets:
-      version: "v2024.12.9"
+      version: "v2025.1.17"
     kube-ui-server:
-      version: "v2024.12.9"
+      version: "v2025.1.17"
     kubedb:
       version: "v2024.12.18"
     kubedb-opscenter:
@@ -148,7 +148,7 @@ helm:
     opencost-grafana-dashboards:
       version: "v2023.10.1"
     opscenter-features:
-      version: "v2024.12.9"
+      version: "v2025.1.17"
     panopticon:
       version: "v2024.11.8"
     prepare-cluster:
@@ -160,13 +160,13 @@ helm:
     scanner:
       version: "v2024.9.30"
     service-backend:
-      version: "v2024.12.9"
+      version: "v2025.1.17"
     service-gateway:
-      version: "v2024.12.9"
+      version: "v2025.1.17"
     service-gateway-presets:
-      version: "v2024.12.9"
+      version: "v2025.1.17"
     service-provider:
-      version: "v2024.12.9"
+      version: "v2025.1.17"
     sidekick:
       version: "v2024.11.8"
     snapshot-controller:
@@ -176,7 +176,7 @@ helm:
     stash-opscenter:
       version: "v2024.12.18"
     stash-presets:
-      version: "v2024.12.9"
+      version: "v2025.1.17"
     supervisor:
       version: "v2024.11.8"
     topolvm:
