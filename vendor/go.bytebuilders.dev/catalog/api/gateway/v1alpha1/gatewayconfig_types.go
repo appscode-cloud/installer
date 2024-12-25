@@ -213,6 +213,13 @@ type EnvoyValues struct {
 	Service         EnvoyServiceValues    `json:"service"`
 }
 
+const (
+	AllocatedPortsKey    = "catalog.appscode.com/allocated-ports"
+	SeedPortKey          = "catalog.appscode.com/seed-port"
+	DefaultPortRange     = "10000-12767"
+	DefaultNodeportRange = "30000-32767"
+)
+
 type EnvoyServiceSpec struct {
 	// +kubebuilder:default="10000-12767"
 	PortRange string `json:"portRange"`
