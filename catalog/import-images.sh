@@ -340,8 +340,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-r
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-work-v0.14.0.tar $IMAGE_REGISTRY/kluster-manager/work:v0.14.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-autoscaler-v0.35.0.tar $IMAGE_REGISTRY/kubedb/kubedb-autoscaler:v0.35.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-crd-manager-v0.5.0.tar $IMAGE_REGISTRY/kubedb/kubedb-crd-manager:v0.5.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ops-manager-v0.37.0.tar $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.37.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-provisioner-v0.50.0.tar $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.50.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ops-manager-v0.37.1.tar $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.37.1
+$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-provisioner-v0.50.1.tar $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.50.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-schema-manager-v0.26.0.tar $IMAGE_REGISTRY/kubedb/kubedb-schema-manager:v0.26.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ui-server-v0.26.0.tar $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.26.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-webhook-server-v0.26.1.tar $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.26.1
