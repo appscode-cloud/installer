@@ -104,8 +104,8 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/registration
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/work:v0.14.0 $IMAGE_REGISTRY/work:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-autoscaler:v0.35.0 $IMAGE_REGISTRY/kubedb-autoscaler:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-crd-manager:v0.5.0 $IMAGE_REGISTRY/kubedb-crd-manager:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-ops-manager:v0.37.0 $IMAGE_REGISTRY/kubedb-ops-manager:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-provisioner:v0.50.0 $IMAGE_REGISTRY/kubedb-provisioner:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-ops-manager:v0.37.1 $IMAGE_REGISTRY/kubedb-ops-manager:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-provisioner:v0.50.1 $IMAGE_REGISTRY/kubedb-provisioner:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-schema-manager:v0.26.0 $IMAGE_REGISTRY/kubedb-schema-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-ui-server:v0.26.0 $IMAGE_REGISTRY/kubedb-ui-server:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-webhook-server:v0.26.1 $IMAGE_REGISTRY/kubedb-webhook-server:$TAG

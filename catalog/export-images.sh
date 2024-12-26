@@ -346,8 +346,8 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/work:v0.14.0 images/kluster-manager-work-v0.14.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-autoscaler:v0.35.0 images/kubedb-kubedb-autoscaler-v0.35.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-crd-manager:v0.5.0 images/kubedb-kubedb-crd-manager-v0.5.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.37.0 images/kubedb-kubedb-ops-manager-v0.37.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.50.0 images/kubedb-kubedb-provisioner-v0.50.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.37.1 images/kubedb-kubedb-ops-manager-v0.37.1.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.50.1 images/kubedb-kubedb-provisioner-v0.50.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-schema-manager:v0.26.0 images/kubedb-kubedb-schema-manager-v0.26.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ui-server:v0.26.0 images/kubedb-kubedb-ui-server-v0.26.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.26.1 images/kubedb-kubedb-webhook-server-v0.26.1.tar

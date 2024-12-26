@@ -349,8 +349,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/re
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/work:v0.14.0 $IMAGE_REGISTRY/kluster-manager/work:v0.14.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-autoscaler:v0.35.0 $IMAGE_REGISTRY/kubedb/kubedb-autoscaler:v0.35.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-crd-manager:v0.5.0 $IMAGE_REGISTRY/kubedb/kubedb-crd-manager:v0.5.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.37.0 $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.37.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.50.0 $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.50.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.37.1 $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.37.1
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.50.1 $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.50.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-schema-manager:v0.26.0 $IMAGE_REGISTRY/kubedb/kubedb-schema-manager:v0.26.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ui-server:v0.26.0 $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.26.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.26.1 $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.26.1
