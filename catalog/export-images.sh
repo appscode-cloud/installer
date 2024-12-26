@@ -181,6 +181,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/multicluster-ingress-reader:v2024.7.10 images/appscode-charts-multicluster-ingress-reader-v2024.7.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opencost-grafana-dashboards:v2023.10.1 images/appscode-charts-opencost-grafana-dashboards-v2023.10.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opencost:1.18.1 images/appscode-charts-opencost-1.18.1.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/operator-shard-manager:v2025.1.17 images/appscode-charts-operator-shard-manager-v2025.1.17.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opscenter-features:v2025.1.17 images/appscode-charts-opscenter-features-v2025.1.17.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-clickhouseopsrequest-editor:v0.11.0 images/appscode-charts-opskubedbcom-clickhouseopsrequest-editor-v0.11.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-druidopsrequest-editor:v0.11.0 images/appscode-charts-opskubedbcom-druidopsrequest-editor-v0.11.0.tar
@@ -308,6 +309,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.18 images/appscode-license-proxyserver-v0.0.18.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest images/appscode-maxmind-geoip-city-mmdb-latest.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.6.0 images/appscode-openfga-v1.6.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 images/appscode-operator-shard-manager-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.16 images/appscode-panopticon-v0.0.16.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.7 images/appscode-petset-v0.0.7.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:0.8.11 images/appscode-platform-ui-0.8.11.tar

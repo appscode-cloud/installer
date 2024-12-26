@@ -41,6 +41,7 @@
 - ghcr.io/appscode/license-proxyserver:v0.0.18
 - ghcr.io/appscode/maxmind-geoip:city-mmdb-latest
 - ghcr.io/appscode/openfga:v1.6.0
+- ghcr.io/appscode/operator-shard-manager:v0.0.1
 - ghcr.io/appscode/panopticon:v0.0.16
 - ghcr.io/appscode/petset:v0.0.7
 - ghcr.io/appscode/platform-ui:0.8.11

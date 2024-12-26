@@ -184,6 +184,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/mu
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/multicluster-ingress-reader:v2024.7.10 $IMAGE_REGISTRY/appscode-charts/multicluster-ingress-reader:v2024.7.10
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opencost-grafana-dashboards:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/opencost-grafana-dashboards:v2023.10.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opencost:1.18.1 $IMAGE_REGISTRY/appscode-charts/opencost:1.18.1
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/operator-shard-manager:v2025.1.17 $IMAGE_REGISTRY/appscode-charts/operator-shard-manager:v2025.1.17
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opscenter-features:v2025.1.17 $IMAGE_REGISTRY/appscode-charts/opscenter-features:v2025.1.17
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-clickhouseopsrequest-editor:v0.11.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-clickhouseopsrequest-editor:v0.11.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-druidopsrequest-editor:v0.11.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-druidopsrequest-editor:v0.11.0
@@ -311,6 +312,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.18 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.18
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.6.0 $IMAGE_REGISTRY/appscode/openfga:v1.6.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.16 $IMAGE_REGISTRY/appscode/panopticon:v0.0.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.7 $IMAGE_REGISTRY/appscode/petset:v0.0.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:0.8.11 $IMAGE_REGISTRY/appscode/platform-ui:0.8.11

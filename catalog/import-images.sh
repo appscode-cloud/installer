@@ -175,6 +175,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-m
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-multicluster-ingress-reader-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/multicluster-ingress-reader:v2024.7.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opencost-grafana-dashboards-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/opencost-grafana-dashboards:v2023.10.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opencost-1.18.1.tar $IMAGE_REGISTRY/appscode-charts/opencost:1.18.1
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-operator-shard-manager-v2025.1.17.tar $IMAGE_REGISTRY/appscode-charts/operator-shard-manager:v2025.1.17
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opscenter-features-v2025.1.17.tar $IMAGE_REGISTRY/appscode-charts/opscenter-features:v2025.1.17
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-clickhouseopsrequest-editor-v0.11.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-clickhouseopsrequest-editor:v0.11.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-druidopsrequest-editor-v0.11.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-druidopsrequest-editor:v0.11.0
@@ -302,6 +303,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubedb-u
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-license-proxyserver-v0.0.18.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.18
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-maxmind-geoip-city-mmdb-latest.tar $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-openfga-v1.6.0.tar $IMAGE_REGISTRY/appscode/openfga:v1.6.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-operator-shard-manager-v0.0.1.tar $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-panopticon-v0.0.16.tar $IMAGE_REGISTRY/appscode/panopticon:v0.0.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-petset-v0.0.7.tar $IMAGE_REGISTRY/appscode/petset:v0.0.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-platform-ui-0.8.11.tar $IMAGE_REGISTRY/appscode/platform-ui:0.8.11

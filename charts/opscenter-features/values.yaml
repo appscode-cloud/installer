@@ -143,6 +143,8 @@ helm:
       version: "3.11.0"
     monitoring-operator:
       version: "v2024.11.18"
+    operator-shard-manager:
+      version: "v2025.1.17"
     opencost:
       version: "1.18.1"
     opencost-grafana-dashboards:
