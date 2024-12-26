@@ -33,6 +33,7 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.AcaasSpec{}},
 		sc.TestCase{Obj: v1alpha1.AccountsUiSpec{}},
 		sc.TestCase{Obj: v1alpha1.AceInstallerSpec{}},
+		sc.TestCase{Obj: v1alpha1.AceshifterSpec{}},
 		sc.TestCase{Obj: v1alpha1.AceSpec{}},
 		sc.TestCase{Obj: v1alpha1.BillingSpec{}},
 		sc.TestCase{Obj: v1alpha1.BillingUiSpec{}},
