@@ -103,7 +103,7 @@ helm:
       version: "v2025.1.17"
     license-proxyserver:
       enabled: true
-      version: "v2024.10.7"
+      version: "v2024.12.26"
     opscenter-features:
       enabled: true
       version: "v2025.1.17"
