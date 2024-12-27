@@ -39,18 +39,6 @@ func Test_CheckImageArchitectures(t *testing.T) {
 		filepath.Join(dir, "catalog", "reusable-ui-charts.yaml"),
 	}, []string{
 		"ghcr.io/appscode/inbox-server:latest",
-		"ghcr.io/kluster-manager/addon-manager:v0.14.0",
-		"ghcr.io/kluster-manager/cluster-gateway-manager:v1.9.2",
-		"ghcr.io/kluster-manager/cluster-gateway:v1.9.2",
-		"ghcr.io/kluster-manager/cluster-proxy:v0.5.0",
-		"ghcr.io/kluster-manager/clusteradm:v0.9.0",
-		"ghcr.io/kluster-manager/managed-serviceaccount:v0.6.0",
-		"ghcr.io/kluster-manager/multicluster-controlplane:latest",
-		"ghcr.io/kluster-manager/placement:v0.14.0",
-		"ghcr.io/kluster-manager/registration-operator:v0.14.0",
-		"ghcr.io/kluster-manager/registration:v0.14.0",
-		"ghcr.io/kluster-manager/work:v0.14.0",
-		"ghcr.io/voyagermesh/defaultbackend:1.5",
 	}); err != nil {
 		t.Errorf("CheckImageArchitectures() error = %v", err)
 	}

@@ -1,6 +1,6 @@
 {{ $defaults := printf `
 registry: %q
-image: %s:latest
+image: %s:v0.6.0
 selfManagementClusterName: %q
 apiserver:
   generateCA: true

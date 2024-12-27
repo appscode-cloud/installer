@@ -100,7 +100,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/clusteradm:v
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/fluxcd-addon:v0.0.5 $IMAGE_REGISTRY/fluxcd-addon:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/managed-serviceaccount:v0.7.0 $IMAGE_REGISTRY/managed-serviceaccount:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/placement:v0.15.2 $IMAGE_REGISTRY/placement:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/registration-operator:v0.14.2 $IMAGE_REGISTRY/registration-operator:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/registration-operator:v0.15.2 $IMAGE_REGISTRY/registration-operator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/registration:v0.15.2 $IMAGE_REGISTRY/registration:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/work:v0.15.2 $IMAGE_REGISTRY/work:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-autoscaler:v0.35.0 $IMAGE_REGISTRY/kubedb-autoscaler:$TAG
@@ -127,7 +127,6 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kyverno/kyverno:v1.12.5 $IMA
 crane cp --allow-nondistributable-artifacts ghcr.io/kyverno/kyvernopre:v1.12.5 $IMAGE_REGISTRY/kyvernopre:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kyverno/reports-controller:v1.12.5 $IMAGE_REGISTRY/reports-controller:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/loft-sh/vcluster-oss:0.20.0 $IMAGE_REGISTRY/vcluster-oss:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/defaultbackend:1.5 $IMAGE_REGISTRY/defaultbackend:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/echoserver:v20221109 $IMAGE_REGISTRY/echoserver:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/envoy:v1.31.2-ac $IMAGE_REGISTRY/envoy:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/gateway-converter:v0.0.1 $IMAGE_REGISTRY/gateway-converter:$TAG

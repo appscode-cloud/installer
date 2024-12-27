@@ -335,7 +335,7 @@ k3s ctr images import images/kluster-manager-clusteradm-v0.10.0.tar
 k3s ctr images import images/kluster-manager-fluxcd-addon-v0.0.5.tar
 k3s ctr images import images/kluster-manager-managed-serviceaccount-v0.7.0.tar
 k3s ctr images import images/kluster-manager-placement-v0.15.2.tar
-k3s ctr images import images/kluster-manager-registration-operator-v0.14.2.tar
+k3s ctr images import images/kluster-manager-registration-operator-v0.15.2.tar
 k3s ctr images import images/kluster-manager-registration-v0.15.2.tar
 k3s ctr images import images/kluster-manager-work-v0.15.2.tar
 k3s ctr images import images/kubedb-kubedb-autoscaler-v0.35.0.tar
@@ -362,7 +362,6 @@ k3s ctr images import images/kyverno-kyverno-v1.12.5.tar
 k3s ctr images import images/kyverno-kyvernopre-v1.12.5.tar
 k3s ctr images import images/kyverno-reports-controller-v1.12.5.tar
 k3s ctr images import images/loft-sh-vcluster-oss-0.20.0.tar
-k3s ctr images import images/voyagermesh-defaultbackend-1.5.tar
 k3s ctr images import images/voyagermesh-echoserver-v20221109.tar
 k3s ctr images import images/voyagermesh-envoy-v1.31.2-ac.tar
 k3s ctr images import images/voyagermesh-gateway-converter-v0.0.1.tar

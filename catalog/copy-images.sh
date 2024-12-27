@@ -346,7 +346,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cl
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/fluxcd-addon:v0.0.5 $IMAGE_REGISTRY/kluster-manager/fluxcd-addon:v0.0.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/managed-serviceaccount:v0.7.0 $IMAGE_REGISTRY/kluster-manager/managed-serviceaccount:v0.7.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/placement:v0.15.2 $IMAGE_REGISTRY/kluster-manager/placement:v0.15.2
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/registration-operator:v0.14.2 $IMAGE_REGISTRY/kluster-manager/registration-operator:v0.14.2
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/registration-operator:v0.15.2 $IMAGE_REGISTRY/kluster-manager/registration-operator:v0.15.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/registration:v0.15.2 $IMAGE_REGISTRY/kluster-manager/registration:v0.15.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/work:v0.15.2 $IMAGE_REGISTRY/kluster-manager/work:v0.15.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-autoscaler:v0.35.0 $IMAGE_REGISTRY/kubedb/kubedb-autoscaler:v0.35.0
@@ -373,7 +373,6 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyverno:v1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyvernopre:v1.12.5 $IMAGE_REGISTRY/kyverno/kyvernopre:v1.12.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/reports-controller:v1.12.5 $IMAGE_REGISTRY/kyverno/reports-controller:v1.12.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster-oss:0.20.0 $IMAGE_REGISTRY/loft-sh/vcluster-oss:0.20.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/defaultbackend:1.5 $IMAGE_REGISTRY/voyagermesh/defaultbackend:1.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/echoserver:v20221109 $IMAGE_REGISTRY/voyagermesh/echoserver:v20221109
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.31.2-ac $IMAGE_REGISTRY/voyagermesh/envoy:v1.31.2-ac
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway-converter:v0.0.1 $IMAGE_REGISTRY/voyagermesh/gateway-converter:v0.0.1

@@ -337,7 +337,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-c
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-fluxcd-addon-v0.0.5.tar $IMAGE_REGISTRY/kluster-manager/fluxcd-addon:v0.0.5
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-managed-serviceaccount-v0.7.0.tar $IMAGE_REGISTRY/kluster-manager/managed-serviceaccount:v0.7.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-placement-v0.15.2.tar $IMAGE_REGISTRY/kluster-manager/placement:v0.15.2
-$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-registration-operator-v0.14.2.tar $IMAGE_REGISTRY/kluster-manager/registration-operator:v0.14.2
+$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-registration-operator-v0.15.2.tar $IMAGE_REGISTRY/kluster-manager/registration-operator:v0.15.2
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-registration-v0.15.2.tar $IMAGE_REGISTRY/kluster-manager/registration:v0.15.2
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-work-v0.15.2.tar $IMAGE_REGISTRY/kluster-manager/work:v0.15.2
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-autoscaler-v0.35.0.tar $IMAGE_REGISTRY/kubedb/kubedb-autoscaler:v0.35.0
@@ -364,7 +364,6 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kyverno-kyverno-v
 $CMD push --allow-nondistributable-artifacts --insecure images/kyverno-kyvernopre-v1.12.5.tar $IMAGE_REGISTRY/kyverno/kyvernopre:v1.12.5
 $CMD push --allow-nondistributable-artifacts --insecure images/kyverno-reports-controller-v1.12.5.tar $IMAGE_REGISTRY/kyverno/reports-controller:v1.12.5
 $CMD push --allow-nondistributable-artifacts --insecure images/loft-sh-vcluster-oss-0.20.0.tar $IMAGE_REGISTRY/loft-sh/vcluster-oss:0.20.0
-$CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-defaultbackend-1.5.tar $IMAGE_REGISTRY/voyagermesh/defaultbackend:1.5
 $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-echoserver-v20221109.tar $IMAGE_REGISTRY/voyagermesh/echoserver:v20221109
 $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-envoy-v1.31.2-ac.tar $IMAGE_REGISTRY/voyagermesh/envoy:v1.31.2-ac
 $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-gateway-converter-v0.0.1.tar $IMAGE_REGISTRY/voyagermesh/gateway-converter:v0.0.1
