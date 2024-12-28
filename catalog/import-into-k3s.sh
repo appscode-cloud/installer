@@ -275,7 +275,6 @@ k3s ctr images import images/appscode-images-ingress-nginx-controller-v1.11.1.ta
 k3s ctr images import images/appscode-images-nats-2.10.24-alpine.tar
 k3s ctr images import images/appscode-images-postgres-16.4-alpine.tar
 k3s ctr images import images/appscode-images-redis-7.2.4-bookworm.tar
-k3s ctr images import images/appscode-ace-vcluster-plugin-v0.0.3.tar
 k3s ctr images import images/appscode-aceshifter-v0.0.1.tar
 k3s ctr images import images/appscode-b3-v2025.1.17.tar
 k3s ctr images import images/appscode-capa-vpc-peering-operator-v0.0.4.tar
@@ -316,6 +315,7 @@ k3s ctr images import images/appscode-service-provider-v0.0.1.tar
 k3s ctr images import images/appscode-sidekick-v0.0.9.tar
 k3s ctr images import images/appscode-supervisor-v0.0.7.tar
 k3s ctr images import images/appscode-trickster-v2.0.0-beta3.tar
+k3s ctr images import images/appscode-vcluster-plugin-ace-v0.0.3.tar
 k3s ctr images import images/external-secrets-external-secrets-v0.9.12.tar
 k3s ctr images import images/fluxcd-helm-controller-v1.0.1.tar
 k3s ctr images import images/fluxcd-kustomize-controller-v1.3.0.tar
@@ -346,7 +346,6 @@ k3s ctr images import images/kubedb-kubedb-ops-manager-v0.37.1.tar
 k3s ctr images import images/kubedb-kubedb-provisioner-v0.50.1.tar
 k3s ctr images import images/kubedb-kubedb-schema-manager-v0.26.0.tar
 k3s ctr images import images/kubedb-kubedb-ui-server-v0.26.0.tar
-k3s ctr images import images/kubedb-kubedb-vcluster-plugin-v0.0.1.tar
 k3s ctr images import images/kubedb-kubedb-webhook-server-v0.26.1.tar
 k3s ctr images import images/kubedb-pg-coordinator-v0.34.0.tar
 k3s ctr images import images/kubedb-postgres-archiver-v0.11.0_16.1-alpine.tar
@@ -356,6 +355,7 @@ k3s ctr images import images/kubedb-redis-coordinator-v0.29.0.tar
 k3s ctr images import images/kubedb-redis-init-0.9.0.tar
 k3s ctr images import images/kubedb-redis-restic-plugin-v0.13.0.tar
 k3s ctr images import images/kubedb-redis_exporter-1.66.0.tar
+k3s ctr images import images/kubedb-vcluster-plugin-kubedb-v0.0.1.tar
 k3s ctr images import images/kubestash-kubedump-v0.13.0.tar
 k3s ctr images import images/kubestash-kubestash-v0.14.0.tar
 k3s ctr images import images/kubevault-vault-operator-v0.19.0.tar

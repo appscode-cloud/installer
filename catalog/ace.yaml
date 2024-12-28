@@ -13,7 +13,6 @@
 - ghcr.io/appscode-images/nats:2.10.24-alpine
 - ghcr.io/appscode-images/postgres:16.4-alpine
 - ghcr.io/appscode-images/redis:7.2.4-bookworm
-- ghcr.io/appscode/ace-vcluster-plugin:v0.0.3
 - ghcr.io/appscode/aceshifter:v0.0.1
 - ghcr.io/appscode/b3:v2025.1.17
 - ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4
@@ -54,6 +53,7 @@
 - ghcr.io/appscode/sidekick:v0.0.9
 - ghcr.io/appscode/supervisor:v0.0.7
 - ghcr.io/appscode/trickster:v2.0.0-beta3
+- ghcr.io/appscode/vcluster-plugin-ace:v0.0.3
 - ghcr.io/external-secrets/external-secrets:v0.9.12
 - ghcr.io/fluxcd/helm-controller:v1.0.1
 - ghcr.io/fluxcd/kustomize-controller:v1.3.0
@@ -84,7 +84,6 @@
 - ghcr.io/kubedb/kubedb-provisioner:v0.50.1
 - ghcr.io/kubedb/kubedb-schema-manager:v0.26.0
 - ghcr.io/kubedb/kubedb-ui-server:v0.26.0
-- ghcr.io/kubedb/kubedb-vcluster-plugin:v0.0.1
 - ghcr.io/kubedb/kubedb-webhook-server:v0.26.1
 - ghcr.io/kubedb/pg-coordinator:v0.34.0
 - ghcr.io/kubedb/postgres-archiver:v0.11.0_16.1-alpine
@@ -94,6 +93,7 @@
 - ghcr.io/kubedb/redis-init:0.9.0
 - ghcr.io/kubedb/redis-restic-plugin:v0.13.0
 - ghcr.io/kubedb/redis_exporter:1.66.0
+- ghcr.io/kubedb/vcluster-plugin-kubedb:v0.0.1
 - ghcr.io/kubestash/kubedump:v0.13.0
 - ghcr.io/kubestash/kubestash:v0.14.0
 - ghcr.io/kubevault/vault-operator:v0.19.0

@@ -286,7 +286,6 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/in
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.24-alpine $IMAGE_REGISTRY/appscode-images/nats:2.10.24-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:16.4-alpine $IMAGE_REGISTRY/appscode-images/postgres:16.4-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/ace-vcluster-plugin:v0.0.3 $IMAGE_REGISTRY/appscode/ace-vcluster-plugin:v0.0.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/aceshifter:v0.0.1 $IMAGE_REGISTRY/appscode/aceshifter:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/b3:v2025.1.17 $IMAGE_REGISTRY/appscode/b3:v2025.1.17
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 $IMAGE_REGISTRY/appscode/capa-vpc-peering-operator:v0.0.4
@@ -327,6 +326,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/service-p
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/sidekick:v0.0.9 $IMAGE_REGISTRY/appscode/sidekick:v0.0.9
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/supervisor:v0.0.7 $IMAGE_REGISTRY/appscode/supervisor:v0.0.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/trickster:v2.0.0-beta3 $IMAGE_REGISTRY/appscode/trickster:v2.0.0-beta3
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/vcluster-plugin-ace:v0.0.3 $IMAGE_REGISTRY/appscode/vcluster-plugin-ace:v0.0.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/external-secrets/external-secrets:v0.9.12 $IMAGE_REGISTRY/external-secrets/external-secrets:v0.9.12
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/helm-controller:v1.0.1 $IMAGE_REGISTRY/fluxcd/helm-controller:v1.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/kustomize-controller:v1.3.0 $IMAGE_REGISTRY/fluxcd/kustomize-controller:v1.3.0
@@ -357,7 +357,6 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.50.1 $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.50.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-schema-manager:v0.26.0 $IMAGE_REGISTRY/kubedb/kubedb-schema-manager:v0.26.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ui-server:v0.26.0 $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.26.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-vcluster-plugin:v0.0.1 $IMAGE_REGISTRY/kubedb/kubedb-vcluster-plugin:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.26.1 $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.26.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/pg-coordinator:v0.34.0 $IMAGE_REGISTRY/kubedb/pg-coordinator:v0.34.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-archiver:v0.11.0_16.1-alpine $IMAGE_REGISTRY/kubedb/postgres-archiver:v0.11.0_16.1-alpine
@@ -367,6 +366,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis-coord
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis-init:0.9.0 $IMAGE_REGISTRY/kubedb/redis-init:0.9.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis-restic-plugin:v0.13.0 $IMAGE_REGISTRY/kubedb/redis-restic-plugin:v0.13.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis_exporter:1.66.0 $IMAGE_REGISTRY/kubedb/redis_exporter:1.66.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/vcluster-plugin-kubedb:v0.0.1 $IMAGE_REGISTRY/kubedb/vcluster-plugin-kubedb:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubedump:v0.13.0 $IMAGE_REGISTRY/kubestash/kubedump:v0.13.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash:v0.14.0 $IMAGE_REGISTRY/kubestash/kubestash:v0.14.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubevault/vault-operator:v0.19.0 $IMAGE_REGISTRY/kubevault/vault-operator:v0.19.0

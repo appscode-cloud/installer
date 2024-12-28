@@ -40,7 +40,6 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/ingress-ngin
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/nats:2.10.24-alpine $IMAGE_REGISTRY/nats:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/postgres:16.4-alpine $IMAGE_REGISTRY/postgres:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/redis:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/ace-vcluster-plugin:v0.0.3 $IMAGE_REGISTRY/ace-vcluster-plugin:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/aceshifter:v0.0.1 $IMAGE_REGISTRY/aceshifter:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/b3:v2025.1.17 $IMAGE_REGISTRY/b3:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 $IMAGE_REGISTRY/capa-vpc-peering-operator:$TAG
@@ -79,6 +78,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/service-provider:v0
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/sidekick:v0.0.9 $IMAGE_REGISTRY/sidekick:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/supervisor:v0.0.7 $IMAGE_REGISTRY/supervisor:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/trickster:v2.0.0-beta3 $IMAGE_REGISTRY/trickster:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/vcluster-plugin-ace:v0.0.3 $IMAGE_REGISTRY/vcluster-plugin-ace:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/external-secrets/external-secrets:v0.9.12 $IMAGE_REGISTRY/external-secrets:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/fluxcd/helm-controller:v1.0.1 $IMAGE_REGISTRY/flux-helm-controller:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/fluxcd/kustomize-controller:v1.3.0 $IMAGE_REGISTRY/flux-kustomize-controller:$TAG
@@ -109,7 +109,6 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-ops-manager:v0
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-provisioner:v0.50.1 $IMAGE_REGISTRY/kubedb-provisioner:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-schema-manager:v0.26.0 $IMAGE_REGISTRY/kubedb-schema-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-ui-server:v0.26.0 $IMAGE_REGISTRY/kubedb-ui-server:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-vcluster-plugin:v0.0.1 $IMAGE_REGISTRY/kubedb-vcluster-plugin:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-webhook-server:v0.26.1 $IMAGE_REGISTRY/kubedb-webhook-server:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/pg-coordinator:v0.34.0 $IMAGE_REGISTRY/pg-coordinator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/postgres-archiver:v0.11.0_16.1-alpine $IMAGE_REGISTRY/postgres-archiver:$TAG
@@ -119,6 +118,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/redis-coordinator:v0.
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/redis-init:0.9.0 $IMAGE_REGISTRY/redis-init:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/redis-restic-plugin:v0.13.0 $IMAGE_REGISTRY/redis-restic-plugin:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/redis_exporter:1.66.0 $IMAGE_REGISTRY/redis_exporter:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/vcluster-plugin-kubedb:v0.0.1 $IMAGE_REGISTRY/vcluster-plugin-kubedb:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubestash/kubedump:v0.13.0 $IMAGE_REGISTRY/kubedump:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubestash/kubestash:v0.14.0 $IMAGE_REGISTRY/kubestash:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubevault/vault-operator:v0.19.0 $IMAGE_REGISTRY/vault-operator:$TAG
