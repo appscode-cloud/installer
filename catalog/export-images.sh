@@ -281,6 +281,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.24-alpine images/appscode-images-nats-2.10.24-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:16.4-alpine images/appscode-images-postgres-16.4-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.2.4-bookworm images/appscode-images-redis-7.2.4-bookworm.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/ace-vcluster-plugin:v0.0.3 images/appscode-ace-vcluster-plugin-v0.0.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/aceshifter:v0.0.1 images/appscode-aceshifter-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/b3:v2025.1.17 images/appscode-b3-v2025.1.17.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 images/appscode-capa-vpc-peering-operator-v0.0.4.tar
@@ -321,7 +322,6 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/service
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/sidekick:v0.0.9 images/appscode-sidekick-v0.0.9.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/supervisor:v0.0.7 images/appscode-supervisor-v0.0.7.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/trickster:v2.0.0-beta3 images/appscode-trickster-v2.0.0-beta3.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/vcluster-plugin:v0.0.2 images/appscode-vcluster-plugin-v0.0.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/external-secrets/external-secrets:v0.9.12 images/external-secrets-external-secrets-v0.9.12.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/helm-controller:v1.0.1 images/fluxcd-helm-controller-v1.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/kustomize-controller:v1.3.0 images/fluxcd-kustomize-controller-v1.3.0.tar
@@ -352,6 +352,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-op
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.50.1 images/kubedb-kubedb-provisioner-v0.50.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-schema-manager:v0.26.0 images/kubedb-kubedb-schema-manager-v0.26.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ui-server:v0.26.0 images/kubedb-kubedb-ui-server-v0.26.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-vcluster-plugin:v0.0.1 images/kubedb-kubedb-vcluster-plugin-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.26.1 images/kubedb-kubedb-webhook-server-v0.26.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/pg-coordinator:v0.34.0 images/kubedb-pg-coordinator-v0.34.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-archiver:v0.11.0_16.1-alpine images/kubedb-postgres-archiver-v0.11.0_16.1-alpine.tar

@@ -275,6 +275,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-i
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-nats-2.10.24-alpine.tar $IMAGE_REGISTRY/appscode-images/nats:2.10.24-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-postgres-16.4-alpine.tar $IMAGE_REGISTRY/appscode-images/postgres:16.4-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-redis-7.2.4-bookworm.tar $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-ace-vcluster-plugin-v0.0.3.tar $IMAGE_REGISTRY/appscode/ace-vcluster-plugin:v0.0.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-aceshifter-v0.0.1.tar $IMAGE_REGISTRY/appscode/aceshifter:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-b3-v2025.1.17.tar $IMAGE_REGISTRY/appscode/b3:v2025.1.17
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-capa-vpc-peering-operator-v0.0.4.tar $IMAGE_REGISTRY/appscode/capa-vpc-peering-operator:v0.0.4
@@ -315,7 +316,6 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-service-
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-sidekick-v0.0.9.tar $IMAGE_REGISTRY/appscode/sidekick:v0.0.9
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-supervisor-v0.0.7.tar $IMAGE_REGISTRY/appscode/supervisor:v0.0.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-trickster-v2.0.0-beta3.tar $IMAGE_REGISTRY/appscode/trickster:v2.0.0-beta3
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-vcluster-plugin-v0.0.2.tar $IMAGE_REGISTRY/appscode/vcluster-plugin:v0.0.2
 $CMD push --allow-nondistributable-artifacts --insecure images/external-secrets-external-secrets-v0.9.12.tar $IMAGE_REGISTRY/external-secrets/external-secrets:v0.9.12
 $CMD push --allow-nondistributable-artifacts --insecure images/fluxcd-helm-controller-v1.0.1.tar $IMAGE_REGISTRY/fluxcd/helm-controller:v1.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/fluxcd-kustomize-controller-v1.3.0.tar $IMAGE_REGISTRY/fluxcd/kustomize-controller:v1.3.0
@@ -346,6 +346,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ops
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-provisioner-v0.50.1.tar $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.50.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-schema-manager-v0.26.0.tar $IMAGE_REGISTRY/kubedb/kubedb-schema-manager:v0.26.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ui-server-v0.26.0.tar $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.26.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-vcluster-plugin-v0.0.1.tar $IMAGE_REGISTRY/kubedb/kubedb-vcluster-plugin:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-webhook-server-v0.26.1.tar $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.26.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-pg-coordinator-v0.34.0.tar $IMAGE_REGISTRY/kubedb/pg-coordinator:v0.34.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-postgres-archiver-v0.11.0_16.1-alpine.tar $IMAGE_REGISTRY/kubedb/postgres-archiver:v0.11.0_16.1-alpine
