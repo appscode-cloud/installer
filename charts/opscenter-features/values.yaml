@@ -102,7 +102,7 @@ helm:
     gateway-api:
       version: "v1.1.0"
     grafana-operator:
-      version: "v2024.11.18"
+      version: "v2024.12.30"
     keda:
       version: "2.15.1"
     keda-add-ons-http:
@@ -142,7 +142,7 @@ helm:
     metrics-server:
       version: "3.11.0"
     monitoring-operator:
-      version: "v2024.11.18"
+      version: "v2024.12.30"
     operator-shard-manager:
       version: "v2025.1.17"
     opencost:
@@ -235,7 +235,7 @@ helm:
     inbox-server:
       version: "v2024.5.3"
     inbox-agent:
-      version: "v2024.5.3"
+      version: "v2024.12.30"
     inbox-ui:
       version: "v2024.5.3"
 

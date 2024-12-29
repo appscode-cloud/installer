@@ -13,10 +13,10 @@ require (
 	k8s.io/api v0.30.2
 	k8s.io/apimachinery v0.30.2
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
-	kmodules.xyz/client-go v0.30.42
-	kmodules.xyz/image-packer v0.0.0-20241213044824-5b4eb7f75cf4
+	kmodules.xyz/client-go v0.30.43
+	kmodules.xyz/image-packer v0.0.0-20241229034459-21d22f5d0c64
 	kmodules.xyz/objectstore-api v0.29.1
-	kmodules.xyz/resource-metadata v0.24.0
+	kmodules.xyz/resource-metadata v0.24.1-0.20241228042900-2516898176ee
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
 	sigs.k8s.io/yaml v1.4.0

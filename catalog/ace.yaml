@@ -26,9 +26,9 @@
 - ghcr.io/appscode/falco-ui-server:v0.0.4
 - ghcr.io/appscode/fileserver:v0.0.1
 - ghcr.io/appscode/flux-cli:v2.3.0
-- ghcr.io/appscode/grafana-tools:v0.2.0
+- ghcr.io/appscode/grafana-tools:v0.3.0
 - ghcr.io/appscode/grafana:v2024.10.31
-- ghcr.io/appscode/inbox-agent:v0.0.1
+- ghcr.io/appscode/inbox-agent:v0.0.2
 - ghcr.io/appscode/inbox-server:latest
 - ghcr.io/appscode/inbox-ui:0.0.3
 - ghcr.io/appscode/k8s-wait-for:v2.0

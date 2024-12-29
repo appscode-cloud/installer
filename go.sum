@@ -315,12 +315,12 @@ k8s.io/utils v0.0.0-20240711033017-18e509b52bc8 h1:pUdcCO1Lk/tbT5ztQWOBi5HBgbBP1
 k8s.io/utils v0.0.0-20240711033017-18e509b52bc8/go.mod h1:OLgZIPagt7ERELqWJFomSt595RzquPNLL48iOWgYOg0=
 kmodules.xyz/apiversion v0.2.0 h1:vAQYqZFm4xu4pbB1cAdHbFEPES6EQkcR4wc06xdTOWk=
 kmodules.xyz/apiversion v0.2.0/go.mod h1:oPX8g8LvlPdPX3Yc5YvCzJHQnw3YF/X4/jdW0b1am80=
-kmodules.xyz/client-go v0.30.42 h1:79x66I8betRJtmFzKS46ujXzXVKAxpXNsm32ayNxTEA=
-kmodules.xyz/client-go v0.30.42/go.mod h1:ZOxyEdoSZByjZLkzSM3Q8p1zXMayflK7jQQnWMG2Yj8=
+kmodules.xyz/client-go v0.30.43 h1:ygH5e1+0oht4YV9NyT42YoWAlp9wrAUMH6FsB9vAlbk=
+kmodules.xyz/client-go v0.30.43/go.mod h1:T9Kiu20wXEn65dLBQeegf4+y7oahJBR9ZJO2zGEVLIY=
 kmodules.xyz/go-containerregistry v0.0.12 h1:Tl32QGmSqRVm9PUEb/f3dgDeu9zW5fVzt3qmAFIE37I=
 kmodules.xyz/go-containerregistry v0.0.12/go.mod h1:KgeNg0hDsgeda+qc0NzWk0iVRdF0+ZIg/oRzGoYh78I=
-kmodules.xyz/image-packer v0.0.0-20241213044824-5b4eb7f75cf4 h1:DZJnNJuZH9bjAffwXOyv9LVLZivk9hsPcamEno8mrsE=
-kmodules.xyz/image-packer v0.0.0-20241213044824-5b4eb7f75cf4/go.mod h1:/Cczw1rp9SkQBY6i0ziHZ/KIq08yrx8QGefg09KvhXo=
+kmodules.xyz/image-packer v0.0.0-20241229034459-21d22f5d0c64 h1:cDvH1IiplYgY0E2Ui1KO6RR220QB4p+Gsx+Vtci9yV0=
+kmodules.xyz/image-packer v0.0.0-20241229034459-21d22f5d0c64/go.mod h1:OnrAEFmY1LP9GUIP8FhinSlm6tXqDQxiaa6xqsdkbDs=
 kmodules.xyz/monitoring-agent-api v0.30.3 h1:DVGwcRvtaTmRA7Wj4PJ5xR5ADzLo/IB3X2XmAJikbEo=
 kmodules.xyz/monitoring-agent-api v0.30.3/go.mod h1:L586zE2BvTQeOmf7VHkuBY+QM1UWGdNzwyVJDtVcZsI=
 kmodules.xyz/objectstore-api v0.29.1 h1:uUsjf8KU0w4LYowSEOnl0AbHT3hsHIu1wNLHqGe1o6s=
@@ -329,8 +329,8 @@ kmodules.xyz/offshoot-api v0.30.1 h1:TrulAYO+oBsXe9sZZGTmNWIuI8qD2izMpgcTSPvgAmI
 kmodules.xyz/offshoot-api v0.30.1/go.mod h1:T3mpjR6fui0QzOcmQvIuANytW48fe9ytmy/1cgx6D4g=
 kmodules.xyz/prober v0.29.0 h1:Ex7m4F9rH7uWNNJlLgP63ROOM+nUATJkC2L5OQ7nwMg=
 kmodules.xyz/prober v0.29.0/go.mod h1:UtK+HKyI1lFLEKX+HFLyOCVju6TO93zv3kwGpzqmKOo=
-kmodules.xyz/resource-metadata v0.24.0 h1:kdj7Sx67V0LIePE4BsgtAoKFsClg/L0xtiEeEqT+zx8=
-kmodules.xyz/resource-metadata v0.24.0/go.mod h1:PEwsZsPeCN0a77xfZzIr+QLL4SbeOIPZ9kqBaQllZTk=
+kmodules.xyz/resource-metadata v0.24.1-0.20241228042900-2516898176ee h1:07QXbST/LeRUfsQWOuOLsclFMn2zaH1TwAk5s8cKZD4=
+kmodules.xyz/resource-metadata v0.24.1-0.20241228042900-2516898176ee/go.mod h1:TIHbYsuqmLl8yhYwV/4Uwwm4CO4GdqGHy1KAOgKhpYY=
 kmodules.xyz/schema-checker v0.4.2 h1:tAbxEtM759GxDM/3sQi/+OKKwUsEF+Ih4KReV3Eb/Xw=
 kmodules.xyz/schema-checker v0.4.2/go.mod h1:N7ETPwfY4LbTHbydC9jjssPmYKKgZ8DC0IuLCU55wwc=
 kubeops.dev/external-dns-operator v0.0.9 h1:lfRDtIKJR8VaJpF01CcOjnA2QcSe43WDnIcqP/ieh1c=

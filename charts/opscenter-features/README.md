@@ -89,7 +89,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.gatekeeper-grafana-dashboards.version         |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.gatekeeper-library.version                    |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.gateway-api.version                           |                                 | <code>"v1.1.0"</code>                      |
-| helm.releases.grafana-operator.version                      |                                 | <code>"v2024.11.18"</code>                 |
+| helm.releases.grafana-operator.version                      |                                 | <code>"v2024.12.30"</code>                 |
 | helm.releases.keda.version                                  |                                 | <code>"2.15.1"</code>                      |
 | helm.releases.keda-add-ons-http.version                     |                                 | <code>"0.8.0"</code>                       |
 | helm.releases.kube-grafana-dashboards.version               |                                 | <code>"v2023.10.1"</code>                  |
@@ -109,7 +109,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.license-proxyserver.version                   |                                 | <code>"v2024.12.26"</code>                 |
 | helm.releases.longhorn.version                              |                                 | <code>"1.7.2"</code>                       |
 | helm.releases.metrics-server.version                        |                                 | <code>"3.11.0"</code>                      |
-| helm.releases.monitoring-operator.version                   |                                 | <code>"v2024.11.18"</code>                 |
+| helm.releases.monitoring-operator.version                   |                                 | <code>"v2024.12.30"</code>                 |
 | helm.releases.operator-shard-manager.version                |                                 | <code>"v2025.1.17"</code>                  |
 | helm.releases.opencost.version                              |                                 | <code>"1.18.1"</code>                      |
 | helm.releases.opencost-grafana-dashboards.version           |                                 | <code>"v2023.10.1"</code>                  |
@@ -154,7 +154,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.fluxcd-manager.version                        |                                 | <code>"v2024.12.26"</code>                 |
 | helm.releases.license-proxyserver-manager.version           |                                 | <code>"v2024.12.26"</code>                 |
 | helm.releases.inbox-server.version                          |                                 | <code>"v2024.5.3"</code>                   |
-| helm.releases.inbox-agent.version                           |                                 | <code>"v2024.5.3"</code>                   |
+| helm.releases.inbox-agent.version                           |                                 | <code>"v2024.12.30"</code>                 |
 | helm.releases.inbox-ui.version                              |                                 | <code>"v2024.5.3"</code>                   |
 | licenseServer.baseURL                                       |                                 | <code>""</code>                            |
 | licenseServer.token                                         |                                 | <code>""</code>                            |

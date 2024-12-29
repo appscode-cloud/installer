@@ -28,9 +28,9 @@
 - ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1
 - ghcr.io/appscode-charts/gatekeeper:3.13.3
 - ghcr.io/appscode-charts/gateway-api:v1.1.0
-- ghcr.io/appscode-charts/grafana-operator:v2024.11.18
+- ghcr.io/appscode-charts/grafana-operator:v2024.12.30
 - ghcr.io/appscode-charts/hub-cluster-robot:v2024.8.9
-- ghcr.io/appscode-charts/inbox-agent:v2024.5.3
+- ghcr.io/appscode-charts/inbox-agent:v2024.12.30
 - ghcr.io/appscode-charts/inbox-server:v2024.5.3
 - ghcr.io/appscode-charts/inbox-ui:v2024.5.3
 - ghcr.io/appscode-charts/ingress-nginx:4.11.1
@@ -55,7 +55,7 @@
 - ghcr.io/appscode-charts/longhorn:1.7.2
 - ghcr.io/appscode-charts/managed-serviceaccount-manager:v2024.12.26
 - ghcr.io/appscode-charts/metrics-server:3.11.0
-- ghcr.io/appscode-charts/monitoring-operator:v2024.11.18
+- ghcr.io/appscode-charts/monitoring-operator:v2024.12.30
 - ghcr.io/appscode-charts/multicluster-controlplane:v2024.7.10
 - ghcr.io/appscode-charts/multicluster-ingress-reader:v2024.7.10
 - ghcr.io/appscode-charts/opencost-grafana-dashboards:v2023.10.1
