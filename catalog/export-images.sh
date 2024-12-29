@@ -372,7 +372,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/cleanup-
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyverno:v1.12.5 images/kyverno-kyverno-v1.12.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyvernopre:v1.12.5 images/kyverno-kyvernopre-v1.12.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/reports-controller:v1.12.5 images/kyverno-reports-controller-v1.12.5.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster-oss:0.20.0 images/loft-sh-vcluster-oss-0.20.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster-oss:0.22.0 images/loft-sh-vcluster-oss-0.22.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/echoserver:v20221109 images/voyagermesh-echoserver-v20221109.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.31.2-ac images/voyagermesh-envoy-v1.31.2-ac.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway-converter:v0.0.1 images/voyagermesh-gateway-converter-v0.0.1.tar
@@ -402,8 +402,8 @@ $CMD pull --allow-nondistributable-artifacts --insecure rancher/kine:v0.11.4 ima
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 images/autoscaling-cluster-autoscaler-v1.27.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/csi-secrets-store/driver:v1.4.1 images/csi-secrets-store-driver-v1.4.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar
-$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.30.2 images/kube-apiserver-v1.30.2.tar
-$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.30.2 images/kube-controller-manager-v1.30.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.31.0 images/kube-apiserver-v1.31.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.31.0 images/kube-controller-manager-v1.31.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0 images/kube-state-metrics-kube-state-metrics-v2.13.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/metrics-server/metrics-server:v0.7.2 images/metrics-server-metrics-server-v0.7.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2 images/prometheus-adapter-prometheus-adapter-v0.11.2.tar

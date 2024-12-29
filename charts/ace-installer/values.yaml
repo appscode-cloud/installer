@@ -127,13 +127,13 @@ helm:
     # feature less chart versions
     cluster-manager-spoke:
       enabled: false
-      version: "v2024.9.30"
+      version: "v2024.12.26"
     spoke-cluster-addons:
       enabled: false
       version: "v2024.7.10"
     vcluster:
       enabled: false
-      version: "0.20.0"
+      version: "0.22.0"
     vcluster-plugin-ace:
       enabled: false
       version: "v0.0.3"
