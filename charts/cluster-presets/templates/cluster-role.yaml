@@ -15,7 +15,6 @@ rules:
   - ""
   resources:
   - secrets
-  resourceNames: ["capi-credential"]
   verbs: ["get", "list", "watch"]
 # Get Cluster Topology
 - apiGroups:
