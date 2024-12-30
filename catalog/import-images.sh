@@ -344,7 +344,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-r
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-work-v0.15.2.tar $IMAGE_REGISTRY/kluster-manager/work:v0.15.2
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-autoscaler-v0.35.0.tar $IMAGE_REGISTRY/kubedb/kubedb-autoscaler:v0.35.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-crd-manager-v0.5.0.tar $IMAGE_REGISTRY/kubedb/kubedb-crd-manager:v0.5.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ops-manager-v0.37.1.tar $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.37.1
+$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ops-manager-v0.37.2.tar $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.37.2
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-provisioner-v0.50.1.tar $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.50.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-schema-manager-v0.26.0.tar $IMAGE_REGISTRY/kubedb/kubedb-schema-manager:v0.26.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-ui-server-v0.26.0.tar $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.26.0
@@ -352,7 +352,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-kubedb-web
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-pg-coordinator-v0.34.0.tar $IMAGE_REGISTRY/kubedb/pg-coordinator:v0.34.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-postgres-archiver-v0.11.0_16.1-alpine.tar $IMAGE_REGISTRY/kubedb/postgres-archiver:v0.11.0_16.1-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-postgres-init-0.17.0.tar $IMAGE_REGISTRY/kubedb/postgres-init:0.17.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-postgres-restic-plugin-v0.13.0_16.1.tar $IMAGE_REGISTRY/kubedb/postgres-restic-plugin:v0.13.0_16.1
+$CMD push --allow-nondistributable-artifacts --insecure images/kubedb-postgres-restic-plugin-v0.13.0_17.2.tar $IMAGE_REGISTRY/kubedb/postgres-restic-plugin:v0.13.0_17.2
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-redis-coordinator-v0.29.0.tar $IMAGE_REGISTRY/kubedb/redis-coordinator:v0.29.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-redis-init-0.9.0.tar $IMAGE_REGISTRY/kubedb/redis-init:0.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kubedb-redis-restic-plugin-v0.13.0.tar $IMAGE_REGISTRY/kubedb/redis-restic-plugin:v0.13.0

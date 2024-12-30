@@ -353,7 +353,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/re
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/work:v0.15.2 $IMAGE_REGISTRY/kluster-manager/work:v0.15.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-autoscaler:v0.35.0 $IMAGE_REGISTRY/kubedb/kubedb-autoscaler:v0.35.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-crd-manager:v0.5.0 $IMAGE_REGISTRY/kubedb/kubedb-crd-manager:v0.5.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.37.1 $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.37.1
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.37.2 $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.37.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.50.1 $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.50.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-schema-manager:v0.26.0 $IMAGE_REGISTRY/kubedb/kubedb-schema-manager:v0.26.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ui-server:v0.26.0 $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.26.0
@@ -361,7 +361,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webh
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/pg-coordinator:v0.34.0 $IMAGE_REGISTRY/kubedb/pg-coordinator:v0.34.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-archiver:v0.11.0_16.1-alpine $IMAGE_REGISTRY/kubedb/postgres-archiver:v0.11.0_16.1-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-init:0.17.0 $IMAGE_REGISTRY/kubedb/postgres-init:0.17.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-restic-plugin:v0.13.0_16.1 $IMAGE_REGISTRY/kubedb/postgres-restic-plugin:v0.13.0_16.1
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-restic-plugin:v0.13.0_17.2 $IMAGE_REGISTRY/kubedb/postgres-restic-plugin:v0.13.0_17.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis-coordinator:v0.29.0 $IMAGE_REGISTRY/kubedb/redis-coordinator:v0.29.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis-init:0.9.0 $IMAGE_REGISTRY/kubedb/redis-init:0.9.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis-restic-plugin:v0.13.0 $IMAGE_REGISTRY/kubedb/redis-restic-plugin:v0.13.0

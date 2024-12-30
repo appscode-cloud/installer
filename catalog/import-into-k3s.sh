@@ -342,7 +342,7 @@ k3s ctr images import images/kluster-manager-registration-v0.15.2.tar
 k3s ctr images import images/kluster-manager-work-v0.15.2.tar
 k3s ctr images import images/kubedb-kubedb-autoscaler-v0.35.0.tar
 k3s ctr images import images/kubedb-kubedb-crd-manager-v0.5.0.tar
-k3s ctr images import images/kubedb-kubedb-ops-manager-v0.37.1.tar
+k3s ctr images import images/kubedb-kubedb-ops-manager-v0.37.2.tar
 k3s ctr images import images/kubedb-kubedb-provisioner-v0.50.1.tar
 k3s ctr images import images/kubedb-kubedb-schema-manager-v0.26.0.tar
 k3s ctr images import images/kubedb-kubedb-ui-server-v0.26.0.tar
@@ -350,7 +350,7 @@ k3s ctr images import images/kubedb-kubedb-webhook-server-v0.26.1.tar
 k3s ctr images import images/kubedb-pg-coordinator-v0.34.0.tar
 k3s ctr images import images/kubedb-postgres-archiver-v0.11.0_16.1-alpine.tar
 k3s ctr images import images/kubedb-postgres-init-0.17.0.tar
-k3s ctr images import images/kubedb-postgres-restic-plugin-v0.13.0_16.1.tar
+k3s ctr images import images/kubedb-postgres-restic-plugin-v0.13.0_17.2.tar
 k3s ctr images import images/kubedb-redis-coordinator-v0.29.0.tar
 k3s ctr images import images/kubedb-redis-init-0.9.0.tar
 k3s ctr images import images/kubedb-redis-restic-plugin-v0.13.0.tar

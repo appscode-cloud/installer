@@ -105,7 +105,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/registration
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/work:v0.15.2 $IMAGE_REGISTRY/work:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-autoscaler:v0.35.0 $IMAGE_REGISTRY/kubedb-autoscaler:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-crd-manager:v0.5.0 $IMAGE_REGISTRY/kubedb-crd-manager:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-ops-manager:v0.37.1 $IMAGE_REGISTRY/kubedb-ops-manager:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-ops-manager:v0.37.2 $IMAGE_REGISTRY/kubedb-ops-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-provisioner:v0.50.1 $IMAGE_REGISTRY/kubedb-provisioner:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-schema-manager:v0.26.0 $IMAGE_REGISTRY/kubedb-schema-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-ui-server:v0.26.0 $IMAGE_REGISTRY/kubedb-ui-server:$TAG
@@ -113,7 +113,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-webhook-server
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/pg-coordinator:v0.34.0 $IMAGE_REGISTRY/pg-coordinator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/postgres-archiver:v0.11.0_16.1-alpine $IMAGE_REGISTRY/postgres-archiver:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/postgres-init:0.17.0 $IMAGE_REGISTRY/postgres-init:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/postgres-restic-plugin:v0.13.0_16.1 $IMAGE_REGISTRY/postgres-restic-plugin:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/postgres-restic-plugin:v0.13.0_17.2 $IMAGE_REGISTRY/postgres-restic-plugin:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/redis-coordinator:v0.29.0 $IMAGE_REGISTRY/redis-coordinator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/redis-init:0.9.0 $IMAGE_REGISTRY/redis-init:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/redis-restic-plugin:v0.13.0 $IMAGE_REGISTRY/redis-restic-plugin:$TAG

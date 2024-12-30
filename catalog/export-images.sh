@@ -350,7 +350,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/work:v0.15.2 images/kluster-manager-work-v0.15.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-autoscaler:v0.35.0 images/kubedb-kubedb-autoscaler-v0.35.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-crd-manager:v0.5.0 images/kubedb-kubedb-crd-manager-v0.5.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.37.1 images/kubedb-kubedb-ops-manager-v0.37.1.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.37.2 images/kubedb-kubedb-ops-manager-v0.37.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.50.1 images/kubedb-kubedb-provisioner-v0.50.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-schema-manager:v0.26.0 images/kubedb-kubedb-schema-manager-v0.26.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ui-server:v0.26.0 images/kubedb-kubedb-ui-server-v0.26.0.tar
@@ -358,7 +358,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-we
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/pg-coordinator:v0.34.0 images/kubedb-pg-coordinator-v0.34.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-archiver:v0.11.0_16.1-alpine images/kubedb-postgres-archiver-v0.11.0_16.1-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-init:0.17.0 images/kubedb-postgres-init-0.17.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-restic-plugin:v0.13.0_16.1 images/kubedb-postgres-restic-plugin-v0.13.0_16.1.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-restic-plugin:v0.13.0_17.2 images/kubedb-postgres-restic-plugin-v0.13.0_17.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis-coordinator:v0.29.0 images/kubedb-redis-coordinator-v0.29.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis-init:0.9.0 images/kubedb-redis-init-0.9.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis-restic-plugin:v0.13.0 images/kubedb-redis-restic-plugin-v0.13.0.tar
