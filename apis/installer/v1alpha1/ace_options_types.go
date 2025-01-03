@@ -19,6 +19,7 @@ package v1alpha1
 import (
 	"fmt"
 	"net/url"
+	"strings"
 
 	catgwapi "go.bytebuilders.dev/catalog/api/gateway/v1alpha1"
 	configapi "go.bytebuilders.dev/resource-model/apis/config/v1alpha1"
@@ -374,6 +375,12 @@ func (dt DeploymentType) MarketplaceDeployment() bool {
 func (dt DeploymentType) UsesVirtualCluster() bool {
 	return dt == KubeAppDemoDeployment ||
 		dt == GCPMarketplaceDeployment
+}
+
+func (a AceOptionsSpec) DevDeployment() bool {
+	return (a.Context.DeploymentType == CloudDemoDeployment ||
+		a.Context.DeploymentType == OnpremDemoDeployment) &&
+		strings.HasSuffix(a.InitialSetup.Admin.Email, "@appscode.com")
 }
 
 type AceDeploymentContext struct {
