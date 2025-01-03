@@ -314,7 +314,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 images/appscode-operator-shard-manager-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.16 images/appscode-panopticon-v0.0.16.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.7 images/appscode-petset-v0.0.7.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:0.8.11 images/appscode-platform-ui-0.8.11.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:0.8.12 images/appscode-platform-ui-0.8.12.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/prom-authproxy:v0.0.1 images/appscode-prom-authproxy-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/reloader:v1.0.79 images/appscode-reloader-v1.0.79.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/s3proxy:sha-a82ca68 images/appscode-s3proxy-sha-a82ca68.tar

@@ -44,7 +44,7 @@
 - ghcr.io/appscode/operator-shard-manager:v0.0.1
 - ghcr.io/appscode/panopticon:v0.0.16
 - ghcr.io/appscode/petset:v0.0.7
-- ghcr.io/appscode/platform-ui:0.8.11
+- ghcr.io/appscode/platform-ui:0.8.12
 - ghcr.io/appscode/prom-authproxy:v0.0.1
 - ghcr.io/appscode/reloader:v1.0.79
 - ghcr.io/appscode/s3proxy:sha-a82ca68

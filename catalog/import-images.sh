@@ -308,7 +308,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-openfga-
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-operator-shard-manager-v0.0.1.tar $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-panopticon-v0.0.16.tar $IMAGE_REGISTRY/appscode/panopticon:v0.0.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-petset-v0.0.7.tar $IMAGE_REGISTRY/appscode/petset:v0.0.7
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-platform-ui-0.8.11.tar $IMAGE_REGISTRY/appscode/platform-ui:0.8.11
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-platform-ui-0.8.12.tar $IMAGE_REGISTRY/appscode/platform-ui:0.8.12
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-prom-authproxy-v0.0.1.tar $IMAGE_REGISTRY/appscode/prom-authproxy:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-reloader-v1.0.79.tar $IMAGE_REGISTRY/appscode/reloader:v1.0.79
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-s3proxy-sha-a82ca68.tar $IMAGE_REGISTRY/appscode/s3proxy:sha-a82ca68
