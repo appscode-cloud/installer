@@ -116,7 +116,7 @@ helm:
     kube-ui-server:
       version: "v2025.1.17"
     kubedb:
-      version: "v2024.12.18"
+      version: "v2024.11.18"
     kubedb-opscenter:
       version: "v2024.11.18"
     kubedb-provider-aws:
