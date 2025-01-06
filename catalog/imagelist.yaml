@@ -25,7 +25,7 @@
 - ghcr.io/appscode/s3proxy:sha-a82ca68
 - ghcr.io/appscode/service-provider:v0.0.1
 - ghcr.io/appscode/smtprelay:v0.0.2
-- ghcr.io/appscode/website:v2024.12.9
+- ghcr.io/appscode/website:v2025.1.17
 - ghcr.io/kluster-manager/multicluster-controlplane:v0.6.0
 - ghcr.io/voyagermesh/echoserver:v20221109
 - ghcr.io/voyagermesh/envoy:v1.31.2-ac
