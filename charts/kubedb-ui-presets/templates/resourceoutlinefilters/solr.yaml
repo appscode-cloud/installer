@@ -37,7 +37,10 @@ spec:
     sections:
     - blocks:
         Nodes: true
-      info: true
+      info:
+        basic: true
+        inCluster: true
+        gateway: true
       insight: false
       show: true
     show: true
@@ -45,7 +48,7 @@ spec:
     sections:
     - blocks:
         Grafana Dashboards: true
-      info: false
+      info: {}
       insight: false
       show: true
     show: true
@@ -57,7 +60,7 @@ spec:
         SecretAccessRequests: true
         SecretEngines: true
         VaultServers: true
-      info: false
+      info: {}
       insight: false
       show: true
     show: true
@@ -66,7 +69,7 @@ spec:
     - blocks:
         Recent Operations: true
         Recommendations: true
-      info: false
+      info: {}
       insight: false
       show: true
     show: true
@@ -74,7 +77,7 @@ spec:
     sections:
     - blocks:
         CVE Report: true
-      info: false
+      info: {}
       insight: false
       name: CVE Report
       show: true
@@ -84,7 +87,7 @@ spec:
         RoleBindings: true
         Roles: true
         Service Account: true
-      info: false
+      info: {}
       insight: false
       name: Access Control
       show: true
@@ -93,19 +96,19 @@ spec:
         Cluster Issuer: true
         Issuer: true
         Secrets: true
-      info: false
+      info: {}
       insight: false
       name: TLS
       show: true
     - blocks:
         Policy Report: true
-      info: false
+      info: {}
       insight: false
       name: Policies
       show: true
     - blocks:
         Falco Events: true
-      info: false
+      info: {}
       insight: false
       name: Runtime Security
       show: true
