@@ -82,3 +82,5 @@ settings:
     grafanaConfig: ""
     objstore: ""
     nats: ""
+
+loginURL: ""

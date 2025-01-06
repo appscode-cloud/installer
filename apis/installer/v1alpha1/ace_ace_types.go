@@ -370,6 +370,8 @@ type PlatformSettings struct {
 	OtherShowFooterTemplateLoadTime bool     `json:"otherShowFooterTemplateLoadTime"`
 	EnableCSRFCookieHttpOnly        bool     `json:"enableCSRFCookieHttpOnly"`
 	// +optional
+	LoginURL string `json:"loginURL"`
+	// +optional
 	LogoutURL string `json:"logoutURL"`
 }
 

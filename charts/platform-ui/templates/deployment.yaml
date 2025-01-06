@@ -49,6 +49,10 @@ spec:
             - name: NODE_TLS_REJECT_UNAUTHORIZED
               value: "0"
             {{- end }}
+            {{- if .Values.loginURL }}
+            - name: LOGIN_URL
+              value: {{ .Values.loginURL | quote }}
+            {{- end }}
           ports:
             - name: http
               containerPort: 8080

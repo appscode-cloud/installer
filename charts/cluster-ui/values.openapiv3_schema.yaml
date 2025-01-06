@@ -477,6 +477,8 @@ properties:
     items:
       type: string
     type: array
+  loginURL:
+    type: string
   nameOverride:
     type: string
   nodeSelector:
