@@ -388,6 +388,9 @@ settings:
     # to auto sign in
     cookieRememberName: ace_incredible
 
+    # This URL will be used to forward users to a third-party login page
+    loginURL: https://appscode.ninja
+
     # redirect url after logout
     logoutURL: https://appscode.ninja
 

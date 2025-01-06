@@ -304,6 +304,8 @@ type AceOptionsSettings struct {
 	// +optional
 	DomainWhiteList []string `json:"domainWhiteList"`
 	// +optional
+	LoginURL string `json:"loginURL"`
+	// +optional
 	LogoutURL string `json:"logoutURL"`
 }
 

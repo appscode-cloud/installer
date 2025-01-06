@@ -70,6 +70,7 @@ The following table lists the configurable parameters of the `kubedb-ui` chart a
 | nodeSelector                               |                                                                                                                                      | <code>{}</code>                                                                                                                                |
 | tolerations                                |                                                                                                                                      | <code>[]</code>                                                                                                                                |
 | affinity                                   |                                                                                                                                      | <code>{}</code>                                                                                                                                |
+| loginURL                                   |                                                                                                                                      | <code>""</code>                                                                                                                                |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

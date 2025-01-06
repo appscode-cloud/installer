@@ -1742,6 +1742,8 @@ properties:
         items:
           type: string
         type: array
+      loginURL:
+        type: string
       logoutURL:
         type: string
       smtp:

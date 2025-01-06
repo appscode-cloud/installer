@@ -929,6 +929,8 @@ properties:
         items:
           type: string
         type: array
+      loginURL:
+        type: string
       nameOverride:
         type: string
       nodeSelector:
@@ -4356,6 +4358,8 @@ properties:
         items:
           type: string
         type: array
+      loginURL:
+        type: string
       nameOverride:
         type: string
       nodeSelector:
@@ -17375,6 +17379,8 @@ properties:
         items:
           type: string
         type: array
+      loginURL:
+        type: string
       nameOverride:
         type: string
       nodeSelector:
@@ -18869,6 +18875,8 @@ properties:
           logLevel:
             type: string
           logMode:
+            type: string
+          loginURL:
             type: string
           logoutURL:
             type: string
