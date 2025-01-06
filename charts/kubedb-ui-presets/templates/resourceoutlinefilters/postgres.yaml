@@ -43,7 +43,10 @@ spec:
     - blocks:
         Dashboards: true
         Nodes: true
-      info: true
+      info:
+        basic: true
+        inCluster: true
+        gateway: true
       insight: true
       show: true
     show: true
@@ -54,7 +57,8 @@ spec:
         Grafana Dashboards: true
         Replication Status: true
         Slow Queries: true
-      info: true
+      info:
+        basic: true
       insight: true
       show: true
     show: true
@@ -67,7 +71,7 @@ spec:
         SecretAccessRequests: true
         SecretEngines: true
         VaultServers: true
-      info: false
+      info: {}
       insight: false
       show: true
     show: true
@@ -76,7 +80,7 @@ spec:
     - blocks:
         Recent Operations: true
         Recommendations: true
-      info: false
+      info: {}
       insight: false
       show: true
     show: true
@@ -88,7 +92,7 @@ spec:
         Recent Backups: true
         Recent Restores: true
         Repository: true
-      info: false
+      info: {}
       insight: false
       show: true
     show: true
@@ -97,7 +101,8 @@ spec:
     - blocks:
         Recent Backups: true
         Recent Restores: true
-      info: true
+      info:
+        basic: true
       insight: false
       show: true
     show: false
@@ -105,7 +110,7 @@ spec:
     sections:
     - blocks:
         CVE Report: true
-      info: false
+      info: {}
       insight: false
       name: CVE Report
       show: true
@@ -115,7 +120,7 @@ spec:
         RoleBindings: true
         Roles: true
         Service Account: true
-      info: false
+      info: {}
       insight: false
       name: Access Control
       show: true
@@ -124,19 +129,19 @@ spec:
         Cluster Issuer: true
         Issuer: true
         Secrets: true
-      info: false
+      info: {}
       insight: false
       name: TLS
       show: true
     - blocks:
         Policy Report: true
-      info: false
+      info: {}
       insight: false
       name: Policies
       show: true
     - blocks:
         Falco Events: true
-      info: false
+      info: {}
       insight: false
       name: Runtime Security
       show: true
