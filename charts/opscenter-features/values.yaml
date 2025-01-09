@@ -116,9 +116,9 @@ helm:
     kube-ui-server:
       version: "v2025.1.17"
     kubedb:
-      version: "v2024.12.18"
+      version: "v2025.1.9"
     kubedb-opscenter:
-      version: "v2024.12.18"
+      version: "v2025.1.9"
     kubedb-provider-aws:
       version: "v2024.1.31"
     kubedb-provider-azure:
@@ -126,7 +126,7 @@ helm:
     kubedb-provider-gcp:
       version: "v2024.1.31"
     kubestash:
-      version: "v2024.12.9"
+      version: "v2025.1.9"
     kubevault:
       version: "v2024.9.30"
     kubevault-opscenter:
@@ -174,9 +174,9 @@ helm:
     snapshot-controller:
       version: "3.0.6"
     stash:
-      version: "v2024.12.18"
+      version: "v2025.1.9"
     stash-opscenter:
-      version: "v2024.12.18"
+      version: "v2025.1.9"
     stash-presets:
       version: "v2025.1.17"
     supervisor:
@@ -186,7 +186,7 @@ helm:
     voyager:
       version: "v2024.8.30"
     voyager-gateway:
-      version: "v2024.8.30"
+      version: "v2024.11.4"
     # secret management
     external-secrets:
       version: "0.9.12"
