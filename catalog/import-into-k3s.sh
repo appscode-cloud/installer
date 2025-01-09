@@ -279,7 +279,7 @@ k3s ctr images import images/appscode-aceshifter-v0.0.1.tar
 k3s ctr images import images/appscode-b3-v2025.1.17.tar
 k3s ctr images import images/appscode-capa-vpc-peering-operator-v0.0.4.tar
 k3s ctr images import images/appscode-capi-ops-manager-v0.0.2.tar
-k3s ctr images import images/appscode-catalog-manager-v0.1.1.tar
+k3s ctr images import images/appscode-catalog-manager-v0.2.1.tar
 k3s ctr images import images/appscode-cluster-presets-v0.0.7.tar
 k3s ctr images import images/appscode-cluster-ui-0.9.13.tar
 k3s ctr images import images/appscode-config-syncer-v0.15.2-ent.tar
@@ -300,7 +300,7 @@ k3s ctr images import images/appscode-kube-rbac-proxy-v0.15.0.tar
 k3s ctr images import images/appscode-kube-ui-server-v0.0.50.tar
 k3s ctr images import images/appscode-kubectl-nonroot-1.31.tar
 k3s ctr images import images/appscode-kubedb-ui-0.7.12.tar
-k3s ctr images import images/appscode-license-proxyserver-v0.0.19.tar
+k3s ctr images import images/appscode-license-proxyserver-v0.0.20.tar
 k3s ctr images import images/appscode-maxmind-geoip-city-mmdb-latest.tar
 k3s ctr images import images/appscode-openfga-v1.6.0.tar
 k3s ctr images import images/appscode-operator-shard-manager-v0.0.1.tar

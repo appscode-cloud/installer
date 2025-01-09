@@ -290,7 +290,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/aceshifte
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/b3:v2025.1.17 $IMAGE_REGISTRY/appscode/b3:v2025.1.17
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 $IMAGE_REGISTRY/appscode/capa-vpc-peering-operator:v0.0.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capi-ops-manager:v0.0.2 $IMAGE_REGISTRY/appscode/capi-ops-manager:v0.0.2
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog-manager:v0.1.1 $IMAGE_REGISTRY/appscode/catalog-manager:v0.1.1
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog-manager:v0.2.1 $IMAGE_REGISTRY/appscode/catalog-manager:v0.2.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-presets:v0.0.7 $IMAGE_REGISTRY/appscode/cluster-presets:v0.0.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:0.9.13 $IMAGE_REGISTRY/appscode/cluster-ui:0.9.13
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/config-syncer:v0.15.2-ent $IMAGE_REGISTRY/appscode/config-syncer:v0.15.2-ent
@@ -311,7 +311,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-ui-server:v0.0.50 $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.50
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.31 $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.31
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:0.7.12 $IMAGE_REGISTRY/appscode/kubedb-ui:0.7.12
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.19 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.19
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.20 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.20
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.6.0 $IMAGE_REGISTRY/appscode/openfga:v1.6.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
