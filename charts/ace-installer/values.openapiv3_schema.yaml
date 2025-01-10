@@ -87,6 +87,8 @@ properties:
             type: string
         type: object
     type: object
+  installerVersion:
+    type: string
   nameOverride:
     type: string
   offlineInstaller:
