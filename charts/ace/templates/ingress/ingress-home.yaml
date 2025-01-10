@@ -8,7 +8,11 @@ metadata:
   labels:
     {{- include "ace.labels" . | nindent 4 }}
   annotations:
+    {{- if .Values.settings.platform.loginURL }}
+    nginx.ingress.kubernetes.io/rewrite-target: {{ .Values.settings.platform.loginURL }}
+    {{- else }}
     nginx.ingress.kubernetes.io/rewrite-target: /accounts/selfhost-home
+    {{- end }}
 spec:
   ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
   rules:
