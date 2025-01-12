@@ -85,6 +85,5 @@ settings:
   secretName:
     platformConfig: ""
     objstore: ""
-
-spreadsheet:
-  credentials: ""
+    spreadsheet: ""
+  spreadsheetCredentialMountPath: "/data/marketplace-credentials"

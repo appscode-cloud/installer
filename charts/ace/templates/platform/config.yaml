@@ -186,3 +186,27 @@ stringData:
     JMAP_URL = {{ .Values.settings.inboxServer.jmapURL }}
     WEB_ADMIN_URL = {{ .Values.settings.inboxServer.webAdminURL }}
     ENCODED_ADMIN_JWT_PRIVATE_KEY = {{ .Values.settings.inboxServer.adminJWTPrivateKey | b64enc }}
+
+  {{- with .Values.settings.marketplace }}
+    [marketplace]
+    ALERT_EMAILS = {{ .alertEmails | join "," }}
+    GOOGLE_SPREADSHEET_CREDENTIAL_PATH = {{ .spreadsheetCredentialMountPath }}/sa.json
+    GOOGLE_SPREADSHEET_ID = {{ .spreadsheetID }}
+
+    {{- with .aws }}
+    AWS_SECRET = {{ .secret }}
+    AWS_PRODUCT_CODE = {{ .productCode }}
+    {{- end }}
+
+    {{- with .azure }}
+    AZURE_SECRET = {{ .secret }}
+    AZURE_TENANT_ID = {{ .tenantID }}
+    AZURE_CLIENT_ID = {{ .clientID }}
+    AZURE_CLIENT_SECRET = {{ .clientSecret }}
+    {{- end }}
+
+    {{- with .gcp }}
+    GCP_SECRET = {{ .secret }}
+    GCP_MP_TEST_UPLOAD_ID = {{ .testUploadID }}
+    {{- end }}
+  {{- end }}

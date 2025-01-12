@@ -735,20 +735,19 @@ properties:
             type: string
           platformConfig:
             type: string
+          spreadsheet:
+            type: string
         required:
         - objstore
         - platformConfig
+        - spreadsheet
         type: object
+      spreadsheetCredentialMountPath:
+        type: string
     required:
     - caProviderClass
     - secretName
-    type: object
-  spreadsheet:
-    properties:
-      credentials:
-        type: string
-    required:
-    - credentials
+    - spreadsheetCredentialMountPath
     type: object
   tolerations:
     items:
@@ -774,5 +773,4 @@ required:
 - service
 - serviceAccount
 - settings
-- spreadsheet
 type: object
