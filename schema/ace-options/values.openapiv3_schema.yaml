@@ -1746,6 +1746,57 @@ properties:
         type: string
       logoutURL:
         type: string
+      marketplace:
+        properties:
+          alertEmails:
+            items:
+              type: string
+            type: array
+          aws:
+            properties:
+              productCode:
+                type: string
+              secret:
+                type: string
+            required:
+              - productCode
+              - secret
+            type: object
+          azure:
+            properties:
+              clientID:
+                type: string
+              clientSecret:
+                type: string
+              secret:
+                type: string
+              tenantID:
+                type: string
+            required:
+              - clientID
+              - clientSecret
+              - secret
+              - tenantID
+            type: object
+          gcp:
+            properties:
+              secret:
+                type: string
+              testUploadID:
+                type: string
+            required:
+              - secret
+              - testUploadID
+            type: object
+          spreadsheetCredential:
+            type: string
+          spreadsheetID:
+            type: string
+        required:
+          - alertEmails
+          - spreadsheetCredential
+          - spreadsheetID
+        type: object
       smtp:
         properties:
           enabled:

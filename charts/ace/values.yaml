@@ -417,6 +417,23 @@ settings:
     project: ""
     database: ""
 
+  # marketplace:
+  #   alertEmails: ""
+  #   spreadsheetID: ""
+  #   spreadsheetCredential: ""
+  #   spreadsheetCredentialMountPath: ""
+  #   aws:
+  #     secret: ""
+  #     productCode: ""
+  #   azure:
+  #     secret: ""
+  #     tenantID: ""
+  #     clientID: ""
+  #     clientSecret: ""
+  #   gcp:
+  #     secret: ""
+  #     testUploadID: ""
+
 # Docker registry containing app image
 image:
   # Docker registry used to pull app container image

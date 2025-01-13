@@ -755,13 +755,19 @@ properties:
             type: string
           platformConfig:
             type: string
+          spreadsheet:
+            type: string
         required:
         - objstore
         - platformConfig
+        - spreadsheet
         type: object
+      spreadsheetCredentialMountPath:
+        type: string
     required:
     - caProviderClass
     - secretName
+    - spreadsheetCredentialMountPath
     type: object
   tolerations:
     items:

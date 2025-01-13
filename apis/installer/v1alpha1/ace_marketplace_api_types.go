@@ -72,14 +72,9 @@ type MarketplaceApiSpec struct {
 	Tolerations []core.Toleration `json:"tolerations"`
 	// If specified, the pod's scheduling constraints
 	// +optional
-	Affinity    *core.Affinity  `json:"affinity"`
-	Infra       AceInfra        `json:"infra"`
-	Settings    AcaasSettings   `json:"settings"`
-	Spreadsheet SpreadsheetCred `json:"spreadsheet"`
-}
-
-type SpreadsheetCred struct {
-	Credentials string `json:"credentials"`
+	Affinity *core.Affinity `json:"affinity"`
+	Infra    AceInfra       `json:"infra"`
+	Settings AcaasSettings  `json:"settings"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
