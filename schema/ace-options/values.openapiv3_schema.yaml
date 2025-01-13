@@ -1088,8 +1088,11 @@ properties:
             properties:
               meteringServiceProxyToken:
                 type: string
+              organizationClaimID:
+                type: string
             required:
               - meteringServiceProxyToken
+              - organizationClaimID
             type: object
           azure:
             description: https://learn.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/publish-notifications
