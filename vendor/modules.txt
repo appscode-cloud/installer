@@ -269,7 +269,7 @@ go.appscode.dev/alerts/apis/alerts/v1alpha1
 # go.bytebuilders.dev/catalog v0.0.11
 ## explicit; go 1.22.7
 go.bytebuilders.dev/catalog/api/gateway/v1alpha1
-# go.bytebuilders.dev/resource-model v0.1.1-0.20241204064533-5b962e9af951
+# go.bytebuilders.dev/resource-model v0.1.1-0.20250109082349-a91b75da4b53
 ## explicit; go 1.22.1
 go.bytebuilders.dev/resource-model/apis/cloud
 go.bytebuilders.dev/resource-model/apis/cloud/v1alpha1

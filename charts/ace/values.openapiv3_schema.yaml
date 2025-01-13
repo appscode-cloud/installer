@@ -19354,8 +19354,11 @@ properties:
                 properties:
                   meteringServiceProxyToken:
                     type: string
+                  organizationClaimID:
+                    type: string
                 required:
                 - meteringServiceProxyToken
+                - organizationClaimID
                 type: object
               azure:
                 properties:
