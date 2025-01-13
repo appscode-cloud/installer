@@ -45,6 +45,7 @@ stringData:
     image:
       {{- . | toYaml | nindent 6 }}
     {{- end }}
+    orgname: {{ (dig "releases" "ace" "values" "setupJob" "config" "admin" "orgname" (dict) .Values.helm) }}
     selfManagement:
       {{- (dig "releases" "ace" "values" "setupJob" "config" "selfManagement" (dict) .Values.helm) | toYaml | nindent 6 }}
 {{- end }}
