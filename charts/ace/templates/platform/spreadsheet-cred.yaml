@@ -1,0 +1,14 @@
+{{ $cred := dig "marketplace" "spreadsheetCredential"  "" .Values.settings }}
+
+{{- if $cred }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "ace.fullname" . }}-spreadsheet-cred
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+type: Opaque
+stringData: {{ dict "sa.json" $cred | toJson }}
+
+{{- end }}

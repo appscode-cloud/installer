@@ -116,13 +116,15 @@ type AcaasPlatformSettings struct {
 }
 
 type AcaasSettings struct {
-	CAProviderClass         string `json:"caProviderClass"`
-	AcaasSettingsSecretName `json:"secretName"`
+	CAProviderClass                string `json:"caProviderClass"`
+	AcaasSettingsSecretName        `json:"secretName"`
+	SpreadsheetCredentialMountPath string `json:"spreadsheetCredentialMountPath"`
 }
 
 type AcaasSettingsSecretName struct {
 	PlatformConfig string `json:"platformConfig"`
 	Objstore       string `json:"objstore"`
+	Spreadsheet    string `json:"spreadsheet"`
 }
 
 type AcaasIngress struct {

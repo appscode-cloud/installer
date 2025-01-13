@@ -50,6 +50,8 @@ settings:
   secretName:
     platformConfig: ""
     objstore: ""
+    spreadsheet: ""
+  spreadsheetCredentialMountPath: "/data/marketplace-credentials"
 
 ingress:
   className: "nginx-ace"

@@ -281,6 +281,8 @@ type Settings struct {
 	InboxServer InboxServerSettings `json:"inboxServer"`
 	Contract    ContractStorage     `json:"contract"`
 	Firebase    FirebaseSettings    `json:"firebase"`
+	// +optional
+	Marketplace *MarketplaceSettings `json:"marketplace,omitempty"`
 }
 
 type DBSettings struct {
@@ -401,6 +403,18 @@ type ContractStorage struct {
 type FirebaseSettings struct {
 	Project  string `json:"project"`
 	Database string `json:"database"`
+}
+
+type MarketplaceSettings struct {
+	AlertEmails           []string `json:"alertEmails"`
+	SpreadsheetID         string   `json:"spreadsheetID"`
+	SpreadsheetCredential string   `json:"spreadsheetCredential"`
+	// /data/marketplace-credentials
+	SpreadsheetCredentialMountPath string `json:"spreadsheetCredentialMountPath"`
+
+	Aws   *AceOptionsAwsMarketplace   `json:"aws,omitempty"`
+	Azure *AceOptionsAzureMarketplace `json:"azure,omitempty"`
+	Gcp   *AceOptionsGcpMarketplace   `json:"gcp,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

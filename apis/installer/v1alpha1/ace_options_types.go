@@ -297,6 +297,8 @@ type AceOptionsSettings struct {
 	DB    AceOptionsDBSettings    `json:"db"`
 	Cache AceOptionsCacheSettings `json:"cache"`
 	SMTP  AceOptionsSMTPSettings  `json:"smtp"`
+	// +optional
+	Marketplace *AceOptionsMarketplace `json:"marketplace,omitempty"`
 
 	// DomainWhiteList is an array of domain names that are allowed.
 	// Each domain should be in the format of a fully qualified domain name,
@@ -307,6 +309,33 @@ type AceOptionsSettings struct {
 	LoginURL string `json:"loginURL"`
 	// +optional
 	LogoutURL string `json:"logoutURL"`
+}
+
+type AceOptionsMarketplace struct {
+	AlertEmails           []string `json:"alertEmails"`
+	SpreadsheetID         string   `json:"spreadsheetID"`
+	SpreadsheetCredential string   `json:"spreadsheetCredential"`
+
+	Aws   *AceOptionsAwsMarketplace   `json:"aws,omitempty"`
+	Azure *AceOptionsAzureMarketplace `json:"azure,omitempty"`
+	Gcp   *AceOptionsGcpMarketplace   `json:"gcp,omitempty"`
+}
+
+type AceOptionsAzureMarketplace struct {
+	Secret       string `json:"secret"`
+	TenantID     string `json:"tenantID"`
+	ClientID     string `json:"clientID"`
+	ClientSecret string `json:"clientSecret"`
+}
+
+type AceOptionsAwsMarketplace struct {
+	Secret      string `json:"secret"`
+	ProductCode string `json:"productCode"`
+}
+
+type AceOptionsGcpMarketplace struct {
+	Secret       string `json:"secret"`
+	TestUploadID string `json:"testUploadID"`
 }
 
 type AceOptionsDBSettings struct {

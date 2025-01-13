@@ -104,7 +104,7 @@ spec:
             - name: cacerts
               mountPath: /etc/ssl/certs
             {{- end }}
-            - mountPath: /data/marketplace-credentials
+            - mountPath: {{ .Values.settings.spreadsheetCredentialMountPath }}
               name: spreadsheet-cred
       volumes:
         - name: tmp
@@ -135,7 +135,7 @@ spec:
         - name: spreadsheet-cred
           secret:
             defaultMode: 420
-            secretName: {{ include "marketplace-api.fullname" . }}-spreadsheet-cred
+            secretName: {{ .Values.settings.secretName.spreadsheet }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
