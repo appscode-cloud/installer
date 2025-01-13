@@ -269,7 +269,7 @@ go.appscode.dev/alerts/apis/alerts/v1alpha1
 # go.bytebuilders.dev/catalog v0.0.11
 ## explicit; go 1.22.7
 go.bytebuilders.dev/catalog/api/gateway/v1alpha1
-# go.bytebuilders.dev/resource-model v0.1.1-0.20250109082349-a91b75da4b53
+# go.bytebuilders.dev/resource-model v0.1.1-0.20250113073009-6169434829cb
 ## explicit; go 1.22.1
 go.bytebuilders.dev/resource-model/apis/cloud
 go.bytebuilders.dev/resource-model/apis/cloud/v1alpha1
@@ -702,7 +702,7 @@ k8s.io/utils/trace
 # kmodules.xyz/apiversion v0.2.0
 ## explicit; go 1.14
 kmodules.xyz/apiversion
-# kmodules.xyz/client-go v0.30.43
+# kmodules.xyz/client-go v0.30.44
 ## explicit; go 1.22.0
 kmodules.xyz/client-go
 kmodules.xyz/client-go/api/v1
@@ -716,7 +716,7 @@ kmodules.xyz/client-go/tools/parser
 # kmodules.xyz/go-containerregistry v0.0.12
 ## explicit; go 1.21.5
 kmodules.xyz/go-containerregistry/name
-# kmodules.xyz/image-packer v0.0.0-20241229034459-21d22f5d0c64
+# kmodules.xyz/image-packer v0.0.0-20250109023929-29e600bfd7a8
 ## explicit; go 1.22.7
 kmodules.xyz/image-packer/pkg/lib
 # kmodules.xyz/monitoring-agent-api v0.30.3
@@ -731,7 +731,7 @@ kmodules.xyz/offshoot-api/api/v1
 # kmodules.xyz/prober v0.29.0
 ## explicit; go 1.21.5
 kmodules.xyz/prober/api/v1
-# kmodules.xyz/resource-metadata v0.24.1-0.20241228042900-2516898176ee
+# kmodules.xyz/resource-metadata v0.24.2
 ## explicit; go 1.22.1
 kmodules.xyz/resource-metadata/apis/shared
 kmodules.xyz/resource-metadata/apis/ui
