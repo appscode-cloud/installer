@@ -109,7 +109,7 @@ k3s ctr images import images/appscode-charts-ingress-nginx-4.11.1.tar
 k3s ctr images import images/appscode-charts-keda-add-ons-http-0.8.0.tar
 k3s ctr images import images/appscode-charts-keda-2.15.1.tar
 k3s ctr images import images/appscode-charts-kube-grafana-dashboards-v2023.10.1.tar
-k3s ctr images import images/appscode-charts-kube-prometheus-stack-61.8.0.tar
+k3s ctr images import images/appscode-charts-kube-prometheus-stack-68.1.0.tar
 k3s ctr images import images/appscode-charts-kube-ui-server-v2025.1.17.tar
 k3s ctr images import images/appscode-charts-kubedb-opscenter-v2025.1.9.tar
 k3s ctr images import images/appscode-charts-kubedb-provider-aws-v2024.1.31.tar
@@ -312,7 +312,7 @@ k3s ctr images import images/appscode-reloader-v1.0.79.tar
 k3s ctr images import images/appscode-s3proxy-sha-a82ca68.tar
 k3s ctr images import images/appscode-scanner-v0.0.19.tar
 k3s ctr images import images/appscode-service-provider-v0.0.1.tar
-k3s ctr images import images/appscode-sidekick-v0.0.9.tar
+k3s ctr images import images/appscode-sidekick-v0.0.10.tar
 k3s ctr images import images/appscode-supervisor-v0.0.7.tar
 k3s ctr images import images/appscode-trickster-v2.0.0-beta3.tar
 k3s ctr images import images/appscode-vcluster-plugin-ace-v0.0.3.tar
