@@ -111,7 +111,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-i
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-keda-add-ons-http-0.8.0.tar $IMAGE_REGISTRY/appscode-charts/keda-add-ons-http:0.8.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-keda-2.15.1.tar $IMAGE_REGISTRY/appscode-charts/keda:2.15.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kube-grafana-dashboards-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/kube-grafana-dashboards:v2023.10.1
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kube-prometheus-stack-61.8.0.tar $IMAGE_REGISTRY/appscode-charts/kube-prometheus-stack:61.8.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kube-prometheus-stack-68.0.0.tar $IMAGE_REGISTRY/appscode-charts/kube-prometheus-stack:68.0.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kube-ui-server-v2025.1.17.tar $IMAGE_REGISTRY/appscode-charts/kube-ui-server:v2025.1.17
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedb-opscenter-v2025.1.9.tar $IMAGE_REGISTRY/appscode-charts/kubedb-opscenter:v2025.1.9
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedb-provider-aws-v2024.1.31.tar $IMAGE_REGISTRY/appscode-charts/kubedb-provider-aws:v2024.1.31
@@ -314,7 +314,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-reloader
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-s3proxy-sha-a82ca68.tar $IMAGE_REGISTRY/appscode/s3proxy:sha-a82ca68
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-scanner-v0.0.19.tar $IMAGE_REGISTRY/appscode/scanner:v0.0.19
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-service-provider-v0.0.1.tar $IMAGE_REGISTRY/appscode/service-provider:v0.0.1
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-sidekick-v0.0.9.tar $IMAGE_REGISTRY/appscode/sidekick:v0.0.9
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-sidekick-v0.0.10.tar $IMAGE_REGISTRY/appscode/sidekick:v0.0.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-supervisor-v0.0.7.tar $IMAGE_REGISTRY/appscode/supervisor:v0.0.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-trickster-v2.0.0-beta3.tar $IMAGE_REGISTRY/appscode/trickster:v2.0.0-beta3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-vcluster-plugin-ace-v0.0.3.tar $IMAGE_REGISTRY/appscode/vcluster-plugin-ace:v0.0.3
