@@ -93,7 +93,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.keda.version                                  |                                 | <code>"2.15.1"</code>                      |
 | helm.releases.keda-add-ons-http.version                     |                                 | <code>"0.8.0"</code>                       |
 | helm.releases.kube-grafana-dashboards.version               |                                 | <code>"v2023.10.1"</code>                  |
-| helm.releases.kube-prometheus-stack.version                 |                                 | <code>"61.8.0"</code>                      |
+| helm.releases.kube-prometheus-stack.version                 |                                 | <code>"68.1.0"</code>                      |
 | helm.releases.kubedb-ui-presets.version                     |                                 | <code>"v2025.1.17"</code>                  |
 | helm.releases.kube-ui-server.version                        |                                 | <code>"v2025.1.17"</code>                  |
 | helm.releases.kubedb.version                                |                                 | <code>"v2025.1.9"</code>                   |

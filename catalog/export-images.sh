@@ -117,7 +117,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/keda-add-ons-http:0.8.0 images/appscode-charts-keda-add-ons-http-0.8.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/keda:2.15.1 images/appscode-charts-keda-2.15.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-grafana-dashboards:v2023.10.1 images/appscode-charts-kube-grafana-dashboards-v2023.10.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-prometheus-stack:61.8.0 images/appscode-charts-kube-prometheus-stack-61.8.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-prometheus-stack:68.1.0 images/appscode-charts-kube-prometheus-stack-68.1.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-ui-server:v2025.1.17 images/appscode-charts-kube-ui-server-v2025.1.17.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-opscenter:v2025.1.9 images/appscode-charts-kubedb-opscenter-v2025.1.9.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-provider-aws:v2024.1.31 images/appscode-charts-kubedb-provider-aws-v2024.1.31.tar
@@ -320,7 +320,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/reloade
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/s3proxy:sha-a82ca68 images/appscode-s3proxy-sha-a82ca68.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/scanner:v0.0.19 images/appscode-scanner-v0.0.19.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/service-provider:v0.0.1 images/appscode-service-provider-v0.0.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/sidekick:v0.0.9 images/appscode-sidekick-v0.0.9.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/sidekick:v0.0.10 images/appscode-sidekick-v0.0.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/supervisor:v0.0.7 images/appscode-supervisor-v0.0.7.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/trickster:v2.0.0-beta3 images/appscode-trickster-v2.0.0-beta3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/vcluster-plugin-ace:v0.0.3 images/appscode-vcluster-plugin-ace-v0.0.3.tar
