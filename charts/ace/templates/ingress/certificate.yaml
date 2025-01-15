@@ -1,3 +1,5 @@
+{{- if (eq .Values.global.infra.tls.issuer "external") }}
+
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
@@ -41,3 +43,5 @@ spec:
         name: {{ include "ace.fullname" . }}-jkscred
         key: password
   {{- end }}
+
+{{- end }}
