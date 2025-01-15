@@ -1,4 +1,4 @@
-{{- if (eq .Values.global.infra.tls.issuer "external") }}
+{{- if not (eq .Values.global.infra.tls.issuer "external") }}
 
 apiVersion: cert-manager.io/v1
 kind: Certificate
