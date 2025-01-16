@@ -23,14 +23,6 @@ stringData:
     CA_CERT_PATH = /var/platform-auth/ca.crt
     {{- end }}
 
-{{- if not (eq .Values.global.platform.deploymentType "Hosted") }}
-    [licensor]
-    DOMAIN = {{ .Values.global.platform.proxyServiceDomain }}
-    TOKEN = {{ .Values.global.platform.token }}
-    OWNER_ID = {{ .Values.global.platform.ownerID }}
-    OWNER_NAME = {{ .Values.global.platform.ownerName }}
-{{- end }}
-
     [database]
     DB_TYPE = "postgres"
     HOST = {{ template "settings.database.host" . }}
@@ -54,6 +46,7 @@ stringData:
     HOST = {{ template "settings.cache.host" . }}
 
 {{- with .Values.settings.smtp }}
+
     [mailer]
     ENABLED = {{ .enabled }}
     MAILER_TYPE = smtp
@@ -101,6 +94,7 @@ stringData:
     INGRESS_NAME = ace-ingress
 
   {{- if (include "monitoring.agent" .) }}
+
     [metrics]
     ENABLED = true
   {{- end }}
@@ -113,6 +107,7 @@ stringData:
     MASTER_KEY_URL = '{{ include "settings.kms.masterKeyURL" . }}'
 
   {{- if .Values.nats.enabled }}
+
     [nats]
     OPERATOR_CREDS = {{ .Values.settings.nats.mountPath }}/Operator.creds
     SYSTEM_CREDS = {{ .Values.settings.nats.mountPath }}/SYS.creds
@@ -139,7 +134,36 @@ stringData:
     ENABLE_FEDERATED_AVATAR = true
     AVATAR_UPLOAD_PATH      = avatars
 
+
+  {{- if (index .Values "trickster" "enabled") }}
+
+    [trickster]
+    NAMESPACE = {{ .Release.Namespace }}
+    LABELS = trickstercache.org/metadata.name={{ include "ace.fullname" . }}
+  {{- end }}
+
+    [branding]
+    LOGO = `{{ .Values.branding.logo }}`
+    FAVICON = `{{ .Values.branding.favicon }}`
+    PRIMARY_COLOR = `{{ .Values.branding.primaryColor }}`
+
+    [grafana]
+    # used for signing
+    SECRET_KEY = {{ .Values.settings.grafana.secretKey }}
+
+    [inbox_server]
+    JMAP_URL = {{ .Values.settings.inboxServer.jmapURL }}
+    WEB_ADMIN_URL = {{ .Values.settings.inboxServer.webAdminURL }}
+    ENCODED_ADMIN_JWT_PRIVATE_KEY = {{ .Values.settings.inboxServer.adminJWTPrivateKey | b64enc }}
+
   {{- if eq .Values.global.platform.deploymentType "Hosted" }}
+
+    [licensor]
+    DOMAIN = {{ .Values.global.platform.proxyServiceDomain }}
+    TOKEN = {{ .Values.global.platform.token }}
+    OWNER_ID = {{ .Values.global.platform.ownerID }}
+    OWNER_NAME = {{ .Values.global.platform.ownerName }}
+
     [badger]
     PATH   = {{ .Values.global.infra.badger.mountPath }}
     LEVELS = {{ .Values.global.infra.badger.levels }}
@@ -165,40 +189,22 @@ stringData:
     [firebase]
     PROJECT   = {{ .Values.settings.firebase.project }}
     DATABASE  = {{ .Values.settings.firebase.database }}
-  {{- end }}
-
-  {{- if (index .Values "trickster" "enabled") }}
-    [trickster]
-    NAMESPACE = {{ .Release.Namespace }}
-    LABELS = trickstercache.org/metadata.name={{ include "ace.fullname" . }}
-  {{- end }}
-
-    [branding]
-    LOGO = `{{ .Values.branding.logo }}`
-    FAVICON = `{{ .Values.branding.favicon }}`
-    PRIMARY_COLOR = `{{ .Values.branding.primaryColor }}`
-
-    [grafana]
-    # used for signing
-    SECRET_KEY = {{ .Values.settings.grafana.secretKey }}
-
-    [inbox_server]
-    JMAP_URL = {{ .Values.settings.inboxServer.jmapURL }}
-    WEB_ADMIN_URL = {{ .Values.settings.inboxServer.webAdminURL }}
-    ENCODED_ADMIN_JWT_PRIVATE_KEY = {{ .Values.settings.inboxServer.adminJWTPrivateKey | b64enc }}
 
   {{- with .Values.settings.marketplace }}
+
     [marketplace]
     ALERT_EMAILS = {{ .alertEmails | join "," }}
     GOOGLE_SPREADSHEET_CREDENTIAL_PATH = {{ .spreadsheetCredentialMountPath }}/sa.json
     GOOGLE_SPREADSHEET_ID = {{ .spreadsheetID }}
 
     {{- with .aws }}
+
     AWS_SECRET = {{ .secret }}
     AWS_PRODUCT_CODE = {{ .productCode }}
     {{- end }}
 
     {{- with .azure }}
+
     AZURE_SECRET = {{ .secret }}
     AZURE_TENANT_ID = {{ .tenantID }}
     AZURE_CLIENT_ID = {{ .clientID }}
@@ -206,7 +212,9 @@ stringData:
     {{- end }}
 
     {{- with .gcp }}
+
     GCP_SECRET = {{ .secret }}
     GCP_MP_TEST_UPLOAD_ID = {{ .testUploadID }}
     {{- end }}
+  {{- end }}
   {{- end }}
