@@ -22,7 +22,21 @@ spec:
         successfulJobsHistoryLimit: 1
         failedJobsHistoryLimit: 1
         jobTemplate:
-          backoffLimit: 1
+          backoffLimit: 2
+          template:
+            spec:
+              containerSecurityContext:
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop:
+                    - ALL
+                runAsGroup: 0
+                runAsNonRoot: true
+                runAsUser: 65534
+                seccompProfile:
+                  type: RuntimeDefault
+              nodeSelector:
+                kubernetes.io/os: linux
       repositories:
         - name: cluster-resources
           backend: default-backend
@@ -37,3 +51,15 @@ spec:
         jobTemplate:
           spec:
             serviceAccountName: {{ include "ace.fullname" . }}-cluster-resource-reader
+            containerSecurityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                  - ALL
+              runAsGroup: 0
+              runAsNonRoot: true
+              runAsUser: 65534
+              seccompProfile:
+                type: RuntimeDefault
+            nodeSelector:
+              kubernetes.io/os: linux

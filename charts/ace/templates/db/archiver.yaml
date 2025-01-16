@@ -23,16 +23,76 @@ spec:
   fullBackup:
     driver: Restic
     scheduler:
-      successfulJobsHistoryLimit: 1
-      failedJobsHistoryLimit: 1
+      failedJobsHistoryLimit: 4
+      jobTemplate:
+        backoffLimit: 2
+        template:
+          spec:
+            containerSecurityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                - ALL
+              runAsGroup: 0
+              runAsNonRoot: true
+              runAsUser: 70
+              seccompProfile:
+                type: RuntimeDefault
+            nodeSelector:
+              kubernetes.io/os: linux
       schedule: {{ .Values.global.infra.kubestash.schedule }}
-    sessionHistoryLimit: 2
+      successfulJobsHistoryLimit: 2
+    sessionHistoryLimit: 3
+    jobTemplate:
+      spec:
+        containerSecurityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsGroup: 0
+          runAsNonRoot: true
+          runAsUser: 70
+          seccompProfile:
+            type: RuntimeDefault
+        nodeSelector:
+          kubernetes.io/os: linux
   manifestBackup:
     scheduler:
-      successfulJobsHistoryLimit: 1
-      failedJobsHistoryLimit: 1
+      failedJobsHistoryLimit: 4
+      jobTemplate:
+        backoffLimit: 2
+        template:
+          spec:
+            containerSecurityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                  - ALL
+              runAsGroup: 0
+              runAsNonRoot: true
+              runAsUser: 70
+              seccompProfile:
+                type: RuntimeDefault
+            nodeSelector:
+              kubernetes.io/os: linux
       schedule: {{ .Values.global.infra.kubestash.schedule }}
-    sessionHistoryLimit: 2
+      successfulJobsHistoryLimit: 2
+    sessionHistoryLimit: 3
+    jobTemplate:
+      spec:
+        containerSecurityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL
+          runAsGroup: 0
+          runAsNonRoot: true
+          runAsUser: 65534
+          seccompProfile:
+            type: RuntimeDefault
+        nodeSelector:
+          kubernetes.io/os: linux
   backupStorage:
     ref:
       name: {{ .Values.global.infra.kubestash.storageRef.name }}

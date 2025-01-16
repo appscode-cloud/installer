@@ -25,11 +25,27 @@ spec:
         namespace: {{ .Values.global.infra.kubestash.retentionPolicy.namespace }}
   sessions:
     - name: full-backup
-      sessionHistoryLimit: 2
       scheduler:
-        schedule: {{ .Values.global.infra.kubestash.schedule }}
+        failedJobsHistoryLimit: 4
         jobTemplate:
-          backoffLimit: 1
+          backoffLimit: 2
+          template:
+            spec:
+              containerSecurityContext:
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop:
+                    - ALL
+                runAsGroup: 0
+                runAsNonRoot: true
+                runAsUser: 999
+                seccompProfile:
+                  type: RuntimeDefault
+              nodeSelector:
+                kubernetes.io/os: linux
+        schedule: {{ .Values.global.infra.kubestash.schedule }}
+        successfulJobsHistoryLimit: 2
+      sessionHistoryLimit: 3
       repositories:
         - name: {{ include "ace.fullname" . }}-cache
           backend: default-backend
@@ -41,3 +57,17 @@ spec:
         name: redis-addon
         tasks:
           - name: logical-backup
+        jobTemplate:
+          spec:
+            containerSecurityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                  - ALL
+              runAsGroup: 0
+              runAsNonRoot: true
+              runAsUser: 999
+              seccompProfile:
+                type: RuntimeDefault
+            nodeSelector:
+              kubernetes.io/os: linux
