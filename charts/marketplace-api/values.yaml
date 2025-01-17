@@ -87,3 +87,8 @@ settings:
     objstore: ""
     spreadsheet: ""
   spreadsheetCredentialMountPath: "/data/marketplace-credentials"
+
+# List of sources to populate environment variables in the container
+envFrom: []
+# List of environment variables to set in the container
+env: []
