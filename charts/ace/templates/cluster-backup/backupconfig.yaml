@@ -32,7 +32,7 @@ spec:
                     - ALL
                 runAsGroup: 0
                 runAsNonRoot: true
-                runAsUser: 65534
+                runAsUser: {{ .Values.securityContext.runAsUser }}
                 seccompProfile:
                   type: RuntimeDefault
               nodeSelector:
@@ -58,7 +58,7 @@ spec:
                   - ALL
               runAsGroup: 0
               runAsNonRoot: true
-              runAsUser: 65534
+              runAsUser: {{ .Values.securityContext.runAsUser }}
               seccompProfile:
                 type: RuntimeDefault
             nodeSelector:
