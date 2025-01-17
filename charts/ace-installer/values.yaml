@@ -59,6 +59,9 @@ helm:
     aceshifter:
       enabled: true
       version: "v2025.1.17"
+    capi-catalog:
+      enabled: false
+      version: "v2024.10.24"
     cert-manager:
       enabled: true
       version: "v1.15.4"
