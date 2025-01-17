@@ -46,11 +46,9 @@ type AcaasSpec struct {
 	Billing        AceBilling        `json:"billing"`
 	BillingUi      AceBillingUi      `json:"billing-ui"`
 	DeployUi       AceDeployUi       `json:"deploy-ui"`
-	DNSProxy       AceDnsProxy       `json:"dns-proxy"`
 	MarketplaceApi AceMarketplaceApi `json:"marketplace-api"`
 	MarketplaceUi  AceMarketplaceUi  `json:"marketplace-ui"`
 	PlatformLinks  AcePlatformLinks  `json:"platform-links"`
-	SMTPRelay      AceSmtprelay      `json:"smtprelay"`
 	Website        AceWebsite        `json:"website"`
 
 	Global   AcaasGlobalValues `json:"global"`

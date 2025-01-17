@@ -17,13 +17,7 @@ marketplace-api:
 marketplace-ui:
   enabled: false
 
-dns-proxy:
-  enabled: false
-
 platform-links:
-  enabled: false
-
-smtprelay:
   enabled: false
 
 website:

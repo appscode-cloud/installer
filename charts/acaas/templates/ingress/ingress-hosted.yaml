@@ -65,25 +65,7 @@ spec:
         pathType: Prefix
       {{- end }}
     host: {{ .Values.global.platform.host }}
-{{- if (index .Values "dns-proxy" "enabled") }}
-  - host: dns-proxy.{{ .Values.global.platform.host }}
-    http:
-      paths:
-      - backend:
-          service:
-            name: {{ include "acaas.fullname" . }}-dns-proxy
-            port:
-              number: 80
-        path: /
-        pathType: Prefix
-{{- end }}
   tls:
   - secretName: {{ default (printf "%s-cert" (include "acaas.fullname" .)) .Values.ingress.tls.secret.name }}
     hosts:
     - '{{ .Values.global.platform.host }}'
-    {{- if (index .Values "dns-proxy" "enabled") }}
-    - 'dns-proxy.{{ .Values.global.platform.host }}'
-    {{- end }}
-    {{- if (index .Values "smtprelay" "enabled") }}
-    - 'smtprelay.{{ .Values.global.platform.host }}'
-    {{- end }}

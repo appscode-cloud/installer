@@ -24,10 +24,6 @@ dependencies:
   repository: file://../deploy-ui
   condition: deploy-ui.enabled
   version: v2025.1.17
-- name: dns-proxy
-  repository: file://../dns-proxy
-  condition: dns-proxy.enabled
-  version: v2023.11.14
 - name: marketplace-api
   repository: file://../marketplace-api
   condition: marketplace-api.enabled
@@ -40,10 +36,6 @@ dependencies:
   repository: file://../platform-links
   condition: platform-links.enabled
   version: v2025.1.17
-- name: smtprelay
-  repository: file://../smtprelay
-  condition: smtprelay.enabled
-  version: v2023.11.14
 - name: website
   repository: file://../website
   condition: website.enabled

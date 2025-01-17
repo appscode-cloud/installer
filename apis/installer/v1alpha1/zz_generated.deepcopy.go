@@ -213,11 +213,9 @@ func (in *AcaasSpec) DeepCopyInto(out *AcaasSpec) {
 	in.Billing.DeepCopyInto(&out.Billing)
 	in.BillingUi.DeepCopyInto(&out.BillingUi)
 	in.DeployUi.DeepCopyInto(&out.DeployUi)
-	in.DNSProxy.DeepCopyInto(&out.DNSProxy)
 	in.MarketplaceApi.DeepCopyInto(&out.MarketplaceApi)
 	in.MarketplaceUi.DeepCopyInto(&out.MarketplaceUi)
 	in.PlatformLinks.DeepCopyInto(&out.PlatformLinks)
-	in.SMTPRelay.DeepCopyInto(&out.SMTPRelay)
 	in.Website.DeepCopyInto(&out.Website)
 	out.Global = in.Global
 	out.Settings = in.Settings

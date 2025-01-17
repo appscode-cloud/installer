@@ -65,7 +65,7 @@ context:
   csrfSecretKey: cVAkUKOh1saRnOJCkM4r41GqTyuiSfftjildVmEZ5QGFNedqYnMGa8yLHsUG6ZVj
   deploymentType: CloudDemo
   grafanaSecretKey: n4hRRKJrr0n6murD8h8bFjAEQYm4FBsJG9W2WkV5XU0QzDxVFiwHMCBNPEl34Mb5
-  hostedDomain: example-com-brgxc.bytebuilders.xyz
+  hostedDomain: example-com-brgxc.appscode.xyz
   inboxServer:
     adminJWTPrivateKey: |
       -----BEGIN RSA PRIVATE KEY-----
@@ -220,7 +220,7 @@ infra:
           AWS_ACCESS_KEY_ID: dnY6GZZNBYJkaJinwGmm
           AWS_SECRET_ACCESS_KEY: 4IiHbFGItJjUOIGM1lXp
       bucket: s3://backupbucket?s3ForcePathStyle=true
-      endpoint: https://example-com-brgxc.bytebuilders.xyz:4224
+      endpoint: https://example-com-brgxc.appscode.xyz:4224
       region: us-east-1
     provider: s3
   dns:
@@ -380,12 +380,12 @@ settings:
   domainWhiteList: []
   smtp:
     enabled: true
-    from: example-com-brgxc@bytebuilders.xyz
+    from: example-com-brgxc@appscode.xyz
     host: smtprelay.appscode.xyz:587
     password: b784f6b1af42c52ef966272418e5dc729422bbde
     sendAsPlainText: false
     tlsEnabled: false
-    username: example-com-brgxc@bytebuilders.xyz
+    username: example-com-brgxc@appscode.xyz
 smtprelay:
   enabled: false
   nodeSelector: null

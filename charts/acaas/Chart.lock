@@ -8,9 +8,6 @@ dependencies:
 - name: deploy-ui
   repository: file://../deploy-ui
   version: v2025.1.17
-- name: dns-proxy
-  repository: file://../dns-proxy
-  version: v2023.11.14
 - name: marketplace-api
   repository: file://../marketplace-api
   version: v2025.1.17
@@ -20,11 +17,8 @@ dependencies:
 - name: platform-links
   repository: file://../platform-links
   version: v2025.1.17
-- name: smtprelay
-  repository: file://../smtprelay
-  version: v2023.11.14
 - name: website
   repository: file://../website
   version: v2025.1.17
-digest: sha256:0b85697850eae7042261d0934e5950fb5b5ced04ed7bd4292636e8747267436c
-generated: "2024-12-24T16:56:44.764091-08:00"
+digest: sha256:fe511c0d9a84859b234dbc8335d34a36e5d86e197a6dc11f864e5702770b1c47
+generated: "2025-01-17T17:05:17.19675+06:00"
