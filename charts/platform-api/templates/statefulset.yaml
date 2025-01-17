@@ -65,7 +65,14 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          {{- with .Values.envFrom }}
+          envFrom:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           env:
+          {{- with .Values.env }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
             - name: GCP_MARKETPLACE_SKIP_METERING_SERVICE
               value: {{ .Values.settings.skipGCPMarketplaceMeteringService | quote }}
           {{- with .Values.settings.secretName.gcpMarketplaceReportingSecret }}

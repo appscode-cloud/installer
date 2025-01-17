@@ -66,7 +66,14 @@ spec:
           #     port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          {{- with .Values.envFrom }}
+          envFrom:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           env:
+          {{- with .Values.env }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "gcs") }}
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: {{ $infra.objstore.mountPath }}/sa.json
