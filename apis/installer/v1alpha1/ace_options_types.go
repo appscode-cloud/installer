@@ -297,6 +297,7 @@ type AceOptionsSettings struct {
 	DB    AceOptionsDBSettings    `json:"db"`
 	Cache AceOptionsCacheSettings `json:"cache"`
 	SMTP  AceOptionsSMTPSettings  `json:"smtp"`
+	Proxy *AceOptionsProxy        `json:"proxy,omitempty"`
 	// +optional
 	Marketplace *AceOptionsMarketplace `json:"marketplace,omitempty"`
 
@@ -309,6 +310,12 @@ type AceOptionsSettings struct {
 	LoginURL string `json:"loginURL"`
 	// +optional
 	LogoutURL string `json:"logoutURL"`
+}
+
+type AceOptionsProxy struct {
+	HttpProxy  string `json:"httpProxy"`
+	HttpsProxy string `json:"httpsProxy"`
+	NoProxy    string `json:"noProxy"`
 }
 
 type AceOptionsMarketplace struct {

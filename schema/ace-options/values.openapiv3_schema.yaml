@@ -1800,6 +1800,19 @@ properties:
           - spreadsheetCredential
           - spreadsheetID
         type: object
+      proxy:
+        properties:
+          httpProxy:
+            type: string
+          httpsProxy:
+            type: string
+          noProxy:
+            type: string
+        required:
+          - httpProxy
+          - httpsProxy
+          - noProxy
+        type: object
       smtp:
         properties:
           enabled:
