@@ -72,7 +72,6 @@ spec:
         selector:
           app.kubernetes.io/instance: longhorn
           app.kubernetes.io/name: longhorn
-          app.kubernetes.io/managed-by: Helm
       - group: apps
         version: v1
         kind: Deployment

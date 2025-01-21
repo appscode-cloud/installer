@@ -33,7 +33,6 @@ spec:
         version: v1
         kind: Deployment
         selector:
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: kubedb-ui-server
   chart:
     name: kubedb-opscenter

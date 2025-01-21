@@ -62,7 +62,6 @@ spec:
         selector:
           app.kubernetes.io/component: operator
           app.kubernetes.io/instance: keda-add-ons-http
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/part-of: keda-add-ons-http
       - group: apps
         version: v1
@@ -70,7 +69,6 @@ spec:
         selector:
           app.kubernetes.io/component: scaler
           app.kubernetes.io/instance: keda-add-ons-http
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/part-of: keda-add-ons-http
       - group: apps
         version: v1
@@ -78,7 +76,6 @@ spec:
         selector:
           app.kubernetes.io/component: interceptor
           app.kubernetes.io/instance: keda-add-ons-http
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/part-of: keda-add-ons-http
   chart:
     name: keda-add-ons-http

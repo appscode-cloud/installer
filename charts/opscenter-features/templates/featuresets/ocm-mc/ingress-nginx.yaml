@@ -55,7 +55,6 @@ spec:
         selector:
           app.kubernetes.io/component: controller
           app.kubernetes.io/instance: ingress-nginx-mc
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: ingress-nginx
           app.kubernetes.io/part-of: ingress-nginx
   chart:

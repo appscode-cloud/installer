@@ -50,7 +50,6 @@ spec:
         version: v1
         kind: Deployment
         selector:
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: inbox-server
   chart:
     name: inbox-server

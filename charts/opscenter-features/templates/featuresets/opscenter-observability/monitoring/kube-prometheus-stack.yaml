@@ -136,7 +136,6 @@ spec:
         selector:
           app: kube-prometheus-stack-prometheus
           app.kubernetes.io/instance: kube-prometheus-stack
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/part-of: kube-prometheus-stack
       # rancher-monitoring
       - group: apps
@@ -146,7 +145,6 @@ spec:
         selector:
           app: rancher-monitoring-prometheus
           app.kubernetes.io/instance: rancher-monitoring
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/part-of: rancher-monitoring
   chart:
     name: kube-prometheus-stack

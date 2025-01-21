@@ -38,7 +38,6 @@ spec:
         version: v1
         kind: DaemonSet
         selector:
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: cert-manager-csi-driver-cacerts
   chart:
     name: cert-manager-csi-driver-cacerts

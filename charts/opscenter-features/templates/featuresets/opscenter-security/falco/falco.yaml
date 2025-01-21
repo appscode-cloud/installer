@@ -60,7 +60,6 @@ spec:
         version: v1
         kind: DaemonSet
         selector:
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: falco
           app.kubernetes.io/instance: falco
   chart:

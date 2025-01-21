@@ -35,7 +35,6 @@ spec:
         selector:
           app.kubernetes.io/instance: prepare-cluster
           app.kubernetes.io/name: prepare-cluster
-          app.kubernetes.io/managed-by: Helm
   chart:
     name: prepare-cluster
     namespace: kubedb

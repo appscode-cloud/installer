@@ -34,7 +34,6 @@ spec:
       version: v1
       kind: Deployment
       selector:
-        app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: kube-ui-server
         app.kubernetes.io/instance: kube-ui-server-mc
   chart:
