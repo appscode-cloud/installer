@@ -6,7 +6,7 @@
 apiVersion: external-dns.appscode.com/v1alpha1
 kind: ExternalDNS
 metadata:
-  name: {{ include "tenant.name" . }}-gw
+  name: {{ include "tenant.name" $ }}-gw
   namespace: {{ $.Release.Namespace }}
   labels:
     {{- include "service-gateway.labels" $ | nindent 4 }}
