@@ -31,7 +31,6 @@ spec:
         kind: Deployment
         selector:
           app.kubernetes.io/name: kubedb-provider-azure
-          app.kubernetes.io/managed-by: Helm
   chart:
     name: kubedb-provider-azure
     namespace: crossplane-system

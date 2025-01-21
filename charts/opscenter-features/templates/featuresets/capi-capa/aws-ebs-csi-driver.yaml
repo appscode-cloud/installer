@@ -29,7 +29,6 @@ spec:
         kind: Deployment
         optional: controller
         selector:
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: aws-ebs-csi-driver
       - group: apps
         version: v1

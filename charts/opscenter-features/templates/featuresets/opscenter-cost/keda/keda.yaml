@@ -39,7 +39,6 @@ spec:
         selector:
           app.kubernetes.io/component: operator
           app.kubernetes.io/instance: keda
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: keda-operator
           app.kubernetes.io/part-of: keda-operator
       - group: apps
@@ -48,7 +47,6 @@ spec:
         selector:
           app.kubernetes.io/component: operator
           app.kubernetes.io/instance: keda
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: keda-operator-metrics-apiserver
           app.kubernetes.io/part-of: keda-operator
   chart:

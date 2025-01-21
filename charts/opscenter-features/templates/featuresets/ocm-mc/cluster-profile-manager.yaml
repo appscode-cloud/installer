@@ -44,7 +44,6 @@ spec:
         kind: Deployment
         selector:
           app.kubernetes.io/instance: mc-profile-manager
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: cluster-profile-manager
   chart:
     name: cluster-profile-manager

@@ -32,13 +32,11 @@ spec:
         selector:
           app.kubernetes.io/name: topolvm
           app.kubernetes.io/instance: topolvm
-          app.kubernetes.io/managed-by: Helm
       - group: apps
         version: v1
         kind: DaemonSet
         selector:
           app.kubernetes.io/instance: topolvm
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: topolvm
   chart:
     name: topolvm

@@ -44,7 +44,6 @@ spec:
         kind: Deployment
         selector:
           app.kubernetes.io/instance: cluster-gateway-manager
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: cluster-gateway-manager
   chart:
     name: cluster-gateway-manager

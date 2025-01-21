@@ -26,7 +26,6 @@ spec:
         kind: Deployment
         selector:
           app.kubernetes.io/name: capi-ops-manager
-          app.kubernetes.io/managed-by: Helm
   chart:
     name: capi-ops-manager
     namespace: capi-cluster

@@ -29,7 +29,6 @@ spec:
         version: v1
         kind: StatefulSet
         selector:
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: scanner
   chart:
     name: scanner

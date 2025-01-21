@@ -37,7 +37,6 @@ spec:
         kind: Secret
         selector:
           app.kubernetes.io/instance: multicluster-ingress-reader
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: multicluster-ingress-reader
   chart:
     name: multicluster-ingress-reader

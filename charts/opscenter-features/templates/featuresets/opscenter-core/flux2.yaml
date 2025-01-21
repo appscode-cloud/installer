@@ -67,7 +67,6 @@ spec:
       selector:
         app.kubernetes.io/component: helm-controller
         app.kubernetes.io/instance: flux-system
-        app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: flux
         control-plane: controller
     - group: apps
@@ -76,7 +75,6 @@ spec:
       selector:
         app.kubernetes.io/component: source-controller
         app.kubernetes.io/instance: flux-system
-        app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: flux
         control-plane: controller
   chart:

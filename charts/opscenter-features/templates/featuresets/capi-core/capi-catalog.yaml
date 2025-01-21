@@ -26,7 +26,6 @@ spec:
         kind: CapiVersion
         selector:
           app.kubernetes.io/instance: capi-catalog
-          app.kubernetes.io/managed-by: Helm
           app.kubernetes.io/name: capi-catalog
   chart:
     name: capi-catalog

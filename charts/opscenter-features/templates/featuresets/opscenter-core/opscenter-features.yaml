@@ -20,7 +20,6 @@ spec:
       version: v1beta2
       kind: HelmRepository
       selector:
-        app.kubernetes.io/managed-by: Helm
         kubernetes.io/metadata.name: appscode-charts-oci
   chart:
     name: opscenter-features
