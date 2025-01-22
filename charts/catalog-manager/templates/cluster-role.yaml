@@ -14,7 +14,7 @@ rules:
   - catalog.appscode.com
   resources:
   - "*"
-  verbs: ["get", "list", "patch", "update", "watch"]
+  verbs: ["get", "list", "patch", "update", "watch", "delete", "deletecollection"]
 - apiGroups:
   - gateway.catalog.appscode.com
   resources:
@@ -112,4 +112,29 @@ rules:
   - helm.toolkit.fluxcd.io
   resources:
   - "*"
-  verbs: ["get", "list", "watch", "create", "patch", "update", "delete"]
+  verbs: ["get", "list", "watch", "create", "patch", "update", "delete", "deletecollection"]
+- apiGroups:
+  - kubedb.com
+  resources:
+  - "*"
+  verbs: ["get", "list", "watch", "patch", "delete"]
+- apiGroups:
+  - core.kubestash.com
+  resources:
+  - "backupconfigurations"
+  verbs: ["get", "list", "watch", "patch", "delete", "deletecollection"]
+- apiGroups:
+  - storage.kubestash.com
+  resources:
+  - "repositories"
+  verbs: ["get", "list", "watch", "patch", "delete"]
+- apiGroups:
+  - "openviz.dev"
+  resources:
+  - grafanadashboards
+  verbs: ["get", "list", "watch", "patch", "delete", "deletecollection"]
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs: ["patch", "delete"]
