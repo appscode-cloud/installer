@@ -394,8 +394,8 @@ k3s ctr images import images/rancher-kine-v0.11.4.tar
 k3s ctr images import images/autoscaling-cluster-autoscaler-v1.27.1.tar
 k3s ctr images import images/csi-secrets-store-driver-v1.4.1.tar
 k3s ctr images import images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar
-k3s ctr images import images/kube-apiserver-v1.31.0.tar
-k3s ctr images import images/kube-controller-manager-v1.31.0.tar
+k3s ctr images import images/kube-apiserver-v1.32.0.tar
+k3s ctr images import images/kube-controller-manager-v1.32.0.tar
 k3s ctr images import images/kube-state-metrics-kube-state-metrics-v2.13.0.tar
 k3s ctr images import images/metrics-server-metrics-server-v0.7.2.tar
 k3s ctr images import images/prometheus-adapter-prometheus-adapter-v0.11.2.tar
