@@ -116,8 +116,13 @@ stringData:
     ADMIN_USER_CREDS = {{ .Values.settings.nats.mountPath }}/admin.creds
 
     INCLUSTER_ADDR = nats://{{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc:4222
+    {{- if (and (index .Values "ingress-nginx" "enabled") (and .Values.nats.enabled (not .Values.nats.nats.externalAccess))) }}
     EXTERNAL_ADDR = nats://{{ .Values.global.platform.host }}:4222
     WEBSOCKET_ADDR = wss://{{ .Values.global.platform.host }}/nats
+    {{- else }}
+    EXTERNAL_ADDR = nats://nats.{{ .Values.global.platform.host }}:4222
+    WEBSOCKET_ADDR = wss://nats.{{ .Values.global.platform.host }}
+    {{- end }}
 
     SHARD_COUNT = {{ .Values.settings.nats.shardCount }}
     REPLICAS = {{ .Values.settings.nats.replicas }}
