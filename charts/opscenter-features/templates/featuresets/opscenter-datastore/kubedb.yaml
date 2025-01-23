@@ -19,8 +19,6 @@ kubedb-autoscaler:
 kubedb-kubestash-catalog:
   enabled: true
   proxies: %v
-kubedb-dashboard:
-  enabled: false
 kubedb-schema-manager:
   enabled: false
 kubedb-metrics:
