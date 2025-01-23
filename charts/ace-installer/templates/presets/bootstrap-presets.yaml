@@ -24,6 +24,12 @@ opscenter-features:
           values: %s
         inbox-agent:
           values: %s
+        kubedb:
+          values: %s
+        kubestash:
+          values: %s
+        license-proxyserver:
+          values: %s
         service-gateway-presets:
           values: %s
         stash-presets:
@@ -36,6 +42,9 @@ opscenter-features:
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
   ((dig "opscenter-features" "values" "helm" "releases" "catalog-manager" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "inbox-agent" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "opscenter-features" "values" "helm" "releases" "kubedb" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "opscenter-features" "values" "helm" "releases" "kubestash" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "opscenter-features" "values" "helm" "releases" "license-proxyserver" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "service-gateway-presets" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "stash-presets" "values" (dict) $.Values.helm.releases) | toJson)
   | fromYaml }}
