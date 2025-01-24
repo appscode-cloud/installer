@@ -39,13 +39,13 @@ global:
   # Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image}
   registryFQDN: ghcr.io
 
-settings:
-  caProviderClass: ""
-  secretName:
-    platformConfig: ""
-    objstore: ""
-    spreadsheet: ""
-  spreadsheetCredentialMountPath: "/data/marketplace-credentials"
+  settings:
+    caProviderClass: ""
+    secretName:
+      platformConfig: ""
+      objstore: ""
+      spreadsheet: ""
+    spreadsheetCredentialMountPath: "/data/marketplace-credentials"
 
 ingress:
   className: "nginx-ace"

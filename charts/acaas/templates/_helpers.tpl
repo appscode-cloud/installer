@@ -49,3 +49,19 @@ Selector labels
 app.kubernetes.io/name: {{ include "acaas.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
+
+{{- define "settings.platformConfigSecretName" -}}
+{{- default .Values.settings.secretName.platformConfig .Values.global.settings.secretName.platformConfig }}
+{{- end }}
+
+{{- define "settings.objstoreSecretName" -}}
+{{- default .Values.settings.secretName.objstore .Values.global.settings.secretName.objstore }}
+{{- end }}
+
+{{- define "settings.caProviderClass" -}}
+{{- default .Values.settings.caProviderClass .Values.global.settings.caProviderClass -}}
+{{- end }}
+
+{{- define "settings.spreadsheetSecretName" -}}
+{{- default .Values.settings.secretName.spreadsheet .Values.global.settings.secretName.spreadsheet }}
+{{- end }}

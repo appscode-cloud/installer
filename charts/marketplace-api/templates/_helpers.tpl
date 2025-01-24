@@ -105,3 +105,7 @@ Returns the ServiceMonitor labels
 {{- define "settings.caProviderClass" -}}
 {{- .Values.settings.caProviderClass -}}
 {{- end }}
+
+{{- define "settings.spreadsheetSecretName" -}}
+{{- .Values.settings.secretName.spreadsheet }}
+{{- end }}
