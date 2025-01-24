@@ -118,6 +118,11 @@ spec:
             - name: cacerts
               mountPath: /etc/ssl/certs
             {{- end }}
+      tolerations:
+        - effect: NoExecute
+          key: component
+          operator: Equal
+          value: billing
       volumes:
         - name: tmp
           emptyDir: {}

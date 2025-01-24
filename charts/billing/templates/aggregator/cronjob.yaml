@@ -87,6 +87,11 @@ spec:
                 {{- end }}
                 - name: invoice-store
                   mountPath: {{ $infra.invoice.mountPath }}
+          tolerations:
+            - effect: NoExecute
+              key: component
+              operator: Equal
+              value: billing
           volumes:
             - name: tmp
               emptyDir: {}

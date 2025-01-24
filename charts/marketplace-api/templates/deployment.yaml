@@ -121,6 +121,11 @@ spec:
             {{- end }}
             - mountPath: {{ .Values.settings.spreadsheetCredentialMountPath }}
               name: spreadsheet-cred
+      tolerations:
+        - effect: NoExecute
+          key: component
+          operator: Equal
+          value: billing
       volumes:
         - name: tmp
           emptyDir: {}
