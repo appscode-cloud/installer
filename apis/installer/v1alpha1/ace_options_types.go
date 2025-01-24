@@ -448,7 +448,8 @@ type AceDeploymentContext struct {
 	PromotedToProduction bool             `json:"promotedToProduction,omitempty"`
 	PromotionValues      *PromotionValues `json:"promotionValues,omitempty"`
 
-	GeneratedValues `json:",inline,omitempty"`
+	NatsOperatorSeed string `json:"natsOperatorSeed,omitempty"`
+	GeneratedValues  `json:",inline,omitempty"`
 }
 
 type GeneratedValues struct {

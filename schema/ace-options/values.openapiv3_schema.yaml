@@ -164,6 +164,8 @@ properties:
         additionalProperties:
           type: string
         type: object
+      natsOperatorSeed:
+        type: string
       oauth2JWTSecret:
         type: string
       offlineInstaller:
