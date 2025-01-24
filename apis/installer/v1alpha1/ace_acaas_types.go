@@ -51,9 +51,8 @@ type AcaasSpec struct {
 	PlatformLinks  AcePlatformLinks  `json:"platform-links"`
 	Website        AceWebsite        `json:"website"`
 
-	Global   AcaasGlobalValues `json:"global"`
-	Settings AcaasSettings     `json:"settings"`
-	Ingress  AcaasIngress      `json:"ingress"`
+	Global  AcaasGlobalValues `json:"global"`
+	Ingress AcaasIngress      `json:"ingress"`
 }
 
 type AceBilling struct {
@@ -107,6 +106,7 @@ type AcaasGlobalValues struct {
 	Platform         AcaasPlatformSettings `json:"platform"`
 	Registry         string                `json:"registry"`
 	RegistryFQDN     string                `json:"registryFQDN"`
+	Settings         AcaasSettings         `json:"settings"`
 }
 
 type AcaasPlatformSettings struct {
