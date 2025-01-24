@@ -126,6 +126,10 @@ stringData:
 
     SHARD_COUNT = {{ .Values.settings.nats.shardCount }}
     REPLICAS = {{ .Values.settings.nats.replicas }}
+
+    {{- if eq .Values.global.platform.deploymentType "Hosted" }}
+    NATJOBS_WORKERS = 50
+    {{- end }}
   {{- end }}
 
     [storage]
