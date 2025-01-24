@@ -150,7 +150,7 @@ Returns the ServiceMonitor labels
 Determine database host name
 */}}
 {{- define "settings.database.host" -}}
-{{- printf "%s-db.%s:5432" (include "ace.fullname" .) .Release.Namespace -}}
+{{- printf "%s-db.%s.svc:5432" (include "ace.fullname" .) .Release.Namespace -}}
 {{- end -}}
 
 {{- define  "settings.oauth2JWTSecret" -}}
@@ -162,20 +162,20 @@ Determine database host name
 {{- end -}}
 
 {{- define "settings.cache.host" -}}
-{{- printf "network=tcp,addr=%s-cache.%s:6379,password='%s',db=1,pool_size=100,idle_timeout=180,prefix=cache-" (include "ace.fullname" .) .Release.Namespace .Values.settings.cache.auth.password -}}
+{{- printf "network=tcp,addr=%s-cache.%s.svc:6379,password='%s',db=1,pool_size=100,idle_timeout=180,prefix=cache-" (include "ace.fullname" .) .Release.Namespace .Values.settings.cache.auth.password -}}
 {{- end -}}
 
 {{- define "settings.session.host" -}}
-{{- printf "network=tcp,addr=%s-cache.%s:6379,password='%s',db=0,pool_size=100,idle_timeout=180,prefix=session-" (include "ace.fullname" .) .Release.Namespace .Values.settings.cache.auth.password -}}
+{{- printf "network=tcp,addr=%s-cache.%s.svc:6379,password='%s',db=0,pool_size=100,idle_timeout=180,prefix=session-" (include "ace.fullname" .) .Release.Namespace .Values.settings.cache.auth.password -}}
 {{- end -}}
 
 
 {{- define "grafana.cache.host" -}}
-{{- printf "addr=%s-cache.%s:6379,password='%s',db=1,pool_size=100" (include "ace.fullname" .) .Release.Namespace .Values.settings.cache.auth.password -}}
+{{- printf "addr=%s-cache.%s.svc:6379,password='%s',db=1,pool_size=100" (include "ace.fullname" .) .Release.Namespace .Values.settings.cache.auth.password -}}
 {{- end -}}
 
 {{- define "grafana.session.host" -}}
-{{- printf "addr=%s-cache.%s:6379,password='%s',db=0,pool_size=100" (include "ace.fullname" .) .Release.Namespace .Values.settings.cache.auth.password -}}
+{{- printf "addr=%s-cache.%s.svc:6379,password='%s',db=0,pool_size=100" (include "ace.fullname" .) .Release.Namespace .Values.settings.cache.auth.password -}}
 {{- end -}}
 
 {{- define  "settings.kms.masterKeyURL" -}}
