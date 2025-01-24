@@ -163,12 +163,6 @@ stringData:
 
   {{- if eq .Values.global.platform.deploymentType "Hosted" }}
 
-    [licensor]
-    DOMAIN = {{ .Values.global.platform.proxyServiceDomain }}
-    TOKEN = {{ .Values.global.platform.token }}
-    OWNER_ID = {{ .Values.global.platform.ownerID }}
-    OWNER_NAME = {{ .Values.global.platform.ownerName }}
-
     [badger]
     PATH   = {{ .Values.global.infra.badger.mountPath }}
     LEVELS = {{ .Values.global.infra.badger.levels }}
