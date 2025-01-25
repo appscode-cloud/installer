@@ -13,7 +13,7 @@ spec:
       {{- if (index .Values "billing-ui" "enabled") }}
       - backend:
           service:
-            name: {{ include "acaas.fullname" . }}-billing-ui
+            name: {{ .Release.Name }}-billing-ui
             port:
               number: 80
         path: /billing
@@ -22,7 +22,7 @@ spec:
       {{- if (index .Values "deploy-ui" "enabled") }}
       - backend:
           service:
-            name: {{ include "acaas.fullname" . }}-deploy-ui
+            name: {{ .Release.Name }}-deploy-ui
             port:
               number: 80
         path: /deploy
@@ -31,7 +31,7 @@ spec:
       {{- if (index .Values "marketplace-api" "enabled") }}
       - backend:
           service:
-            name: {{ include "acaas.fullname" . }}-marketplace-api
+            name: {{ .Release.Name }}-marketplace-api
             port:
               number: 80
         path: /marketplace/api
@@ -40,7 +40,7 @@ spec:
       {{- if (index .Values "marketplace-ui" "enabled") }}
       - backend:
           service:
-            name: {{ include "acaas.fullname" . }}-marketplace-ui
+            name: {{ .Release.Name }}-marketplace-ui
             port:
               number: 80
         path: /marketplace
@@ -49,7 +49,7 @@ spec:
       {{- if (index .Values "platform-links" "enabled") }}
       - backend:
           service:
-            name: {{ include "acaas.fullname" . }}-platform-links
+            name: {{ .Release.Name }}-platform-links
             port:
               number: 80
         path: /links
@@ -58,7 +58,7 @@ spec:
       {{- if (index .Values "website" "enabled") }}
       - backend:
           service:
-            name: {{ include "acaas.fullname" . }}-website
+            name: {{ .Release.Name }}-website
             port:
               number: 80
         path: /
