@@ -34,9 +34,9 @@ securityContext: # +doc-gen:break
   allowPrivilegeEscalation: false
   capabilities:
     drop: ["ALL"]
-  # readOnlyRootFilesystem: true
+  readOnlyRootFilesystem: true
   runAsNonRoot: true
-  # runAsUser: 101
+  runAsUser: 65534
   seccompProfile:
     type: RuntimeDefault
 
