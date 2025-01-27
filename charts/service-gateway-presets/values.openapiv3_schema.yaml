@@ -2215,6 +2215,8 @@ properties:
             properties:
               email:
                 type: string
+              gatewayName:
+                type: string
               solver:
                 enum:
                 - Gateway
@@ -2222,6 +2224,7 @@ properties:
                 type: string
             required:
             - email
+            - gatewayName
             - solver
             type: object
           ca:
