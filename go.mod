@@ -6,8 +6,8 @@ toolchain go1.23.2
 
 require (
 	go.bytebuilders.dev/catalog v0.0.11
-	go.bytebuilders.dev/resource-model v0.1.1-0.20250113073009-6169434829cb
-	go.bytebuilders.dev/ui-wizards v0.12.0
+	go.bytebuilders.dev/resource-model v0.2.0
+	go.bytebuilders.dev/ui-wizards v0.12.1
 	go.openviz.dev/installer v0.0.0-20241219171958-448ed4701f5b
 	gomodules.xyz/go-sh v0.1.0
 	k8s.io/api v0.30.2

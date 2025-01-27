@@ -188,10 +188,10 @@ go.appscode.dev/alerts v0.2.1-0.20240918094400-626962340a86 h1:dfc+hbp0T8/WkaKpV
 go.appscode.dev/alerts v0.2.1-0.20240918094400-626962340a86/go.mod h1:5+qwuxF78YiFg/CEGfgfXREj7KEJYLgQeFhke4+lQ8k=
 go.bytebuilders.dev/catalog v0.0.11 h1:XXYItSsTJe8XOE+SLI0b25RsmRwQ53YmOn0ozzusOw0=
 go.bytebuilders.dev/catalog v0.0.11/go.mod h1:B3dacrh9g2sAP3STfiSfw+XPjTeHZlTvCb2C7t26SlE=
-go.bytebuilders.dev/resource-model v0.1.1-0.20250113073009-6169434829cb h1:jDhjxmo/s4UsUB/tBaVigMAPGeaJ3cjR8dcUuwoK0Co=
-go.bytebuilders.dev/resource-model v0.1.1-0.20250113073009-6169434829cb/go.mod h1:/uMIfxqPIrDmiYWA28OW3xzogijxpwkicR4kK7jam9g=
-go.bytebuilders.dev/ui-wizards v0.12.0 h1:nBllazu/PQ1M3KYodj7OIzNtd6LJ+45rBMBsw4ISmyM=
-go.bytebuilders.dev/ui-wizards v0.12.0/go.mod h1:ZSvKBfcV/knYi5SS9mEoM0/uVtNr28Rrgsv1dEc5wZc=
+go.bytebuilders.dev/resource-model v0.2.0 h1:ExD1qRjcFjy1FirH/LOhlToNCrzeFd8wspxoTQzUJUQ=
+go.bytebuilders.dev/resource-model v0.2.0/go.mod h1:+/6wCmfEDcwOdi+EfzOjj8hNqyzIr6HwSqMOuC3JLUk=
+go.bytebuilders.dev/ui-wizards v0.12.1 h1:FrheE2dWJJSGoqLgEJa5n2rI0Hk9QbpwbTxWvvjG8Mo=
+go.bytebuilders.dev/ui-wizards v0.12.1/go.mod h1:ZSvKBfcV/knYi5SS9mEoM0/uVtNr28Rrgsv1dEc5wZc=
 go.openviz.dev/installer v0.0.0-20241219171958-448ed4701f5b h1:ZOQB+ip1+2Fk9UaIsLgaqZR37bN4bqJZIxMxSGo9oJU=
 go.openviz.dev/installer v0.0.0-20241219171958-448ed4701f5b/go.mod h1:XR/wQvcWc3mcwMRsGtXilzyc38+BKpskR9yMmA/4CLc=
 go.uber.org/goleak v1.3.0 h1:2K3zAYmnTNqV73imy9J1T3WC+gmCePx2hEGkimedGto=
