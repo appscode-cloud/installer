@@ -5,7 +5,7 @@ go 1.22.7
 toolchain go1.23.2
 
 require (
-	go.bytebuilders.dev/catalog v0.0.11
+	go.bytebuilders.dev/catalog v0.0.12
 	go.bytebuilders.dev/resource-model v0.2.0
 	go.bytebuilders.dev/ui-wizards v0.12.1
 	go.openviz.dev/installer v0.0.0-20241219171958-448ed4701f5b

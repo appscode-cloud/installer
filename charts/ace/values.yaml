@@ -157,6 +157,7 @@ global:
       acme:
         email: ops@appscode.com
         solver: Ingress
+        gatewayName: backend
       certificate:
         cert: ""
         key: ""

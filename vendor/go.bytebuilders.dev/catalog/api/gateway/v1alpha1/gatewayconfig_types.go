@@ -98,8 +98,9 @@ type Keystore struct {
 }
 
 type TLSIssuerAcme struct {
-	Email  string     `json:"email"`
-	Solver AcmeSolver `json:"solver"`
+	Email       string     `json:"email"`
+	Solver      AcmeSolver `json:"solver"`
+	GatewayName string     `json:"gatewayName"`
 }
 
 // +kubebuilder:validation:Enum=Gateway;Ingress

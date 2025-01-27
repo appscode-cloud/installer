@@ -41,7 +41,7 @@ spec:
       http01:
         gatewayHTTPRoute:
           parentRefs:
-            - name: backend
+            - name: {{ .Values.infra.tls.acme.gatewayName }}
               namespace: {{ .Release.Namespace }}
               kind: Gateway
     {{- end }}

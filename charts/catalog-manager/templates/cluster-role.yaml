@@ -101,6 +101,8 @@ rules:
   - gateway.envoyproxy.io
   resources:
   - envoyproxies
+  - backendtrafficpolicies
+  - clienttrafficpolicies
   verbs: ["get", "list", "watch"]
 - apiGroups:
   - rbac.authorization.k8s.io
