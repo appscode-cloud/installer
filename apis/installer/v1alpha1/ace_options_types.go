@@ -199,8 +199,9 @@ const (
 )
 
 type AceOptionsNatsSettings struct {
-	ExposeVia ExposeNatsVia `json:"exposeVia"`
-	Replics   int           `json:"replicas"`
+	ExposeVia  ExposeNatsVia `json:"exposeVia"`
+	Replicas   int           `json:"replicas"`
+	ShardCount int           `json:"shardCount"`
 	//+optional
 	Resources core.ResourceRequirements `json:"resources"`
 	//+optional

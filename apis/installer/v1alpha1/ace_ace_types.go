@@ -339,7 +339,7 @@ type SmtpSettings struct {
 
 type NatsSettings struct {
 	ShardCount      int    `json:"shardCount"`
-	Replics         int    `json:"replicas"`
+	Replicas        int    `json:"replicas"`
 	MountPath       string `json:"mountPath"`
 	OperatorCreds   string `json:"operatorCreds"`
 	OperatorJwt     string `json:"operatorJwt"`

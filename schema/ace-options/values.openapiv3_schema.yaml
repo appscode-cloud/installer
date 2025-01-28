@@ -1302,9 +1302,12 @@ properties:
               value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
+      shardCount:
+        type: integer
     required:
       - exposeVia
       - replicas
+      - shardCount
     type: object
   openfga:
     properties:
