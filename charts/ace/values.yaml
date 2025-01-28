@@ -281,7 +281,7 @@ settings:
     sendAsPlainText: false
   # NATS credentials
   nats:
-    shardCount: 128
+    shardCount: 16
     replicas: 1
     mountPath: /nats/creds
     operatorCreds: 'xyz'
