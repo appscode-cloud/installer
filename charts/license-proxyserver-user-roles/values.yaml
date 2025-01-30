@@ -1,0 +1,7 @@
+# Default values for license-proxyserver-user-roles.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# This is to override the chart name.
+nameOverride: ""
+fullnameOverride: ""
