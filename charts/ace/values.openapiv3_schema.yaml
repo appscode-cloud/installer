@@ -19036,6 +19036,8 @@ properties:
                 type: string
               clientSecret:
                 type: string
+              clientSecretExpiresAt:
+                type: string
               secret:
                 type: string
               tenantID:

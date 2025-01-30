@@ -333,6 +333,8 @@ type AceOptionsAzureMarketplace struct {
 	TenantID     string `json:"tenantID"`
 	ClientID     string `json:"clientID"`
 	ClientSecret string `json:"clientSecret"`
+	// +optional
+	ClientSecretExpiresAt string `json:"clientSecretExpiresAt"`
 }
 
 type AceOptionsAwsMarketplace struct {

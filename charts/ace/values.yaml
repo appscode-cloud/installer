@@ -431,6 +431,7 @@ settings:
   #     tenantID: ""
   #     clientID: ""
   #     clientSecret: ""
+  #     clientSecretExpiresAt: ""
   #   gcp:
   #     secret: ""
   #     testUploadID: ""

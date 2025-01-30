@@ -213,6 +213,7 @@ stringData:
     AZURE_TENANT_ID = {{ .tenantID }}
     AZURE_CLIENT_ID = {{ .clientID }}
     AZURE_CLIENT_SECRET = {{ .clientSecret }}
+    AZURE_SECRET_EXPIRES_AT = {{ .clientSecretExpiresAt }}
     {{- end }}
 
     {{- with .gcp }}
