@@ -123,7 +123,7 @@ type AceBrandingSpec struct {
 	//+optional
 	AppName string `json:"appName"`
 	//+optional
-	ShowAppsTag bool `json:"showAppsTag"`
+	ShowAppTag bool `json:"showAppTag"`
 }
 
 type AceSetupJob struct {

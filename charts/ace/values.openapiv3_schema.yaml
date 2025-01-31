@@ -448,7 +448,7 @@ properties:
         type: string
       primaryColor:
         type: string
-      showAppsTag:
+      showAppTag:
         type: boolean
     type: object
   cluster-ui:
