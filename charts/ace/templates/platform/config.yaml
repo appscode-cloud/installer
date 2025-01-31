@@ -155,6 +155,7 @@ stringData:
     LOGO = `{{ .Values.branding.logo }}`
     FAVICON = `{{ .Values.branding.favicon }}`
     PRIMARY_COLOR = `{{ .Values.branding.primaryColor }}`
+    SHOW_APPS_TAG = {{ .Values.branding.showAppsTag }}
 
     [grafana]
     # used for signing

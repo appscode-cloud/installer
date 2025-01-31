@@ -492,6 +492,7 @@ branding:
   logo: ""
   favicon: ""
   primaryColor: ""
+  showAppsTag: ""
 
 setupJob:
   # https://github.com/fluxcd/flux2/discussions/1085#discussioncomment-473271
