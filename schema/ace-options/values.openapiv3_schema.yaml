@@ -1,12 +1,16 @@
 properties:
   branding:
     properties:
+      appName:
+        type: string
       favicon:
         type: string
       logo:
         type: string
       primaryColor:
         type: string
+      showAppTag:
+        type: boolean
     type: object
   cluster-ui:
     properties:
