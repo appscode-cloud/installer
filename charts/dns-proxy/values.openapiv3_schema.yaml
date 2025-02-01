@@ -462,15 +462,32 @@ properties:
     type: object
   cloudflare:
     properties:
-      baseURL:
-        type: string
+      secretRef:
+        properties:
+          key:
+            type: string
+          name:
+            type: string
+        required:
+        - key
+        - name
+        type: object
+        x-kubernetes-map-type: atomic
       token:
         type: string
     required:
+    - secretRef
     - token
     type: object
   fullnameOverride:
     type: string
+  hostPort:
+    properties:
+      enabled:
+        type: boolean
+    required:
+    - enabled
+    type: object
   image:
     properties:
       pullPolicy:
@@ -775,6 +792,13 @@ properties:
     required:
     - name
     type: object
+  tlsSecretRef:
+    properties:
+      name:
+        type: string
+    required:
+    - name
+    type: object
   tolerations:
     items:
       properties:
@@ -801,4 +825,5 @@ required:
 - replicaCount
 - service
 - serviceAccount
+- tlsSecretRef
 type: object

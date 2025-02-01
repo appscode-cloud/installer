@@ -39,16 +39,31 @@ spec:
         {{- if .Values.auth.domain }}
           - --api-server-addr=https://{{ .Values.auth.domain }}
         {{- end }}
+        {{- if .Values.tlsSecretRef.name }}
+          - --tls-cert=/etc/dns-proxy/certs/tls.crt
+          - --tls-key=/etc/dns-proxy/certs/tls.key
+        {{- end }}
           env:
-          - name: CLOUDFLARE_API_TOKEN
-            valueFrom:
-              secretKeyRef:
-                name: {{ include "dns-proxy.fullname" . }}-cred
-                key: api-token
+          {{- if .Values.cloudflare.token }}
+            - name: CLOUDFLARE_API_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "dns-proxy.fullname" . }}-cred
+                  key: api-token
+          {{- else }}
+            - name: CLOUDFLARE_API_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.cloudflare.secretRef.name }}
+                  key: {{ .Values.cloudflare.secretRef.key }}
+          {{- end }}
           ports:
             - name: http
               containerPort: 8000
               protocol: TCP
+              {{- if .Values.hostPort.enabled }}
+              hostPort: {{ .Values.service.port }}
+              {{- end }}
             - name: metrics
               containerPort: 8080
               protocol: TCP
@@ -62,6 +77,16 @@ spec:
               port: metrics
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.tlsSecretRef.name }}
+          volumeMounts:
+            - name: certdir
+              mountPath: /etc/dns-proxy/certs
+      volumes:
+        - name: certdir
+          secret:
+            defaultMode: 420
+            secretName: {{ . }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
