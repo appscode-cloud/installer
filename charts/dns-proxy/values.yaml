@@ -41,6 +41,9 @@ securityContext: # +doc-gen:break
   seccompProfile:
     type: RuntimeDefault
 
+hostPort:
+  enabled: true
+
 service:
   type: ClusterIP
   port: 80
@@ -96,8 +99,14 @@ monitoring:
     # Only usable when monitoring agent is `prometheus.io/operator`.
     labels: {}
 
+tlsSecretRef:
+  name: ""
+
 cloudflare:
   token: ""
+  secretRef:
+    name: ""
+    key: ""
 
 auth:
   domain: ""
