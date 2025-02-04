@@ -333,6 +333,9 @@ type AceOptionsAzureMarketplace struct {
 	TenantID     string `json:"tenantID"`
 	ClientID     string `json:"clientID"`
 	ClientSecret string `json:"clientSecret"`
+	// +optional
+	// +kubebuilder:validation:Format=date-time
+	ClientSecretExpiresAt string `json:"clientSecretExpiresAt"`
 }
 
 type AceOptionsAwsMarketplace struct {
