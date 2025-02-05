@@ -1,0 +1,13 @@
+apiVersion: v2
+name: license-proxyserver-user-roles
+description: A helm chart for AppsCode license-proxyserver user roles
+type: application
+version: v2025.1.17
+appVersion: v0.0.20
+home: https://github.com/appscode-cloud/license-proxyserver
+icon: https://cdn.appscode.com/images/products/searchlight/icons/android-icon-192x192.png
+sources:
+- https://github.com/appscode-cloud/license-proxyserver
+maintainers:
+- name: appscode
+  email: support@appscode.com

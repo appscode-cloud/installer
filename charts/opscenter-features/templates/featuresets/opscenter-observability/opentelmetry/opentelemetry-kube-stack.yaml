@@ -1,0 +1,36 @@
+{{ $vals := dig "opentelemetry-kube-stack" "values" (dict) .Values.helm.releases }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: opentelemetry-kube-stack
+  labels:
+    app.kubernetes.io/part-of: opscenter-observability
+spec:
+  title: Opentelemetry Kube Stack
+  description: |
+    Collection of components to monitor Kubernetes native applications with OpenTelemetry.
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-observability
+  featureBlock: opentelemetry-kube-stack
+  recommended: true
+  chart:
+    name: opentelemetry-kube-stack
+    namespace: monitoring
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "opentelemetry-kube-stack" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+  valuesFrom:
+  {{- if eq (include "clustermanager.openshift" $) "true" }}
+    - kind: ConfigMap
+      name: ace-openshift-scc
+      valuesKey: opentelemetry-kube-stack.yaml
+  {{- end }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
