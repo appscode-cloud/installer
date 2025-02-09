@@ -60,7 +60,7 @@ helm:
 
   releases:
     aceshifter:
-      version: "v2025.1.17"
+      version: "v2025.2.28"
     aws-ebs-csi-driver:
       version: "2.23.0"
     capa-vpc-peering-operator:
@@ -70,7 +70,7 @@ helm:
     capi-ops-manager:
       version: "v2024.8.14"
     catalog-manager:
-      version: "v2025.1.17"
+      version: "v2025.2.28"
     cert-manager:
       version: "v1.15.4"
     cert-manager-csi-driver-cacerts:
@@ -78,7 +78,7 @@ helm:
     cluster-autoscaler:
       version: "9.29.0"
     cluster-presets:
-      version: "v2025.1.17"
+      version: "v2025.2.28"
     config-syncer:
       version: "v0.15.2"
     crossplane:
@@ -112,13 +112,13 @@ helm:
     kube-prometheus-stack:
       version: "68.0.0"
     kubedb-ui-presets:
-      version: "v2025.1.17"
+      version: "v2025.2.28"
     kube-ui-server:
-      version: "v2025.1.17"
+      version: "v2025.2.28"
     kubedb:
-      version: "v2025.1.9"
+      version: "v2025.2.6-rc.0"
     kubedb-opscenter:
-      version: "v2025.1.9"
+      version: "v2025.2.6-rc.0"
     kubedb-provider-aws:
       version: "v2024.1.31"
     kubedb-provider-azure:
@@ -126,11 +126,11 @@ helm:
     kubedb-provider-gcp:
       version: "v2024.1.31"
     kubestash:
-      version: "v2025.1.9"
+      version: "v2025.2.6-rc.0"
     kubevault:
-      version: "v2024.9.30"
+      version: "v2025.2.10"
     kubevault-opscenter:
-      version: "v2024.9.30"
+      version: "v2025.2.10"
     kyverno:
       version: "3.2.6"
     kyverno-policies:
@@ -150,7 +150,7 @@ helm:
     opencost-grafana-dashboards:
       version: "v2023.10.1"
     opscenter-features:
-      version: "v2025.1.17"
+      version: "v2025.2.28"
     panopticon:
       version: "v2024.11.8"
     prepare-cluster:
@@ -162,23 +162,23 @@ helm:
     scanner:
       version: "v2024.9.30"
     service-backend:
-      version: "v2025.1.17"
+      version: "v2025.2.28"
     service-gateway:
-      version: "v2025.1.17"
+      version: "v2025.2.28"
     service-gateway-presets:
-      version: "v2025.1.17"
+      version: "v2025.2.28"
     service-provider:
-      version: "v2025.1.17"
+      version: "v2025.2.28"
     sidekick:
       version: "v2024.11.8"
     snapshot-controller:
       version: "3.0.6"
     stash:
-      version: "v2025.1.9"
+      version: "v2025.2.10"
     stash-opscenter:
-      version: "v2025.1.9"
+      version: "v2025.2.10"
     stash-presets:
-      version: "v2025.1.17"
+      version: "v2025.2.28"
     supervisor:
       version: "v2024.11.8"
     topolvm:
