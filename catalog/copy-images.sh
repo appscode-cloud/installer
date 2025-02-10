@@ -300,7 +300,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/falco-ui-
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/fileserver:v0.0.1 $IMAGE_REGISTRY/appscode/fileserver:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/flux-cli:v2.3.0 $IMAGE_REGISTRY/appscode/flux-cli:v2.3.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana-tools:v0.3.0 $IMAGE_REGISTRY/appscode/grafana-tools:v0.3.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana:v2024.10.31 $IMAGE_REGISTRY/appscode/grafana:v2024.10.31
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana:v2025.2.3 $IMAGE_REGISTRY/appscode/grafana:v2025.2.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-agent:v0.0.2 $IMAGE_REGISTRY/appscode/inbox-agent:v0.0.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-server:latest $IMAGE_REGISTRY/appscode/inbox-server:latest
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-ui:0.0.4 $IMAGE_REGISTRY/appscode/inbox-ui:0.0.4

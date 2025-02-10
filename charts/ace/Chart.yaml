@@ -31,7 +31,7 @@ dependencies:
 - name: grafana
   repository: file://../grafana
   condition: grafana.enabled
-  version: v2024.10.31
+  version: v2025.2.3
 - name: trickster
   repository: oci://ghcr.io/appscode-charts
   condition: trickster.enabled

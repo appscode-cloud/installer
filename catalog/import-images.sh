@@ -291,7 +291,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-falco-ui
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-fileserver-v0.0.1.tar $IMAGE_REGISTRY/appscode/fileserver:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-flux-cli-v2.3.0.tar $IMAGE_REGISTRY/appscode/flux-cli:v2.3.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-grafana-tools-v0.3.0.tar $IMAGE_REGISTRY/appscode/grafana-tools:v0.3.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-grafana-v2024.10.31.tar $IMAGE_REGISTRY/appscode/grafana:v2024.10.31
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-grafana-v2025.2.3.tar $IMAGE_REGISTRY/appscode/grafana:v2025.2.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-agent-v0.0.2.tar $IMAGE_REGISTRY/appscode/inbox-agent:v0.0.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-server-latest.tar $IMAGE_REGISTRY/appscode/inbox-server:latest
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-ui-0.0.4.tar $IMAGE_REGISTRY/appscode/inbox-ui:0.0.4

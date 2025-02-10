@@ -297,7 +297,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/falco-u
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/fileserver:v0.0.1 images/appscode-fileserver-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/flux-cli:v2.3.0 images/appscode-flux-cli-v2.3.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana-tools:v0.3.0 images/appscode-grafana-tools-v0.3.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana:v2024.10.31 images/appscode-grafana-v2024.10.31.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana:v2025.2.3 images/appscode-grafana-v2025.2.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-agent:v0.0.2 images/appscode-inbox-agent-v0.0.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-server:latest images/appscode-inbox-server-latest.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-ui:0.0.4 images/appscode-inbox-ui-0.0.4.tar

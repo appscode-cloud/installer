@@ -289,7 +289,7 @@ k3s ctr images import images/appscode-falco-ui-server-v0.0.4.tar
 k3s ctr images import images/appscode-fileserver-v0.0.1.tar
 k3s ctr images import images/appscode-flux-cli-v2.3.0.tar
 k3s ctr images import images/appscode-grafana-tools-v0.3.0.tar
-k3s ctr images import images/appscode-grafana-v2024.10.31.tar
+k3s ctr images import images/appscode-grafana-v2025.2.3.tar
 k3s ctr images import images/appscode-inbox-agent-v0.0.2.tar
 k3s ctr images import images/appscode-inbox-server-latest.tar
 k3s ctr images import images/appscode-inbox-ui-0.0.4.tar

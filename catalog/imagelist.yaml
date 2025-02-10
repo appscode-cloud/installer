@@ -12,7 +12,7 @@
 - ghcr.io/appscode/curl:alpine
 - ghcr.io/appscode/deploy-ui:0.3.6
 - ghcr.io/appscode/fileserver:v0.0.1
-- ghcr.io/appscode/grafana:v2024.10.31
+- ghcr.io/appscode/grafana:v2025.2.3
 - ghcr.io/appscode/inbox-server:latest
 - ghcr.io/appscode/inbox-ui:0.0.4
 - ghcr.io/appscode/kube-rbac-proxy:v0.15.0

@@ -13,7 +13,7 @@ dependencies:
   version: v2025.2.28
 - name: grafana
   repository: file://../grafana
-  version: v2024.10.31
+  version: v2025.2.3
 - name: trickster
   repository: oci://ghcr.io/appscode-charts
   version: v2024.9.30
@@ -29,5 +29,5 @@ dependencies:
 - name: openfga
   repository: oci://ghcr.io/appscode-charts
   version: 0.2.13
-digest: sha256:8b92d818d5307832d129db72f613b7601132e8ef5b1921a27e78a99c84012dc2
-generated: "2025-02-09T15:37:11.485122-08:00"
+digest: sha256:957091a1146bdf3f56dde7f92eba9f7eea8867772ba5a70c7f8282dbe246ce67
+generated: "2025-02-09T23:59:32.148512-08:00"
