@@ -1,0 +1,161 @@
+properties:
+  clusterMetadata:
+    properties:
+      name:
+        type: string
+      uid:
+        type: string
+    required:
+    - name
+    - uid
+    type: object
+  kubestash:
+    properties:
+      backend:
+        properties:
+          azure:
+            properties:
+              auth:
+                properties:
+                  AZURE_ACCOUNT_KEY:
+                    type: string
+                  AZURE_ACCOUNT_NAME:
+                    type: string
+                required:
+                - AZURE_ACCOUNT_KEY
+                - AZURE_ACCOUNT_NAME
+                type: object
+              spec:
+                properties:
+                  container:
+                    type: string
+                  maxConnections:
+                    format: int64
+                    type: integer
+                  prefix:
+                    type: string
+                required:
+                - container
+                type: object
+            required:
+            - spec
+            type: object
+          gcs:
+            properties:
+              auth:
+                properties:
+                  GOOGLE_PROJECT_ID:
+                    type: string
+                  GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
+                    type: string
+                required:
+                - GOOGLE_PROJECT_ID
+                - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                type: object
+              spec:
+                properties:
+                  bucket:
+                    type: string
+                  maxConnections:
+                    format: int64
+                    type: integer
+                  prefix:
+                    type: string
+                required:
+                - bucket
+                type: object
+            required:
+            - spec
+            type: object
+          local:
+            properties:
+              mountPath:
+                type: string
+              persistentVolumeClaim:
+                properties:
+                  claimName:
+                    type: string
+                  readOnly:
+                    type: boolean
+                required:
+                - claimName
+                type: object
+              subPath:
+                type: string
+            type: object
+          provider:
+            enum:
+            - s3
+            - azure
+            - gcs
+            - local
+            type: string
+          s3:
+            properties:
+              auth:
+                properties:
+                  AWS_ACCESS_KEY_ID:
+                    type: string
+                  AWS_SECRET_ACCESS_KEY:
+                    type: string
+                  CA_CERT_DATA:
+                    type: string
+                required:
+                - AWS_ACCESS_KEY_ID
+                - AWS_SECRET_ACCESS_KEY
+                type: object
+              spec:
+                properties:
+                  bucket:
+                    type: string
+                  endpoint:
+                    type: string
+                  insecureTLS:
+                    type: boolean
+                  prefix:
+                    type: string
+                  region:
+                    type: string
+                required:
+                - bucket
+                - endpoint
+                type: object
+            required:
+            - spec
+            type: object
+        required:
+        - provider
+        type: object
+      encryptionSecret:
+        type: string
+      retentionPolicy:
+        default: keep-1mo
+        enum:
+        - keep-1wk
+        - keep-1mo
+        - keep-3mo
+        - keep-1yr
+        type: string
+      schedule:
+        type: string
+      storageSecret:
+        properties:
+          create:
+            type: boolean
+        type: object
+    required:
+    - backend
+    - encryptionSecret
+    - retentionPolicy
+    - storageSecret
+    type: object
+  tool:
+    default: KubeStash
+    enum:
+    - KubeStash
+    - Stash
+    type: string
+required:
+- kubestash
+- tool
+type: object

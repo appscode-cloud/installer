@@ -1,0 +1,391 @@
+properties:
+  fullnameOverride:
+    type: string
+  gateway-dns:
+    properties:
+      enabled:
+        type: boolean
+      spec:
+        properties:
+          aws:
+            properties:
+              apiRetries:
+                type: integer
+              assumeRole:
+                type: string
+              batchChangeInterval:
+                format: int64
+                type: integer
+              batchChangeSize:
+                type: integer
+              evaluateTargetHealth:
+                type: boolean
+              preferCNAME:
+                type: boolean
+              sdServiceCleanup:
+                type: boolean
+              secretRef:
+                properties:
+                  credentialKey:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - credentialKey
+                - name
+                type: object
+              zoneCacheDuration:
+                format: int64
+                type: integer
+              zoneTagFilter:
+                items:
+                  type: string
+                type: array
+              zoneType:
+                type: string
+            type: object
+          azure:
+            properties:
+              resourceGroup:
+                type: string
+              secretRef:
+                properties:
+                  credentialKey:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - credentialKey
+                - name
+                type: object
+              subscriptionId:
+                type: string
+              userAssignedIdentityClientID:
+                type: string
+            type: object
+          cloudflare:
+            properties:
+              baseURL:
+                type: string
+              proxied:
+                type: boolean
+              secretRef:
+                properties:
+                  apiEmailKey:
+                    type: string
+                  apiKey:
+                    type: string
+                  apiTokenKey:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - name
+                type: object
+            type: object
+          connectorSourceServer:
+            type: string
+          defaultTargets:
+            items:
+              type: string
+            type: array
+          domainFilter:
+            items:
+              type: string
+            type: array
+          excludeDomains:
+            items:
+              type: string
+            type: array
+          gatewayLabelFilter:
+            type: string
+          gatewayNamespace:
+            type: string
+          google:
+            properties:
+              batchChangeInterval:
+                format: int64
+                type: integer
+              batchChangeSize:
+                type: integer
+              project:
+                type: string
+              secretRef:
+                properties:
+                  credentialKey:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - credentialKey
+                - name
+                type: object
+              zoneVisibility:
+                type: string
+            type: object
+          manageDNSRecordTypes:
+            items:
+              type: string
+            type: array
+          ocRouterName:
+            type: string
+          policy:
+            type: string
+          provider:
+            type: string
+          registry:
+            type: string
+          requestTimeout:
+            format: int64
+            type: integer
+          source:
+            properties:
+              ingress:
+                properties:
+                  annotationFilter:
+                    type: string
+                  combineFQDNAndAnnotation:
+                    type: boolean
+                  fqdnTemplate:
+                    type: string
+                  ignoreHostnameAnnotation:
+                    type: boolean
+                  ignoreIngressRulesSpec:
+                    type: boolean
+                  ignoreIngressTLSSpec:
+                    type: boolean
+                  labelFilter:
+                    type: string
+                  namespace:
+                    type: string
+                type: object
+              node:
+                properties:
+                  annotationFilter:
+                    type: string
+                  fqdnTemplate:
+                    type: string
+                  labelFilter:
+                    type: string
+                type: object
+              service:
+                properties:
+                  alwaysPublishNotReadyAddresses:
+                    type: boolean
+                  annotationFilter:
+                    type: string
+                  combineFQDNAndAnnotation:
+                    type: boolean
+                  compatibility:
+                    type: string
+                  fqdnTemplate:
+                    type: string
+                  ignoreHostnameAnnotation:
+                    type: boolean
+                  labelFilter:
+                    type: string
+                  namespace:
+                    type: string
+                  publishHostIP:
+                    type: boolean
+                  publishInternal:
+                    type: boolean
+                  serviceTypeFilter:
+                    items:
+                      type: string
+                    type: array
+                type: object
+              type:
+                properties:
+                  group:
+                    type: string
+                  kind:
+                    type: string
+                  version:
+                    type: string
+                required:
+                - group
+                - kind
+                - version
+                type: object
+            required:
+            - type
+            type: object
+          txtOwnerID:
+            type: string
+          txtPrefix:
+            type: string
+          txtSuffix:
+            type: string
+          txtWildcardReplacement:
+            type: string
+          zoneIDFilter:
+            items:
+              type: string
+            type: array
+        required:
+        - provider
+        - source
+        type: object
+    required:
+    - enabled
+    type: object
+  infra:
+    properties:
+      dns:
+        properties:
+          auth:
+            properties:
+              azureDNS:
+                properties:
+                  environment:
+                    type: string
+                  hostedZoneName:
+                    type: string
+                  resourceGroupName:
+                    type: string
+                  servicePrincipalAppID:
+                    type: string
+                  servicePrincipalAppPassword:
+                    type: string
+                  subscriptionID:
+                    type: string
+                  tenantID:
+                    type: string
+                required:
+                - hostedZoneName
+                - resourceGroupName
+                - servicePrincipalAppID
+                - servicePrincipalAppPassword
+                - subscriptionID
+                - tenantID
+                type: object
+              cloudDNS:
+                properties:
+                  GOOGLE_PROJECT_ID:
+                    type: string
+                  GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
+                    type: string
+                required:
+                - GOOGLE_PROJECT_ID
+                - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                type: object
+              cloudflare:
+                properties:
+                  baseURL:
+                    type: string
+                  token:
+                    type: string
+                required:
+                - token
+                type: object
+              route53:
+                properties:
+                  AWS_ACCESS_KEY_ID:
+                    type: string
+                  AWS_REGION:
+                    type: string
+                  AWS_SECRET_ACCESS_KEY:
+                    type: string
+                required:
+                - AWS_ACCESS_KEY_ID
+                - AWS_REGION
+                - AWS_SECRET_ACCESS_KEY
+                type: object
+            type: object
+          provider:
+            enum:
+            - none
+            - external
+            - cloudflare
+            - route53
+            - cloudDNS
+            - azureDNS
+            type: string
+        required:
+        - auth
+        - provider
+        type: object
+      host:
+        type: string
+      hostType:
+        enum:
+        - domain
+        - ip
+        type: string
+      tls:
+        properties:
+          acme:
+            properties:
+              email:
+                type: string
+              gatewayName:
+                type: string
+              solver:
+                enum:
+                - Gateway
+                - Ingress
+                type: string
+            required:
+            - email
+            - gatewayName
+            - solver
+            type: object
+          ca:
+            properties:
+              cert:
+                type: string
+              key:
+                type: string
+            type: object
+          certificate:
+            properties:
+              cert:
+                type: string
+              key:
+                type: string
+            type: object
+          issuer:
+            enum:
+            - ca
+            - letsencrypt
+            - letsencrypt-staging
+            - external
+            type: string
+          jks:
+            properties:
+              keystore:
+                format: byte
+                type: string
+              password:
+                type: string
+              truststore:
+                format: byte
+                type: string
+            required:
+            - password
+            type: object
+        required:
+        - issuer
+        type: object
+    required:
+    - dns
+    - host
+    - hostType
+    - tls
+    type: object
+  nameOverride:
+    type: string
+  vaultServer:
+    properties:
+      name:
+        type: string
+    required:
+    - name
+    type: object
+required:
+- fullnameOverride
+- gateway-dns
+- infra
+- nameOverride
+type: object

@@ -1,0 +1,144 @@
+properties:
+  clusterMetadata:
+    properties:
+      capi:
+        properties:
+          clusterName:
+            type: string
+          namespace:
+            type: string
+          provider:
+            enum:
+            - capa
+            - capg
+            - capz
+            - caph
+            - capk
+            type: string
+        required:
+        - clusterName
+        - namespace
+        - provider
+        type: object
+      clusterManagers:
+        items:
+          type: string
+        type: array
+      name:
+        type: string
+      uid:
+        type: string
+    required:
+    - clusterManagers
+    - name
+    - uid
+    type: object
+  fullnameOverride:
+    type: string
+  helm:
+    properties:
+      createNamespace:
+        type: boolean
+      releases:
+        additionalProperties:
+          properties:
+            values:
+              type: object
+              x-kubernetes-preserve-unknown-fields: true
+            version:
+              type: string
+          required:
+          - version
+          type: object
+        type: object
+      repositories:
+        additionalProperties:
+          properties:
+            interval:
+              pattern: ^([0-9]+(\.[0-9]+)?(ms|s|m|h))+$
+              type: string
+            provider:
+              default: generic
+              enum:
+              - generic
+              - aws
+              - azure
+              - gcp
+              type: string
+            secretName:
+              type: string
+            timeout:
+              type: string
+            type:
+              enum:
+              - default
+              - oci
+              type: string
+            url:
+              type: string
+          required:
+          - url
+          type: object
+        type: object
+    required:
+    - createNamespace
+    - releases
+    - repositories
+    type: object
+  image:
+    properties:
+      proxies:
+        properties:
+          appscode:
+            type: string
+          dockerHub:
+            type: string
+          dockerLibrary:
+            type: string
+          ghcr:
+            type: string
+          kubernetes:
+            type: string
+          microsoft:
+            type: string
+          quay:
+            type: string
+        type: object
+    type: object
+  licenseServer:
+    properties:
+      baseURL:
+        type: string
+      token:
+        type: string
+    required:
+    - baseURL
+    type: object
+  nameOverride:
+    type: string
+  offlineInstaller:
+    type: boolean
+  registry:
+    properties:
+      certs:
+        additionalProperties:
+          type: string
+        type: object
+      credentials:
+        additionalProperties:
+          type: string
+        type: object
+      imagePullSecrets:
+        items:
+          type: string
+        type: array
+    type: object
+required:
+- clusterMetadata
+- fullnameOverride
+- helm
+- image
+- licenseServer
+- nameOverride
+- registry
+type: object
