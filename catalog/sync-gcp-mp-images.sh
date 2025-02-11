@@ -62,7 +62,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/k8s-wait-for:v2.0 $
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-rbac-proxy:v0.15.0 $IMAGE_REGISTRY/kube-rbac-proxy:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-ui-server:v0.0.50 $IMAGE_REGISTRY/kube-ui-server:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubectl-nonroot:1.31 $IMAGE_REGISTRY/kubectl-nonroot:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubedb-ui:0.7.12 $IMAGE_REGISTRY/kubedb-ui:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubedb-ui:0.7.13 $IMAGE_REGISTRY/kubedb-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/license-proxyserver:v0.0.20 $IMAGE_REGISTRY/license-proxyserver:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/maxmind-geoip:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/openfga:v1.6.0 $IMAGE_REGISTRY/openfga:$TAG
@@ -119,8 +119,8 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/redis-init:0.9.0 $IMA
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/redis-restic-plugin:v0.15.0-rc.0 $IMAGE_REGISTRY/redis-restic-plugin:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/redis_exporter:1.66.0 $IMAGE_REGISTRY/redis_exporter:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/vcluster-plugin-kubedb:v0.0.1 $IMAGE_REGISTRY/vcluster-plugin-kubedb:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/kubestash/kubedump:v0.15.0-rc.0 $IMAGE_REGISTRY/kubedump:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/kubestash/kubestash:v0.16.0-rc.0 $IMAGE_REGISTRY/kubestash:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kubestash/kubedump:v0.15.0 $IMAGE_REGISTRY/kubedump:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kubestash/kubestash:v0.16.0 $IMAGE_REGISTRY/kubestash:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubevault/vault-operator:v0.19.0 $IMAGE_REGISTRY/vault-operator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kyverno/background-controller:v1.12.5 $IMAGE_REGISTRY/background-controller:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kyverno/cleanup-controller:v1.12.5 $IMAGE_REGISTRY/cleanup-controller:$TAG

@@ -4456,6 +4456,8 @@ spec:
                         properties:
                           email:
                             type: string
+                          gatewayName:
+                            type: string
                           solver:
                             enum:
                             - Gateway
@@ -4463,6 +4465,7 @@ spec:
                             type: string
                         required:
                         - email
+                        - gatewayName
                         - solver
                         type: object
                       ca:

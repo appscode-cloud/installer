@@ -1,5 +1,6 @@
 - ghcr.io/appscode-charts/aceshifter:v2025.2.28
 - ghcr.io/appscode-charts/aws-ebs-csi-driver:2.23.0
+- ghcr.io/appscode-charts/aws-load-balancer-controller:1.11.0
 - ghcr.io/appscode-charts/capa-vpc-peering-operator:v2023.12.11
 - ghcr.io/appscode-charts/capi-catalog:v2024.10.24
 - ghcr.io/appscode-charts/capi-ops-manager:v2024.8.14
@@ -45,7 +46,7 @@
 - ghcr.io/appscode-charts/kubedb-provider-gcp:v2024.1.31
 - ghcr.io/appscode-charts/kubedb-ui-presets:v2025.2.28
 - ghcr.io/appscode-charts/kubedb:v2025.2.6-rc.0
-- ghcr.io/appscode-charts/kubestash:v2025.2.6-rc.0
+- ghcr.io/appscode-charts/kubestash:v2025.2.10
 - ghcr.io/appscode-charts/kubevault-opscenter:v2025.2.10
 - ghcr.io/appscode-charts/kubevault:v2025.2.10
 - ghcr.io/appscode-charts/kyverno-policies:3.2.5

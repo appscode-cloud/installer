@@ -58,6 +58,7 @@ k3s ctr images import images/appscode-charts-autoscalingkubedbcom-singlestoreaut
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-solrautoscaler-editor-v0.12.0.tar
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-zookeeperautoscaler-editor-v0.12.0.tar
 k3s ctr images import images/appscode-charts-aws-ebs-csi-driver-2.23.0.tar
+k3s ctr images import images/appscode-charts-aws-load-balancer-controller-1.11.0.tar
 k3s ctr images import images/appscode-charts-capa-vpc-peering-operator-v2023.12.11.tar
 k3s ctr images import images/appscode-charts-capi-catalog-v2024.10.24.tar
 k3s ctr images import images/appscode-charts-capi-ops-manager-v2024.8.14.tar
@@ -160,7 +161,7 @@ k3s ctr images import images/appscode-charts-kubedbcom-solr-editor-options-v0.12
 k3s ctr images import images/appscode-charts-kubedbcom-solr-editor-v0.12.0.tar
 k3s ctr images import images/appscode-charts-kubedbcom-zookeeper-editor-options-v0.12.0.tar
 k3s ctr images import images/appscode-charts-kubedbcom-zookeeper-editor-v0.12.0.tar
-k3s ctr images import images/appscode-charts-kubestash-v2025.2.6-rc.0.tar
+k3s ctr images import images/appscode-charts-kubestash-v2025.2.10.tar
 k3s ctr images import images/appscode-charts-kubevault-opscenter-v2025.2.10.tar
 k3s ctr images import images/appscode-charts-kubevault-v2025.2.10.tar
 k3s ctr images import images/appscode-charts-kyverno-policies-3.2.5.tar
@@ -299,7 +300,7 @@ k3s ctr images import images/appscode-kube-rbac-proxy-v0.13.0.tar
 k3s ctr images import images/appscode-kube-rbac-proxy-v0.15.0.tar
 k3s ctr images import images/appscode-kube-ui-server-v0.0.50.tar
 k3s ctr images import images/appscode-kubectl-nonroot-1.31.tar
-k3s ctr images import images/appscode-kubedb-ui-0.7.12.tar
+k3s ctr images import images/appscode-kubedb-ui-0.7.13.tar
 k3s ctr images import images/appscode-license-proxyserver-v0.0.20.tar
 k3s ctr images import images/appscode-maxmind-geoip-city-mmdb-latest.tar
 k3s ctr images import images/appscode-openfga-v1.6.0.tar
@@ -356,8 +357,8 @@ k3s ctr images import images/kubedb-redis-init-0.9.0.tar
 k3s ctr images import images/kubedb-redis-restic-plugin-v0.15.0-rc.0.tar
 k3s ctr images import images/kubedb-redis_exporter-1.66.0.tar
 k3s ctr images import images/kubedb-vcluster-plugin-kubedb-v0.0.1.tar
-k3s ctr images import images/kubestash-kubedump-v0.15.0-rc.0.tar
-k3s ctr images import images/kubestash-kubestash-v0.16.0-rc.0.tar
+k3s ctr images import images/kubestash-kubedump-v0.15.0.tar
+k3s ctr images import images/kubestash-kubestash-v0.16.0.tar
 k3s ctr images import images/kubevault-vault-operator-v0.19.0.tar
 k3s ctr images import images/kyverno-background-controller-v1.12.5.tar
 k3s ctr images import images/kyverno-cleanup-controller-v1.12.5.tar
