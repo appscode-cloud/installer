@@ -103,7 +103,7 @@ rules:
   - envoyproxies
   - backendtrafficpolicies
   - clienttrafficpolicies
-  verbs: ["get", "list", "watch"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 - apiGroups:
   - rbac.authorization.k8s.io
   resources:
