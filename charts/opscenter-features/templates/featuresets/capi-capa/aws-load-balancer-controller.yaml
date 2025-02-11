@@ -1,4 +1,10 @@
-{{ $defaults := dict }}
+{{ $defaults := printf `
+clusterName: %q
+serviceAccount:
+  name: aws-load-balancer-controller
+  create: false
+` $.Values.clusterMetadata.name
+  | fromYaml }}
 
 {{ $vals := dig "aws-load-balancer-controller" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $defaults $vals }}
