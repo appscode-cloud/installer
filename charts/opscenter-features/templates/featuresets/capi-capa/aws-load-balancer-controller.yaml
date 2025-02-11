@@ -1,0 +1,64 @@
+{{ $defaults := printf `
+clusterName: %q
+serviceAccount:
+  name: aws-load-balancer-controller
+  create: false
+` $.Values.clusterMetadata.name
+  | fromYaml }}
+
+{{ $vals := dig "aws-load-balancer-controller" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+{{ $capiProvider := dig "capi" "provider" "" .Values.clusterMetadata }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: aws-load-balancer-controller
+  labels:
+    app.kubernetes.io/part-of: capi-capa
+spec:
+  title: AWS Load Balancer Controller
+  description: |
+    AWS load balancer controller for EKS clusters
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: capi-capa
+  featureBlock: aws-load-balancer-controller
+  recommended: true
+  disabled: {{ not (eq $capiProvider "capa") }}
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        optional: controller
+        selector:
+          app.kubernetes.io/name: aws-load-balancer-controller
+      - group: apps
+        version: v1
+        kind: Deployment
+        optional: controller
+        selector:
+          app.kubernetes.io/component: aws-load-balancer-controller
+          app.kubernetes.io/managed-by: EKS
+          app.kubernetes.io/name: aws-load-balancer-controller
+  chart:
+    name: aws-load-balancer-controller
+    namespace: kube-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "aws-load-balancer-controller" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+  valuesFrom:
+  {{- if eq (include "clustermanager.openshift" $) "true" }}
+    - kind: ConfigMap
+      name: ace-openshift-scc
+      valuesKey: aws-load-balancer-controller.yaml
+  {{- end }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
