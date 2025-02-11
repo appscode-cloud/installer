@@ -111,7 +111,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-i
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-keda-add-ons-http-0.8.0.tar $IMAGE_REGISTRY/appscode-charts/keda-add-ons-http:0.8.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-keda-2.15.1.tar $IMAGE_REGISTRY/appscode-charts/keda:2.15.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kube-grafana-dashboards-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/kube-grafana-dashboards:v2023.10.1
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kube-prometheus-stack-68.0.0.tar $IMAGE_REGISTRY/appscode-charts/kube-prometheus-stack:68.0.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kube-prometheus-stack-69.2.2.tar $IMAGE_REGISTRY/appscode-charts/kube-prometheus-stack:69.2.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kube-ui-server-v2025.2.28.tar $IMAGE_REGISTRY/appscode-charts/kube-ui-server:v2025.2.28
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedb-opscenter-v2025.2.6-rc.0.tar $IMAGE_REGISTRY/appscode-charts/kubedb-opscenter:v2025.2.6-rc.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedb-provider-aws-v2024.1.31.tar $IMAGE_REGISTRY/appscode-charts/kubedb-provider-aws:v2024.1.31

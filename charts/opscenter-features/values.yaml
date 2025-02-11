@@ -112,7 +112,7 @@ helm:
     kube-grafana-dashboards:
       version: "v2023.10.1"
     kube-prometheus-stack:
-      version: "68.0.0"
+      version: "69.2.2"
     kubedb-ui-presets:
       version: "v2025.2.28"
     kube-ui-server:

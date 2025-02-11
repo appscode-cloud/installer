@@ -117,7 +117,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/keda-add-ons-http:0.8.0 images/appscode-charts-keda-add-ons-http-0.8.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/keda:2.15.1 images/appscode-charts-keda-2.15.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-grafana-dashboards:v2023.10.1 images/appscode-charts-kube-grafana-dashboards-v2023.10.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-prometheus-stack:68.0.0 images/appscode-charts-kube-prometheus-stack-68.0.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-prometheus-stack:69.2.2 images/appscode-charts-kube-prometheus-stack-69.2.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-ui-server:v2025.2.28 images/appscode-charts-kube-ui-server-v2025.2.28.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-opscenter:v2025.2.6-rc.0 images/appscode-charts-kubedb-opscenter-v2025.2.6-rc.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-provider-aws:v2024.1.31 images/appscode-charts-kubedb-provider-aws-v2024.1.31.tar

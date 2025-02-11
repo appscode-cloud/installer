@@ -109,7 +109,7 @@ k3s ctr images import images/appscode-charts-ingress-nginx-4.11.1.tar
 k3s ctr images import images/appscode-charts-keda-add-ons-http-0.8.0.tar
 k3s ctr images import images/appscode-charts-keda-2.15.1.tar
 k3s ctr images import images/appscode-charts-kube-grafana-dashboards-v2023.10.1.tar
-k3s ctr images import images/appscode-charts-kube-prometheus-stack-68.0.0.tar
+k3s ctr images import images/appscode-charts-kube-prometheus-stack-69.2.2.tar
 k3s ctr images import images/appscode-charts-kube-ui-server-v2025.2.28.tar
 k3s ctr images import images/appscode-charts-kubedb-opscenter-v2025.2.6-rc.0.tar
 k3s ctr images import images/appscode-charts-kubedb-provider-aws-v2024.1.31.tar

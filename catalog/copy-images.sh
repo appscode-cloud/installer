@@ -120,7 +120,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/in
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/keda-add-ons-http:0.8.0 $IMAGE_REGISTRY/appscode-charts/keda-add-ons-http:0.8.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/keda:2.15.1 $IMAGE_REGISTRY/appscode-charts/keda:2.15.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-grafana-dashboards:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/kube-grafana-dashboards:v2023.10.1
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-prometheus-stack:68.0.0 $IMAGE_REGISTRY/appscode-charts/kube-prometheus-stack:68.0.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-prometheus-stack:69.2.2 $IMAGE_REGISTRY/appscode-charts/kube-prometheus-stack:69.2.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-ui-server:v2025.2.28 $IMAGE_REGISTRY/appscode-charts/kube-ui-server:v2025.2.28
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-opscenter:v2025.2.6-rc.0 $IMAGE_REGISTRY/appscode-charts/kubedb-opscenter:v2025.2.6-rc.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-provider-aws:v2024.1.31 $IMAGE_REGISTRY/appscode-charts/kubedb-provider-aws:v2024.1.31
