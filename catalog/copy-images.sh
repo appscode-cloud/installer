@@ -75,7 +75,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ca
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-ops-manager:v2024.8.14 $IMAGE_REGISTRY/appscode-charts/capi-ops-manager:v2024.8.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/catalog-manager:v2025.2.28 $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2025.2.28
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17 $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager:v1.15.4 $IMAGE_REGISTRY/appscode-charts/cert-manager:v1.15.4
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager:v1.17.0 $IMAGE_REGISTRY/appscode-charts/cert-manager:v1.17.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-chartpreset-editor:v0.12.0 $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-chartpreset-editor:v0.12.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.12.0 $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.12.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-clusterchartpreset-editor:v0.12.0 $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-clusterchartpreset-editor:v0.12.0
