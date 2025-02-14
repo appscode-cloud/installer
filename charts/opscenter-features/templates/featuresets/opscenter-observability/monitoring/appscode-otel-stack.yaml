@@ -1,0 +1,177 @@
+{{ $kps := printf `
+kube-prometheus-stack:
+  alertmanager:
+    alertmanagerSpec:
+      image:
+        registry: %s
+
+  prometheusOperator:
+    admissionWebhooks:
+      patch:
+        image:
+          registry: %s
+    image:
+      registry: %s
+    prometheusConfigReloader:
+      image:
+        registry: %s
+    thanosImage:
+      registry: %s
+  prometheus:
+    prometheusSpec:
+      image:
+        registry: %s
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            # storageClassName: ""
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 50Gi
+      serviceMonitorSelector:
+        matchLabels:
+          scrape: "disabled"
+      additionalArgs:
+      - name: web.enable-otlp-receiver
+        value: ""
+  thanosRuler:
+    thanosRulerSpec:
+      image:
+        registry: %s
+  prometheus-node-exporter:
+    image:
+      registry: %s
+    # run node-exporter on dedicated db nodes
+    tolerations:
+      - operator: Exists
+    prometheus:
+      monitor:
+        relabelings:
+        - sourceLabels: [__meta_kubernetes_pod_node_name]
+          separator: ;
+          regex: ^(.*)$
+          targetLabel: node
+          replacement: $1
+          action: replace
+  grafana:
+    enabled: false
+    # docker.io
+    image:
+      repository: %s
+    initChownData:
+      image:
+        repository: %s
+    testFramework:
+      image: %s
+    downloadDashboardsImage:
+      repository: %s
+    imageRenderer:
+      image:
+        repository: %s
+    # quay.io
+    sidecar:
+      image:
+        repository: %s
+  kubernetesServiceMonitors:
+   enabled: false
+  kubeApiServer:
+    enabled: false
+  kubelet:
+    enabled: false
+  kubeControllerManager:
+    enabled: false
+  kubeDns:
+    enabled: false
+  coreDns:
+    enabled: false
+  kubeEtcd:
+    enabled: false
+  kubeScheduler:
+    enabled: false
+  kubeProxy:
+    enabled: false
+  kubeStateMetrics:
+    enabled: false
+  nodeExporter:
+    enabled: false
+` (include "registry.quay" $)
+  (include "registry.kubernetes" $)
+  (include "registry.quay" $)
+  (include "registry.quay" $)
+  (include "registry.quay" $)
+  (include "registry.quay" $)
+  (include "registry.quay" $)
+  (include "registry.quay" $)
+  (include "image.dockerHub" (merge (dict "_repo" "grafana/grafana") $))
+  (include "image.dockerLibrary" (merge (dict "_repo" "busybox") $))
+  (include "image.dockerHub" (merge (dict "_repo" "bats/bats:1.11.0") $))
+  (include "image.dockerHub" (merge (dict "_repo" "curlimages/curl") $))
+  (include "image.dockerHub" (merge (dict "_repo" "grafana/grafana-image-renderer") $))
+  (include "image.quay" (merge (dict "_repo" "kiwigrid/k8s-sidecar") $))
+  | fromYaml }}
+
+{{ $vals := dig "opentelemetry-collector" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite dict $kps }}
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: appscode-otel-stack
+  labels:
+    app.kubernetes.io/part-of: opscenter-observability
+spec:
+  title: Appscode OTel Stack (ALPHA)
+  description: |
+    Collection of components to monitor Kubernetes native applications.
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-observability
+  featureBlock: appscode-otel-stack
+  recommended: false
+  requirements:
+    features:
+      - kubedb
+      - monitoring-operator
+      - cert-manager
+  readinessChecks:
+    resources:
+      - group: monitoring.coreos.com
+        version: v1
+        kind: Prometheus
+    workloads:
+      - group: apps
+        version: v1
+        kind: StatefulSet
+        optional: "appscode-otel-stack"
+        selector:
+          app: appscode-otel-stack-prometheus
+          app.kubernetes.io/instance: appscode-otel-stack
+          app.kubernetes.io/part-of: appscode-otel-stack
+      # rancher-monitoring
+      - group: apps
+        version: v1
+        kind: StatefulSet
+        optional: "appscode-otel-stack"
+        selector:
+          app: rancher-monitoring-prometheus
+          app.kubernetes.io/instance: rancher-monitoring
+          app.kubernetes.io/part-of: rancher-monitoring
+  chart:
+    name: appscode-otel-stack
+    namespace: monitoring
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "appscode-otel-stack" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+  valuesFrom:
+  {{- if eq (include "clustermanager.openshift" $) "true" }}
+    - kind: ConfigMap
+      name: ace-openshift-scc
+      valuesKey: opentelemetry-kube-stack.yaml
+  {{- end }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
