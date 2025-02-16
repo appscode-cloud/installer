@@ -139,8 +139,8 @@ opentelemetry-kube-stack:
 `
   (include "image.dockerHub" (merge (dict "_repo" "otel/opentelemetry-collector-contrib") $))
   (include "image.ghcr" (merge (dict "_repo" "open-telemetry/opentelemetry-operator/target-allocator") $))
-  ((include "kubectl.image" $) | split ":" | first)
-  ((include "kubectl.image" $) | split ":" | last)
+  ((include "kubectl.image" $) | splitList ":" | first)
+  ((include "kubectl.image" $) | splitList ":" | last)
   (include "image.dockerHub" (merge (dict "_repo" "otel/opentelemetry-collector-k8s") $))
   (include "image.ghcr" (merge (dict "_repo" "open-telemetry/opentelemetry-operator/opentelemetry-operator") $))
   (include "image.dockerHub" (merge (dict "_repo" "otel/opentelemetry-collector-k8s") $))

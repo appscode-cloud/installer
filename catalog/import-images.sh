@@ -36,6 +36,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/falcosecurity-fal
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ace-installer-v2025.2.28.tar $IMAGE_REGISTRY/appscode-charts/ace-installer:v2025.2.28
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ace-v2025.2.28.tar $IMAGE_REGISTRY/appscode-charts/ace:v2025.2.28
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-aceshifter-v2025.2.28.tar $IMAGE_REGISTRY/appscode-charts/aceshifter:v2025.2.28
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-appscode-otel-stack-v2025.2.28.tar $IMAGE_REGISTRY/appscode-charts/appscode-otel-stack:v2025.2.28
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-cassandraautoscaler-editor-v0.13.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-cassandraautoscaler-editor:v0.13.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-clickhouseautoscaler-editor-v0.13.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-clickhouseautoscaler-editor:v0.13.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-druidautoscaler-editor-v0.13.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-druidautoscaler-editor:v0.13.0
@@ -282,9 +283,9 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-aceshift
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-b3-v2025.2.28.tar $IMAGE_REGISTRY/appscode/b3:v2025.2.28
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-capa-vpc-peering-operator-v0.0.4.tar $IMAGE_REGISTRY/appscode/capa-vpc-peering-operator:v0.0.4
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-capi-ops-manager-v0.0.2.tar $IMAGE_REGISTRY/appscode/capi-ops-manager:v0.0.2
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-catalog-manager-v0.2.1.tar $IMAGE_REGISTRY/appscode/catalog-manager:v0.2.1
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-cluster-presets-v0.0.7.tar $IMAGE_REGISTRY/appscode/cluster-presets:v0.0.7
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-cluster-ui-0.9.13.tar $IMAGE_REGISTRY/appscode/cluster-ui:0.9.13
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-catalog-manager-v0.2.2.tar $IMAGE_REGISTRY/appscode/catalog-manager:v0.2.2
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-cluster-presets-v0.0.8.tar $IMAGE_REGISTRY/appscode/cluster-presets:v0.0.8
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-cluster-ui-0.9.14.tar $IMAGE_REGISTRY/appscode/cluster-ui:0.9.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-config-syncer-v0.15.2-ent.tar $IMAGE_REGISTRY/appscode/config-syncer:v0.15.2-ent
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-csi-driver-cacerts-v0.1.0.tar $IMAGE_REGISTRY/appscode/csi-driver-cacerts:v0.1.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-external-dns-operator-v0.0.8.tar $IMAGE_REGISTRY/appscode/external-dns-operator:v0.0.8
@@ -300,6 +301,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-k8s-wait
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rbac-proxy-v0.11.0.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.11.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rbac-proxy-v0.13.0.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.13.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rbac-proxy-v0.15.0.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.15.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rbac-proxy-v0.18.2.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.18.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-ui-server-v0.0.50.tar $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.50
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-nonroot-1.31.tar $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.31
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubedb-ui-0.7.13.tar $IMAGE_REGISTRY/appscode/kubedb-ui:0.7.13
@@ -309,7 +311,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-openfga-
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-operator-shard-manager-v0.0.1.tar $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-panopticon-v0.0.16.tar $IMAGE_REGISTRY/appscode/panopticon:v0.0.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-petset-v0.0.7.tar $IMAGE_REGISTRY/appscode/petset:v0.0.7
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-platform-ui-0.8.12.tar $IMAGE_REGISTRY/appscode/platform-ui:0.8.12
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-platform-ui-0.8.13.tar $IMAGE_REGISTRY/appscode/platform-ui:0.8.13
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-prom-authproxy-v0.0.1.tar $IMAGE_REGISTRY/appscode/prom-authproxy:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-reloader-v1.0.79.tar $IMAGE_REGISTRY/appscode/reloader:v1.0.79
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-s3proxy-sha-a82ca68.tar $IMAGE_REGISTRY/appscode/s3proxy:sha-a82ca68
