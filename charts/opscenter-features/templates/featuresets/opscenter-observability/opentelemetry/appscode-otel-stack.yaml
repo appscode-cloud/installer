@@ -111,8 +111,45 @@ kube-prometheus-stack:
   (include "image.quay" (merge (dict "_repo" "kiwigrid/k8s-sidecar") $))
   | fromYaml }}
 
-{{ $vals := dig "opentelemetry-collector" "values" (dict) .Values.helm.releases }}
-{{ $vals = mergeOverwrite dict $kps }}
+{{ $oks := printf `
+opentelemetry-kube-stack:
+  collectors:
+    cluster:
+      image:
+        repository: %s
+    daemon:
+      targetAllocator:
+        image: %s:0.118.0
+  cleanupJob:
+    image:
+      repository: %q
+      tag: %q
+  defaultCRConfig:
+    image:
+      repository: %s
+  opentelemetry-operator:
+    manager:
+      image:
+        repository: %s
+      collectorImage:
+        repository: %s
+    kubeRBACProxy:
+      image:
+        repository: %s
+`
+  (include "image.dockerHub" (merge (dict "_repo" "otel/opentelemetry-collector-contrib") $))
+  (include "image.ghcr" (merge (dict "_repo" "open-telemetry/opentelemetry-operator/target-allocator") $))
+  ((include "kubectl.image" $) | split ":" | first)
+  ((include "kubectl.image" $) | split ":" | last)
+  (include "image.dockerHub" (merge (dict "_repo" "otel/opentelemetry-collector-k8s") $))
+  (include "image.ghcr" (merge (dict "_repo" "open-telemetry/opentelemetry-operator/opentelemetry-operator") $))
+  (include "image.dockerHub" (merge (dict "_repo" "otel/opentelemetry-collector-k8s") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode/kube-rbac-proxy") $))
+  | fromYaml }}
+
+{{ $vals := dig "appscode-otel-stack" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite dict $kps $oks $vals }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
