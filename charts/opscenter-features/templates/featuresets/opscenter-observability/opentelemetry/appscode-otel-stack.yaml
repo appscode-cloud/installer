@@ -157,7 +157,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: opscenter-observability
 spec:
-  title: Appscode OTel Stack (ALPHA)
+  title: AppsCode OpenTelemetry Stack (ALPHA)
   description: |
     Collection of components to monitor Kubernetes native applications.
   icons:
