@@ -70,7 +70,8 @@ gateway-dns:
 
 cluster:
   tls:
-    issuer: "ca" # ca,none
+    # possible values: ca,none,vault. none for client orgs, ca othereise
+    issuer: "ca"
     ca:
       cert: ""
       key: ""
