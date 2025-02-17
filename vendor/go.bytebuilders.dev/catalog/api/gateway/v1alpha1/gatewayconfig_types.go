@@ -247,8 +247,13 @@ type EchoserverSpec struct {
 	SecurityContext *core.SecurityContext `json:"securityContext"`
 }
 
-// +kubebuilder:validation:Enum=ca
+// +kubebuilder:validation:Enum=ca;none
 type ClusterTLSIssuerType string
+
+const (
+	ClusterTLSIssuerTypeCA   ClusterTLSIssuerType = "ca"
+	ClusterTLSIssuerTypeNone ClusterTLSIssuerType = "none"
+)
 
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status

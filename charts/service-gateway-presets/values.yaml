@@ -67,7 +67,7 @@ gateway-dns:
 
 cluster:
   tls:
-    issuer: "ca" # ca,vault
+    issuer: "ca" # ca,none
     ca:
       cert: ""
       key: ""
