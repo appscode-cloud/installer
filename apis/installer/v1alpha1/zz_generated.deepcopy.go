@@ -7395,6 +7395,13 @@ func (in *OpenfgaSpec) DeepCopyInto(out *OpenfgaSpec) {
 		*out = make([]v1.LocalObjectReference, len(*in))
 		copy(*out, *in)
 	}
+	if in.CommonLabels != nil {
+		in, out := &in.CommonLabels, &out.CommonLabels
+		*out = make(map[string]string, len(*in))
+		for key, val := range *in {
+			(*out)[key] = val
+		}
+	}
 	in.ServiceAccount.DeepCopyInto(&out.ServiceAccount)
 	if in.Annotations != nil {
 		in, out := &in.Annotations, &out.Annotations
@@ -7405,6 +7412,13 @@ func (in *OpenfgaSpec) DeepCopyInto(out *OpenfgaSpec) {
 	}
 	if in.PodAnnotations != nil {
 		in, out := &in.PodAnnotations, &out.PodAnnotations
+		*out = make(map[string]string, len(*in))
+		for key, val := range *in {
+			(*out)[key] = val
+		}
+	}
+	if in.PodExtraLabels != nil {
+		in, out := &in.PodExtraLabels, &out.PodExtraLabels
 		*out = make(map[string]string, len(*in))
 		for key, val := range *in {
 			(*out)[key] = val

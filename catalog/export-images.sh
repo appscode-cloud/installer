@@ -313,7 +313,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:0.7.13 images/appscode-kubedb-ui-0.7.13.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.20 images/appscode-license-proxyserver-v0.0.20.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest images/appscode-maxmind-geoip-city-mmdb-latest.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.6.0 images/appscode-openfga-v1.6.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.8.5 images/appscode-openfga-v1.8.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 images/appscode-operator-shard-manager-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.16 images/appscode-panopticon-v0.0.16.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.7 images/appscode-petset-v0.0.7.tar

@@ -10399,6 +10399,10 @@ properties:
         - limit
         - ttl
         type: object
+      commonLabels:
+        additionalProperties:
+          type: string
+        type: object
       customLivenessProbe:
         properties:
           exec:
@@ -10655,6 +10659,8 @@ properties:
             type: string
           maxOpenConns:
             type: string
+          migrationType:
+            type: string
           migrations:
             properties:
               image:
@@ -10719,6 +10725,7 @@ properties:
         - maxCacheSize
         - maxIdleConns
         - maxOpenConns
+        - migrationType
         - migrations
         - uri
         - uriSecret
@@ -14095,6 +14102,10 @@ properties:
         additionalProperties:
           type: string
         type: object
+      podExtraLabels:
+        additionalProperties:
+          type: string
+        type: object
       podSecurityContext:
         properties:
           appArmorProfile:
@@ -15301,6 +15312,7 @@ properties:
     - autoscaling
     - changelogHorizonOffset
     - checkQueryCache
+    - commonLabels
     - customLivenessProbe
     - customReadinessProbe
     - customStartupProbe
@@ -15338,6 +15350,7 @@ properties:
     - nodeSelector
     - playground
     - podAnnotations
+    - podExtraLabels
     - podSecurityContext
     - postgresql
     - profiler
