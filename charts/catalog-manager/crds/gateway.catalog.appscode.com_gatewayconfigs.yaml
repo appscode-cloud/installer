@@ -102,6 +102,7 @@ spec:
                       issuer:
                         enum:
                         - ca
+                        - none
                         type: string
                     required:
                     - ca
