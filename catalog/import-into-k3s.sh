@@ -65,7 +65,7 @@ k3s ctr images import images/appscode-charts-capi-catalog-v2024.10.24.tar
 k3s ctr images import images/appscode-charts-capi-ops-manager-v2024.8.14.tar
 k3s ctr images import images/appscode-charts-catalog-manager-v2025.2.28.tar
 k3s ctr images import images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.10.17.tar
-k3s ctr images import images/appscode-charts-cert-manager-v1.17.0.tar
+k3s ctr images import images/appscode-charts-cert-manager-v1.17.1.tar
 k3s ctr images import images/appscode-charts-chartsxhelmdev-chartpreset-editor-v0.13.0.tar
 k3s ctr images import images/appscode-charts-chartsxhelmdev-clusterchartpreset-editor-options-v0.13.0.tar
 k3s ctr images import images/appscode-charts-chartsxhelmdev-clusterchartpreset-editor-v0.13.0.tar

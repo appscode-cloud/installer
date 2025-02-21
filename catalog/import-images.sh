@@ -67,7 +67,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-c
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-capi-ops-manager-v2024.8.14.tar $IMAGE_REGISTRY/appscode-charts/capi-ops-manager:v2024.8.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-catalog-manager-v2025.2.28.tar $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2025.2.28
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.10.17.tar $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cert-manager-v1.17.0.tar $IMAGE_REGISTRY/appscode-charts/cert-manager:v1.17.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cert-manager-v1.17.1.tar $IMAGE_REGISTRY/appscode-charts/cert-manager:v1.17.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-chartsxhelmdev-chartpreset-editor-v0.13.0.tar $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-chartpreset-editor:v0.13.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-chartsxhelmdev-clusterchartpreset-editor-options-v0.13.0.tar $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.13.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-chartsxhelmdev-clusterchartpreset-editor-v0.13.0.tar $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-clusterchartpreset-editor:v0.13.0
