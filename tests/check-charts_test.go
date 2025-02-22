@@ -37,9 +37,7 @@ func Test_CheckImageArchitectures(t *testing.T) {
 		filepath.Join(dir, "catalog", "feature-charts.yaml"),
 		filepath.Join(dir, "catalog", "imagelist.yaml"),
 		filepath.Join(dir, "catalog", "reusable-ui-charts.yaml"),
-	}, []string{
-		"ghcr.io/appscode/inbox-server:latest",
-	}); err != nil {
+	}, []string{}); err != nil {
 		t.Errorf("CheckImageArchitectures() error = %v", err)
 	}
 }
