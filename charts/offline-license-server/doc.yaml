@@ -1,0 +1,18 @@
+project:
+  name: Offline License Server by AppsCode
+  shortName: Offline License Server
+  url: https://github.com/appscode-cloud
+  description: Offline License Server
+  app: an Offline License Server
+repository:
+  url: https://charts.appscode.com/stable
+  name: appscode
+chart:
+  name: offline-license-server
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.29+
+release:
+  name: offline-license-server
+  namespace: ace
