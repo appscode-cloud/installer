@@ -40,7 +40,7 @@ spec:
           {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          workingDir: /root
+          workingDir: /root/app
           {{- with .Values.args }}
           args:
             {{- toYaml . | nindent 12 }}
@@ -49,18 +49,18 @@ spec:
           {{- range $key, $val := .Values.envVars }}
           {{- if eq $key "GOOGLE_APPLICATION_CREDENTIALS" }}
             - name: {{ $key }}
-              value: /root/google/gcloud.json
+              value: /root/app/google/gcloud.json
           {{- else }}
             - name: {{ $key }}
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "offline-license-server.fullname" . }}-env
+                  name: {{ include "offline-license-server.fullname" $ }}-env
                   key: {{ $key }}
           {{- end }}
           {{- end }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.port }}
+              containerPort: 4000
               protocol: TCP
           {{- with .Values.livenessProbe }}
           livenessProbe:
@@ -78,9 +78,18 @@ spec:
             - name: appdir
               mountPath: /root/app
             - name: maxmind-mmdb
-              mountPath: /data/maxmind
+              mountPath: /root/maxmind
             - name: gcloud-cred
-              mountPath: /root/google
+              mountPath: /root/app/google/gcloud.json
+              subPath: gcloud.json
+              readOnly: true
+            - name: gcloud-sa
+              mountPath: /root/app/google/credentials.json
+              subPath: credentials.json
+              readOnly: true
+            - name: gcloud-token
+              mountPath: /root/app/google/token.json
+              subPath: token.json
               readOnly: true
           {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
@@ -91,10 +100,10 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.geoipdb.repository }}:{{ .Values.geoipdb.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.geoipdb.pullPolicy }}
-          command: [ "sh", "-c", "cp /GeoLite2-City.mmdb /data/maxmind/GeoLite2-City.mmdb" ]
+          command: [ "sh", "-c", "cp /GeoLite2-City.mmdb /root/maxmind/GeoLite2-City.mmdb" ]
           volumeMounts:
             - name: maxmind-mmdb
-              mountPath: /data/maxmind
+              mountPath: /root/maxmind
       volumes:
         - name: appdir
           emptyDir: {}
@@ -102,10 +111,19 @@ spec:
           emptyDir: {}
         - name: gcloud-cred
           secret:
+            defaultMode: 420
             secretName: {{ include "offline-license-server.fullname" . }}-env
             items:
             - key: GOOGLE_APPLICATION_CREDENTIALS
               path: gcloud.json
+        - name: gcloud-sa
+          secret:
+            defaultMode: 420
+            secretName: {{ include "offline-license-server.fullname" . }}-env
+        - name: gcloud-token
+          secret:
+            defaultMode: 420
+            secretName: {{ include "offline-license-server.fullname" . }}-env
       {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
