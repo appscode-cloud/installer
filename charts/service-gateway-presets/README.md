@@ -17,7 +17,7 @@ This chart deploys ACE Service Gateway Presets on a [Kubernetes](http://kubernet
 
 ## Prerequisites
 
-- Kubernetes 1.21+
+- Kubernetes 1.29+
 
 ## Installing the Chart
 

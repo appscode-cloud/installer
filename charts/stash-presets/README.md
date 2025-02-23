@@ -17,7 +17,7 @@ This chart deploys Stash Presets on a [Kubernetes](http://kubernetes.io) cluster
 
 ## Prerequisites
 
-- Kubernetes 1.21+
+- Kubernetes 1.29+
 
 ## Installing the Chart
 

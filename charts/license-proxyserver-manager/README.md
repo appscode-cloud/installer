@@ -17,7 +17,7 @@ This chart deploys an AppsCode License Proxy Server OCM Addon Manager on a [Kube
 
 ## Prerequisites
 
-- Kubernetes 1.21+
+- Kubernetes 1.29+
 
 ## Installing the Chart
 

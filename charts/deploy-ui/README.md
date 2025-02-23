@@ -17,7 +17,7 @@ This chart deploys a Deploy UI on a [Kubernetes](http://kubernetes.io) cluster u
 
 ## Prerequisites
 
-- Kubernetes 1.21+
+- Kubernetes 1.29+
 
 ## Installing the Chart
 

@@ -17,7 +17,7 @@ This chart deploys a ACE Opscenter Configurator on a [Kubernetes](http://kuberne
 
 ## Prerequisites
 
-- Kubernetes 1.21+
+- Kubernetes 1.29+
 
 ## Installing the Chart
 

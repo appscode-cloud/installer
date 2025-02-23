@@ -17,7 +17,7 @@ This chart deploys a Kubernetes license proxyserver on a [Kubernetes](http://kub
 
 ## Prerequisites
 
-- Kubernetes 1.21+
+- Kubernetes 1.29+
 
 ## Installing the Chart
 

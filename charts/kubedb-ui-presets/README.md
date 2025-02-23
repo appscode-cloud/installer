@@ -17,7 +17,7 @@ This chart deploys KubeDB UI Presets on a [Kubernetes](http://kubernetes.io) clu
 
 ## Prerequisites
 
-- Kubernetes 1.21+
+- Kubernetes 1.29+
 
 ## Installing the Chart
 

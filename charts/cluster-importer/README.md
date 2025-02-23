@@ -17,7 +17,7 @@ This chart deploys a Cluster Importer on a [Kubernetes](http://kubernetes.io) cl
 
 ## Prerequisites
 
-- Kubernetes 1.21+
+- Kubernetes 1.29+
 
 ## Installing the Chart
 

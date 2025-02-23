@@ -17,7 +17,7 @@ This chart deploys a cert-manager webhook on a [Kubernetes](http://kubernetes.io
 
 ## Prerequisites
 
-- Kubernetes 1.21+
+- Kubernetes 1.29+
 
 ## Installing the Chart
 

@@ -17,7 +17,7 @@ This chart deploys ACE Centralized Vault Service on a [Kubernetes](http://kubern
 
 ## Prerequisites
 
-- Kubernetes 1.21+
+- Kubernetes 1.29+
 
 ## Installing the Chart
 

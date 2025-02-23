@@ -17,7 +17,7 @@ This chart deploys a Cloudflare DNS Proxy server on a [Kubernetes](http://kubern
 
 ## Prerequisites
 
-- Kubernetes 1.21+
+- Kubernetes 1.29+
 
 ## Installing the Chart
 
