@@ -1,0 +1,123 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "offline-license-server.fullname" . }}
+  labels:
+    {{- include "offline-license-server.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "offline-license-server.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "offline-license-server.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "offline-license-server.serviceAccountName" . }}
+      {{- with .Values.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          {{- with .Values.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          workingDir: /root
+          {{- with .Values.args }}
+          args:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          env:
+          {{- range $key, $val := .Values.envVars }}
+          {{- if eq $key "GOOGLE_APPLICATION_CREDENTIALS" }}
+            - name: {{ $key }}
+              value: /root/google/gcloud.json
+          {{- else }}
+            - name: {{ $key }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "offline-license-server.fullname" . }}-env
+                  key: {{ $key }}
+          {{- end }}
+          {{- end }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          {{- with .Values.livenessProbe }}
+          livenessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.readinessProbe }}
+          readinessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          volumeMounts:
+            - name: appdir
+              mountPath: /root/app
+            - name: maxmind-mmdb
+              mountPath: /data/maxmind
+            - name: gcloud-cred
+              mountPath: /root/google
+              readOnly: true
+          {{- with .Values.volumeMounts }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+      initContainers:
+        - name: maxmind-mmdb
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.geoipdb.repository }}:{{ .Values.geoipdb.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.geoipdb.pullPolicy }}
+          command: [ "sh", "-c", "cp /GeoLite2-City.mmdb /data/maxmind/GeoLite2-City.mmdb" ]
+          volumeMounts:
+            - name: maxmind-mmdb
+              mountPath: /data/maxmind
+      volumes:
+        - name: appdir
+          emptyDir: {}
+        - name: maxmind-mmdb
+          emptyDir: {}
+        - name: gcloud-cred
+          secret:
+            secretName: {{ include "offline-license-server.fullname" . }}-env
+            items:
+            - key: GOOGLE_APPLICATION_CREDENTIALS
+              path: gcloud.json
+      {{- with .Values.volumes }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
