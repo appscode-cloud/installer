@@ -149,6 +149,15 @@ properties:
     properties:
       image:
         type: string
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      provisionerType:
+        enum:
+        - Deployment
+        - DaemonSet
+        type: string
       securityContext:
         properties:
           allowPrivilegeEscalation:
@@ -256,6 +265,7 @@ properties:
         type: string
     required:
     - image
+    - provisionerType
     - service
     - tag
     type: object

@@ -199,16 +199,30 @@ type ClusterTLS struct {
 }
 
 type EnvoySpec struct {
-	Image string `json:"image"`
-	Tag   string `json:"tag"`
+	ProvisionerType ProvisionerType `json:"provisionerType"`
+	Image           string          `json:"image"`
+	Tag             string          `json:"tag"`
+	//+optional
+	NodeSelector map[string]string `json:"nodeSelector"`
 	//+optional
 	SecurityContext *core.SecurityContext `json:"securityContext"`
 	Service         EnvoyServiceSpec      `json:"service"`
 }
 
+// +kubebuilder:validation:Enum=Deployment;DaemonSet
+type ProvisionerType string
+
+const (
+	ProvisionerTypeDeployment ProvisionerType = "Deployment"
+	ProvisionerTypeDaemonSet  ProvisionerType = "DaemonSet"
+)
+
 type EnvoyValues struct {
-	Image string `json:"image"`
-	Tag   string `json:"tag"`
+	ProvisionerType ProvisionerType `json:"provisionerType"`
+	Image           string          `json:"image"`
+	Tag             string          `json:"tag"`
+	//+optional
+	NodeSelector map[string]string `json:"nodeSelector"`
 	//+optional
 	SecurityContext *core.SecurityContext `json:"securityContext"`
 	Service         EnvoyServiceValues    `json:"service"`
