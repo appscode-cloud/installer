@@ -17,7 +17,7 @@
 - ghcr.io/appscode/b3:v2025.2.28
 - ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4
 - ghcr.io/appscode/capi-ops-manager:v0.0.2
-- ghcr.io/appscode/catalog-manager:v0.2.2
+- ghcr.io/appscode/catalog-manager:v0.2.3
 - ghcr.io/appscode/cluster-presets:v0.0.8
 - ghcr.io/appscode/cluster-ui:0.9.14
 - ghcr.io/appscode/config-syncer:v0.15.2-ent
