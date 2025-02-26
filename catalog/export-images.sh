@@ -289,7 +289,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/aceshif
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/b3:v2025.2.28 images/appscode-b3-v2025.2.28.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 images/appscode-capa-vpc-peering-operator-v0.0.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capi-ops-manager:v0.0.2 images/appscode-capi-ops-manager-v0.0.2.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog-manager:v0.2.2 images/appscode-catalog-manager-v0.2.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog-manager:v0.2.3 images/appscode-catalog-manager-v0.2.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-presets:v0.0.8 images/appscode-cluster-presets-v0.0.8.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:0.9.14 images/appscode-cluster-ui-0.9.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/config-syncer:v0.15.2-ent images/appscode-config-syncer-v0.15.2-ent.tar

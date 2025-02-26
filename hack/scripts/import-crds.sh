@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-APPSCODE_CLOUD_CATALOG_TAG=${APPSCODE_CLOUD_CATALOG_TAG:-v0.0.11}
+APPSCODE_CLOUD_CATALOG_TAG=${APPSCODE_CLOUD_CATALOG_TAG:-master}
 APPSCODE_CLOUD_KUBE_BIND_TAG=${APPSCODE_CLOUD_KUBE_BIND_TAG:-master}
 ENVOYPROXY_GATEWAY_TAG=${ENVOYPROXY_GATEWAY_TAG:-v1.1.2}
 FLUXCD_HELM_CONTROLLER=${FLUXCD_HELM_CONTROLLER:-v1.0.1}
@@ -23,12 +23,13 @@ KLUSTER_MANAGER_CLUSTER_AUTH_TAG=${KLUSTER_MANAGER_CLUSTER_AUTH_TAG:-master}
 KMODULES_RESOURCE_METADATA_TAG=${KMODULES_RESOURCE_METADATA_TAG:-master}
 KUBEOPS_CSI_DRIVER_CACERTS_TAG=${KUBEOPS_CSI_DRIVER_CACERTS_TAG:-v0.0.3}
 KUBEOPS_EXTERNAL_DNS_OPERATOR=${KUBEOPS_EXTERNAL_DNS_OPERATOR:-v0.0.9}
+KUBEOPS_PETSET_TAG=${KUBEOPS_PETSET_TAG:-v0.0.7}
 KUBERNETES_SIGS_GATEWAY_API_TAG=${KUBERNETES_SIGS_GATEWAY_API_TAG:-v1.1.0}
 KUBESTASH_APIMACHINERY_TAG=${KUBESTASH_APIMACHINERY_TAG:-v0.16.0}
 KUBEVAULT_APIMACHINERY_TAG=${KUBEVAULT_APIMACHINERY_TAG:-v0.20.0}
 OPEN_CLUSTER_MANAGEMENT_IO_API_TAG=${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG:-v0.15.0}
 PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR=${PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR:-v0.80.0}
-X_HELM_APIMACHINERY_TAG=${X_HELM_APIMACHINERY_TAG:-v0.0.16}
+X_HELM_APIMACHINERY_TAG=${X_HELM_APIMACHINERY_TAG:-v0.0.17}
 
 crd-importer \
     --input=https://github.com/kubeops/external-dns-operator/raw/${KUBEOPS_EXTERNAL_DNS_OPERATOR}/crds/external-dns.appscode.com_externaldnses.yaml \
@@ -68,8 +69,8 @@ crd-importer \
     --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_singlestorebindings.yaml \
     --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_solrbindings.yaml \
     --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/catalog.appscode.com_zookeeperbindings.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/master/crds/gateway.catalog.appscode.com_gatewayconfigs.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/master/crds/gateway.catalog.appscode.com_gatewaypresets.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/gateway.catalog.appscode.com_gatewayconfigs.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/gateway.catalog.appscode.com_gatewaypresets.yaml \
     --out=./charts/catalog-manager/crds
 
 crd-importer \
@@ -77,10 +78,10 @@ crd-importer \
     --out=./charts/catalog-manager/crds
 
 crd-importer \
-    --input=https://github.com/kmodules/resource-metadata/raw/master/crds/node.k8s.appscode.com_nodetopologies.yaml \
-    --input=https://github.com/kubeops/petset/raw/master/crds/apps.k8s.appscode.com_placementpolicies.yaml \
-    --input=https://github.com/x-helm/apimachinery/raw/master/crds/charts.x-helm.dev_chartpresets.yaml \
-    --input=https://github.com/x-helm/apimachinery/raw/master/crds/charts.x-helm.dev_clusterchartpresets.yaml \
+    --input=https://github.com/kmodules/resource-metadata/raw/${KMODULES_RESOURCE_METADATA_TAG}/crds/node.k8s.appscode.com_nodetopologies.yaml \
+    --input=https://github.com/kubeops/petset/raw/${KUBEOPS_PETSET_TAG}/crds/apps.k8s.appscode.com_placementpolicies.yaml \
+    --input=https://github.com/x-helm/apimachinery/raw/${X_HELM_APIMACHINERY_TAG}/crds/charts.x-helm.dev_chartpresets.yaml \
+    --input=https://github.com/x-helm/apimachinery/raw/${X_HELM_APIMACHINERY_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
     --out=./charts/cluster-presets/crds
 
 crd-importer \
@@ -112,8 +113,8 @@ crd-importer \
     --out=./charts/service-gateway/crds
 
 crd-importer \
-    --input=https://github.com/appscode-cloud/catalog/raw/master/crds/gateway.catalog.appscode.com_gatewayconfigs.yaml \
-    --input=https://github.com/appscode-cloud/catalog/raw/master/crds/gateway.catalog.appscode.com_gatewaypresets.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/gateway.catalog.appscode.com_gatewayconfigs.yaml \
+    --input=https://github.com/appscode-cloud/catalog/raw/${APPSCODE_CLOUD_CATALOG_TAG}/crds/gateway.catalog.appscode.com_gatewaypresets.yaml \
     --out=./charts/service-gateway-presets/crds
 
 crd-importer \
