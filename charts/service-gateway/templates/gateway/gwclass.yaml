@@ -33,11 +33,20 @@ spec:
   provider:
     type: Kubernetes
     kubernetes:
+      {{- if eq .Values.envoy.provisionerType "Deployment" }}
       envoyDeployment:
+      {{- else }}
+      envoyDaemonSet:
+      {{- end }}
         container:
           image: "{{ .Values.envoy.image }}:{{ .Values.envoy.tag }}"
           securityContext:
             {{- toYaml .Values.envoy.securityContext | nindent 12 }}
+        {{- if .Values.envoy.nodeSelector }}
+        pod:
+          nodeSelector:
+            {{- toYaml .Values.envoy.nodeSelector | nindent 12 }}
+        {{- end }}
         patch:
           value:
             spec:

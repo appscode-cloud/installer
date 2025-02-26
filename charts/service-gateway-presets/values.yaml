@@ -73,6 +73,7 @@ cluster:
       key: ""
 
 envoy:
+  provisionerType: Deployment # DaemonSet
   image: ghcr.io/voyagermesh/envoy
   tag: "v1.31.2-ac"
   service:
@@ -81,8 +82,9 @@ envoy:
     # Default node portmanager range to use for gateway exposure
     nodeportRange: "30000-32767"
     type: LoadBalancer # ClusterIP, LoadBalancer, NodePort
-    externalTrafficPolicy: Cluster
+    externalTrafficPolicy: Cluster # Local
     # externalIPs: []
+  nodeSelector: {}
   securityContext: # +doc-gen:break
     allowPrivilegeEscalation: false
     capabilities:
