@@ -1308,6 +1308,7 @@ properties:
         type: object
     required:
       - exposeVia
+      - nodeSelector
       - replicas
     type: object
   openfga:

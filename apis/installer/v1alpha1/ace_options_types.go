@@ -202,9 +202,8 @@ type AceOptionsNatsSettings struct {
 	ExposeVia ExposeNatsVia `json:"exposeVia"`
 	Replics   int           `json:"replicas"`
 	//+optional
-	Resources core.ResourceRequirements `json:"resources"`
-	//+optional
-	NodeSelector map[string]string `json:"nodeSelector"`
+	Resources    core.ResourceRequirements `json:"resources"`
+	NodeSelector map[string]string         `json:"nodeSelector"`
 }
 
 type AceOptionsPlatformInfra struct {
