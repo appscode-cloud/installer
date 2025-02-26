@@ -18,8 +18,16 @@ properties:
         - default
         - toggle
         type: object
+      via:
+        default: Restic
+        enum:
+        - Restic
+        - WalG
+        - VolumeSnapshotter
+        type: string
     required:
     - enable
+    - via
     type: object
   backup:
     properties:
@@ -39,9 +47,17 @@ properties:
         - default
         - toggle
         type: object
+      via:
+        default: Restic
+        enum:
+        - Restic
+        - WalG
+        - VolumeSnapshotter
+        type: string
     required:
     - by
     - enable
+    - via
     type: object
   clusterIssuers:
     properties:
@@ -820,27 +836,6 @@ properties:
         - mode
         - versions
         type: object
-    required:
-    - ClickHouse
-    - Druid
-    - Elasticsearch
-    - FerretDB
-    - Kafka
-    - MSSQLServer
-    - MariaDB
-    - Memcached
-    - MongoDB
-    - MySQL
-    - PerconaXtraDB
-    - PgBouncer
-    - Pgpool
-    - Postgres
-    - ProxySQL
-    - RabbitMQ
-    - Redis
-    - Singlestore
-    - Solr
-    - ZooKeeper
     type: object
   deletionPolicy:
     properties:
@@ -896,6 +891,39 @@ properties:
     - showOperations
     - showSecurity
     - showVaultInfo
+    type: object
+  machineProfiles:
+    properties:
+      available:
+        items:
+          type: string
+        type: array
+      default:
+        type: string
+      machines:
+        items:
+          properties:
+            id:
+              type: string
+            limits:
+              additionalProperties:
+                anyOf:
+                - type: integer
+                - type: string
+                pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                x-kubernetes-int-or-string: true
+              type: object
+            name:
+              type: string
+          required:
+          - id
+          - limits
+          type: object
+        type: array
+    required:
+    - available
+    - default
+    - machines
     type: object
   monitoring:
     properties:
@@ -1014,6 +1042,7 @@ required:
 - deployment
 - expose
 - leftPanel
+- machineProfiles
 - monitoring
 - pointInTimeRecovery
 - showPreview

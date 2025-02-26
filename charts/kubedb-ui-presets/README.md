@@ -205,10 +205,15 @@ The following table lists the configurable parameters of the `kubedb-ui-presets`
 | backup.enable.default                      |                                                                                                      | <code>true</code>                   |
 | backup.enable.toggle                       |                                                                                                      | <code>true</code>                   |
 | backup.by                                  |                                                                                                      | <code>BackupConfiguration</code>    |
+| backup.via                                 |                                                                                                      | <code>Restic</code>                 |
 | archiver.enable.toggle                     |                                                                                                      | <code>true</code>                   |
 | archiver.enable.default                    |                                                                                                      | <code>false</code>                  |
+| archiver.via                               |                                                                                                      | <code>Restic</code>                 |
 | pointInTimeRecovery.default                |                                                                                                      | <code>false</code>                  |
 | pointInTimeRecovery.toggle                 |                                                                                                      | <code>true</code>                   |
+| machineProfiles.machines                   |                                                                                                      | <code>[]</code>                     |
+| machineProfiles.available                  |                                                                                                      | <code>[]</code>                     |
+| machineProfiles.default                    |                                                                                                      | <code>""</code>                     |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
