@@ -56,6 +56,7 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.MinioSpec{}},
 		sc.TestCase{Obj: v1alpha1.OfflineLicenseServerSpec{}},
 		sc.TestCase{Obj: v1alpha1.OpscenterFeaturesSpec{}},
+		sc.TestCase{Obj: v1alpha1.OutboxSyncerSpec{}},
 		sc.TestCase{Obj: v1alpha1.PlatformApiSpec{}},
 		sc.TestCase{Obj: v1alpha1.PlatformLinksSpec{}},
 		sc.TestCase{Obj: v1alpha1.PlatformUiSpec{}},

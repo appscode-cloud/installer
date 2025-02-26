@@ -108,6 +108,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&OfflineLicenseServerList{},
 		&OpscenterFeatures{},
 		&OpscenterFeaturesList{},
+		&OutboxSyncer{},
+		&OutboxSyncerList{},
 		&PlatformApi{},
 		&PlatformApiList{},
 		&PlatformLinks{},

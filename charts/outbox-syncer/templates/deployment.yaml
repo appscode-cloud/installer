@@ -1,0 +1,159 @@
+{{ $infra := .Values.infra }}
+{{- if .Values.global }}
+{{- $infra = .Values.global.infra }}
+{{- end }}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "outbox-syncer.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "outbox-syncer.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "outbox-syncer.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "outbox-syncer.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- include "appscode.imagePullSecrets" . | nindent 6 }}
+      serviceAccountName: {{ include "appscode.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args:
+            - marketplace
+          ports:
+            - name: http
+              containerPort: 6666
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /marketplace/api/v1/version
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /marketplace/api/v1/version
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          {{- with .Values.envFrom }}
+          envFrom:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          env:
+          {{- with .Values.env }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "gcs") }}
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: {{ $infra.objstore.mountPath }}/sa.json
+          {{- end }}
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "s3") }}
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "settings.objstoreSecretName" . }}
+                  key: AWS_ACCESS_KEY_ID
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "settings.objstoreSecretName" . }}
+                  key: AWS_SECRET_ACCESS_KEY
+            {{- if $infra.objstore.s3.AWS_REGION }}
+            - name: AWS_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "settings.objstoreSecretName" . }}
+                  key: AWS_REGION
+            {{- end }}
+          {{- end }}
+          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "azure") }}
+            - name: AZURE_STORAGE_ACCOUNT
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "settings.objstoreSecretName" . }}
+                  key: AZURE_ACCOUNT_NAME
+            - name: AZURE_STORAGE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "settings.objstoreSecretName" . }}
+                  key: AZURE_ACCOUNT_KEY
+          {{- end }}
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+            - name: data
+              mountPath: /data
+            {{- if (include "settings.platformConfigSecretName" .) }}
+            - name: config
+              mountPath: /data/b3/conf/app.ini
+              subPath: app.ini
+            {{- end }}
+            {{- if (include "settings.objstoreSecretName" .) }}
+            - name: objstore-cred
+              mountPath: {{ $infra.objstore.mountPath }}
+            {{- end }}
+            {{- if (include "settings.caProviderClass" .) }}
+            - name: cacerts
+              mountPath: /etc/ssl/certs
+            {{- end }}
+      volumes:
+        - name: tmp
+          emptyDir: {}
+        - name: data
+          emptyDir: {}
+        {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
+        - name: config
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
+        {{- end }}
+        {{- with $secretName := (include "settings.objstoreSecretName" .) }}
+        - name: objstore-cred
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
+        {{- end }}
+        {{- with $cpc := (include "settings.caProviderClass" .) }}
+        - name: cacerts
+          csi:
+            driver: cacerts.csi.cert-manager.io
+            readOnly: true
+            volumeAttributes:
+              os: debian
+              caProviderClasses: {{ $cpc }}
+        {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
