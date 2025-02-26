@@ -1,6 +1,6 @@
-# ACE Platform apiserver
+# ACE Outbox Syncer
 
-[ACE Platform apiserver by AppsCode](https://github.com/appscode-cloud) - ACE Platform apiserver
+[ACE Outbox Syncer by AppsCode](https://github.com/appscode-cloud) - ACE Outbox Syncer
 
 ## TL;DR;
 
@@ -13,7 +13,7 @@ $ helm upgrade -i platform-api appscode/platform-api -n ace --create-namespace -
 
 ## Introduction
 
-This chart deploys a ACE Platform apiserver on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart deploys a ACE Outbox Syncer on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ To install/upgrade the chart with the release name `platform-api`:
 $ helm upgrade -i platform-api appscode/platform-api -n ace --create-namespace --version=v2025.2.28
 ```
 
-The command deploys a ACE Platform apiserver on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
+The command deploys a ACE Outbox Syncer on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
 
 > **Tip**: List all releases using `helm list`
 

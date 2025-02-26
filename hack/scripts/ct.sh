@@ -34,6 +34,7 @@ for dir in charts/*/; do
         [[ "$dir" = "marketplace-api" ]] ||
         [[ "$dir" = "offline-license-server" ]] ||
         [[ "$dir" = "opscenter-features" ]] ||
+        [[ "$dir" = "outbox-syncer" ]] ||
         [[ "$dir" = "platform-api" ]] ||
         [[ "$dir" = "platform-links" ]] ||
         [[ "$dir" = "platform-ui" ]] ||
