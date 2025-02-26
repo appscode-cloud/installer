@@ -242,10 +242,17 @@ backup:
     default: true
     toggle: true
   by: BackupConfiguration
+  via: Restic
 archiver:
   enable:
     toggle: true
     default: false
+  via: Restic
 pointInTimeRecovery:
   default: false
   toggle: true
+
+machineProfiles:
+  machines: []
+  available: []
+  default: ""
