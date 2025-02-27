@@ -116,7 +116,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ga
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/grafana-operator:v2024.12.30 $IMAGE_REGISTRY/appscode-charts/grafana-operator:v2024.12.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/hub-cluster-robot:v2024.8.9 $IMAGE_REGISTRY/appscode-charts/hub-cluster-robot:v2024.8.9
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/inbox-agent:v2024.12.30 $IMAGE_REGISTRY/appscode-charts/inbox-agent:v2024.12.30
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/inbox-server:v2024.5.3 $IMAGE_REGISTRY/appscode-charts/inbox-server:v2024.5.3
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/inbox-server:v2025.2.28 $IMAGE_REGISTRY/appscode-charts/inbox-server:v2025.2.28
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/inbox-ui:v2024.5.3 $IMAGE_REGISTRY/appscode-charts/inbox-ui:v2024.5.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ingress-nginx:4.11.1 $IMAGE_REGISTRY/appscode-charts/ingress-nginx:4.11.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/keda-add-ons-http:0.8.0 $IMAGE_REGISTRY/appscode-charts/keda-add-ons-http:0.8.0
@@ -304,7 +304,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/flux-cli:
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana-tools:v0.3.0 $IMAGE_REGISTRY/appscode/grafana-tools:v0.3.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana:v2025.2.3 $IMAGE_REGISTRY/appscode/grafana:v2025.2.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-agent:v0.0.2 $IMAGE_REGISTRY/appscode/inbox-agent:v0.0.2
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-server:latest $IMAGE_REGISTRY/appscode/inbox-server:latest
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-server:postgres-latest $IMAGE_REGISTRY/appscode/inbox-server:postgres-latest
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-ui:0.0.4 $IMAGE_REGISTRY/appscode/inbox-ui:0.0.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/k8s-wait-for:v2.0 $IMAGE_REGISTRY/appscode/k8s-wait-for:v2.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.11.0 $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.11.0

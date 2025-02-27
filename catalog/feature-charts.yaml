@@ -33,7 +33,7 @@
 - ghcr.io/appscode-charts/grafana-operator:v2024.12.30
 - ghcr.io/appscode-charts/hub-cluster-robot:v2024.8.9
 - ghcr.io/appscode-charts/inbox-agent:v2024.12.30
-- ghcr.io/appscode-charts/inbox-server:v2024.5.3
+- ghcr.io/appscode-charts/inbox-server:v2025.2.28
 - ghcr.io/appscode-charts/inbox-ui:v2024.5.3
 - ghcr.io/appscode-charts/ingress-nginx:4.11.1
 - ghcr.io/appscode-charts/keda-add-ons-http:0.8.0

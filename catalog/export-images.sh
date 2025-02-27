@@ -113,7 +113,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/grafana-operator:v2024.12.30 images/appscode-charts-grafana-operator-v2024.12.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/hub-cluster-robot:v2024.8.9 images/appscode-charts-hub-cluster-robot-v2024.8.9.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/inbox-agent:v2024.12.30 images/appscode-charts-inbox-agent-v2024.12.30.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/inbox-server:v2024.5.3 images/appscode-charts-inbox-server-v2024.5.3.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/inbox-server:v2025.2.28 images/appscode-charts-inbox-server-v2025.2.28.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/inbox-ui:v2024.5.3 images/appscode-charts-inbox-ui-v2024.5.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ingress-nginx:4.11.1 images/appscode-charts-ingress-nginx-4.11.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/keda-add-ons-http:0.8.0 images/appscode-charts-keda-add-ons-http-0.8.0.tar
@@ -301,7 +301,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/flux-cl
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana-tools:v0.3.0 images/appscode-grafana-tools-v0.3.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana:v2025.2.3 images/appscode-grafana-v2025.2.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-agent:v0.0.2 images/appscode-inbox-agent-v0.0.2.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-server:latest images/appscode-inbox-server-latest.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-server:postgres-latest images/appscode-inbox-server-postgres-latest.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-ui:0.0.4 images/appscode-inbox-ui-0.0.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/k8s-wait-for:v2.0 images/appscode-k8s-wait-for-v2.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.11.0 images/appscode-kube-rbac-proxy-v0.11.0.tar

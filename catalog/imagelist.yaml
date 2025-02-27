@@ -14,7 +14,7 @@
 - ghcr.io/appscode/fileserver:v0.0.1
 - ghcr.io/appscode/gh-ci-webhook:v0.0.20
 - ghcr.io/appscode/grafana:v2025.2.3
-- ghcr.io/appscode/inbox-server:latest
+- ghcr.io/appscode/inbox-server:postgres-latest
 - ghcr.io/appscode/inbox-ui:0.0.4
 - ghcr.io/appscode/kube-rbac-proxy:v0.18.2
 - ghcr.io/appscode/kubectl-nonroot:1.31

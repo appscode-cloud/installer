@@ -237,7 +237,7 @@ helm:
       version: "v2025.1.17"
 
     inbox-server:
-      version: "v2024.5.3"
+      version: "v2025.2.28"
     inbox-agent:
       version: "v2024.12.30"
     inbox-ui:

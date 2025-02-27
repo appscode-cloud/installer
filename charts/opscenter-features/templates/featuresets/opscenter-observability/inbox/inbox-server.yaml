@@ -1,28 +1,8 @@
 {{ $defaults := printf `
 james:
-  image: %s:latest
-cassandra:
-  image:
-    repository: %s
-opensearch:
-  image:
-    repository: %s
-rabbitmq:
-  image:
-    repository: %s
-s3:
-  image:
-    repository: %s
-tika:
-  image:
-    repository: %s
+  image: %s:postgres-latest
 `
   (include "image.ghcr" (merge (dict "_repo" "appscode/inbox-server") $))
-  (include "image.dockerLibrary" (merge (dict "_repo" "cassandra") $))
-  (include "image.dockerHub" (merge (dict "_repo" "opensearchproject/opensearch") $))
-  (include "image.dockerLibrary" (merge (dict "_repo" "rabbitmq") $))
-  (include "image.ghcr" (merge (dict "_repo" "appscode/cloudserver") $))
-  (include "image.dockerHub" (merge (dict "_repo" "apache/tika") $))
   | fromYaml }}
 
 {{ $vals := dig "inbox-server" "values" (dict) .Values.helm.releases }}

@@ -29,7 +29,7 @@
 - ghcr.io/appscode/grafana-tools:v0.3.0
 - ghcr.io/appscode/grafana:v2025.2.3
 - ghcr.io/appscode/inbox-agent:v0.0.2
-- ghcr.io/appscode/inbox-server:latest
+- ghcr.io/appscode/inbox-server:postgres-latest
 - ghcr.io/appscode/inbox-ui:0.0.4
 - ghcr.io/appscode/k8s-wait-for:v2.0
 - ghcr.io/appscode/kube-rbac-proxy:v0.11.0

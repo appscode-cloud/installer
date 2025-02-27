@@ -107,7 +107,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-g
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-grafana-operator-v2024.12.30.tar $IMAGE_REGISTRY/appscode-charts/grafana-operator:v2024.12.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-hub-cluster-robot-v2024.8.9.tar $IMAGE_REGISTRY/appscode-charts/hub-cluster-robot:v2024.8.9
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-inbox-agent-v2024.12.30.tar $IMAGE_REGISTRY/appscode-charts/inbox-agent:v2024.12.30
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-inbox-server-v2024.5.3.tar $IMAGE_REGISTRY/appscode-charts/inbox-server:v2024.5.3
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-inbox-server-v2025.2.28.tar $IMAGE_REGISTRY/appscode-charts/inbox-server:v2025.2.28
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-inbox-ui-v2024.5.3.tar $IMAGE_REGISTRY/appscode-charts/inbox-ui:v2024.5.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ingress-nginx-4.11.1.tar $IMAGE_REGISTRY/appscode-charts/ingress-nginx:4.11.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-keda-add-ons-http-0.8.0.tar $IMAGE_REGISTRY/appscode-charts/keda-add-ons-http:0.8.0
@@ -295,7 +295,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-flux-cli
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-grafana-tools-v0.3.0.tar $IMAGE_REGISTRY/appscode/grafana-tools:v0.3.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-grafana-v2025.2.3.tar $IMAGE_REGISTRY/appscode/grafana:v2025.2.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-agent-v0.0.2.tar $IMAGE_REGISTRY/appscode/inbox-agent:v0.0.2
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-server-latest.tar $IMAGE_REGISTRY/appscode/inbox-server:latest
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-server-postgres-latest.tar $IMAGE_REGISTRY/appscode/inbox-server:postgres-latest
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-inbox-ui-0.0.4.tar $IMAGE_REGISTRY/appscode/inbox-ui:0.0.4
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-k8s-wait-for-v2.0.tar $IMAGE_REGISTRY/appscode/k8s-wait-for:v2.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rbac-proxy-v0.11.0.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.11.0
