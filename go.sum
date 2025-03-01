@@ -190,10 +190,10 @@ go.bytebuilders.dev/catalog v0.0.13-0.20250226052216-6c6b6d36379d h1:pqNnRQfCjyq
 go.bytebuilders.dev/catalog v0.0.13-0.20250226052216-6c6b6d36379d/go.mod h1:jesgu3h8UGs03gJdinsTb5PiqpgHuDtQfJJGjPUPl6o=
 go.bytebuilders.dev/resource-model v0.2.0 h1:ExD1qRjcFjy1FirH/LOhlToNCrzeFd8wspxoTQzUJUQ=
 go.bytebuilders.dev/resource-model v0.2.0/go.mod h1:+/6wCmfEDcwOdi+EfzOjj8hNqyzIr6HwSqMOuC3JLUk=
-go.bytebuilders.dev/ui-wizards v0.13.2 h1:ej3iPY03xVO3389rm3mSxNsOSM3J5/NF9xg+PoOKaUg=
-go.bytebuilders.dev/ui-wizards v0.13.2/go.mod h1:7dJb/85Kwt/Pi39kZDv0YEO2NVbR++zZ5lceyDVWWD4=
-go.openviz.dev/installer v0.0.0-20241219171958-448ed4701f5b h1:ZOQB+ip1+2Fk9UaIsLgaqZR37bN4bqJZIxMxSGo9oJU=
-go.openviz.dev/installer v0.0.0-20241219171958-448ed4701f5b/go.mod h1:XR/wQvcWc3mcwMRsGtXilzyc38+BKpskR9yMmA/4CLc=
+go.bytebuilders.dev/ui-wizards v0.13.3 h1:cqjdmijpCE2FjDFjeWmrEzuakjtYwHmBl68lFDWb8Tg=
+go.bytebuilders.dev/ui-wizards v0.13.3/go.mod h1:7dJb/85Kwt/Pi39kZDv0YEO2NVbR++zZ5lceyDVWWD4=
+go.openviz.dev/installer v0.0.0-20250227034407-1c3f29aa1bd1 h1:0LXvvMhJihlTuMDJ4Thh3p0wZwIRnLfC4wr5v9fippw=
+go.openviz.dev/installer v0.0.0-20250227034407-1c3f29aa1bd1/go.mod h1:0ZVU7mXW9OgSJkg5q3HsZoCN8NAbbC9PciEW5Zifbuc=
 go.uber.org/goleak v1.3.0 h1:2K3zAYmnTNqV73imy9J1T3WC+gmCePx2hEGkimedGto=
 go.uber.org/goleak v1.3.0/go.mod h1:CoHD4mav9JJNrW/WLlf7HGZPjdw8EucARQHekz1X6bE=
 go.uber.org/multierr v1.11.0 h1:blXXJkSxSSfBVBlC76pxqeO+LN3aDfLQo+309xJstO0=
@@ -315,8 +315,8 @@ k8s.io/utils v0.0.0-20240711033017-18e509b52bc8 h1:pUdcCO1Lk/tbT5ztQWOBi5HBgbBP1
 k8s.io/utils v0.0.0-20240711033017-18e509b52bc8/go.mod h1:OLgZIPagt7ERELqWJFomSt595RzquPNLL48iOWgYOg0=
 kmodules.xyz/apiversion v0.2.0 h1:vAQYqZFm4xu4pbB1cAdHbFEPES6EQkcR4wc06xdTOWk=
 kmodules.xyz/apiversion v0.2.0/go.mod h1:oPX8g8LvlPdPX3Yc5YvCzJHQnw3YF/X4/jdW0b1am80=
-kmodules.xyz/client-go v0.30.45 h1:hSjNlJoPQ86CKS8BiEbSmBkF2+yWsFjjMFISOCVJ6aA=
-kmodules.xyz/client-go v0.30.45/go.mod h1:T9Kiu20wXEn65dLBQeegf4+y7oahJBR9ZJO2zGEVLIY=
+kmodules.xyz/client-go v0.30.46 h1:obzxJDT4l8+HtMc7/4RkyH2L1spG6yCntS1Jz5NKtt8=
+kmodules.xyz/client-go v0.30.46/go.mod h1:T9Kiu20wXEn65dLBQeegf4+y7oahJBR9ZJO2zGEVLIY=
 kmodules.xyz/go-containerregistry v0.0.12 h1:Tl32QGmSqRVm9PUEb/f3dgDeu9zW5fVzt3qmAFIE37I=
 kmodules.xyz/go-containerregistry v0.0.12/go.mod h1:KgeNg0hDsgeda+qc0NzWk0iVRdF0+ZIg/oRzGoYh78I=
 kmodules.xyz/image-packer v0.0.0-20250215070631-0dc6bed037c5 h1:y8LMmiEeIFz90dyzFEJL55kY5YDoAmyNPgEymupcb3U=
@@ -329,8 +329,8 @@ kmodules.xyz/offshoot-api v0.30.1 h1:TrulAYO+oBsXe9sZZGTmNWIuI8qD2izMpgcTSPvgAmI
 kmodules.xyz/offshoot-api v0.30.1/go.mod h1:T3mpjR6fui0QzOcmQvIuANytW48fe9ytmy/1cgx6D4g=
 kmodules.xyz/prober v0.29.0 h1:Ex7m4F9rH7uWNNJlLgP63ROOM+nUATJkC2L5OQ7nwMg=
 kmodules.xyz/prober v0.29.0/go.mod h1:UtK+HKyI1lFLEKX+HFLyOCVju6TO93zv3kwGpzqmKOo=
-kmodules.xyz/resource-metadata v0.25.1 h1:iy9/aI03PSx95FYkzHndpa4Zr82V1RFjI24urf1wJ+U=
-kmodules.xyz/resource-metadata v0.25.1/go.mod h1:CkIm4CFaYubdvYQeF6xmIVCm2bCYFyvgcXrwcOEWf/o=
+kmodules.xyz/resource-metadata v0.25.4 h1:ErggVwwThAfBO2SmYNGsoE0Mo4Lw0EjACIk4ZKc0Bb4=
+kmodules.xyz/resource-metadata v0.25.4/go.mod h1:kGcR1eI7+sysaDXn0jHBLyE4GszvdyvTG27VwTcQ2vQ=
 kmodules.xyz/schema-checker v0.4.2 h1:tAbxEtM759GxDM/3sQi/+OKKwUsEF+Ih4KReV3Eb/Xw=
 kmodules.xyz/schema-checker v0.4.2/go.mod h1:N7ETPwfY4LbTHbydC9jjssPmYKKgZ8DC0IuLCU55wwc=
 kubeops.dev/external-dns-operator v0.0.9 h1:lfRDtIKJR8VaJpF01CcOjnA2QcSe43WDnIcqP/ieh1c=
@@ -353,5 +353,5 @@ stash.appscode.dev/apimachinery v0.39.0 h1:jUYOFmpFgKhtsEbtmamlSgQTQ01boUzkv+25i
 stash.appscode.dev/apimachinery v0.39.0/go.mod h1:6z4oQvMMBPyybs8uajBsrgO2ZK98ulB0CKGwfeuav+4=
 voyagermesh.dev/installer v0.0.0-20241219103226-de800d167d8d h1:5dV71l3NVwAzXTSCl/mizub6bZhaGgEBd+el07njBRw=
 voyagermesh.dev/installer v0.0.0-20241219103226-de800d167d8d/go.mod h1:5sN8EzDLzxeIq3T+H4Ne0cmGcW75JFASOKU0bv/Gduw=
-x-helm.dev/apimachinery v0.0.16 h1:Eb160xcdH9fMVHak5QSWYWxoaReytch+A7kk25QWjx0=
-x-helm.dev/apimachinery v0.0.16/go.mod h1:05brgFw5oWOX7OTXT090SQojqXjbttqWfqoJo+ejBU4=
+x-helm.dev/apimachinery v0.0.17 h1:CeaLYYboErzhv7cO0zWdhA3diRe1cAHbeolJWuKhtxo=
+x-helm.dev/apimachinery v0.0.17/go.mod h1:Ki8vHsakYIAXh8X4VeTq0cMZnpROiAnayZeEKLUjotk=

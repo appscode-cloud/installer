@@ -275,11 +275,11 @@ go.bytebuilders.dev/resource-model/apis/cloud
 go.bytebuilders.dev/resource-model/apis/cloud/v1alpha1
 go.bytebuilders.dev/resource-model/apis/config/v1alpha1
 go.bytebuilders.dev/resource-model/crds
-# go.bytebuilders.dev/ui-wizards v0.13.2
+# go.bytebuilders.dev/ui-wizards v0.13.3
 ## explicit; go 1.22.1
 go.bytebuilders.dev/ui-wizards/apis/wizards
 go.bytebuilders.dev/ui-wizards/apis/wizards/v1alpha1
-# go.openviz.dev/installer v0.0.0-20241219171958-448ed4701f5b
+# go.openviz.dev/installer v0.0.0-20250227034407-1c3f29aa1bd1
 ## explicit; go 1.22.7
 go.openviz.dev/installer/apis/installer
 go.openviz.dev/installer/apis/installer/v1alpha1
@@ -702,7 +702,7 @@ k8s.io/utils/trace
 # kmodules.xyz/apiversion v0.2.0
 ## explicit; go 1.14
 kmodules.xyz/apiversion
-# kmodules.xyz/client-go v0.30.45
+# kmodules.xyz/client-go v0.30.46
 ## explicit; go 1.22.0
 kmodules.xyz/client-go
 kmodules.xyz/client-go/api/v1
@@ -731,7 +731,7 @@ kmodules.xyz/offshoot-api/api/v1
 # kmodules.xyz/prober v0.29.0
 ## explicit; go 1.21.5
 kmodules.xyz/prober/api/v1
-# kmodules.xyz/resource-metadata v0.25.1
+# kmodules.xyz/resource-metadata v0.25.4
 ## explicit; go 1.22.1
 kmodules.xyz/resource-metadata/apis/shared
 kmodules.xyz/resource-metadata/apis/ui
@@ -825,7 +825,7 @@ stash.appscode.dev/apimachinery/crds
 ## explicit; go 1.22.7
 voyagermesh.dev/installer/apis/installer
 voyagermesh.dev/installer/apis/installer/v1alpha1
-# x-helm.dev/apimachinery v0.0.16
+# x-helm.dev/apimachinery v0.0.17
 ## explicit; go 1.21.5
 x-helm.dev/apimachinery/apis/releases/v1alpha1
 x-helm.dev/apimachinery/apis/shared

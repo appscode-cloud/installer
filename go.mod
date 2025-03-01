@@ -7,16 +7,16 @@ toolchain go1.23.2
 require (
 	go.bytebuilders.dev/catalog v0.0.13-0.20250226052216-6c6b6d36379d
 	go.bytebuilders.dev/resource-model v0.2.0
-	go.bytebuilders.dev/ui-wizards v0.13.2
-	go.openviz.dev/installer v0.0.0-20241219171958-448ed4701f5b
+	go.bytebuilders.dev/ui-wizards v0.13.3
+	go.openviz.dev/installer v0.0.0-20250227034407-1c3f29aa1bd1
 	gomodules.xyz/go-sh v0.1.1-0.20250117070215-e08594acad2a
 	k8s.io/api v0.30.3
 	k8s.io/apimachinery v0.30.3
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
-	kmodules.xyz/client-go v0.30.45
+	kmodules.xyz/client-go v0.30.46
 	kmodules.xyz/image-packer v0.0.0-20250215070631-0dc6bed037c5
 	kmodules.xyz/objectstore-api v0.29.1
-	kmodules.xyz/resource-metadata v0.25.1
+	kmodules.xyz/resource-metadata v0.25.4
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
 	sigs.k8s.io/yaml v1.4.0
@@ -121,7 +121,7 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.4.1 // indirect
 	stash.appscode.dev/apimachinery v0.39.0 // indirect
 	voyagermesh.dev/installer v0.0.0-20241219103226-de800d167d8d // indirect
-	x-helm.dev/apimachinery v0.0.16 // indirect
+	x-helm.dev/apimachinery v0.0.17 // indirect
 )
 
 replace github.com/imdario/mergo => github.com/imdario/mergo v0.3.6
