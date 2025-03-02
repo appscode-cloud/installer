@@ -1,7 +1,7 @@
 apiVersion: v1
 description: AppsCode License Proxy Server OCM Addon Manager
 name: license-proxyserver-manager
-version: v2025.2.28
+version: v2025.3.14
 appVersion: v0.0.20
 home: https://github.com/appscode-cloud/license-proxyserver
 icon: https://cdn.appscode.com/images/products/searchlight/icons/android-icon-192x192.png
