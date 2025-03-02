@@ -269,7 +269,7 @@ github.com/zeebo/xxh3
 ## explicit; go 1.22.0
 go.appscode.dev/alerts/apis/alerts
 go.appscode.dev/alerts/apis/alerts/v1alpha1
-# go.bytebuilders.dev/catalog v0.0.13-0.20250226052216-6c6b6d36379d
+# go.bytebuilders.dev/catalog v0.0.13
 ## explicit; go 1.22.7
 go.bytebuilders.dev/catalog/api/gateway/v1alpha1
 # go.bytebuilders.dev/resource-model v0.2.0
@@ -734,7 +734,7 @@ kmodules.xyz/offshoot-api/api/v1
 # kmodules.xyz/prober v0.29.0
 ## explicit; go 1.21.5
 kmodules.xyz/prober/api/v1
-# kmodules.xyz/resource-metadata v0.25.4
+# kmodules.xyz/resource-metadata v0.26.0
 ## explicit; go 1.22.1
 kmodules.xyz/resource-metadata/apis/shared
 kmodules.xyz/resource-metadata/apis/ui
