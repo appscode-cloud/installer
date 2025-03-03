@@ -241,7 +241,7 @@ helm:
     inbox-agent:
       version: "v2024.12.30"
     inbox-ui:
-      version: "v2024.5.3"
+      version: "v2025.3.14"
 
 licenseServer:
   baseURL: ""

@@ -157,7 +157,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.license-proxyserver-manager.version           |                                 | <code>"v2025.1.17"</code>                  |
 | helm.releases.inbox-server.version                          |                                 | <code>"v2025.2.28"</code>                  |
 | helm.releases.inbox-agent.version                           |                                 | <code>"v2024.12.30"</code>                 |
-| helm.releases.inbox-ui.version                              |                                 | <code>"v2024.5.3"</code>                   |
+| helm.releases.inbox-ui.version                              |                                 | <code>"v2025.3.14"</code>                  |
 | licenseServer.baseURL                                       |                                 | <code>""</code>                            |
 | licenseServer.token                                         |                                 | <code>""</code>                            |
 
