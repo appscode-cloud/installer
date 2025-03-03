@@ -37,6 +37,16 @@ spec:
       insight: false
       show: true
     show: true
+  - name: Insights
+    sections:
+    - blocks:
+        Grafana Dashboards: true
+        Slow Queries: true
+        Top Collections: true
+      info: {}
+      insight: true
+      show: true
+    show: true
   - name: Operations
     sections:
     - blocks:
