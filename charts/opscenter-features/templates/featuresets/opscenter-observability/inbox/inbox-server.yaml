@@ -1,8 +1,12 @@
 {{ $defaults := printf `
 james:
   image: %s:postgres-latest
+migrate:
+  image:
+    repository: %s
 `
   (include "image.ghcr" (merge (dict "_repo" "appscode/inbox-server") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/postgres") $))
   | fromYaml }}
 
 {{ $vals := dig "inbox-server" "values" (dict) .Values.helm.releases }}
