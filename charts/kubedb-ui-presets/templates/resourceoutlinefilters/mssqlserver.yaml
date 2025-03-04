@@ -61,6 +61,18 @@ spec:
       insight: false
       show: true
     show: true
+  - name: Backup
+    sections:
+    - blocks:
+        Backup Configuration: true
+        CronJobs: true
+        Recent Backups: true
+        Recent Restores: true
+        Repository: true
+      info: {}
+      insight: false
+      show: true
+    show: true
   - name: Security
     sections:
     - blocks:
