@@ -135,7 +135,7 @@ helm:
       version: "v2024.7.10"
     vcluster:
       enabled: false
-      version: "0.22.0"
+      version: "0.22.4"
     vcluster-plugin-ace:
       enabled: false
       version: "v0.0.3"
