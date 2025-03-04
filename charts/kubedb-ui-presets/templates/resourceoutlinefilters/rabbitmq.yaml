@@ -6,9 +6,6 @@ spec:
   actions:
   - items:
       Update Version: true
-    name: ""
-    show: true
-  - items:
       Reconfigure: true
       Restart: true
     name: Operations
