@@ -57,6 +57,8 @@ type AceInstallerSpec struct {
 	shared.BootstrapPresets `json:",inline,omitempty"`
 	SelfManagement          configapi.SelfManagement `json:"selfManagement"`
 	Precheck                AceInstallerPrecheckSpec `json:"precheck"`
+	// +optional
+	Options *AceOptionsSpec `json:"options"`
 }
 
 type AceInstallerPrecheckSpec struct {

@@ -93,6 +93,1590 @@ properties:
     type: string
   offlineInstaller:
     type: boolean
+  options:
+    properties:
+      branding:
+        properties:
+          appName:
+            type: string
+          favicon:
+            type: string
+          logo:
+            type: string
+          primaryColor:
+            type: string
+          showAppTag:
+            type: boolean
+        type: object
+      cluster-ui:
+        properties:
+          enabled:
+            type: boolean
+          nodeSelector:
+            additionalProperties:
+              type: string
+            type: object
+          resources:
+            properties:
+              claims:
+                items:
+                  properties:
+                    name:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - enabled
+        type: object
+      context:
+        properties:
+          adminPassword:
+            type: string
+          backupPassword:
+            type: string
+          clusterCA:
+            properties:
+              cert:
+                type: string
+              key:
+                type: string
+            type: object
+          clusterID:
+            type: string
+          csrfSecretKey:
+            type: string
+          deploymentType:
+            enum:
+            - Hosted
+            - SelfHostedProduction
+            - OpenShiftProduction
+            - CloudDemo
+            - OnpremDemo
+            - KubeAppDemo
+            - OpenShiftDemo
+            - AWSMarketplace
+            - AzureMarketplace
+            - GoogleCloudMarketplace
+            type: string
+          grafanaSecretKey:
+            type: string
+          hostedDomain:
+            type: string
+          inboxServer:
+            properties:
+              adminJWTPrivateKey:
+                type: string
+            required:
+            - adminJWTPrivateKey
+            type: object
+          installerName:
+            type: string
+          installerSecret:
+            type: string
+          jksPassword:
+            type: string
+          licenseOwnerID:
+            format: int64
+            type: integer
+          licenseOwnerName:
+            type: string
+          licenseServiceDomain:
+            type: string
+          licenseServiceToken:
+            type: string
+          licenses:
+            additionalProperties:
+              type: string
+            type: object
+          nats:
+            additionalProperties:
+              type: string
+            type: object
+          natsOperatorSeed:
+            type: string
+          oauth2JWTSecret:
+            type: string
+          offlineInstaller:
+            type: boolean
+          postgresPassword:
+            type: string
+          promotedToProduction:
+            type: boolean
+          promotionValues:
+            properties:
+              s3proxy:
+                properties:
+                  auth:
+                    properties:
+                      azure:
+                        properties:
+                          AZURE_ACCOUNT_KEY:
+                            type: string
+                          AZURE_ACCOUNT_NAME:
+                            type: string
+                        required:
+                        - AZURE_ACCOUNT_KEY
+                        - AZURE_ACCOUNT_NAME
+                        type: object
+                      gcs:
+                        properties:
+                          GOOGLE_PROJECT_ID:
+                            type: string
+                          GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
+                            type: string
+                        required:
+                        - GOOGLE_PROJECT_ID
+                        - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                        type: object
+                      s3:
+                        properties:
+                          AWS_ACCESS_KEY_ID:
+                            type: string
+                          AWS_SECRET_ACCESS_KEY:
+                            type: string
+                          CA_CERT_DATA:
+                            type: string
+                        required:
+                        - AWS_ACCESS_KEY_ID
+                        - AWS_SECRET_ACCESS_KEY
+                        type: object
+                    type: object
+                  bucket:
+                    type: string
+                  endpoint:
+                    type: string
+                  prefix:
+                    type: string
+                  region:
+                    type: string
+                required:
+                - auth
+                - bucket
+                type: object
+            type: object
+          proxyServiceDomain:
+            type: string
+          redisPassword:
+            type: string
+          requestedDomain:
+            type: string
+          requesterDisplayName:
+            type: string
+          requesterUsername:
+            type: string
+          s3AccessKeyID:
+            type: string
+          s3AccessKeySecret:
+            type: string
+          serviceBackendCookie:
+            properties:
+              encryptionKey:
+                type: string
+              signingKey:
+                type: string
+            required:
+            - encryptionKey
+            - signingKey
+            type: object
+          token:
+            type: string
+          uploadID:
+            type: string
+          version:
+            type: string
+        required:
+        - deploymentType
+        - inboxServer
+        - installerName
+        - licenseOwnerID
+        - licenseOwnerName
+        - uploadID
+        - version
+        type: object
+      grafana:
+        properties:
+          enabled:
+            type: boolean
+          nodeSelector:
+            additionalProperties:
+              type: string
+            type: object
+          resources:
+            properties:
+              claims:
+                items:
+                  properties:
+                    name:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - enabled
+        type: object
+      infra:
+        properties:
+          cloudServices:
+            properties:
+              kms:
+                properties:
+                  masterKeyURL:
+                    type: string
+                required:
+                - masterKeyURL
+                type: object
+              objstore:
+                properties:
+                  auth:
+                    properties:
+                      azure:
+                        properties:
+                          AZURE_ACCOUNT_KEY:
+                            type: string
+                          AZURE_ACCOUNT_NAME:
+                            type: string
+                        required:
+                        - AZURE_ACCOUNT_KEY
+                        - AZURE_ACCOUNT_NAME
+                        type: object
+                      gcs:
+                        properties:
+                          GOOGLE_PROJECT_ID:
+                            type: string
+                          GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
+                            type: string
+                        required:
+                        - GOOGLE_PROJECT_ID
+                        - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                        type: object
+                      s3:
+                        properties:
+                          AWS_ACCESS_KEY_ID:
+                            type: string
+                          AWS_SECRET_ACCESS_KEY:
+                            type: string
+                          CA_CERT_DATA:
+                            type: string
+                        required:
+                        - AWS_ACCESS_KEY_ID
+                        - AWS_SECRET_ACCESS_KEY
+                        type: object
+                    type: object
+                  bucket:
+                    type: string
+                  endpoint:
+                    type: string
+                  prefix:
+                    type: string
+                  region:
+                    type: string
+                required:
+                - auth
+                - bucket
+                type: object
+              provider:
+                enum:
+                - gcs
+                - s3
+                - azure
+                - swift
+                type: string
+            required:
+            - objstore
+            - provider
+            type: object
+          dns:
+            properties:
+              auth:
+                properties:
+                  azureDNS:
+                    properties:
+                      environment:
+                        type: string
+                      hostedZoneName:
+                        type: string
+                      resourceGroupName:
+                        type: string
+                      servicePrincipalAppID:
+                        type: string
+                      servicePrincipalAppPassword:
+                        type: string
+                      subscriptionID:
+                        type: string
+                      tenantID:
+                        type: string
+                    required:
+                    - hostedZoneName
+                    - resourceGroupName
+                    - servicePrincipalAppID
+                    - servicePrincipalAppPassword
+                    - subscriptionID
+                    - tenantID
+                    type: object
+                  cloudDNS:
+                    properties:
+                      GOOGLE_PROJECT_ID:
+                        type: string
+                      GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
+                        type: string
+                    required:
+                    - GOOGLE_PROJECT_ID
+                    - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                    type: object
+                  cloudflare:
+                    properties:
+                      baseURL:
+                        type: string
+                      token:
+                        type: string
+                    required:
+                    - token
+                    type: object
+                  route53:
+                    properties:
+                      AWS_ACCESS_KEY_ID:
+                        type: string
+                      AWS_REGION:
+                        type: string
+                      AWS_SECRET_ACCESS_KEY:
+                        type: string
+                    required:
+                    - AWS_ACCESS_KEY_ID
+                    - AWS_REGION
+                    - AWS_SECRET_ACCESS_KEY
+                    type: object
+                type: object
+              provider:
+                enum:
+                - none
+                - external
+                - cloudflare
+                - route53
+                - cloudDNS
+                - azureDNS
+                type: string
+              targetIPs:
+                items:
+                  type: string
+                type: array
+            required:
+            - auth
+            - provider
+            type: object
+          kubestash:
+            properties:
+              backend:
+                properties:
+                  azure:
+                    properties:
+                      container:
+                        type: string
+                      maxConnections:
+                        format: int64
+                        type: integer
+                      prefix:
+                        type: string
+                    required:
+                    - container
+                    type: object
+                  gcs:
+                    properties:
+                      bucket:
+                        type: string
+                      maxConnections:
+                        format: int64
+                        type: integer
+                      prefix:
+                        type: string
+                    required:
+                    - bucket
+                    type: object
+                  provider:
+                    type: string
+                  s3:
+                    properties:
+                      bucket:
+                        type: string
+                      endpoint:
+                        type: string
+                      insecureTLS:
+                        type: boolean
+                      prefix:
+                        type: string
+                      region:
+                        type: string
+                    required:
+                    - bucket
+                    - endpoint
+                    type: object
+                required:
+                - provider
+                type: object
+              retentionPolicy:
+                default: keep-1mo
+                enum:
+                - keep-1wk
+                - keep-1mo
+                - keep-3mo
+                - keep-1yr
+                type: string
+              schedule:
+                type: string
+              storageSecret:
+                properties:
+                  create:
+                    type: boolean
+                type: object
+            required:
+            - backend
+            - retentionPolicy
+            - storageSecret
+            type: object
+          storageClass:
+            properties:
+              name:
+                type: string
+            required:
+            - name
+            type: object
+          tls:
+            properties:
+              acme:
+                properties:
+                  email:
+                    type: string
+                  gatewayName:
+                    type: string
+                  solver:
+                    enum:
+                    - Gateway
+                    - Ingress
+                    type: string
+                required:
+                - email
+                - gatewayName
+                - solver
+                type: object
+              ca:
+                properties:
+                  cert:
+                    type: string
+                  key:
+                    type: string
+                type: object
+              certificate:
+                properties:
+                  cert:
+                    type: string
+                  key:
+                    type: string
+                type: object
+              issuer:
+                enum:
+                - ca
+                - letsencrypt
+                - letsencrypt-staging
+                - external
+                type: string
+              jks:
+                properties:
+                  keystore:
+                    format: byte
+                    type: string
+                  password:
+                    type: string
+                  truststore:
+                    format: byte
+                    type: string
+                required:
+                - password
+                type: object
+            required:
+            - issuer
+            type: object
+        required:
+        - cloudServices
+        - dns
+        - kubestash
+        - storageClass
+        - tls
+        type: object
+      ingress:
+        properties:
+          exposeVia:
+            enum:
+            - LoadBalancer
+            - ClusterIP
+            - HostPort
+            type: string
+          externalIPs:
+            items:
+              type: string
+            type: array
+          managedRecordTypes:
+            items:
+              enum:
+              - A
+              - CNAME
+              type: string
+            type: array
+          nodeSelector:
+            additionalProperties:
+              type: string
+            type: object
+          resources:
+            properties:
+              claims:
+                items:
+                  properties:
+                    name:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - exposeVia
+        - nodeSelector
+        type: object
+      initialSetup:
+        properties:
+          admin:
+            properties:
+              displayName:
+                type: string
+              email:
+                type: string
+              orgname:
+                type: string
+              password:
+                type: string
+              username:
+                type: string
+            type: object
+          cloudCredential:
+            properties:
+              apiVersion:
+                type: string
+              kind:
+                type: string
+              metadata:
+                properties:
+                  annotations:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  finalizers:
+                    items:
+                      type: string
+                    type: array
+                  labels:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  name:
+                    type: string
+                  namespace:
+                    type: string
+                type: object
+              spec:
+                properties:
+                  aws:
+                    properties:
+                      accessKeyID:
+                        type: string
+                      secretAccessKey:
+                        type: string
+                    required:
+                    - accessKeyID
+                    - secretAccessKey
+                    type: object
+                  azure:
+                    properties:
+                      clientID:
+                        type: string
+                      clientSecret:
+                        type: string
+                      subscriptionID:
+                        type: string
+                      tenantID:
+                        type: string
+                    required:
+                    - clientID
+                    - clientSecret
+                    - subscriptionID
+                    - tenantID
+                    type: object
+                  azureStorage:
+                    properties:
+                      account:
+                        type: string
+                      key:
+                        type: string
+                    required:
+                    - account
+                    - key
+                    type: object
+                  cloudflareStorage:
+                    properties:
+                      accessKeyID:
+                        type: string
+                      accountID:
+                        type: string
+                      secretAccessKey:
+                        type: string
+                    required:
+                    - accessKeyID
+                    - accountID
+                    - secretAccessKey
+                    type: object
+                  digitalocean:
+                    properties:
+                      token:
+                        type: string
+                    required:
+                    - token
+                    type: object
+                  googleCloud:
+                    properties:
+                      projectID:
+                        type: string
+                      serviceAccount:
+                        type: string
+                    required:
+                    - projectID
+                    - serviceAccount
+                    type: object
+                  googleOAuth:
+                    properties:
+                      accessToken:
+                        type: string
+                      expiry:
+                        format: int64
+                        type: integer
+                      refreshToken:
+                        type: string
+                      scopes:
+                        items:
+                          type: string
+                        type: array
+                    required:
+                    - accessToken
+                    type: object
+                  hetzner:
+                    properties:
+                      sshKeyName:
+                        type: string
+                      token:
+                        type: string
+                    required:
+                    - sshKeyName
+                    - token
+                    type: object
+                  hetznerStorage:
+                    properties:
+                      accessKeyID:
+                        type: string
+                      secretAccessKey:
+                        type: string
+                    required:
+                    - accessKeyID
+                    - secretAccessKey
+                    type: object
+                  linode:
+                    properties:
+                      token:
+                        type: string
+                    required:
+                    - token
+                    type: object
+                  name:
+                    type: string
+                  ownerID:
+                    format: int64
+                    type: integer
+                  packet:
+                    properties:
+                      apiKey:
+                        type: string
+                      projectID:
+                        type: string
+                    required:
+                    - apiKey
+                    - projectID
+                    type: object
+                  rancher:
+                    properties:
+                      accessKeyID:
+                        type: string
+                      endpoint:
+                        type: string
+                      secretAccessKey:
+                        type: string
+                    required:
+                    - accessKeyID
+                    - endpoint
+                    - secretAccessKey
+                    type: object
+                  scaleway:
+                    properties:
+                      organization:
+                        type: string
+                      token:
+                        type: string
+                    required:
+                    - organization
+                    - token
+                    type: object
+                  swift:
+                    properties:
+                      domain:
+                        type: string
+                      password:
+                        type: string
+                      region:
+                        type: string
+                      tenantAuthURL:
+                        type: string
+                      tenantDomain:
+                        type: string
+                      tenantID:
+                        type: string
+                      tenantName:
+                        type: string
+                      username:
+                        type: string
+                    required:
+                    - password
+                    - username
+                    type: object
+                  type:
+                    enum:
+                    - Aws
+                    - Azure
+                    - AzureStorage
+                    - CloudflareStorage
+                    - DigitalOcean
+                    - GoogleCloud
+                    - GoogleOAuth
+                    - Hetzner
+                    - HetznerStorage
+                    - Linode
+                    - Packet
+                    - Rancher
+                    - Scaleway
+                    - Vultr
+                    - Swift
+                    - Hetzner
+                    type: string
+                  vultr:
+                    properties:
+                      token:
+                        type: string
+                    required:
+                    - token
+                    type: object
+                required:
+                - name
+                - ownerID
+                - type
+                type: object
+              status:
+                properties:
+                  observedGeneration:
+                    format: int64
+                    type: integer
+                type: object
+            type: object
+          cluster:
+            properties:
+              clusterName:
+                type: string
+              googleProjectID:
+                type: string
+              kubernetesVersion:
+                type: string
+              networkCIDR:
+                type: string
+              region:
+                type: string
+              workerPools:
+                items:
+                  properties:
+                    machineCount:
+                      type: integer
+                    machineType:
+                      type: string
+                  required:
+                  - machineCount
+                  - machineType
+                  type: object
+                type: array
+            type: object
+          selfManagement:
+            properties:
+              createCAPICluster:
+                type: boolean
+              disableFeatures:
+                items:
+                  type: string
+                type: array
+              enableFeatures:
+                additionalProperties:
+                  properties:
+                    enabled:
+                      type: boolean
+                    features:
+                      items:
+                        type: string
+                      type: array
+                  required:
+                  - enabled
+                  - features
+                  type: object
+                type: object
+              import:
+                type: boolean
+            type: object
+          subscription:
+            properties:
+              aws:
+                properties:
+                  meteringServiceProxyToken:
+                    type: string
+                  organizationClaimID:
+                    type: string
+                required:
+                - meteringServiceProxyToken
+                - organizationClaimID
+                type: object
+              azure:
+                properties:
+                  applicationId:
+                    type: string
+                required:
+                - applicationId
+                type: object
+              gcp:
+                properties:
+                  serviceControlProxyToken:
+                    type: string
+                required:
+                - serviceControlProxyToken
+                type: object
+            type: object
+        type: object
+      kubedb-ui:
+        properties:
+          enabled:
+            type: boolean
+          nodeSelector:
+            additionalProperties:
+              type: string
+            type: object
+          resources:
+            properties:
+              claims:
+                items:
+                  properties:
+                    name:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - enabled
+        type: object
+      monitoring:
+        properties:
+          agent:
+            type: string
+          exporter:
+            properties:
+              resources:
+                properties:
+                  claims:
+                    items:
+                      properties:
+                        name:
+                          type: string
+                      required:
+                      - name
+                      type: object
+                    type: array
+                    x-kubernetes-list-map-keys:
+                    - name
+                    x-kubernetes-list-type: map
+                  limits:
+                    additionalProperties:
+                      anyOf:
+                      - type: integer
+                      - type: string
+                      pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                      x-kubernetes-int-or-string: true
+                    type: object
+                  requests:
+                    additionalProperties:
+                      anyOf:
+                      - type: integer
+                      - type: string
+                      pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                      x-kubernetes-int-or-string: true
+                    type: object
+                type: object
+            required:
+            - resources
+            type: object
+          serviceMonitor:
+            properties:
+              labels:
+                additionalProperties:
+                  type: string
+                type: object
+            required:
+            - labels
+            type: object
+        required:
+        - agent
+        - exporter
+        - serviceMonitor
+        type: object
+      nats:
+        properties:
+          exposeVia:
+            enum:
+            - Ingress
+            - HostPort
+            type: string
+          nodeSelector:
+            additionalProperties:
+              type: string
+            type: object
+          replicas:
+            type: integer
+          resources:
+            properties:
+              claims:
+                items:
+                  properties:
+                    name:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - exposeVia
+        - nodeSelector
+        - replicas
+        type: object
+      openfga:
+        properties:
+          enabled:
+            type: boolean
+          nodeSelector:
+            additionalProperties:
+              type: string
+            type: object
+          resources:
+            properties:
+              claims:
+                items:
+                  properties:
+                    name:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - enabled
+        type: object
+      platform-api:
+        properties:
+          enabled:
+            type: boolean
+          nodeSelector:
+            additionalProperties:
+              type: string
+            type: object
+          resources:
+            properties:
+              claims:
+                items:
+                  properties:
+                    name:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - enabled
+        type: object
+      platform-ui:
+        properties:
+          enabled:
+            type: boolean
+          nodeSelector:
+            additionalProperties:
+              type: string
+            type: object
+          resources:
+            properties:
+              claims:
+                items:
+                  properties:
+                    name:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - enabled
+        type: object
+      registry:
+        properties:
+          allowNondistributableArtifacts:
+            type: boolean
+          certs:
+            properties:
+              caCert:
+                type: string
+              clientCert:
+                type: string
+              clientKey:
+                type: string
+            type: object
+          credentials:
+            properties:
+              password:
+                type: string
+              username:
+                type: string
+            required:
+            - password
+            - username
+            type: object
+          helm:
+            properties:
+              createNamespace:
+                type: boolean
+              repositories:
+                properties:
+                  appscode-charts-oci:
+                    type: string
+                type: object
+            type: object
+          image:
+            properties:
+              proxies:
+                properties:
+                  appscode:
+                    type: string
+                  dockerHub:
+                    type: string
+                  dockerLibrary:
+                    type: string
+                  ghcr:
+                    type: string
+                  kubernetes:
+                    type: string
+                  microsoft:
+                    type: string
+                  quay:
+                    type: string
+                type: object
+            type: object
+          imagePullSecrets:
+            items:
+              type: string
+            type: array
+          insecure:
+            type: boolean
+        type: object
+      release:
+        properties:
+          name:
+            type: string
+          namespace:
+            type: string
+        required:
+        - name
+        - namespace
+        type: object
+      s3proxy:
+        properties:
+          enabled:
+            type: boolean
+          nodeSelector:
+            additionalProperties:
+              type: string
+            type: object
+          resources:
+            properties:
+              claims:
+                items:
+                  properties:
+                    name:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - enabled
+        type: object
+      settings:
+        properties:
+          cache:
+            properties:
+              persistence:
+                properties:
+                  size:
+                    anyOf:
+                    - type: integer
+                    - type: string
+                    pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                    x-kubernetes-int-or-string: true
+                required:
+                - size
+                type: object
+              resources:
+                properties:
+                  claims:
+                    items:
+                      properties:
+                        name:
+                          type: string
+                      required:
+                      - name
+                      type: object
+                    type: array
+                    x-kubernetes-list-map-keys:
+                    - name
+                    x-kubernetes-list-type: map
+                  limits:
+                    additionalProperties:
+                      anyOf:
+                      - type: integer
+                      - type: string
+                      pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                      x-kubernetes-int-or-string: true
+                    type: object
+                  requests:
+                    additionalProperties:
+                      anyOf:
+                      - type: integer
+                      - type: string
+                      pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                      x-kubernetes-int-or-string: true
+                    type: object
+                type: object
+            required:
+            - persistence
+            - resources
+            type: object
+          db:
+            properties:
+              persistence:
+                properties:
+                  size:
+                    anyOf:
+                    - type: integer
+                    - type: string
+                    pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                    x-kubernetes-int-or-string: true
+                required:
+                - size
+                type: object
+              resources:
+                properties:
+                  claims:
+                    items:
+                      properties:
+                        name:
+                          type: string
+                      required:
+                      - name
+                      type: object
+                    type: array
+                    x-kubernetes-list-map-keys:
+                    - name
+                    x-kubernetes-list-type: map
+                  limits:
+                    additionalProperties:
+                      anyOf:
+                      - type: integer
+                      - type: string
+                      pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                      x-kubernetes-int-or-string: true
+                    type: object
+                  requests:
+                    additionalProperties:
+                      anyOf:
+                      - type: integer
+                      - type: string
+                      pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                      x-kubernetes-int-or-string: true
+                    type: object
+                type: object
+            required:
+            - persistence
+            - resources
+            type: object
+          domainWhiteList:
+            items:
+              type: string
+            type: array
+          loginURL:
+            type: string
+          logoutURL:
+            type: string
+          marketplace:
+            properties:
+              alertEmails:
+                items:
+                  type: string
+                type: array
+              aws:
+                properties:
+                  productCode:
+                    type: string
+                  secret:
+                    type: string
+                required:
+                - productCode
+                - secret
+                type: object
+              azure:
+                properties:
+                  clientID:
+                    type: string
+                  clientSecret:
+                    type: string
+                  clientSecretExpiresAt:
+                    format: date-time
+                    type: string
+                  secret:
+                    type: string
+                  tenantID:
+                    type: string
+                required:
+                - clientID
+                - clientSecret
+                - secret
+                - tenantID
+                type: object
+              gcp:
+                properties:
+                  secret:
+                    type: string
+                  testUploadID:
+                    type: string
+                required:
+                - secret
+                - testUploadID
+                type: object
+              spreadsheetCredential:
+                type: string
+              spreadsheetID:
+                type: string
+            required:
+            - alertEmails
+            - spreadsheetCredential
+            - spreadsheetID
+            type: object
+          proxy:
+            properties:
+              httpProxy:
+                type: string
+              httpsProxy:
+                type: string
+              noProxy:
+                type: string
+            required:
+            - httpProxy
+            - httpsProxy
+            - noProxy
+            type: object
+          smtp:
+            properties:
+              enabled:
+                type: boolean
+              from:
+                type: string
+              host:
+                type: string
+              password:
+                type: string
+              sendAsPlainText:
+                type: boolean
+              tlsEnabled:
+                type: boolean
+              username:
+                type: string
+            required:
+            - enabled
+            - from
+            - host
+            - password
+            - sendAsPlainText
+            - tlsEnabled
+            - username
+            type: object
+        required:
+        - cache
+        - db
+        - smtp
+        type: object
+      trickster:
+        properties:
+          enabled:
+            type: boolean
+          nodeSelector:
+            additionalProperties:
+              type: string
+            type: object
+          resources:
+            properties:
+              claims:
+                items:
+                  properties:
+                    name:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - enabled
+        type: object
+    required:
+    - branding
+    - cluster-ui
+    - context
+    - grafana
+    - infra
+    - ingress
+    - initialSetup
+    - kubedb-ui
+    - monitoring
+    - nats
+    - openfga
+    - platform-api
+    - platform-ui
+    - registry
+    - release
+    - s3proxy
+    - settings
+    - trickster
+    type: object
   precheck:
     properties:
       affinity:
