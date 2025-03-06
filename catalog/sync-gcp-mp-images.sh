@@ -127,7 +127,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kyverno/cleanup-controller:v
 crane cp --allow-nondistributable-artifacts ghcr.io/kyverno/kyverno:v1.12.5 $IMAGE_REGISTRY/kyverno:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kyverno/kyvernopre:v1.12.5 $IMAGE_REGISTRY/kyvernopre:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kyverno/reports-controller:v1.12.5 $IMAGE_REGISTRY/reports-controller:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/loft-sh/vcluster-oss:0.22.0 $IMAGE_REGISTRY/vcluster-oss:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/loft-sh/vcluster-oss:0.22.4 $IMAGE_REGISTRY/vcluster-oss:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/echoserver:v20221109 $IMAGE_REGISTRY/echoserver:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/envoy:v1.31.2-ac $IMAGE_REGISTRY/envoy:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/gateway-converter:v0.0.1 $IMAGE_REGISTRY/gateway-converter:$TAG

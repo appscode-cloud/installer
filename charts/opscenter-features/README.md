@@ -151,7 +151,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.cluster-proxy-manager.version                 |                                 | <code>"v2024.12.26"</code>                 |
 | helm.releases.cluster-gateway-manager.version               |                                 | <code>"v2024.12.26"</code>                 |
 | helm.releases.cluster-auth-manager.version                  |                                 | <code>"v2024.12.26"</code>                 |
-| helm.releases.cluster-profile-manager.version               |                                 | <code>"v2024.12.26"</code>                 |
+| helm.releases.cluster-profile-manager.version               |                                 | <code>"v2025.3.6"</code>                   |
 | helm.releases.hub-cluster-robot.version                     |                                 | <code>"v2024.8.9"</code>                   |
 | helm.releases.fluxcd-manager.version                        |                                 | <code>"v2024.12.26"</code>                 |
 | helm.releases.license-proxyserver-manager.version           |                                 | <code>"v2025.1.17"</code>                  |

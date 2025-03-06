@@ -14,7 +14,7 @@
 - ghcr.io/appscode-charts/cluster-manager-hub:v2024.12.26
 - ghcr.io/appscode-charts/cluster-manager-spoke:v2024.12.26
 - ghcr.io/appscode-charts/cluster-presets:v2025.3.14
-- ghcr.io/appscode-charts/cluster-profile-manager:v2024.12.26
+- ghcr.io/appscode-charts/cluster-profile-manager:v2025.3.6
 - ghcr.io/appscode-charts/cluster-proxy-manager:v2024.12.26
 - ghcr.io/appscode-charts/config-syncer:v0.15.2
 - ghcr.io/appscode-charts/crossplane:1.14.0

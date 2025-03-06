@@ -83,7 +83,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-hub:v2024.12.26 images/appscode-charts-cluster-manager-hub-v2024.12.26.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-spoke:v2024.12.26 images/appscode-charts-cluster-manager-spoke-v2024.12.26.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-presets:v2025.3.14 images/appscode-charts-cluster-presets-v2025.3.14.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-profile-manager:v2024.12.26 images/appscode-charts-cluster-profile-manager-v2024.12.26.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-profile-manager:v2025.3.6 images/appscode-charts-cluster-profile-manager-v2025.3.6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-proxy-manager:v2024.12.26 images/appscode-charts-cluster-proxy-manager-v2024.12.26.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/config-syncer:v0.15.2 images/appscode-charts-config-syncer-v0.15.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/corekubestashcom-backupbatch-editor:v0.14.0 images/appscode-charts-corekubestashcom-backupbatch-editor-v0.14.0.tar
@@ -375,7 +375,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/cleanup-
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyverno:v1.12.5 images/kyverno-kyverno-v1.12.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyvernopre:v1.12.5 images/kyverno-kyvernopre-v1.12.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/reports-controller:v1.12.5 images/kyverno-reports-controller-v1.12.5.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster-oss:0.22.0 images/loft-sh-vcluster-oss-0.22.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster-oss:0.22.4 images/loft-sh-vcluster-oss-0.22.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/echoserver:v20221109 images/voyagermesh-echoserver-v20221109.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.31.2-ac images/voyagermesh-envoy-v1.31.2-ac.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway-converter:v0.0.1 images/voyagermesh-gateway-converter-v0.0.1.tar

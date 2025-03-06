@@ -86,7 +86,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cl
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-hub:v2024.12.26 $IMAGE_REGISTRY/appscode-charts/cluster-manager-hub:v2024.12.26
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-spoke:v2024.12.26 $IMAGE_REGISTRY/appscode-charts/cluster-manager-spoke:v2024.12.26
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-presets:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/cluster-presets:v2025.3.14
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-profile-manager:v2024.12.26 $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2024.12.26
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-profile-manager:v2025.3.6 $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2025.3.6
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-proxy-manager:v2024.12.26 $IMAGE_REGISTRY/appscode-charts/cluster-proxy-manager:v2024.12.26
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/config-syncer:v0.15.2 $IMAGE_REGISTRY/appscode-charts/config-syncer:v0.15.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/corekubestashcom-backupbatch-editor:v0.14.0 $IMAGE_REGISTRY/appscode-charts/corekubestashcom-backupbatch-editor:v0.14.0
@@ -378,7 +378,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/cleanup-co
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyverno:v1.12.5 $IMAGE_REGISTRY/kyverno/kyverno:v1.12.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyvernopre:v1.12.5 $IMAGE_REGISTRY/kyverno/kyvernopre:v1.12.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/reports-controller:v1.12.5 $IMAGE_REGISTRY/kyverno/reports-controller:v1.12.5
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster-oss:0.22.0 $IMAGE_REGISTRY/loft-sh/vcluster-oss:0.22.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster-oss:0.22.4 $IMAGE_REGISTRY/loft-sh/vcluster-oss:0.22.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/echoserver:v20221109 $IMAGE_REGISTRY/voyagermesh/echoserver:v20221109
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.31.2-ac $IMAGE_REGISTRY/voyagermesh/envoy:v1.31.2-ac
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway-converter:v0.0.1 $IMAGE_REGISTRY/voyagermesh/gateway-converter:v0.0.1

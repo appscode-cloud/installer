@@ -75,7 +75,7 @@ k3s ctr images import images/appscode-charts-cluster-gateway-manager-v2024.12.26
 k3s ctr images import images/appscode-charts-cluster-manager-hub-v2024.12.26.tar
 k3s ctr images import images/appscode-charts-cluster-manager-spoke-v2024.12.26.tar
 k3s ctr images import images/appscode-charts-cluster-presets-v2025.3.14.tar
-k3s ctr images import images/appscode-charts-cluster-profile-manager-v2024.12.26.tar
+k3s ctr images import images/appscode-charts-cluster-profile-manager-v2025.3.6.tar
 k3s ctr images import images/appscode-charts-cluster-proxy-manager-v2024.12.26.tar
 k3s ctr images import images/appscode-charts-config-syncer-v0.15.2.tar
 k3s ctr images import images/appscode-charts-corekubestashcom-backupbatch-editor-v0.14.0.tar
@@ -367,7 +367,7 @@ k3s ctr images import images/kyverno-cleanup-controller-v1.12.5.tar
 k3s ctr images import images/kyverno-kyverno-v1.12.5.tar
 k3s ctr images import images/kyverno-kyvernopre-v1.12.5.tar
 k3s ctr images import images/kyverno-reports-controller-v1.12.5.tar
-k3s ctr images import images/loft-sh-vcluster-oss-0.22.0.tar
+k3s ctr images import images/loft-sh-vcluster-oss-0.22.4.tar
 k3s ctr images import images/voyagermesh-echoserver-v20221109.tar
 k3s ctr images import images/voyagermesh-envoy-v1.31.2-ac.tar
 k3s ctr images import images/voyagermesh-gateway-converter-v0.0.1.tar
