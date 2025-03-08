@@ -2,6 +2,21 @@
 registryFQDN: %s
 ace-user-roles:
   enabled: true
+  enableClusterRoles:
+    ace: true
+    appcatalog: true
+    catalog: true
+    cert-manager: true
+    kubedb-ui: true
+    kubedb: true
+    kubestash: true
+    kubevault: true
+    license-proxyserver: true
+    metrics: true
+    prometheus: true
+    secrets-store: true
+    stash: true
+    virtual-secrets: true
 `
   (include "registry.ghcr" $)
   | fromYaml }}
