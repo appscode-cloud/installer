@@ -208,6 +208,10 @@ helm:
       version: "0.1.0"
     vault:
       version: "0.27.0"
+    virtual-secrets-server:
+      version: "v2025.3.14"
+    secrets-store-csi-driver-provider-virtual-secrets:
+      version: "v2025.3.14"
     # ocm charts
     ingress-nginx:
       version: "4.11.1"
