@@ -80,7 +80,7 @@ graph TD;
   csi-secrets-store-provider-azure-->secrets-store-csi-driver;
   secrets-store-csi-driver-provider-gcp-->secrets-store-csi-driver;
   vault-->secrets-store-csi-driver;
-  secrets-store-csi-driver-provider-virtual-secrets-->virtual-secrets;
+  secrets-store-csi-driver-provider-virtual-secrets-->virtual-secrets-server;
   secrets-store-csi-driver-provider-virtual-secrets-->secrets-store-csi-driver;
   cert-manager-csi-driver-cacerts-->cert-manager;
   cert-manager-->gateway-api;
