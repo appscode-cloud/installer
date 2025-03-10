@@ -82,6 +82,12 @@ openfga:
   #   seccompProfile:
   #     type: RuntimeDefault
 
+pgoutbox:
+  enabled: false
+
+outbox-syncer:
+  enabled: false
+
 # kube-bind-server:
 #   enabled: false
 
