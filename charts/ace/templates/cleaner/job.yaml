@@ -24,12 +24,12 @@ spec:
           image: "{{ include "kubectl.registry" . }}/{{ .Values.kubectl.repository }}:{{ .Values.kubectl.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.kubectl.pullPolicy }}
           command:
-            - kubectl
-            - delete
-            - jobs
-            - --namespace={{ .Release.Namespace }}
-            - --selector
-            - app.kubernetes.io/instance=ace
+          - /bin/sh
+          - -c
+          - |
+            kubectl delete jobs -n {{ .Release.Namespace }} --selector app.kubernetes.io/instance=ace || true ; \
+            kubectl delete cert -n {{ .Release.Namespace }} {{ include "ace.fullname" . }} || true ; \
+            kubectl delete secret -n {{ .Release.Namespace }} {{ include "ace.fullname" . }}-cert || true
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
