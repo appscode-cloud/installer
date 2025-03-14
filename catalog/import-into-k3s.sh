@@ -58,6 +58,7 @@ k3s ctr images import images/appscode-charts-autoscalingkubedbcom-redissentinela
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-singlestoreautoscaler-editor-v0.14.0.tar
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-solrautoscaler-editor-v0.14.0.tar
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-zookeeperautoscaler-editor-v0.14.0.tar
+k3s ctr images import images/appscode-charts-aws-credential-manager-v2025.3.14.tar
 k3s ctr images import images/appscode-charts-aws-ebs-csi-driver-2.23.0.tar
 k3s ctr images import images/appscode-charts-aws-load-balancer-controller-1.11.0.tar
 k3s ctr images import images/appscode-charts-capa-vpc-peering-operator-v2023.12.11.tar
@@ -201,7 +202,7 @@ k3s ctr images import images/appscode-charts-opskubedbcom-redissentinelopsreques
 k3s ctr images import images/appscode-charts-opskubedbcom-singlestoreopsrequest-editor-v0.14.0.tar
 k3s ctr images import images/appscode-charts-opskubedbcom-solropsrequest-editor-v0.14.0.tar
 k3s ctr images import images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.14.0.tar
-k3s ctr images import images/appscode-charts-panopticon-v2024.11.8.tar
+k3s ctr images import images/appscode-charts-panopticon-v2025.3.14.tar
 k3s ctr images import images/appscode-charts-prepare-cluster-v2023.12.21.tar
 k3s ctr images import images/appscode-charts-prometheus-adapter-4.9.0.tar
 k3s ctr images import images/appscode-charts-reloader-1.0.79.tar
@@ -209,6 +210,7 @@ k3s ctr images import images/appscode-charts-scanner-v2024.9.30.tar
 k3s ctr images import images/appscode-charts-sealed-secrets-2.14.2.tar
 k3s ctr images import images/appscode-charts-secrets-store-csi-driver-provider-aws-0.3.6.tar
 k3s ctr images import images/appscode-charts-secrets-store-csi-driver-provider-gcp-0.1.0.tar
+k3s ctr images import images/appscode-charts-secrets-store-csi-driver-provider-virtual-secrets-v2025.3.14.tar
 k3s ctr images import images/appscode-charts-secrets-store-csi-driver-1.4.1.tar
 k3s ctr images import images/appscode-charts-service-backend-v2025.3.14.tar
 k3s ctr images import images/appscode-charts-service-gateway-presets-v2025.3.14.tar
@@ -271,6 +273,7 @@ k3s ctr images import images/appscode-charts-uik8sappscodecom-featureset-opscent
 k3s ctr images import images/appscode-charts-uik8sappscodecom-featureset-saas-core-editor-v0.14.0.tar
 k3s ctr images import images/appscode-charts-vault-secrets-operator-0.4.3.tar
 k3s ctr images import images/appscode-charts-vault-0.27.0.tar
+k3s ctr images import images/appscode-charts-virtual-secrets-server-v2025.3.14.tar
 k3s ctr images import images/appscode-charts-voyager-gateway-v2024.11.4.tar
 k3s ctr images import images/appscode-charts-voyager-v2024.8.30.tar
 k3s ctr images import images/appscode-images-ingress-nginx-controller-v1.11.1.tar

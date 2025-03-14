@@ -70,6 +70,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.repositories.appscode-charts-oci.url                               |                                 | <code>oci://ghcr.io/appscode-charts</code> |
 | helm.releases.aceshifter.version                                        |                                 | <code>"v2025.3.14"</code>                  |
 | helm.releases.appscode-otel-stack.version                               |                                 | <code>"v2025.2.28"</code>                  |
+| helm.releases.aws-credential-manager.version                            |                                 | <code>"v2025.3.14"</code>                  |
 | helm.releases.aws-ebs-csi-driver.version                                |                                 | <code>"2.23.0"</code>                      |
 | helm.releases.aws-load-balancer-controller.version                      |                                 | <code>"1.11.0"</code>                      |
 | helm.releases.capa-vpc-peering-operator.version                         |                                 | <code>"v2023.12.11"</code>                 |

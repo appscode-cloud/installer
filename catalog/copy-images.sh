@@ -69,6 +69,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/au
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-singlestoreautoscaler-editor:v0.14.0 $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-singlestoreautoscaler-editor:v0.14.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-solrautoscaler-editor:v0.14.0 $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-solrautoscaler-editor:v0.14.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-zookeeperautoscaler-editor:v0.14.0 $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-zookeeperautoscaler-editor:v0.14.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-credential-manager:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/aws-credential-manager:v2025.3.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-ebs-csi-driver:2.23.0 $IMAGE_REGISTRY/appscode-charts/aws-ebs-csi-driver:2.23.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-load-balancer-controller:1.11.0 $IMAGE_REGISTRY/appscode-charts/aws-load-balancer-controller:1.11.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capa-vpc-peering-operator:v2023.12.11 $IMAGE_REGISTRY/appscode-charts/capa-vpc-peering-operator:v2023.12.11
@@ -212,7 +213,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/op
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.14.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.14.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-solropsrequest-editor:v0.14.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-solropsrequest-editor:v0.14.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.14.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.14.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2024.11.8 $IMAGE_REGISTRY/appscode-charts/panopticon:v2024.11.8
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/panopticon:v2025.3.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prepare-cluster:v2023.12.21 $IMAGE_REGISTRY/appscode-charts/prepare-cluster:v2023.12.21
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prometheus-adapter:4.9.0 $IMAGE_REGISTRY/appscode-charts/prometheus-adapter:4.9.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/reloader:1.0.79 $IMAGE_REGISTRY/appscode-charts/reloader:1.0.79
@@ -220,6 +221,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sc
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sealed-secrets:2.14.2 $IMAGE_REGISTRY/appscode-charts/sealed-secrets:2.14.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-aws:0.3.6 $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-aws:0.3.6
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-gcp:0.1.0 $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-gcp:0.1.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-virtual-secrets:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-virtual-secrets:v2025.3.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver:1.4.1 $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver:1.4.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-backend:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/service-backend:v2025.3.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway-presets:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/service-gateway-presets:v2025.3.14
@@ -282,6 +284,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ui
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uik8sappscodecom-featureset-saas-core-editor:v0.14.0 $IMAGE_REGISTRY/appscode-charts/uik8sappscodecom-featureset-saas-core-editor:v0.14.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault-secrets-operator:0.4.3 $IMAGE_REGISTRY/appscode-charts/vault-secrets-operator:0.4.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault:0.27.0 $IMAGE_REGISTRY/appscode-charts/vault:0.27.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/virtual-secrets-server:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/virtual-secrets-server:v2025.3.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2024.11.4 $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2024.11.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2024.8.30 $IMAGE_REGISTRY/appscode-charts/voyager:v2024.8.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/ingress-nginx-controller:v1.11.1 $IMAGE_REGISTRY/appscode-images/ingress-nginx-controller:v1.11.1

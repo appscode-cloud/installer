@@ -35,7 +35,7 @@ spec:
           args:
             - run
             - --metrics-bind-address=:8443
-            - --leader-elect
+            - --leader-elect=false
             - --health-probe-bind-address=:{{ .Values.service.port }}
           ports:
             - name: http
