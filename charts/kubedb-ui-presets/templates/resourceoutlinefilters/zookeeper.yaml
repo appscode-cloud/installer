@@ -22,6 +22,11 @@ spec:
       Vertical Scale: true
     name: Scaling
     show: true
+  - items:
+      Monitoring: true
+      TLS Configure: true
+    name: Security & Monitoring
+    show: true
   header: true
   pages:
   - name: Overview
