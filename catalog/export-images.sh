@@ -66,6 +66,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-singlestoreautoscaler-editor:v0.14.0 images/appscode-charts-autoscalingkubedbcom-singlestoreautoscaler-editor-v0.14.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-solrautoscaler-editor:v0.14.0 images/appscode-charts-autoscalingkubedbcom-solrautoscaler-editor-v0.14.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-zookeeperautoscaler-editor:v0.14.0 images/appscode-charts-autoscalingkubedbcom-zookeeperautoscaler-editor-v0.14.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-credential-manager:v2025.3.14 images/appscode-charts-aws-credential-manager-v2025.3.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-ebs-csi-driver:2.23.0 images/appscode-charts-aws-ebs-csi-driver-2.23.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-load-balancer-controller:1.11.0 images/appscode-charts-aws-load-balancer-controller-1.11.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capa-vpc-peering-operator:v2023.12.11 images/appscode-charts-capa-vpc-peering-operator-v2023.12.11.tar
@@ -209,7 +210,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.14.0 images/appscode-charts-opskubedbcom-singlestoreopsrequest-editor-v0.14.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-solropsrequest-editor:v0.14.0 images/appscode-charts-opskubedbcom-solropsrequest-editor-v0.14.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.14.0 images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.14.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2024.11.8 images/appscode-charts-panopticon-v2024.11.8.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2025.3.14 images/appscode-charts-panopticon-v2025.3.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prepare-cluster:v2023.12.21 images/appscode-charts-prepare-cluster-v2023.12.21.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prometheus-adapter:4.9.0 images/appscode-charts-prometheus-adapter-4.9.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/reloader:1.0.79 images/appscode-charts-reloader-1.0.79.tar
@@ -217,6 +218,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sealed-secrets:2.14.2 images/appscode-charts-sealed-secrets-2.14.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-aws:0.3.6 images/appscode-charts-secrets-store-csi-driver-provider-aws-0.3.6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-gcp:0.1.0 images/appscode-charts-secrets-store-csi-driver-provider-gcp-0.1.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-virtual-secrets:v2025.3.14 images/appscode-charts-secrets-store-csi-driver-provider-virtual-secrets-v2025.3.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver:1.4.1 images/appscode-charts-secrets-store-csi-driver-1.4.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-backend:v2025.3.14 images/appscode-charts-service-backend-v2025.3.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway-presets:v2025.3.14 images/appscode-charts-service-gateway-presets-v2025.3.14.tar
@@ -279,6 +281,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uik8sappscodecom-featureset-saas-core-editor:v0.14.0 images/appscode-charts-uik8sappscodecom-featureset-saas-core-editor-v0.14.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault-secrets-operator:0.4.3 images/appscode-charts-vault-secrets-operator-0.4.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault:0.27.0 images/appscode-charts-vault-0.27.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/virtual-secrets-server:v2025.3.14 images/appscode-charts-virtual-secrets-server-v2025.3.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2024.11.4 images/appscode-charts-voyager-gateway-v2024.11.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2024.8.30 images/appscode-charts-voyager-v2024.8.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/ingress-nginx-controller:v1.11.1 images/appscode-images-ingress-nginx-controller-v1.11.1.tar

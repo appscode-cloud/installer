@@ -1,5 +1,6 @@
 - ghcr.io/appscode-charts/aceshifter:v2025.3.14
 - ghcr.io/appscode-charts/appscode-otel-stack:v2025.2.28
+- ghcr.io/appscode-charts/aws-credential-manager:v2025.3.14
 - ghcr.io/appscode-charts/aws-ebs-csi-driver:2.23.0
 - ghcr.io/appscode-charts/aws-load-balancer-controller:1.11.0
 - ghcr.io/appscode-charts/capa-vpc-peering-operator:v2023.12.11
@@ -64,7 +65,7 @@
 - ghcr.io/appscode-charts/opencost:1.18.1
 - ghcr.io/appscode-charts/operator-shard-manager:v2025.1.17
 - ghcr.io/appscode-charts/opscenter-features:v2025.3.14
-- ghcr.io/appscode-charts/panopticon:v2024.11.8
+- ghcr.io/appscode-charts/panopticon:v2025.3.14
 - ghcr.io/appscode-charts/prepare-cluster:v2023.12.21
 - ghcr.io/appscode-charts/prometheus-adapter:4.9.0
 - ghcr.io/appscode-charts/reloader:1.0.79
@@ -72,6 +73,7 @@
 - ghcr.io/appscode-charts/sealed-secrets:2.14.2
 - ghcr.io/appscode-charts/secrets-store-csi-driver-provider-aws:0.3.6
 - ghcr.io/appscode-charts/secrets-store-csi-driver-provider-gcp:0.1.0
+- ghcr.io/appscode-charts/secrets-store-csi-driver-provider-virtual-secrets:v2025.3.14
 - ghcr.io/appscode-charts/secrets-store-csi-driver:1.4.1
 - ghcr.io/appscode-charts/service-backend:v2025.3.14
 - ghcr.io/appscode-charts/service-gateway-presets:v2025.3.14
@@ -103,5 +105,6 @@
 - ghcr.io/appscode-charts/uik8sappscodecom-featureset-saas-core-editor:v0.14.0
 - ghcr.io/appscode-charts/vault-secrets-operator:0.4.3
 - ghcr.io/appscode-charts/vault:0.27.0
+- ghcr.io/appscode-charts/virtual-secrets-server:v2025.3.14
 - ghcr.io/appscode-charts/voyager-gateway:v2024.11.4
 - ghcr.io/appscode-charts/voyager:v2024.8.30

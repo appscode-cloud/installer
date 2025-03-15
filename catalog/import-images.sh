@@ -60,6 +60,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-a
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-singlestoreautoscaler-editor-v0.14.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-singlestoreautoscaler-editor:v0.14.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-solrautoscaler-editor-v0.14.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-solrautoscaler-editor:v0.14.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-zookeeperautoscaler-editor-v0.14.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-zookeeperautoscaler-editor:v0.14.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-aws-credential-manager-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/aws-credential-manager:v2025.3.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-aws-ebs-csi-driver-2.23.0.tar $IMAGE_REGISTRY/appscode-charts/aws-ebs-csi-driver:2.23.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-aws-load-balancer-controller-1.11.0.tar $IMAGE_REGISTRY/appscode-charts/aws-load-balancer-controller:1.11.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-capa-vpc-peering-operator-v2023.12.11.tar $IMAGE_REGISTRY/appscode-charts/capa-vpc-peering-operator:v2023.12.11
@@ -203,7 +204,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-o
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-singlestoreopsrequest-editor-v0.14.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.14.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-solropsrequest-editor-v0.14.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-solropsrequest-editor:v0.14.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.14.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.14.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-panopticon-v2024.11.8.tar $IMAGE_REGISTRY/appscode-charts/panopticon:v2024.11.8
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-panopticon-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/panopticon:v2025.3.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prepare-cluster-v2023.12.21.tar $IMAGE_REGISTRY/appscode-charts/prepare-cluster:v2023.12.21
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prometheus-adapter-4.9.0.tar $IMAGE_REGISTRY/appscode-charts/prometheus-adapter:4.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-reloader-1.0.79.tar $IMAGE_REGISTRY/appscode-charts/reloader:1.0.79
@@ -211,6 +212,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-s
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-sealed-secrets-2.14.2.tar $IMAGE_REGISTRY/appscode-charts/sealed-secrets:2.14.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-secrets-store-csi-driver-provider-aws-0.3.6.tar $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-aws:0.3.6
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-secrets-store-csi-driver-provider-gcp-0.1.0.tar $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-gcp:0.1.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-secrets-store-csi-driver-provider-virtual-secrets-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-virtual-secrets:v2025.3.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-secrets-store-csi-driver-1.4.1.tar $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver:1.4.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-backend-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/service-backend:v2025.3.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-gateway-presets-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/service-gateway-presets:v2025.3.14
@@ -273,6 +275,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-u
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uik8sappscodecom-featureset-saas-core-editor-v0.14.0.tar $IMAGE_REGISTRY/appscode-charts/uik8sappscodecom-featureset-saas-core-editor:v0.14.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-vault-secrets-operator-0.4.3.tar $IMAGE_REGISTRY/appscode-charts/vault-secrets-operator:0.4.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-vault-0.27.0.tar $IMAGE_REGISTRY/appscode-charts/vault:0.27.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-virtual-secrets-server-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/virtual-secrets-server:v2025.3.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-gateway-v2024.11.4.tar $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2024.11.4
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-v2024.8.30.tar $IMAGE_REGISTRY/appscode-charts/voyager:v2024.8.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-ingress-nginx-controller-v1.11.1.tar $IMAGE_REGISTRY/appscode-images/ingress-nginx-controller:v1.11.1
