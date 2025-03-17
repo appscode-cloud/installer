@@ -110,9 +110,9 @@ helm:
     grafana-operator:
       version: "v2025.3.14"
     keda:
-      version: "2.15.1"
+      version: "2.16.1"
     keda-add-ons-http:
-      version: "0.8.0"
+      version: "0.10.0"
     kube-grafana-dashboards:
       version: "v2023.10.1"
     kube-prometheus-stack:
