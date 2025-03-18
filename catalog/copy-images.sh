@@ -108,7 +108,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ex
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/external-secrets:0.9.12 $IMAGE_REGISTRY/appscode-charts/external-secrets:0.9.12
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco-ui-server:v2024.5.17 $IMAGE_REGISTRY/appscode-charts/falco-ui-server:v2024.5.17
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco:4.0.0 $IMAGE_REGISTRY/appscode-charts/falco:4.0.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/flux2:2.13.0 $IMAGE_REGISTRY/appscode-charts/flux2:2.13.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/flux2:2.15.0 $IMAGE_REGISTRY/appscode-charts/flux2:2.15.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/fluxcd-manager:v2024.12.26 $IMAGE_REGISTRY/appscode-charts/fluxcd-manager:v2024.12.26
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/gatekeeper-library:v2023.10.1
@@ -348,10 +348,10 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/ad
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-auth:v0.3.0 $IMAGE_REGISTRY/kluster-manager/cluster-auth:v0.3.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway-manager:v1.10.0 $IMAGE_REGISTRY/kluster-manager/cluster-gateway-manager:v1.10.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway:v1.10.0 $IMAGE_REGISTRY/kluster-manager/cluster-gateway:v1.10.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile:v0.4.0 $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.4.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile:v0.6.0 $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.6.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-proxy:v0.6.0 $IMAGE_REGISTRY/kluster-manager/cluster-proxy:v0.6.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/clusteradm:v0.10.0 $IMAGE_REGISTRY/kluster-manager/clusteradm:v0.10.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/fluxcd-addon:v0.0.5 $IMAGE_REGISTRY/kluster-manager/fluxcd-addon:v0.0.5
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/fluxcd-addon:v0.0.6 $IMAGE_REGISTRY/kluster-manager/fluxcd-addon:v0.0.6
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/managed-serviceaccount:v0.7.0 $IMAGE_REGISTRY/kluster-manager/managed-serviceaccount:v0.7.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/placement:v0.15.2 $IMAGE_REGISTRY/kluster-manager/placement:v0.15.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/registration-operator:v0.15.2 $IMAGE_REGISTRY/kluster-manager/registration-operator:v0.15.2

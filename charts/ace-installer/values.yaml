@@ -73,7 +73,7 @@ helm:
       version: "v2024.4.19"
     flux2:
       enabled: false
-      version: "2.13.0"
+      version: "2.15.0"
     gateway-api:
       enabled: true
       version: "v1.1.0"

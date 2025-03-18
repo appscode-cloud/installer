@@ -70,10 +70,10 @@
 - ghcr.io/kluster-manager/cluster-auth:v0.3.0
 - ghcr.io/kluster-manager/cluster-gateway-manager:v1.10.0
 - ghcr.io/kluster-manager/cluster-gateway:v1.10.0
-- ghcr.io/kluster-manager/cluster-profile:v0.4.0
+- ghcr.io/kluster-manager/cluster-profile:v0.6.0
 - ghcr.io/kluster-manager/cluster-proxy:v0.6.0
 - ghcr.io/kluster-manager/clusteradm:v0.10.0
-- ghcr.io/kluster-manager/fluxcd-addon:v0.0.5
+- ghcr.io/kluster-manager/fluxcd-addon:v0.0.6
 - ghcr.io/kluster-manager/managed-serviceaccount:v0.7.0
 - ghcr.io/kluster-manager/placement:v0.15.2
 - ghcr.io/kluster-manager/registration-operator:v0.15.2

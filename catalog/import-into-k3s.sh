@@ -97,7 +97,7 @@ k3s ctr images import images/appscode-charts-external-dns-operator-v2024.4.19.ta
 k3s ctr images import images/appscode-charts-external-secrets-0.9.12.tar
 k3s ctr images import images/appscode-charts-falco-ui-server-v2024.5.17.tar
 k3s ctr images import images/appscode-charts-falco-4.0.0.tar
-k3s ctr images import images/appscode-charts-flux2-2.13.0.tar
+k3s ctr images import images/appscode-charts-flux2-2.15.0.tar
 k3s ctr images import images/appscode-charts-fluxcd-manager-v2024.12.26.tar
 k3s ctr images import images/appscode-charts-gatekeeper-grafana-dashboards-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-gatekeeper-library-v2023.10.1.tar
@@ -337,10 +337,10 @@ k3s ctr images import images/kluster-manager-addon-manager-v0.15.2.tar
 k3s ctr images import images/kluster-manager-cluster-auth-v0.3.0.tar
 k3s ctr images import images/kluster-manager-cluster-gateway-manager-v1.10.0.tar
 k3s ctr images import images/kluster-manager-cluster-gateway-v1.10.0.tar
-k3s ctr images import images/kluster-manager-cluster-profile-v0.4.0.tar
+k3s ctr images import images/kluster-manager-cluster-profile-v0.6.0.tar
 k3s ctr images import images/kluster-manager-cluster-proxy-v0.6.0.tar
 k3s ctr images import images/kluster-manager-clusteradm-v0.10.0.tar
-k3s ctr images import images/kluster-manager-fluxcd-addon-v0.0.5.tar
+k3s ctr images import images/kluster-manager-fluxcd-addon-v0.0.6.tar
 k3s ctr images import images/kluster-manager-managed-serviceaccount-v0.7.0.tar
 k3s ctr images import images/kluster-manager-placement-v0.15.2.tar
 k3s ctr images import images/kluster-manager-registration-operator-v0.15.2.tar

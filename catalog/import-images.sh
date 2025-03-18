@@ -99,7 +99,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-e
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-external-secrets-0.9.12.tar $IMAGE_REGISTRY/appscode-charts/external-secrets:0.9.12
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-falco-ui-server-v2024.5.17.tar $IMAGE_REGISTRY/appscode-charts/falco-ui-server:v2024.5.17
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-falco-4.0.0.tar $IMAGE_REGISTRY/appscode-charts/falco:4.0.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-flux2-2.13.0.tar $IMAGE_REGISTRY/appscode-charts/flux2:2.13.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-flux2-2.15.0.tar $IMAGE_REGISTRY/appscode-charts/flux2:2.15.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-fluxcd-manager-v2024.12.26.tar $IMAGE_REGISTRY/appscode-charts/fluxcd-manager:v2024.12.26
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gatekeeper-grafana-dashboards-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gatekeeper-library-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/gatekeeper-library:v2023.10.1
@@ -339,10 +339,10 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-a
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-auth-v0.3.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-auth:v0.3.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-gateway-manager-v1.10.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-gateway-manager:v1.10.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-gateway-v1.10.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-gateway:v1.10.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-profile-v0.4.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.4.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-profile-v0.6.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.6.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-proxy-v0.6.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-proxy:v0.6.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-clusteradm-v0.10.0.tar $IMAGE_REGISTRY/kluster-manager/clusteradm:v0.10.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-fluxcd-addon-v0.0.5.tar $IMAGE_REGISTRY/kluster-manager/fluxcd-addon:v0.0.5
+$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-fluxcd-addon-v0.0.6.tar $IMAGE_REGISTRY/kluster-manager/fluxcd-addon:v0.0.6
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-managed-serviceaccount-v0.7.0.tar $IMAGE_REGISTRY/kluster-manager/managed-serviceaccount:v0.7.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-placement-v0.15.2.tar $IMAGE_REGISTRY/kluster-manager/placement:v0.15.2
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-registration-operator-v0.15.2.tar $IMAGE_REGISTRY/kluster-manager/registration-operator:v0.15.2

@@ -105,7 +105,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/external-secrets:0.9.12 images/appscode-charts-external-secrets-0.9.12.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco-ui-server:v2024.5.17 images/appscode-charts-falco-ui-server-v2024.5.17.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco:4.0.0 images/appscode-charts-falco-4.0.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/flux2:2.13.0 images/appscode-charts-flux2-2.13.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/flux2:2.15.0 images/appscode-charts-flux2-2.15.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/fluxcd-manager:v2024.12.26 images/appscode-charts-fluxcd-manager-v2024.12.26.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1 images/appscode-charts-gatekeeper-grafana-dashboards-v2023.10.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1 images/appscode-charts-gatekeeper-library-v2023.10.1.tar
@@ -345,10 +345,10 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-auth:v0.3.0 images/kluster-manager-cluster-auth-v0.3.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway-manager:v1.10.0 images/kluster-manager-cluster-gateway-manager-v1.10.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway:v1.10.0 images/kluster-manager-cluster-gateway-v1.10.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile:v0.4.0 images/kluster-manager-cluster-profile-v0.4.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile:v0.6.0 images/kluster-manager-cluster-profile-v0.6.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-proxy:v0.6.0 images/kluster-manager-cluster-proxy-v0.6.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/clusteradm:v0.10.0 images/kluster-manager-clusteradm-v0.10.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/fluxcd-addon:v0.0.5 images/kluster-manager-fluxcd-addon-v0.0.5.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/fluxcd-addon:v0.0.6 images/kluster-manager-fluxcd-addon-v0.0.6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/managed-serviceaccount:v0.7.0 images/kluster-manager-managed-serviceaccount-v0.7.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/placement:v0.15.2 images/kluster-manager-placement-v0.15.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/registration-operator:v0.15.2 images/kluster-manager-registration-operator-v0.15.2.tar
