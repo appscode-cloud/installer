@@ -180,7 +180,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-m
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-multicluster-ingress-reader-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/multicluster-ingress-reader:v2024.7.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opencost-grafana-dashboards-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/opencost-grafana-dashboards:v2023.10.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opencost-1.18.1.tar $IMAGE_REGISTRY/appscode-charts/opencost:1.18.1
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-operator-shard-manager-v2025.1.17.tar $IMAGE_REGISTRY/appscode-charts/operator-shard-manager:v2025.1.17
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-operator-shard-manager-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/operator-shard-manager:v2025.3.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opscenter-features-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/opscenter-features:v2025.3.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-clickhouseopsrequest-editor-v0.14.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-clickhouseopsrequest-editor:v0.14.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-druidopsrequest-editor-v0.14.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-druidopsrequest-editor:v0.14.0

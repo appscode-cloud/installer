@@ -63,7 +63,7 @@
 - ghcr.io/appscode-charts/multicluster-ingress-reader:v2024.7.10
 - ghcr.io/appscode-charts/opencost-grafana-dashboards:v2023.10.1
 - ghcr.io/appscode-charts/opencost:1.18.1
-- ghcr.io/appscode-charts/operator-shard-manager:v2025.1.17
+- ghcr.io/appscode-charts/operator-shard-manager:v2025.3.14
 - ghcr.io/appscode-charts/opscenter-features:v2025.3.14
 - ghcr.io/appscode-charts/panopticon:v2025.3.14
 - ghcr.io/appscode-charts/prepare-cluster:v2023.12.21

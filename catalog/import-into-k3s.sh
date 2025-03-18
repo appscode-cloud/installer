@@ -178,7 +178,7 @@ k3s ctr images import images/appscode-charts-multicluster-controlplane-v2024.7.1
 k3s ctr images import images/appscode-charts-multicluster-ingress-reader-v2024.7.10.tar
 k3s ctr images import images/appscode-charts-opencost-grafana-dashboards-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-opencost-1.18.1.tar
-k3s ctr images import images/appscode-charts-operator-shard-manager-v2025.1.17.tar
+k3s ctr images import images/appscode-charts-operator-shard-manager-v2025.3.14.tar
 k3s ctr images import images/appscode-charts-opscenter-features-v2025.3.14.tar
 k3s ctr images import images/appscode-charts-opskubedbcom-clickhouseopsrequest-editor-v0.14.0.tar
 k3s ctr images import images/appscode-charts-opskubedbcom-druidopsrequest-editor-v0.14.0.tar

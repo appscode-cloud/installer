@@ -189,7 +189,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/mu
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/multicluster-ingress-reader:v2024.7.10 $IMAGE_REGISTRY/appscode-charts/multicluster-ingress-reader:v2024.7.10
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opencost-grafana-dashboards:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/opencost-grafana-dashboards:v2023.10.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opencost:1.18.1 $IMAGE_REGISTRY/appscode-charts/opencost:1.18.1
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/operator-shard-manager:v2025.1.17 $IMAGE_REGISTRY/appscode-charts/operator-shard-manager:v2025.1.17
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/operator-shard-manager:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/operator-shard-manager:v2025.3.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opscenter-features:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/opscenter-features:v2025.3.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-clickhouseopsrequest-editor:v0.14.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-clickhouseopsrequest-editor:v0.14.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-druidopsrequest-editor:v0.14.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-druidopsrequest-editor:v0.14.0

@@ -186,7 +186,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/multicluster-ingress-reader:v2024.7.10 images/appscode-charts-multicluster-ingress-reader-v2024.7.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opencost-grafana-dashboards:v2023.10.1 images/appscode-charts-opencost-grafana-dashboards-v2023.10.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opencost:1.18.1 images/appscode-charts-opencost-1.18.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/operator-shard-manager:v2025.1.17 images/appscode-charts-operator-shard-manager-v2025.1.17.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/operator-shard-manager:v2025.3.14 images/appscode-charts-operator-shard-manager-v2025.3.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opscenter-features:v2025.3.14 images/appscode-charts-opscenter-features-v2025.3.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-clickhouseopsrequest-editor:v0.14.0 images/appscode-charts-opskubedbcom-clickhouseopsrequest-editor-v0.14.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-druidopsrequest-editor:v0.14.0 images/appscode-charts-opskubedbcom-druidopsrequest-editor-v0.14.0.tar
