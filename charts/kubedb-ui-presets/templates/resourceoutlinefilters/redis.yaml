@@ -144,6 +144,13 @@ spec:
       name: Runtime Security
       show: true
     show: false
+  - name: Manifests
+    sections:
+    - info:
+        manifests: false
+      insight: false
+      show: false
+    show: false
   resource:
     group: kubedb.com
     kind: Redis
