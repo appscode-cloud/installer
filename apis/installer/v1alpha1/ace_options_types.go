@@ -69,6 +69,7 @@ type AceOptionsSpec struct {
 	Nats         AceOptionsNatsSettings          `json:"nats"`
 	Trickster    AceOptionsComponentSpec         `json:"trickster"`
 	Openfga      AceOptionsComponentSpec         `json:"openfga"`
+	PgOutbox     AceOptionsComponentSpec         `json:"pgoutbox"`
 	S3proxy      AceOptionsComponentSpec         `json:"s3proxy"`
 	Branding     AceBrandingSpec                 `json:"branding"`
 	InitialSetup configapi.AceSetupInlineOptions `json:"initialSetup"`
@@ -450,7 +451,8 @@ type AceDeploymentContext struct {
 	PromotedToProduction bool             `json:"promotedToProduction,omitempty"`
 	PromotionValues      *PromotionValues `json:"promotionValues,omitempty"`
 
-	NatsOperatorSeed string `json:"natsOperatorSeed,omitempty"`
+	NatsOperatorSeed string   `json:"natsOperatorSeed,omitempty"`
+	SyncableEntities []string `json:"syncableEntities,omitempty"`
 	GeneratedValues  `json:",inline,omitempty"`
 }
 

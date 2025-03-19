@@ -302,6 +302,10 @@ properties:
             - encryptionKey
             - signingKey
             type: object
+          syncableEntities:
+            items:
+              type: string
+            type: array
           token:
             type: string
           uploadID:
@@ -1230,6 +1234,48 @@ properties:
         required:
         - enabled
         type: object
+      pgoutbox:
+        properties:
+          enabled:
+            type: boolean
+          nodeSelector:
+            additionalProperties:
+              type: string
+            type: object
+          resources:
+            properties:
+              claims:
+                items:
+                  properties:
+                    name:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - enabled
+        type: object
       platform-api:
         properties:
           enabled:
@@ -1695,6 +1741,7 @@ properties:
     - monitoring
     - nats
     - openfga
+    - pgoutbox
     - platform-api
     - platform-ui
     - registry

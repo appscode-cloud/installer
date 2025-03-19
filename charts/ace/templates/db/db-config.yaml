@@ -13,4 +13,7 @@ type: Opaque
 stringData:
   user.conf: |
     max_connections=110
+    wal_level=logical
+    max_wal_senders=10
+    max_replication_slots=10
     # shared_buffers=258MB

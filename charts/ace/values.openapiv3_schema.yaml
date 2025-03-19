@@ -15511,6 +15511,141 @@ properties:
     - telemetry
     - tolerations
     type: object
+  pgoutbox:
+    properties:
+      app:
+        properties:
+          config:
+            properties:
+              database:
+                properties:
+                  debug:
+                    type: boolean
+                  host:
+                    type: string
+                  name:
+                    type: string
+                  password:
+                    type: string
+                  port:
+                    type: integer
+                  user:
+                    type: string
+                required:
+                - debug
+                - host
+                - name
+                - password
+                - port
+                - user
+                type: object
+              listener:
+                properties:
+                  ackTimeout:
+                    format: int64
+                    type: integer
+                  filter:
+                    properties:
+                      tables:
+                        additionalProperties:
+                          items:
+                            type: string
+                          type: array
+                        type: object
+                    required:
+                    - tables
+                    type: object
+                  heartbeatInterval:
+                    format: int64
+                    type: integer
+                  refreshConnection:
+                    format: int64
+                    type: integer
+                  serverPort:
+                    type: integer
+                  slotName:
+                    type: string
+                  topicsMap:
+                    additionalProperties:
+                      type: string
+                    type: object
+                required:
+                - ackTimeout
+                - filter
+                - heartbeatInterval
+                - refreshConnection
+                - serverPort
+                - slotName
+                - topicsMap
+                type: object
+              logger:
+                properties:
+                  fmt:
+                    type: string
+                  level:
+                    type: string
+                required:
+                - fmt
+                - level
+                type: object
+              publisher:
+                properties:
+                  CACert:
+                    type: string
+                  address:
+                    type: string
+                  clientCert:
+                    type: string
+                  clientKey:
+                    type: string
+                  enableTLS:
+                    type: boolean
+                  natsAdminCredentialPath:
+                    type: string
+                  pubSubProjectID:
+                    type: string
+                  topic:
+                    type: string
+                  topicPrefix:
+                    type: string
+                  type:
+                    type: string
+                required:
+                - CACert
+                - address
+                - clientCert
+                - clientKey
+                - enableTLS
+                - natsAdminCredentialPath
+                - pubSubProjectID
+                - topic
+                - topicPrefix
+                - type
+                type: object
+            required:
+            - database
+            - listener
+            - logger
+            - publisher
+            type: object
+          configSecretName:
+            type: string
+          natsMountPath:
+            type: string
+          natsSecretName:
+            type: string
+        required:
+        - config
+        - configSecretName
+        - natsMountPath
+        - natsSecretName
+        type: object
+      enabled:
+        type: boolean
+    required:
+    - app
+    - enabled
+    type: object
   platform-api:
     properties:
       affinity:
@@ -19307,6 +19442,19 @@ properties:
         - systemPubKey
         - systemUserCreds
         type: object
+      openFga:
+        properties:
+          apiURL:
+            type: string
+          authModelID:
+            type: string
+          storeID:
+            type: string
+        required:
+        - apiURL
+        - authModelID
+        - storeID
+        type: object
       platform:
         properties:
           appName:
@@ -19442,6 +19590,7 @@ properties:
     - grafana
     - inboxServer
     - nats
+    - openFga
     - platform
     - security
     - smtp
@@ -22116,6 +22265,7 @@ required:
 - nats
 - nats-dns
 - openfga
+- pgoutbox
 - platform-api
 - platform-ui
 - podAnnotations

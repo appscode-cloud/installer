@@ -25,6 +25,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	dnsapi "kubeops.dev/external-dns-operator/apis/external/v1alpha1"
+	outbox "kubeops.dev/pgoutbox/apis"
 )
 
 const (
@@ -62,6 +63,7 @@ type AceSpec struct {
 	Trickster    AceTrickster    `json:"trickster"`
 	Openfga      AceOpenfga      `json:"openfga"`
 	S3proxy      AceS3proxy      `json:"s3proxy"`
+	PgOutbox     AcePgOutbox     `json:"pgoutbox"`
 	// KubeBindServer AceKubeBindServer `json:"kube-bind-server"`
 	Global             AceGlobalValues           `json:"global"`
 	Settings           Settings                  `json:"settings"`
@@ -296,6 +298,7 @@ type Settings struct {
 	Security    SecuritySettings    `json:"security"`
 	Grafana     GrafanaSettings     `json:"grafana"`
 	InboxServer InboxServerSettings `json:"inboxServer"`
+	OpenFga     OpenFgaSettings     `json:"openFga"`
 	Contract    ContractStorage     `json:"contract"`
 	Firebase    FirebaseSettings    `json:"firebase"`
 	// +optional
@@ -411,6 +414,12 @@ type InboxServerSettings struct {
 	AdminJWTPrivateKey string `json:"adminJWTPrivateKey"`
 }
 
+type OpenFgaSettings struct {
+	ApiURL      string `json:"apiURL"`
+	StoreID     string `json:"storeID"`
+	AuthModelID string `json:"authModelID"`
+}
+
 type ContractStorage struct {
 	Bucket        string `json:"bucket"`
 	Prefix        string `json:"prefix"`
@@ -432,6 +441,19 @@ type MarketplaceSettings struct {
 	Aws   *AceOptionsAwsMarketplace   `json:"aws,omitempty"`
 	Azure *AceOptionsAzureMarketplace `json:"azure,omitempty"`
 	Gcp   *AceOptionsGcpMarketplace   `json:"gcp,omitempty"`
+}
+
+type AcePgOutbox struct {
+	Enabled bool `json:"enabled"`
+	//App     *PgOutboxSpec `json:"app"`
+	App PgOutboxConfig `json:"app"`
+}
+
+type PgOutboxConfig struct {
+	Config           outbox.Config `json:"config"`
+	ConfigSecretName string        `json:"configSecretName"`
+	NatsSecretName   string        `json:"natsSecretName"`
+	NatsMountPath    string        `json:"natsMountPath"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
