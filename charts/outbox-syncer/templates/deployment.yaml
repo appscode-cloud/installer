@@ -35,18 +35,18 @@ spec:
           image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
-            - marketplace
+            - outbox-syncer
           ports:
             - name: http
-              containerPort: 6666
+              containerPort: 8080
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /marketplace/api/v1/version
+              path: /outbox/api/v1/version
               port: http
           readinessProbe:
             httpGet:
-              path: /marketplace/api/v1/version
+              path: /outbox/api/v1/version
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
@@ -58,10 +58,6 @@ spec:
           {{- with .Values.env }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "gcs") }}
-            - name: GOOGLE_APPLICATION_CREDENTIALS
-              value: {{ $infra.objstore.mountPath }}/sa.json
-          {{- end }}
             - name: POD_NAME
               valueFrom:
                 fieldRef:
@@ -70,37 +66,6 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
-          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "s3") }}
-            - name: AWS_ACCESS_KEY_ID
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "settings.objstoreSecretName" . }}
-                  key: AWS_ACCESS_KEY_ID
-            - name: AWS_SECRET_ACCESS_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "settings.objstoreSecretName" . }}
-                  key: AWS_SECRET_ACCESS_KEY
-            {{- if $infra.objstore.s3.AWS_REGION }}
-            - name: AWS_REGION
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "settings.objstoreSecretName" . }}
-                  key: AWS_REGION
-            {{- end }}
-          {{- end }}
-          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "azure") }}
-            - name: AZURE_STORAGE_ACCOUNT
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "settings.objstoreSecretName" . }}
-                  key: AZURE_ACCOUNT_NAME
-            - name: AZURE_STORAGE_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "settings.objstoreSecretName" . }}
-                  key: AZURE_ACCOUNT_KEY
-          {{- end }}
           volumeMounts:
             - name: tmp
               mountPath: /tmp
@@ -110,10 +75,6 @@ spec:
             - name: config
               mountPath: /data/b3/conf/app.ini
               subPath: app.ini
-            {{- end }}
-            {{- if (include "settings.objstoreSecretName" .) }}
-            - name: objstore-cred
-              mountPath: {{ $infra.objstore.mountPath }}
             {{- end }}
             {{- if (include "settings.caProviderClass" .) }}
             - name: cacerts
@@ -126,12 +87,6 @@ spec:
           emptyDir: {}
         {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
         - name: config
-          secret:
-            defaultMode: 420
-            secretName: {{ $secretName }}
-        {{- end }}
-        {{- with $secretName := (include "settings.objstoreSecretName" .) }}
-        - name: objstore-cred
           secret:
             defaultMode: 420
             secretName: {{ $secretName }}
