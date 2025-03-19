@@ -82,6 +82,12 @@ openfga:
   #   seccompProfile:
   #     type: RuntimeDefault
 
+pgoutbox:
+  enabled: true
+
+outbox-syncer:
+  enabled: true
+
 # kube-bind-server:
 #   enabled: false
 
@@ -404,6 +410,11 @@ settings:
     jmapURL: ""
     webAdminURL: ""
     adminJWTPrivateKey: ""
+
+  openfgaServer:
+    apiURL: ""
+    storeId: ""
+    authModelId: ""
 
   security:
     oauth2JWTSecret: ""
