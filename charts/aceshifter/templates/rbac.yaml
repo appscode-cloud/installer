@@ -120,38 +120,6 @@ rules:
   - update
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: {{ include "aceshifter.fullname" . }}:metrics-auth
-  labels:
-    {{- include "aceshifter.labels" . | nindent 4 }}
-rules:
-- apiGroups:
-  - authentication.k8s.io
-  resources:
-  - tokenreviews
-  verbs:
-  - create
-- apiGroups:
-  - authorization.k8s.io
-  resources:
-  - subjectaccessreviews
-  verbs:
-  - create
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: {{ include "aceshifter.fullname" . }}:metrics-reader
-  labels:
-    {{- include "aceshifter.labels" . | nindent 4 }}
-rules:
-- nonResourceURLs:
-  - /metrics
-  verbs:
-  - get
----
-apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: {{ include "aceshifter.fullname" . }}:leader-election
@@ -191,7 +159,7 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: {{ include "aceshifter.fullname" . }}:metrics-auth
+  name: system:auth-delegator
 subjects:
 - kind: ServiceAccount
   name: {{ include "aceshifter.serviceAccountName" . }}
