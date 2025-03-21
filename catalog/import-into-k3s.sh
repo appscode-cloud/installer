@@ -216,7 +216,7 @@ k3s ctr images import images/appscode-charts-service-backend-v2025.3.14.tar
 k3s ctr images import images/appscode-charts-service-gateway-presets-v2025.3.14.tar
 k3s ctr images import images/appscode-charts-service-gateway-v2025.3.14.tar
 k3s ctr images import images/appscode-charts-service-provider-v2025.3.14.tar
-k3s ctr images import images/appscode-charts-sidekick-v2024.11.8.tar
+k3s ctr images import images/appscode-charts-sidekick-v2025.3.14.tar
 k3s ctr images import images/appscode-charts-snapshot-controller-3.0.6.tar
 k3s ctr images import images/appscode-charts-spoke-cluster-addons-v2024.7.10.tar
 k3s ctr images import images/appscode-charts-stash-opscenter-v2025.2.10.tar
@@ -228,7 +228,7 @@ k3s ctr images import images/appscode-charts-storagekubestashcom-repository-edit
 k3s ctr images import images/appscode-charts-storagekubestashcom-repository-editor-v0.14.0.tar
 k3s ctr images import images/appscode-charts-storagekubestashcom-retentionpolicy-editor-v0.14.0.tar
 k3s ctr images import images/appscode-charts-storagekubestashcom-snapshot-editor-v0.14.0.tar
-k3s ctr images import images/appscode-charts-supervisor-v2024.11.8.tar
+k3s ctr images import images/appscode-charts-supervisor-v2025.3.14.tar
 k3s ctr images import images/appscode-charts-topolvm-15.0.0.tar
 k3s ctr images import images/appscode-charts-uibytebuildersdev-component-alert-v0.12.0.tar
 k3s ctr images import images/appscode-charts-uibytebuildersdev-component-backup-option-v0.12.0.tar
