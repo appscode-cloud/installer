@@ -57,7 +57,7 @@ spec:
     workloads:
       - group: apps
         version: v1
-        kind: Deployment
+        kind: StatefulSet
         selector:
           app.kubernetes.io/name: kubedb-provisioner
   chart:
