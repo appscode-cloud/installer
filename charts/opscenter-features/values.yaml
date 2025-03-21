@@ -142,7 +142,7 @@ helm:
     kyverno-policies:
       version: "3.2.5"
     license-proxyserver:
-      version: "v2025.1.17"
+      version: "v2025.3.14"
     longhorn:
       version: "1.7.2"
     metrics-server:
@@ -240,7 +240,7 @@ helm:
     fluxcd-manager:
       version: "v2024.12.26"
     license-proxyserver-manager:
-      version: "v2025.1.17"
+      version: "v2025.3.14"
 
     inbox-server:
       version: "v2025.2.28"
