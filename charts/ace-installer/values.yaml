@@ -99,7 +99,7 @@ helm:
           enabled: false
     kubestash:
       enabled: true
-      version: "v2025.3.20-rc.1"
+      version: "v2025.3.19-rc.0"
     kube-ui-server:
       enabled: true
       version: "v2025.3.14"
