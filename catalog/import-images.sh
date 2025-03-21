@@ -218,7 +218,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-s
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-gateway-presets-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/service-gateway-presets:v2025.3.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-gateway-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/service-gateway:v2025.3.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-service-provider-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/service-provider:v2025.3.14
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-sidekick-v2024.11.8.tar $IMAGE_REGISTRY/appscode-charts/sidekick:v2024.11.8
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-sidekick-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/sidekick:v2025.3.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-snapshot-controller-3.0.6.tar $IMAGE_REGISTRY/appscode-charts/snapshot-controller:3.0.6
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-spoke-cluster-addons-v2024.7.10.tar $IMAGE_REGISTRY/appscode-charts/spoke-cluster-addons:v2024.7.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-stash-opscenter-v2025.2.10.tar $IMAGE_REGISTRY/appscode-charts/stash-opscenter:v2025.2.10
@@ -230,7 +230,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-s
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-storagekubestashcom-repository-editor-v0.14.0.tar $IMAGE_REGISTRY/appscode-charts/storagekubestashcom-repository-editor:v0.14.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-storagekubestashcom-retentionpolicy-editor-v0.14.0.tar $IMAGE_REGISTRY/appscode-charts/storagekubestashcom-retentionpolicy-editor:v0.14.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-storagekubestashcom-snapshot-editor-v0.14.0.tar $IMAGE_REGISTRY/appscode-charts/storagekubestashcom-snapshot-editor:v0.14.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-supervisor-v2024.11.8.tar $IMAGE_REGISTRY/appscode-charts/supervisor:v2024.11.8
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-supervisor-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/supervisor:v2025.3.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-topolvm-15.0.0.tar $IMAGE_REGISTRY/appscode-charts/topolvm:15.0.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uibytebuildersdev-component-alert-v0.12.0.tar $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-alert:v0.12.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uibytebuildersdev-component-backup-option-v0.12.0.tar $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-backup-option:v0.12.0

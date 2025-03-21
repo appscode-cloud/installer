@@ -176,7 +176,7 @@ helm:
     service-provider:
       version: "v2025.3.14"
     sidekick:
-      version: "v2024.11.8"
+      version: "v2025.3.14"
     snapshot-controller:
       version: "3.0.6"
     stash:
@@ -186,7 +186,7 @@ helm:
     stash-presets:
       version: "v2025.3.14"
     supervisor:
-      version: "v2024.11.8"
+      version: "v2025.3.14"
     topolvm:
       version: "15.0.0"
     voyager:

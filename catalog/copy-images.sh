@@ -227,7 +227,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/se
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway-presets:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/service-gateway-presets:v2025.3.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/service-gateway:v2025.3.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-provider:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/service-provider:v2025.3.14
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sidekick:v2024.11.8 $IMAGE_REGISTRY/appscode-charts/sidekick:v2024.11.8
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sidekick:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/sidekick:v2025.3.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/snapshot-controller:3.0.6 $IMAGE_REGISTRY/appscode-charts/snapshot-controller:3.0.6
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 $IMAGE_REGISTRY/appscode-charts/spoke-cluster-addons:v2024.7.10
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash-opscenter:v2025.2.10 $IMAGE_REGISTRY/appscode-charts/stash-opscenter:v2025.2.10
@@ -239,7 +239,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/st
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/storagekubestashcom-repository-editor:v0.14.0 $IMAGE_REGISTRY/appscode-charts/storagekubestashcom-repository-editor:v0.14.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/storagekubestashcom-retentionpolicy-editor:v0.14.0 $IMAGE_REGISTRY/appscode-charts/storagekubestashcom-retentionpolicy-editor:v0.14.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/storagekubestashcom-snapshot-editor:v0.14.0 $IMAGE_REGISTRY/appscode-charts/storagekubestashcom-snapshot-editor:v0.14.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/supervisor:v2024.11.8 $IMAGE_REGISTRY/appscode-charts/supervisor:v2024.11.8
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/supervisor:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/supervisor:v2025.3.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/topolvm:15.0.0 $IMAGE_REGISTRY/appscode-charts/topolvm:15.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-alert:v0.12.0 $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-alert:v0.12.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-backup-option:v0.12.0 $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-backup-option:v0.12.0

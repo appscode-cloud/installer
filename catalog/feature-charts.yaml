@@ -78,12 +78,12 @@
 - ghcr.io/appscode-charts/service-backend:v2025.3.14
 - ghcr.io/appscode-charts/service-gateway-presets:v2025.3.14
 - ghcr.io/appscode-charts/service-provider:v2025.3.14
-- ghcr.io/appscode-charts/sidekick:v2024.11.8
+- ghcr.io/appscode-charts/sidekick:v2025.3.14
 - ghcr.io/appscode-charts/snapshot-controller:3.0.6
 - ghcr.io/appscode-charts/stash-opscenter:v2025.2.10
 - ghcr.io/appscode-charts/stash-presets:v2025.3.14
 - ghcr.io/appscode-charts/stash:v2025.2.10
-- ghcr.io/appscode-charts/supervisor:v2024.11.8
+- ghcr.io/appscode-charts/supervisor:v2025.3.14
 - ghcr.io/appscode-charts/topolvm:15.0.0
 - ghcr.io/appscode-charts/uik8sappscodecom-featureset-capi-capa-editor:v0.14.0
 - ghcr.io/appscode-charts/uik8sappscodecom-featureset-capi-core-editor:v0.14.0

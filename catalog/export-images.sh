@@ -224,7 +224,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway-presets:v2025.3.14 images/appscode-charts-service-gateway-presets-v2025.3.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway:v2025.3.14 images/appscode-charts-service-gateway-v2025.3.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-provider:v2025.3.14 images/appscode-charts-service-provider-v2025.3.14.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sidekick:v2024.11.8 images/appscode-charts-sidekick-v2024.11.8.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sidekick:v2025.3.14 images/appscode-charts-sidekick-v2025.3.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/snapshot-controller:3.0.6 images/appscode-charts-snapshot-controller-3.0.6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 images/appscode-charts-spoke-cluster-addons-v2024.7.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/stash-opscenter:v2025.2.10 images/appscode-charts-stash-opscenter-v2025.2.10.tar
@@ -236,7 +236,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/storagekubestashcom-repository-editor:v0.14.0 images/appscode-charts-storagekubestashcom-repository-editor-v0.14.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/storagekubestashcom-retentionpolicy-editor:v0.14.0 images/appscode-charts-storagekubestashcom-retentionpolicy-editor-v0.14.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/storagekubestashcom-snapshot-editor:v0.14.0 images/appscode-charts-storagekubestashcom-snapshot-editor-v0.14.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/supervisor:v2024.11.8 images/appscode-charts-supervisor-v2024.11.8.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/supervisor:v2025.3.14 images/appscode-charts-supervisor-v2025.3.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/topolvm:15.0.0 images/appscode-charts-topolvm-15.0.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-alert:v0.12.0 images/appscode-charts-uibytebuildersdev-component-alert-v0.12.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-backup-option:v0.12.0 images/appscode-charts-uibytebuildersdev-component-backup-option-v0.12.0.tar
