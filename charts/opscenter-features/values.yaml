@@ -122,9 +122,9 @@ helm:
     kube-ui-server:
       version: "v2025.3.14"
     kubedb:
-      version: "v2025.2.19"
+      version: "v2025.3.20-rc.1"
     kubedb-opscenter:
-      version: "v2025.2.19"
+      version: "v2025.3.20-rc.1"
     kubedb-provider-aws:
       version: "v2024.1.31"
     kubedb-provider-azure:
@@ -132,7 +132,7 @@ helm:
     kubedb-provider-gcp:
       version: "v2024.1.31"
     kubestash:
-      version: "v2025.2.10"
+      version: "v2025.3.20-rc.1"
     kubevault:
       version: "v2025.2.10"
     kubevault-opscenter:
