@@ -49,7 +49,7 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: {{ include "license-proxyserver.fullname" . }}-apiserver-auth-delegator
+  name: {{ include "license-proxyserver.fullname" . }}-auth-delegator
   labels:
     {{- include "license-proxyserver.labels" . | nindent 4 }}
 roleRef:
