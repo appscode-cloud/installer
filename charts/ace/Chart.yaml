@@ -43,7 +43,7 @@ dependencies:
 - name: ingress-nginx
   repository: oci://ghcr.io/appscode-charts
   condition: ingress-nginx.enabled
-  version: 4.12.0
+  version: 4.12.1
 - name: nats
   repository: oci://ghcr.io/appscode-charts
   condition: nats.enabled

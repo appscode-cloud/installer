@@ -122,9 +122,9 @@ helm:
     kube-ui-server:
       version: "v2025.3.14"
     kubedb:
-      version: "v2025.3.20-rc.1"
+      version: "v2025.3.24"
     kubedb-opscenter:
-      version: "v2025.3.20-rc.1"
+      version: "v2025.3.24"
     kubedb-provider-aws:
       version: "v2024.1.31"
     kubedb-provider-azure:
@@ -216,7 +216,7 @@ helm:
       version: "v2025.3.14"
     # ocm charts
     ingress-nginx:
-      version: "4.11.1"
+      version: "4.12.1"
     cluster-manager-hub:
       version: "v2024.12.26"
     cluster-manager-spoke:
