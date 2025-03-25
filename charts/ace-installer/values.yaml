@@ -76,7 +76,7 @@ helm:
       version: "2.15.0"
     gateway-api:
       enabled: true
-      version: "v1.2.1"
+      version: "v2025.3.14"
     kubedb:
       enabled: true
       version: "v2025.3.24"
