@@ -113,7 +113,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/fl
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/gatekeeper-library:v2023.10.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper:3.13.3 $IMAGE_REGISTRY/appscode-charts/gatekeeper:3.13.3
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gateway-api:v1.2.1 $IMAGE_REGISTRY/appscode-charts/gateway-api:v1.2.1
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gateway-api:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/gateway-api:v2025.3.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/grafana-operator:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/grafana-operator:v2025.3.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/hub-cluster-robot:v2024.8.9 $IMAGE_REGISTRY/appscode-charts/hub-cluster-robot:v2024.8.9
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/inbox-agent:v2024.12.30 $IMAGE_REGISTRY/appscode-charts/inbox-agent:v2024.12.30
@@ -297,7 +297,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vpc-
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capi-ops-manager:v0.0.2 $IMAGE_REGISTRY/appscode/capi-ops-manager:v0.0.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog-manager:v0.3.0 $IMAGE_REGISTRY/appscode/catalog-manager:v0.3.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-presets:v0.0.8 $IMAGE_REGISTRY/appscode/cluster-presets:v0.0.8
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:0.9.14 $IMAGE_REGISTRY/appscode/cluster-ui:0.9.14
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:1.0.0 $IMAGE_REGISTRY/appscode/cluster-ui:1.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/config-syncer:v0.15.2-ent $IMAGE_REGISTRY/appscode/config-syncer:v0.15.2-ent
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/csi-driver-cacerts:v0.1.0 $IMAGE_REGISTRY/appscode/csi-driver-cacerts:v0.1.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/external-dns-operator:v0.0.8 $IMAGE_REGISTRY/appscode/external-dns-operator:v0.0.8
@@ -316,14 +316,14 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.18.2 $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.18.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-ui-server:v0.0.50 $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.50
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.31 $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.31
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:0.7.13 $IMAGE_REGISTRY/appscode/kubedb-ui:0.7.13
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:1.0.0 $IMAGE_REGISTRY/appscode/kubedb-ui:1.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.21 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.21
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.8.5 $IMAGE_REGISTRY/appscode/openfga:v1.8.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.16 $IMAGE_REGISTRY/appscode/panopticon:v0.0.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.10 $IMAGE_REGISTRY/appscode/petset:v0.0.10
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:0.8.13 $IMAGE_REGISTRY/appscode/platform-ui:0.8.13
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:1.0.0 $IMAGE_REGISTRY/appscode/platform-ui:1.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/prom-authproxy:v0.0.1 $IMAGE_REGISTRY/appscode/prom-authproxy:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/reloader:v1.0.79 $IMAGE_REGISTRY/appscode/reloader:v1.0.79
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/s3proxy:sha-a82ca68 $IMAGE_REGISTRY/appscode/s3proxy:sha-a82ca68

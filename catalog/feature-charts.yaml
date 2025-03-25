@@ -30,7 +30,7 @@
 - ghcr.io/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1
 - ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1
 - ghcr.io/appscode-charts/gatekeeper:3.13.3
-- ghcr.io/appscode-charts/gateway-api:v1.2.1
+- ghcr.io/appscode-charts/gateway-api:v2025.3.14
 - ghcr.io/appscode-charts/grafana-operator:v2025.3.14
 - ghcr.io/appscode-charts/hub-cluster-robot:v2024.8.9
 - ghcr.io/appscode-charts/inbox-agent:v2024.12.30
