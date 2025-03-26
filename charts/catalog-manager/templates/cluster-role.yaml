@@ -40,18 +40,27 @@ rules:
 - apiGroups:
   - kubedb.com
   resources:
+  - cassandras/status
+  - clickhouses/status
+  - druids/status
   - elasticsearches/status
+  - ferretdbs/status
   - kafkas/status
-  - mariadbs/status
   - mariadbs/status
   - memcacheds/status
   - mongodbs/status
+  - mssqlservers/status
   - mysqls/status
   - perconaxtradbs/status
   - pgbouncers/status
+  - pgpools/status
   - postgreses/status
   - proxysqls/status
+  - rabbitmqs/status
   - redises/status
+  - singlestores/status
+  - solrs/status
+  - zookeepers/status
   verbs: ["get", "patch", "update"]
 - apiGroups:
   - kubevault.com
