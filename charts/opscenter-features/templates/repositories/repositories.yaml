@@ -4,6 +4,8 @@ kind: HelmRepository
 metadata:
   name: {{ $name }}
   namespace: {{ $.Release.Namespace }}
+  annotations:
+    argocd.argoproj.io/ignore-healthcheck: "true"
   labels:
     kubernetes.io/metadata.name: {{ $name }}
 spec:
