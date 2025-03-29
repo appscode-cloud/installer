@@ -25,5 +25,4 @@ helm repo add stakater https://stakater.github.io/stakater-charts || true
 
 helm dependency update charts/acaas
 helm dependency update charts/ace
-helm dependency update charts/opscenter-features
 helm dependency update charts/service-gateway
