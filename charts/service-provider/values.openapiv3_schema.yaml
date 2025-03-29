@@ -538,6 +538,8 @@ properties:
               properties:
                 name:
                   type: string
+                request:
+                  type: string
               required:
               - name
               type: object
@@ -673,6 +675,8 @@ properties:
       runAsUser:
         format: int64
         type: integer
+      seLinuxChangePolicy:
+        type: string
       seLinuxOptions:
         properties:
           level:
@@ -699,6 +703,8 @@ properties:
           type: integer
         type: array
         x-kubernetes-list-type: atomic
+      supplementalGroupsPolicy:
+        type: string
       sysctls:
         items:
           properties:
@@ -763,6 +769,8 @@ properties:
             items:
               properties:
                 name:
+                  type: string
+                request:
                   type: string
               required:
               - name

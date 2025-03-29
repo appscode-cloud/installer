@@ -5,7 +5,7 @@ project:
   description: Aceshifter
   app: a Aceshifter
 repository:
-  url: https://charts.appscode.com/stable
+  url: https://charts.appscode.com/stable/
   name: appscode
 chart:
   name: aceshifter

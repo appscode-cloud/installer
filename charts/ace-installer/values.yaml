@@ -4,11 +4,9 @@
 
 nameOverride: ""
 fullnameOverride: ""
-
 deploymentType: ""
 offlineInstaller: false
 installerVersion: ""
-
 image:
   proxies:
     # r.appscode.com
@@ -24,7 +22,6 @@ image:
     # registry.k8s.io/bin:tag
     kubernetes: registry.k8s.io
     microsoft: mcr.microsoft.com
-
 # image:
 #   proxies:
 #     dockerHub: harbor.appscode.ninja/dockerhub
@@ -34,7 +31,6 @@ image:
 #     kubernetes: harbor.appscode.ninja/k8s
 #     microsoft: harbor.appscode.ninja/mcr
 #     appscode: harbor.appscode.ninja/ac
-
 registry:
   credentials: {}
   # username: "abc"
@@ -43,22 +39,19 @@ registry:
   # ca.crt: "***"
   imagePullSecrets: []
   # imagePullSecrets: ["abc", "xyz"]
-
 helm:
   createNamespace: true
-
   repositories:
     # oci://harbor.appscode.ninja/ac/appscode-charts
     appscode-charts-oci:
       url: oci://ghcr.io/appscode-charts
-
   releases:
     ace:
       enabled: false
-      version: "v2025.3.14"
+      version: "v2025.4.15"
     aceshifter:
       enabled: true
-      version: "v2025.3.14"
+      version: "v2025.4.15"
     capi-catalog:
       enabled: false
       version: "v2024.10.24"
@@ -102,13 +95,13 @@ helm:
       version: "v2025.3.24"
     kube-ui-server:
       enabled: true
-      version: "v2025.3.14"
+      version: "v2025.4.15"
     license-proxyserver:
       enabled: true
       version: "v2025.3.14"
     opscenter-features:
       enabled: true
-      version: "v2025.3.14"
+      version: "v2025.4.15"
     panopticon:
       enabled: true
       version: "v2025.3.14"
@@ -124,8 +117,7 @@ helm:
       version: "1.0.79"
     stash-presets:
       enabled: false
-      version: "v2025.3.14"
-
+      version: "v2025.4.15"
     # feature less chart versions
     cluster-manager-spoke:
       enabled: false
@@ -139,7 +131,6 @@ helm:
     vcluster-plugin-ace:
       enabled: false
       version: "v0.0.3"
-
 # controls the self management of the ace cluster
 selfManagement:
   createCAPICluster: false
@@ -147,10 +138,8 @@ selfManagement:
   targetIPs: []
   enableFeatures: []
   disableFeatures: []
-
 precheck:
   enabled: true
-
   # Docker registry containing app image
   image:
     # Docker registry used to pull app container image
@@ -160,9 +149,7 @@ precheck:
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
     pullPolicy: Always
-
   podAnnotations: {}
-
   podSecurityContext: {}
   # fsGroup: 2000
 
@@ -175,23 +162,19 @@ precheck:
     runAsUser: 65534
     seccompProfile:
       type: RuntimeDefault
-
   resources: {}
-    # We usually recommend not to specify default resources and to leave this as a conscious
-    # choice for the user. This also increases chances charts run on environments with little
-    # resources, such as Minikube. If you do want to specify resources, uncomment the following
-    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-    # limits:
-    #   cpu: 100m
-    #   memory: 128Mi
-    # requests:
-    #   cpu: 100m
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
   #   memory: 128Mi
 
   nodeSelector: {}
-
   tolerations: []
-
   affinity: {}
-
 options: null

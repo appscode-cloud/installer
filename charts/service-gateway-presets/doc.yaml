@@ -5,7 +5,7 @@ project:
   description: ACE Service Gateway Presets
   app: ACE Service Gateway Presets
 repository:
-  url: https://charts.appscode.com/stable
+  url: https://charts.appscode.com/stable/
   name: appscode
 chart:
   name: service-gateway-presets

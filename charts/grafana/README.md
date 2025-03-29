@@ -5,7 +5,7 @@
 ## TL;DR;
 
 ```bash
-$ helm repo add appscode https://charts.appscode.com/stable
+$ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
 $ helm search repo appscode/grafana --version=v2025.2.3
 $ helm upgrade -i grafana appscode/grafana -n ace --create-namespace --version=v2025.2.3

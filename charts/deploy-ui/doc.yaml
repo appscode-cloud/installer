@@ -5,7 +5,7 @@ project:
   description: ACE Deploy UI
   app: a Deploy UI
 repository:
-  url: https://charts.appscode.com/stable
+  url: https://charts.appscode.com/stable/
   name: appscode
 chart:
   name: deploy-ui

@@ -5,7 +5,7 @@
 ## TL;DR;
 
 ```bash
-$ helm repo add appscode https://charts.appscode.com/stable
+$ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
 $ helm search repo appscode/minio --version=v2023.11.14
 $ helm upgrade -i minio appscode/minio -n ace --create-namespace --version=v2023.11.14
