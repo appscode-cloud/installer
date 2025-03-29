@@ -5,7 +5,7 @@ project:
   description: AppsCode License Proxy Server OCM Addon Manager
   app: an AppsCode License Proxy Server OCM Addon Manager
 repository:
-  url: https://charts.appscode.com/stable
+  url: https://charts.appscode.com/stable/
   name: appscode
 chart:
   name: license-proxyserver-manager

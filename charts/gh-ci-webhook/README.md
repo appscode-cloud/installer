@@ -5,7 +5,7 @@
 ## TL;DR;
 
 ```bash
-$ helm repo add appscode https://charts.appscode.com/stable
+$ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
 $ helm search repo appscode/gh-ci-webhook --version=v2025.2.22
 $ helm upgrade -i gh-ci-webhook appscode/gh-ci-webhook -n ace --create-namespace --version=v2025.2.22

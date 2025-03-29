@@ -5,7 +5,7 @@
 ## TL;DR;
 
 ```bash
-$ helm repo add appscode https://charts.appscode.com/stable
+$ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
 $ helm search repo appscode/license-proxyserver-manager --version=v2025.3.14
 $ helm upgrade -i license-proxyserver-manager appscode/license-proxyserver-manager -n open-cluster-management-license-proxyserver --create-namespace --version=v2025.3.14

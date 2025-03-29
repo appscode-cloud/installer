@@ -4,7 +4,6 @@
 
 nameOverride: ""
 fullnameOverride: ""
-
 clusterMetadata:
   uid: TBD
   name: TBD
@@ -13,7 +12,6 @@ clusterMetadata:
     provider: ""
     namespace: ""
     clusterName: ""
-
 offlineInstaller: false
 image:
   proxies:
@@ -30,7 +28,6 @@ image:
     # registry.k8s.io/bin:tag
     kubernetes: registry.k8s.io
     microsoft: mcr.microsoft.com
-
 # image:
 #   proxies:
 #     dockerHub: harbor.appscode.ninja/dockerhub
@@ -40,7 +37,6 @@ image:
 #     kubernetes: harbor.appscode.ninja/k8s
 #     microsoft: harbor.appscode.ninja/mcr
 #     appscode: harbor.appscode.ninja/ac
-
 registry:
   credentials: {}
   # username: "abc"
@@ -49,18 +45,15 @@ registry:
   # ca.crt: "***"
   imagePullSecrets: []
   # imagePullSecrets: ["abc", "xyz"]
-
 helm:
   createNamespace: true
-
   repositories:
     # oci://harbor.appscode.ninja/ac/appscode-charts
     appscode-charts-oci:
       url: oci://ghcr.io/appscode-charts
-
   releases:
     aceshifter:
-      version: "v2025.3.14"
+      version: "v2025.4.15"
     appscode-otel-stack:
       version: "v2025.2.28"
     aws-credential-manager:
@@ -76,7 +69,7 @@ helm:
     capi-ops-manager:
       version: "v2024.8.14"
     catalog-manager:
-      version: "v2025.3.14"
+      version: "v2025.4.15"
     cert-manager:
       version: "v1.17.1"
     cert-manager-csi-driver-cacerts:
@@ -84,7 +77,7 @@ helm:
     cluster-autoscaler:
       version: "9.29.0"
     cluster-presets:
-      version: "v2025.3.14"
+      version: "v2025.4.15"
     config-syncer:
       version: "v0.15.2"
     crossplane:
@@ -118,9 +111,9 @@ helm:
     kube-prometheus-stack:
       version: "69.2.2"
     kubedb-ui-presets:
-      version: "v2025.3.14"
+      version: "v2025.4.15"
     kube-ui-server:
-      version: "v2025.3.14"
+      version: "v2025.4.15"
     kubedb:
       version: "v2025.3.24"
     kubedb-opscenter:
@@ -156,7 +149,7 @@ helm:
     opencost-grafana-dashboards:
       version: "v2023.10.1"
     opscenter-features:
-      version: "v2025.3.14"
+      version: "v2025.4.15"
     panopticon:
       version: "v2025.3.14"
     prepare-cluster:
@@ -168,13 +161,13 @@ helm:
     scanner:
       version: "v2024.9.30"
     service-backend:
-      version: "v2025.3.14"
+      version: "v2025.4.15"
     service-gateway:
-      version: "v2025.3.14"
+      version: "v2025.4.15"
     service-gateway-presets:
-      version: "v2025.3.14"
+      version: "v2025.4.15"
     service-provider:
-      version: "v2025.3.14"
+      version: "v2025.4.15"
     sidekick:
       version: "v2025.3.14"
     snapshot-controller:
@@ -184,7 +177,7 @@ helm:
     stash-opscenter:
       version: "v2025.2.10"
     stash-presets:
-      version: "v2025.3.14"
+      version: "v2025.4.15"
     supervisor:
       version: "v2025.3.14"
     topolvm:
@@ -241,14 +234,12 @@ helm:
       version: "v2024.12.26"
     license-proxyserver-manager:
       version: "v2025.3.14"
-
     inbox-server:
       version: "v2025.2.28"
     inbox-agent:
       version: "v2024.12.30"
     inbox-ui:
-      version: "v2025.3.14"
-
+      version: "v2025.4.15"
 licenseServer:
   baseURL: ""
   token: ""

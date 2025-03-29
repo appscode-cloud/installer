@@ -5,7 +5,7 @@ project:
   description: Cluster Presets
   app: a Cluster Presets
 repository:
-  url: https://charts.appscode.com/stable
+  url: https://charts.appscode.com/stable/
   name: appscode
 chart:
   name: cluster-presets

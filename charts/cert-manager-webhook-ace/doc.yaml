@@ -2,10 +2,11 @@ project:
   name: cert-manager webhook for AppsCode DNS Proxy
   shortName: cert-manager webhook
   url: https://github.com/appscode-cloud
-  description: A webhook to use AppsCode DNS Proxy for Cloudfare as a DNS issuer for cert-manager
+  description: A webhook to use AppsCode DNS Proxy for Cloudfare as a DNS issuer for
+    cert-manager
   app: a cert-manager webhook
 repository:
-  url: https://charts.appscode.com/stable
+  url: https://charts.appscode.com/stable/
   name: appscode
 chart:
   name: cert-manager-webhook-ace

@@ -5,7 +5,7 @@
 ## TL;DR;
 
 ```bash
-$ helm repo add appscode https://charts.appscode.com/stable
+$ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
 $ helm search repo appscode/offline-license-server --version=v2025.2.22
 $ helm upgrade -i offline-license-server appscode/offline-license-server -n ace --create-namespace --version=v2025.2.22

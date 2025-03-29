@@ -5,7 +5,7 @@ project:
   description: ACE Centralized Vault Service
   app: ACE Centralized Vault Service
 repository:
-  url: https://charts.appscode.com/stable
+  url: https://charts.appscode.com/stable/
   name: appscode
 chart:
   name: service-vault
