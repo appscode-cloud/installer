@@ -230,7 +230,7 @@ gen: codegen manifests
 CHART_REGISTRY     ?= appscode
 CHART_REGISTRY_URL ?= https://charts.appscode.com/stable/
 CHART_VERSION      ?=
-APP_VERSION        ?= $(CHART_VERSION)
+APP_VERSION        ?=
 
 .PHONY: update-charts
 update-charts: $(shell find $$(pwd)/charts -maxdepth 1 -mindepth 1 -type d -printf 'chart-%f ')
