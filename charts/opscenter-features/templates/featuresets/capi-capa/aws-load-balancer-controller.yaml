@@ -2,7 +2,7 @@
 clusterName: %q
 serviceAccount:
   name: aws-load-balancer-controller
-  create: false
+  create: true
 ` $.Values.clusterMetadata.name
   | fromYaml }}
 
@@ -27,7 +27,6 @@ spec:
   featureSet: capi-capa
   featureBlock: aws-load-balancer-controller
   recommended: true
-  disabled: {{ not (eq $capiProvider "capa") }}
   readinessChecks:
     workloads:
       - group: apps
