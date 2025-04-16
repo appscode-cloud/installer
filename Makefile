@@ -233,7 +233,7 @@ CHART_VERSION      ?=
 APP_VERSION        ?=
 
 .PHONY: update-charts
-update-charts: $(shell find $$(pwd)/charts -maxdepth 1 -mindepth 1 -type d -printf 'chart-%f ')
+update-charts: $(shell find $$(pwd)/charts -maxdepth 1 -mindepth 1 -type d -not -name "license-proxyserver*" -printf 'chart-%f ')
 
 chart-%:
 	@$(MAKE) contents-$* gen-chart-doc-$* --no-print-directory
