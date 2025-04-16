@@ -2,8 +2,8 @@ apiVersion: v2
 name: ace
 description: A Helm chart for AppsCode Container Engine
 type: application
-version: v2025.4.15
-appVersion: v2025.4.15
+version: v2025.4.30
+appVersion: v2025.4.30
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
@@ -15,23 +15,23 @@ dependencies:
 - name: platform-ui
   repository: file://../platform-ui
   condition: platform-ui.enabled
-  version: v2025.4.15
+  version: v2025.4.30
 - name: cluster-ui
   repository: file://../cluster-ui
   condition: cluster-ui.enabled
-  version: v2025.4.15
+  version: v2025.4.30
 - name: kubedb-ui
   repository: file://../kubedb-ui
   condition: kubedb-ui.enabled
-  version: v2025.4.15
+  version: v2025.4.30
 - name: platform-api
   repository: file://../platform-api
   condition: platform-api.enabled
-  version: v2025.4.15
+  version: v2025.4.30
 - name: grafana
   repository: file://../grafana
   condition: grafana.enabled
-  version: v2025.2.3
+  version: v2025.4.30
 - name: trickster
   repository: oci://ghcr.io/appscode-charts
   condition: trickster.enabled
@@ -39,7 +39,7 @@ dependencies:
 - name: s3proxy
   repository: file://../s3proxy
   condition: s3proxy.enabled
-  version: v2025.4.15
+  version: v2025.4.30
 - name: ingress-nginx
   repository: oci://ghcr.io/appscode-charts
   condition: ingress-nginx.enabled

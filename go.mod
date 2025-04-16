@@ -8,16 +8,16 @@ require (
 	github.com/spf13/pflag v1.0.6
 	go.bytebuilders.dev/catalog v0.0.13
 	go.bytebuilders.dev/resource-model v0.2.0
-	go.bytebuilders.dev/ui-wizards v0.15.0
+	go.bytebuilders.dev/ui-wizards v0.16.0
 	go.openviz.dev/installer v0.0.0-20250227034407-1c3f29aa1bd1
 	gomodules.xyz/go-sh v0.2.0
 	k8s.io/api v0.32.3
 	k8s.io/apimachinery v0.32.3
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
 	kmodules.xyz/client-go v0.32.1
-	kmodules.xyz/image-packer v0.0.0-20250329033732-e9f22aa987ae
+	kmodules.xyz/image-packer v0.0.0-20250416205511-125e742f0e3b
 	kmodules.xyz/objectstore-api v0.32.0
-	kmodules.xyz/resource-metadata v0.27.0
+	kmodules.xyz/resource-metadata v0.28.0
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
 	sigs.k8s.io/kustomize/kyaml v0.18.1
