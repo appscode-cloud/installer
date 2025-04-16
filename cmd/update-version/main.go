@@ -20,6 +20,7 @@ import (
 	"io/fs"
 	"log"
 	"os"
+	"time"
 
 	"go.bytebuilders.dev/installer/apis/installer/v1alpha1"
 
@@ -35,6 +36,16 @@ func main() {
 	charts, err := os.ReadDir("charts")
 	if err != nil {
 		panic(err)
+	}
+	for _, chart := range charts {
+		if chart.Type() != fs.ModeDir {
+			continue
+		}
+		name := chart.Name()
+		if name == "ace-installer" {
+			charts = append(charts, fakeDir{name: "kube-ui-server", cp: chart})
+			break
+		}
 	}
 
 	err = process("charts/ace-installer/values.yaml", charts)
@@ -92,4 +103,62 @@ func process(filename string, charts []fs.DirEntry) error {
 		return err
 	}
 	return nil
+}
+
+type fakeDir struct {
+	name string
+	cp   os.DirEntry
+}
+
+var _ os.DirEntry = &fakeDir{}
+
+func (f fakeDir) Name() string {
+	return f.name
+}
+
+func (f fakeDir) IsDir() bool {
+	return f.cp.IsDir()
+}
+
+func (f fakeDir) Type() fs.FileMode {
+	return f.cp.Type()
+}
+
+func (f fakeDir) Info() (fs.FileInfo, error) {
+	fi, err := f.cp.Info()
+	if err != nil {
+		return nil, err
+	}
+	return &fakeFileInfo{name: f.name, cp: fi}, nil
+}
+
+type fakeFileInfo struct {
+	name string
+	cp   os.FileInfo
+}
+
+var _ os.FileInfo = &fakeFileInfo{}
+
+func (f fakeFileInfo) Name() string {
+	return f.name
+}
+
+func (f fakeFileInfo) Size() int64 {
+	return f.cp.Size()
+}
+
+func (f fakeFileInfo) Mode() fs.FileMode {
+	return f.cp.Mode()
+}
+
+func (f fakeFileInfo) ModTime() time.Time {
+	return f.cp.ModTime()
+}
+
+func (f fakeFileInfo) IsDir() bool {
+	return f.cp.IsDir()
+}
+
+func (f fakeFileInfo) Sys() any {
+	return f.cp.Sys()
 }
