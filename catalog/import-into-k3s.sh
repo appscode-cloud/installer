@@ -113,7 +113,7 @@ k3s ctr images import images/appscode-charts-keda-add-ons-http-0.10.0.tar
 k3s ctr images import images/appscode-charts-keda-2.16.1.tar
 k3s ctr images import images/appscode-charts-kube-grafana-dashboards-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-kube-prometheus-stack-69.2.2.tar
-k3s ctr images import images/appscode-charts-kube-ui-server-v2025.4.15.tar
+k3s ctr images import images/appscode-charts-kube-ui-server-v2025.4.30.tar
 k3s ctr images import images/appscode-charts-kubedb-opscenter-v2025.3.24.tar
 k3s ctr images import images/appscode-charts-kubedb-provider-aws-v2024.1.31.tar
 k3s ctr images import images/appscode-charts-kubedb-provider-azure-v2024.1.31.tar
@@ -168,8 +168,8 @@ k3s ctr images import images/appscode-charts-kubevault-opscenter-v2025.2.10.tar
 k3s ctr images import images/appscode-charts-kubevault-v2025.2.10.tar
 k3s ctr images import images/appscode-charts-kyverno-policies-3.2.5.tar
 k3s ctr images import images/appscode-charts-kyverno-3.2.6.tar
-k3s ctr images import images/appscode-charts-license-proxyserver-manager-v2025.4.30.tar
-k3s ctr images import images/appscode-charts-license-proxyserver-v2025.4.30.tar
+k3s ctr images import images/appscode-charts-license-proxyserver-manager-v2025.3.14.tar
+k3s ctr images import images/appscode-charts-license-proxyserver-v2025.3.14.tar
 k3s ctr images import images/appscode-charts-longhorn-1.7.2.tar
 k3s ctr images import images/appscode-charts-managed-serviceaccount-manager-v2024.12.26.tar
 k3s ctr images import images/appscode-charts-metrics-server-3.11.0.tar
@@ -400,8 +400,8 @@ k3s ctr images import images/rancher-kine-v0.11.4.tar
 k3s ctr images import images/autoscaling-cluster-autoscaler-v1.27.1.tar
 k3s ctr images import images/csi-secrets-store-driver-v1.4.1.tar
 k3s ctr images import images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar
-k3s ctr images import images/kube-apiserver-v1.32.0.tar
-k3s ctr images import images/kube-controller-manager-v1.32.0.tar
+k3s ctr images import images/kube-apiserver-v1.20.0.tar
+k3s ctr images import images/kube-controller-manager-v1.20.0.tar
 k3s ctr images import images/kube-state-metrics-kube-state-metrics-v2.13.0.tar
 k3s ctr images import images/metrics-server-metrics-server-v0.7.2.tar
 k3s ctr images import images/prometheus-adapter-prometheus-adapter-v0.11.2.tar

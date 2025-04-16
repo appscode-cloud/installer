@@ -41,7 +41,7 @@
 - ghcr.io/appscode-charts/keda:2.16.1
 - ghcr.io/appscode-charts/kube-grafana-dashboards:v2023.10.1
 - ghcr.io/appscode-charts/kube-prometheus-stack:69.2.2
-- ghcr.io/appscode-charts/kube-ui-server:v2025.4.15
+- ghcr.io/appscode-charts/kube-ui-server:v2025.4.30
 - ghcr.io/appscode-charts/kubedb-opscenter:v2025.3.24
 - ghcr.io/appscode-charts/kubedb-provider-aws:v2024.1.31
 - ghcr.io/appscode-charts/kubedb-provider-azure:v2024.1.31
@@ -53,8 +53,8 @@
 - ghcr.io/appscode-charts/kubevault:v2025.2.10
 - ghcr.io/appscode-charts/kyverno-policies:3.2.5
 - ghcr.io/appscode-charts/kyverno:3.2.6
-- ghcr.io/appscode-charts/license-proxyserver-manager:v2025.4.30
-- ghcr.io/appscode-charts/license-proxyserver:v2025.4.30
+- ghcr.io/appscode-charts/license-proxyserver-manager:v2025.3.14
+- ghcr.io/appscode-charts/license-proxyserver:v2025.3.14
 - ghcr.io/appscode-charts/longhorn:1.7.2
 - ghcr.io/appscode-charts/managed-serviceaccount-manager:v2024.12.26
 - ghcr.io/appscode-charts/metrics-server:3.11.0

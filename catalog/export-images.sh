@@ -121,7 +121,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/keda:2.16.1 images/appscode-charts-keda-2.16.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-grafana-dashboards:v2023.10.1 images/appscode-charts-kube-grafana-dashboards-v2023.10.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-prometheus-stack:69.2.2 images/appscode-charts-kube-prometheus-stack-69.2.2.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-ui-server:v2025.4.15 images/appscode-charts-kube-ui-server-v2025.4.15.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-ui-server:v2025.4.30 images/appscode-charts-kube-ui-server-v2025.4.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-opscenter:v2025.3.24 images/appscode-charts-kubedb-opscenter-v2025.3.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-provider-aws:v2024.1.31 images/appscode-charts-kubedb-provider-aws-v2024.1.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-provider-azure:v2024.1.31 images/appscode-charts-kubedb-provider-azure-v2024.1.31.tar
@@ -176,8 +176,8 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubevault:v2025.2.10 images/appscode-charts-kubevault-v2025.2.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno-policies:3.2.5 images/appscode-charts-kyverno-policies-3.2.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno:3.2.6 images/appscode-charts-kyverno-3.2.6.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver-manager:v2025.4.30 images/appscode-charts-license-proxyserver-manager-v2025.4.30.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver:v2025.4.30 images/appscode-charts-license-proxyserver-v2025.4.30.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver-manager:v2025.3.14 images/appscode-charts-license-proxyserver-manager-v2025.3.14.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver:v2025.3.14 images/appscode-charts-license-proxyserver-v2025.3.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/longhorn:1.7.2 images/appscode-charts-longhorn-1.7.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/managed-serviceaccount-manager:v2024.12.26 images/appscode-charts-managed-serviceaccount-manager-v2024.12.26.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/metrics-server:3.11.0 images/appscode-charts-metrics-server-3.11.0.tar
@@ -408,8 +408,8 @@ $CMD pull --allow-nondistributable-artifacts --insecure rancher/kine:v0.11.4 ima
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 images/autoscaling-cluster-autoscaler-v1.27.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/csi-secrets-store/driver:v1.4.1 images/csi-secrets-store-driver-v1.4.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar
-$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.32.0 images/kube-apiserver-v1.32.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.32.0 images/kube-controller-manager-v1.32.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.20.0 images/kube-apiserver-v1.20.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.20.0 images/kube-controller-manager-v1.20.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0 images/kube-state-metrics-kube-state-metrics-v2.13.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/metrics-server/metrics-server:v0.7.2 images/metrics-server-metrics-server-v0.7.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2 images/prometheus-adapter-prometheus-adapter-v0.11.2.tar
