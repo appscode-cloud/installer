@@ -20,6 +20,8 @@ gateway:
         repository: %s
   gateway-converter:
     registryFQDN: %s
+chart:
+  version: %s
 `
   $.Values.clusterMetadata.uid
   $.Values.clusterMetadata.name
@@ -28,6 +30,7 @@ gateway:
   (include "image.ghcr" (merge (dict "_repo" "voyagermesh/gateway") $))
   (include "image.ghcr" (merge (dict "_repo" "appscode/kube-rbac-proxy") $))
   (include "registry.ghcr" $)
+  (dig "service-gateway-presets" "version" "" .Values.helm.releases)
   | fromYaml }}
 
 {{ $vals := dig "service-gateway-presets" "values" (dict) .Values.helm.releases }}
