@@ -53,10 +53,10 @@ dependencies:
   condition: openfga.enabled
   version: 0.2.22
 - name: pgoutbox
-  repository: file:///home/imtiazcho/go/src/github.com/kubeops/installer/charts/pgoutbox
+  repository: oci://ghcr.io/appscode-charts
   condition: pgoutbox.enabled
-  version: v2025.2.28
+  version: v2025.4.30
 - name: outbox-syncer
   repository: file://../outbox-syncer
   condition: outbox-syncer.enabled
-  version: v2025.3.14
+  version: v2025.4.30

@@ -222,6 +222,15 @@ properties:
             type: string
           offlineInstaller:
             type: boolean
+          openfga:
+            properties:
+              preSharedKeys:
+                items:
+                  type: string
+                type: array
+            required:
+            - preSharedKeys
+            type: object
           postgresPassword:
             type: string
           promotedToProduction:
@@ -318,6 +327,7 @@ properties:
         - installerName
         - licenseOwnerID
         - licenseOwnerName
+        - openfga
         - uploadID
         - version
         type: object
@@ -1234,6 +1244,50 @@ properties:
         required:
         - enabled
         type: object
+      outbox-syncer:
+        properties:
+          enabled:
+            type: boolean
+          nodeSelector:
+            additionalProperties:
+              type: string
+            type: object
+          resources:
+            properties:
+              claims:
+                items:
+                  properties:
+                    name:
+                      type: string
+                    request:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - enabled
+        type: object
       pgoutbox:
         properties:
           enabled:
@@ -1248,6 +1302,8 @@ properties:
                 items:
                   properties:
                     name:
+                      type: string
+                    request:
                       type: string
                   required:
                   - name
@@ -1741,6 +1797,7 @@ properties:
     - monitoring
     - nats
     - openfga
+    - outbox-syncer
     - pgoutbox
     - platform-api
     - platform-ui

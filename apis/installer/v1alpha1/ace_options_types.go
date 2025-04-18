@@ -70,6 +70,7 @@ type AceOptionsSpec struct {
 	Trickster    AceOptionsComponentSpec         `json:"trickster"`
 	Openfga      AceOptionsComponentSpec         `json:"openfga"`
 	PgOutbox     AceOptionsComponentSpec         `json:"pgoutbox"`
+	OutboxSyncer AceOptionsComponentSpec         `json:"outbox-syncer"`
 	S3proxy      AceOptionsComponentSpec         `json:"s3proxy"`
 	Branding     AceBrandingSpec                 `json:"branding"`
 	InitialSetup configapi.AceSetupInlineOptions `json:"initialSetup"`
@@ -483,8 +484,9 @@ type GeneratedValues struct {
 	// +optional
 	JKSPassword string `json:"jksPassword"`
 	// +optional
-	GrafanaSecretKey string            `json:"grafanaSecretKey"`
-	InboxServer      InboxServerValues `json:"inboxServer"`
+	GrafanaSecretKey string              `json:"grafanaSecretKey"`
+	InboxServer      InboxServerValues   `json:"inboxServer"`
+	OpenFGAServer    OpenFGAServerValues `json:"openfga"`
 	// InstallerSecret used by hosted mode (prod and ninja)
 	// to generate and validate marketplace self-hosted installer options
 	// +optional
@@ -493,6 +495,10 @@ type GeneratedValues struct {
 
 type InboxServerValues struct {
 	AdminJWTPrivateKey string `json:"adminJWTPrivateKey"`
+}
+
+type OpenFGAServerValues struct {
+	PreSharedKeys []string `json:"preSharedKeys"`
 }
 
 type PromotionValues struct {

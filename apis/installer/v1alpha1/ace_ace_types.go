@@ -25,7 +25,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	dnsapi "kubeops.dev/external-dns-operator/apis/external/v1alpha1"
-	outbox "kubeops.dev/pgoutbox/apis"
+	kubeops_installer "kubeops.dev/installer/apis/installer/v1alpha1"
 )
 
 const (
@@ -64,6 +64,7 @@ type AceSpec struct {
 	Openfga      AceOpenfga      `json:"openfga"`
 	S3proxy      AceS3proxy      `json:"s3proxy"`
 	PgOutbox     AcePgOutbox     `json:"pgoutbox"`
+	OutboxSyncer AceOutboxSyncer `json:"outbox-syncer"`
 	// KubeBindServer AceKubeBindServer `json:"kube-bind-server"`
 	Global             AceGlobalValues           `json:"global"`
 	Settings           Settings                  `json:"settings"`
@@ -294,11 +295,11 @@ type Settings struct {
 	Cache       CacheSettings       `json:"cache"`
 	Smtp        SmtpSettings        `json:"smtp"`
 	Nats        NatsSettings        `json:"nats"`
+	OpenFGA     OpenFGASettings     `json:"openfga"`
 	Platform    PlatformSettings    `json:"platform"`
 	Security    SecuritySettings    `json:"security"`
 	Grafana     GrafanaSettings     `json:"grafana"`
 	InboxServer InboxServerSettings `json:"inboxServer"`
-	OpenFga     OpenFgaSettings     `json:"openFga"`
 	Contract    ContractStorage     `json:"contract"`
 	Firebase    FirebaseSettings    `json:"firebase"`
 	// +optional
@@ -414,10 +415,9 @@ type InboxServerSettings struct {
 	AdminJWTPrivateKey string `json:"adminJWTPrivateKey"`
 }
 
-type OpenFgaSettings struct {
-	ApiURL      string `json:"apiURL"`
-	StoreID     string `json:"storeID"`
-	AuthModelID string `json:"authModelID"`
+type OpenFGASettings struct {
+	ApiURL       string `json:"apiURL"`
+	PreSharedKey string `json:"preSharedKey"`
 }
 
 type ContractStorage struct {
@@ -444,16 +444,13 @@ type MarketplaceSettings struct {
 }
 
 type AcePgOutbox struct {
-	Enabled bool `json:"enabled"`
-	//App     *PgOutboxSpec `json:"app"`
-	App PgOutboxConfig `json:"app"`
+	Enabled                         bool `json:"enabled"`
+	*kubeops_installer.PgoutboxSpec `json:",inline,omitempty"`
 }
 
-type PgOutboxConfig struct {
-	Config           outbox.Config `json:"config"`
-	ConfigSecretName string        `json:"configSecretName"`
-	NatsSecretName   string        `json:"natsSecretName"`
-	NatsMountPath    string        `json:"natsMountPath"`
+type AceOutboxSyncer struct {
+	Enabled           bool `json:"enabled"`
+	*OutboxSyncerSpec `json:",inline,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
