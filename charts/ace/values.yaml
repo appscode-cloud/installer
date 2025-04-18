@@ -82,6 +82,12 @@ openfga:
   #   seccompProfile:
   #     type: RuntimeDefault
 
+pgoutbox:
+  enabled: true
+
+outbox-syncer:
+  enabled: true
+
 # kube-bind-server:
 #   enabled: false
 
@@ -292,8 +298,12 @@ settings:
     systemUserCreds: 'xyz'
     adminCreds: 'xyz'
     adminUserCreds: 'xyz'
+  # openfga server
+  openfga:
+    apiURL: ""
+    preSharedKey: ""
 
-  ######## settings___oiginal:
+  ######## settings:
   platform:
     appName: 'ACE: Cloud Native Data Platform'
     # one of "GA", "BETA", "ALPHA", "DEV"

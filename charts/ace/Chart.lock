@@ -29,5 +29,11 @@ dependencies:
 - name: openfga
   repository: oci://ghcr.io/appscode-charts
   version: 0.2.22
+- name: pgoutbox
+  repository: file:///home/imtiazcho/go/src/github.com/kubeops/installer/charts/pgoutbox
+  version: v2025.2.28
+- name: outbox-syncer
+  repository: file://../outbox-syncer
+  version: v2025.3.14
 digest: sha256:b98897050c670a2d04eca6198836fd7be52fcdaf6ff812090ea7544fb98c8a28
 generated: "2025-04-16T21:47:34.554454163Z"

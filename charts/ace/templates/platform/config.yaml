@@ -166,6 +166,10 @@ stringData:
     WEB_ADMIN_URL = {{ .Values.settings.inboxServer.webAdminURL }}
     ENCODED_ADMIN_JWT_PRIVATE_KEY = {{ .Values.settings.inboxServer.adminJWTPrivateKey | b64enc }}
 
+    [openfga]
+    API_URL                = {{ .Values.settings.openfga.apiURL }}
+    PRE_SHARED_KEY         = {{ .Values.settings.openfga.preSharedKey }}
+
   {{- if eq .Values.global.platform.deploymentType "Hosted" }}
 
     [badger]
