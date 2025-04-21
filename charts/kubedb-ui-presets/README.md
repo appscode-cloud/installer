@@ -200,6 +200,9 @@ The following table lists the configurable parameters of the `kubedb-ui-presets`
 | monitoring.exporter.resources              |                                                                                                      | <code>{}</code>                     |
 | monitoring.toggle                          |                                                                                                      | <code>true</code>                   |
 | alert.toggle                               |                                                                                                      | <code>true</code>                   |
+| authCredential.customize                   |                                                                                                      | <code>true</code>                   |
+| authCredential.referExisting               |                                                                                                      | <code>true</code>                   |
+| customConfiguration                        |                                                                                                      | <code>true</code>                   |
 | deletionPolicy.default                     |                                                                                                      | <code>WipeOut</code>                |
 | deletionPolicy.toggle                      |                                                                                                      | <code>true</code>                   |
 | backup.enable.default                      |                                                                                                      | <code>true</code>                   |
