@@ -135,7 +135,7 @@ helm:
     kyverno-policies:
       version: "3.2.5"
     license-proxyserver:
-      version: "v2025.3.14"
+      version: "v2025.4.30"
     longhorn:
       version: "1.7.2"
     metrics-server:
@@ -211,29 +211,29 @@ helm:
     ingress-nginx:
       version: "4.12.1"
     cluster-manager-hub:
-      version: "v2024.12.26"
+      version: "v2025.4.30"
     cluster-manager-spoke:
-      version: "v2024.12.26"
+      version: "v2025.4.30"
     multicluster-controlplane:
-      version: "v2024.7.10"
+      version: "v2025.4.30"
     multicluster-ingress-reader:
       version: "v2024.7.10"
     managed-serviceaccount-manager:
-      version: "v2024.12.26"
+      version: "v2025.4.30"
     cluster-proxy-manager:
-      version: "v2024.12.26"
+      version: "v2025.4.30"
     cluster-gateway-manager:
-      version: "v2024.12.26"
+      version: "v2025.4.30"
     cluster-auth-manager:
-      version: "v2024.12.26"
+      version: "v2025.4.30"
     cluster-profile-manager:
-      version: "v2025.3.6"
+      version: "v2025.4.30"
     hub-cluster-robot:
       version: "v2024.8.9"
     fluxcd-manager:
-      version: "v2024.12.26"
+      version: "v2025.4.30"
     license-proxyserver-manager:
-      version: "v2025.3.14"
+      version: "v2025.4.30"
     inbox-server:
       version: "v2025.2.28"
     inbox-agent:
