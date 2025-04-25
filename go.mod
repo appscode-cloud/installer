@@ -8,7 +8,7 @@ require (
 	github.com/spf13/pflag v1.0.6
 	go.bytebuilders.dev/catalog v0.0.13
 	go.bytebuilders.dev/resource-model v0.2.0
-	go.bytebuilders.dev/ui-wizards v0.16.1
+	go.bytebuilders.dev/ui-wizards v0.16.2-0.20250425051948-e5c970eeb4da
 	go.openviz.dev/installer v0.0.0-20250227034407-1c3f29aa1bd1
 	gomodules.xyz/go-sh v0.2.0
 	k8s.io/api v0.32.3
