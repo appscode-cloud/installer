@@ -63,6 +63,11 @@ rules:
   - zookeepers/status
   verbs: ["get", "patch", "update"]
 - apiGroups:
+  - ops.kubedb.com
+  resources:
+  - mongodbopsrequests
+  verbs: ["get", "list", "watch", "create"]
+- apiGroups:
   - kubevault.com
   resources:
   - vaultservers
