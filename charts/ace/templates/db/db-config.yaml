@@ -13,7 +13,9 @@ type: Opaque
 stringData:
   user.conf: |
     max_connections=110
+  {{- if .Values.pgoutbox.enabled }}
     wal_level=logical
     max_wal_senders=50
     max_replication_slots=50
     # shared_buffers=258MB
+  {{- end }}
