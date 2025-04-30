@@ -383,9 +383,9 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyvernopre
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/reports-controller:v1.12.5 $IMAGE_REGISTRY/kyverno/reports-controller:v1.12.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster-oss:0.22.4 $IMAGE_REGISTRY/loft-sh/vcluster-oss:0.22.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/echoserver:v20221109 $IMAGE_REGISTRY/voyagermesh/echoserver:v20221109
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.33.0-ac $IMAGE_REGISTRY/voyagermesh/envoy:v1.33.0-ac
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.33.1-ac $IMAGE_REGISTRY/voyagermesh/envoy:v1.33.1-ac
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway-converter:v0.0.1 $IMAGE_REGISTRY/voyagermesh/gateway-converter:v0.0.1
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway:v1.3.1 $IMAGE_REGISTRY/voyagermesh/gateway:v1.3.1
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway:v1.3.2 $IMAGE_REGISTRY/voyagermesh/gateway:v1.3.2
 $CMD cp --allow-nondistributable-artifacts --insecure hashicorp/vault-csi-provider:1.4.1 $IMAGE_REGISTRY/hashicorp/vault-csi-provider:1.4.1
 $CMD cp --allow-nondistributable-artifacts --insecure hashicorp/vault-secrets-operator:0.4.3 $IMAGE_REGISTRY/hashicorp/vault-secrets-operator:0.4.3
 $CMD cp --allow-nondistributable-artifacts --insecure hashicorp/vault:1.15.2 $IMAGE_REGISTRY/hashicorp/vault:1.15.2
