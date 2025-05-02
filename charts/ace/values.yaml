@@ -83,13 +83,10 @@ openfga:
   #     type: RuntimeDefault
 
 pgoutbox:
-  enabled: true
+  enabled: false
 
 outbox-syncer:
-  enabled: true
-
-# kube-bind-server:
-#   enabled: false
+  enabled: false
 
 # -------------
 
