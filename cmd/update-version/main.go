@@ -20,31 +20,47 @@ import (
 	"io/fs"
 	"log"
 	"os"
+	"path/filepath"
 	"time"
 
 	"go.bytebuilders.dev/installer/apis/installer/v1alpha1"
 
-	flag "github.com/spf13/pflag"
 	"sigs.k8s.io/kustomize/kyaml/yaml"
+	y2 "sigs.k8s.io/yaml"
 )
 
-var chartVersion = flag.String("chart.version", "v2025.3.14", "Chart version")
+type ChartMetadata struct {
+	Name       string `json:"name"`
+	Version    string `json:"version"`
+	AppVersion string `json:"appVersion"`
+}
 
 func main() {
-	flag.Parse()
-
-	charts, err := os.ReadDir("charts")
+	dirs, err := os.ReadDir("charts")
 	if err != nil {
 		panic(err)
 	}
-	for _, chart := range charts {
+
+	charts := map[string]string{}
+	for _, chart := range dirs {
 		if chart.Type() != fs.ModeDir {
 			continue
 		}
 		name := chart.Name()
+
+		data, err := os.ReadFile(filepath.Join("charts", name, "Chart.yaml"))
+		if err != nil {
+			log.Fatal(err)
+		}
+		var md ChartMetadata
+		err = y2.Unmarshal(data, &md)
+		if err != nil {
+			log.Fatal(err)
+		}
+		charts[name] = md.Version
+
 		if name == "ace-installer" {
-			charts = append(charts, fakeDir{name: "kube-ui-server", cp: chart})
-			break
+			charts["kube-ui-server"] = md.Version
 		}
 	}
 
@@ -59,7 +75,7 @@ func main() {
 	}
 }
 
-func process(filename string, charts []fs.DirEntry) error {
+func process(filename string, charts map[string]string) error {
 	// Read YAML file with comments
 	inputYAML, err := os.ReadFile(filename)
 	if err != nil {
@@ -77,12 +93,7 @@ func process(filename string, charts []fs.DirEntry) error {
 		log.Fatalf("Failed to parse YAML: %v", err)
 	}
 
-	for _, chart := range charts {
-		if chart.Type() != fs.ModeDir {
-			continue
-		}
-		name := chart.Name()
-
+	for name, chartVersion := range charts {
 		rs, err := obj.Pipe(yaml.Lookup("helm", "releases", name))
 		if err != nil {
 			panic(err)
@@ -90,7 +101,7 @@ func process(filename string, charts []fs.DirEntry) error {
 		if rs != nil {
 			_, err = obj.Pipe(
 				yaml.Lookup("helm", "releases", name),
-				yaml.SetField("version", yaml.NewScalarRNode(*chartVersion)))
+				yaml.SetField("version", yaml.NewScalarRNode(chartVersion)))
 			if err != nil {
 				log.Fatal(err)
 			}

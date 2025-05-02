@@ -1,25 +1,25 @@
 dependencies:
 - name: platform-ui
   repository: file://../platform-ui
-  version: v2025.4.30
+  version: v2025.5.16
 - name: cluster-ui
   repository: file://../cluster-ui
-  version: v2025.4.30
+  version: v2025.5.16
 - name: kubedb-ui
   repository: file://../kubedb-ui
-  version: v2025.4.30
+  version: v2025.5.16
 - name: platform-api
   repository: file://../platform-api
-  version: v2025.4.30
+  version: v2025.5.16
 - name: grafana
   repository: file://../grafana
-  version: v2025.4.30
+  version: v2025.5.16
 - name: trickster
   repository: oci://ghcr.io/appscode-charts
   version: v2024.9.30
 - name: s3proxy
   repository: file://../s3proxy
-  version: v2025.4.30
+  version: v2025.5.16
 - name: ingress-nginx
   repository: oci://ghcr.io/appscode-charts
   version: 4.12.1
@@ -34,6 +34,6 @@ dependencies:
   version: v2025.4.30
 - name: outbox-syncer
   repository: file://../outbox-syncer
-  version: v2025.4.30
-digest: sha256:9c22d0e6693a09114d5305bd1cbb3ccee652fbc521f3c167c0f0e937f1545ade
-generated: "2025-04-21T18:58:27.302624-07:00"
+  version: v2025.5.16
+digest: sha256:ce97955654464fc2c688ef97ebd15f5c2a1c5da52fc47b6925ab3c813131391e
+generated: "2025-05-02T23:23:41.915604184Z"
