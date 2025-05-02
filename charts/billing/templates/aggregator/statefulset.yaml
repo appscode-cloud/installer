@@ -1,0 +1,148 @@
+{{ $infra := .Values.infra }}
+{{- if .Values.global }}
+{{- $infra = .Values.global.infra }}
+{{- end }}
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "billing.fullname" . }}-aggregator
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: "aggregator"
+    {{- include "billing.labels" . | nindent 4 }}
+spec:
+  podManagementPolicy: Parallel
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: "aggregator"
+      {{- include "billing.selectorLabels" . | nindent 6 }}
+  serviceName: {{ include "billing.fullname" . }}-aggregator
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        app.kubernetes.io/component: "aggregator"
+        {{- include "billing.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- include "appscode.imagePullSecrets" . | nindent 6 }}
+      serviceAccountName: {{ include "appscode.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args:
+            - aggregator
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: BILLING_AGGREGATOR_COUNT
+              value: "1"
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "gcs") }}
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: {{ $infra.objstore.mountPath }}/sa.json
+          {{- end }}
+          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "s3") }}
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "settings.objstoreSecretName" . }}
+                  key: AWS_ACCESS_KEY_ID
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "settings.objstoreSecretName" . }}
+                  key: AWS_SECRET_ACCESS_KEY
+            {{- if $infra.objstore.s3.AWS_REGION }}
+            - name: AWS_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "settings.objstoreSecretName" . }}
+                  key: AWS_REGION
+            {{- end }}
+          {{- end }}
+          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "azure") }}
+            - name: AZURE_STORAGE_ACCOUNT
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "settings.objstoreSecretName" . }}
+                  key: AZURE_ACCOUNT_NAME
+            - name: AZURE_STORAGE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "settings.objstoreSecretName" . }}
+                  key: AZURE_ACCOUNT_KEY
+          {{- end }}
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+            - name: data
+              mountPath: /data
+            {{- if (include "settings.platformConfigSecretName" .) }}
+            - name: config
+              mountPath: /data/b3/conf/app.ini
+              subPath: app.ini
+            {{- end }}
+            {{- if (include "settings.objstoreSecretName" .) }}
+            - name: objstore-cred
+              mountPath: {{ $infra.objstore.mountPath }}
+            {{- end }}
+            {{- if (include "settings.caProviderClass" .) }}
+            - name: cacerts
+              mountPath: /etc/ssl/certs
+            {{- end }}
+      volumes:
+        - name: tmp
+          emptyDir: {}
+        - name: data
+          emptyDir: {}
+        {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
+        - name: config
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
+        {{- end }}
+        {{- with $secretName := (include "settings.objstoreSecretName" .) }}
+        - name: objstore-cred
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
+        {{- end }}
+        {{- with $cpc := (include "settings.caProviderClass" .) }}
+        - name: cacerts
+          csi:
+            driver: cacerts.csi.cert-manager.io
+            readOnly: true
+            volumeAttributes:
+              os: debian
+              caProviderClasses: {{ $cpc }}
+        {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
