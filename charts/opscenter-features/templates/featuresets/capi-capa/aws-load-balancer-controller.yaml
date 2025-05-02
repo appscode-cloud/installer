@@ -45,7 +45,7 @@ spec:
           app.kubernetes.io/name: aws-load-balancer-controller
   chart:
     name: aws-load-balancer-controller
-    namespace: kube-system
+    namespace: capa-system
     createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "aws-load-balancer-controller" "version" "" $.Values.helm.releases }}
     sourceRef:

@@ -28,7 +28,7 @@ spec:
           app.kubernetes.io/name: capi-ops-manager
   chart:
     name: capi-ops-manager
-    namespace: capi-cluster
+    namespace: capi-system
     createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "capi-ops-manager" "version" "" $.Values.helm.releases }}
     sourceRef:
