@@ -69,7 +69,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/au
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-singlestoreautoscaler-editor:v0.16.0 $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-singlestoreautoscaler-editor:v0.16.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-solrautoscaler-editor:v0.16.0 $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-solrautoscaler-editor:v0.16.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-zookeeperautoscaler-editor:v0.16.0 $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-zookeeperautoscaler-editor:v0.16.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-credential-manager:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/aws-credential-manager:v2025.3.14
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-credential-manager:v2025.4.30 $IMAGE_REGISTRY/appscode-charts/aws-credential-manager:v2025.4.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-ebs-csi-driver:2.23.0 $IMAGE_REGISTRY/appscode-charts/aws-ebs-csi-driver:2.23.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-load-balancer-controller:1.11.0 $IMAGE_REGISTRY/appscode-charts/aws-load-balancer-controller:1.11.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capa-vpc-peering-operator:v2023.12.11 $IMAGE_REGISTRY/appscode-charts/capa-vpc-peering-operator:v2023.12.11

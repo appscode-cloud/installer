@@ -66,7 +66,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-singlestoreautoscaler-editor:v0.16.0 images/appscode-charts-autoscalingkubedbcom-singlestoreautoscaler-editor-v0.16.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-solrautoscaler-editor:v0.16.0 images/appscode-charts-autoscalingkubedbcom-solrautoscaler-editor-v0.16.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-zookeeperautoscaler-editor:v0.16.0 images/appscode-charts-autoscalingkubedbcom-zookeeperautoscaler-editor-v0.16.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-credential-manager:v2025.3.14 images/appscode-charts-aws-credential-manager-v2025.3.14.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-credential-manager:v2025.4.30 images/appscode-charts-aws-credential-manager-v2025.4.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-ebs-csi-driver:2.23.0 images/appscode-charts-aws-ebs-csi-driver-2.23.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aws-load-balancer-controller:1.11.0 images/appscode-charts-aws-load-balancer-controller-1.11.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capa-vpc-peering-operator:v2023.12.11 images/appscode-charts-capa-vpc-peering-operator-v2023.12.11.tar

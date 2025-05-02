@@ -58,7 +58,7 @@ k3s ctr images import images/appscode-charts-autoscalingkubedbcom-redissentinela
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-singlestoreautoscaler-editor-v0.16.0.tar
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-solrautoscaler-editor-v0.16.0.tar
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-zookeeperautoscaler-editor-v0.16.0.tar
-k3s ctr images import images/appscode-charts-aws-credential-manager-v2025.3.14.tar
+k3s ctr images import images/appscode-charts-aws-credential-manager-v2025.4.30.tar
 k3s ctr images import images/appscode-charts-aws-ebs-csi-driver-2.23.0.tar
 k3s ctr images import images/appscode-charts-aws-load-balancer-controller-1.11.0.tar
 k3s ctr images import images/appscode-charts-capa-vpc-peering-operator-v2023.12.11.tar
