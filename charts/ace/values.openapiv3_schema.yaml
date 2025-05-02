@@ -23014,9 +23014,12 @@ properties:
                         type: string
                       secretAccessKey:
                         type: string
+                      sessionToken:
+                        type: string
                     required:
                     - accessKeyID
                     - secretAccessKey
+                    - sessionToken
                     type: object
                   azure:
                     properties:
@@ -23110,6 +23113,13 @@ properties:
                     - accessKeyID
                     - secretAccessKey
                     type: object
+                  kubevirt:
+                    properties:
+                      kubeConfig:
+                        type: string
+                    required:
+                    - kubeConfig
+                    type: object
                   linode:
                     properties:
                       token:
@@ -23188,13 +23198,13 @@ properties:
                     - GoogleOAuth
                     - Hetzner
                     - HetznerStorage
+                    - KubeVirt
                     - Linode
                     - Packet
                     - Rancher
                     - Scaleway
                     - Vultr
                     - Swift
-                    - Hetzner
                     type: string
                   vultr:
                     properties:
@@ -23219,6 +23229,22 @@ properties:
             properties:
               clusterName:
                 type: string
+              controlPlane:
+                properties:
+                  cpu:
+                    type: integer
+                  machineCount:
+                    type: integer
+                  machineType:
+                    type: string
+                  memory:
+                    type: integer
+                required:
+                - cpu
+                - machineCount
+                - machineType
+                - memory
+                type: object
               googleProjectID:
                 type: string
               kubernetesVersion:
@@ -23230,13 +23256,19 @@ properties:
               workerPools:
                 items:
                   properties:
+                    cpu:
+                      type: integer
                     machineCount:
                       type: integer
                     machineType:
                       type: string
+                    memory:
+                      type: integer
                   required:
+                  - cpu
                   - machineCount
                   - machineType
+                  - memory
                   type: object
                 type: array
             type: object

@@ -38,7 +38,7 @@
 - ghcr.io/appscode-charts/inbox-ui:v2025.4.30
 - ghcr.io/appscode-charts/ingress-nginx:4.12.1
 - ghcr.io/appscode-charts/keda-add-ons-http:0.10.0
-- ghcr.io/appscode-charts/keda:2.16.1
+- ghcr.io/appscode-charts/keda:2.17.0
 - ghcr.io/appscode-charts/kube-grafana-dashboards:v2023.10.1
 - ghcr.io/appscode-charts/kube-prometheus-stack:69.2.2
 - ghcr.io/appscode-charts/kube-ui-server:v2025.4.30

@@ -110,7 +110,7 @@ k3s ctr images import images/appscode-charts-inbox-server-v2025.2.28.tar
 k3s ctr images import images/appscode-charts-inbox-ui-v2025.4.30.tar
 k3s ctr images import images/appscode-charts-ingress-nginx-4.12.1.tar
 k3s ctr images import images/appscode-charts-keda-add-ons-http-0.10.0.tar
-k3s ctr images import images/appscode-charts-keda-2.16.1.tar
+k3s ctr images import images/appscode-charts-keda-2.17.0.tar
 k3s ctr images import images/appscode-charts-kube-grafana-dashboards-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-kube-prometheus-stack-69.2.2.tar
 k3s ctr images import images/appscode-charts-kube-ui-server-v2025.4.30.tar

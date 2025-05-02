@@ -7,17 +7,17 @@ toolchain go1.24.1
 require (
 	github.com/spf13/pflag v1.0.6
 	go.bytebuilders.dev/catalog v0.0.13
-	go.bytebuilders.dev/resource-model v0.2.0
+	go.bytebuilders.dev/resource-model v0.3.0
 	go.bytebuilders.dev/ui-wizards v0.16.2-0.20250425051948-e5c970eeb4da
 	go.openviz.dev/installer v0.0.0-20250227034407-1c3f29aa1bd1
 	gomodules.xyz/go-sh v0.2.0
 	k8s.io/api v0.32.3
 	k8s.io/apimachinery v0.32.3
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
-	kmodules.xyz/client-go v0.32.1
+	kmodules.xyz/client-go v0.32.3
 	kmodules.xyz/image-packer v0.0.0-20250416205511-125e742f0e3b
 	kmodules.xyz/objectstore-api v0.32.0
-	kmodules.xyz/resource-metadata v0.28.1-0.20250421125421-8c765baacec3
+	kmodules.xyz/resource-metadata v0.28.1
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
 	kubeops.dev/installer v0.0.0-20250418071355-d0c6d66fc250
@@ -121,7 +121,7 @@ require (
 	kmodules.xyz/prober v0.32.0 // indirect
 	kubeops.dev/scanner v0.0.19 // indirect
 	kubestash.dev/apimachinery v0.17.0 // indirect
-	sigs.k8s.io/controller-runtime v0.20.3 // indirect
+	sigs.k8s.io/controller-runtime v0.20.4 // indirect
 	sigs.k8s.io/gateway-api v1.1.0 // indirect
 	sigs.k8s.io/json v0.0.0-20241014173422-cfa47c3a1cc8 // indirect
 	sigs.k8s.io/randfill v1.0.0 // indirect
