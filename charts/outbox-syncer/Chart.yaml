@@ -2,8 +2,8 @@ apiVersion: v2
 name: outbox-syncer
 description: A Helm chart for Kubernetes
 type: application
-version: v2025.4.30
-appVersion: v2025.4.30
+version: v2025.5.16
+appVersion: v2025.5.16
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:

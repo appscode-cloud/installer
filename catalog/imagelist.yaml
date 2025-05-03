@@ -2,7 +2,7 @@
 - bats/bats:1.11.0
 - ghcr.io/appscode/ace:v0.0.2
 - ghcr.io/appscode/aceshifter:v0.0.1
-- ghcr.io/appscode/b3:v2025.4.30
+- ghcr.io/appscode/b3:v2025.5.16
 - ghcr.io/appscode/billing-ui:1.2.0
 - ghcr.io/appscode/catalog-manager:v0.5.0
 - ghcr.io/appscode/cert-manager-webhook-ace:v0.0.1
@@ -23,12 +23,11 @@
 - ghcr.io/appscode/marketplace-ui:0.3.1
 - ghcr.io/appscode/maxmind-geoip:city-mmdb-latest
 - ghcr.io/appscode/offline-license-server:v0.0.69
-- ghcr.io/appscode/pgoutbox:v0.0.2
 - ghcr.io/appscode/platform-ui:1.2.0
 - ghcr.io/appscode/s3proxy:sha-a82ca68
 - ghcr.io/appscode/service-provider:v0.0.1
 - ghcr.io/appscode/smtprelay:v0.0.4
-- ghcr.io/appscode/website:v2025.4.30
+- ghcr.io/appscode/website:v2025.5.16
 - ghcr.io/kluster-manager/multicluster-controlplane:v0.6.0
 - ghcr.io/open-telemetry/opentelemetry-operator/target-allocator:0.118.0
 - ghcr.io/voyagermesh/echoserver:v20221109
