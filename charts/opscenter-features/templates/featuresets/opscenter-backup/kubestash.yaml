@@ -39,6 +39,26 @@ spec:
         selector:
           app.kubernetes.io/instance: kubestash
           app.kubernetes.io/name: kubestash-operator
+
+  ignoreDifferences:
+  - jsonPointers:
+    - /data
+    kind: Secret
+    name: kubestash-kubestash-operator-cert
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+  - group: apps
+    kind: Deployment
+    name: kubestash-kubestash-operator-operator
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+    jsonPointers:
+    - /spec/template/metadata/annotations/reload
+  - group: apps
+    kind: Deployment
+    name: kubestash-kubestash-operator-webhook-server
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+    jsonPointers:
+    - /spec/template/metadata/annotations/reload
+
   chart:
     name: kubestash
     namespace: stash

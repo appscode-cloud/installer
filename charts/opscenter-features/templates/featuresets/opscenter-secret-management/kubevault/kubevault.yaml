@@ -33,6 +33,78 @@ spec:
         kind: Deployment
         selector:
           app.kubernetes.io/name: kubevault-operator
+
+  ignoreDifferences:
+  - jsonPointers:
+    - /data
+    kind: Secret
+    name: kubevault-kubevault-webhook-server-apiserver-cert
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+
+  - group: admissionregistration.k8s.io
+    kind: MutatingWebhookConfiguration
+    name: mutators.engine.kubevault.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: MutatingWebhookConfiguration
+    name: mutators.kubevault.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: MutatingWebhookConfiguration
+    name: mutators.policy.kubevault.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    name: validators.engine.kubevault.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    name: validators.kubevault.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.mutators.engine.kubevault.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.mutators.kubevault.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.mutators.policy.kubevault.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.validators.engine.kubevault.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.validators.kubevault.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apps
+    kind: Deployment
+    name: kubevault-kubevault-operator
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+    jsonPointers:
+    - /spec/template/metadata/annotations/reload
+  - group: apps
+    kind: Deployment
+    name: kubevault-kubevault-webhook-server
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+    jsonPointers:
+    - /spec/template/metadata/annotations/reload
+
   chart:
     name: kubevault
     namespace: kubevault
