@@ -70,6 +70,7 @@ crd-importer \
     --out=./charts/cluster-presets/crds
 
 crd-importer \
+    --no-description \
     --input=https://github.com/prometheus-operator/prometheus-operator/raw/${PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR}/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml \
     --out=./charts/license-proxyserver/crds
 
