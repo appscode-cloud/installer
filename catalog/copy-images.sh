@@ -297,7 +297,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vpc-
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capi-ops-manager:v0.0.2 $IMAGE_REGISTRY/appscode/capi-ops-manager:v0.0.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog-manager:v0.5.0 $IMAGE_REGISTRY/appscode/catalog-manager:v0.5.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-presets:v0.0.9 $IMAGE_REGISTRY/appscode/cluster-presets:v0.0.9
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:1.2.0 $IMAGE_REGISTRY/appscode/cluster-ui:1.2.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:1.3.0 $IMAGE_REGISTRY/appscode/cluster-ui:1.3.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/config-syncer:v0.15.2-ent $IMAGE_REGISTRY/appscode/config-syncer:v0.15.2-ent
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/csi-driver-cacerts:v0.1.0 $IMAGE_REGISTRY/appscode/csi-driver-cacerts:v0.1.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/external-dns-operator:v0.0.8 $IMAGE_REGISTRY/appscode/external-dns-operator:v0.0.8
@@ -316,14 +316,14 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.18.2 $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.18.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-ui-server:v0.0.50 $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.50
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.31 $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.31
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:1.2.0 $IMAGE_REGISTRY/appscode/kubedb-ui:1.2.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:1.3.0 $IMAGE_REGISTRY/appscode/kubedb-ui:1.3.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.22 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.22
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.8.5 $IMAGE_REGISTRY/appscode/openfga:v1.8.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.16 $IMAGE_REGISTRY/appscode/panopticon:v0.0.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.10 $IMAGE_REGISTRY/appscode/petset:v0.0.10
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:1.2.0 $IMAGE_REGISTRY/appscode/platform-ui:1.2.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:1.3.0 $IMAGE_REGISTRY/appscode/platform-ui:1.3.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/prom-authproxy:v0.0.1 $IMAGE_REGISTRY/appscode/prom-authproxy:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/reloader:v1.0.79 $IMAGE_REGISTRY/appscode/reloader:v1.0.79
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/s3proxy:sha-a82ca68 $IMAGE_REGISTRY/appscode/s3proxy:sha-a82ca68
@@ -363,7 +363,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.54.0 $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.54.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-schema-manager:v0.30.0 $IMAGE_REGISTRY/kubedb/kubedb-schema-manager:v0.30.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ui-server:v0.30.0 $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.30.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.30.0 $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.30.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.30.1 $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.30.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/pg-coordinator:v0.38.0 $IMAGE_REGISTRY/kubedb/pg-coordinator:v0.38.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-archiver:v0.15.0_16.1-alpine $IMAGE_REGISTRY/kubedb/postgres-archiver:v0.15.0_16.1-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/postgres-init:0.17.1 $IMAGE_REGISTRY/kubedb/postgres-init:0.17.1

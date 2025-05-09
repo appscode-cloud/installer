@@ -46,7 +46,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/capa-vpc-peering-op
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/capi-ops-manager:v0.0.2 $IMAGE_REGISTRY/capi-ops-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/catalog-manager:v0.5.0 $IMAGE_REGISTRY/catalog-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/cluster-presets:v0.0.9 $IMAGE_REGISTRY/cluster-presets:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/cluster-ui:1.2.0 $IMAGE_REGISTRY/cluster-ui:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/cluster-ui:1.3.0 $IMAGE_REGISTRY/cluster-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/config-syncer:v0.15.2-ent $IMAGE_REGISTRY/config-syncer:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/csi-driver-cacerts:v0.1.0 $IMAGE_REGISTRY/csi-driver-cacerts:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/external-dns-operator:v0.0.8 $IMAGE_REGISTRY/external-dns-operator:$TAG
@@ -62,14 +62,14 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/k8s-wait-for:v2.0 $
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-rbac-proxy:v0.18.2 $IMAGE_REGISTRY/kube-rbac-proxy:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-ui-server:v0.0.50 $IMAGE_REGISTRY/kube-ui-server:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubectl-nonroot:1.31 $IMAGE_REGISTRY/kubectl-nonroot:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubedb-ui:1.2.0 $IMAGE_REGISTRY/kubedb-ui:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubedb-ui:1.3.0 $IMAGE_REGISTRY/kubedb-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/license-proxyserver:v0.0.22 $IMAGE_REGISTRY/license-proxyserver:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/maxmind-geoip:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/openfga:v1.8.5 $IMAGE_REGISTRY/openfga:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/operator-shard-manager:v0.0.1 $IMAGE_REGISTRY/operator-shard-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/panopticon:v0.0.16 $IMAGE_REGISTRY/panopticon:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/petset:v0.0.10 $IMAGE_REGISTRY/petset:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/platform-ui:1.2.0 $IMAGE_REGISTRY/platform-ui:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/platform-ui:1.3.0 $IMAGE_REGISTRY/platform-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/prom-authproxy:v0.0.1 $IMAGE_REGISTRY/prom-authproxy:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/reloader:v1.0.79 $IMAGE_REGISTRY/reloader:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/s3proxy:sha-a82ca68 $IMAGE_REGISTRY/s3proxy:$TAG
@@ -109,7 +109,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-ops-manager:v0
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-provisioner:v0.54.0 $IMAGE_REGISTRY/kubedb-provisioner:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-schema-manager:v0.30.0 $IMAGE_REGISTRY/kubedb-schema-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-ui-server:v0.30.0 $IMAGE_REGISTRY/kubedb-ui-server:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-webhook-server:v0.30.0 $IMAGE_REGISTRY/kubedb-webhook-server:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/kubedb-webhook-server:v0.30.1 $IMAGE_REGISTRY/kubedb-webhook-server:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/pg-coordinator:v0.38.0 $IMAGE_REGISTRY/pg-coordinator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/postgres-archiver:v0.15.0_16.1-alpine $IMAGE_REGISTRY/postgres-archiver:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/postgres-init:0.17.1 $IMAGE_REGISTRY/postgres-init:$TAG

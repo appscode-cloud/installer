@@ -286,7 +286,7 @@ k3s ctr images import images/appscode-capa-vpc-peering-operator-v0.0.4.tar
 k3s ctr images import images/appscode-capi-ops-manager-v0.0.2.tar
 k3s ctr images import images/appscode-catalog-manager-v0.5.0.tar
 k3s ctr images import images/appscode-cluster-presets-v0.0.9.tar
-k3s ctr images import images/appscode-cluster-ui-1.2.0.tar
+k3s ctr images import images/appscode-cluster-ui-1.3.0.tar
 k3s ctr images import images/appscode-config-syncer-v0.15.2-ent.tar
 k3s ctr images import images/appscode-csi-driver-cacerts-v0.1.0.tar
 k3s ctr images import images/appscode-external-dns-operator-v0.0.8.tar
@@ -305,14 +305,14 @@ k3s ctr images import images/appscode-kube-rbac-proxy-v0.15.0.tar
 k3s ctr images import images/appscode-kube-rbac-proxy-v0.18.2.tar
 k3s ctr images import images/appscode-kube-ui-server-v0.0.50.tar
 k3s ctr images import images/appscode-kubectl-nonroot-1.31.tar
-k3s ctr images import images/appscode-kubedb-ui-1.2.0.tar
+k3s ctr images import images/appscode-kubedb-ui-1.3.0.tar
 k3s ctr images import images/appscode-license-proxyserver-v0.0.22.tar
 k3s ctr images import images/appscode-maxmind-geoip-city-mmdb-latest.tar
 k3s ctr images import images/appscode-openfga-v1.8.5.tar
 k3s ctr images import images/appscode-operator-shard-manager-v0.0.1.tar
 k3s ctr images import images/appscode-panopticon-v0.0.16.tar
 k3s ctr images import images/appscode-petset-v0.0.10.tar
-k3s ctr images import images/appscode-platform-ui-1.2.0.tar
+k3s ctr images import images/appscode-platform-ui-1.3.0.tar
 k3s ctr images import images/appscode-prom-authproxy-v0.0.1.tar
 k3s ctr images import images/appscode-reloader-v1.0.79.tar
 k3s ctr images import images/appscode-s3proxy-sha-a82ca68.tar
@@ -352,7 +352,7 @@ k3s ctr images import images/kubedb-kubedb-ops-manager-v0.41.0.tar
 k3s ctr images import images/kubedb-kubedb-provisioner-v0.54.0.tar
 k3s ctr images import images/kubedb-kubedb-schema-manager-v0.30.0.tar
 k3s ctr images import images/kubedb-kubedb-ui-server-v0.30.0.tar
-k3s ctr images import images/kubedb-kubedb-webhook-server-v0.30.0.tar
+k3s ctr images import images/kubedb-kubedb-webhook-server-v0.30.1.tar
 k3s ctr images import images/kubedb-pg-coordinator-v0.38.0.tar
 k3s ctr images import images/kubedb-postgres-archiver-v0.15.0_16.1-alpine.tar
 k3s ctr images import images/kubedb-postgres-init-0.17.1.tar
