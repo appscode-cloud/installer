@@ -374,7 +374,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kyverno-kyvernopr
 $CMD push --allow-nondistributable-artifacts --insecure images/kyverno-reports-controller-v1.12.5.tar $IMAGE_REGISTRY/kyverno/reports-controller:v1.12.5
 $CMD push --allow-nondistributable-artifacts --insecure images/loft-sh-vcluster-oss-0.22.4.tar $IMAGE_REGISTRY/loft-sh/vcluster-oss:0.22.4
 $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-echoserver-v20221109.tar $IMAGE_REGISTRY/voyagermesh/echoserver:v20221109
-$CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-envoy-v1.33.1-ac.tar $IMAGE_REGISTRY/voyagermesh/envoy:v1.33.1-ac
+$CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-envoy-v1.33.3-ac.tar $IMAGE_REGISTRY/voyagermesh/envoy:v1.33.3-ac
 $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-gateway-converter-v0.0.1.tar $IMAGE_REGISTRY/voyagermesh/gateway-converter:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-gateway-v1.3.2.tar $IMAGE_REGISTRY/voyagermesh/gateway:v1.3.2
 $CMD push --allow-nondistributable-artifacts --insecure images/hashicorp-vault-csi-provider-1.4.1.tar $IMAGE_REGISTRY/hashicorp/vault-csi-provider:1.4.1

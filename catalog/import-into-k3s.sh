@@ -372,7 +372,7 @@ k3s ctr images import images/kyverno-kyvernopre-v1.12.5.tar
 k3s ctr images import images/kyverno-reports-controller-v1.12.5.tar
 k3s ctr images import images/loft-sh-vcluster-oss-0.22.4.tar
 k3s ctr images import images/voyagermesh-echoserver-v20221109.tar
-k3s ctr images import images/voyagermesh-envoy-v1.33.1-ac.tar
+k3s ctr images import images/voyagermesh-envoy-v1.33.3-ac.tar
 k3s ctr images import images/voyagermesh-gateway-converter-v0.0.1.tar
 k3s ctr images import images/voyagermesh-gateway-v1.3.2.tar
 k3s ctr images import images/hashicorp-vault-csi-provider-1.4.1.tar

@@ -380,7 +380,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyvernop
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/reports-controller:v1.12.5 images/kyverno-reports-controller-v1.12.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster-oss:0.22.4 images/loft-sh-vcluster-oss-0.22.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/echoserver:v20221109 images/voyagermesh-echoserver-v20221109.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.33.1-ac images/voyagermesh-envoy-v1.33.1-ac.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.33.3-ac images/voyagermesh-envoy-v1.33.3-ac.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway-converter:v0.0.1 images/voyagermesh-gateway-converter-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway:v1.3.2 images/voyagermesh-gateway-v1.3.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure hashicorp/vault-csi-provider:1.4.1 images/hashicorp-vault-csi-provider-1.4.1.tar
