@@ -63,6 +63,31 @@ rules:
   - zookeepers/status
   verbs: ["get", "patch", "update"]
 - apiGroups:
+  - kubedb.com
+  resources:
+  - cassandras/finalizers
+  - clickhouses/finalizers
+  - druids/finalizers
+  - elasticsearches/finalizers
+  - ferretdbs/finalizers
+  - kafkas/finalizers
+  - mariadbs/finalizers
+  - memcacheds/finalizers
+  - mongodbs/finalizers
+  - mssqlservers/finalizers
+  - mysqls/finalizers
+  - perconaxtradbs/finalizers
+  - pgbouncers/finalizers
+  - pgpools/finalizers
+  - postgreses/finalizers
+  - proxysqls/finalizers
+  - rabbitmqs/finalizers
+  - redises/finalizers
+  - singlestores/finalizers
+  - solrs/finalizers
+  - zookeepers/finalizers
+  verbs: ["update"]
+- apiGroups:
   - ops.kubedb.com
   resources:
   - mongodbopsrequests
