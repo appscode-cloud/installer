@@ -5,7 +5,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     archiver: "true"
-    {{- include "ace.labels" . | nindent 4 }}
+    app.kubernetes.io/instance: {{ include "ace.fullname" . }}-db
+    app.kubernetes.io/name: postgreses.kubedb.com
 spec:
   version: "{{ .Values.settings.db.version }}"
   replicas: 3

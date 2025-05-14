@@ -4,7 +4,8 @@ metadata:
   name: {{ include "ace.fullname" . }}-cache
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "ace.labels" . | nindent 4 }}
+    app.kubernetes.io/instance: {{ include "ace.fullname" . }}-cache
+    app.kubernetes.io/name: redises.kubedb.com
 spec:
   version: "{{ .Values.settings.cache.version }}"
   storageType: Durable
