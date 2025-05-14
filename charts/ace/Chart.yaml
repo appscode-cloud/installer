@@ -51,7 +51,7 @@ dependencies:
 - name: openfga
   repository: oci://ghcr.io/appscode-charts
   condition: openfga.enabled
-  version: 0.2.22
+  version: 0.2.30
 - name: pgoutbox
   repository: oci://ghcr.io/appscode-charts
   condition: pgoutbox.enabled
