@@ -135,9 +135,10 @@ spec:
   - name: Manifests
     sections:
     - info:
-        manifests: false
+        basic: true
+        manifests: true
       insight: false
-      show: false
+      show: true
     show: false
   resource:
     group: kubedb.com
