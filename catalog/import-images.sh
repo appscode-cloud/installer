@@ -78,7 +78,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-c
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-manager-hub-v2025.4.30.tar $IMAGE_REGISTRY/appscode-charts/cluster-manager-hub:v2025.4.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-manager-spoke-v2025.4.30.tar $IMAGE_REGISTRY/appscode-charts/cluster-manager-spoke:v2025.4.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-presets-v2025.5.16.tar $IMAGE_REGISTRY/appscode-charts/cluster-presets:v2025.5.16
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-profile-manager-v2025.4.30.tar $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2025.4.30
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-profile-manager-v2025.5.16.tar $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2025.5.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-proxy-manager-v2025.4.30.tar $IMAGE_REGISTRY/appscode-charts/cluster-proxy-manager:v2025.4.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-config-syncer-v0.15.2.tar $IMAGE_REGISTRY/appscode-charts/config-syncer:v0.15.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-corekubestashcom-backupbatch-editor-v0.16.0.tar $IMAGE_REGISTRY/appscode-charts/corekubestashcom-backupbatch-editor:v0.16.0
@@ -339,7 +339,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-a
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-auth-v0.4.1.tar $IMAGE_REGISTRY/kluster-manager/cluster-auth:v0.4.1
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-gateway-manager-v1.11.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-gateway-manager:v1.11.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-gateway-v1.11.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-gateway:v1.11.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-profile-v0.9.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.9.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-profile-v0.10.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.10.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-proxy-v0.7.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-proxy:v0.7.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-clusteradm-v0.11.0.tar $IMAGE_REGISTRY/kluster-manager/clusteradm:v0.11.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-fluxcd-addon-v0.0.8.tar $IMAGE_REGISTRY/kluster-manager/fluxcd-addon:v0.0.8
