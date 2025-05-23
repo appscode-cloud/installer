@@ -45,7 +45,7 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `opscenter-features` chart and their default values.
 
-|                                Parameter                                |           Description           |                  Default                   |
+|                                Parameter                                |           Description           | Default                                    |
 |-------------------------------------------------------------------------|---------------------------------|--------------------------------------------|
 | nameOverride                                                            |                                 | <code>""</code>                            |
 | fullnameOverride                                                        |                                 | <code>""</code>                            |
@@ -154,7 +154,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.cluster-proxy-manager.version                             |                                 | <code>"v2025.4.30"</code>                  |
 | helm.releases.cluster-gateway-manager.version                           |                                 | <code>"v2025.4.30"</code>                  |
 | helm.releases.cluster-auth-manager.version                              |                                 | <code>"v2025.5.16"</code>                  |
-| helm.releases.cluster-profile-manager.version                           |                                 | <code>"v2025.4.30"</code>                  |
+| helm.releases.cluster-profile-manager.version                           |                                 | <code>"v2025.5.16"</code>                  |
 | helm.releases.hub-cluster-robot.version                                 |                                 | <code>"v2024.8.9"</code>                   |
 | helm.releases.fluxcd-manager.version                                    |                                 | <code>"v2025.5.16"</code>                  |
 | helm.releases.license-proxyserver-manager.version                       |                                 | <code>"v2025.5.16"</code>                  |

@@ -87,7 +87,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cl
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-hub:v2025.4.30 $IMAGE_REGISTRY/appscode-charts/cluster-manager-hub:v2025.4.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-spoke:v2025.4.30 $IMAGE_REGISTRY/appscode-charts/cluster-manager-spoke:v2025.4.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-presets:v2025.5.16 $IMAGE_REGISTRY/appscode-charts/cluster-presets:v2025.5.16
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-profile-manager:v2025.4.30 $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2025.4.30
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-profile-manager:v2025.5.16 $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2025.5.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-proxy-manager:v2025.4.30 $IMAGE_REGISTRY/appscode-charts/cluster-proxy-manager:v2025.4.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/config-syncer:v0.15.2 $IMAGE_REGISTRY/appscode-charts/config-syncer:v0.15.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/corekubestashcom-backupbatch-editor:v0.16.0 $IMAGE_REGISTRY/appscode-charts/corekubestashcom-backupbatch-editor:v0.16.0
@@ -348,7 +348,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/ad
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-auth:v0.4.1 $IMAGE_REGISTRY/kluster-manager/cluster-auth:v0.4.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway-manager:v1.11.0 $IMAGE_REGISTRY/kluster-manager/cluster-gateway-manager:v1.11.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway:v1.11.0 $IMAGE_REGISTRY/kluster-manager/cluster-gateway:v1.11.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile:v0.9.0 $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.9.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile:v0.10.0 $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.10.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-proxy:v0.7.0 $IMAGE_REGISTRY/kluster-manager/cluster-proxy:v0.7.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/clusteradm:v0.11.0 $IMAGE_REGISTRY/kluster-manager/clusteradm:v0.11.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/fluxcd-addon:v0.0.8 $IMAGE_REGISTRY/kluster-manager/fluxcd-addon:v0.0.8
