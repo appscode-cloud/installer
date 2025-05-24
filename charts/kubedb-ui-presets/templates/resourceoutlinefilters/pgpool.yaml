@@ -29,6 +29,7 @@ spec:
   - name: Overview
     sections:
     - blocks:
+        Dashboards: true
         Nodes: true
       info:
         basic: true
@@ -97,9 +98,10 @@ spec:
   - name: Manifests
     sections:
     - info:
-        manifests: false
+        basic: true
+        manifests: true
       insight: false
-      show: false
+      show: true
     show: false
   resource:
     group: kubedb.com
