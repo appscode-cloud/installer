@@ -18,6 +18,15 @@ clusterTier:
     toggle: true
 
 databases:
+  Cassandra:
+    versions:
+      available: []
+      default: ""
+      toggle: true
+    mode:
+      available: []
+      default: ""
+      toggle: true
   ClickHouse:
     versions:
       available: []
@@ -46,6 +55,15 @@ databases:
       default: ""
       toggle: true
   FerretDB:
+    versions:
+      available: []
+      default: ""
+      toggle: true
+    mode:
+      available: []
+      default: ""
+      toggle: true
+  Ignite:
     versions:
       available: []
       default: ""

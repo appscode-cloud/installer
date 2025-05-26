@@ -57,6 +57,12 @@ The following table lists the configurable parameters of the `kubedb-ui-presets`
 | clusterTier.placement.available            |                                                                                                      | <code>[]</code>                     |
 | clusterTier.placement.default              |                                                                                                      | <code>""</code>                     |
 | clusterTier.placement.toggle               |                                                                                                      | <code>true</code>                   |
+| databases.Cassandra.versions.available     |                                                                                                      | <code>[]</code>                     |
+| databases.Cassandra.versions.default       |                                                                                                      | <code>""</code>                     |
+| databases.Cassandra.versions.toggle        |                                                                                                      | <code>true</code>                   |
+| databases.Cassandra.mode.available         |                                                                                                      | <code>[]</code>                     |
+| databases.Cassandra.mode.default           |                                                                                                      | <code>""</code>                     |
+| databases.Cassandra.mode.toggle            |                                                                                                      | <code>true</code>                   |
 | databases.ClickHouse.versions.available    |                                                                                                      | <code>[]</code>                     |
 | databases.ClickHouse.versions.default      |                                                                                                      | <code>""</code>                     |
 | databases.ClickHouse.versions.toggle       |                                                                                                      | <code>true</code>                   |
@@ -81,6 +87,12 @@ The following table lists the configurable parameters of the `kubedb-ui-presets`
 | databases.FerretDB.mode.available          |                                                                                                      | <code>[]</code>                     |
 | databases.FerretDB.mode.default            |                                                                                                      | <code>""</code>                     |
 | databases.FerretDB.mode.toggle             |                                                                                                      | <code>true</code>                   |
+| databases.Ignite.versions.available        |                                                                                                      | <code>[]</code>                     |
+| databases.Ignite.versions.default          |                                                                                                      | <code>""</code>                     |
+| databases.Ignite.versions.toggle           |                                                                                                      | <code>true</code>                   |
+| databases.Ignite.mode.available            |                                                                                                      | <code>[]</code>                     |
+| databases.Ignite.mode.default              |                                                                                                      | <code>""</code>                     |
+| databases.Ignite.mode.toggle               |                                                                                                      | <code>true</code>                   |
 | databases.Kafka.versions.available         |                                                                                                      | <code>[]</code>                     |
 | databases.Kafka.versions.default           |                                                                                                      | <code>""</code>                     |
 | databases.Kafka.versions.toggle            |                                                                                                      | <code>true</code>                   |

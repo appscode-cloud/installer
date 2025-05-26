@@ -21,31 +21,32 @@ import (
 	api "x-helm.dev/apimachinery/apis/releases/v1alpha1"
 )
 
-// KubedbcomClickhouseEditorOptions defines the schama for ClickHouse Editor UI Options.
+// KubedbcomIgniteEditorOptions defines the schama for Ignite Editor UI Options.
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:path=kubedbcomclickhouseeditoroptionss,singular=kubedbcomclickhouseeditoroptions
-type KubedbcomClickhouseEditorOptions struct {
+// +kubebuilder:resource:path=kubedbcomigniteeditoroptionss,singular=kubedbcomigniteeditoroptions
+type KubedbcomIgniteEditorOptions struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              KubedbcomClickhouseEditorOptionsSpec `json:"spec,omitempty"`
+	Spec              KubedbcomIgniteEditorOptionsSpec `json:"spec,omitempty"`
 }
 
-// KubedbcomClickhouseEditorOptionsSpec is the schema for ClickHouse profile values file
-type KubedbcomClickhouseEditorOptionsSpec struct {
+// KubedbcomIgniteEditorOptionsSpec is the schema for Ignite profile values file
+type KubedbcomIgniteEditorOptionsSpec struct {
 	api.Metadata `json:"metadata,omitempty"`
-	Spec         KubedbcomClickhouseEditorOptionsSpecSpec `json:"spec"`
+	Spec         KubedbcomIgniteEditorOptionsSpecSpec `json:"spec"`
 }
 
-type KubedbcomClickhouseEditorOptionsSpecSpec struct {
+type KubedbcomIgniteEditorOptionsSpecSpec struct {
 	// +optional
 	Annotations map[string]string `json:"annotations"`
 	// +optional
-	Labels         map[string]string  `json:"labels"`
-	Mode           DoubleMode         `json:"mode"`
-	Topology       ClickHouseTopology `json:"topology"`
+	Labels map[string]string `json:"labels"`
+	Mode   GeneralMode       `json:"mode"`
+	// +optional
+	Replicas       int                `json:"replicas,omitempty"`
 	Persistence    Persistence        `json:"persistence"`
 	PodResources   PodResources       `json:"podResources"`
 	AuthSecret     AuthSecret         `json:"authSecret"`
@@ -58,28 +59,16 @@ type KubedbcomClickhouseEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-type ClickHouseTopology struct {
-	Cluster          []ClickHouseClusterSpec `json:"cluster"`
-	ClickHouseKeeper *ClickHouseKeeperConfig `json:"clickHouseKeeper"`
-}
-
-type ClickHouseClusterSpec struct {
-	Name     string `json:"name"`
-	Replicas int32  `json:"replicas"`
-	Shards   int32  `json:"shards"`
-}
-
-type ClickHouseKeeperConfig struct {
-	Host string `json:"host"`
-	Port int32  `json:"port"`
+type IgniteTopology struct {
+	Racks []string `json:"racks,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// KubedbcomClickhouseEditorOptionsList is a list of KubedbcomClickhouseEditorOptionss
-type KubedbcomClickhouseEditorOptionsList struct {
+// KubedbcomIgniteEditorOptionsList is a list of KubedbcomIgniteEditorOptionss
+type KubedbcomIgniteEditorOptionsList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of KubedbcomClickhouseEditorOptions CRD objects
-	Items []KubedbcomClickhouseEditorOptions `json:"items,omitempty"`
+	// Items is a list of KubedbcomIgniteEditorOptions CRD objects
+	Items []KubedbcomIgniteEditorOptions `json:"items,omitempty"`
 }
