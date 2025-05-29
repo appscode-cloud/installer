@@ -127,7 +127,7 @@ helm:
     kubestash:
       version: "v2025.4.30"
     kubevault:
-      version: "v2025.2.10"
+      version: "v2025.5.30"
     kubevault-opscenter:
       version: "v2025.2.10"
     kyverno:
