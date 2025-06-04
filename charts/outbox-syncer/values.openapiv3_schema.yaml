@@ -832,29 +832,17 @@ properties:
         type: string
       secretName:
         properties:
-          gcpMarketplaceReportingSecret:
-            type: string
-          grafanaConfig:
-            type: string
-          nats:
-            type: string
-          objstore:
-            type: string
           platformConfig:
             type: string
+          platformSystemConfig:
+            type: string
         required:
-        - gcpMarketplaceReportingSecret
-        - grafanaConfig
-        - nats
-        - objstore
         - platformConfig
+        - platformSystemConfig
         type: object
-      skipGCPMarketplaceMeteringService:
-        type: boolean
     required:
     - caProviderClass
     - secretName
-    - skipGCPMarketplaceMeteringService
     type: object
   tolerations:
     items:

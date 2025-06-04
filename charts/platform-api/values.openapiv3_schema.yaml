@@ -890,12 +890,18 @@ properties:
             type: string
           platformConfig:
             type: string
+          platformSystemConfig:
+            type: string
+          platformUserConfig:
+            type: string
         required:
         - gcpMarketplaceReportingSecret
         - grafanaConfig
         - nats
         - objstore
         - platformConfig
+        - platformSystemConfig
+        - platformUserConfig
         type: object
       skipGCPMarketplaceMeteringService:
         type: boolean

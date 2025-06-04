@@ -35,7 +35,7 @@ spec:
           image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
-            - outbox-syncer
+            - run
           ports:
             - name: http
               containerPort: 8080
@@ -73,8 +73,13 @@ spec:
               mountPath: /data
             {{- if (include "settings.platformConfigSecretName" .) }}
             - name: config
-              mountPath: /data/b3/conf/app.ini
+              mountPath: /data/outbox-syncer/conf/app.ini
               subPath: app.ini
+            {{- end }}
+            {{- if (include "settings.platformSystemConfigSecretName" .) }}
+            - name: system-config
+              mountPath: /data/outbox-syncer/conf/system.ini
+              subPath: system.ini
             {{- end }}
             {{- if (include "settings.caProviderClass" .) }}
             - name: cacerts
@@ -87,6 +92,12 @@ spec:
           emptyDir: {}
         {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
         - name: config
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
+        {{- end }}
+        {{- with $secretName := (include "settings.platformSystemConfigSecretName" .) }}
+        - name: system-config
           secret:
             defaultMode: 420
             secretName: {{ $secretName }}
