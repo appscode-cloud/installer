@@ -1,0 +1,12 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: {{ include "settings.platformSystemConfigSecretName" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+stringData:
+  system.ini: |-
+    [openfga]
+    API_URL                = {{ .Values.settings.openfga.apiURL }}
+    PRE_SHARED_KEY         = {{ .Values.settings.openfga.preSharedKey }}
