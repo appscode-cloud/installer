@@ -131,6 +131,8 @@ settings:
   skipGCPMarketplaceMeteringService: true
   secretName:
     platformConfig: ""
+    platformUserConfig: ""
+    platformSystemConfig: ""
     grafanaConfig: ""
     objstore: ""
     nats: ""

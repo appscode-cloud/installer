@@ -16346,31 +16346,25 @@ properties:
         properties:
           caProviderClass:
             type: string
+          natsMountPath:
+            type: string
           secretName:
             properties:
-              gcpMarketplaceReportingSecret:
-                type: string
-              grafanaConfig:
-                type: string
-              nats:
-                type: string
-              objstore:
+              natsCred:
                 type: string
               platformConfig:
                 type: string
+              platformSystemConfig:
+                type: string
             required:
-            - gcpMarketplaceReportingSecret
-            - grafanaConfig
-            - nats
-            - objstore
+            - natsCred
             - platformConfig
+            - platformSystemConfig
             type: object
-          skipGCPMarketplaceMeteringService:
-            type: boolean
         required:
         - caProviderClass
+        - natsMountPath
         - secretName
-        - skipGCPMarketplaceMeteringService
         type: object
       tolerations:
         items:
@@ -19909,12 +19903,18 @@ properties:
                 type: string
               platformConfig:
                 type: string
+              platformSystemConfig:
+                type: string
+              platformUserConfig:
+                type: string
             required:
             - gcpMarketplaceReportingSecret
             - grafanaConfig
             - nats
             - objstore
             - platformConfig
+            - platformSystemConfig
+            - platformUserConfig
             type: object
           skipGCPMarketplaceMeteringService:
             type: boolean
@@ -22707,12 +22707,15 @@ properties:
         properties:
           adminJWTPrivateKey:
             type: string
+          emailDomain:
+            type: string
           jmapURL:
             type: string
           webAdminURL:
             type: string
         required:
         - adminJWTPrivateKey
+        - emailDomain
         - jmapURL
         - webAdminURL
         type: object

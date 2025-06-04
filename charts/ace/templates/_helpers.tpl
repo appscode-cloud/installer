@@ -134,6 +134,15 @@ Returns the ServiceMonitor labels
 {{- printf "%s-config" (include "ace.fullname" .) -}}
 {{- end }}
 
+{{- define "settings.platformUserConfigSecretName" -}}
+{{- printf "%s-user-config" (include "ace.fullname" .) -}}
+{{- end }}
+
+{{- define "settings.platformSystemConfigSecretName" -}}
+{{- printf "%s-system-config" (include "ace.fullname" .) -}}
+{{- end }}
+
+
 {{- define "settings.grafanaConfigSecretName" -}}
 {{- printf "%s-grafana-config" (include "ace.fullname" .) -}}
 {{- end }}
@@ -144,6 +153,10 @@ Returns the ServiceMonitor labels
 
 {{- define "settings.natsSecretName" -}}
 {{- printf "%s-nats-cred" (include "ace.fullname" .) -}}
+{{- end }}
+
+{{- define "settings.natsMountPath" -}}
+{{- .Values.settings.nats.mountPath }}
 {{- end }}
 
 {{/*

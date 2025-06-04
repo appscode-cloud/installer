@@ -83,7 +83,6 @@ stringData:
     ENABLE_REVERSE_PROXY_AUTHENTICATION = false
     ENABLE_REVERSE_PROXY_AUTO_REGISTRATION = false
     NO_REPLY_ADDRESS = {{ .Values.settings.smtp.from }}
-    EMAIL_DOMAIN_WHITELIST = {{ join "," .Values.settings.platform.serviceDomainWhiteList }}
 
     [other]
     SHOW_FOOTER_BRANDING = {{ .Values.settings.platform.otherShowFooterBranding }}
@@ -151,12 +150,6 @@ stringData:
     LABELS = trickstercache.org/metadata.name={{ include "ace.fullname" . }}
   {{- end }}
 
-    [branding]
-    LOGO = `{{ .Values.branding.logo }}`
-    FAVICON = `{{ .Values.branding.favicon }}`
-    PRIMARY_COLOR = `{{ .Values.branding.primaryColor }}`
-    SHOW_APP_TAG = {{ .Values.branding.showAppTag }}
-
     [grafana]
     # used for signing
     SECRET_KEY = {{ .Values.settings.grafana.secretKey }}
@@ -164,6 +157,7 @@ stringData:
     [inbox_server]
     JMAP_URL = {{ .Values.settings.inboxServer.jmapURL }}
     WEB_ADMIN_URL = {{ .Values.settings.inboxServer.webAdminURL }}
+    EMAIL_DOMAIN = {{ .Values.settings.inboxServer.emailDomain }}
     ENCODED_ADMIN_JWT_PRIVATE_KEY = {{ .Values.settings.inboxServer.adminJWTPrivateKey | b64enc }}
 
     [openfga]

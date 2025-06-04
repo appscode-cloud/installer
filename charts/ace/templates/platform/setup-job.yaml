@@ -109,6 +109,18 @@ spec:
                   name: {{ include "settings.objstoreSecretName" . }}
                   key: AZURE_ACCOUNT_KEY
           {{- end }}
+          {{- if (include "settings.platformConfigSecretName" .) }}
+            - name: B3_CONFIG_SECRET_NAME
+              value: {{ include "settings.platformConfigSecretName" . }}
+          {{- end }}
+          {{- if (include "settings.platformUserConfigSecretName" .) }}
+            - name: B3_USER_CONFIG_SECRET_NAME
+              value: {{ include "settings.platformUserConfigSecretName" . }}
+          {{- end }}
+          {{- if (include "settings.platformSystemConfigSecretName" .) }}
+            - name: B3_SYSTEM_CONFIG_SECRET_NAME
+              value: {{ include "settings.platformSystemConfigSecretName" . }}
+          {{- end }}
           volumeMounts:
             - name: tmp
               mountPath: /tmp
@@ -118,6 +130,16 @@ spec:
             - name: config
               mountPath: /data/b3/conf/app.ini
               subPath: app.ini
+            {{- end }}
+            {{- if (include "settings.platformUserConfigSecretName" .) }}
+            - name: user-config
+              mountPath: /data/b3/conf/user.ini
+              subPath: user.ini
+            {{- end }}
+            {{- if (include "settings.platformSystemConfigSecretName" .) }}
+            - name: system-config
+              mountPath: /data/b3/conf/system.ini
+              subPath: system.ini
             {{- end }}
             {{- if (include "settings.natsSecretName" .) }}
             - name: nats-cred
@@ -141,6 +163,18 @@ spec:
           emptyDir: {}
         {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
         - name: config
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
+        {{- end }}
+        {{- with $secretName := (include "settings.platformUserConfigSecretName" .) }}
+        - name: user-config
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
+        {{- end }}
+        {{- with $secretName := (include "settings.platformSystemConfigSecretName" .) }}
+        - name: system-config
           secret:
             defaultMode: 420
             secretName: {{ $secretName }}
