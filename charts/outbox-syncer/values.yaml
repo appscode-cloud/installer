@@ -13,7 +13,7 @@ image:
   # Docker registry used to pull app container image
   registry: appscode
   # App container image
-  repository: b3
+  repository: outbox-syncer
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
   pullPolicy: Always
@@ -99,6 +99,7 @@ settings:
   skipGCPMarketplaceMeteringService: true
   secretName:
     platformConfig: ""
+    platformSystemConfig: ""
     grafanaConfig: ""
     objstore: ""
     nats: ""
