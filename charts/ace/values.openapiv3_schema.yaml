@@ -22707,12 +22707,15 @@ properties:
         properties:
           adminJWTPrivateKey:
             type: string
+          emailDomain:
+            type: string
           jmapURL:
             type: string
           webAdminURL:
             type: string
         required:
         - adminJWTPrivateKey
+        - emailDomain
         - jmapURL
         - webAdminURL
         type: object

@@ -1,0 +1,16 @@
+{{- $secretName := include "settings.platformSystemConfigSecretName" . -}}
+{{- $secretNS   := .Release.Namespace -}}
+{{- if not (lookup "v1" "Secret" $secretNS $secretName) }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ $secretName }}
+  namespace: {{ $secretNS }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+stringData:
+  system.ini: |-
+    [openfga]
+    STORE_ID =
+    AUTHORIZATION_MODEL_ID =
+{{- end }}
