@@ -1,25 +1,25 @@
 module go.bytebuilders.dev/installer
 
-go 1.23.3
+go 1.23.6
 
 toolchain go1.24.1
 
 require (
-	go.bytebuilders.dev/catalog v0.0.13
+	go.bytebuilders.dev/catalog v0.0.15
 	go.bytebuilders.dev/resource-model v0.3.0
-	go.bytebuilders.dev/ui-wizards v0.18.0
-	go.openviz.dev/installer v0.0.0-20250227034407-1c3f29aa1bd1
+	go.bytebuilders.dev/ui-wizards v0.18.2
+	go.openviz.dev/installer v0.0.0-20250617172415-ca61a7cbb8d5
 	gomodules.xyz/go-sh v0.2.0
 	k8s.io/api v0.32.3
 	k8s.io/apimachinery v0.32.3
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
-	kmodules.xyz/client-go v0.32.4-0.20250513070944-c75b17fe7c82
+	kmodules.xyz/client-go v0.32.6
 	kmodules.xyz/image-packer v0.0.0-20250528193538-0cb00550d6b5
 	kmodules.xyz/objectstore-api v0.32.0
-	kmodules.xyz/resource-metadata v0.30.0
+	kmodules.xyz/resource-metadata v0.30.3
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
-	kubeops.dev/installer v0.0.0-20250528213918-9ba446308dad
+	kubeops.dev/installer v0.0.0-20250529223915-fdb0edd13c4b
 	sigs.k8s.io/kustomize/kyaml v0.18.1
 	sigs.k8s.io/yaml v1.4.0
 )
@@ -39,7 +39,7 @@ require (
 	github.com/docker/distribution v2.8.3+incompatible // indirect
 	github.com/docker/docker-credential-helpers v0.8.2 // indirect
 	github.com/emicklei/go-restful/v3 v3.12.1 // indirect
-	github.com/envoyproxy/gateway v1.1.2 // indirect
+	github.com/envoyproxy/gateway v1.3.2 // indirect
 	github.com/evanphx/json-patch v5.9.11+incompatible // indirect
 	github.com/evanphx/json-patch/v5 v5.9.11 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
@@ -80,7 +80,7 @@ require (
 	github.com/prometheus-operator/prometheus-operator/pkg/apis/monitoring v0.81.0 // indirect
 	github.com/prometheus/client_golang v1.20.5 // indirect
 	github.com/prometheus/client_model v0.6.1 // indirect
-	github.com/prometheus/common v0.61.0 // indirect
+	github.com/prometheus/common v0.62.0 // indirect
 	github.com/prometheus/procfs v0.15.1 // indirect
 	github.com/sergi/go-diff v1.3.1 // indirect
 	github.com/shopspring/decimal v1.4.0 // indirect
@@ -122,12 +122,12 @@ require (
 	kubeops.dev/scanner v0.0.19 // indirect
 	kubestash.dev/apimachinery v0.17.0 // indirect
 	sigs.k8s.io/controller-runtime v0.20.4 // indirect
-	sigs.k8s.io/gateway-api v1.1.0 // indirect
+	sigs.k8s.io/gateway-api v1.2.1 // indirect
 	sigs.k8s.io/json v0.0.0-20241014173422-cfa47c3a1cc8 // indirect
 	sigs.k8s.io/randfill v1.0.0 // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.6.0 // indirect
 	stash.appscode.dev/apimachinery v0.39.0 // indirect
-	voyagermesh.dev/installer v0.0.0-20241219103226-de800d167d8d // indirect
+	voyagermesh.dev/installer v0.0.0-20250324192020-20a3d86540ee // indirect
 	x-helm.dev/apimachinery v0.0.17 // indirect
 )
 
