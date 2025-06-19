@@ -286,7 +286,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-aceshift
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-b3-v2025.6.16.tar $IMAGE_REGISTRY/appscode/b3:v2025.6.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-capa-vpc-peering-operator-v0.0.4.tar $IMAGE_REGISTRY/appscode/capa-vpc-peering-operator:v0.0.4
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-capi-ops-manager-v0.0.2.tar $IMAGE_REGISTRY/appscode/capi-ops-manager:v0.0.2
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-catalog-manager-v0.5.0.tar $IMAGE_REGISTRY/appscode/catalog-manager:v0.5.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-catalog-manager-v0.6.0.tar $IMAGE_REGISTRY/appscode/catalog-manager:v0.6.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-cluster-presets-v0.0.9.tar $IMAGE_REGISTRY/appscode/cluster-presets:v0.0.9
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-cluster-ui-1.4.0.tar $IMAGE_REGISTRY/appscode/cluster-ui:1.4.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-config-syncer-v0.15.2-ent.tar $IMAGE_REGISTRY/appscode/config-syncer:v0.15.2-ent

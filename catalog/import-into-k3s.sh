@@ -284,7 +284,7 @@ k3s ctr images import images/appscode-aceshifter-v0.0.1.tar
 k3s ctr images import images/appscode-b3-v2025.6.16.tar
 k3s ctr images import images/appscode-capa-vpc-peering-operator-v0.0.4.tar
 k3s ctr images import images/appscode-capi-ops-manager-v0.0.2.tar
-k3s ctr images import images/appscode-catalog-manager-v0.5.0.tar
+k3s ctr images import images/appscode-catalog-manager-v0.6.0.tar
 k3s ctr images import images/appscode-cluster-presets-v0.0.9.tar
 k3s ctr images import images/appscode-cluster-ui-1.4.0.tar
 k3s ctr images import images/appscode-config-syncer-v0.15.2-ent.tar

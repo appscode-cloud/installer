@@ -295,7 +295,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/aceshifte
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/b3:v2025.6.16 $IMAGE_REGISTRY/appscode/b3:v2025.6.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 $IMAGE_REGISTRY/appscode/capa-vpc-peering-operator:v0.0.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capi-ops-manager:v0.0.2 $IMAGE_REGISTRY/appscode/capi-ops-manager:v0.0.2
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog-manager:v0.5.0 $IMAGE_REGISTRY/appscode/catalog-manager:v0.5.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog-manager:v0.6.0 $IMAGE_REGISTRY/appscode/catalog-manager:v0.6.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-presets:v0.0.9 $IMAGE_REGISTRY/appscode/cluster-presets:v0.0.9
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:1.4.0 $IMAGE_REGISTRY/appscode/cluster-ui:1.4.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/config-syncer:v0.15.2-ent $IMAGE_REGISTRY/appscode/config-syncer:v0.15.2-ent
