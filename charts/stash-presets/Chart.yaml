@@ -2,8 +2,8 @@ apiVersion: v2
 name: stash-presets
 description: Stash Presets
 type: application
-version: v2025.6.16
-appVersion: v2025.6.16
+version: v2025.6.30
+appVersion: v2025.6.30
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
