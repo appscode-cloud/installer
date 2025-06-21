@@ -2490,11 +2490,17 @@ properties:
                 type: string
               platformConfig:
                 type: string
+              platformSystemConfig:
+                type: string
+              platformUserConfig:
+                type: string
             required:
             - grafanaConfig
             - nats
             - objstore
             - platformConfig
+            - platformSystemConfig
+            - platformUserConfig
             type: object
         required:
         - caProviderClass
@@ -16358,12 +16364,18 @@ properties:
                 type: string
               platformConfig:
                 type: string
+              platformSystemConfig:
+                type: string
+              platformUserConfig:
+                type: string
             required:
             - gcpMarketplaceReportingSecret
             - grafanaConfig
             - nats
             - objstore
             - platformConfig
+            - platformSystemConfig
+            - platformUserConfig
             type: object
           skipGCPMarketplaceMeteringService:
             type: boolean
@@ -19909,12 +19921,18 @@ properties:
                 type: string
               platformConfig:
                 type: string
+              platformSystemConfig:
+                type: string
+              platformUserConfig:
+                type: string
             required:
             - gcpMarketplaceReportingSecret
             - grafanaConfig
             - nats
             - objstore
             - platformConfig
+            - platformSystemConfig
+            - platformUserConfig
             type: object
           skipGCPMarketplaceMeteringService:
             type: boolean
@@ -21514,11 +21532,17 @@ properties:
                 type: string
               platformConfig:
                 type: string
+              platformSystemConfig:
+                type: string
+              platformUserConfig:
+                type: string
             required:
             - grafanaConfig
             - nats
             - objstore
             - platformConfig
+            - platformSystemConfig
+            - platformUserConfig
             type: object
         required:
         - caProviderClass
@@ -22707,12 +22731,15 @@ properties:
         properties:
           adminJWTPrivateKey:
             type: string
+          emailDomain:
+            type: string
           jmapURL:
             type: string
           webAdminURL:
             type: string
         required:
         - adminJWTPrivateKey
+        - emailDomain
         - jmapURL
         - webAdminURL
         type: object

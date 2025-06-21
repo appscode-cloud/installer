@@ -105,6 +105,10 @@ Returns the ServiceMonitor labels
 {{- .Values.settings.secretName.platformConfig }}
 {{- end }}
 
+{{- define "settings.platformSystemConfigSecretName" -}}
+{{- .Values.settings.secretName.platformConfig }}
+{{- end }}
+
 {{- define "settings.grafanaConfigSecretName" -}}
 {{- .Values.settings.secretName.grafanaConfig }}
 {{- end }}

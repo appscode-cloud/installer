@@ -870,11 +870,17 @@ properties:
             type: string
           platformConfig:
             type: string
+          platformSystemConfig:
+            type: string
+          platformUserConfig:
+            type: string
         required:
         - grafanaConfig
         - nats
         - objstore
         - platformConfig
+        - platformSystemConfig
+        - platformUserConfig
         type: object
     required:
     - caProviderClass
