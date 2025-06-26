@@ -28,12 +28,12 @@ dependencies:
   version: 0.19.17
 - name: openfga
   repository: oci://ghcr.io/appscode-charts
-  version: 0.2.30
+  version: 0.2.35
 - name: pgoutbox
   repository: oci://ghcr.io/appscode-charts
   version: v2025.4.30
 - name: outbox-syncer
   repository: file://../outbox-syncer
   version: v2025.6.30
-digest: sha256:7cf7a9f5c91765c23bdb0beb83d8d3952bded18a5580ac9adaa56a6396bc045e
-generated: "2025-06-19T05:03:15.46607731Z"
+digest: sha256:f0e4e9351f3823bbd346e1077bf40001ca37e5eca384b08e7ad9af48b3a3258f
+generated: "2025-06-27T03:04:18.490404+12:00"
