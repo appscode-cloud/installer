@@ -302,7 +302,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vp
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capi-ops-manager:v0.0.2 images/appscode-capi-ops-manager-v0.0.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog-manager:v0.6.1 images/appscode-catalog-manager-v0.6.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-presets:v0.0.9 images/appscode-cluster-presets-v0.0.9.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:1.4.0 images/appscode-cluster-ui-1.4.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:1.5.0 images/appscode-cluster-ui-1.5.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/config-syncer:v0.15.2-ent images/appscode-config-syncer-v0.15.2-ent.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/csi-driver-cacerts:v0.1.0 images/appscode-csi-driver-cacerts-v0.1.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/external-dns-operator:v0.0.8 images/appscode-external-dns-operator-v0.0.8.tar
@@ -313,7 +313,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana:v2025.2.3 images/appscode-grafana-v2025.2.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-agent:v0.0.2 images/appscode-inbox-agent-v0.0.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-server:postgres-latest images/appscode-inbox-server-postgres-latest.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-ui:0.0.4 images/appscode-inbox-ui-0.0.4.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-ui:0.0.5 images/appscode-inbox-ui-0.0.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/k8s-wait-for:v2.0 images/appscode-k8s-wait-for-v2.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.11.0 images/appscode-kube-rbac-proxy-v0.11.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.13.0 images/appscode-kube-rbac-proxy-v0.13.0.tar
@@ -328,7 +328,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 images/appscode-operator-shard-manager-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.16 images/appscode-panopticon-v0.0.16.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.10 images/appscode-petset-v0.0.10.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:1.4.0 images/appscode-platform-ui-1.4.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:1.5.0 images/appscode-platform-ui-1.5.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/prom-authproxy:v0.0.1 images/appscode-prom-authproxy-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/reloader:v1.0.79 images/appscode-reloader-v1.0.79.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/s3proxy:sha-a82ca68 images/appscode-s3proxy-sha-a82ca68.tar
