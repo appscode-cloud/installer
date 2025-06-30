@@ -15,4 +15,4 @@ dependencies:
 - name: voyager-gateway
   repository: oci://ghcr.io/appscode-charts
   alias: gateway
-  version: v2025.4.30
+  version: v2025.6.30

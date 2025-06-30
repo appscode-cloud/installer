@@ -32,5 +32,5 @@
 - ghcr.io/open-telemetry/opentelemetry-operator/target-allocator:0.118.0
 - ghcr.io/voyagermesh/echoserver:v20221109
 - ghcr.io/voyagermesh/envoy:v1.33.3-ac
-- ghcr.io/voyagermesh/gateway:v1.3.2
+- ghcr.io/voyagermesh/gateway:v1.4.1
 - minio/minio:RELEASE.2023-01-12T02-06-16Z
