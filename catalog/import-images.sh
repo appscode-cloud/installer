@@ -284,7 +284,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-u
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-vault-secrets-operator-0.4.3.tar $IMAGE_REGISTRY/appscode-charts/vault-secrets-operator:0.4.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-vault-0.27.0.tar $IMAGE_REGISTRY/appscode-charts/vault:0.27.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-virtual-secrets-server-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/virtual-secrets-server:v2025.3.14
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-gateway-v2024.11.4.tar $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2024.11.4
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-gateway-v2025.6.30.tar $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2025.6.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-v2024.8.30.tar $IMAGE_REGISTRY/appscode-charts/voyager:v2024.8.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-ingress-nginx-controller-v1.11.1.tar $IMAGE_REGISTRY/appscode-images/ingress-nginx-controller:v1.11.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-nats-2.10.24-alpine.tar $IMAGE_REGISTRY/appscode-images/nats:2.10.24-alpine
@@ -384,7 +384,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/loft-sh-vcluster-
 $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-echoserver-v20221109.tar $IMAGE_REGISTRY/voyagermesh/echoserver:v20221109
 $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-envoy-v1.33.3-ac.tar $IMAGE_REGISTRY/voyagermesh/envoy:v1.33.3-ac
 $CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-gateway-converter-v0.0.1.tar $IMAGE_REGISTRY/voyagermesh/gateway-converter:v0.0.1
-$CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-gateway-v1.3.2.tar $IMAGE_REGISTRY/voyagermesh/gateway:v1.3.2
+$CMD push --allow-nondistributable-artifacts --insecure images/voyagermesh-gateway-v1.4.1.tar $IMAGE_REGISTRY/voyagermesh/gateway:v1.4.1
 $CMD push --allow-nondistributable-artifacts --insecure images/hashicorp-vault-csi-provider-1.4.1.tar $IMAGE_REGISTRY/hashicorp/vault-csi-provider:1.4.1
 $CMD push --allow-nondistributable-artifacts --insecure images/hashicorp-vault-secrets-operator-0.4.3.tar $IMAGE_REGISTRY/hashicorp/vault-secrets-operator:0.4.3
 $CMD push --allow-nondistributable-artifacts --insecure images/hashicorp-vault-1.15.2.tar $IMAGE_REGISTRY/hashicorp/vault:1.15.2

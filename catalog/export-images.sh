@@ -290,7 +290,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault-secrets-operator:0.4.3 images/appscode-charts-vault-secrets-operator-0.4.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault:0.27.0 images/appscode-charts-vault-0.27.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/virtual-secrets-server:v2025.3.14 images/appscode-charts-virtual-secrets-server-v2025.3.14.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2024.11.4 images/appscode-charts-voyager-gateway-v2024.11.4.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2025.6.30 images/appscode-charts-voyager-gateway-v2025.6.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2024.8.30 images/appscode-charts-voyager-v2024.8.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/ingress-nginx-controller:v1.11.1 images/appscode-images-ingress-nginx-controller-v1.11.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.24-alpine images/appscode-images-nats-2.10.24-alpine.tar
@@ -390,7 +390,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/echoserver:v20221109 images/voyagermesh-echoserver-v20221109.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.33.3-ac images/voyagermesh-envoy-v1.33.3-ac.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway-converter:v0.0.1 images/voyagermesh-gateway-converter-v0.0.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway:v1.3.2 images/voyagermesh-gateway-v1.3.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway:v1.4.1 images/voyagermesh-gateway-v1.4.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure hashicorp/vault-csi-provider:1.4.1 images/hashicorp-vault-csi-provider-1.4.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure hashicorp/vault-secrets-operator:0.4.3 images/hashicorp-vault-secrets-operator-0.4.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure hashicorp/vault:1.15.2 images/hashicorp-vault-1.15.2.tar

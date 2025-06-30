@@ -282,7 +282,7 @@ k3s ctr images import images/appscode-charts-uik8sappscodecom-featureset-saas-co
 k3s ctr images import images/appscode-charts-vault-secrets-operator-0.4.3.tar
 k3s ctr images import images/appscode-charts-vault-0.27.0.tar
 k3s ctr images import images/appscode-charts-virtual-secrets-server-v2025.3.14.tar
-k3s ctr images import images/appscode-charts-voyager-gateway-v2024.11.4.tar
+k3s ctr images import images/appscode-charts-voyager-gateway-v2025.6.30.tar
 k3s ctr images import images/appscode-charts-voyager-v2024.8.30.tar
 k3s ctr images import images/appscode-images-ingress-nginx-controller-v1.11.1.tar
 k3s ctr images import images/appscode-images-nats-2.10.24-alpine.tar
@@ -382,7 +382,7 @@ k3s ctr images import images/loft-sh-vcluster-oss-0.22.4.tar
 k3s ctr images import images/voyagermesh-echoserver-v20221109.tar
 k3s ctr images import images/voyagermesh-envoy-v1.33.3-ac.tar
 k3s ctr images import images/voyagermesh-gateway-converter-v0.0.1.tar
-k3s ctr images import images/voyagermesh-gateway-v1.3.2.tar
+k3s ctr images import images/voyagermesh-gateway-v1.4.1.tar
 k3s ctr images import images/hashicorp-vault-csi-provider-1.4.1.tar
 k3s ctr images import images/hashicorp-vault-secrets-operator-0.4.3.tar
 k3s ctr images import images/hashicorp-vault-1.15.2.tar
