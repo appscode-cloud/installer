@@ -143,21 +143,8 @@ spec:
               mountPath: /tmp
             - name: data
               mountPath: /data
-            {{- if (include "settings.platformConfigSecretName" .) }}
             - name: config
-              mountPath: /data/b3/conf/app.ini
-              subPath: app.ini
-            {{- end }}
-            {{- if (include "settings.platformUserConfigSecretName" .) }}
-            - name: user-config
-              mountPath: /data/b3/conf/user.ini
-              subPath: user.ini
-            {{- end }}
-            {{- if (include "settings.platformSystemConfigSecretName" .) }}
-            - name: system-config
-              mountPath: /data/b3/conf/system.ini
-              subPath: system.ini
-            {{- end }}
+              mountPath: /data/b3/conf
             {{- if (include "settings.objstoreSecretName" .) }}
             - name: objstore-cred
               mountPath: {{ $infra.objstore.mountPath }}
@@ -188,24 +175,33 @@ spec:
           emptyDir: {}
         - name: tmp
           emptyDir: {}
-        {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
         - name: config
-          secret:
-            defaultMode: 420
-            secretName: {{ $secretName }}
-        {{- end }}
-        {{- with $secretName := (include "settings.platformUserConfigSecretName" .) }}
-        - name: user-config
-          secret:
-            defaultMode: 420
-            secretName: {{ $secretName }}
-        {{- end }}
-        {{- with $secretName := (include "settings.platformSystemConfigSecretName" .) }}
-        - name: system-config
-          secret:
-            defaultMode: 420
-            secretName: {{ $secretName }}
-        {{- end }}
+          projected:
+            sources:
+            {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
+            - secret:
+                name: {{ $secretName }}
+                items:
+                - key: app.ini
+                  path: app.ini
+                  mode: 420
+            {{- end }}
+            {{- with $secretName := (include "settings.platformSystemConfigSecretName" .) }}
+            - secret:
+                name: {{ $secretName }}
+                items:
+                - key: system.ini
+                  path: system.ini
+                  mode: 420
+            {{- end }}
+            {{- with $secretName := (include "settings.platformUserConfigSecretName" .) }}
+            - secret:
+                name: {{ $secretName }}
+                items:
+                - key: user.ini
+                  path: user.ini
+                  mode: 420
+            {{- end }}
         {{- with $secretName := (include "settings.objstoreSecretName" .) }}
         - name: data
           emptyDir: {}
