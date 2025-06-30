@@ -57,7 +57,7 @@ helm:
       version: "v2024.10.24"
     cert-manager:
       enabled: true
-      version: "v1.17.2"
+      version: "v1.17.3"
     cert-manager-csi-driver-cacerts:
       enabled: true
       version: "v2024.10.17"
