@@ -179,7 +179,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ku
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-solr-editor:v0.19.0 $IMAGE_REGISTRY/appscode-charts/kubedbcom-solr-editor:v0.19.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-zookeeper-editor-options:v0.19.0 $IMAGE_REGISTRY/appscode-charts/kubedbcom-zookeeper-editor-options:v0.19.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-zookeeper-editor:v0.19.0 $IMAGE_REGISTRY/appscode-charts/kubedbcom-zookeeper-editor:v0.19.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubestash:v2025.4.30 $IMAGE_REGISTRY/appscode-charts/kubestash:v2025.4.30
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubestash:v2025.6.30 $IMAGE_REGISTRY/appscode-charts/kubestash:v2025.6.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubevault-opscenter:v2025.2.10 $IMAGE_REGISTRY/appscode-charts/kubevault-opscenter:v2025.2.10
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubevault:v2025.5.30 $IMAGE_REGISTRY/appscode-charts/kubevault:v2025.5.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno-policies:3.2.5 $IMAGE_REGISTRY/appscode-charts/kyverno-policies:3.2.5
@@ -381,8 +381,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis-init:
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis-restic-plugin:v0.18.0 $IMAGE_REGISTRY/kubedb/redis-restic-plugin:v0.18.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/redis_exporter:1.66.0 $IMAGE_REGISTRY/kubedb/redis_exporter:1.66.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/vcluster-plugin-kubedb:v0.0.1 $IMAGE_REGISTRY/kubedb/vcluster-plugin-kubedb:v0.0.1
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubedump:v0.17.0 $IMAGE_REGISTRY/kubestash/kubedump:v0.17.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash:v0.18.0 $IMAGE_REGISTRY/kubestash/kubestash:v0.18.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubedump:v0.18.0 $IMAGE_REGISTRY/kubestash/kubedump:v0.18.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubestash/kubestash:v0.19.0 $IMAGE_REGISTRY/kubestash/kubestash:v0.19.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubevault/vault-operator:v0.19.0 $IMAGE_REGISTRY/kubevault/vault-operator:v0.19.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/background-controller:v1.12.5 $IMAGE_REGISTRY/kyverno/background-controller:v1.12.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/cleanup-controller:v1.12.5 $IMAGE_REGISTRY/kyverno/cleanup-controller:v1.12.5
