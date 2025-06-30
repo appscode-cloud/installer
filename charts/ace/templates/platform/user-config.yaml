@@ -1,0 +1,18 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: {{ include "settings.platformUserConfigSecretName" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+stringData:
+  user.ini: |-
+    [service]
+    EMAIL_DOMAIN_WHITELIST = {{ join "," .Values.settings.platform.serviceDomainWhiteList }}
+
+    [branding]
+    APP_NAME = {{ .Values.settings.platform.appName }}
+    LOGO = `{{ .Values.branding.logo }}`
+    FAVICON = `{{ .Values.branding.favicon }}`
+    PRIMARY_COLOR = `{{ .Values.branding.primaryColor }}`
+    SHOW_APP_TAG = {{ .Values.branding.showAppTag }}

@@ -35,7 +35,7 @@ spec:
           image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
-            - outbox-syncer
+            - run
           ports:
             - name: http
               containerPort: 8080
@@ -71,10 +71,11 @@ spec:
               mountPath: /tmp
             - name: data
               mountPath: /data
-            {{- if (include "settings.platformConfigSecretName" .) }}
             - name: config
-              mountPath: /data/b3/conf/app.ini
-              subPath: app.ini
+              mountPath: /data/outbox-syncer/conf
+            {{- if (include "settings.natsSecretName" .) }}
+            - name: nats-cred
+              mountPath: /nats/creds
             {{- end }}
             {{- if (include "settings.caProviderClass" .) }}
             - name: cacerts
@@ -85,8 +86,27 @@ spec:
           emptyDir: {}
         - name: data
           emptyDir: {}
-        {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
         - name: config
+          projected:
+            sources:
+            {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
+            - secret:
+                name: {{ $secretName }}
+                items:
+                - key: app.ini
+                  path: app.ini
+                  mode: 420
+            {{- end }}
+            {{- with $secretName := (include "settings.platformSystemConfigSecretName" .) }}
+            - secret:
+                name: {{ $secretName }}
+                items:
+                - key: system.ini
+                  path: system.ini
+                  mode: 420
+            {{- end }}
+        {{- with $secretName := (include "settings.natsSecretName" .) }}
+        - name: nats-cred
           secret:
             defaultMode: 420
             secretName: {{ $secretName }}

@@ -305,7 +305,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vpc-
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capi-ops-manager:v0.0.2 $IMAGE_REGISTRY/appscode/capi-ops-manager:v0.0.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog-manager:v0.6.1 $IMAGE_REGISTRY/appscode/catalog-manager:v0.6.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-presets:v0.0.9 $IMAGE_REGISTRY/appscode/cluster-presets:v0.0.9
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:1.4.0 $IMAGE_REGISTRY/appscode/cluster-ui:1.4.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:1.5.0 $IMAGE_REGISTRY/appscode/cluster-ui:1.5.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/config-syncer:v0.15.2-ent $IMAGE_REGISTRY/appscode/config-syncer:v0.15.2-ent
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/csi-driver-cacerts:v0.1.0 $IMAGE_REGISTRY/appscode/csi-driver-cacerts:v0.1.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/external-dns-operator:v0.0.8 $IMAGE_REGISTRY/appscode/external-dns-operator:v0.0.8
@@ -316,7 +316,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana-t
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/grafana:v2025.2.3 $IMAGE_REGISTRY/appscode/grafana:v2025.2.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-agent:v0.0.2 $IMAGE_REGISTRY/appscode/inbox-agent:v0.0.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-server:postgres-latest $IMAGE_REGISTRY/appscode/inbox-server:postgres-latest
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-ui:0.0.4 $IMAGE_REGISTRY/appscode/inbox-ui:0.0.4
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/inbox-ui:0.0.5 $IMAGE_REGISTRY/appscode/inbox-ui:0.0.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/k8s-wait-for:v2.0 $IMAGE_REGISTRY/appscode/k8s-wait-for:v2.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.11.0 $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.11.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.13.0 $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.13.0
@@ -331,7 +331,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.16 $IMAGE_REGISTRY/appscode/panopticon:v0.0.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.10 $IMAGE_REGISTRY/appscode/petset:v0.0.10
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:1.4.0 $IMAGE_REGISTRY/appscode/platform-ui:1.4.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/platform-ui:1.5.0 $IMAGE_REGISTRY/appscode/platform-ui:1.5.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/prom-authproxy:v0.0.1 $IMAGE_REGISTRY/appscode/prom-authproxy:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/reloader:v1.0.79 $IMAGE_REGISTRY/appscode/reloader:v1.0.79
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/s3proxy:sha-a82ca68 $IMAGE_REGISTRY/appscode/s3proxy:sha-a82ca68

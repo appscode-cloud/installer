@@ -105,16 +105,16 @@ Returns the ServiceMonitor labels
 {{- .Values.settings.secretName.platformConfig }}
 {{- end }}
 
-{{- define "settings.grafanaConfigSecretName" -}}
-{{- .Values.settings.secretName.grafanaConfig }}
+{{- define "settings.platformSystemConfigSecretName" -}}
+{{- .Values.settings.secretName.platformConfig }}
 {{- end }}
 
-{{- define "settings.objstoreSecretName" -}}
-{{- .Values.settings.secretName.objstore }}
+{{- define "settings.natsMountPath" -}}
+{{- .Values.settings.natsMountPath }}
 {{- end }}
 
 {{- define "settings.natsSecretName" -}}
-{{- .Values.settings.secretName.nats -}}
+{{- .Values.settings.secretName.natsCred }}
 {{- end }}
 
 {{- define "settings.caProviderClass" -}}

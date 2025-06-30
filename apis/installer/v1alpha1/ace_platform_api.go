@@ -109,6 +109,8 @@ type AceAPISettings struct {
 
 type AceAPISettingsSecretName struct {
 	AceSettingsSecretName         `json:",inline,omitempty"`
+	PlatformSystemConfig          string `json:"platformSystemConfig"`
+	PlatformUserConfig            string `json:"platformUserConfig"`
 	GcpMarketplaceReportingSecret string `json:"gcpMarketplaceReportingSecret"`
 }
 

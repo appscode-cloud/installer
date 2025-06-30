@@ -19,7 +19,7 @@
 - ghcr.io/appscode/capi-ops-manager:v0.0.2
 - ghcr.io/appscode/catalog-manager:v0.6.1
 - ghcr.io/appscode/cluster-presets:v0.0.9
-- ghcr.io/appscode/cluster-ui:1.4.0
+- ghcr.io/appscode/cluster-ui:1.5.0
 - ghcr.io/appscode/config-syncer:v0.15.2-ent
 - ghcr.io/appscode/csi-driver-cacerts:v0.1.0
 - ghcr.io/appscode/external-dns-operator:v0.0.8
@@ -30,7 +30,7 @@
 - ghcr.io/appscode/grafana:v2025.2.3
 - ghcr.io/appscode/inbox-agent:v0.0.2
 - ghcr.io/appscode/inbox-server:postgres-latest
-- ghcr.io/appscode/inbox-ui:0.0.4
+- ghcr.io/appscode/inbox-ui:0.0.5
 - ghcr.io/appscode/k8s-wait-for:v2.0
 - ghcr.io/appscode/kube-rbac-proxy:v0.11.0
 - ghcr.io/appscode/kube-rbac-proxy:v0.13.0
@@ -45,7 +45,7 @@
 - ghcr.io/appscode/operator-shard-manager:v0.0.1
 - ghcr.io/appscode/panopticon:v0.0.16
 - ghcr.io/appscode/petset:v0.0.10
-- ghcr.io/appscode/platform-ui:1.4.0
+- ghcr.io/appscode/platform-ui:1.5.0
 - ghcr.io/appscode/prom-authproxy:v0.0.1
 - ghcr.io/appscode/reloader:v1.0.79
 - ghcr.io/appscode/s3proxy:sha-a82ca68

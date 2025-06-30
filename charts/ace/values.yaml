@@ -410,6 +410,7 @@ settings:
   inboxServer:
     jmapURL: ""
     webAdminURL: ""
+    emailDomain: ""
     adminJWTPrivateKey: ""
 
   security:

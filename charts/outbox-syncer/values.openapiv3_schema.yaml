@@ -830,31 +830,25 @@ properties:
     properties:
       caProviderClass:
         type: string
+      natsMountPath:
+        type: string
       secretName:
         properties:
-          gcpMarketplaceReportingSecret:
-            type: string
-          grafanaConfig:
-            type: string
-          nats:
-            type: string
-          objstore:
+          natsCred:
             type: string
           platformConfig:
             type: string
+          platformSystemConfig:
+            type: string
         required:
-        - gcpMarketplaceReportingSecret
-        - grafanaConfig
-        - nats
-        - objstore
+        - natsCred
         - platformConfig
+        - platformSystemConfig
         type: object
-      skipGCPMarketplaceMeteringService:
-        type: boolean
     required:
     - caProviderClass
+    - natsMountPath
     - secretName
-    - skipGCPMarketplaceMeteringService
     type: object
   tolerations:
     items:
