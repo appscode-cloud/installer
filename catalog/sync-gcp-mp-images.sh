@@ -119,8 +119,8 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/redis-init:0.11.0 $IM
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/redis-restic-plugin:v0.18.0 $IMAGE_REGISTRY/redis-restic-plugin:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/redis_exporter:1.66.0 $IMAGE_REGISTRY/redis_exporter:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubedb/vcluster-plugin-kubedb:v0.0.1 $IMAGE_REGISTRY/vcluster-plugin-kubedb:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/kubestash/kubedump:v0.17.0 $IMAGE_REGISTRY/kubedump:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/kubestash/kubestash:v0.18.0 $IMAGE_REGISTRY/kubestash:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kubestash/kubedump:v0.18.0 $IMAGE_REGISTRY/kubedump:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kubestash/kubestash:v0.19.0 $IMAGE_REGISTRY/kubestash:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kubevault/vault-operator:v0.19.0 $IMAGE_REGISTRY/vault-operator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kyverno/background-controller:v1.12.5 $IMAGE_REGISTRY/background-controller:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kyverno/cleanup-controller:v1.12.5 $IMAGE_REGISTRY/cleanup-controller:$TAG
