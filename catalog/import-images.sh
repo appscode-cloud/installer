@@ -212,7 +212,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-o
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-singlestoreopsrequest-editor-v0.19.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.19.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-solropsrequest-editor-v0.19.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-solropsrequest-editor:v0.19.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.19.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.19.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-panopticon-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/panopticon:v2025.3.14
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-panopticon-v2025.6.30.tar $IMAGE_REGISTRY/appscode-charts/panopticon:v2025.6.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prepare-cluster-v2023.12.21.tar $IMAGE_REGISTRY/appscode-charts/prepare-cluster:v2023.12.21
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prometheus-adapter-4.9.0.tar $IMAGE_REGISTRY/appscode-charts/prometheus-adapter:4.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-reloader-1.0.79.tar $IMAGE_REGISTRY/appscode-charts/reloader:1.0.79

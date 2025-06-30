@@ -210,7 +210,7 @@ k3s ctr images import images/appscode-charts-opskubedbcom-redissentinelopsreques
 k3s ctr images import images/appscode-charts-opskubedbcom-singlestoreopsrequest-editor-v0.19.0.tar
 k3s ctr images import images/appscode-charts-opskubedbcom-solropsrequest-editor-v0.19.0.tar
 k3s ctr images import images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.19.0.tar
-k3s ctr images import images/appscode-charts-panopticon-v2025.3.14.tar
+k3s ctr images import images/appscode-charts-panopticon-v2025.6.30.tar
 k3s ctr images import images/appscode-charts-prepare-cluster-v2023.12.21.tar
 k3s ctr images import images/appscode-charts-prometheus-adapter-4.9.0.tar
 k3s ctr images import images/appscode-charts-reloader-1.0.79.tar

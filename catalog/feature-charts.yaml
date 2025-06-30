@@ -65,7 +65,7 @@
 - ghcr.io/appscode-charts/opencost:1.18.1
 - ghcr.io/appscode-charts/operator-shard-manager:v2025.3.14
 - ghcr.io/appscode-charts/opscenter-features:v2025.6.30
-- ghcr.io/appscode-charts/panopticon:v2025.3.14
+- ghcr.io/appscode-charts/panopticon:v2025.6.30
 - ghcr.io/appscode-charts/prepare-cluster:v2023.12.21
 - ghcr.io/appscode-charts/prometheus-adapter:4.9.0
 - ghcr.io/appscode-charts/reloader:1.0.79

@@ -218,7 +218,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.19.0 images/appscode-charts-opskubedbcom-singlestoreopsrequest-editor-v0.19.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-solropsrequest-editor:v0.19.0 images/appscode-charts-opskubedbcom-solropsrequest-editor-v0.19.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.19.0 images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.19.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2025.3.14 images/appscode-charts-panopticon-v2025.3.14.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2025.6.30 images/appscode-charts-panopticon-v2025.6.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prepare-cluster:v2023.12.21 images/appscode-charts-prepare-cluster-v2023.12.21.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prometheus-adapter:4.9.0 images/appscode-charts-prometheus-adapter-4.9.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/reloader:1.0.79 images/appscode-charts-reloader-1.0.79.tar

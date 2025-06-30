@@ -221,7 +221,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/op
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.19.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-singlestoreopsrequest-editor:v0.19.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-solropsrequest-editor:v0.19.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-solropsrequest-editor:v0.19.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.19.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.19.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/panopticon:v2025.3.14
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2025.6.30 $IMAGE_REGISTRY/appscode-charts/panopticon:v2025.6.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prepare-cluster:v2023.12.21 $IMAGE_REGISTRY/appscode-charts/prepare-cluster:v2023.12.21
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prometheus-adapter:4.9.0 $IMAGE_REGISTRY/appscode-charts/prometheus-adapter:4.9.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/reloader:1.0.79 $IMAGE_REGISTRY/appscode-charts/reloader:1.0.79

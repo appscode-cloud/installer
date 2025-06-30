@@ -151,7 +151,7 @@ helm:
     opscenter-features:
       version: "v2025.6.30"
     panopticon:
-      version: "v2025.3.14"
+      version: "v2025.6.30"
     prepare-cluster:
       version: "v2023.12.21"
     prometheus-adapter:
