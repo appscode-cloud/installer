@@ -23,7 +23,7 @@
 - ghcr.io/appscode/marketplace-ui:0.3.1
 - ghcr.io/appscode/maxmind-geoip:city-mmdb-latest
 - ghcr.io/appscode/offline-license-server:v0.0.69
-- ghcr.io/appscode/outboxsyncer:v1.0.0
+- ghcr.io/appscode/outboxsyncer:v0.1.0
 - ghcr.io/appscode/platform-ui:1.5.0
 - ghcr.io/appscode/s3proxy:sha-a82ca68
 - ghcr.io/appscode/service-provider:v0.0.1
