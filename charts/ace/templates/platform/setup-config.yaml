@@ -13,7 +13,7 @@ stringData:
     nats:
       exports: true
       reloadNatsAccounts: true
-      {{- if eq .Values.global.platform.deploymentType "Hosted" }}
+      {{- if and .Release.IsInstall (eq .Values.global.platform.deploymentType "Hosted") }}
       createNatsStream: true
       reloadPlatformAccounts: true
       {{- end }}
