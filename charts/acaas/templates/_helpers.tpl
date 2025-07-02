@@ -54,6 +54,14 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- default .Values.settings.secretName.platformConfig .Values.global.settings.secretName.platformConfig }}
 {{- end }}
 
+{{- define "settings.platformUserConfigSecretName" -}}
+{{- default .Values.settings.secretName.platformUserConfig .Values.global.settings.secretName.platformUserConfig }}
+{{- end }}
+
+{{- define "settings.platformSystemConfigSecretName" -}}
+{{- default .Values.settings.secretName.platformSystemConfig .Values.global.settings.secretName.platformSystemConfig }}
+{{- end }}
+
 {{- define "settings.objstoreSecretName" -}}
 {{- default .Values.settings.secretName.objstore .Values.global.settings.secretName.objstore }}
 {{- end }}

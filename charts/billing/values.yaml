@@ -93,6 +93,8 @@ settings:
   caProviderClass: ""
   secretName:
     platformConfig: ""
+    platformUserConfig: ""
+    platformSystemConfig: ""
     objstore: ""
     spreadsheet: ""
   spreadsheetCredentialMountPath: "/data/marketplace-credentials"
