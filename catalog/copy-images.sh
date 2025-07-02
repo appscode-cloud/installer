@@ -419,8 +419,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure rancher/kine:v0.11.4 $IMAG
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 $IMAGE_REGISTRY/autoscaling/cluster-autoscaler:v1.27.1
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/csi-secrets-store/driver:v1.4.1 $IMAGE_REGISTRY/csi-secrets-store/driver:v1.4.1
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 $IMAGE_REGISTRY/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
-$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.32.0 $IMAGE_REGISTRY/kube-apiserver:v1.32.0
-$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.32.0 $IMAGE_REGISTRY/kube-controller-manager:v1.32.0
+$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.33.0 $IMAGE_REGISTRY/kube-apiserver:v1.33.0
+$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.33.0 $IMAGE_REGISTRY/kube-controller-manager:v1.33.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0 $IMAGE_REGISTRY/kube-state-metrics/kube-state-metrics:v2.13.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/metrics-server/metrics-server:v0.7.2 $IMAGE_REGISTRY/metrics-server/metrics-server:v0.7.2
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2 $IMAGE_REGISTRY/prometheus-adapter/prometheus-adapter:v0.11.2

@@ -410,8 +410,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/rancher-kine-v0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/autoscaling-cluster-autoscaler-v1.27.1.tar $IMAGE_REGISTRY/autoscaling/cluster-autoscaler:v1.27.1
 $CMD push --allow-nondistributable-artifacts --insecure images/csi-secrets-store-driver-v1.4.1.tar $IMAGE_REGISTRY/csi-secrets-store/driver:v1.4.1
 $CMD push --allow-nondistributable-artifacts --insecure images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar $IMAGE_REGISTRY/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
-$CMD push --allow-nondistributable-artifacts --insecure images/kube-apiserver-v1.32.0.tar $IMAGE_REGISTRY/kube-apiserver:v1.32.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kube-controller-manager-v1.32.0.tar $IMAGE_REGISTRY/kube-controller-manager:v1.32.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kube-apiserver-v1.33.0.tar $IMAGE_REGISTRY/kube-apiserver:v1.33.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kube-controller-manager-v1.33.0.tar $IMAGE_REGISTRY/kube-controller-manager:v1.33.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kube-state-metrics-kube-state-metrics-v2.13.0.tar $IMAGE_REGISTRY/kube-state-metrics/kube-state-metrics:v2.13.0
 $CMD push --allow-nondistributable-artifacts --insecure images/metrics-server-metrics-server-v0.7.2.tar $IMAGE_REGISTRY/metrics-server/metrics-server:v0.7.2
 $CMD push --allow-nondistributable-artifacts --insecure images/prometheus-adapter-prometheus-adapter-v0.11.2.tar $IMAGE_REGISTRY/prometheus-adapter/prometheus-adapter:v0.11.2
