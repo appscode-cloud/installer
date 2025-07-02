@@ -76,7 +76,7 @@ aggregator:
   schedule: "0 8 */1 */1 *"
 
 persistence:
-  size: 50Gi
+  size: 10Gi
 
 infra:
   storageClass:
