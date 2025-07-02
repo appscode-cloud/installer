@@ -140,9 +140,6 @@ spec:
             - name: cacerts
               mountPath: /etc/ssl/certs
             {{- end }}
-            - name: setup-config
-              mountPath: /data/b3/conf/config.yaml
-              subPath: config.yaml
       volumes:
         - name: tmp
           emptyDir: {}
@@ -175,6 +172,12 @@ spec:
                   path: user.ini
                   mode: 420
             {{- end }}
+            - secret:
+                name: {{ include "ace.fullname" . }}-setup-config
+                items:
+                - key: config.yaml
+                  path: config.yaml
+                  mode: 420
         {{- with $secretName := (include "settings.natsSecretName" .) }}
         - name: nats-cred
           secret:
