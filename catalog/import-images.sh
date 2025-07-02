@@ -294,7 +294,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-aceshift
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-b3-v2025.6.30.tar $IMAGE_REGISTRY/appscode/b3:v2025.6.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-capa-vpc-peering-operator-v0.0.4.tar $IMAGE_REGISTRY/appscode/capa-vpc-peering-operator:v0.0.4
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-capi-ops-manager-v0.0.2.tar $IMAGE_REGISTRY/appscode/capi-ops-manager:v0.0.2
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-catalog-manager-v0.6.1.tar $IMAGE_REGISTRY/appscode/catalog-manager:v0.6.1
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-catalog-manager-v0.6.2.tar $IMAGE_REGISTRY/appscode/catalog-manager:v0.6.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-cluster-presets-v0.0.9.tar $IMAGE_REGISTRY/appscode/cluster-presets:v0.0.9
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-cluster-ui-1.5.0.tar $IMAGE_REGISTRY/appscode/cluster-ui:1.5.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-config-syncer-v0.15.2-ent.tar $IMAGE_REGISTRY/appscode/config-syncer:v0.15.2-ent
@@ -410,8 +410,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/rancher-kine-v0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/autoscaling-cluster-autoscaler-v1.27.1.tar $IMAGE_REGISTRY/autoscaling/cluster-autoscaler:v1.27.1
 $CMD push --allow-nondistributable-artifacts --insecure images/csi-secrets-store-driver-v1.4.1.tar $IMAGE_REGISTRY/csi-secrets-store/driver:v1.4.1
 $CMD push --allow-nondistributable-artifacts --insecure images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar $IMAGE_REGISTRY/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
-$CMD push --allow-nondistributable-artifacts --insecure images/kube-apiserver-v1.33.0.tar $IMAGE_REGISTRY/kube-apiserver:v1.33.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kube-controller-manager-v1.33.0.tar $IMAGE_REGISTRY/kube-controller-manager:v1.33.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kube-apiserver-v1.32.0.tar $IMAGE_REGISTRY/kube-apiserver:v1.32.0
+$CMD push --allow-nondistributable-artifacts --insecure images/kube-controller-manager-v1.32.0.tar $IMAGE_REGISTRY/kube-controller-manager:v1.32.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kube-state-metrics-kube-state-metrics-v2.13.0.tar $IMAGE_REGISTRY/kube-state-metrics/kube-state-metrics:v2.13.0
 $CMD push --allow-nondistributable-artifacts --insecure images/metrics-server-metrics-server-v0.7.2.tar $IMAGE_REGISTRY/metrics-server/metrics-server:v0.7.2
 $CMD push --allow-nondistributable-artifacts --insecure images/prometheus-adapter-prometheus-adapter-v0.11.2.tar $IMAGE_REGISTRY/prometheus-adapter/prometheus-adapter:v0.11.2

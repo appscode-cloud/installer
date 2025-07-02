@@ -3,7 +3,7 @@ name: catalog-manager
 description: A Helm chart for AppsCode SaaS Calalog
 type: application
 version: v2025.6.30
-appVersion: v0.6.1
+appVersion: v0.6.2
 home: https://github.com/appscode-cloud/catalog-manager
 icon: https://cdn.appscode.com/images/products/searchlight/icons/android-icon-192x192.png
 sources:
