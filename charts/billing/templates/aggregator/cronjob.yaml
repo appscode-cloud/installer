@@ -13,6 +13,8 @@ metadata:
     {{- include "billing.labels" . | nindent 4 }}
 spec:
   schedule: {{ .Values.aggregator.schedule }}
+  successfulJobsHistoryLimit: 3
+  suspend: true
   jobTemplate:
     spec:
       template:
@@ -67,6 +69,18 @@ spec:
                       name: {{ include "settings.objstoreSecretName" . }}
                       key: AZURE_ACCOUNT_KEY
               {{- end }}
+              {{- if (include "settings.platformConfigSecretName" .) }}
+                - name: B3_CONFIG_SECRET_NAME
+                  value: {{ include "settings.platformConfigSecretName" . }}
+              {{- end }}
+              {{- if (include "settings.platformUserConfigSecretName" .) }}
+                - name: B3_USER_CONFIG_SECRET_NAME
+                  value: {{ include "settings.platformUserConfigSecretName" . }}
+              {{- end }}
+              {{- if (include "settings.platformSystemConfigSecretName" .) }}
+                - name: B3_SYSTEM_CONFIG_SECRET_NAME
+                  value: {{ include "settings.platformSystemConfigSecretName" . }}
+              {{- end }}
               volumeMounts:
                 - name: tmp
                   mountPath: /tmp
@@ -74,8 +88,7 @@ spec:
                   mountPath: /data
                 {{- if (include "settings.platformConfigSecretName" .) }}
                 - name: config
-                  mountPath: /data/b3/conf/app.ini
-                  subPath: app.ini
+                  mountPath: /data/b3/conf
                 {{- end }}
                 {{- if (include "settings.objstoreSecretName" .) }}
                 - name: objstore-cred
@@ -92,12 +105,33 @@ spec:
               emptyDir: {}
             - name: data
               emptyDir: {}
-            {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
             - name: config
-              secret:
-                defaultMode: 420
-                secretName: {{ $secretName }}
-            {{- end }}
+              projected:
+                sources:
+              {{- with $secretName := (include "settings.platformConfigSecretName" .) }}
+                  - secret:
+                      name: {{ $secretName }}
+                      items:
+                        - key: app.ini
+                          path: app.ini
+                          mode: 420
+              {{- end }}
+              {{- with $secretName := (include "settings.platformSystemConfigSecretName" .) }}
+                  - secret:
+                      name: {{ $secretName }}
+                      items:
+                        - key: system.ini
+                          path: system.ini
+                          mode: 420
+              {{- end }}
+              {{- with $secretName := (include "settings.platformUserConfigSecretName" .) }}
+                  - secret:
+                      name: {{ $secretName }}
+                      items:
+                        - key: user.ini
+                          path: user.ini
+                          mode: 420
+              {{- end }}
             {{- with $secretName := (include "settings.objstoreSecretName" .) }}
             - name: objstore-cred
               secret:
