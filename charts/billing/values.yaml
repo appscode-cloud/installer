@@ -95,6 +95,8 @@ settings:
     platformConfig: ""
     platformUserConfig: ""
     platformSystemConfig: ""
+    grafanaConfig: ""
     objstore: ""
+    nats: ""
     spreadsheet: ""
   spreadsheetCredentialMountPath: "/data/marketplace-credentials"

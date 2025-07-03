@@ -97,6 +97,8 @@ settings:
   caProviderClass: ""
   secretName:
     platformConfig: ""
+    platformUserConfig: ""
+    platformSystemConfig: ""
     grafanaConfig: ""
     objstore: ""
     nats: ""
