@@ -98,6 +98,14 @@ Returns the ServiceMonitor labels
 {{- .Values.settings.secretName.platformConfig }}
 {{- end }}
 
+{{- define "settings.platformUserConfigSecretName" -}}
+{{- .Values.settings.secretName.platformUserConfig }}
+{{- end }}
+
+{{- define "settings.platformSystemConfigSecretName" -}}
+{{- .Values.settings.secretName.platformSystemConfig }}
+{{- end }}
+
 {{- define "settings.objstoreSecretName" -}}
 {{- .Values.settings.secretName.objstore }}
 {{- end }}
