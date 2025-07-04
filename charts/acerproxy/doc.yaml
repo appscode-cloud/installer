@@ -1,0 +1,18 @@
+project:
+  name: Rancher aware proxy of ACE api
+  shortName: Rancher aware proxy of ACE api
+  url: https://github.com/kubedb/ui-server
+  description: Rancher aware proxy of ACE api
+  app: a Rancher aware proxy of ACE api
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: acerproxy
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.28+
+release:
+  name: acerproxy
+  namespace: kubeops
