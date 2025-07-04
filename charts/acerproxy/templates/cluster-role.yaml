@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "acerproxy.fullname" . }}
+  labels:
+    {{- include "acerproxy.labels" . | nindent 4 }}
+rules:
+- apiGroups:
+  - rproxy.ace.appscode.com
+  resources:
+  - "*"
+  verbs: ["*"]

@@ -1,6 +1,7 @@
 - alpine:3.20
 - bats/bats:1.11.0
 - ghcr.io/appscode/ace:v0.0.2
+- ghcr.io/appscode/acerproxy:v0.1.0
 - ghcr.io/appscode/aceshifter:v0.0.1
 - ghcr.io/appscode/b3:v2025.6.30
 - ghcr.io/appscode/billing-ui:1.5.0
