@@ -60,6 +60,119 @@ spec:
         kind: StatefulSet
         selector:
           app.kubernetes.io/name: kubedb-provisioner
+
+  ignoreDifferences:
+  - jsonPointers:
+    - /data
+    kind: Secret
+    name: kubedb-kubedb-webhook-server-cert
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+  - jsonPointers:
+    - /data
+    kind: Secret
+    name: kubedb-petset-cert
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+  - jsonPointers:
+    - /data
+    kind: Secret
+    name: kubedb-sidekick-cert
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+
+  - group: admissionregistration.k8s.io
+    kind: MutatingWebhookConfiguration
+    name: mutators.petset.appscode.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: MutatingWebhookConfiguration
+    name: mutators.kubedb.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: MutatingWebhookConfiguration
+    name: mutators.autoscaling.kubedb.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: MutatingWebhookConfiguration
+    name: mutators.elasticsearch.kubedb.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: MutatingWebhookConfiguration
+    name: mutators.schema.kubedb.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    name: validators.autoscaling.kubedb.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    name: validators.elasticsearch.kubedb.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    name: validators.kubedb.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    name: validators.ops.kubedb.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    name: validators.petset.appscode.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    name: validators.schema.kubedb.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+
+
+  - group: apps
+    kind: StatefulSet
+    name: kubedb-kubedb-autoscaler
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+    jsonPointers:
+    - /spec/template/metadata/annotations/reload
+  - group: apps
+    kind: StatefulSet
+    name: kubedb-kubedb-ops-manager
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+    jsonPointers:
+    - /spec/template/metadata/annotations/reload
+  - group: apps
+    kind: StatefulSet
+    name: kubedb-kubedb-provisioner
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+    jsonPointers:
+    - /spec/template/metadata/annotations/reload
+  - group: apps
+    kind: Deployment
+    name: kubedb-kubedb-webhook-server
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+    jsonPointers:
+    - /spec/template/metadata/annotations/reload
+  - group: apps
+    kind: Deployment
+    name: kubedb-petset
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+    jsonPointers:
+    - /spec/template/metadata/annotations/reload
+  - group: apps
+    kind: Deployment
+    name: kubedb-sidekick
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+    jsonPointers:
+    - /spec/template/metadata/annotations/reload
+
   chart:
     name: kubedb
     namespace: kubedb

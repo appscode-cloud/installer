@@ -64,6 +64,7 @@ spec:
     - group: apps
       version: v1
       kind: Deployment
+      optional: "fluxcd"
       selector:
         app.kubernetes.io/component: helm-controller
         app.kubernetes.io/instance: flux-system
@@ -72,11 +73,20 @@ spec:
     - group: apps
       version: v1
       kind: Deployment
+      optional: "fluxcd"
       selector:
         app.kubernetes.io/component: source-controller
         app.kubernetes.io/instance: flux-system
         app.kubernetes.io/part-of: flux
         control-plane: controller
+    # fargocd controller
+    - group: apps
+      version: v1
+      kind: Deployment
+      optional: "fargocd"
+      selector:
+        app.kubernetes.io/instance: fargocd
+        app.kubernetes.io/name: fargocd
   chart:
     name: flux2
     namespace: flux-system
