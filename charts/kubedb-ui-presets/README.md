@@ -87,6 +87,12 @@ The following table lists the configurable parameters of the `kubedb-ui-presets`
 | databases.FerretDB.mode.available          |                                                                                                      | <code>[]</code>                     |
 | databases.FerretDB.mode.default            |                                                                                                      | <code>""</code>                     |
 | databases.FerretDB.mode.toggle             |                                                                                                      | <code>true</code>                   |
+| databases.Hazelcast.versions.available     |                                                                                                      | <code>[]</code>                     |
+| databases.Hazelcast.versions.default       |                                                                                                      | <code>""</code>                     |
+| databases.Hazelcast.versions.toggle        |                                                                                                      | <code>true</code>                   |
+| databases.Hazelcast.mode.available         |                                                                                                      | <code>[]</code>                     |
+| databases.Hazelcast.mode.default           |                                                                                                      | <code>""</code>                     |
+| databases.Hazelcast.mode.toggle            |                                                                                                      | <code>true</code>                   |
 | databases.Ignite.versions.available        |                                                                                                      | <code>[]</code>                     |
 | databases.Ignite.versions.default          |                                                                                                      | <code>""</code>                     |
 | databases.Ignite.versions.toggle           |                                                                                                      | <code>true</code>                   |
@@ -129,6 +135,12 @@ The following table lists the configurable parameters of the `kubedb-ui-presets`
 | databases.MySQL.mode.available             |                                                                                                      | <code>[]</code>                     |
 | databases.MySQL.mode.default               |                                                                                                      | <code>""</code>                     |
 | databases.MySQL.mode.toggle                |                                                                                                      | <code>true</code>                   |
+| databases.Oracle.versions.available        |                                                                                                      | <code>[]</code>                     |
+| databases.Oracle.versions.default          |                                                                                                      | <code>""</code>                     |
+| databases.Oracle.versions.toggle           |                                                                                                      | <code>true</code>                   |
+| databases.Oracle.mode.available            |                                                                                                      | <code>[]</code>                     |
+| databases.Oracle.mode.default              |                                                                                                      | <code>""</code>                     |
+| databases.Oracle.mode.toggle               |                                                                                                      | <code>true</code>                   |
 | databases.PerconaXtraDB.versions.available |                                                                                                      | <code>[]</code>                     |
 | databases.PerconaXtraDB.versions.default   |                                                                                                      | <code>""</code>                     |
 | databases.PerconaXtraDB.versions.toggle    |                                                                                                      | <code>true</code>                   |
