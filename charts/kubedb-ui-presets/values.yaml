@@ -63,6 +63,15 @@ databases:
       available: []
       default: ""
       toggle: true
+  Hazelcast:
+    versions:
+      available: []
+      default: ""
+      toggle: true
+    mode:
+      available: []
+      default: ""
+      toggle: true
   Ignite:
     versions:
       available: []
@@ -118,6 +127,15 @@ databases:
       default: ""
       toggle: true
   MySQL:
+    versions:
+      available: []
+      default: ""
+      toggle: true
+    mode:
+      available: []
+      default: ""
+      toggle: true
+  Oracle:
     versions:
       available: []
       default: ""
