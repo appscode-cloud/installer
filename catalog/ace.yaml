@@ -72,7 +72,7 @@
 - ghcr.io/kluster-manager/cluster-gateway:v1.11.0
 - ghcr.io/kluster-manager/cluster-profile:v0.10.0
 - ghcr.io/kluster-manager/cluster-proxy:v0.7.0
-- ghcr.io/kluster-manager/clusteradm:v0.11.0
+- ghcr.io/kluster-manager/clusteradm:v1.0.0
 - ghcr.io/kluster-manager/fluxcd-addon:v0.0.8
 - ghcr.io/kluster-manager/managed-serviceaccount:v0.8.1
 - ghcr.io/kluster-manager/placement:v0.15.2

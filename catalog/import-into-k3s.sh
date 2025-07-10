@@ -73,8 +73,8 @@ k3s ctr images import images/appscode-charts-chartsxhelmdev-clusterchartpreset-e
 k3s ctr images import images/appscode-charts-cluster-auth-manager-v2025.5.16.tar
 k3s ctr images import images/appscode-charts-cluster-autoscaler-9.29.0.tar
 k3s ctr images import images/appscode-charts-cluster-gateway-manager-v2025.4.30.tar
-k3s ctr images import images/appscode-charts-cluster-manager-hub-v2025.4.30.tar
-k3s ctr images import images/appscode-charts-cluster-manager-spoke-v2025.4.30.tar
+k3s ctr images import images/appscode-charts-cluster-manager-hub-v2025.7.16.tar
+k3s ctr images import images/appscode-charts-cluster-manager-spoke-v2025.7.16.tar
 k3s ctr images import images/appscode-charts-cluster-presets-v2025.7.16.tar
 k3s ctr images import images/appscode-charts-cluster-profile-manager-v2025.5.16.tar
 k3s ctr images import images/appscode-charts-cluster-proxy-manager-v2025.4.30.tar
@@ -350,7 +350,7 @@ k3s ctr images import images/kluster-manager-cluster-gateway-manager-v1.11.0.tar
 k3s ctr images import images/kluster-manager-cluster-gateway-v1.11.0.tar
 k3s ctr images import images/kluster-manager-cluster-profile-v0.10.0.tar
 k3s ctr images import images/kluster-manager-cluster-proxy-v0.7.0.tar
-k3s ctr images import images/kluster-manager-clusteradm-v0.11.0.tar
+k3s ctr images import images/kluster-manager-clusteradm-v1.0.0.tar
 k3s ctr images import images/kluster-manager-fluxcd-addon-v0.0.8.tar
 k3s ctr images import images/kluster-manager-managed-serviceaccount-v0.8.1.tar
 k3s ctr images import images/kluster-manager-placement-v0.15.2.tar

@@ -96,7 +96,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/cluster-gate
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/cluster-gateway:v1.11.0 $IMAGE_REGISTRY/cluster-gateway:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/cluster-profile:v0.10.0 $IMAGE_REGISTRY/cluster-profile:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/cluster-proxy:v0.7.0 $IMAGE_REGISTRY/cluster-proxy:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/clusteradm:v0.11.0 $IMAGE_REGISTRY/clusteradm:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/clusteradm:v1.0.0 $IMAGE_REGISTRY/clusteradm:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/fluxcd-addon:v0.0.8 $IMAGE_REGISTRY/fluxcd-addon:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/managed-serviceaccount:v0.8.1 $IMAGE_REGISTRY/managed-serviceaccount:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/kluster-manager/placement:v0.15.2 $IMAGE_REGISTRY/placement:$TAG
