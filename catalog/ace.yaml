@@ -38,7 +38,7 @@
 - ghcr.io/appscode/kube-rbac-proxy:v0.18.2
 - ghcr.io/appscode/kube-ui-server:v0.0.50
 - ghcr.io/appscode/kubectl-nonroot:1.31
-- ghcr.io/appscode/kubedb-ui:1.4.0
+- ghcr.io/appscode/kubedb-ui:1.5.0
 - ghcr.io/appscode/license-proxyserver:v0.0.23
 - ghcr.io/appscode/maxmind-geoip:city-mmdb-latest
 - ghcr.io/appscode/openfga:v1.8.5
@@ -133,8 +133,8 @@
 - registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1
 - registry.k8s.io/csi-secrets-store/driver:v1.4.1
 - registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
-- registry.k8s.io/kube-apiserver:v1.33.0
-- registry.k8s.io/kube-controller-manager:v1.33.0
+- registry.k8s.io/kube-apiserver:v1.32.0
+- registry.k8s.io/kube-controller-manager:v1.32.0
 - registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0
 - registry.k8s.io/metrics-server/metrics-server:v0.7.2
 - registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2

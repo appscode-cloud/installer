@@ -324,7 +324,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.18.2 $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.18.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-ui-server:v0.0.50 $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.50
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.31 $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.31
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:1.4.0 $IMAGE_REGISTRY/appscode/kubedb-ui:1.4.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:1.5.0 $IMAGE_REGISTRY/appscode/kubedb-ui:1.5.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.23 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.23
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.8.5 $IMAGE_REGISTRY/appscode/openfga:v1.8.5
@@ -419,8 +419,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure rancher/kine:v0.11.4 $IMAG
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 $IMAGE_REGISTRY/autoscaling/cluster-autoscaler:v1.27.1
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/csi-secrets-store/driver:v1.4.1 $IMAGE_REGISTRY/csi-secrets-store/driver:v1.4.1
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 $IMAGE_REGISTRY/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
-$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.33.0 $IMAGE_REGISTRY/kube-apiserver:v1.33.0
-$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.33.0 $IMAGE_REGISTRY/kube-controller-manager:v1.33.0
+$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.32.0 $IMAGE_REGISTRY/kube-apiserver:v1.32.0
+$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.32.0 $IMAGE_REGISTRY/kube-controller-manager:v1.32.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0 $IMAGE_REGISTRY/kube-state-metrics/kube-state-metrics:v2.13.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/metrics-server/metrics-server:v0.7.2 $IMAGE_REGISTRY/metrics-server/metrics-server:v0.7.2
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2 $IMAGE_REGISTRY/prometheus-adapter/prometheus-adapter:v0.11.2
