@@ -12,6 +12,20 @@ properties:
       showAppTag:
         type: boolean
     type: object
+  cloudProviderOptions:
+    properties:
+      aws:
+        properties:
+          eipAllocationIDs:
+            items:
+              type: string
+            type: array
+          subnetIDs:
+            items:
+              type: string
+            type: array
+        type: object
+    type: object
   cluster-ui:
     properties:
       enabled:
@@ -1230,6 +1244,8 @@ properties:
             type: object
           import:
             type: boolean
+          kubeAPIServer:
+            type: string
         type: object
       subscription:
         properties:
@@ -2489,6 +2505,7 @@ properties:
     type: object
 required:
   - branding
+  - cloudProviderOptions
   - cluster-ui
   - context
   - grafana
