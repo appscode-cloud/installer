@@ -633,6 +633,21 @@ properties:
     additionalProperties:
       type: string
     type: object
+  platform:
+    properties:
+      baseURL:
+        type: string
+      caBundle:
+        type: string
+      insecureSkipTLSVerify:
+        type: boolean
+      token:
+        type: string
+      tokenSecretName:
+        type: string
+    required:
+    - baseURL
+    type: object
   podAnnotations:
     additionalProperties:
       type: string
@@ -755,6 +770,7 @@ required:
 - image
 - imagePullPolicy
 - monitoring
+- platform
 - registryFQDN
 - replicaCount
 - serviceAccount
