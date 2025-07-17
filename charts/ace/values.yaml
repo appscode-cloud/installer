@@ -504,6 +504,9 @@ branding:
   showAppTag: false
   appName: ""
 
+cloudProviderOptions:
+  aws: {}
+
 setupJob:
   # https://github.com/fluxcd/flux2/discussions/1085#discussioncomment-473271
   # https://github.com/helm/helm/issues/9027#issuecomment-1908032461

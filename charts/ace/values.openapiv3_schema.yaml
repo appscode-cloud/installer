@@ -451,6 +451,20 @@ properties:
       showAppTag:
         type: boolean
     type: object
+  cloudProviderOptions:
+    properties:
+      aws:
+        properties:
+          eipAllocationIDs:
+            items:
+              type: string
+            type: array
+          subnetIDs:
+            items:
+              type: string
+            type: array
+        type: object
+    type: object
   cluster-ui:
     properties:
       affinity:
@@ -25665,6 +25679,7 @@ properties:
 required:
 - affinity
 - branding
+- cloudProviderOptions
 - cluster-ui
 - extraObjects
 - global
