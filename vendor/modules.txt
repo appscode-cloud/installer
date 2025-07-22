@@ -883,7 +883,7 @@ kmodules.xyz/offshoot-api/api/v1
 # kmodules.xyz/prober v0.32.0
 ## explicit; go 1.23.0
 kmodules.xyz/prober/api/v1
-# kmodules.xyz/resource-metadata v0.32.0
+# kmodules.xyz/resource-metadata v0.32.1
 ## explicit; go 1.23.0
 kmodules.xyz/resource-metadata/apis/shared
 kmodules.xyz/resource-metadata/apis/ui
@@ -896,7 +896,7 @@ kmodules.xyz/schema-checker
 ## explicit; go 1.22.0
 kubeops.dev/external-dns-operator/apis/external
 kubeops.dev/external-dns-operator/apis/external/v1alpha1
-# kubeops.dev/installer v0.0.0-20250709205805-b8bdf921a01f
+# kubeops.dev/installer v0.0.0-20250719172258-f210953e85ae
 ## explicit; go 1.23.3
 kubeops.dev/installer/apis/installer
 kubeops.dev/installer/apis/installer/v1alpha1
