@@ -2,8 +2,8 @@ apiVersion: v2
 name: ace-installer
 description: ACE Installer
 type: application
-version: v2025.7.16
-appVersion: v2025.7.16
+version: v2025.7.31
+appVersion: v2025.7.31
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/kubeops/icons/android-icon-192x192.png
 sources:
