@@ -7,19 +7,19 @@ toolchain go1.24.1
 require (
 	go.bytebuilders.dev/catalog v0.0.15
 	go.bytebuilders.dev/resource-model v0.3.1
-	go.bytebuilders.dev/ui-wizards v0.20.0
+	go.bytebuilders.dev/ui-wizards v0.21.0
 	go.openviz.dev/installer v0.0.0-20250617172415-ca61a7cbb8d5
 	gomodules.xyz/go-sh v0.2.0
 	k8s.io/api v0.32.3
 	k8s.io/apimachinery v0.32.3
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
 	kmodules.xyz/client-go v0.32.6
-	kmodules.xyz/image-packer v0.0.0-20250709183414-f93633723666
+	kmodules.xyz/image-packer v0.0.0-20250723093616-cc5662f30785
 	kmodules.xyz/objectstore-api v0.32.0
-	kmodules.xyz/resource-metadata v0.32.1
+	kmodules.xyz/resource-metadata v0.33.0
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
-	kubeops.dev/installer v0.0.0-20250719172258-f210953e85ae
+	kubeops.dev/installer v0.0.0-20250723102635-45a7eccea9eb
 	sigs.k8s.io/kustomize/kyaml v0.18.1
 	sigs.k8s.io/yaml v1.4.0
 )
