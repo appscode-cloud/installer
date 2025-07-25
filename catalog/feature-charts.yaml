@@ -25,8 +25,8 @@
 - ghcr.io/appscode-charts/external-secrets:0.9.12
 - ghcr.io/appscode-charts/falco-ui-server:v2024.5.17
 - ghcr.io/appscode-charts/falco:4.0.0
-- ghcr.io/appscode-charts/flux2:2.15.0
-- ghcr.io/appscode-charts/fluxcd-manager:v2025.5.16
+- ghcr.io/appscode-charts/flux2:2.16.4
+- ghcr.io/appscode-charts/fluxcd-manager:v2025.7.31
 - ghcr.io/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1
 - ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1
 - ghcr.io/appscode-charts/gatekeeper:3.13.3

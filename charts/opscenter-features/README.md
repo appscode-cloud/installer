@@ -87,7 +87,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.external-dns-operator.version                             |                                 | <code>"v2024.4.19"</code>                  |
 | helm.releases.falco.version                                             |                                 | <code>"4.0.0"</code>                       |
 | helm.releases.falco-ui-server.version                                   |                                 | <code>"v2024.5.17"</code>                  |
-| helm.releases.flux2.version                                             |                                 | <code>"2.15.0"</code>                      |
+| helm.releases.flux2.version                                             |                                 | <code>"2.16.4"</code>                      |
 | helm.releases.gatekeeper.version                                        |                                 | <code>"3.13.3"</code>                      |
 | helm.releases.gatekeeper-grafana-dashboards.version                     |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.gatekeeper-library.version                                |                                 | <code>"v2023.10.1"</code>                  |
@@ -156,7 +156,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.cluster-auth-manager.version                              |                                 | <code>"v2025.5.16"</code>                  |
 | helm.releases.cluster-profile-manager.version                           |                                 | <code>"v2025.5.16"</code>                  |
 | helm.releases.hub-cluster-robot.version                                 |                                 | <code>"v2024.8.9"</code>                   |
-| helm.releases.fluxcd-manager.version                                    |                                 | <code>"v2025.5.16"</code>                  |
+| helm.releases.fluxcd-manager.version                                    |                                 | <code>"v2025.7.31"</code>                  |
 | helm.releases.license-proxyserver-manager.version                       |                                 | <code>"v2025.5.16"</code>                  |
 | helm.releases.inbox-server.version                                      |                                 | <code>"v2025.2.28"</code>                  |
 | helm.releases.inbox-agent.version                                       |                                 | <code>"v2024.12.30"</code>                 |
