@@ -91,7 +91,7 @@ helm:
     falco-ui-server:
       version: "v2024.5.17"
     flux2:
-      version: "2.15.0"
+      version: "2.16.4"
     gatekeeper:
       version: "3.13.3"
     gatekeeper-grafana-dashboards:
@@ -231,7 +231,7 @@ helm:
     hub-cluster-robot:
       version: "v2024.8.9"
     fluxcd-manager:
-      version: "v2025.5.16"
+      version: "v2025.7.31"
     license-proxyserver-manager:
       version: "v2025.5.16"
     inbox-server:
