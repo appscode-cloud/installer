@@ -73,7 +73,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-catalog:v2024.10.24 images/appscode-charts-capi-catalog-v2024.10.24.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-ops-manager:v2024.8.14 images/appscode-charts-capi-ops-manager-v2024.8.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/catalog-manager:v2025.7.31 images/appscode-charts-catalog-manager-v2025.7.31.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2024.10.17 images/appscode-charts-cert-manager-csi-driver-cacerts-v2024.10.17.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2025.7.31 images/appscode-charts-cert-manager-csi-driver-cacerts-v2025.7.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager:v1.18.2 images/appscode-charts-cert-manager-v1.18.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-chartpreset-editor:v0.21.0 images/appscode-charts-chartsxhelmdev-chartpreset-editor-v0.21.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.21.0 images/appscode-charts-chartsxhelmdev-clusterchartpreset-editor-options-v0.21.0.tar

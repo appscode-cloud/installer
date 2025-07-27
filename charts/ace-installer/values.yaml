@@ -60,7 +60,7 @@ helm:
       version: "v1.18.2"
     cert-manager-csi-driver-cacerts:
       enabled: true
-      version: "v2024.10.17"
+      version: "v2025.7.31"
     external-dns-operator:
       enabled: true
       version: "v2024.4.19"
