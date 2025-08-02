@@ -247,7 +247,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/storagekubestashcom-repository-editor:v0.21.0 images/appscode-charts-storagekubestashcom-repository-editor-v0.21.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/storagekubestashcom-retentionpolicy-editor:v0.21.0 images/appscode-charts-storagekubestashcom-retentionpolicy-editor-v0.21.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/storagekubestashcom-snapshot-editor:v0.21.0 images/appscode-charts-storagekubestashcom-snapshot-editor-v0.21.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/supervisor:v2025.3.14 images/appscode-charts-supervisor-v2025.3.14.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/supervisor:v2025.7.31 images/appscode-charts-supervisor-v2025.7.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/topolvm:15.0.0 images/appscode-charts-topolvm-15.0.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-alert:v0.12.0 images/appscode-charts-uibytebuildersdev-component-alert-v0.12.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-backup-option:v0.12.0 images/appscode-charts-uibytebuildersdev-component-backup-option-v0.12.0.tar
@@ -367,8 +367,8 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/work:v0.15.2 images/kluster-manager-work-v0.15.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-autoscaler:v0.41.0 images/kubedb-kubedb-autoscaler-v0.41.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-crd-manager:v0.11.0 images/kubedb-kubedb-crd-manager-v0.11.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.43.1 images/kubedb-kubedb-ops-manager-v0.43.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.56.0 images/kubedb-kubedb-provisioner-v0.56.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.43.2 images/kubedb-kubedb-ops-manager-v0.43.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.56.1 images/kubedb-kubedb-provisioner-v0.56.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-schema-manager:v0.32.0 images/kubedb-kubedb-schema-manager-v0.32.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ui-server:v0.32.1 images/kubedb-kubedb-ui-server-v0.32.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.32.0 images/kubedb-kubedb-webhook-server-v0.32.0.tar

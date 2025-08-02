@@ -81,8 +81,8 @@
 - ghcr.io/kluster-manager/work:v0.15.2
 - ghcr.io/kubedb/kubedb-autoscaler:v0.41.0
 - ghcr.io/kubedb/kubedb-crd-manager:v0.11.0
-- ghcr.io/kubedb/kubedb-ops-manager:v0.43.1
-- ghcr.io/kubedb/kubedb-provisioner:v0.56.0
+- ghcr.io/kubedb/kubedb-ops-manager:v0.43.2
+- ghcr.io/kubedb/kubedb-provisioner:v0.56.1
 - ghcr.io/kubedb/kubedb-schema-manager:v0.32.0
 - ghcr.io/kubedb/kubedb-ui-server:v0.32.1
 - ghcr.io/kubedb/kubedb-webhook-server:v0.32.0

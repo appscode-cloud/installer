@@ -250,7 +250,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/st
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/storagekubestashcom-repository-editor:v0.21.0 $IMAGE_REGISTRY/appscode-charts/storagekubestashcom-repository-editor:v0.21.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/storagekubestashcom-retentionpolicy-editor:v0.21.0 $IMAGE_REGISTRY/appscode-charts/storagekubestashcom-retentionpolicy-editor:v0.21.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/storagekubestashcom-snapshot-editor:v0.21.0 $IMAGE_REGISTRY/appscode-charts/storagekubestashcom-snapshot-editor:v0.21.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/supervisor:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/supervisor:v2025.3.14
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/supervisor:v2025.7.31 $IMAGE_REGISTRY/appscode-charts/supervisor:v2025.7.31
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/topolvm:15.0.0 $IMAGE_REGISTRY/appscode-charts/topolvm:15.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-alert:v0.12.0 $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-alert:v0.12.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-backup-option:v0.12.0 $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-backup-option:v0.12.0
@@ -370,8 +370,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/re
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/work:v0.15.2 $IMAGE_REGISTRY/kluster-manager/work:v0.15.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-autoscaler:v0.41.0 $IMAGE_REGISTRY/kubedb/kubedb-autoscaler:v0.41.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-crd-manager:v0.11.0 $IMAGE_REGISTRY/kubedb/kubedb-crd-manager:v0.11.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.43.1 $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.43.1
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.56.0 $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.56.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.43.2 $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.43.2
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-provisioner:v0.56.1 $IMAGE_REGISTRY/kubedb/kubedb-provisioner:v0.56.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-schema-manager:v0.32.0 $IMAGE_REGISTRY/kubedb/kubedb-schema-manager:v0.32.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ui-server:v0.32.1 $IMAGE_REGISTRY/kubedb/kubedb-ui-server:v0.32.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-webhook-server:v0.32.0 $IMAGE_REGISTRY/kubedb/kubedb-webhook-server:v0.32.0

@@ -239,7 +239,7 @@ k3s ctr images import images/appscode-charts-storagekubestashcom-repository-edit
 k3s ctr images import images/appscode-charts-storagekubestashcom-repository-editor-v0.21.0.tar
 k3s ctr images import images/appscode-charts-storagekubestashcom-retentionpolicy-editor-v0.21.0.tar
 k3s ctr images import images/appscode-charts-storagekubestashcom-snapshot-editor-v0.21.0.tar
-k3s ctr images import images/appscode-charts-supervisor-v2025.3.14.tar
+k3s ctr images import images/appscode-charts-supervisor-v2025.7.31.tar
 k3s ctr images import images/appscode-charts-topolvm-15.0.0.tar
 k3s ctr images import images/appscode-charts-uibytebuildersdev-component-alert-v0.12.0.tar
 k3s ctr images import images/appscode-charts-uibytebuildersdev-component-backup-option-v0.12.0.tar
@@ -359,8 +359,8 @@ k3s ctr images import images/kluster-manager-registration-v0.15.2.tar
 k3s ctr images import images/kluster-manager-work-v0.15.2.tar
 k3s ctr images import images/kubedb-kubedb-autoscaler-v0.41.0.tar
 k3s ctr images import images/kubedb-kubedb-crd-manager-v0.11.0.tar
-k3s ctr images import images/kubedb-kubedb-ops-manager-v0.43.1.tar
-k3s ctr images import images/kubedb-kubedb-provisioner-v0.56.0.tar
+k3s ctr images import images/kubedb-kubedb-ops-manager-v0.43.2.tar
+k3s ctr images import images/kubedb-kubedb-provisioner-v0.56.1.tar
 k3s ctr images import images/kubedb-kubedb-schema-manager-v0.32.0.tar
 k3s ctr images import images/kubedb-kubedb-ui-server-v0.32.1.tar
 k3s ctr images import images/kubedb-kubedb-webhook-server-v0.32.0.tar

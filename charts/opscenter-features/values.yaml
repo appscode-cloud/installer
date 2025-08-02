@@ -179,7 +179,7 @@ helm:
     stash-presets:
       version: "v2025.7.31"
     supervisor:
-      version: "v2025.3.14"
+      version: "v2025.7.31"
     topolvm:
       version: "15.0.0"
     voyager:

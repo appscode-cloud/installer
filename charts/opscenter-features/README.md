@@ -131,7 +131,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.stash.version                                             |                                 | <code>"v2025.6.30"</code>                  |
 | helm.releases.stash-opscenter.version                                   |                                 | <code>"v2025.2.10"</code>                  |
 | helm.releases.stash-presets.version                                     |                                 | <code>"v2025.7.31"</code>                  |
-| helm.releases.supervisor.version                                        |                                 | <code>"v2025.3.14"</code>                  |
+| helm.releases.supervisor.version                                        |                                 | <code>"v2025.7.31"</code>                  |
 | helm.releases.topolvm.version                                           |                                 | <code>"15.0.0"</code>                      |
 | helm.releases.voyager.version                                           |                                 | <code>"v2024.8.30"</code>                  |
 | helm.releases.voyager-gateway.version                                   |                                 | <code>"v2025.6.30"</code>                  |
