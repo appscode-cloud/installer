@@ -66,6 +66,14 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
+          {{- if (include "settings.platformConfigSecretName" .) }}
+            - name: ACE_CONFIG_SECRET_NAME
+              value: {{ include "settings.platformConfigSecretName" . }}
+          {{- end }}
+          {{- if (include "settings.platformSystemConfigSecretName" .) }}
+            - name: ACE_SYSTEM_CONFIG_SECRET_NAME
+              value: {{ include "settings.platformSystemConfigSecretName" . }}
+          {{- end }}
           volumeMounts:
             - name: tmp
               mountPath: /tmp
