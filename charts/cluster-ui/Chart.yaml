@@ -3,7 +3,7 @@ name: cluster-ui
 description: A Helm chart for Kubernetes
 type: application
 version: v2025.7.31
-appVersion: 1.6.0
+appVersion: 1.7.0
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
