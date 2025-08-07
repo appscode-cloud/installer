@@ -99,12 +99,12 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kube-prometheus-stack.version                             |                                 | <code>"69.2.2"</code>                      |
 | helm.releases.kubedb-ui-presets.version                                 |                                 | <code>"v2025.7.31"</code>                  |
 | helm.releases.kube-ui-server.version                                    |                                 | <code>"v2025.7.31"</code>                  |
-| helm.releases.kubedb.version                                            |                                 | <code>"v2025.6.30"</code>                  |
-| helm.releases.kubedb-opscenter.version                                  |                                 | <code>"v2025.6.30"</code>                  |
+| helm.releases.kubedb.version                                            |                                 | <code>"v2025.7.31"</code>                  |
+| helm.releases.kubedb-opscenter.version                                  |                                 | <code>"v2025.7.31"</code>                  |
 | helm.releases.kubedb-provider-aws.version                               |                                 | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubedb-provider-azure.version                             |                                 | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubedb-provider-gcp.version                               |                                 | <code>"v2024.1.31"</code>                  |
-| helm.releases.kubestash.version                                         |                                 | <code>"v2025.6.30"</code>                  |
+| helm.releases.kubestash.version                                         |                                 | <code>"v2025.7.31"</code>                  |
 | helm.releases.kubevault.version                                         |                                 | <code>"v2025.5.30"</code>                  |
 | helm.releases.kubevault-opscenter.version                               |                                 | <code>"v2025.2.10"</code>                  |
 | helm.releases.kyverno.version                                           |                                 | <code>"3.2.6"</code>                       |
@@ -128,8 +128,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.service-provider.version                                  |                                 | <code>"v2025.7.31"</code>                  |
 | helm.releases.sidekick.version                                          |                                 | <code>"v2025.3.14"</code>                  |
 | helm.releases.snapshot-controller.version                               |                                 | <code>"3.0.6"</code>                       |
-| helm.releases.stash.version                                             |                                 | <code>"v2025.6.30"</code>                  |
-| helm.releases.stash-opscenter.version                                   |                                 | <code>"v2025.2.10"</code>                  |
+| helm.releases.stash.version                                             |                                 | <code>"v2025.7.31"</code>                  |
+| helm.releases.stash-opscenter.version                                   |                                 | <code>"v2025.7.31"</code>                  |
 | helm.releases.stash-presets.version                                     |                                 | <code>"v2025.7.31"</code>                  |
 | helm.releases.supervisor.version                                        |                                 | <code>"v2025.7.31"</code>                  |
 | helm.releases.topolvm.version                                           |                                 | <code>"15.0.0"</code>                      |
