@@ -81,8 +81,8 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-auth-manager:v2025.5.16 images/appscode-charts-cluster-auth-manager-v2025.5.16.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-autoscaler:9.29.0 images/appscode-charts-cluster-autoscaler-9.29.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-gateway-manager:v2025.4.30 images/appscode-charts-cluster-gateway-manager-v2025.4.30.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-hub:v2025.7.16 images/appscode-charts-cluster-manager-hub-v2025.7.16.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-spoke:v2025.7.16 images/appscode-charts-cluster-manager-spoke-v2025.7.16.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-hub:v2025.7.31 images/appscode-charts-cluster-manager-hub-v2025.7.31.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-spoke:v2025.7.31 images/appscode-charts-cluster-manager-spoke-v2025.7.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-presets:v2025.7.31 images/appscode-charts-cluster-presets-v2025.7.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-profile-manager:v2025.5.16 images/appscode-charts-cluster-profile-manager-v2025.5.16.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-proxy-manager:v2025.4.30 images/appscode-charts-cluster-proxy-manager-v2025.4.30.tar

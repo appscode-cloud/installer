@@ -73,8 +73,8 @@ k3s ctr images import images/appscode-charts-chartsxhelmdev-clusterchartpreset-e
 k3s ctr images import images/appscode-charts-cluster-auth-manager-v2025.5.16.tar
 k3s ctr images import images/appscode-charts-cluster-autoscaler-9.29.0.tar
 k3s ctr images import images/appscode-charts-cluster-gateway-manager-v2025.4.30.tar
-k3s ctr images import images/appscode-charts-cluster-manager-hub-v2025.7.16.tar
-k3s ctr images import images/appscode-charts-cluster-manager-spoke-v2025.7.16.tar
+k3s ctr images import images/appscode-charts-cluster-manager-hub-v2025.7.31.tar
+k3s ctr images import images/appscode-charts-cluster-manager-spoke-v2025.7.31.tar
 k3s ctr images import images/appscode-charts-cluster-presets-v2025.7.31.tar
 k3s ctr images import images/appscode-charts-cluster-profile-manager-v2025.5.16.tar
 k3s ctr images import images/appscode-charts-cluster-proxy-manager-v2025.4.30.tar

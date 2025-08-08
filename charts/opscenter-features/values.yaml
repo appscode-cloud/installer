@@ -211,9 +211,9 @@ helm:
     ingress-nginx:
       version: "4.12.1"
     cluster-manager-hub:
-      version: "v2025.7.16"
+      version: "v2025.7.31"
     cluster-manager-spoke:
-      version: "v2025.7.16"
+      version: "v2025.7.31"
     multicluster-controlplane:
       version: "v2025.4.30"
     multicluster-ingress-reader:

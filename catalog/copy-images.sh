@@ -84,8 +84,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ch
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-auth-manager:v2025.5.16 $IMAGE_REGISTRY/appscode-charts/cluster-auth-manager:v2025.5.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-autoscaler:9.29.0 $IMAGE_REGISTRY/appscode-charts/cluster-autoscaler:9.29.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-gateway-manager:v2025.4.30 $IMAGE_REGISTRY/appscode-charts/cluster-gateway-manager:v2025.4.30
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-hub:v2025.7.16 $IMAGE_REGISTRY/appscode-charts/cluster-manager-hub:v2025.7.16
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-spoke:v2025.7.16 $IMAGE_REGISTRY/appscode-charts/cluster-manager-spoke:v2025.7.16
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-hub:v2025.7.31 $IMAGE_REGISTRY/appscode-charts/cluster-manager-hub:v2025.7.31
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-spoke:v2025.7.31 $IMAGE_REGISTRY/appscode-charts/cluster-manager-spoke:v2025.7.31
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-presets:v2025.7.31 $IMAGE_REGISTRY/appscode-charts/cluster-presets:v2025.7.31
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-profile-manager:v2025.5.16 $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2025.5.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-proxy-manager:v2025.4.30 $IMAGE_REGISTRY/appscode-charts/cluster-proxy-manager:v2025.4.30

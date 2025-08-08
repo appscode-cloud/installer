@@ -75,8 +75,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-c
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-auth-manager-v2025.5.16.tar $IMAGE_REGISTRY/appscode-charts/cluster-auth-manager:v2025.5.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-autoscaler-9.29.0.tar $IMAGE_REGISTRY/appscode-charts/cluster-autoscaler:9.29.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-gateway-manager-v2025.4.30.tar $IMAGE_REGISTRY/appscode-charts/cluster-gateway-manager:v2025.4.30
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-manager-hub-v2025.7.16.tar $IMAGE_REGISTRY/appscode-charts/cluster-manager-hub:v2025.7.16
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-manager-spoke-v2025.7.16.tar $IMAGE_REGISTRY/appscode-charts/cluster-manager-spoke:v2025.7.16
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-manager-hub-v2025.7.31.tar $IMAGE_REGISTRY/appscode-charts/cluster-manager-hub:v2025.7.31
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-manager-spoke-v2025.7.31.tar $IMAGE_REGISTRY/appscode-charts/cluster-manager-spoke:v2025.7.31
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-presets-v2025.7.31.tar $IMAGE_REGISTRY/appscode-charts/cluster-presets:v2025.7.31
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-profile-manager-v2025.5.16.tar $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2025.5.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-proxy-manager-v2025.4.30.tar $IMAGE_REGISTRY/appscode-charts/cluster-proxy-manager:v2025.4.30
