@@ -22,7 +22,7 @@ dependencies:
   version: v2025.8.15
 - name: ingress-nginx
   repository: oci://ghcr.io/appscode-charts
-  version: 4.12.1
+  version: 4.13.1
 - name: nats
   repository: oci://ghcr.io/appscode-charts
   version: 0.19.17
@@ -35,5 +35,5 @@ dependencies:
 - name: outbox-syncer
   repository: file://../outbox-syncer
   version: v2025.8.15
-digest: sha256:236acf69b9530611ef0154752ed5a0b562b534dcacdb1510215773425ad9d279
-generated: "2025-08-12T18:55:36.427349+05:30"
+digest: sha256:59ba34956b2a2ae1a43ffc151f4b8e867f8651c09963b855a24bffaa6fd30686
+generated: "2025-08-12T22:00:48.906565+05:30"
