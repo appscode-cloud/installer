@@ -183,7 +183,8 @@ const (
 )
 
 type AceOptionsIngressNginx struct {
-	ExposeVia ServiceType `json:"exposeVia"`
+	Annotations map[string]string `json:"annotations,omitempty"`
+	ExposeVia   ServiceType       `json:"exposeVia"`
 	// DNS record types that will be considered for management
 	ManagedRecordTypes []DNSRecordType `json:"managedRecordTypes,omitempty"`
 	//+optional

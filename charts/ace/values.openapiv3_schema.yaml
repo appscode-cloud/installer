@@ -3616,6 +3616,10 @@ properties:
     type: object
   ingress-nginx:
     properties:
+      annotations:
+        additionalProperties:
+          type: string
+        type: object
       controller:
         properties:
           admissionWebhooks:

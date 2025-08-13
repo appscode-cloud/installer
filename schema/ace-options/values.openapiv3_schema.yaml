@@ -788,6 +788,10 @@ properties:
     type: object
   ingress:
     properties:
+      annotations:
+        additionalProperties:
+          type: string
+        type: object
       exposeVia:
         enum:
           - LoadBalancer
