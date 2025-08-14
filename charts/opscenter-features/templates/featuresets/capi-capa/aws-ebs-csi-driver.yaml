@@ -21,7 +21,6 @@ spec:
   featureSet: capi-capa
   featureBlock: aws-ebs-csi-driver
   recommended: true
-  disabled: {{ not (eq $capiProvider "capa") }}
   readinessChecks:
     workloads:
       - group: apps
