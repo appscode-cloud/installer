@@ -49,6 +49,9 @@ helm:
     ace:
       enabled: false
       version: "v2025.8.15"
+    acerproxy:
+      enabled: false
+      version: "v2025.8.15"
     aceshifter:
       enabled: true
       version: "v2025.8.15"
