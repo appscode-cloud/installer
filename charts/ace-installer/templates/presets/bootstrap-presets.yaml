@@ -12,6 +12,9 @@ ace-installer:
 # billing ui
 license-proxyserver:
   version: %q
+# rancher-extension
+acerproxy:
+  version: %q
 # b3 import flow
 flux2:
   version: %q
@@ -38,6 +41,7 @@ opscenter-features:
   (dig "ace" "version" .Chart.AppVersion $.Values.helm.releases)
   .Chart.Version
   (dig "license-proxyserver" "version" .Chart.AppVersion $.Values.helm.releases)
+  (dig "acerproxy" "version" "" $.Values.helm.releases)
   (dig "flux2" "version" "" $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
   ((dig "opscenter-features" "values" "helm" "releases" "catalog-manager" "values" (dict) $.Values.helm.releases) | toJson)
