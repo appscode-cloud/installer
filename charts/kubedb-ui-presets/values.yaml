@@ -293,6 +293,11 @@ pointInTimeRecovery:
   default: false
   toggle: true
 
+gitOps:
+  enable:
+    toggle: true
+    default: false
+
 machineProfiles:
   machines: []
   available: []
