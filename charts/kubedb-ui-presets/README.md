@@ -238,6 +238,8 @@ The following table lists the configurable parameters of the `kubedb-ui-presets`
 | archiver.via                               |                                                                                                      | <code>Restic</code>                 |
 | pointInTimeRecovery.default                |                                                                                                      | <code>false</code>                  |
 | pointInTimeRecovery.toggle                 |                                                                                                      | <code>true</code>                   |
+| gitOps.enable.toggle                       |                                                                                                      | <code>true</code>                   |
+| gitOps.enable.default                      |                                                                                                      | <code>false</code>                  |
 | machineProfiles.machines                   |                                                                                                      | <code>[]</code>                     |
 | machineProfiles.available                  |                                                                                                      | <code>[]</code>                     |
 | machineProfiles.default                    |                                                                                                      | <code>""</code>                     |
