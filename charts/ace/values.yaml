@@ -170,7 +170,7 @@ global:
         password: ""
     dns:
       targetIPs: []
-      provider: "external" # external,cloudflare,route53,cloudDNS
+      provider: "none" # none,external,cloudflare,route53,cloudDNS,azureDNS
       auth: {}
         # cloudflare:
           # token: xyz
