@@ -71,6 +71,10 @@ Returns the registry used for image docker image
 {{- list .Values.registryFQDN .Values.image.registry | compact | join "/" }}
 {{- end }}
 
+{{- define "geoipdb.registry" -}}
+{{- list .Values.registryFQDN .Values.geoipdb.registry | compact | join "/" }}
+{{- end }}
+
 {{- define "appscode.imagePullSecrets" -}}
 {{- with .Values.imagePullSecrets -}}
 imagePullSecrets:
