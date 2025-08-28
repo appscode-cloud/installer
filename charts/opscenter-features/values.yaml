@@ -232,6 +232,8 @@ helm:
       version: "v2024.8.9"
     fluxcd-manager:
       version: "v2025.7.31"
+    kubeslice:
+      version: "v2025.8.31"
     license-proxyserver-manager:
       version: "v2025.5.16"
     inbox-server:
