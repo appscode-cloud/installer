@@ -1,0 +1,42 @@
+{{ $defaults := printf `
+kubectl:
+  image: %s
+`
+  (include "kubectl.image" $)
+  | fromYaml }}
+
+{{ $vals := dig "spoke-cluster-addons" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: spoke-cluster-addons
+  labels:
+    app.kubernetes.io/part-of: ocm-hub
+spec:
+  title: Spoke Addons
+  description: |
+    Deploy Spoke Addons
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: ocm-hub
+  featureBlock: cluster-manager-hub
+  recommended: true
+  requirements:
+    features:
+      - cluster-manager-hub
+      - cluster-profile-manager
+  chart:
+    name: spoke-cluster-addons
+    namespace: open-cluster-management-addon
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "spoke-cluster-addons" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

@@ -233,6 +233,8 @@ helm:
       version: "v2026.1.15"
     license-proxyserver-manager:
       version: "v2026.2.16"
+    spoke-cluster-addons:
+      version: "v2026.2.16"
     inbox-server:
       version: "v2025.2.28"
     inbox-agent:
