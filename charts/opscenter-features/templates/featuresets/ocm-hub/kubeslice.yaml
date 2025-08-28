@@ -1,0 +1,56 @@
+{{ $defaults := printf `
+ocm:
+  enabled: true
+  placement:
+    create: false
+    name: global
+`
+  | fromYaml }}
+
+{{ $vals := dig "kubeslice" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+{{- if eq (include "distro.openshift" $) "true" }}
+{{ $vals = mergeOverwrite $vals (dict "distro" .Values.distro) }}
+{{- end }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: kubeslice
+  labels:
+    app.kubernetes.io/part-of: ocm-hub
+spec:
+  title: Kubeslice Controller
+  description: |
+    Deploy Kubeslice Controller
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: ocm-hub
+  featureBlock: cluster-manager-hub
+  recommended: false
+  requirements:
+    features:
+      - cluster-manager-hub
+      - cluster-profile-manager
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/instance: kubeslice
+          app.kubernetes.io/name: kubeslice
+  chart:
+    name: kubeslice-controller
+    namespace: open-cluster-management-addon
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "kubeslice" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

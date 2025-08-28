@@ -156,6 +156,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.cluster-profile-manager.version                           |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.hub-cluster-robot.version                                 |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.fluxcd-manager.version                                    |                                 | <code>"v2026.2.16"</code>                  |
+| helm.releases.kubeslice.version                                         |                                 | <code>"v2026.1.15"</code>                  |
 | helm.releases.license-proxyserver-manager.version                       |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.inbox-server.version                                      |                                 | <code>"v2025.2.28"</code>                  |
 | helm.releases.inbox-agent.version                                       |                                 | <code>"v2024.12.30"</code>                 |

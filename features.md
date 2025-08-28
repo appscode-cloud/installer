@@ -19,6 +19,8 @@ graph TD;
   fluxcd-manager-->cluster-profile-manager;
   hub-cluster-robot-->cluster-manager-hub;
   hub-cluster-robot-->cluster-auth-manager;
+  kubeslice-->cluster-manager-hub;
+  kubeslice-->cluster-profile-manager;
   license-proxyserver-manager-->cluster-manager-hub;
   license-proxyserver-manager-->cluster-profile-manager;
   managed-serviceaccount-manager-->cluster-manager-hub;
