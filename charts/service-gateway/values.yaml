@@ -63,6 +63,19 @@ gateway:
     envoyGateway:
       gateway:
         controllerName: gateway.voyagermesh.com/ace
+      extensionApis: null
+  hpa:
+    enabled: false
+    behavior: null
+    maxReplicas: 0
+    metrics: []
+    minReplicas: 0
+  service:
+    annotations: {}
+    trafficDistribution: ""
+  topologyInjector:
+    enabled: false
+    annotations: {}
 
 # https://github.com/kubernetes-sigs/external-dns/blob/master/docs/sources/service.md
 gateway-dns:
