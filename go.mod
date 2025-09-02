@@ -1,11 +1,11 @@
 module go.bytebuilders.dev/installer
 
-go 1.23.6
+go 1.24.3
 
-toolchain go1.24.1
+toolchain go1.24.6
 
 require (
-	go.bytebuilders.dev/catalog v0.0.15
+	go.bytebuilders.dev/catalog v0.0.16-0.20250901123846-4b9ca50c3572
 	go.bytebuilders.dev/resource-model v0.3.1
 	go.bytebuilders.dev/ui-wizards v0.23.0
 	go.openviz.dev/installer v0.0.0-20250617172415-ca61a7cbb8d5
@@ -39,7 +39,7 @@ require (
 	github.com/docker/distribution v2.8.3+incompatible // indirect
 	github.com/docker/docker-credential-helpers v0.8.2 // indirect
 	github.com/emicklei/go-restful/v3 v3.12.1 // indirect
-	github.com/envoyproxy/gateway v1.3.2 // indirect
+	github.com/envoyproxy/gateway v1.3.3 // indirect
 	github.com/evanphx/json-patch v5.9.11+incompatible // indirect
 	github.com/evanphx/json-patch/v5 v5.9.11 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
@@ -93,18 +93,18 @@ require (
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 	github.com/zeebo/xxh3 v1.0.2 // indirect
 	go.appscode.dev/alerts v0.2.1-0.20250217100836-596fabefb762 // indirect
-	golang.org/x/crypto v0.36.0 // indirect
-	golang.org/x/net v0.38.0 // indirect
+	golang.org/x/crypto v0.37.0 // indirect
+	golang.org/x/net v0.39.0 // indirect
 	golang.org/x/oauth2 v0.27.0 // indirect
 	golang.org/x/sync v0.13.0 // indirect
 	golang.org/x/sys v0.32.0 // indirect
-	golang.org/x/term v0.30.0 // indirect
+	golang.org/x/term v0.31.0 // indirect
 	golang.org/x/text v0.24.0 // indirect
 	golang.org/x/time v0.10.0 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.5.0 // indirect
 	gomodules.xyz/pointer v0.1.0 // indirect
 	gomodules.xyz/x v0.0.17 // indirect
-	google.golang.org/protobuf v1.36.3 // indirect
+	google.golang.org/protobuf v1.36.6 // indirect
 	gopkg.in/evanphx/json-patch.v4 v4.12.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
@@ -125,9 +125,9 @@ require (
 	sigs.k8s.io/gateway-api v1.2.1 // indirect
 	sigs.k8s.io/json v0.0.0-20241014173422-cfa47c3a1cc8 // indirect
 	sigs.k8s.io/randfill v1.0.0 // indirect
-	sigs.k8s.io/structured-merge-diff/v4 v4.6.0 // indirect
+	sigs.k8s.io/structured-merge-diff/v4 v4.7.0 // indirect
 	stash.appscode.dev/apimachinery v0.39.0 // indirect
-	voyagermesh.dev/installer v0.0.0-20250324192020-20a3d86540ee // indirect
+	voyagermesh.dev/installer v0.0.0-20250831101200-3368908a554f // indirect
 	x-helm.dev/apimachinery v0.0.17 // indirect
 )
 
