@@ -60,10 +60,12 @@ gateway:
     envoyGateway:
       gateway:
         controllerName: gateway.voyagermesh.com/ace
-      extensionApis: null
+      extensionApis: {}
+  deployment:
+    priorityClassName: system-cluster-critical
   hpa:
     enabled: false
-    behavior: null
+    behavior: {}
     maxReplicas: 0
     metrics: []
     minReplicas: 0
