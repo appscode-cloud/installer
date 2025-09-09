@@ -253,15 +253,16 @@ const (
 )
 
 type InfraObjstore struct {
-	Provider  ObjstoreProvider      `json:"provider"`
-	Bucket    string                `json:"bucket"`
-	Prefix    string                `json:"prefix,omitempty"`
-	Endpoint  string                `json:"endpoint,omitempty"`
-	Region    string                `json:"region,omitempty"`
-	MountPath string                `json:"mountPath"`
-	S3        *wizardsapi.S3Auth    `json:"s3,omitempty"`
-	Azure     *wizardsapi.AzureAuth `json:"azure,omitempty"`
-	GCS       *wizardsapi.GCSAuth   `json:"gcs,omitempty"`
+	EnableCredLess bool                  `json:"enableCredLess"`
+	Provider       ObjstoreProvider      `json:"provider"`
+	Bucket         string                `json:"bucket"`
+	Prefix         string                `json:"prefix,omitempty"`
+	Endpoint       string                `json:"endpoint,omitempty"`
+	Region         string                `json:"region,omitempty"`
+	MountPath      string                `json:"mountPath"`
+	S3             *wizardsapi.S3Auth    `json:"s3,omitempty"`
+	Azure          *wizardsapi.AzureAuth `json:"azure,omitempty"`
+	GCS            *wizardsapi.GCSAuth   `json:"gcs,omitempty"`
 }
 
 type InfraKms struct {

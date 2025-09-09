@@ -277,8 +277,9 @@ export AZURE_STORAGE_KEY=%s`, cs.Objstore.Auth.Azure.AzureAccountName, cs.Objsto
 }
 
 type AceOptionsInfraObjstore struct {
-	Bucket string `json:"bucket"`
-	Prefix string `json:"prefix,omitempty"`
+	EnableCredLess bool   `json:"enableCredLess"`
+	Bucket         string `json:"bucket"`
+	Prefix         string `json:"prefix,omitempty"`
 	// Required for s3 type buckets other than AWS s3 buckets
 	Endpoint string `json:"endpoint,omitempty"`
 	// Required for s3 buckets
