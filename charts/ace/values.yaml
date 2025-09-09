@@ -193,6 +193,8 @@ global:
     # set provider to empty to disable this feature
     objstore:
       provider: "" # s3,azure,gcs,swift
+      # if true then the selfhost will be running without credential and follow the default credential chain to create client
+      enableCredLess: false
       # might be a file storage prefixed with file://
       bucket: gs://ace-data
       mountPath: /data/credentials

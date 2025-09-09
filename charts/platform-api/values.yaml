@@ -120,6 +120,7 @@ infra:
     name: "standard"
   objstore:
     provider: ""
+    enableCredLess: false
     mountPath: ""
   badger:
     mountPath: /badger
