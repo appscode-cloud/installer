@@ -1491,6 +1491,8 @@ properties:
                 type: object
               bucket:
                 type: string
+              enableCredLess:
+                type: boolean
               endpoint:
                 type: string
               gcs:
@@ -1530,6 +1532,7 @@ properties:
                 type: object
             required:
             - bucket
+            - enableCredLess
             - mountPath
             - provider
             type: object
@@ -2235,11 +2238,14 @@ properties:
             type: object
           objstore:
             properties:
+              enableCredLess:
+                type: boolean
               mountPath:
                 type: string
               provider:
                 type: string
             required:
+            - enableCredLess
             - mountPath
             - provider
             type: object
@@ -16130,11 +16136,14 @@ properties:
             type: object
           objstore:
             properties:
+              enableCredLess:
+                type: boolean
               mountPath:
                 type: string
               provider:
                 type: string
             required:
+            - enableCredLess
             - mountPath
             - provider
             type: object
@@ -19643,11 +19652,14 @@ properties:
             type: object
           objstore:
             properties:
+              enableCredLess:
+                type: boolean
               mountPath:
                 type: string
               provider:
                 type: string
             required:
+            - enableCredLess
             - mountPath
             - provider
             type: object

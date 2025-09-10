@@ -495,11 +495,14 @@ properties:
         type: object
       objstore:
         properties:
+          enableCredLess:
+            type: boolean
           mountPath:
             type: string
           provider:
             type: string
         required:
+        - enableCredLess
         - mountPath
         - provider
         type: object

@@ -290,6 +290,8 @@ properties:
                     type: object
                   bucket:
                     type: string
+                  enableCredLess:
+                    type: boolean
                   endpoint:
                     type: string
                   prefix:
@@ -299,6 +301,7 @@ properties:
                 required:
                 - auth
                 - bucket
+                - enableCredLess
                 type: object
             type: object
           proxyServiceDomain:
@@ -439,6 +442,8 @@ properties:
                     type: object
                   bucket:
                     type: string
+                  enableCredLess:
+                    type: boolean
                   endpoint:
                     type: string
                   prefix:
@@ -448,6 +453,7 @@ properties:
                 required:
                 - auth
                 - bucket
+                - enableCredLess
                 type: object
               provider:
                 enum:
