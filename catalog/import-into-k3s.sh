@@ -322,7 +322,7 @@ k3s ctr images import images/appscode-maxmind-geoip-city-mmdb-latest.tar
 k3s ctr images import images/appscode-openfga-v1.8.5.tar
 k3s ctr images import images/appscode-operator-shard-manager-v0.0.1.tar
 k3s ctr images import images/appscode-panopticon-v0.0.16.tar
-k3s ctr images import images/appscode-petset-v0.0.12.tar
+k3s ctr images import images/appscode-petset-v0.0.13.tar
 k3s ctr images import images/appscode-platform-ui-1.9.0.tar
 k3s ctr images import images/appscode-prom-authproxy-v0.0.1.tar
 k3s ctr images import images/appscode-reloader-v1.0.79.tar
@@ -411,8 +411,8 @@ k3s ctr images import images/rancher-kine-v0.11.4.tar
 k3s ctr images import images/autoscaling-cluster-autoscaler-v1.27.1.tar
 k3s ctr images import images/csi-secrets-store-driver-v1.4.1.tar
 k3s ctr images import images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar
-k3s ctr images import images/kube-apiserver-v1.32.0.tar
-k3s ctr images import images/kube-controller-manager-v1.32.0.tar
+k3s ctr images import images/kube-apiserver-v1.33.0.tar
+k3s ctr images import images/kube-controller-manager-v1.33.0.tar
 k3s ctr images import images/kube-state-metrics-kube-state-metrics-v2.13.0.tar
 k3s ctr images import images/metrics-server-metrics-server-v0.7.2.tar
 k3s ctr images import images/prometheus-adapter-prometheus-adapter-v0.11.2.tar
