@@ -127,7 +127,7 @@ helm:
       version: "v2025.7.31"
     spoke-cluster-addons:
       enabled: false
-      version: "v2024.8.31"
+      version: "v2025.8.31"
     vcluster:
       enabled: false
       version: "0.22.4"
