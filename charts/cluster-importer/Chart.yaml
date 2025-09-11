@@ -2,7 +2,7 @@ apiVersion: v2
 name: cluster-importer
 description: A Helm chart for Kubernetes
 type: application
-version: v2025.8.31
+version: v2025.9.15
 appVersion: v0.0.2
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
