@@ -319,7 +319,7 @@ k3s ctr images import images/appscode-kubectl-nonroot-1.31.tar
 k3s ctr images import images/appscode-kubedb-ui-1.9.0.tar
 k3s ctr images import images/appscode-license-proxyserver-v0.0.23.tar
 k3s ctr images import images/appscode-maxmind-geoip-city-mmdb-latest.tar
-k3s ctr images import images/appscode-openfga-v1.8.5.tar
+k3s ctr images import images/appscode-openfga-v1.9.5.tar
 k3s ctr images import images/appscode-operator-shard-manager-v0.0.1.tar
 k3s ctr images import images/appscode-panopticon-v0.0.16.tar
 k3s ctr images import images/appscode-petset-v0.0.13.tar

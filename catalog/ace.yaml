@@ -41,7 +41,7 @@
 - ghcr.io/appscode/kubedb-ui:1.9.0
 - ghcr.io/appscode/license-proxyserver:v0.0.23
 - ghcr.io/appscode/maxmind-geoip:city-mmdb-latest
-- ghcr.io/appscode/openfga:v1.8.5
+- ghcr.io/appscode/openfga:v1.9.5
 - ghcr.io/appscode/operator-shard-manager:v0.0.1
 - ghcr.io/appscode/panopticon:v0.0.16
 - ghcr.io/appscode/petset:v0.0.13

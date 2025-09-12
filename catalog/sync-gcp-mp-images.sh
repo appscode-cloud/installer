@@ -65,7 +65,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubectl-nonroot:1.3
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubedb-ui:1.9.0 $IMAGE_REGISTRY/kubedb-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/license-proxyserver:v0.0.23 $IMAGE_REGISTRY/license-proxyserver:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/maxmind-geoip:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/openfga:v1.8.5 $IMAGE_REGISTRY/openfga:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/openfga:v1.9.5 $IMAGE_REGISTRY/openfga:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/operator-shard-manager:v0.0.1 $IMAGE_REGISTRY/operator-shard-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/panopticon:v0.0.16 $IMAGE_REGISTRY/panopticon:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/petset:v0.0.13 $IMAGE_REGISTRY/petset:$TAG

@@ -321,7 +321,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubedb-ui-1.9.0.tar $IMAGE_REGISTRY/appscode/kubedb-ui:1.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-license-proxyserver-v0.0.23.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.23
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-maxmind-geoip-city-mmdb-latest.tar $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-openfga-v1.8.5.tar $IMAGE_REGISTRY/appscode/openfga:v1.8.5
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-openfga-v1.9.5.tar $IMAGE_REGISTRY/appscode/openfga:v1.9.5
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-operator-shard-manager-v0.0.1.tar $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-panopticon-v0.0.16.tar $IMAGE_REGISTRY/appscode/panopticon:v0.0.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-petset-v0.0.13.tar $IMAGE_REGISTRY/appscode/petset:v0.0.13
