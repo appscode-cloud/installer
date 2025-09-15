@@ -1,0 +1,83 @@
+properties:
+  nameOverride:
+    type: string
+  fullnameOverride:
+    type: string
+  resources:
+    items:
+      type: string
+    type: array
+  dashboard:
+    properties:
+      folderID:
+        type: integer
+      overwrite:
+        type: boolean
+      templatize:
+        properties:
+          title:
+            type: boolean
+          datasource:
+            type: boolean
+        type: object
+      alerts:
+        type: boolean
+      replacements:
+        type: object
+    type: object
+  grafana:
+    properties:
+      name:
+        type: string
+      namespace:
+        type: string
+      version:
+        type: string
+      url:
+        type: string
+      apikey:
+        type: string
+    type: object
+  app:
+    properties:
+      name:
+        type: string
+      namespace:
+        type: string
+    type: object
+  registryFQDN:
+    type: string
+  image:
+    properties:
+      registry:
+        type: string
+      repository:
+        type: string
+      tag:
+        type: string
+      securityContext:
+        type: object
+      resources:
+        type: object
+    type: object
+  imagePullSecrets:
+    items:
+      type: object
+    type: array
+  imagePullPolicy:
+    type: string
+  annotations:
+    type: object
+  podAnnotations:
+    type: object
+  nodeSelector:
+    type: object
+  tolerations:
+    items:
+      type: object
+    type: array
+  affinity:
+    type: object
+  podSecurityContext:
+    type: object
+type: object
