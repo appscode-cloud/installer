@@ -1,0 +1,25 @@
+project:
+  name: platform-grafana-dashboards
+  shortDescription: Platform Grafana Dashboards Helm Chart
+  url: https://github.com/bytebuilders/installer
+  description: |
+    A Helm chart that deploys Platform Grafana dashboards as ConfigMaps for automatic import into Grafana.
+    
+    This chart includes comprehensive dashboards for monitoring Platform servers and JetStream, providing insights into:
+    - Server performance metrics (CPU, memory)
+    - Message throughput and client connections
+    - JetStream storage and memory usage
+    - Stream and consumer metrics
+  
+  keywords:
+    - platform
+    - grafana
+    - dashboard
+    - monitoring
+    - observability
+    - nats
+    - jetstream
+  
+  maintainers:
+    - name: ByteBuilders Team
+      email: support@appscode.com
