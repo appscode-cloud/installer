@@ -1,0 +1,3 @@
+nats:
+  kind: NATS
+  resource: natsclusters
