@@ -1,0 +1,17 @@
+project:
+  name: Platform Opscenter by AppsCode
+  shortName: Platform Opscenter
+  url: https://github.com/bytebuilders/installer
+  description: Platform Opscenter
+  app: a Platform Opscenter
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: platform-opscenter
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites: [Kubernetes 1.29+]
+release:
+  name: platform-opscenter
+  namespace: ace
