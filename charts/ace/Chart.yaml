@@ -60,3 +60,7 @@ dependencies:
   repository: file://../outbox-syncer
   condition: outbox-syncer.enabled
   version: v2025.10.31
+- name: platform-grafana-dashboards
+  repository: file://../platform-grafana-dashboards
+  condition: platform-grafana-dashboards.enabled
+  version: v2025.10.17
