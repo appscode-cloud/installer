@@ -2,8 +2,8 @@ apiVersion: v2
 name: ace
 description: A Helm chart for AppsCode Container Engine
 type: application
-version: v2025.9.15
-appVersion: v2025.9.15
+version: v2025.9.15-alpha
+appVersion: v2025.9.15-alpha
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
@@ -59,4 +59,8 @@ dependencies:
 - name: outbox-syncer
   repository: file://../outbox-syncer
   condition: outbox-syncer.enabled
+  version: v2025.9.15
+- name: platform-grafana-dashboards
+  repository: file://../platform-grafana-dashboards
+  condition: platform-grafana-dashboards.enabled
   version: v2025.9.15
