@@ -148,7 +148,9 @@ Returns the ServiceMonitor labels
 {{- end }}
 
 {{- define "settings.objstoreSecretName" -}}
+{{- if not (.Values.global.infra.objstore.enableCredLess) }}
 {{- printf "%s-objstore-cred" (include "ace.fullname" .) -}}
+{{- end }}
 {{- end }}
 
 {{- define "settings.natsSecretName" -}}
