@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm search repo appscode/service-gateway --version=v2025.9.15
-$ helm upgrade -i service-gateway appscode/service-gateway -n ace --create-namespace --version=v2025.9.15
+$ helm search repo appscode/service-gateway --version=v2025.9.30
+$ helm upgrade -i service-gateway appscode/service-gateway -n ace --create-namespace --version=v2025.9.30
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys ACE Service Gateway on a [Kubernetes](http://kubernetes.io) c
 To install/upgrade the chart with the release name `service-gateway`:
 
 ```bash
-$ helm upgrade -i service-gateway appscode/service-gateway -n ace --create-namespace --version=v2025.9.15
+$ helm upgrade -i service-gateway appscode/service-gateway -n ace --create-namespace --version=v2025.9.30
 ```
 
 The command deploys ACE Service Gateway on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -105,12 +105,12 @@ The following table lists the configurable parameters of the `service-gateway` c
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i service-gateway appscode/service-gateway -n ace --create-namespace --version=v2025.9.15 --set clusterMetadata.uid=tbd
+$ helm upgrade -i service-gateway appscode/service-gateway -n ace --create-namespace --version=v2025.9.30 --set clusterMetadata.uid=tbd
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i service-gateway appscode/service-gateway -n ace --create-namespace --version=v2025.9.15 --values values.yaml
+$ helm upgrade -i service-gateway appscode/service-gateway -n ace --create-namespace --version=v2025.9.30 --values values.yaml
 ```
