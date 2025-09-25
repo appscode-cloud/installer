@@ -282,6 +282,7 @@ properties:
             required:
               - auth
               - bucket
+              - enableCredLess
             type: object
         type: object
       proxyServiceDomain:
@@ -474,6 +475,7 @@ properties:
             required:
               - auth
               - bucket
+              - enableCredLess
             type: object
           provider:
             enum:
