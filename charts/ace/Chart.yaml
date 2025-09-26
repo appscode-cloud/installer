@@ -2,8 +2,8 @@ apiVersion: v2
 name: ace
 description: A Helm chart for AppsCode Container Engine
 type: application
-version: v2025.8.31
-appVersion: v2025.8.31
+version: v2025.9.30
+appVersion: v2025.9.30
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
@@ -15,23 +15,23 @@ dependencies:
 - name: platform-ui
   repository: file://../platform-ui
   condition: platform-ui.enabled
-  version: v2025.8.31
+  version: v2025.9.30
 - name: cluster-ui
   repository: file://../cluster-ui
   condition: cluster-ui.enabled
-  version: v2025.8.31
+  version: v2025.9.30
 - name: kubedb-ui
   repository: file://../kubedb-ui
   condition: kubedb-ui.enabled
-  version: v2025.8.31
+  version: v2025.9.30
 - name: platform-api
   repository: file://../platform-api
   condition: platform-api.enabled
-  version: v2025.8.31
+  version: v2025.9.30
 - name: grafana
   repository: file://../grafana
   condition: grafana.enabled
-  version: v2025.8.31
+  version: v2025.9.30
 - name: trickster
   repository: oci://ghcr.io/appscode-charts
   condition: trickster.enabled
@@ -39,7 +39,7 @@ dependencies:
 - name: s3proxy
   repository: file://../s3proxy
   condition: s3proxy.enabled
-  version: v2025.8.31
+  version: v2025.9.30
 - name: ingress-nginx
   repository: oci://ghcr.io/appscode-charts
   condition: ingress-nginx.enabled
@@ -51,7 +51,7 @@ dependencies:
 - name: openfga
   repository: oci://ghcr.io/appscode-charts
   condition: openfga.enabled
-  version: 0.2.40
+  version: 0.2.42
 - name: pgoutbox
   repository: oci://ghcr.io/appscode-charts
   condition: pgoutbox.enabled
@@ -59,4 +59,4 @@ dependencies:
 - name: outbox-syncer
   repository: file://../outbox-syncer
   condition: outbox-syncer.enabled
-  version: v2025.8.31
+  version: v2025.9.30

@@ -48,13 +48,13 @@ helm:
   releases:
     ace:
       enabled: false
-      version: "v2025.8.31"
+      version: "v2025.9.30"
     acerproxy:
       enabled: false
-      version: "v2025.8.31"
+      version: "v2025.9.30"
     aceshifter:
       enabled: true
-      version: "v2025.8.31"
+      version: "v2025.9.30"
     capi-catalog:
       enabled: false
       version: "v2024.10.24"
@@ -98,13 +98,13 @@ helm:
       version: "v2025.7.31"
     kube-ui-server:
       enabled: true
-      version: "v2025.8.31"
+      version: "v2025.9.30"
     license-proxyserver:
       enabled: true
       version: "v2025.5.16"
     opscenter-features:
       enabled: true
-      version: "v2025.8.31"
+      version: "v2025.9.30"
     panopticon:
       enabled: true
       version: "v2025.6.30"
@@ -120,14 +120,14 @@ helm:
       version: "1.0.79"
     stash-presets:
       enabled: false
-      version: "v2025.8.31"
+      version: "v2025.9.30"
     # feature less chart versions
     cluster-manager-spoke:
       enabled: false
       version: "v2025.7.31"
     spoke-cluster-addons:
       enabled: false
-      version: "v2024.8.31"
+      version: "v2025.8.31"
     vcluster:
       enabled: false
       version: "0.22.4"

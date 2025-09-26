@@ -80,9 +80,13 @@ type PetsetSpec struct {
 	Apiserver  SupervisorApiserver `json:"apiserver"`
 	Monitoring Monitoring          `json:"monitoring"`
 	// +optional
-	NetworkPolicy NetworkPolicy `json:"networkPolicy"`
+	NetworkPolicy NetworkPolicySpec `json:"networkPolicy"`
 	// +optional
 	Features PetsetFeatures `json:"features"`
+	// +optional
+	Distro DistroSpec `json:"distro"`
+	// +optional
+	MaxConcurrentReconciles int `json:"maxConcurrentReconciles"`
 }
 
 type PetsetFeatures struct {
