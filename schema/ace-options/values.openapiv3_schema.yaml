@@ -269,6 +269,8 @@ properties:
                 type: object
               bucket:
                 type: string
+              enableCredLess:
+                type: boolean
               endpoint:
                 description: Required for s3 type buckets other than AWS s3 buckets
                 type: string
@@ -280,6 +282,7 @@ properties:
             required:
               - auth
               - bucket
+              - enableCredLess
             type: object
         type: object
       proxyServiceDomain:
@@ -459,6 +462,8 @@ properties:
                 type: object
               bucket:
                 type: string
+              enableCredLess:
+                type: boolean
               endpoint:
                 description: Required for s3 type buckets other than AWS s3 buckets
                 type: string
@@ -470,6 +475,7 @@ properties:
             required:
               - auth
               - bucket
+              - enableCredLess
             type: object
           provider:
             enum:

@@ -590,6 +590,8 @@ properties:
         type: object
       objstore:
         properties:
+          enableCredLess:
+            type: boolean
           mountPath:
             type: string
           provider:

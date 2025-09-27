@@ -122,7 +122,9 @@ Returns the ServiceMonitor labels
 {{- end }}
 
 {{- define "settings.objstoreSecretName" -}}
+{{- if not (.Values.infra.objstore.enableCredLess) }}
 {{- .Values.settings.secretName.objstore }}
+{{- end }}
 {{- end }}
 
 {{- define "settings.natsSecretName" -}}
