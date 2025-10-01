@@ -14,8 +14,8 @@ This chart includes comprehensive dashboards for monitoring Platform servers and
 ```bash
 $ helm repo add  
 $ helm repo update
-$ helm search repo /platform-grafana-dashboards --version=v2025.9.15
-$ helm upgrade -i  /platform-grafana-dashboards -n  --create-namespace --version=v2025.9.15
+$ helm search repo /platform-grafana-dashboards --version=v2025.10.17
+$ helm upgrade -i  /platform-grafana-dashboards -n  --create-namespace --version=v2025.10.17
 ```
 
 ## Introduction
@@ -30,7 +30,7 @@ This chart deploys  on a [Kubernetes](http://kubernetes.io) cluster using the [H
 To install/upgrade the chart with the release name ``:
 
 ```bash
-$ helm upgrade -i  /platform-grafana-dashboards -n  --create-namespace --version=v2025.9.15
+$ helm upgrade -i  /platform-grafana-dashboards -n  --create-namespace --version=v2025.10.17
 ```
 
 The command deploys  on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -88,12 +88,12 @@ The following table lists the configurable parameters of the `platform-grafana-d
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i  /platform-grafana-dashboards -n  --create-namespace --version=v2025.9.15 --set resources=["nats"]
+$ helm upgrade -i  /platform-grafana-dashboards -n  --create-namespace --version=v2025.10.17 --set resources=["nats"]
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i  /platform-grafana-dashboards -n  --create-namespace --version=v2025.9.15 --values values.yaml
+$ helm upgrade -i  /platform-grafana-dashboards -n  --create-namespace --version=v2025.10.17 --values values.yaml
 ```
