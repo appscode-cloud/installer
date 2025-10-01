@@ -1,6 +1,6 @@
 - alpine:3.20
-- bitnami/kubectl:1.28.5
-- bitnami/sealed-secrets-controller:0.25.0
+- bitnamilegacy/kubectl:1.28.5
+- bitnamilegacy/sealed-secrets-controller:0.25.0
 - cassandra:4.1.3
 - coredns/coredns:1.11.3
 - falcosecurity/falco-no-driver:0.37.0
