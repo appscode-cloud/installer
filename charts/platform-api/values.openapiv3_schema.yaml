@@ -613,6 +613,7 @@ properties:
           provider:
             type: string
         required:
+        - enableCredLess
         - mountPath
         - provider
         type: object

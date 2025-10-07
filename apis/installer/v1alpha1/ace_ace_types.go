@@ -253,7 +253,7 @@ const (
 )
 
 type InfraObjstore struct {
-	EnableCredLess bool                  `json:"enableCredLess,omitempty"`
+	EnableCredLess bool                  `json:"enableCredLess"`
 	Provider       ObjstoreProvider      `json:"provider"`
 	Bucket         string                `json:"bucket"`
 	Prefix         string                `json:"prefix,omitempty"`

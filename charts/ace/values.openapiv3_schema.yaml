@@ -1532,6 +1532,7 @@ properties:
                 type: object
             required:
             - bucket
+            - enableCredLess
             - mountPath
             - provider
             type: object
@@ -2244,6 +2245,7 @@ properties:
               provider:
                 type: string
             required:
+            - enableCredLess
             - mountPath
             - provider
             type: object
@@ -16141,6 +16143,7 @@ properties:
               provider:
                 type: string
             required:
+            - enableCredLess
             - mountPath
             - provider
             type: object
@@ -19656,6 +19659,7 @@ properties:
               provider:
                 type: string
             required:
+            - enableCredLess
             - mountPath
             - provider
             type: object
