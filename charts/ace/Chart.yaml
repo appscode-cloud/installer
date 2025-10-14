@@ -2,7 +2,7 @@ apiVersion: v2
 name: ace
 description: A Helm chart for AppsCode Container Engine
 type: application
-version: v2025.10.7
+version: v2025.9.30
 appVersion: v2025.9.30
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png

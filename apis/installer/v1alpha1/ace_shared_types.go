@@ -91,7 +91,7 @@ type ObjectReference struct {
 type ProviderMount struct {
 	Provider       string `json:"provider"`
 	MountPath      string `json:"mountPath"`
-	EnableCredLess bool   `json:"enableCredLess"`
+	EnableCredLess bool   `json:"enableCredLess,omitempty"`
 }
 
 type VolumeMount struct {

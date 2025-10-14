@@ -193,7 +193,6 @@ global:
     # set provider to empty to disable this feature
     objstore:
       provider: "" # s3,azure,gcs,swift
-      enableCredLess: false
       # might be a file storage prefixed with file://
       bucket: gs://ace-data
       mountPath: /data/credentials
