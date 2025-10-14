@@ -2,8 +2,8 @@ apiVersion: v2
 name: ace
 description: A Helm chart for AppsCode Container Engine
 type: application
-version: v2025.10.17
-appVersion: v2025.10.17
+version: v2025.10.17-alpha
+appVersion: v2025.10.17-alpha
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
@@ -63,4 +63,4 @@ dependencies:
 - name: platform-grafana-dashboards
   repository: file://../platform-grafana-dashboards
   condition: platform-grafana-dashboards.enabled
-  version: v2025.10.17
+  version: v2025.10.17-alpha
