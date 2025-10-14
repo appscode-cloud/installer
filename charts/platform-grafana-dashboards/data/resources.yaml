@@ -1,3 +1,6 @@
 nats:
   kind: NATS
   resource: natsclusters
+openfga:
+  kind: OpenFGA
+  resource: openfga
