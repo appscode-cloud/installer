@@ -10774,6 +10774,13 @@ properties:
             type: string
           maxOpenConns:
             type: string
+          metrics:
+            properties:
+              enabled:
+                type: boolean
+            required:
+            - enabled
+            type: object
           migrationType:
             type: string
           migrations:
@@ -10842,6 +10849,7 @@ properties:
         - maxCacheSize
         - maxIdleConns
         - maxOpenConns
+        - metrics
         - migrationType
         - migrations
         - uri
