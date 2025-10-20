@@ -99,12 +99,12 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kube-prometheus-stack.version                             |                                 | <code>"69.2.2"</code>                      |
 | helm.releases.kubedb-ui-presets.version                                 |                                 | <code>"v2025.9.30"</code>                  |
 | helm.releases.kube-ui-server.version                                    |                                 | <code>"v2025.9.30"</code>                  |
-| helm.releases.kubedb.version                                            |                                 | <code>"v2025.8.31"</code>                  |
-| helm.releases.kubedb-opscenter.version                                  |                                 | <code>"v2025.8.31"</code>                  |
+| helm.releases.kubedb.version                                            |                                 | <code>"v2025.10.17"</code>                 |
+| helm.releases.kubedb-opscenter.version                                  |                                 | <code>"v2025.10.17"</code>                 |
 | helm.releases.kubedb-provider-aws.version                               |                                 | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubedb-provider-azure.version                             |                                 | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubedb-provider-gcp.version                               |                                 | <code>"v2024.1.31"</code>                  |
-| helm.releases.kubestash.version                                         |                                 | <code>"v2025.7.31"</code>                  |
+| helm.releases.kubestash.version                                         |                                 | <code>"v2025.10.17"</code>                 |
 | helm.releases.kubevault.version                                         |                                 | <code>"v2025.5.30"</code>                  |
 | helm.releases.kubevault-opscenter.version                               |                                 | <code>"v2025.2.10"</code>                  |
 | helm.releases.kyverno.version                                           |                                 | <code>"3.2.6"</code>                       |
