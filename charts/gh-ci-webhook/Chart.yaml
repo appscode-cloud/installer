@@ -2,7 +2,7 @@ apiVersion: v2
 name: gh-ci-webhook
 description: A Helm chart for Kubernetes
 type: application
-version: v2025.9.30
+version: v2025.10.17
 appVersion: v0.0.20
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
