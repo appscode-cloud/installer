@@ -44,7 +44,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/aceshifter:v0.0.1 $
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/b3:v2025.10.17 $IMAGE_REGISTRY/b3:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 $IMAGE_REGISTRY/capa-vpc-peering-operator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/capi-ops-manager:v0.0.2 $IMAGE_REGISTRY/capi-ops-manager:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/catalog-manager:v0.7.0 $IMAGE_REGISTRY/catalog-manager:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/catalog-manager:v0.8.0 $IMAGE_REGISTRY/catalog-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/cluster-presets:v0.0.9 $IMAGE_REGISTRY/cluster-presets:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/cluster-ui:1.9.0 $IMAGE_REGISTRY/cluster-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/config-syncer:v0.15.2-ent $IMAGE_REGISTRY/config-syncer:$TAG
@@ -129,7 +129,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/kyverno/kyvernopre:v1.12.5 $
 crane cp --allow-nondistributable-artifacts ghcr.io/kyverno/reports-controller:v1.12.5 $IMAGE_REGISTRY/reports-controller:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/loft-sh/vcluster-oss:0.22.4 $IMAGE_REGISTRY/vcluster-oss:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/echoserver:v20221109 $IMAGE_REGISTRY/echoserver:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/envoy:v1.34.1-ac $IMAGE_REGISTRY/envoy:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/envoy:v1.35.6-ac $IMAGE_REGISTRY/envoy:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/gateway-converter:v0.0.1 $IMAGE_REGISTRY/gateway-converter:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/voyagermesh/gateway:v1.4.1 $IMAGE_REGISTRY/gateway:$TAG
 crane cp --allow-nondistributable-artifacts hashicorp/vault-csi-provider:1.4.1 $IMAGE_REGISTRY/vault-csi-provider:$TAG
@@ -156,8 +156,8 @@ crane cp --allow-nondistributable-artifacts rancher/kine:v0.11.4 $IMAGE_REGISTRY
 crane cp --allow-nondistributable-artifacts registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 $IMAGE_REGISTRY/cluster-autoscaler:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/csi-secrets-store/driver:v1.4.1 $IMAGE_REGISTRY/driver:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 $IMAGE_REGISTRY/ingress-nginx-kube-webhook-certgen:$TAG
-crane cp --allow-nondistributable-artifacts registry.k8s.io/kube-apiserver:v1.34.0 $IMAGE_REGISTRY/kube-apiserver:$TAG
-crane cp --allow-nondistributable-artifacts registry.k8s.io/kube-controller-manager:v1.34.0 $IMAGE_REGISTRY/kube-controller-manager:$TAG
+crane cp --allow-nondistributable-artifacts registry.k8s.io/kube-apiserver:v1.32.0 $IMAGE_REGISTRY/kube-apiserver:$TAG
+crane cp --allow-nondistributable-artifacts registry.k8s.io/kube-controller-manager:v1.32.0 $IMAGE_REGISTRY/kube-controller-manager:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0 $IMAGE_REGISTRY/kube-state-metrics:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/metrics-server/metrics-server:v0.7.2 $IMAGE_REGISTRY/metrics-server:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2 $IMAGE_REGISTRY/prometheus-adapter:$TAG
