@@ -69,7 +69,7 @@ helm:
       version: "v2025.9.30"
     flux2:
       enabled: false
-      version: "2.16.4"
+      version: "2.17.0"
     gateway-api:
       enabled: true
       version: "v2025.3.14"
