@@ -36,7 +36,7 @@ mv /tmp/crane .
 CMD="./crane"
 
 $CMD cp --allow-nondistributable-artifacts --insecure alpine:3.20 $IMAGE_REGISTRY/alpine:3.20
-$CMD cp --allow-nondistributable-artifacts --insecure bitnami/kubectl:1.28.5 $IMAGE_REGISTRY/bitnami/kubectl:1.28.5
+$CMD cp --allow-nondistributable-artifacts --insecure bitnami/kubectl:latest $IMAGE_REGISTRY/bitnami/kubectl:latest
 $CMD cp --allow-nondistributable-artifacts --insecure bitnami/sealed-secrets-controller:0.25.0 $IMAGE_REGISTRY/bitnami/sealed-secrets-controller:0.25.0
 $CMD cp --allow-nondistributable-artifacts --insecure cassandra:4.1.3 $IMAGE_REGISTRY/cassandra:4.1.3
 $CMD cp --allow-nondistributable-artifacts --insecure coredns/coredns:1.11.3 $IMAGE_REGISTRY/coredns/coredns:1.11.3
@@ -108,7 +108,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ex
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/external-secrets:0.9.12 $IMAGE_REGISTRY/appscode-charts/external-secrets:0.9.12
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco-ui-server:v2024.5.17 $IMAGE_REGISTRY/appscode-charts/falco-ui-server:v2024.5.17
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco:4.0.0 $IMAGE_REGISTRY/appscode-charts/falco:4.0.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/flux2:2.16.4 $IMAGE_REGISTRY/appscode-charts/flux2:2.16.4
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/flux2:2.17.0 $IMAGE_REGISTRY/appscode-charts/flux2:2.17.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/fluxcd-manager:v2025.7.31 $IMAGE_REGISTRY/appscode-charts/fluxcd-manager:v2025.7.31
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/gatekeeper-library:v2023.10.1

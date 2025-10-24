@@ -25,7 +25,7 @@ TARBALL=${1:-}
 tar -zxvf $TARBALL
 
 k3s ctr images import images/library-alpine-3.20.tar
-k3s ctr images import images/bitnami-kubectl-1.28.5.tar
+k3s ctr images import images/bitnami-kubectl-latest.tar
 k3s ctr images import images/bitnami-sealed-secrets-controller-0.25.0.tar
 k3s ctr images import images/library-cassandra-4.1.3.tar
 k3s ctr images import images/coredns-coredns-1.11.3.tar
@@ -97,7 +97,7 @@ k3s ctr images import images/appscode-charts-external-dns-operator-v2025.9.30.ta
 k3s ctr images import images/appscode-charts-external-secrets-0.9.12.tar
 k3s ctr images import images/appscode-charts-falco-ui-server-v2024.5.17.tar
 k3s ctr images import images/appscode-charts-falco-4.0.0.tar
-k3s ctr images import images/appscode-charts-flux2-2.16.4.tar
+k3s ctr images import images/appscode-charts-flux2-2.17.0.tar
 k3s ctr images import images/appscode-charts-fluxcd-manager-v2025.7.31.tar
 k3s ctr images import images/appscode-charts-gatekeeper-grafana-dashboards-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-gatekeeper-library-v2023.10.1.tar

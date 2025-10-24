@@ -27,7 +27,7 @@ tar -zxvf $TARBALL
 CMD="./crane"
 
 $CMD push --allow-nondistributable-artifacts --insecure images/library-alpine-3.20.tar $IMAGE_REGISTRY/alpine:3.20
-$CMD push --allow-nondistributable-artifacts --insecure images/bitnami-kubectl-1.28.5.tar $IMAGE_REGISTRY/bitnami/kubectl:1.28.5
+$CMD push --allow-nondistributable-artifacts --insecure images/bitnami-kubectl-latest.tar $IMAGE_REGISTRY/bitnami/kubectl:latest
 $CMD push --allow-nondistributable-artifacts --insecure images/bitnami-sealed-secrets-controller-0.25.0.tar $IMAGE_REGISTRY/bitnami/sealed-secrets-controller:0.25.0
 $CMD push --allow-nondistributable-artifacts --insecure images/library-cassandra-4.1.3.tar $IMAGE_REGISTRY/cassandra:4.1.3
 $CMD push --allow-nondistributable-artifacts --insecure images/coredns-coredns-1.11.3.tar $IMAGE_REGISTRY/coredns/coredns:1.11.3
@@ -99,7 +99,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-e
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-external-secrets-0.9.12.tar $IMAGE_REGISTRY/appscode-charts/external-secrets:0.9.12
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-falco-ui-server-v2024.5.17.tar $IMAGE_REGISTRY/appscode-charts/falco-ui-server:v2024.5.17
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-falco-4.0.0.tar $IMAGE_REGISTRY/appscode-charts/falco:4.0.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-flux2-2.16.4.tar $IMAGE_REGISTRY/appscode-charts/flux2:2.16.4
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-flux2-2.17.0.tar $IMAGE_REGISTRY/appscode-charts/flux2:2.17.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-fluxcd-manager-v2025.7.31.tar $IMAGE_REGISTRY/appscode-charts/fluxcd-manager:v2025.7.31
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gatekeeper-grafana-dashboards-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gatekeeper-library-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/gatekeeper-library:v2023.10.1
