@@ -1,6 +1,6 @@
 {{ $objstore := .Values.global.infra.objstore }}
 
-{{- if $objstore.provider }}
+{{- if and (include "settings.objstoreSecretName" .) ($objstore.provider) }}
 
 apiVersion: v1
 kind: Secret
