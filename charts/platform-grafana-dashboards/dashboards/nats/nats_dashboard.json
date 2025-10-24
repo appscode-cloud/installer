@@ -928,8 +928,8 @@
         "allValue": "\".+\"",
         "current": {
           "selected": false,
-          "text": "demo",
-          "value": "demo"
+          "text": "{{ .Release.Namespace }}",
+          "value": "{{ .Release.Namespace }}"
         },
         "datasource": "${datasource}",
         "description": null,
