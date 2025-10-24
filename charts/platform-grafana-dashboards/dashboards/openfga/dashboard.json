@@ -1218,7 +1218,10 @@
   ],
   "refresh": "5s",
   "schemaVersion": 39,
-  "tags": [],
+  "tags": [
+    "openfga",
+    "authorization"
+  ],
   "templating": {
     "list": [
       {
@@ -1246,8 +1249,8 @@
         "allValue": "\".+\"",
         "current": {
           "selected": false,
-          "text": "demo",
-          "value": "demo"
+          "text": "{{ .Release.Namespace }}",
+          "value": "{{ .Release.Namespace }}"
         },
         "datasource": "${datasource}",
         "description": null,
