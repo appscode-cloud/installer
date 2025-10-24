@@ -33,7 +33,7 @@ mv /tmp/crane images
 CMD="./images/crane"
 
 $CMD pull --allow-nondistributable-artifacts --insecure alpine:3.20 images/library-alpine-3.20.tar
-$CMD pull --allow-nondistributable-artifacts --insecure bitnami/kubectl:1.28.5 images/bitnami-kubectl-1.28.5.tar
+$CMD pull --allow-nondistributable-artifacts --insecure bitnami/kubectl:latest images/bitnami-kubectl-latest.tar
 $CMD pull --allow-nondistributable-artifacts --insecure bitnami/sealed-secrets-controller:0.25.0 images/bitnami-sealed-secrets-controller-0.25.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure cassandra:4.1.3 images/library-cassandra-4.1.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure coredns/coredns:1.11.3 images/coredns-coredns-1.11.3.tar
@@ -105,7 +105,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/external-secrets:0.9.12 images/appscode-charts-external-secrets-0.9.12.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco-ui-server:v2024.5.17 images/appscode-charts-falco-ui-server-v2024.5.17.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco:4.0.0 images/appscode-charts-falco-4.0.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/flux2:2.16.4 images/appscode-charts-flux2-2.16.4.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/flux2:2.17.0 images/appscode-charts-flux2-2.17.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/fluxcd-manager:v2025.7.31 images/appscode-charts-fluxcd-manager-v2025.7.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1 images/appscode-charts-gatekeeper-grafana-dashboards-v2023.10.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1 images/appscode-charts-gatekeeper-library-v2023.10.1.tar

@@ -26,7 +26,7 @@ if [ -z "${TAG}" ]; then
 fi
 
 crane cp --allow-nondistributable-artifacts alpine:3.20 $IMAGE_REGISTRY/alpine:$TAG
-crane cp --allow-nondistributable-artifacts bitnami/kubectl:1.28.5 $IMAGE_REGISTRY/kubectl:$TAG
+crane cp --allow-nondistributable-artifacts bitnami/kubectl:latest $IMAGE_REGISTRY/kubectl:$TAG
 crane cp --allow-nondistributable-artifacts bitnami/sealed-secrets-controller:0.25.0 $IMAGE_REGISTRY/sealed-secrets-controller:$TAG
 crane cp --allow-nondistributable-artifacts cassandra:4.1.3 $IMAGE_REGISTRY/cassandra:$TAG
 crane cp --allow-nondistributable-artifacts coredns/coredns:1.11.3 $IMAGE_REGISTRY/coredns:$TAG
