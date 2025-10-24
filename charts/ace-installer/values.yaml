@@ -124,7 +124,7 @@ helm:
     # feature less chart versions
     cluster-manager-spoke:
       enabled: false
-      version: "v2025.7.31"
+      version: "v2025.10.17"
     spoke-cluster-addons:
       enabled: false
       version: "v2025.8.31"

@@ -147,7 +147,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.secrets-store-csi-driver-provider-virtual-secrets.version |                                 | <code>"v2025.3.14"</code>                  |
 | helm.releases.ingress-nginx.version                                     |                                 | <code>"4.12.1"</code>                      |
 | helm.releases.cluster-manager-hub.version                               |                                 | <code>"v2025.7.31"</code>                  |
-| helm.releases.cluster-manager-spoke.version                             |                                 | <code>"v2025.7.31"</code>                  |
+| helm.releases.cluster-manager-spoke.version                             |                                 | <code>"v2025.10.17"</code>                 |
 | helm.releases.multicluster-controlplane.version                         |                                 | <code>"v2025.4.30"</code>                  |
 | helm.releases.multicluster-ingress-reader.version                       |                                 | <code>"v2024.7.10"</code>                  |
 | helm.releases.managed-serviceaccount-manager.version                    |                                 | <code>"v2025.5.16"</code>                  |

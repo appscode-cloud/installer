@@ -213,7 +213,7 @@ helm:
     cluster-manager-hub:
       version: "v2025.7.31"
     cluster-manager-spoke:
-      version: "v2025.7.31"
+      version: "v2025.10.17"
     multicluster-controlplane:
       version: "v2025.4.30"
     multicluster-ingress-reader:
