@@ -10849,7 +10849,6 @@ properties:
         - maxCacheSize
         - maxIdleConns
         - maxOpenConns
-        - metrics
         - migrationType
         - migrations
         - uri

@@ -7531,7 +7531,11 @@ func (in *OpenfgaDatastore) DeepCopyInto(out *OpenfgaDatastore) {
 		*out = new(string)
 		**out = **in
 	}
-	out.Metrics = in.Metrics
+	if in.Metrics != nil {
+		in, out := &in.Metrics, &out.Metrics
+		*out = new(OpenfgaDatastoreMetrics)
+		**out = **in
+	}
 	in.Migrations.DeepCopyInto(&out.Migrations)
 }
 
