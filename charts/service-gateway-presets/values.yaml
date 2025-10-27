@@ -90,7 +90,7 @@ cluster:
 envoy:
   provisionerType: Deployment # DaemonSet
   image: ghcr.io/voyagermesh/envoy
-  tag: "v1.34.1-ac"
+  tag: "v1.35.6-ac"
   service:
     # Default listener portmanager range to use for gateway exposure
     portRange: "10000-12767"
@@ -135,7 +135,7 @@ chart:
   name: service-gateway
   namespace: ace
   createNamespace: true
-  version: "v2025.6.30"
+  version: "v2025.10.17"
   sourceRef:
     kind: HelmRepository
     name: appscode-charts-oci

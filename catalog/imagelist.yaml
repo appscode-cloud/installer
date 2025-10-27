@@ -3,9 +3,9 @@
 - ghcr.io/appscode/ace:v0.0.2
 - ghcr.io/appscode/acerproxy:v0.1.0
 - ghcr.io/appscode/aceshifter:v0.0.1
-- ghcr.io/appscode/b3:v2025.9.30
+- ghcr.io/appscode/b3:v2025.10.17
 - ghcr.io/appscode/billing-ui:1.9.0
-- ghcr.io/appscode/catalog-manager:v0.7.0
+- ghcr.io/appscode/catalog-manager:v0.8.0
 - ghcr.io/appscode/cert-manager-webhook-ace:v0.0.1
 - ghcr.io/appscode/cloudflare-dns-proxy:v0.0.4
 - ghcr.io/appscode/cluster-presets:v0.0.9
@@ -29,10 +29,10 @@
 - ghcr.io/appscode/s3proxy:sha-a82ca68
 - ghcr.io/appscode/service-provider:v0.0.1
 - ghcr.io/appscode/smtprelay:v0.0.4
-- ghcr.io/appscode/website:v2025.9.30
+- ghcr.io/appscode/website:v2025.10.17
 - ghcr.io/kluster-manager/multicluster-controlplane:v0.6.0
 - ghcr.io/open-telemetry/opentelemetry-operator/target-allocator:0.118.0
 - ghcr.io/voyagermesh/echoserver:v20221109
-- ghcr.io/voyagermesh/envoy:v1.34.1-ac
+- ghcr.io/voyagermesh/envoy:v1.35.6-ac
 - ghcr.io/voyagermesh/gateway:v1.4.1
 - minio/minio:RELEASE.2023-01-12T02-06-16Z

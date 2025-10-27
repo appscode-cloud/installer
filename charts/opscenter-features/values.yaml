@@ -53,7 +53,7 @@ helm:
       url: oci://ghcr.io/appscode-charts
   releases:
     aceshifter:
-      version: "v2025.9.30"
+      version: "v2025.10.17"
     appscode-otel-stack:
       version: "v2025.2.28"
     aws-credential-manager:
@@ -69,7 +69,7 @@ helm:
     capi-ops-manager:
       version: "v2024.8.14"
     catalog-manager:
-      version: "v2025.9.30"
+      version: "v2025.10.17"
     cert-manager:
       version: "v1.18.2"
     cert-manager-csi-driver-cacerts:
@@ -77,7 +77,7 @@ helm:
     cluster-autoscaler:
       version: "9.29.0"
     cluster-presets:
-      version: "v2025.9.30"
+      version: "v2025.10.17"
     config-syncer:
       version: "v0.15.2"
     crossplane:
@@ -91,7 +91,7 @@ helm:
     falco-ui-server:
       version: "v2024.5.17"
     flux2:
-      version: "2.16.4"
+      version: "2.17.0"
     gatekeeper:
       version: "3.13.3"
     gatekeeper-grafana-dashboards:
@@ -111,13 +111,13 @@ helm:
     kube-prometheus-stack:
       version: "69.2.2"
     kubedb-ui-presets:
-      version: "v2025.9.30"
+      version: "v2025.10.17"
     kube-ui-server:
-      version: "v2025.9.30"
+      version: "v2025.10.17"
     kubedb:
-      version: "v2025.8.31"
+      version: "v2025.10.17"
     kubedb-opscenter:
-      version: "v2025.8.31"
+      version: "v2025.10.17"
     kubedb-provider-aws:
       version: "v2024.1.31"
     kubedb-provider-azure:
@@ -125,7 +125,7 @@ helm:
     kubedb-provider-gcp:
       version: "v2024.1.31"
     kubestash:
-      version: "v2025.7.31"
+      version: "v2025.10.17"
     kubevault:
       version: "v2025.5.30"
     kubevault-opscenter:
@@ -149,7 +149,7 @@ helm:
     opencost-grafana-dashboards:
       version: "v2023.10.1"
     opscenter-features:
-      version: "v2025.9.30"
+      version: "v2025.10.17"
     panopticon:
       version: "v2025.6.30"
     prepare-cluster:
@@ -161,13 +161,13 @@ helm:
     scanner:
       version: "v2024.9.30"
     service-backend:
-      version: "v2025.9.30"
+      version: "v2025.10.17"
     service-gateway:
-      version: "v2025.9.30"
+      version: "v2025.10.17"
     service-gateway-presets:
-      version: "v2025.9.30"
+      version: "v2025.10.17"
     service-provider:
-      version: "v2025.9.30"
+      version: "v2025.10.17"
     sidekick:
       version: "v2025.3.14"
     snapshot-controller:
@@ -177,7 +177,7 @@ helm:
     stash-opscenter:
       version: "v2025.7.31"
     stash-presets:
-      version: "v2025.9.30"
+      version: "v2025.10.17"
     supervisor:
       version: "v2025.7.31"
     topolvm:
@@ -185,7 +185,7 @@ helm:
     voyager:
       version: "v2024.8.30"
     voyager-gateway:
-      version: "v2025.6.30"
+      version: "v2025.10.24"
     # secret management
     external-secrets:
       version: "0.9.12"
@@ -213,7 +213,7 @@ helm:
     cluster-manager-hub:
       version: "v2025.7.31"
     cluster-manager-spoke:
-      version: "v2025.7.31"
+      version: "v2025.10.17"
     multicluster-controlplane:
       version: "v2025.4.30"
     multicluster-ingress-reader:
@@ -239,7 +239,7 @@ helm:
     inbox-agent:
       version: "v2024.12.30"
     inbox-ui:
-      version: "v2025.9.30"
+      version: "v2025.10.17"
 licenseServer:
   baseURL: ""
   token: ""
