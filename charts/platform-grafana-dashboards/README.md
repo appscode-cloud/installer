@@ -1,48 +1,42 @@
-# 
+# Platform Grafana Dashboards
 
-[platform-grafana-dashboards](https://github.com/bytebuilders/installer) - A Helm chart that deploys Platform Grafana dashboards as ConfigMaps for automatic import into Grafana.
-
-This chart includes comprehensive dashboards for monitoring Platform servers and JetStream, providing insights into:
-- Server performance metrics (CPU, memory)
-- Message throughput and client connections
-- JetStream storage and memory usage
-- Stream and consumer metrics
-
+[Platform Grafana Dashboards by AppsCode](https://github.com/appscode-cloud) - Platform Grafana Dashboards
 
 ## TL;DR;
 
 ```bash
-$ helm repo add  
+$ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm search repo /platform-grafana-dashboards --version=v2025.10.17
-$ helm upgrade -i  /platform-grafana-dashboards -n  --create-namespace --version=v2025.10.17
+$ helm search repo appscode/platform-grafana-dashboards --version=v2025.10.17
+$ helm upgrade -i platform-grafana-dashboards appscode/platform-grafana-dashboards -n ace --create-namespace --version=v2025.10.17
 ```
 
 ## Introduction
 
-This chart deploys  on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart deploys a Platform Grafana Dashboards on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
+- Kubernetes 1.29+
 
 ## Installing the Chart
 
-To install/upgrade the chart with the release name ``:
+To install/upgrade the chart with the release name `platform-grafana-dashboards`:
 
 ```bash
-$ helm upgrade -i  /platform-grafana-dashboards -n  --create-namespace --version=v2025.10.17
+$ helm upgrade -i platform-grafana-dashboards appscode/platform-grafana-dashboards -n ace --create-namespace --version=v2025.10.17
 ```
 
-The command deploys  on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
+The command deploys a Platform Grafana Dashboards on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
 
 > **Tip**: List all releases using `helm list`
 
 ## Uninstalling the Chart
 
-To uninstall the ``:
+To uninstall the `platform-grafana-dashboards`:
 
 ```bash
-$ helm uninstall  -n 
+$ helm uninstall platform-grafana-dashboards -n ace
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -88,12 +82,12 @@ The following table lists the configurable parameters of the `platform-grafana-d
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i  /platform-grafana-dashboards -n  --create-namespace --version=v2025.10.17 --set resources=["nats"]
+$ helm upgrade -i platform-grafana-dashboards appscode/platform-grafana-dashboards -n ace --create-namespace --version=v2025.10.17 --set resources=["nats"]
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i  /platform-grafana-dashboards -n  --create-namespace --version=v2025.10.17 --values values.yaml
+$ helm upgrade -i platform-grafana-dashboards appscode/platform-grafana-dashboards -n ace --create-namespace --version=v2025.10.17 --values values.yaml
 ```
