@@ -88,6 +88,9 @@ pgoutbox:
 outbox-syncer:
   enabled: false
 
+platform-grafana-dashboards:
+  enabled: false
+
 # -------------
 
 global:
