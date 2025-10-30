@@ -35,5 +35,8 @@ dependencies:
 - name: outbox-syncer
   repository: file://../outbox-syncer
   version: v2025.10.17
-digest: sha256:742ed65c84f7c0a6144ab4430b67670b70812c54a0cf9cc38482a90b9e381d82
-generated: "2025-10-21T04:14:39.74993423Z"
+- name: platform-grafana-dashboards
+  repository: file://../platform-grafana-dashboards
+  version: v2025.10.17
+digest: sha256:45929f046dd2f5c0bdeba06d48912bffb0e2454310756e279a56435d36e88c57
+generated: "2025-10-24T11:47:23.289959808+06:00"
