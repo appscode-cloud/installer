@@ -1,6 +1,10 @@
 # dario.cat/mergo v1.0.1
 ## explicit; go 1.13
 dario.cat/mergo
+# filippo.io/edwards25519 v1.1.0
+## explicit; go 1.20
+filippo.io/edwards25519
+filippo.io/edwards25519/field
 # github.com/Masterminds/goutils v1.1.1
 ## explicit
 github.com/Masterminds/goutils
@@ -82,6 +86,9 @@ github.com/go-openapi/jsonreference/internal
 # github.com/go-openapi/swag v0.23.0
 ## explicit; go 1.20
 github.com/go-openapi/swag
+# github.com/go-sql-driver/mysql v1.9.0
+## explicit; go 1.21
+github.com/go-sql-driver/mysql
 # github.com/gobeam/stringy v0.0.5
 ## explicit; go 1.14
 github.com/gobeam/stringy
@@ -288,8 +295,8 @@ go.bytebuilders.dev/resource-model/apis/cloud
 go.bytebuilders.dev/resource-model/apis/cloud/v1alpha1
 go.bytebuilders.dev/resource-model/apis/config/v1alpha1
 go.bytebuilders.dev/resource-model/crds
-# go.bytebuilders.dev/ui-wizards v0.26.1
-## explicit; go 1.22.1
+# go.bytebuilders.dev/ui-wizards v0.27.0
+## explicit; go 1.24
 go.bytebuilders.dev/ui-wizards/apis/wizards
 go.bytebuilders.dev/ui-wizards/apis/wizards/v1alpha1
 # go.openviz.dev/installer v0.0.0-20250617172415-ca61a7cbb8d5
@@ -312,7 +319,7 @@ golang.org/x/net/http2
 golang.org/x/net/http2/hpack
 golang.org/x/net/idna
 golang.org/x/net/internal/httpcommon
-# golang.org/x/oauth2 v0.27.0
+# golang.org/x/oauth2 v0.28.0
 ## explicit; go 1.23.0
 golang.org/x/oauth2
 golang.org/x/oauth2/internal
@@ -349,8 +356,8 @@ golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
-# golang.org/x/time v0.10.0
-## explicit; go 1.18
+# golang.org/x/time v0.11.0
+## explicit; go 1.23.0
 golang.org/x/time/rate
 # gomodules.xyz/go-sh v0.2.0
 ## explicit; go 1.15
@@ -828,7 +835,7 @@ k8s.io/klog/v2/internal/dbg
 k8s.io/klog/v2/internal/serialize
 k8s.io/klog/v2/internal/severity
 k8s.io/klog/v2/internal/sloghandler
-# k8s.io/kube-openapi v0.0.0-20250318172550-b98be4ee1595
+# k8s.io/kube-openapi v0.0.0-20250318190949-c8a335a9a2ff
 ## explicit; go 1.21
 k8s.io/kube-openapi/pkg/cached
 k8s.io/kube-openapi/pkg/common
@@ -854,7 +861,7 @@ k8s.io/utils/trace
 # kmodules.xyz/apiversion v0.2.0
 ## explicit; go 1.14
 kmodules.xyz/apiversion
-# kmodules.xyz/client-go v0.32.7
+# kmodules.xyz/client-go v0.32.9
 ## explicit; go 1.23.0
 kmodules.xyz/client-go
 kmodules.xyz/client-go/api/v1
@@ -865,17 +872,22 @@ kmodules.xyz/client-go/discovery
 kmodules.xyz/client-go/meta
 kmodules.xyz/client-go/policy/secomp
 kmodules.xyz/client-go/tools/parser
+# kmodules.xyz/custom-resources v0.32.2
+## explicit; go 1.23.0
+kmodules.xyz/custom-resources/apis/appcatalog
+kmodules.xyz/custom-resources/apis/appcatalog/v1alpha1
+kmodules.xyz/custom-resources/crds
 # kmodules.xyz/go-containerregistry v0.0.14
 ## explicit; go 1.23.0
 kmodules.xyz/go-containerregistry/name
-# kmodules.xyz/image-packer v0.0.0-20251020171910-074f85860e12
+# kmodules.xyz/image-packer v0.0.0-20251031165437-ee37158457af
 ## explicit; go 1.23.0
 kmodules.xyz/image-packer/pkg/lib
-# kmodules.xyz/monitoring-agent-api v0.32.0
+# kmodules.xyz/monitoring-agent-api v0.32.4
 ## explicit; go 1.23.0
 kmodules.xyz/monitoring-agent-api/api/v1
-# kmodules.xyz/objectstore-api v0.32.0
-## explicit; go 1.23.0
+# kmodules.xyz/objectstore-api v0.32.2
+## explicit; go 1.24
 kmodules.xyz/objectstore-api/api/v1
 # kmodules.xyz/offshoot-api v0.32.0
 ## explicit; go 1.23.0
@@ -883,7 +895,7 @@ kmodules.xyz/offshoot-api/api/v1
 # kmodules.xyz/prober v0.32.0
 ## explicit; go 1.23.0
 kmodules.xyz/prober/api/v1
-# kmodules.xyz/resource-metadata v0.38.1
+# kmodules.xyz/resource-metadata v0.39.0
 ## explicit; go 1.23.0
 kmodules.xyz/resource-metadata/apis/shared
 kmodules.xyz/resource-metadata/apis/ui
@@ -896,14 +908,14 @@ kmodules.xyz/schema-checker
 ## explicit; go 1.22.0
 kubeops.dev/external-dns-operator/apis/external
 kubeops.dev/external-dns-operator/apis/external/v1alpha1
-# kubeops.dev/installer v0.0.0-20251021040959-0f62f77e8c01
+# kubeops.dev/installer v0.0.0-20251031173607-c4cedc4d2a99
 ## explicit; go 1.23.3
 kubeops.dev/installer/apis/installer
 kubeops.dev/installer/apis/installer/v1alpha1
 # kubeops.dev/scanner v0.0.19
 ## explicit; go 1.22.1
 kubeops.dev/scanner/apis/trivy
-# kubestash.dev/apimachinery v0.17.0
+# kubestash.dev/apimachinery v0.21.0
 ## explicit; go 1.23.0
 kubestash.dev/apimachinery/apis
 kubestash.dev/apimachinery/apis/storage/v1alpha1
@@ -991,8 +1003,8 @@ sigs.k8s.io/structured-merge-diff/v4/value
 sigs.k8s.io/yaml
 sigs.k8s.io/yaml/goyaml.v2
 sigs.k8s.io/yaml/goyaml.v3
-# stash.appscode.dev/apimachinery v0.39.0
-## explicit; go 1.22.1
+# stash.appscode.dev/apimachinery v0.42.0
+## explicit; go 1.23.0
 stash.appscode.dev/apimachinery/apis/stash
 stash.appscode.dev/apimachinery/apis/stash/v1alpha1
 stash.appscode.dev/apimachinery/apis/stash/v1beta1

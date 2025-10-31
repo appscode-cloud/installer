@@ -24,6 +24,8 @@ properties:
         - Restic
         - WalG
         - VolumeSnapshotter
+        - Solr
+        - Medusa
         type: string
     required:
     - enable
@@ -63,6 +65,8 @@ properties:
         - Restic
         - WalG
         - VolumeSnapshotter
+        - Solr
+        - Medusa
         type: string
     required:
     - by
