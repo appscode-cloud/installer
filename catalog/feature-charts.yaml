@@ -7,7 +7,7 @@
 - ghcr.io/appscode-charts/capi-catalog:v2024.10.24
 - ghcr.io/appscode-charts/capi-ops-manager:v2024.8.14
 - ghcr.io/appscode-charts/catalog-manager:v2025.10.31
-- ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2025.7.31
+- ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2025.10.31
 - ghcr.io/appscode-charts/cert-manager:v1.18.2
 - ghcr.io/appscode-charts/cluster-auth-manager:v2025.5.16
 - ghcr.io/appscode-charts/cluster-autoscaler:9.29.0
