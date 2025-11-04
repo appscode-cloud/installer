@@ -1,0 +1,17 @@
+project:
+  name: Platform Grafana Dashboards by AppsCode
+  shortName: Platform Grafana Dashboards
+  url: https://github.com/appscode-cloud
+  description: Platform Grafana Dashboards
+  app: a Platform Grafana Dashboards
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: platform-grafana-dashboards
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites: [Kubernetes 1.29+]
+release:
+  name: platform-grafana-dashboards
+  namespace: ace
