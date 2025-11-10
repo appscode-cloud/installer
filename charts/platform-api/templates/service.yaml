@@ -12,6 +12,12 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+    {{- if .Values.service.metrics.enabled }}
+    - port: {{ .Values.service.metrics.port }}
+      targetPort: http
+      protocol: TCP
+      name: metrics
+    {{- end }}
   selector:
     {{- include "platform-api.selectorLabels" . | nindent 4 }}
 
@@ -33,6 +39,12 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+    {{- if .Values.service.metrics.enabled }}
+    - port: {{ .Values.service.metrics.port }}
+      targetPort: http
+      protocol: TCP
+      name: metrics
+    {{- end }}
   # selector needed to create pods dns name
   selector:
     {{- include "platform-api.selectorLabels" . | nindent 4 }}
