@@ -34,8 +34,14 @@ type ImageReference struct {
 }
 
 type AceServiceSpec struct {
-	Type string `json:"type"`
-	Port int    `json:"port"`
+	Type    string          `json:"type"`
+	Port    int             `json:"port"`
+	Metrics *AceMetricsSpec `json:"metrics,omitempty"`
+}
+
+type AceMetricsSpec struct {
+	Enabled bool `json:"enabled"`
+	Port    int  `json:"port"`
 }
 
 type AutoscalingSpec struct {

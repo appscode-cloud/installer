@@ -38,5 +38,5 @@ dependencies:
 - name: platform-grafana-dashboards
   repository: file://../platform-grafana-dashboards
   version: v2025.10.17
-digest: sha256:45929f046dd2f5c0bdeba06d48912bffb0e2454310756e279a56435d36e88c57
-generated: "2025-10-24T11:47:23.289959808+06:00"
+digest: sha256:0c5d5108705fedc647ee57cec2bcd746202248bb288d5de69e396e0d76fe4613
+generated: "2025-11-10T17:01:44.560806434+06:00"

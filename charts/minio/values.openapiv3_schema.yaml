@@ -734,6 +734,16 @@ properties:
     type: object
   service:
     properties:
+      metrics:
+        properties:
+          enabled:
+            type: boolean
+          port:
+            type: integer
+        required:
+        - enabled
+        - port
+        type: object
       port:
         type: integer
       type:

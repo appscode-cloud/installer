@@ -64,7 +64,3 @@ dependencies:
   repository: file://../platform-grafana-dashboards
   condition: platform-grafana-dashboards.enabled
   version: v2025.10.17
-- name: platform-grafana-dashboards
-  repository: file://../platform-grafana-dashboards
-  condition: platform-grafana-dashboards.enabled
-  version: v2025.10.17
