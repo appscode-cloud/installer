@@ -134,6 +134,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": "${datasource}",
       "fieldConfig": {
         "defaults": {
           "color": {

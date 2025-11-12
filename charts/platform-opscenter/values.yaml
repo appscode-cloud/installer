@@ -1,0 +1,21 @@
+# Default values for platform-opscenter.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Overrides name template
+nameOverride: ""
+# Overrides fullname template
+fullnameOverride: ""
+
+platform-grafana-dashboards:
+  enabled: true
+
+openfga-alerts:
+  enabled: true
+  grafana:
+    jobName: openfga
+
+nats-alerts:
+  enabled: true
+  grafana:
+    jobName: "{{ .Release.name }}-nats"

@@ -1,0 +1,27 @@
+properties:
+  fullnameOverride:
+    type: string
+  nameOverride:
+    type: string
+  nats-alerts:
+    properties:
+      enabled:
+        type: boolean
+    required:
+    - enabled
+    type: object
+  openfga-alerts:
+    properties:
+      enabled:
+        type: boolean
+    required:
+    - enabled
+    type: object
+  platform-grafana-dashboards:
+    properties:
+      enabled:
+        type: boolean
+    required:
+    - enabled
+    type: object
+type: object
