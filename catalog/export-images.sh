@@ -393,7 +393,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/echoserver:v20221109 images/voyagermesh-echoserver-v20221109.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.35.6-ac images/voyagermesh-envoy-v1.35.6-ac.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway-converter:v0.0.1 images/voyagermesh-gateway-converter-v0.0.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway:v1.4.1 images/voyagermesh-gateway-v1.4.1.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway:v1.5.4 images/voyagermesh-gateway-v1.5.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure hashicorp/vault-csi-provider:1.4.1 images/hashicorp-vault-csi-provider-1.4.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure hashicorp/vault-secrets-operator:0.4.3 images/hashicorp-vault-secrets-operator-0.4.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure hashicorp/vault:1.15.2 images/hashicorp-vault-1.15.2.tar
