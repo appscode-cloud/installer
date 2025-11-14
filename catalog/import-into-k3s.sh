@@ -385,7 +385,7 @@ k3s ctr images import images/loft-sh-vcluster-oss-0.22.4.tar
 k3s ctr images import images/voyagermesh-echoserver-v20221109.tar
 k3s ctr images import images/voyagermesh-envoy-v1.35.6-ac.tar
 k3s ctr images import images/voyagermesh-gateway-converter-v0.0.1.tar
-k3s ctr images import images/voyagermesh-gateway-v1.4.1.tar
+k3s ctr images import images/voyagermesh-gateway-v1.5.4.tar
 k3s ctr images import images/hashicorp-vault-csi-provider-1.4.1.tar
 k3s ctr images import images/hashicorp-vault-secrets-operator-0.4.3.tar
 k3s ctr images import images/hashicorp-vault-1.15.2.tar
