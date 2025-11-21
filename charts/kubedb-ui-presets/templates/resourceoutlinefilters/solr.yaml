@@ -17,6 +17,8 @@ spec:
     name: Operations
     show: true
   - items:
+      Scale Vertically: true
+      Scale Storage: true
       Expand Volume: true
       Horizontal Scale: true
       Vertical Scale: true
