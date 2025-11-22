@@ -10,6 +10,8 @@ spec:
     name: Operations
     show: true
   - items:
+      Scale Vertically: true
+      Scale Storage: true
       Horizontal Scale: true
       Vertical Scale: true
     name: Scaling
