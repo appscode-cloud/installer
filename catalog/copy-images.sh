@@ -104,7 +104,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/co
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/crossplane:1.14.0 $IMAGE_REGISTRY/appscode-charts/crossplane:1.14.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/csi-driver-nfs:v4.7.0 $IMAGE_REGISTRY/appscode-charts/csi-driver-nfs:v4.7.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/csi-secrets-store-provider-azure:1.5.2 $IMAGE_REGISTRY/appscode-charts/csi-secrets-store-provider-azure:1.5.2
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/external-dns-operator:v2025.9.30 $IMAGE_REGISTRY/appscode-charts/external-dns-operator:v2025.9.30
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/external-dns-operator:v2025.12.5 $IMAGE_REGISTRY/appscode-charts/external-dns-operator:v2025.12.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/external-secrets:0.9.12 $IMAGE_REGISTRY/appscode-charts/external-secrets:0.9.12
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco-ui-server:v2024.5.17 $IMAGE_REGISTRY/appscode-charts/falco-ui-server:v2024.5.17
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco:4.0.0 $IMAGE_REGISTRY/appscode-charts/falco:4.0.0
@@ -422,8 +422,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure rancher/kine:v0.11.4 $IMAG
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 $IMAGE_REGISTRY/autoscaling/cluster-autoscaler:v1.27.1
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/csi-secrets-store/driver:v1.4.1 $IMAGE_REGISTRY/csi-secrets-store/driver:v1.4.1
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 $IMAGE_REGISTRY/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
-$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.32.0 $IMAGE_REGISTRY/kube-apiserver:v1.32.0
-$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.32.0 $IMAGE_REGISTRY/kube-controller-manager:v1.32.0
+$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.34.0 $IMAGE_REGISTRY/kube-apiserver:v1.34.0
+$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.34.0 $IMAGE_REGISTRY/kube-controller-manager:v1.34.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0 $IMAGE_REGISTRY/kube-state-metrics/kube-state-metrics:v2.13.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/metrics-server/metrics-server:v0.7.2 $IMAGE_REGISTRY/metrics-server/metrics-server:v0.7.2
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2 $IMAGE_REGISTRY/prometheus-adapter/prometheus-adapter:v0.11.2

@@ -21,7 +21,7 @@
 - ghcr.io/appscode-charts/crossplane:1.14.0
 - ghcr.io/appscode-charts/csi-driver-nfs:v4.7.0
 - ghcr.io/appscode-charts/csi-secrets-store-provider-azure:1.5.2
-- ghcr.io/appscode-charts/external-dns-operator:v2025.9.30
+- ghcr.io/appscode-charts/external-dns-operator:v2025.12.5
 - ghcr.io/appscode-charts/external-secrets:0.9.12
 - ghcr.io/appscode-charts/falco-ui-server:v2024.5.17
 - ghcr.io/appscode-charts/falco:4.0.0
