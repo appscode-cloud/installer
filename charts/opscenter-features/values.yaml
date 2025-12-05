@@ -85,7 +85,7 @@ helm:
     csi-driver-nfs:
       version: "v4.7.0"
     external-dns-operator:
-      version: "v2025.9.30"
+      version: "v2024.4.19"
     falco:
       version: "4.0.0"
     falco-ui-server:
