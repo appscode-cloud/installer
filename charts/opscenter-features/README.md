@@ -84,7 +84,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.config-syncer.version                                     |                                 | <code>"v0.15.2"</code>                     |
 | helm.releases.crossplane.version                                        |                                 | <code>"1.14.0"</code>                      |
 | helm.releases.csi-driver-nfs.version                                    |                                 | <code>"v4.7.0"</code>                      |
-| helm.releases.external-dns-operator.version                             |                                 | <code>"v2025.9.30"</code>                  |
+| helm.releases.external-dns-operator.version                             |                                 | <code>"v2025.12.5"</code>                  |
 | helm.releases.falco.version                                             |                                 | <code>"4.0.0"</code>                       |
 | helm.releases.falco-ui-server.version                                   |                                 | <code>"v2024.5.17"</code>                  |
 | helm.releases.flux2.version                                             |                                 | <code>"2.17.0"</code>                      |

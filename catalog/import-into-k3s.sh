@@ -93,7 +93,7 @@ k3s ctr images import images/appscode-charts-corekubestashcom-restoresession-edi
 k3s ctr images import images/appscode-charts-crossplane-1.14.0.tar
 k3s ctr images import images/appscode-charts-csi-driver-nfs-v4.7.0.tar
 k3s ctr images import images/appscode-charts-csi-secrets-store-provider-azure-1.5.2.tar
-k3s ctr images import images/appscode-charts-external-dns-operator-v2025.9.30.tar
+k3s ctr images import images/appscode-charts-external-dns-operator-v2025.12.5.tar
 k3s ctr images import images/appscode-charts-external-secrets-0.9.12.tar
 k3s ctr images import images/appscode-charts-falco-ui-server-v2024.5.17.tar
 k3s ctr images import images/appscode-charts-falco-4.0.0.tar
@@ -411,8 +411,8 @@ k3s ctr images import images/rancher-kine-v0.11.4.tar
 k3s ctr images import images/autoscaling-cluster-autoscaler-v1.27.1.tar
 k3s ctr images import images/csi-secrets-store-driver-v1.4.1.tar
 k3s ctr images import images/ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar
-k3s ctr images import images/kube-apiserver-v1.32.0.tar
-k3s ctr images import images/kube-controller-manager-v1.32.0.tar
+k3s ctr images import images/kube-apiserver-v1.34.0.tar
+k3s ctr images import images/kube-controller-manager-v1.34.0.tar
 k3s ctr images import images/kube-state-metrics-kube-state-metrics-v2.13.0.tar
 k3s ctr images import images/metrics-server-metrics-server-v0.7.2.tar
 k3s ctr images import images/prometheus-adapter-prometheus-adapter-v0.11.2.tar
