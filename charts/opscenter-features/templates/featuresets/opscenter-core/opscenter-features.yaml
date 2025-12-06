@@ -21,6 +21,27 @@ spec:
       kind: HelmRepository
       selector:
         kubernetes.io/metadata.name: appscode-charts-oci
+  ignoreDifferences:
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: features.ui.k8s.appscode.com
+    jsonPointers:
+    - /spec
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: featuresets.ui.k8s.appscode.com
+    jsonPointers:
+    - /spec
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: helmrepositories.source.toolkit.fluxcd.io
+    jsonPointers:
+    - /spec
+  - group: ui.k8s.appscode.com
+    kind: Feature
+    name: metrics-server
+    jsonPointers:
+    - /spec/recommended
   chart:
     name: opscenter-features
     namespace: kubeops
