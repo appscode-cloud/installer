@@ -16,7 +16,7 @@ require (
 	kmodules.xyz/client-go v0.32.9
 	kmodules.xyz/image-packer v0.0.0-20251031165437-ee37158457af
 	kmodules.xyz/objectstore-api v0.32.2
-	kmodules.xyz/resource-metadata v0.39.0
+	kmodules.xyz/resource-metadata v0.39.1
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
 	kubeops.dev/installer v0.0.0-20251031173607-c4cedc4d2a99
