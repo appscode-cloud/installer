@@ -23,7 +23,8 @@ helm repo add nats https://nats-io.github.io/k8s/helm/charts/ || true
 helm repo add openfga https://openfga.github.io/helm-charts || true
 helm repo add stakater https://stakater.github.io/stakater-charts || true
 
+helm dependency update charts/platform-grafana-dashboards
+helm dependency update charts/platform-opscenter
 helm dependency update charts/acaas
 helm dependency update charts/ace
 helm dependency update charts/service-gateway
-helm dependency update charts/platform-opscenter
