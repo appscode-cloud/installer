@@ -722,6 +722,8 @@ properties:
         type: string
       quay:
         type: string
+      weaviate:
+        type: string
     type: object
   registryFQDN:
     type: string

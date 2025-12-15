@@ -85,6 +85,8 @@ properties:
             type: string
           quay:
             type: string
+          weaviate:
+            type: string
         type: object
     type: object
   installerVersion:
@@ -1528,6 +1530,8 @@ properties:
                   microsoft:
                     type: string
                   quay:
+                    type: string
+                  weaviate:
                     type: string
                 type: object
             type: object

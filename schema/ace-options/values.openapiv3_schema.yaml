@@ -2029,6 +2029,9 @@ properties:
               quay:
                 description: quay.io
                 type: string
+              weaviate:
+                description: cr.weaviate.io
+                type: string
             type: object
         type: object
       imagePullSecrets:

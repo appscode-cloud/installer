@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm search repo appscode/catalog-manager --version=v2025.10.31
-$ helm upgrade -i catalog-manager appscode/catalog-manager -n ace --create-namespace --version=v2025.10.31
+$ helm search repo appscode/catalog-manager --version=v2025.12.15
+$ helm upgrade -i catalog-manager appscode/catalog-manager -n ace --create-namespace --version=v2025.12.15
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys a catalog manager on a [Kubernetes](http://kubernetes.io) clu
 To install/upgrade the chart with the release name `catalog-manager`:
 
 ```bash
-$ helm upgrade -i catalog-manager appscode/catalog-manager -n ace --create-namespace --version=v2025.10.31
+$ helm upgrade -i catalog-manager appscode/catalog-manager -n ace --create-namespace --version=v2025.12.15
 ```
 
 The command deploys a catalog manager on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -54,6 +54,7 @@ The following table lists the configurable parameters of the `catalog-manager` c
 | proxies.quay                            | quay.io/company/bin:tag                                                                                                                                                                                                            | <code>quay.io</code>                                                                                                                                                                           |
 | proxies.kubernetes                      | registry.k8s.io/bin:tag                                                                                                                                                                                                            | <code>registry.k8s.io</code>                                                                                                                                                                   |
 | proxies.microsoft                       |                                                                                                                                                                                                                                    | <code>mcr.microsoft.com</code>                                                                                                                                                                 |
+| proxies.weaviate                        |                                                                                                                                                                                                                                    | <code>cr.weaviate.io</code>                                                                                                                                                                    |
 | nameOverride                            | Overrides name template                                                                                                                                                                                                            | <code>""</code>                                                                                                                                                                                |
 | fullnameOverride                        | Overrides fullname template                                                                                                                                                                                                        | <code>""</code>                                                                                                                                                                                |
 | replicaCount                            |                                                                                                                                                                                                                                    | <code>1</code>                                                                                                                                                                                 |
@@ -81,19 +82,18 @@ The following table lists the configurable parameters of the `catalog-manager` c
 | keda.proxyService.name                  |                                                                                                                                                                                                                                    | <code>"keda-add-ons-http-interceptor-proxy"</code>                                                                                                                                             |
 | helmrepo.name                           | Name of the helmrepo for ui charts                                                                                                                                                                                                 | <code>""</code>                                                                                                                                                                                |
 | helmrepo.namespace                      | Namespace of the helmrepo for ui charts                                                                                                                                                                                            | <code>""</code>                                                                                                                                                                                |
-| platform.baseURL                        |                                                                                                                                                                                                                                    | <code>""</code>                                                                                                                                                                                |
-| platform.caBundle                       |                                                                                                                                                                                                                                    | <code>""</code>                                                                                                                                                                                |
+| platform                                |                                                                                                                                                                                                                                    | <code></code>                                                                                                                                                                                  |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i catalog-manager appscode/catalog-manager -n ace --create-namespace --version=v2025.10.31 --set proxies.appscode=r.appscode.com
+$ helm upgrade -i catalog-manager appscode/catalog-manager -n ace --create-namespace --version=v2025.12.15 --set proxies.appscode=r.appscode.com
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i catalog-manager appscode/catalog-manager -n ace --create-namespace --version=v2025.10.31 --values values.yaml
+$ helm upgrade -i catalog-manager appscode/catalog-manager -n ace --create-namespace --version=v2025.12.15 --values values.yaml
 ```
