@@ -2,7 +2,7 @@ apiVersion: v2
 name: smtprelay
 description: A Helm chart for Kubernetes
 type: application
-version: v2025.10.31
+version: v2025.12.15
 appVersion: v0.0.4
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png

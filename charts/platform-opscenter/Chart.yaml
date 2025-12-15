@@ -2,7 +2,7 @@ apiVersion: v2
 name: platform-opscenter
 description: Platform Opscenter by AppsCode
 type: application
-version: v2025.10.31
+version: v2025.12.15
 appVersion: v2025.10.31
 home: https://byte.builders
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
@@ -15,7 +15,7 @@ dependencies:
 - name: platform-grafana-dashboards
   repository: file://../platform-grafana-dashboards
   condition: platform-grafana-dashboards.enabled
-  version: v2025.10.17
+  version: v2025.12.15
 - name: openfga-alerts
   repository: oci://ghcr.io/appscode-charts
   condition: openfga-alerts.enabled

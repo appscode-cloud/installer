@@ -1,25 +1,23 @@
 module go.bytebuilders.dev/installer
 
-go 1.24.3
-
-toolchain go1.24.6
+go 1.25
 
 require (
 	go.bytebuilders.dev/catalog v0.0.16-0.20250901123846-4b9ca50c3572
 	go.bytebuilders.dev/resource-model v0.3.1
-	go.bytebuilders.dev/ui-wizards v0.27.0
+	go.bytebuilders.dev/ui-wizards v0.28.0
 	go.openviz.dev/installer v0.0.0-20250617172415-ca61a7cbb8d5
 	gomodules.xyz/go-sh v0.2.0
-	k8s.io/api v0.32.3
-	k8s.io/apimachinery v0.32.3
+	k8s.io/api v0.32.8
+	k8s.io/apimachinery v0.32.8
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
-	kmodules.xyz/client-go v0.32.9
-	kmodules.xyz/image-packer v0.0.0-20251031165437-ee37158457af
+	kmodules.xyz/client-go v0.32.11
+	kmodules.xyz/image-packer v0.0.0-20251214190145-a9cf080f45e8
 	kmodules.xyz/objectstore-api v0.32.2
-	kmodules.xyz/resource-metadata v0.39.1
+	kmodules.xyz/resource-metadata v0.40.0
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
-	kubeops.dev/installer v0.0.0-20251031173607-c4cedc4d2a99
+	kubeops.dev/installer v0.0.0-20251210132401-bd1605a948e2
 	sigs.k8s.io/kustomize/kyaml v0.18.1
 	sigs.k8s.io/yaml v1.4.0
 )
@@ -34,7 +32,7 @@ require (
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/codegangsta/inject v0.0.0-20150114235600-33e0aa1cb7c0 // indirect
 	github.com/containerd/stargz-snapshotter/estargz v0.16.3 // indirect
-	github.com/cyphar/filepath-securejoin v0.3.4 // indirect
+	github.com/cyphar/filepath-securejoin v0.3.6 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/docker/cli v27.5.0+incompatible // indirect
 	github.com/docker/distribution v2.8.3+incompatible // indirect
@@ -51,7 +49,7 @@ require (
 	github.com/go-openapi/jsonpointer v0.21.0 // indirect
 	github.com/go-openapi/jsonreference v0.21.0 // indirect
 	github.com/go-openapi/swag v0.23.0 // indirect
-	github.com/go-sql-driver/mysql v1.9.0 // indirect
+	github.com/go-sql-driver/mysql v1.9.1 // indirect
 	github.com/gobeam/stringy v0.0.5 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
@@ -111,8 +109,8 @@ require (
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	k8s.io/apiextensions-apiserver v0.32.3 // indirect
-	k8s.io/client-go v0.32.3 // indirect
+	k8s.io/apiextensions-apiserver v0.32.8 // indirect
+	k8s.io/client-go v0.32.8 // indirect
 	k8s.io/klog/v2 v2.130.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20250318190949-c8a335a9a2ff // indirect
 	k8s.io/utils v0.0.0-20241210054802-24370beab758 // indirect
@@ -123,7 +121,7 @@ require (
 	kmodules.xyz/offshoot-api v0.32.0 // indirect
 	kmodules.xyz/prober v0.32.0 // indirect
 	kubeops.dev/scanner v0.0.19 // indirect
-	kubestash.dev/apimachinery v0.21.0 // indirect
+	kubestash.dev/apimachinery v0.22.0 // indirect
 	sigs.k8s.io/controller-runtime v0.20.4 // indirect
 	sigs.k8s.io/gateway-api v1.2.1 // indirect
 	sigs.k8s.io/json v0.0.0-20241014173422-cfa47c3a1cc8 // indirect

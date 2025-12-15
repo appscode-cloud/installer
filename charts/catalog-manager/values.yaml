@@ -16,6 +16,7 @@ proxies:
   # registry.k8s.io/bin:tag
   kubernetes: registry.k8s.io
   microsoft: mcr.microsoft.com
+  weaviate: cr.weaviate.io
 
 # Overrides name template
 nameOverride: ""
