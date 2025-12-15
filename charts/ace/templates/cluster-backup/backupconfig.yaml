@@ -48,6 +48,9 @@ spec:
         name: kubedump-addon
         tasks:
           - name: manifest-backup
+            params:
+              IncludeClusterResources: "true"
+              ExcludeNamespaces: "kube-system,kube-node-lease"
         jobTemplate:
           spec:
             serviceAccountName: {{ include "ace.fullname" . }}-cluster-resource-reader
