@@ -22,7 +22,7 @@ securityContext:
   (include "image.ghcr" (merge (dict "_repo" "appscode/kube-rbac-proxy") $))
   | fromYaml }}
 
-{{- if eq (include "clustermanager.openshift" $) "false" }}
+{{- if eq (include "distro.openshift" $) "false" }}
 {{ $scc := `
 securityContext:
   runAsUser: 1000
@@ -87,7 +87,7 @@ spec:
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
   valuesFrom:
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  {{- if eq (include "distro.openshift" $) "true" }}
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: keda-add-ons-http.yaml

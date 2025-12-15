@@ -40,7 +40,7 @@ spec:
       name: ace-features-cred
       valuesKey: monitoring-operator.yaml
       optional: true
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  {{- if eq (include "distro.openshift" $) "true" }}
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: monitoring-operator.yaml

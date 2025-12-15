@@ -150,3 +150,7 @@ provider:
     serverName: ""
     # The external CA file for the service provider cluster. If not specified, service account's CA is used.
     CAFile: ""
+
+distro:
+  openshift: false
+  ubi: ""

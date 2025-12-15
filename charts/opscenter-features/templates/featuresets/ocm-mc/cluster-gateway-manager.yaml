@@ -63,7 +63,7 @@ spec:
     - kind: Secret
       name: multicluster-ingress-values
       valuesKey: gateway.yaml
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  {{- if eq (include "distro.openshift" $) "true" }}
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: cluster-gateway-manager.yaml

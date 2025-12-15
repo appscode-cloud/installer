@@ -1,6 +1,20 @@
 properties:
   addonManagerNamespace:
     type: string
+  distro:
+    properties:
+      openshift:
+        type: boolean
+      ubi:
+        enum:
+        - all
+        - catalog
+        - operator
+        type: string
+    required:
+    - openshift
+    - ubi
+    type: object
   env:
     items:
       properties:

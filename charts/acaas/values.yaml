@@ -51,6 +51,10 @@ global:
       spreadsheet: ""
     spreadsheetCredentialMountPath: "/data/marketplace-credentials"
 
+  distro:
+    openshift: false
+    ubi: ""
+
 ingress:
   className: "nginx-ace"
   tls:

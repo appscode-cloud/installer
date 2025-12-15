@@ -41,3 +41,7 @@ securityContext:
 envFrom: []
 # List of environment variables to set in the container
 env: []
+
+distro:
+  openshift: false
+  ubi: ""

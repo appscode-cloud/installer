@@ -87,3 +87,7 @@ s3proxy:
     jksPasswordSecretRef:
       name: ""
       key: ""
+
+distro:
+  openshift: false
+  ubi: ""

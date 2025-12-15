@@ -40,7 +40,7 @@ spec:
   featureSet: opscenter-core
   featureBlock: kube-ui-server
   recommended: true
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  {{- if eq (include "distro.openshift" $) "true" }}
   requirements:
     features:
       - aceshifter
@@ -67,7 +67,7 @@ spec:
       name: ace-features-cred
       valuesKey: kube-ui-server.yaml
       optional: true
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  {{- if eq (include "distro.openshift" $) "true" }}
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: kube-ui-server.yaml

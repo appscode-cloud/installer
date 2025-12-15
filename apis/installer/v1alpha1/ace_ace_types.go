@@ -24,6 +24,7 @@ import (
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
+	"kmodules.xyz/resource-metadata/apis/shared"
 	dnsapi "kubeops.dev/external-dns-operator/apis/external/v1alpha1"
 	kubeops_installer "kubeops.dev/installer/apis/installer/v1alpha1"
 )
@@ -183,6 +184,8 @@ type AceGlobalValues struct {
 	ServiceAccount   NatsServiceAccountSpec `json:"serviceAccount"`
 	Monitoring       GlobalMonitoring       `json:"monitoring"`
 	Infra            PlatformInfra          `json:"infra"`
+	// +optional
+	Distro shared.DistroSpec `json:"distro"`
 }
 
 type AcePlatformSettings struct {

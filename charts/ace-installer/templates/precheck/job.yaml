@@ -25,8 +25,13 @@ spec:
         {{- include "ace-installer.selectorLabels" . | nindent 8 }}
     spec:
       serviceAccountName: {{ include "ace-installer.fullname" . }}-precheck
+      {{- if eq "true" ( include "distro.openshift" . ) }}
       securityContext:
-        {{- toYaml .Values.precheck.podSecurityContext | nindent 8 }}
+        {{- toYaml (omit .Values.podSecurityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 8 }}
+      {{- else }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:

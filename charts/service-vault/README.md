@@ -66,6 +66,8 @@ The following table lists the configurable parameters of the `service-vault` cha
 | infra.dns.auth             |                                         | <code>{}</code>                                                |
 | gateway-dns.enabled        |                                         | <code>false</code>                                             |
 | vaultServer.name           | Vault server name that exist on cluster | <code>"vault"</code>                                           |
+| distro.openshift           |                                         | <code>false</code>                                             |
+| distro.ubi                 |                                         | <code>""</code>                                                |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

@@ -1,3 +1,17 @@
+{{ $csc := printf `
+allowPrivilegeEscalation: false
+capabilities:
+  drop:
+    - ALL
+runAsGroup: 0
+runAsNonRoot: true
+runAsUser: %v
+seccompProfile:
+  type: RuntimeDefault
+`
+  .Values.securityContext.runAsUser
+  | fromYaml }}
+
 apiVersion: archiver.kubedb.com/v1alpha1
 kind: PostgresArchiver
 metadata:
@@ -29,15 +43,7 @@ spec:
         template:
           spec:
             containerSecurityContext:
-              allowPrivilegeEscalation: false
-              capabilities:
-                drop:
-                - ALL
-              runAsGroup: 0
-              runAsNonRoot: true
-              runAsUser: {{ .Values.securityContext.runAsUser }}
-              seccompProfile:
-                type: RuntimeDefault
+              {{- toYaml $csc | nindent 14 }}
             nodeSelector:
               kubernetes.io/os: linux
       schedule: {{ .Values.global.infra.kubestash.schedule }}
@@ -46,15 +52,7 @@ spec:
     jobTemplate:
       spec:
         containerSecurityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-          runAsGroup: 0
-          runAsNonRoot: true
-          runAsUser: {{ .Values.securityContext.runAsUser }}
-          seccompProfile:
-            type: RuntimeDefault
+          {{- toYaml $csc | nindent 10 }}
         nodeSelector:
           kubernetes.io/os: linux
   manifestBackup:
@@ -65,15 +63,7 @@ spec:
         template:
           spec:
             containerSecurityContext:
-              allowPrivilegeEscalation: false
-              capabilities:
-                drop:
-                  - ALL
-              runAsGroup: 0
-              runAsNonRoot: true
-              runAsUser: {{ .Values.securityContext.runAsUser }}
-              seccompProfile:
-                type: RuntimeDefault
+              {{- toYaml $csc | nindent 14 }}
             nodeSelector:
               kubernetes.io/os: linux
       schedule: {{ .Values.global.infra.kubestash.schedule }}
@@ -82,15 +72,7 @@ spec:
     jobTemplate:
       spec:
         containerSecurityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-              - ALL
-          runAsGroup: 0
-          runAsNonRoot: true
-          runAsUser: {{ .Values.securityContext.runAsUser }}
-          seccompProfile:
-            type: RuntimeDefault
+          {{- toYaml $csc | nindent 10 }}
         nodeSelector:
           kubernetes.io/os: linux
   backupStorage:

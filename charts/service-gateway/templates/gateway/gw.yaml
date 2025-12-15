@@ -49,8 +49,13 @@ spec:
         app: {{ include "tenant.name" . }}-gw-seed-backend
     spec:
       serviceAccountName: {{ include "tenant.name" . }}-gw-seed-backend
+      {{- if eq "true" ( include "distro.openshift" . ) }}
+      securityContext:
+        {{- toYaml (omit .Values.podSecurityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 8 }}
+      {{- else }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- end }}
       containers:
         - image: "{{ .Values.echoserver.image }}:{{ .Values.echoserver.tag }}"
           imagePullPolicy: IfNotPresent
@@ -66,8 +71,13 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
+          {{- if eq "true" ( include "distro.openshift" . ) }}
+          securityContext:
+            {{- toYaml (omit .Values.echoserver.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 12 }}
+          {{- else }}
           securityContext:
             {{- toYaml .Values.echoserver.securityContext | nindent 12 }}
+          {{- end }}
 
 ---
 apiVersion: gateway.networking.k8s.io/v1

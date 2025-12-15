@@ -86,3 +86,7 @@ settings:
     nats: ""
 
 loginURL: ""
+
+distro:
+  openshift: false
+  ubi: ""

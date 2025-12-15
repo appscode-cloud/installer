@@ -130,3 +130,7 @@ server:
     signingKey: ""
     # The key which is used to encrypt cookies, base64 encoded, optional. Valid lengths are 16, 24, or 32 bytes selecting AES-128, AES-192, or AES-256.
     encryptionKey: ""
+
+distro:
+  openshift: false
+  ubi: ""

@@ -125,3 +125,7 @@ affinity: {}
 args: []
 
 envVars: {}
+
+distro:
+  openshift: false
+  ubi: ""

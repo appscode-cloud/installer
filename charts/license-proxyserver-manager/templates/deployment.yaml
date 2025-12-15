@@ -57,8 +57,13 @@ spec:
                   fieldPath: metadata.namespace
             - name: NAMESPACE
               value: {{ include "license-proxyserver-manager.namespace" . }}
+          {{- if eq "true" ( include "distro.openshift" . ) }}
+          securityContext:
+            {{- toYaml (omit .Values.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 12 }}
+          {{- else }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
+          {{- end }}
           volumeMounts:
             - mountPath: /tmp
               name: cache-dir

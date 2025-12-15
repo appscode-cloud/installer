@@ -923,6 +923,20 @@ properties:
         - maxReplicas
         - minReplicas
         type: object
+      distro:
+        properties:
+          openshift:
+            type: boolean
+          ubi:
+            enum:
+            - all
+            - catalog
+            - operator
+            type: string
+        required:
+        - openshift
+        - ubi
+        type: object
       enabled:
         type: boolean
       fullnameOverride:
@@ -1290,6 +1304,20 @@ properties:
     type: object
   global:
     properties:
+      distro:
+        properties:
+          openshift:
+            type: boolean
+          ubi:
+            enum:
+            - all
+            - catalog
+            - operator
+            type: string
+        required:
+        - openshift
+        - ubi
+        type: object
       fullnameOverride:
         type: string
       imagePullSecrets:
@@ -1674,11 +1702,9 @@ properties:
             enum:
             - Hosted
             - SelfHostedProduction
-            - OpenShiftProduction
             - CloudDemo
             - OnpremDemo
             - KubeAppDemo
-            - OpenShiftDemo
             - AWSMarketplace
             - AzureMarketplace
             - GoogleCloudMarketplace
@@ -2194,6 +2220,20 @@ properties:
         - enabled
         - maxReplicas
         - minReplicas
+        type: object
+      distro:
+        properties:
+          openshift:
+            type: boolean
+          ubi:
+            enum:
+            - all
+            - catalog
+            - operator
+            type: string
+        required:
+        - openshift
+        - ubi
         type: object
       enabled:
         type: boolean
@@ -4494,6 +4534,20 @@ properties:
         - enabled
         - maxReplicas
         - minReplicas
+        type: object
+      distro:
+        properties:
+          openshift:
+            type: boolean
+          ubi:
+            enum:
+            - all
+            - catalog
+            - operator
+            type: string
+        required:
+        - openshift
+        - ubi
         type: object
       enabled:
         type: boolean
@@ -16004,6 +16058,20 @@ properties:
         - maxReplicas
         - minReplicas
         type: object
+      distro:
+        properties:
+          openshift:
+            type: boolean
+          ubi:
+            enum:
+            - all
+            - catalog
+            - operator
+            type: string
+        required:
+        - openshift
+        - ubi
+        type: object
       enabled:
         type: boolean
       env:
@@ -19503,6 +19571,20 @@ properties:
         - maxReplicas
         - minReplicas
         type: object
+      distro:
+        properties:
+          openshift:
+            type: boolean
+          ubi:
+            enum:
+            - all
+            - catalog
+            - operator
+            type: string
+        required:
+        - openshift
+        - ubi
+        type: object
       enabled:
         type: boolean
       env:
@@ -21271,6 +21353,20 @@ properties:
         - maxReplicas
         - minReplicas
         type: object
+      distro:
+        properties:
+          openshift:
+            type: boolean
+          ubi:
+            enum:
+            - all
+            - catalog
+            - operator
+            type: string
+        required:
+        - openshift
+        - ubi
+        type: object
       enabled:
         type: boolean
       fullnameOverride:
@@ -21309,11 +21405,9 @@ properties:
             enum:
             - Hosted
             - SelfHostedProduction
-            - OpenShiftProduction
             - CloudDemo
             - OnpremDemo
             - KubeAppDemo
-            - OpenShiftDemo
             - AWSMarketplace
             - AzureMarketplace
             - GoogleCloudMarketplace
@@ -22151,6 +22245,20 @@ properties:
                 type: array
                 x-kubernetes-list-type: atomic
             type: object
+        type: object
+      distro:
+        properties:
+          openshift:
+            type: boolean
+          ubi:
+            enum:
+            - all
+            - catalog
+            - operator
+            type: string
+        required:
+        - openshift
+        - ubi
         type: object
       enabled:
         type: boolean

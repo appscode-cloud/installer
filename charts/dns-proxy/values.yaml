@@ -110,3 +110,7 @@ cloudflare:
 
 auth:
   domain: ""
+
+distro:
+  openshift: false
+  ubi: ""

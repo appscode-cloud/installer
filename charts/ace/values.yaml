@@ -149,6 +149,10 @@ global:
           # cpu: 100m
           memory: 128Mi
 
+  distro:
+    openshift: false
+    ubi: ""
+
   infra:
     storageClass:
       name: "standard"

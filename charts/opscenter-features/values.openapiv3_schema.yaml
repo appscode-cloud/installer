@@ -33,6 +33,20 @@ properties:
     - name
     - uid
     type: object
+  distro:
+    properties:
+      openshift:
+        type: boolean
+      ubi:
+        enum:
+        - all
+        - catalog
+        - operator
+        type: string
+    required:
+    - openshift
+    - ubi
+    type: object
   fullnameOverride:
     type: string
   helm:

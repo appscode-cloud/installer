@@ -100,3 +100,7 @@ settings:
     nats: ""
     spreadsheet: ""
   spreadsheetCredentialMountPath: "/data/marketplace-credentials"
+
+distro:
+  openshift: false
+  ubi: ""

@@ -54,3 +54,7 @@ gateway-dns:
 vaultServer:
   # Vault server name that exist on cluster
   name: "vault"
+
+distro:
+  openshift: false
+  ubi: ""

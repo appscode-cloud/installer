@@ -108,3 +108,7 @@ helmrepo:
 platform:
   baseURL: ""
   caBundle: ""
+
+distro:
+  openshift: false
+  ubi: ""

@@ -108,13 +108,23 @@ Image Templates
 {{ list .Values.image.proxies.ghcr "appscode/kubectl-nonroot:1.31" | compact | join "/" }}
 {{- end }}
 
-{{- define "clustermanager.openshift" -}}
-{{- ternary "true" "false" (.Capabilities.APIVersions.Has "project.openshift.io/v1/Project") -}}
-{{- end }}
-
 {{/*
 Returns the registry used for app docker image
 */}}
 {{- define "precheck.image.registry" -}}
 {{- list .Values.image.proxies.ghcr .Values.precheck.image.registry | compact | join "/" }}
+{{- end }}
+
+{{/*
+Returns whether the OpenShift distribution is used
+*/}}
+{{- define "distro.openshift" -}}
+{{- or (.Capabilities.APIVersions.Has "project.openshift.io/v1/Project") (dig "distro" "openshift" false (default dict .Values.options)) -}}
+{{- end }}
+
+{{/*
+Returns if ubi images are to be used
+*/}}
+{{- define "operator.ubi" -}}
+{{ ternary "-ubi" "" (list "operator" "all" | has .Values.distro.ubi) }}
 {{- end }}

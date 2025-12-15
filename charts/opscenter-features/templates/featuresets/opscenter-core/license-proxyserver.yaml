@@ -19,7 +19,7 @@ spec:
   featureSet: opscenter-core
   featureBlock: license-proxyserver
   recommended: {{ not $.Values.offlineInstaller }}
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  {{- if eq (include "distro.openshift" $) "true" }}
   requirements:
     features:
       - aceshifter
@@ -45,7 +45,7 @@ spec:
       name: ace-licenseserver-cred
       valuesKey: license-proxyserver.yaml
       optional: true
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  {{- if eq (include "distro.openshift" $) "true" }}
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: license-proxyserver.yaml

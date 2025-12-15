@@ -23,7 +23,7 @@ spec:
       - name: postgres
         resources:
           {{- toYaml .Values.settings.db.resources | nindent 10 }}
-    {{- if eq (include "clustermanager.openshift" $) "true" }}
+    {{- if eq (include "distro.openshift" $) "true" }}
         securityContext:
           runAsGroup: {{ .Values.securityContext.runAsUser }}
           runAsUser: {{ .Values.securityContext.runAsUser }}
@@ -79,7 +79,7 @@ spec:
         resources:
           {{- toYaml . | nindent 10 }}
       {{- end }}
-      {{- if eq (include "clustermanager.openshift" $) "true" }}
+      {{- if eq (include "distro.openshift" $) "true" }}
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:

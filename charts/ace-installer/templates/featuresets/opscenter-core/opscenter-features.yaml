@@ -33,7 +33,7 @@ spec:
     crds: CreateReplace
     remediation:
       retries: -1
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  {{- if eq (include "distro.openshift" $) "true" }}
   dependsOn:
   - name: aceshifter
     namespace: {{ $.Release.Namespace }}

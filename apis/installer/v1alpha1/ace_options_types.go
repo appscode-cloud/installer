@@ -75,6 +75,8 @@ type AceOptionsSpec struct {
 	Branding             AceBrandingSpec                 `json:"branding"`
 	CloudProviderOptions CloudProviderOptions            `json:"cloudProviderOptions"`
 	InitialSetup         configapi.AceSetupInlineOptions `json:"initialSetup"`
+	// +optional
+	Distro shared.DistroSpec `json:"distro"`
 }
 
 func (a *AceOptionsSpec) IsOptionsComplete() bool {
@@ -373,18 +375,16 @@ type AceOptionsSMTPSettings struct {
 	SendAsPlainText bool `json:"sendAsPlainText"`
 }
 
-// +kubebuilder:validation:Enum=Hosted;SelfHostedProduction;OpenShiftProduction;CloudDemo;OnpremDemo;KubeAppDemo;OpenShiftDemo;AWSMarketplace;AzureMarketplace;GoogleCloudMarketplace
+// +kubebuilder:validation:Enum=Hosted;SelfHostedProduction;CloudDemo;OnpremDemo;KubeAppDemo;AWSMarketplace;AzureMarketplace;GoogleCloudMarketplace
 type DeploymentType string
 
 const (
 	HostedDeployment               DeploymentType = "Hosted"
 	SelfHostedProductionDeployment DeploymentType = "SelfHostedProduction"
-	OpenShiftProductionDeployment  DeploymentType = "OpenShiftProduction"
 
-	CloudDemoDeployment     DeploymentType = "CloudDemo"
-	OnpremDemoDeployment    DeploymentType = "OnpremDemo"
-	KubeAppDemoDeployment   DeploymentType = "KubeAppDemo"
-	OpenShiftDemoDeployment DeploymentType = "OpenShiftDemo"
+	CloudDemoDeployment   DeploymentType = "CloudDemo"
+	OnpremDemoDeployment  DeploymentType = "OnpremDemo"
+	KubeAppDemoDeployment DeploymentType = "KubeAppDemo"
 
 	AWSMarketplaceDeployment   DeploymentType = "AWSMarketplace"
 	AzureMarketplaceDeployment DeploymentType = "AzureMarketplace"
@@ -398,17 +398,11 @@ func (dt DeploymentType) Hosted() bool {
 func (dt DeploymentType) Demo() bool {
 	return dt == CloudDemoDeployment ||
 		dt == OnpremDemoDeployment ||
-		dt == KubeAppDemoDeployment ||
-		dt == OpenShiftDemoDeployment
+		dt == KubeAppDemoDeployment
 }
 
 func (dt DeploymentType) Onprem() bool {
 	return dt == OnpremDemoDeployment
-}
-
-func (dt DeploymentType) OpenShift() bool {
-	return dt == OpenShiftProductionDeployment ||
-		dt == OpenShiftDemoDeployment
 }
 
 func (dt DeploymentType) MarketplaceDeployment() bool {
