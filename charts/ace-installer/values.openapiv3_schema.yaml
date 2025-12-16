@@ -703,6 +703,7 @@ properties:
           exposeVia:
             enum:
             - LoadBalancer
+            - NodePort
             - ClusterIP
             - HostPort
             type: string
