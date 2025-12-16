@@ -72,25 +72,25 @@ helm:
     catalog-manager:
       version: "v2026.1.15"
     cert-manager:
-      version: "v1.18.2"
+      version: "v1.19.2"
     cert-manager-csi-driver-cacerts:
-      version: "v2025.10.31"
+      version: "v2026.1.15"
     cluster-autoscaler:
       version: "9.29.0"
     cluster-presets:
       version: "v2026.1.15"
     config-syncer:
-      version: "v0.15.2"
+      version: "v0.15.4"
     crossplane:
       version: "1.14.0"
     csi-driver-nfs:
       version: "v4.7.0"
     external-dns-operator:
-      version: "v2025.12.5"
+      version: "v2026.1.15"
     falco:
       version: "4.0.0"
     falco-ui-server:
-      version: "v2024.5.17"
+      version: "v2026.1.15"
     flux2:
       version: "2.17.0"
     gatekeeper:
@@ -102,7 +102,7 @@ helm:
     gateway-api:
       version: "v2025.3.14"
     grafana-operator:
-      version: "v2025.6.30"
+      version: "v2026.1.15"
     keda:
       version: "2.17.2"
     keda-add-ons-http:
@@ -128,23 +128,23 @@ helm:
     kubestash:
       version: "v2026.1.19"
     kubevault:
-      version: "v2025.5.30"
+      version: "v2025.11.21"
     kubevault-opscenter:
-      version: "v2025.2.10"
+      version: "v2025.11.21"
     kyverno:
       version: "3.2.6"
     kyverno-policies:
       version: "3.2.5"
     license-proxyserver:
-      version: "v2025.5.16"
+      version: "v2026.1.15"
     longhorn:
       version: "1.7.2"
     metrics-server:
       version: "3.11.0"
     monitoring-operator:
-      version: "v2025.6.30"
+      version: "v2026.1.15"
     operator-shard-manager:
-      version: "v2025.3.14"
+      version: "v2026.1.15"
     opencost:
       version: "1.18.1"
     opencost-grafana-dashboards:
@@ -152,7 +152,7 @@ helm:
     opscenter-features:
       version: "v2026.1.15"
     panopticon:
-      version: "v2025.6.30"
+      version: "v2026.1.15"
     prepare-cluster:
       version: "v2023.12.21"
     prometheus-adapter:
@@ -160,7 +160,7 @@ helm:
     reloader:
       version: "1.0.79"
     scanner:
-      version: "v2024.9.30"
+      version: "v2026.1.15"
     service-backend:
       version: "v2026.1.15"
     service-gateway:
@@ -170,7 +170,7 @@ helm:
     service-provider:
       version: "v2026.1.15"
     sidekick:
-      version: "v2025.3.14"
+      version: "v2026.1.15"
     snapshot-controller:
       version: "3.0.6"
     stash:
@@ -180,11 +180,11 @@ helm:
     stash-presets:
       version: "v2026.1.15"
     supervisor:
-      version: "v2025.7.31"
+      version: "v2026.1.15"
     topolvm:
       version: "15.0.0"
     voyager:
-      version: "v2024.8.30"
+      version: "v2025.9.19"
     voyager-gateway:
       version: "v2025.10.24"
     # secret management
@@ -234,7 +234,7 @@ helm:
     fluxcd-manager:
       version: "v2025.7.31"
     license-proxyserver-manager:
-      version: "v2025.5.16"
+      version: "v2026.1.15"
     inbox-server:
       version: "v2025.2.28"
     inbox-agent:

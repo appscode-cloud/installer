@@ -11,6 +11,10 @@ helmrepo:
 {{ $vals := dig "catalog-manager" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $defaults $vals }}
 
+{{- if eq (include "distro.openshift" $) "true" }}
+{{ $vals = mergeOverwrite $vals (dict "distro" .Values.distro) }}
+{{- end }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
@@ -53,11 +57,6 @@ spec:
       name: ace-features-cred
       valuesKey: catalog-manager.yaml
       optional: true
-  {{- if eq (include "distro.openshift" $) "true" }}
-    - kind: ConfigMap
-      name: ace-openshift-scc
-      valuesKey: catalog-manager.yaml
-  {{- end }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
