@@ -39,4 +39,4 @@ dependencies:
   repository: file://../platform-opscenter
   version: v2026.1.15
 digest: sha256:8dfd9a21662cfe9d53acf61fd7379b1d405a9c7b8583f36aef2e20caf03b413b
-generated: "2026-01-03T17:36:02.296879181Z"
+generated: "2026-01-05T14:26:30.399171+06:00"

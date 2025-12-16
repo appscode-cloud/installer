@@ -6,6 +6,10 @@
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $defaults $vals }}
 
+{{- if eq (include "distro.openshift" $) "true" }}
+{{ $vals = mergeOverwrite $vals (dict "distro" .Values.options.distro) }}
+{{- end }}
+
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -38,13 +42,6 @@ spec:
         kind: HelmRepository
         name: bootstrap
         namespace: {{ $.Release.Namespace }}
-  valuesFrom:
-  {{- if eq (include "distro.openshift" $) "true" }}
-    - kind: ConfigMap
-      name: ace-openshift-scc
-      valuesKey: aceshifter.yaml
-      optional: true
-  {{- end }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
