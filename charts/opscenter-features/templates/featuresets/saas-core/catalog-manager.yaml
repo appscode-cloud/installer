@@ -53,7 +53,7 @@ spec:
       name: ace-features-cred
       valuesKey: catalog-manager.yaml
       optional: true
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  {{- if eq (include "distro.openshift" $) "true" }}
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: catalog-manager.yaml

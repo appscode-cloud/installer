@@ -63,3 +63,17 @@ The domain name used for the gateway.
 {{- define "gateway.domain" -}}
 {{- ternary (printf "%s.%s" (trimSuffix "-gw" .Release.Namespace) .Values.infra.host) (printf "gw-%s.%s" (required "A valid .Values.clusterMetadata.name entry required!" .Values.clusterMetadata.name) .Values.infra.host) (hasSuffix "-gw" .Release.Namespace) }}
 {{- end }}
+
+{{/*
+Returns whether the OpenShift distribution is used
+*/}}
+{{- define "distro.openshift" -}}
+{{- or (.Capabilities.APIVersions.Has "project.openshift.io/v1/Project") .Values.distro.openshift -}}
+{{- end }}
+
+{{/*
+Returns if ubi images are to be used
+*/}}
+{{- define "operator.ubi" -}}
+{{ ternary "-ubi" "" (list "operator" "all" | has .Values.distro.ubi) }}
+{{- end }}

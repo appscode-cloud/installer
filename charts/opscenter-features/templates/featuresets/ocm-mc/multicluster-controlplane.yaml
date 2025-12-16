@@ -67,7 +67,7 @@ spec:
     - kind: Secret
       name: multicluster-ingress-values
       valuesKey: mc.yaml
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  {{- if eq (include "distro.openshift" $) "true" }}
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: multicluster-controlplane.yaml

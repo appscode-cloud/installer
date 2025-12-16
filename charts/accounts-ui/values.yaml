@@ -112,3 +112,7 @@ settings:
     grafanaConfig: ""
     objstore: ""
     nats: ""
+
+distro:
+  openshift: false
+  ubi: ""

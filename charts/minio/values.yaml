@@ -86,3 +86,7 @@ minio:
       kind: ""
     secret:
       name: ""
+
+distro:
+  openshift: false
+  ubi: ""

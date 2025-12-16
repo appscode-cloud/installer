@@ -133,3 +133,7 @@ hubKubeconfigSecretName: ""
 
 # We need to pass the cluster name because the OCM-MC host cluster doesn't have Klusterlet object.
 clusterName: ""
+
+distro:
+  openshift: false
+  ubi: ""

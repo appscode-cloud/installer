@@ -1,5 +1,5 @@
 {{- with (index .Values "helm" "releases" "aceshifter") }}
-{{- if and .enabled (eq (include "clustermanager.openshift" $) "true") }}
+{{- if and .enabled (eq (include "distro.openshift" $) "true") }}
 
 {{ $defaults := dict "registryFQDN" (include "registry.ghcr" $) }}
 
@@ -39,7 +39,7 @@ spec:
         name: bootstrap
         namespace: {{ $.Release.Namespace }}
   valuesFrom:
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  {{- if eq (include "distro.openshift" $) "true" }}
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: aceshifter.yaml

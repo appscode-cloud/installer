@@ -33,8 +33,13 @@ spec:
       {{- include "appscode.imagePullSecrets" . | nindent 6 }}
       containers:
       - name: minio
+        {{- if eq "true" ( include "distro.openshift" . ) }}
+        securityContext:
+          {{- toYaml (omit .Values.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 10 }}
+        {{- else }}
         securityContext:
           {{- toYaml .Values.securityContext | nindent 10 }}
+        {{- end }}
         image: "{{ include "minio.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         {{- if .Values.minio.tls.mount }}
@@ -77,8 +82,13 @@ spec:
           - key: tls.key
             path: private.key
       {{- end }}
+      {{- if eq "true" ( include "distro.openshift" . ) }}
+      securityContext:
+        {{- toYaml (omit .Values.podSecurityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 8 }}
+      {{- else }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- end }}
     {{- if or .Values.tolerations $criticalAddon }}
       tolerations:
       {{- with .Values.tolerations }}

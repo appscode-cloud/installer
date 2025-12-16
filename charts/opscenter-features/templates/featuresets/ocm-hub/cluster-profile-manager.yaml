@@ -58,7 +58,7 @@ spec:
       name: ace-features-cred
       valuesKey: cluster-profile-manager.yaml
       optional: true
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  {{- if eq (include "distro.openshift" $) "true" }}
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: cluster-profile-manager.yaml

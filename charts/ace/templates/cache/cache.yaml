@@ -21,7 +21,7 @@ spec:
       - name: redis
         resources:
           {{- toYaml .Values.settings.cache.resources | nindent 10 }}
-    {{- if eq (include "clustermanager.openshift" $) "true" }}
+    {{- if eq (include "distro.openshift" $) "true" }}
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
@@ -62,7 +62,7 @@ spec:
         resources:
           {{- toYaml . | nindent 10 }}
       {{- end }}
-      {{- if eq (include "clustermanager.openshift" $) "true" }}
+      {{- if eq (include "distro.openshift" $) "true" }}
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:

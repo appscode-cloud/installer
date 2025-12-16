@@ -56,3 +56,17 @@ Addon manager namespace
 {{- define "license-proxyserver-manager.namespace" -}}
 {{ ternary .Release.Namespace (required "A valid .Values.addonManagerNamespace is required!" .Values.addonManagerNamespace) (empty .Values.kubeconfigSecretName) }}
 {{- end }}
+
+{{/*
+Returns whether the OpenShift distribution is used
+*/}}
+{{- define "distro.openshift" -}}
+{{- or (.Capabilities.APIVersions.Has "project.openshift.io/v1/Project") .Values.distro.openshift -}}
+{{- end }}
+
+{{/*
+Returns if ubi images are to be used
+*/}}
+{{- define "operator.ubi" -}}
+{{ ternary "-ubi" "" (list "operator" "all" | has .Values.distro.ubi) }}
+{{- end }}

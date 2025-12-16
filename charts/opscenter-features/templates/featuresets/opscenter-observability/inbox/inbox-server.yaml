@@ -48,7 +48,7 @@ spec:
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
   valuesFrom:
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  {{- if eq (include "distro.openshift" $) "true" }}
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: inbox-server.yaml

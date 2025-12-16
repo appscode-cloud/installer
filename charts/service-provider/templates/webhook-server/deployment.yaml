@@ -40,8 +40,13 @@ spec:
       - name: webhook-server
         image: "{{ include "operator.registry" . }}/{{ .Values.operator.repository }}:{{ .Values.operator.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.imagePullPolicy }}
+        {{- if eq "true" ( include "distro.openshift" . ) }}
+        securityContext:
+          {{- toYaml (omit .Values.operator.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 10 }}
+        {{- else }}
         securityContext:
           {{- toYaml .Values.operator.securityContext | nindent 10 }}
+        {{- end }}
         args:
           - webhook
           - --webhook-name={{ include "service-provider.fullname" . }}
@@ -80,8 +85,13 @@ spec:
           readOnly: true
       - name: kube-rbac-proxy
         image: "{{ include "rbacproxy.registry" . }}/{{ .Values.rbacproxy.repository }}:{{ .Values.rbacproxy.tag }}"
+        {{- if eq "true" ( include "distro.openshift" . ) }}
+        securityContext:
+          {{- toYaml (omit .Values.rbacproxy.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 10 }}
+        {{- else }}
         securityContext:
           {{- toYaml .Values.rbacproxy.securityContext | nindent 10 }}
+        {{- end }}
         args:
         - --secure-listen-address=0.0.0.0:8443
         - --upstream=http://127.0.0.1:8080/
@@ -98,8 +108,13 @@ spec:
         secret:
           defaultMode: 420
           secretName: {{ include "service-provider.fullname" . }}-webhook-cert
+      {{- if eq "true" ( include "distro.openshift" . ) }}
+      securityContext:
+        {{- toYaml (omit .Values.podSecurityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 8 }}
+      {{- else }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- end }}
     {{- if or .Values.tolerations $criticalAddon }}
       tolerations:
       {{- with .Values.tolerations }}

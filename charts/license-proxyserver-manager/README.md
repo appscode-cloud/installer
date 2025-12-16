@@ -71,6 +71,8 @@ The following table lists the configurable parameters of the `license-proxyserve
 | securityContext.seccompProfile.type      |                                                                     | <code>RuntimeDefault</code>                              |
 | envFrom                                  | List of sources to populate environment variables in the container  | <code>[]</code>                                          |
 | env                                      | List of environment variables to set in the container               | <code>[]</code>                                          |
+| distro.openshift                         |                                                                     | <code>false</code>                                       |
+| distro.ubi                               |                                                                     | <code>""</code>                                          |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

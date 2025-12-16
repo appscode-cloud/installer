@@ -87,3 +87,7 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+distro:
+  openshift: false
+  ubi: ""

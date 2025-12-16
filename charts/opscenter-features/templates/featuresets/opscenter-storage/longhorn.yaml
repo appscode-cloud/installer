@@ -63,7 +63,7 @@ spec:
   featureSet: opscenter-storage
   featureBlock: longhorn
   recommended: false
-  disabled: {{ eq (include "clustermanager.rancher" $) "true" }}
+  disabled: {{ eq (include "distro.rancher" $) "true" }}
   readinessChecks:
     workloads:
       - group: apps
@@ -106,7 +106,7 @@ spec:
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
   valuesFrom:
-  {{- if eq (include "clustermanager.openshift" $) "true" }}
+  {{- if eq (include "distro.openshift" $) "true" }}
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: longhorn.yaml

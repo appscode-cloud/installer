@@ -14,10 +14,10 @@ require (
 	kmodules.xyz/client-go v0.32.11
 	kmodules.xyz/image-packer v0.0.0-20251214190145-a9cf080f45e8
 	kmodules.xyz/objectstore-api v0.32.2
-	kmodules.xyz/resource-metadata v0.40.0
+	kmodules.xyz/resource-metadata v0.40.1
 	kmodules.xyz/schema-checker v0.4.2
 	kubeops.dev/external-dns-operator v0.0.9
-	kubeops.dev/installer v0.0.0-20251210132401-bd1605a948e2
+	kubeops.dev/installer v0.0.0-20251215120607-2679d0cb5864
 	sigs.k8s.io/kustomize/kyaml v0.18.1
 	sigs.k8s.io/yaml v1.4.0
 )

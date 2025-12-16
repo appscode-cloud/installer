@@ -26,16 +26,26 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ include "appscode.serviceAccountName" . }}
+      {{- if eq "true" ( include "distro.openshift" . ) }}
+      securityContext:
+        {{- toYaml (omit .Values.podSecurityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 8 }}
+      {{- else }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
+          {{- if eq "true" ( include "distro.openshift" . ) }}
           securityContext:
-          {{- if .Values.smtp.tls.enable }}
-            {{- $_ := set .Values.securityContext "runAsUser" 0 }}
-            {{- $_ := set .Values.securityContext "runAsGroup" 0 }}
-          {{- end }}
+            {{- toYaml (omit .Values.image.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 12 }}
+          {{- else }}
+          securityContext:
+            {{- if .Values.smtp.tls.enable }}
+              {{- $_ := set .Values.securityContext "runAsUser" 0 }}
+              {{- $_ := set .Values.securityContext "runAsGroup" 0 }}
+            {{- end }}
             {{- toYaml .Values.securityContext | nindent 12 }}
+          {{- end }}
           image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:

@@ -135,3 +135,7 @@ vaultServer:
   name: "vault"
   # Vault server namespace that exist on cluster
   namespace: "ace"
+
+distro:
+  openshift: false
+  ubi: ""

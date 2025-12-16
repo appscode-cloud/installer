@@ -117,3 +117,7 @@ smtp:
       name: ""
   auth:
     domain: ""
+
+distro:
+  openshift: false
+  ubi: ""

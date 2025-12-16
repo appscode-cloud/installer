@@ -69,3 +69,7 @@ platform:
   tokenSecretName: ""
   caBundle: ""
   insecureSkipTLSVerify: false
+
+distro:
+  openshift: false
+  ubi: ""

@@ -85,6 +85,8 @@ The following table lists the configurable parameters of the `offline-license-se
 | affinity                                   |                                                                                                                                                                                                  | <code>{}</code>                                      |
 | args                                       |                                                                                                                                                                                                  | <code>[]</code>                                      |
 | envVars                                    |                                                                                                                                                                                                  | <code>{}</code>                                      |
+| distro.openshift                           |                                                                                                                                                                                                  | <code>false</code>                                   |
+| distro.ubi                                 |                                                                                                                                                                                                  | <code>""</code>                                      |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

@@ -28,15 +28,21 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ include "offline-license-server.serviceAccountName" . }}
-      {{- with .Values.podSecurityContext }}
+      {{- if eq "true" ( include "distro.openshift" . ) }}
       securityContext:
-        {{- toYaml . | nindent 8 }}
+        {{- toYaml (omit .Values.podSecurityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 8 }}
+      {{- else }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}
-          {{- with .Values.securityContext }}
+          {{- if eq "true" ( include "distro.openshift" . ) }}
           securityContext:
-            {{- toYaml . | nindent 12 }}
+            {{- toYaml (omit .Values.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 12 }}
+          {{- else }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
           {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
@@ -96,8 +102,13 @@ spec:
           {{- end }}
       initContainers:
         - name: maxmind-mmdb
+          {{- if eq "true" ( include "distro.openshift" . ) }}
+          securityContext:
+            {{- toYaml (omit .Values.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 12 }}
+          {{- else }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
+          {{- end }}
           image: "{{ .Values.geoipdb.repository }}:{{ .Values.geoipdb.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.geoipdb.pullPolicy }}
           command: [ "sh", "-c", "cp /GeoLite2-City.mmdb /root/maxmind/GeoLite2-City.mmdb" ]

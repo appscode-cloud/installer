@@ -70,6 +70,8 @@ The following table lists the configurable parameters of the `cluster-importer` 
 | platform.tokenSecretName       |                                                                                                                                      | <code>""</code>                                                                                                                                |
 | platform.caBundle              |                                                                                                                                      | <code>""</code>                                                                                                                                |
 | platform.insecureSkipTLSVerify |                                                                                                                                      | <code>false</code>                                                                                                                             |
+| distro.openshift               |                                                                                                                                      | <code>false</code>                                                                                                                             |
+| distro.ubi                     |                                                                                                                                      | <code>""</code>                                                                                                                                |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

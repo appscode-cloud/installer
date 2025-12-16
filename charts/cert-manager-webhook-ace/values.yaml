@@ -74,3 +74,7 @@ tolerations: []
 
 # Node affinity for pod assignment
 affinity: {}
+
+distro:
+  openshift: false
+  ubi: ""

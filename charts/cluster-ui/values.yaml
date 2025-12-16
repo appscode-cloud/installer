@@ -71,3 +71,7 @@ tolerations: []
 affinity: {}
 
 loginURL: ""
+
+distro:
+  openshift: false
+  ubi: ""
