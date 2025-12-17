@@ -1,0 +1,93 @@
+{{ if (index .Values "setupJob" "config" "selfManagement" "useGateway") }}
+
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ include "ace.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  parentRefs:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: {{ include "ace.fullname" . }}
+    namespace: {{ .Release.Namespace }}
+    sectionName: https
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /api
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ include "ace.fullname" . }}-platform-api
+      namespace: {{ .Release.Namespace }}
+      port: 80
+      weight: 1
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /accounts
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ include "ace.fullname" . }}-platform-api
+      namespace: {{ .Release.Namespace }}
+      port: 80
+      weight: 1
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /console
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ include "ace.fullname" . }}-cluster-ui
+      namespace: {{ .Release.Namespace }}
+      port: 80
+      weight: 1
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /db
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ include "ace.fullname" . }}-kubedb-ui
+      namespace: {{ .Release.Namespace }}
+      port: 80
+      weight: 1
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /id
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ include "ace.fullname" . }}-platform-ui
+      namespace: {{ .Release.Namespace }}
+      port: 80
+      weight: 1
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /grafana
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ include "ace.fullname" . }}-grafana
+      namespace: {{ .Release.Namespace }}
+      port: 80
+      weight: 1
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /prometheus
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ include "ace.fullname" . }}-trickster
+      namespace: {{ .Release.Namespace }}
+      port: 4000
+      weight: 1
+{{- end }}
