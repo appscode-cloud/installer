@@ -1091,6 +1091,8 @@ properties:
                 type: boolean
               kubeAPIServer:
                 type: string
+              useGateway:
+                type: boolean
             type: object
           subscription:
             properties:
@@ -2593,6 +2595,8 @@ properties:
         items:
           type: string
         type: array
+      useGateway:
+        type: boolean
     type: object
 required:
 - fullnameOverride

@@ -1,0 +1,53 @@
+{{- with (index .Values "helm" "releases" "service-gateway-presets") }}
+{{- if .enabled }}
+
+{{ $defaults := dict "registryFQDN" (include "registry.ghcr" $) }}
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: service-gateway-presets
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: service-gateway-presets
+    app.kubernetes.io/part-of: saas-core
+spec:
+  interval: 5m
+  timeout: 30m
+  releaseName: service-gateway-presets
+  targetNamespace: ace-gw
+  storageNamespace: ace-gw
+  install:
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
+  dependsOn:
+  - name: catalog-manager
+    namespace: {{ $.Release.Namespace }}
+  {{- if (dig "cert-manager" "enabled" false $.Values.helm.releases) }}
+  - name: cert-manager
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
+  chart:
+    spec:
+      chart: service-gateway-presets
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: appscode-charts-oci
+        namespace: {{ $.Release.Namespace }}
+
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}
