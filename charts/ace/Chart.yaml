@@ -60,3 +60,8 @@ dependencies:
   repository: file://../outbox-syncer
   condition: outbox-syncer.enabled
   version: v2025.9.30
+- name: perses
+  repository: oci://ghcr.io/appscode-charts
+  condition: perses.enabled
+  version: 0.17.1
+

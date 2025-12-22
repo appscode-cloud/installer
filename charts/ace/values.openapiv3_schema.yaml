@@ -17238,6 +17238,152 @@ properties:
     - volumeMounts
     - volumes
     type: object
+  perses:
+    properties:
+      config:
+        properties:
+          api_prefix:
+            type: string
+          database:
+            properties:
+              sql:
+                properties:
+                  addr:
+                    type: string
+                  allow_native_passwords:
+                    type: boolean
+                  db_name:
+                    type: string
+                  password:
+                    type: string
+                  user:
+                    type: string
+                type: object
+            type: object
+          security:
+            properties:
+              authentication:
+                properties:
+                  providers:
+                    properties:
+                      enable_native:
+                        type: boolean
+                    type: object
+                type: object
+              authorization:
+                properties:
+                  guest_permissions:
+                    items:
+                      properties:
+                        actions:
+                          items:
+                            type: string
+                          type: array
+                        scopes:
+                          items:
+                            type: string
+                          type: array
+                      type: object
+                    type: array
+                type: object
+              enable_auth:
+                type: boolean
+              encryption_key:
+                type: string
+            type: object
+        type: object
+      enabled:
+        type: boolean
+      env:
+        items:
+          properties:
+            name:
+              type: string
+            value:
+              type: string
+            valueFrom:
+              properties:
+                configMapKeyRef:
+                  properties:
+                    key:
+                      type: string
+                    name:
+                      default: ''
+                      type: string
+                    optional:
+                      type: boolean
+                  required:
+                  - key
+                  type: object
+                  x-kubernetes-map-type: atomic
+                fieldRef:
+                  properties:
+                    apiVersion:
+                      type: string
+                    fieldPath:
+                      type: string
+                  required:
+                  - fieldPath
+                  type: object
+                  x-kubernetes-map-type: atomic
+                resourceFieldRef:
+                  properties:
+                    containerName:
+                      type: string
+                    divisor:
+                      anyOf:
+                      - type: integer
+                      - type: string
+                      pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                      x-kubernetes-int-or-string: true
+                    resource:
+                      type: string
+                  required:
+                  - resource
+                  type: object
+                  x-kubernetes-map-type: atomic
+                secretKeyRef:
+                  properties:
+                    key:
+                      type: string
+                    name:
+                      default: ''
+                      type: string
+                    optional:
+                      type: boolean
+                  required:
+                  - key
+                  type: object
+                  x-kubernetes-map-type: atomic
+              type: object
+          required:
+          - name
+          type: object
+        type: array
+      image:
+        properties:
+          name:
+            type: string
+          pullPolicy:
+            type: string
+          version:
+            type: string
+        required:
+        - name
+        - pullPolicy
+        - version
+        type: object
+      podAnnotations:
+        additionalProperties:
+          type: string
+        type: object
+    required:
+    - config
+    - enabled
+    - env
+    - image
+    - podAnnotations
+    type: object
   pgoutbox:
     properties:
       affinity:
@@ -22853,6 +22999,13 @@ properties:
         - apiURL
         - preSharedKey
         type: object
+      perses:
+        properties:
+          encryptionKey:
+            type: string
+        required:
+        - encryptionKey
+        type: object
       platform:
         properties:
           appName:
@@ -22989,6 +23142,7 @@ properties:
     - inboxServer
     - nats
     - openfga
+    - perses
     - platform
     - security
     - smtp
@@ -25697,6 +25851,7 @@ required:
 - nats-dns
 - openfga
 - outbox-syncer
+- perses
 - pgoutbox
 - platform-api
 - platform-ui

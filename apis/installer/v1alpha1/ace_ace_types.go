@@ -54,6 +54,7 @@ type AceSpec struct {
 	PlatformUi   AcePlatformUi   `json:"platform-ui"`
 	ClusterUi    AceClusterUi    `json:"cluster-ui"`
 	Grafana      AceGrafana      `json:"grafana"`
+	Perses       AcePerses       `json:"perses"`
 	KubedbUi     AceKubedbUi     `json:"kubedb-ui"`
 	PlatformApi  AcePlatformApi  `json:"platform-api"`
 	IngressNginx AceIngressNginx `json:"ingress-nginx"`
@@ -119,6 +120,11 @@ type AceClusterUi struct {
 type AceGrafana struct {
 	Enabled      bool `json:"enabled"`
 	*GrafanaSpec `json:",inline,omitempty"`
+}
+
+type AcePerses struct {
+	Enabled     bool `json:"enabled"`
+	*PersesSpec `json:",inline,omitempty"`
 }
 
 type AceKubedbUi struct {
@@ -236,6 +242,61 @@ type KubeStashSpec struct {
 	StorageSecret    wizardsapi.OptionalResource `json:"storageSecret"`
 }
 
+type PersesSpec struct {
+	Config         PersesConfig      `json:"config"`
+	Env            []core.EnvVar     `json:"env"`
+	ImageRef       PersesImageRef    `json:"image"`
+	PodAnnotations map[string]string `json:"podAnnotations"`
+}
+
+type PersesImageRef struct {
+	Name       string `json:"name"`
+	Version    string `json:"version"`
+	PullPolicy string `json:"pullPolicy"`
+}
+
+type PersesConfig struct {
+	APIPrefix string         `json:"api_prefix,omitempty"`
+	Security  SecurityConfig `json:"security,omitempty"`
+	Database  DatabaseConfig `json:"database,omitempty"`
+}
+
+type SecurityConfig struct {
+	EnableAuth     bool                 `json:"enable_auth,omitempty"`
+	EncryptionKey  string               `json:"encryption_key,omitempty"`
+	Authentication AuthenticationConfig `json:"authentication,omitempty"`
+	Authorization  AuthorizationConfig  `json:"authorization,omitempty"`
+}
+
+type AuthenticationConfig struct {
+	Providers AuthProviders `json:"providers,omitempty"`
+}
+
+type AuthProviders struct {
+	EnableNative bool `json:"enable_native,omitempty"`
+}
+
+type AuthorizationConfig struct {
+	GuestPermissions []Permission `json:"guest_permissions,omitempty"`
+}
+
+type Permission struct {
+	Actions []string `json:"actions,omitempty"`
+	Scopes  []string `json:"scopes,omitempty"`
+}
+
+type DatabaseConfig struct {
+	SQL SQLConfig `json:"sql,omitempty"`
+}
+
+type SQLConfig struct {
+	User                 string `json:"user,omitempty"`
+	Password             string `json:"password,omitempty"`
+	Address              string `json:"addr,omitempty"`
+	DBName               string `json:"db_name,omitempty"`
+	AllowNativePasswords bool   `json:"allow_native_passwords,omitempty"`
+}
+
 type InfraDns struct {
 	catgwapi.GatewayDns `json:",inline,omitempty"`
 	// +optional
@@ -300,6 +361,7 @@ type Settings struct {
 	Platform    PlatformSettings    `json:"platform"`
 	Security    SecuritySettings    `json:"security"`
 	Grafana     GrafanaSettings     `json:"grafana"`
+	Perses      PersesSettings      `json:"perses"`
 	InboxServer InboxServerSettings `json:"inboxServer"`
 	Contract    ContractStorage     `json:"contract"`
 	Firebase    FirebaseSettings    `json:"firebase"`
@@ -408,6 +470,10 @@ type GrafanaSettings struct {
 	AppMode string `json:"appMode"`
 	// +optional
 	SecretKey string `json:"secretKey"`
+}
+
+type PersesSettings struct {
+	EncryptionKey string `json:"encryptionKey"`
 }
 
 type InboxServerSettings struct {

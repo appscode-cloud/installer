@@ -11,6 +11,9 @@ cluster-ui:
 grafana:
   enabled: false
 
+perses:
+  enabled: false
+
 kubedb-ui:
   enabled: false
 

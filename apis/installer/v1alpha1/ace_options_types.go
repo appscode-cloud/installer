@@ -63,6 +63,7 @@ type AceOptionsSpec struct {
 	PlatformUi           AceOptionsComponentSpec         `json:"platform-ui"`
 	ClusterUi            AceOptionsComponentSpec         `json:"cluster-ui"`
 	Grafana              AceOptionsComponentSpec         `json:"grafana"`
+	Perses               AceOptionsComponentSpec         `json:"perses"`
 	KubedbUi             AceOptionsComponentSpec         `json:"kubedb-ui"`
 	PlatformApi          AceOptionsComponentSpec         `json:"platform-api"`
 	Ingress              AceOptionsIngressNginx          `json:"ingress"`
@@ -486,9 +487,11 @@ type GeneratedValues struct {
 	// +optional
 	JKSPassword string `json:"jksPassword"`
 	// +optional
-	GrafanaSecretKey string              `json:"grafanaSecretKey"`
-	InboxServer      InboxServerValues   `json:"inboxServer"`
-	OpenFGAServer    OpenFGAServerValues `json:"openfga"`
+	GrafanaSecretKey string `json:"grafanaSecretKey"`
+	// +optional
+	PersesEncryptionKey string              `json:"persesEncryptionKey"`
+	InboxServer         InboxServerValues   `json:"inboxServer"`
+	OpenFGAServer       OpenFGAServerValues `json:"openfga"`
 	// InstallerSecret used by hosted mode (prod and ninja)
 	// to generate and validate marketplace self-hosted installer options
 	// +optional
