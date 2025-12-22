@@ -71,7 +71,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.createNamespace                                                       |                                 | <code>true</code>                                    |
 | helm.repositories.appscode-charts-oci.url                                  |                                 | <code>oci://ghcr.io/appscode-charts</code>           |
 | helm.releases.aceshifter.version                                           |                                 | <code>"v2026.4.30"</code>                            |
-| helm.releases.appscode-otel-stack.version                                  |                                 | <code>"v2025.2.28"</code>                            |
+| helm.releases.appscode-otel-stack.version                                  |                                 | <code>"v2026.4.30"</code>                            |
 | helm.releases.aws-credential-manager.version                               |                                 | <code>"v2026.1.20"</code>                            |
 | helm.releases.azure-credential-manager.version                             |                                 | <code>"v2026.4.16"</code>                            |
 | helm.releases.gcp-credential-manager.version                               |                                 | <code>"v2026.3.11"</code>                            |
@@ -135,6 +135,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.panopticon.version                                           |                                 | <code>"v2026.1.15"</code>                            |
 | helm.releases.prepare-cluster.version                                      |                                 | <code>"v2023.12.21"</code>                           |
 | helm.releases.prometheus-adapter.version                                   |                                 | <code>"4.9.0"</code>                                 |
+| helm.releases.prom-label-proxy.version                                     |                                 | <code>"v2026.4.30"</code>                            |
 | helm.releases.reloader.version                                             |                                 | <code>"2.2.9"</code>                                 |
 | helm.releases.scanner.version                                              |                                 | <code>"v2026.1.15"</code>                            |
 | helm.releases.service-backend.version                                      |                                 | <code>"v2026.4.30"</code>                            |
@@ -147,6 +148,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.stash-opscenter.version                                      |                                 | <code>"v2025.7.31"</code>                            |
 | helm.releases.stash-presets.version                                        |                                 | <code>"v2026.4.30"</code>                            |
 | helm.releases.supervisor.version                                           |                                 | <code>"v2026.1.15"</code>                            |
+| helm.releases.tenant-operator.version                                      |                                 | <code>"v2026.4.30"</code>                            |
+| helm.releases.thanos-operator.version                                      |                                 | <code>"v2026.4.30"</code>                            |
 | helm.releases.topolvm.version                                              |                                 | <code>"15.0.0"</code>                                |
 | helm.releases.voyager.version                                              |                                 | <code>"v2026.3.23"</code>                            |
 | helm.releases.voyager-gateway.version                                      |                                 | <code>"v2026.1.15"</code>                            |
