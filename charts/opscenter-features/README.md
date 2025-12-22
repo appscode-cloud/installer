@@ -71,7 +71,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.createNamespace                                                    |                                 | <code>true</code>                          |
 | helm.repositories.appscode-charts-oci.url                               |                                 | <code>oci://ghcr.io/appscode-charts</code> |
 | helm.releases.aceshifter.version                                        |                                 | <code>"v2026.6.12"</code>                  |
-| helm.releases.appscode-otel-stack.version                               |                                 | <code>"v2025.2.28"</code>                  |
+| helm.releases.appscode-otel-stack.version                               |                                 | <code>"v2026.6.2"</code>                   |
 | helm.releases.aws-credential-manager.version                            |                                 | <code>"v2026.1.20"</code>                  |
 | helm.releases.azure-credential-manager.version                          |                                 | <code>"v2026.4.16"</code>                  |
 | helm.releases.gcp-credential-manager.version                            |                                 | <code>"v2026.3.11"</code>                  |
@@ -96,15 +96,15 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.gatekeeper-grafana-dashboards.version                     |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.gatekeeper-library.version                                |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.gateway-api.version                                       |                                 | <code>"v2025.3.14"</code>                  |
-| helm.releases.grafana-operator.version                                  |                                 | <code>"v2026.3.30"</code>                  |
+| helm.releases.grafana-operator.version                                  |                                 | <code>"v2026.6.12"</code>                  |
 | helm.releases.keda.version                                              |                                 | <code>"2.19.0"</code>                      |
 | helm.releases.keda-add-ons-http.version                                 |                                 | <code>"0.12.0"</code>                      |
 | helm.releases.kube-grafana-dashboards.version                           |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.kube-prometheus-stack.version                             |                                 | <code>"69.2.2"</code>                      |
 | helm.releases.kubedb-ui-presets.version                                 |                                 | <code>"v2026.6.12"</code>                  |
 | helm.releases.kube-ui-server.version                                    |                                 | <code>"v2026.6.12"</code>                  |
-| helm.releases.kubedb.version                                            |                                 | <code>"v2026.4.27"</code>                  |
-| helm.releases.kubedb-opscenter.version                                  |                                 | <code>"v2026.4.27"</code>                  |
+| helm.releases.kubedb.version                                            |                                 | <code>"v2026.5.18-rc.0"</code>             |
+| helm.releases.kubedb-opscenter.version                                  |                                 | <code>"v2026.5.18-rc.0"</code>             |
 | helm.releases.kubedb-provider-aws.version                               |                                 | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubedb-provider-azure.version                             |                                 | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubedb-provider-gcp.version                               |                                 | <code>"v2024.1.31"</code>                  |
@@ -116,7 +116,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.license-proxyserver.version                               |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.longhorn.version                                          |                                 | <code>"1.7.2"</code>                       |
 | helm.releases.metrics-server.version                                    |                                 | <code>"3.11.0"</code>                      |
-| helm.releases.monitoring-operator.version                               |                                 | <code>"v2026.3.30"</code>                  |
+| helm.releases.monitoring-operator.version                               |                                 | <code>"v2026.6.12"</code>                  |
 | helm.releases.operator-shard-manager.version                            |                                 | <code>"v2026.1.15"</code>                  |
 | helm.releases.opencost.version                                          |                                 | <code>"1.18.1"</code>                      |
 | helm.releases.opencost-grafana-dashboards.version                       |                                 | <code>"v2023.10.1"</code>                  |
@@ -124,6 +124,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.panopticon.version                                        |                                 | <code>"v2026.1.15"</code>                  |
 | helm.releases.prepare-cluster.version                                   |                                 | <code>"v2023.12.21"</code>                 |
 | helm.releases.prometheus-adapter.version                                |                                 | <code>"4.9.0"</code>                       |
+| helm.releases.prom-label-proxy.version                                  |                                 | <code>"v2026.6.2"</code>                   |
 | helm.releases.reloader.version                                          |                                 | <code>"2.2.9"</code>                       |
 | helm.releases.scanner.version                                           |                                 | <code>"v2026.1.15"</code>                  |
 | helm.releases.service-backend.version                                   |                                 | <code>"v2026.6.12"</code>                  |
@@ -136,6 +137,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.stash-opscenter.version                                   |                                 | <code>"v2025.7.31"</code>                  |
 | helm.releases.stash-presets.version                                     |                                 | <code>"v2026.6.12"</code>                  |
 | helm.releases.supervisor.version                                        |                                 | <code>"v2026.1.15"</code>                  |
+| helm.releases.tenant-operator.version                                   |                                 | <code>"v2026.6.2"</code>                   |
+| helm.releases.thanos-operator.version                                   |                                 | <code>"v2026.6.2"</code>                   |
 | helm.releases.topolvm.version                                           |                                 | <code>"15.0.0"</code>                      |
 | helm.releases.voyager.version                                           |                                 | <code>"v2026.3.23"</code>                  |
 | helm.releases.voyager-gateway.version                                   |                                 | <code>"v2026.1.15"</code>                  |

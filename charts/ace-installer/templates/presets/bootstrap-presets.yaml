@@ -35,6 +35,8 @@ opscenter-features:
           values: %s
         license-proxyserver:
           values: %s
+        prom-label-proxy:
+          values: %s
         service-gateway-presets:
           values: %s
         stash-presets:
@@ -52,6 +54,7 @@ opscenter-features:
   ((dig "opscenter-features" "values" "helm" "releases" "kubestash" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "monitoring-operator" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "license-proxyserver" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "opscenter-features" "values" "helm" "releases" "prom-label-proxy" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "service-gateway-presets" "values" (dict) $.Values.helm.releases) | toJson)
   ((dig "opscenter-features" "values" "helm" "releases" "stash-presets" "values" (dict) $.Values.helm.releases) | toJson)
   | fromYaml }}
