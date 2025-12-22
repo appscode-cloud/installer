@@ -582,6 +582,22 @@ properties:
     - repository
     - tag
     type: object
+  gotenberge:
+    properties:
+      pullPolicy:
+        type: string
+      registry:
+        type: string
+      repository:
+        type: string
+      tag:
+        type: string
+    required:
+    - pullPolicy
+    - registry
+    - repository
+    - tag
+    type: object
   image:
     properties:
       pullPolicy:
@@ -1765,6 +1781,7 @@ properties:
 required:
 - autoscaling
 - geoipdb
+- gotenberge
 - image
 - infra
 - monitoring

@@ -21,10 +21,11 @@ spec:
       {{- include "platform-api.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        kubectl.kubernetes.io/default-container: {{ .Chart.Name }}
+        {{- with .Values.podAnnotations }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
       labels:
         {{- include "platform-api.selectorLabels" . | nindent 8 }}
     spec:
@@ -170,6 +171,12 @@ spec:
             {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
+        - name: gotenberg
+          image: "{{ include "gotenberg.registry" . }}/{{ .Values.gotenberg.repository }}:{{ .Values.gotenberg.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.gotenberg.pullPolicy }}
+          ports:
+            - containerPort: 3000
+              protocol: TCP
       initContainers:
         - name: maxmind-mmdb
           {{- if eq "true" ( include "distro.openshift" . ) }}
