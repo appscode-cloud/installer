@@ -4,3 +4,6 @@ nats:
 openfga:
   kind: OpenFGA
   resource: openfga
+b3:
+  kind: B3
+  resource: b3
