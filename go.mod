@@ -6,7 +6,7 @@ require (
 	go.bytebuilders.dev/catalog v0.0.23
 	go.bytebuilders.dev/resource-model v0.4.0
 	go.bytebuilders.dev/ui-wizards v0.34.0
-	go.openviz.dev/installer v0.0.0-20260603103950-9848a284ca80
+	go.openviz.dev/installer v0.0.0-20260619044110-702becd1dd97
 	gomodules.xyz/go-sh v0.2.0
 	k8s.io/api v0.34.3
 	k8s.io/apimachinery v0.34.3
