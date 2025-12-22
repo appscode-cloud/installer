@@ -351,7 +351,7 @@ kmodules.xyz/resource-metadata v0.43.0 h1:MSUeMku47f1NhpTptkbWZbyGqp1oASTh/I2sBJ
 kmodules.xyz/resource-metadata v0.43.0/go.mod h1:bqm4/ZqHxA04H1/Mz79YhHgrePSKJfUVL7cpG8teKsA=
 kmodules.xyz/schema-checker v0.4.3 h1:LKXKNWwJ0bFOqCMbyfZk38uVJIejXsANdp7l+fkIiJQ=
 kmodules.xyz/schema-checker v0.4.3/go.mod h1:JjUB6Ih4gnrBwzJNO91Dz9xa8J92UHyvPSyfX++sksM=
-kubeops.dev/external-dns-operator v0.3.0 h1:KIWX0C+5en8levhkdlM9htZ+EsowIWm9mgLTdsJYUzo=
+kubeops.dev/external-dns-operator v0.3.0 h1:lzG2xf4uT+B4gMt1KMvifmKY3ptvspCZxWTXYgLVmvM=
 kubeops.dev/external-dns-operator v0.3.0/go.mod h1:hJgsshVGN68A4eXPjGYCuKaWLgYbaYFCD9E+vydYJoE=
 kubeops.dev/installer v0.0.0-20260313185651-062077f97cb4 h1:65oo3cimnAHgmP2PFnYU+NKsVYj5vJ8KAeoIi438H88=
 kubeops.dev/installer v0.0.0-20260313185651-062077f97cb4/go.mod h1:8X06Mr3+df3YsE1PMRSDBPaplOOS4js7tBBFK3Sx1Ug=
