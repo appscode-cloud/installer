@@ -1,0 +1,197 @@
+{{ $vals := dict "offlineInstaller" $.Values.offlineInstaller "image" $.Values.image "registry" $.Values.registry "helm" dict }}
+
+{{ $helmrepos := dig "repositories" dict $.Values.helm | deepCopy }}
+{{ $_ := set $vals.helm "repositories" $helmrepos }}
+{{ $_ := set $vals.helm "createNamespace" $.Values.helm.createNamespace }}
+
+{{ $helmreleases := printf `
+ace:
+  version: %q
+ace-installer:
+  version: %q
+# billing ui
+license-proxyserver:
+  version: %q
+# rancher-extension
+acerproxy:
+  version: %q
+# b3 import flow
+flux2:
+  version: %q
+opscenter-features:
+  version: %q
+  values:
+    helm:
+      releases:
+        catalog-manager:
+          values: %s
+        inbox-agent:
+          values: %s
+        kubedb:
+          values: %s
+        kubestash:
+          values: %s
+        license-proxyserver:
+          values: %s
+        service-gateway-presets:
+          values: %s
+        stash-presets:
+          values: %s
+`
+  (dig "ace" "version" .Chart.AppVersion $.Values.helm.releases)
+  .Chart.Version
+  (dig "license-proxyserver" "version" .Chart.AppVersion $.Values.helm.releases)
+  (dig "acerproxy" "version" "" $.Values.helm.releases)
+  (dig "flux2" "version" "" $.Values.helm.releases)
+  (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
+  ((dig "opscenter-features" "values" "helm" "releases" "catalog-manager" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "opscenter-features" "values" "helm" "releases" "inbox-agent" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "opscenter-features" "values" "helm" "releases" "kubedb" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "opscenter-features" "values" "helm" "releases" "kubestash" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "opscenter-features" "values" "helm" "releases" "license-proxyserver" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "opscenter-features" "values" "helm" "releases" "service-gateway-presets" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "opscenter-features" "values" "helm" "releases" "stash-presets" "values" (dict) $.Values.helm.releases) | toJson)
+  | fromYaml }}
+
+{{ $gate := printf `
+opscenter-features:
+  values:
+    helm:
+      releases:
+        service-gateway-presets:
+          values:
+            infra:
+              tls:
+                acme:
+                  solver: "Gateway"
+`
+   | fromYaml }}
+{{ $helmreleases = mergeOverwrite $helmreleases $gate }}
+
+{{- if not (has $.Values.deploymentType (list "Hosted")) }}
+{{ $defaults := printf `
+opscenter-features:
+  values:
+    offlineInstaller: %v
+    image: %v
+    registry: %v
+    helm:
+      createNamespace: %v
+      repositories: %v
+    licenseServer: %v
+`
+  $.Values.offlineInstaller
+  ($.Values.image | toJson)
+  ($.Values.registry | toJson)
+  $.Values.helm.createNamespace
+  ($.Values.helm.repositories | toJson)
+  ((dig "opscenter-features" "values" "licenseServer" (dict) $.Values.helm.releases) | toJson)
+  | fromYaml }}
+{{ $helmreleases = mergeOverwrite $helmreleases $defaults }}
+{{- end }}
+
+{{ $clusterManagerSpoke := printf `
+cluster-manager-spoke:
+  version: %q
+  values:
+    registry: %s
+    clusteradm:
+      image: %s
+`
+  (dig "cluster-manager-spoke" "version" .Chart.AppVersion $.Values.helm.releases)
+  (include "image.ghcr" (merge (dict "_repo" "kluster-manager") $))
+  (include "image.ghcr" (merge (dict "_repo" "kluster-manager/clusteradm") $))
+  | fromYaml }}
+{{ $helmreleases = mergeOverwrite $helmreleases $clusterManagerSpoke }}
+
+{{ $spokeClusterAddons := printf `
+spoke-cluster-addons:
+  version: %q
+  values:
+    kubectl:
+      image: %s
+`
+  (dig "spoke-cluster-addons" "version" .Chart.AppVersion $.Values.helm.releases)
+  (include "kubectl.image" $)
+  | fromYaml }}
+{{ $helmreleases = mergeOverwrite $helmreleases $spokeClusterAddons }}
+
+{{ $vcluster := printf `
+vcluster:
+  version: %q
+  values:
+    telemetry:
+      enabled: false
+    sync:
+      fromHost:
+        nodes:
+          enabled: true
+        storageClasses:
+          enabled: true
+      toHost:
+        pods:
+          rewriteHosts:
+            initContainer:
+              image: "%s"
+    controlPlane:
+      distro:
+        k8s:
+          apiServer:
+            image:
+              registry: "%s"
+          controllerManager:
+            image:
+              registry: "%s"
+          scheduler:
+            image:
+              registry: "%s"
+        k3s:
+          image:
+            registry: "%s"
+        k0s:
+          image:
+            registry: "%s"
+      backingStore:
+        etcd:
+          deploy:
+            statefulSet:
+              image:
+                registry: "%s"
+      coredns:
+        deployment:
+          image: ""
+
+      statefulSet:
+        image:
+          registry: "%s"
+          repository: "loft-sh/vcluster-oss"
+        security:
+          podSecurityContext:
+            fsGroup: 65534
+          containerSecurityContext:
+            runAsUser: 65534
+            runAsNonRoot: true
+`
+  (dig "vcluster" "version" .Chart.AppVersion $.Values.helm.releases)
+  (include "image.dockerLibrary" (merge (dict "_repo" "alpine:3.20") $))
+  (include "registry.kubernetes" $)
+  (include "registry.kubernetes" $)
+  (include "registry.kubernetes" $)
+  (include "registry.dockerLibrary" $)
+  (include "registry.dockerLibrary" $)
+  (include "registry.kubernetes" $)
+  (include "registry.ghcr" $)
+  | fromYaml }}
+{{ $helmreleases = mergeOverwrite $helmreleases $vcluster }}
+
+{{ $_ := set $vals.helm "releases" $helmreleases }}
+
+apiVersion: charts.x-helm.dev/v1alpha1
+kind: ClusterChartPreset
+metadata:
+  name: bootstrap-presets
+  labels:
+    ace.appscode.com/managed: "true"
+spec:
+  values:
+    {{- toYaml $vals | nindent 4 }}

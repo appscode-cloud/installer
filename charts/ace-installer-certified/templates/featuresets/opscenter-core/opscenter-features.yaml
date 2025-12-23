@@ -1,0 +1,55 @@
+{{- with (index .Values "helm" "releases" "opscenter-features") }}
+{{- if .enabled }}
+
+{{ $defaults := dict "offlineInstaller" $.Values.offlineInstaller "image" $.Values.image "registry" $.Values.registry "helm" dict }}
+
+{{ $helmrepos := dig "repositories" dict $.Values.helm | deepCopy }}
+{{ $_ := set $defaults.helm "repositories" $helmrepos }}
+{{ $_ := set $defaults.helm "createNamespace" $.Values.helm.createNamespace }}
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: opscenter-features
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: opscenter-features
+    app.kubernetes.io/part-of: opscenter-core
+spec:
+  interval: 5m
+  timeout: 30m
+  releaseName: opscenter-features
+  targetNamespace: kubeops
+  storageNamespace: kubeops
+  install:
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    # crds: CreateReplace
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
+  {{- if eq (include "distro.openshift" $) "true" }}
+  dependsOn:
+  - name: aceshifter
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
+  chart:
+    spec:
+      chart: opscenter-features
+      version: {{ .version | quote }}
+      sourceRef:
+        kind: HelmRepository
+        name: bootstrap
+        namespace: {{ $.Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}
+

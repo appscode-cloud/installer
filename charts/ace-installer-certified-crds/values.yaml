@@ -1,0 +1,184 @@
+# Default values for ace-installer.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+nameOverride: ""
+fullnameOverride: ""
+deploymentType: ""
+offlineInstaller: false
+installerVersion: ""
+image:
+  proxies:
+    # r.appscode.com
+    appscode: r.appscode.com
+    # company/bin:tag
+    dockerHub: ""
+    # alpine, nginx etc.
+    dockerLibrary: ""
+    # ghcr.io/company/bin:tag
+    ghcr: ghcr.io
+    # quay.io/company/bin:tag
+    quay: quay.io
+    # registry.k8s.io/bin:tag
+    kubernetes: registry.k8s.io
+    microsoft: mcr.microsoft.com
+    weaviate: cr.weaviate.io
+# image:
+#   proxies:
+#     dockerHub: harbor.appscode.ninja/dockerhub
+#     dockerLibrary: ""
+#     ghcr: harbor.appscode.ninja/ghcr
+#     quay: harbor.appscode.ninja/quay
+#     kubernetes: harbor.appscode.ninja/k8s
+#     microsoft: harbor.appscode.ninja/mcr
+#     appscode: harbor.appscode.ninja/ac
+registry:
+  credentials: {}
+  # username: "abc"
+  # password: "xyz"
+  certs: {}
+  # ca.crt: "***"
+  imagePullSecrets: []
+  # imagePullSecrets: ["abc", "xyz"]
+helm:
+  createNamespace: true
+  repositories:
+    # oci://harbor.appscode.ninja/ac/appscode-charts
+    appscode-charts-oci:
+      url: oci://ghcr.io/appscode-charts
+  releases:
+    ace:
+      enabled: false
+      version: "v2025.12.15"
+    acerproxy:
+      enabled: false
+      version: "v2025.12.15"
+    aceshifter:
+      enabled: true
+      version: "v2025.12.15"
+    capi-catalog:
+      enabled: false
+      version: "v2024.10.24"
+    cert-manager:
+      enabled: true
+      version: "v1.18.2"
+    cert-manager-csi-driver-cacerts:
+      enabled: true
+      version: "v2025.10.31"
+    external-dns-operator:
+      enabled: true
+      version: "v2025.12.5"
+    flux2:
+      enabled: false
+      version: "2.17.0"
+    gateway-api:
+      enabled: true
+      version: "v2025.3.14"
+    kubedb:
+      enabled: true
+      version: "v2025.10.17"
+      values: # +doc-gen:break
+        kubedb-provisioner:
+          enabled: true
+        kubedb-catalog:
+          enabled: true
+        kubedb-ops-manager:
+          enabled: true
+        kubedb-autoscaler:
+          enabled: true
+        kubedb-kubestash-catalog:
+          enabled: true
+        kubedb-schema-manager:
+          enabled: false
+        kubedb-metrics:
+          enabled: false
+        sidekick:
+          enabled: false
+    kubestash:
+      enabled: true
+      version: "v2025.10.17"
+    kube-ui-server:
+      enabled: true
+      version: "v2025.12.15"
+    license-proxyserver:
+      enabled: true
+      version: "v2025.5.16"
+    opscenter-features:
+      enabled: true
+      version: "v2025.12.15"
+    panopticon:
+      enabled: true
+      version: "v2025.6.30"
+      values: # +doc-gen:break
+        monitoring:
+          agent: prometheus.io/operator
+          enabled: true
+          serviceMonitor:
+            labels:
+              release: kube-prometheus-stack
+    reloader:
+      enabled: true
+      version: "1.0.79"
+    stash-presets:
+      enabled: false
+      version: "v2025.12.15"
+    # feature less chart versions
+    cluster-manager-spoke:
+      enabled: false
+      version: "v2025.10.17"
+    spoke-cluster-addons:
+      enabled: false
+      version: "v2025.8.31"
+    vcluster:
+      enabled: false
+      version: "0.22.4"
+    vcluster-plugin-ace:
+      enabled: false
+      version: "v0.0.3"
+# controls the self management of the ace cluster
+selfManagement:
+  createCAPICluster: false
+  import: true
+  targetIPs: []
+  enableFeatures: []
+  disableFeatures: []
+precheck:
+  enabled: true
+  # Docker registry containing app image
+  image:
+    # Docker registry used to pull app container image
+    registry: appscode
+    # App container image
+    repository: b3
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: ""
+    pullPolicy: Always
+  podAnnotations: {}
+  podSecurityContext: {}
+  # fsGroup: 2000
+
+  securityContext: # +doc-gen:break
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 65534
+    seccompProfile:
+      type: RuntimeDefault
+  resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+options: null

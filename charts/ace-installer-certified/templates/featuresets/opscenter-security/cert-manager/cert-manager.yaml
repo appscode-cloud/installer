@@ -1,0 +1,81 @@
+{{- with (index .Values "helm" "releases" "cert-manager") }}
+{{- if .enabled }}
+
+{{ $defaults := printf `
+installCRDs: true
+extraArgs:
+- --enable-gateway-api
+image:
+  repository: %s
+webhook:
+  image:
+    repository: %s
+cainjector:
+  image:
+    repository: %s
+acmesolver:
+  image:
+    repository: %s
+startupapicheck:
+  image:
+    repository: %s
+`
+  (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-controller") $))
+  (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-webhook") $))
+  (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-cainjector") $))
+  (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-acmesolver") $))
+  (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-startupapicheck") $))
+  | fromYaml }}
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: cert-manager
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: cert-manager
+    app.kubernetes.io/part-of: opscenter-security
+spec:
+  interval: 5m
+  timeout: 30m
+  releaseName: cert-manager
+  targetNamespace: cert-manager
+  storageNamespace: cert-manager
+  install:
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    # crds: CreateReplace
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
+  dependsOn:
+  - name: opscenter-features
+    namespace: {{ $.Release.Namespace }}
+  - name: gateway-api
+    namespace: {{ $.Release.Namespace }}
+  chart:
+    spec:
+      chart: cert-manager
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: appscode-charts-oci
+        namespace: {{ $.Release.Namespace }}
+  valuesFrom:
+  {{- if eq (include "distro.openshift" $) "true" }}
+    - kind: ConfigMap
+      name: ace-openshift-scc
+      valuesKey: cert-manager.yaml
+  {{- end }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}

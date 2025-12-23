@@ -1,0 +1,78 @@
+{{- with (index .Values "helm" "releases" "kubedb") }}
+{{- if .enabled }}
+
+{{ $ips := list }}
+{{- range $secret := $.Values.registry.imagePullSecrets }}
+{{ $ips = append $ips (dict "name" $secret) }}
+{{- end }}
+
+{{ $defaults := printf `
+global:
+  registryFQDN: %q
+  imagePullSecrets: %v
+` (include "registry.ghcr" $)
+  ($ips | toJson)
+  | fromYaml }}
+{{ $_ := set $defaults "kubedb-catalog" $.Values.image }}
+{{ $_ := set $defaults "kubedb-kubestash-catalog" $.Values.image }}
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kubedb
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: kubedb
+    app.kubernetes.io/part-of: opscenter-datastore
+spec:
+  interval: 5m
+  timeout: 30m
+  releaseName: kubedb
+  targetNamespace: kubedb
+  storageNamespace: kubedb
+  install:
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    # crds: CreateReplace
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
+  dependsOn:
+  - name: opscenter-features
+    namespace: {{ $.Release.Namespace }}
+  - name: license-proxyserver
+    namespace: {{ $.Release.Namespace }}
+  {{- if (dig "cert-manager" "enabled" false $.Values.helm.releases) }}
+  - name: cert-manager
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
+  {{- if has "panopticon" $.Values.selfManagement.enableFeatures }}
+  - name: panopticon
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
+  chart:
+    spec:
+      chart: kubedb
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: appscode-charts-oci
+        namespace: {{ $.Release.Namespace }}
+  valuesFrom:
+  {{- if eq (include "distro.openshift" $) "true" }}
+    - kind: ConfigMap
+      name: ace-openshift-scc
+      valuesKey: kubedb.yaml
+  {{- end }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}

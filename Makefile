@@ -331,6 +331,7 @@ unit-tests: $(BUILD_DIRS)
 CT_COMMAND     ?= lint-and-install
 TEST_CHARTS    ?=
 KUBE_NAMESPACE ?=
+CT_CLEANUP     ?= true
 
 ifeq ($(strip $(TEST_CHARTS)),)
 	CT_ARGS = --all $(ct_namespace)
@@ -363,7 +364,7 @@ ct: $(BUILD_DIRS)
 	    $(CHART_TEST_IMAGE)                                     \
 	    /bin/sh -c "                                            \
 	      set -x; \
-	      kubectl delete crds --all; \
+	      [ $(CT_CLEANUP) = true ] && kubectl delete crds --all; \
 	      kubectl apply --validate=false -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml; \
 	      kubectl wait --for=condition=Ready pods -n cert-manager --all --timeout=5m; \
 	      ./hack/scripts/update-chart-dependencies.sh; \

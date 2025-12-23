@@ -1,0 +1,54 @@
+{{- with (index .Values "helm" "releases" "stash-presets") }}
+{{- if .enabled }}
+
+{{ $defaults := dict }}
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: stash-presets
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: stash-presets
+    app.kubernetes.io/part-of: opscenter-backup
+spec:
+  interval: 5m
+  timeout: 30m
+  releaseName: stash-presets
+  targetNamespace: stash
+  storageNamespace: stash
+  install:
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    # crds: CreateReplace
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
+  dependsOn:
+  - name: opscenter-features
+    namespace: {{ $.Release.Namespace }}
+  {{- if (dig "kubestash" "enabled" false $.Values.helm.releases) }}
+  - name: kubestash
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
+  - name: ace
+    namespace: {{ $.Release.Namespace }}
+  chart:
+    spec:
+      chart: stash-presets
+      version: {{ .version | quote }}
+      sourceRef:
+        kind: HelmRepository
+        name: appscode-charts-oci
+        namespace: {{ $.Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}
