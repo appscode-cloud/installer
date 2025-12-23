@@ -49,9 +49,14 @@ for dir in charts/*/; do
         make ct TEST_CHARTS=charts/$dir || true
     else
         ns=app-$(date +%s | head -c 6)
+        ct_cleanup=true
         kubectl create ns $ns
         kubectl label ns $ns pod-security.kubernetes.io/enforce=restricted
-        make ct TEST_CHARTS=charts/$dir KUBE_NAMESPACE=$ns
+        if [[ "$dir" = "ace-installer-certified" ]]; then
+            helm install -n $ns ace-installer-certified-crds charts/ace-installer-certified-crds
+            ct_cleanup=false
+        fi
+        make ct TEST_CHARTS=charts/$dir KUBE_NAMESPACE=$ns CT_CLEANUP=$ct_cleanup
         kubectl patch $(kubectl get gatewayclass -o name) -p '{"metadata":{"finalizers":null}}' --type=merge || true
         kubectl delete gatewayclass -A --all || true
         kubectl delete ns $ns || true

@@ -1,0 +1,9 @@
+{{ tpl (.Files.Get "resourcetemplates/repositories/repositories.yaml") $ }}
+---
+{{ tpl (.Files.Get "resourcetemplates/repositories/secret-auth.yaml") $ }}
+---
+{{ tpl (.Files.Get "resourcetemplates/repositories/secret-cert.yaml") $ }}
+---
+{{ tpl (.Files.Get "resourcetemplates/helmreleases/ace/ace.yaml") $ }}
+---
+{{ tpl (.Files.Get "resourcetemplates/helmreleases/opscenter-datastore/kubedb.yaml") $ }}

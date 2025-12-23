@@ -1,0 +1,51 @@
+{{- if .Values.precheck.enabled }}
+
+{{- $encodedLicenses := dig "license-proxyserver" "values" "encodedLicenses" (dict) .Values.helm.releases -}}
+{{- $licenses := dict -}}
+{{- range $k, $v := $encodedLicenses }}
+{{ $_ := set $licenses $k (b64dec $v) }}
+{{- end }}
+
+kind: Secret
+apiVersion: v1
+metadata:
+  name: {{ include "ace-installer.fullname" . }}-precheck-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace-installer.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook-weight": "0"
+    "helm.sh/hook": pre-install,pre-upgrade,pre-rollback
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+stringData:
+  options.yaml: |
+    manifests:
+      repositories:
+        {{- list
+        (tpl (.Files.Get "resourcetemplates/repositories/repositories.yaml") $ | trim )
+        (tpl (.Files.Get "resourcetemplates/repositories/secret-auth.yaml") $ | trim )
+        (tpl (.Files.Get "resourcetemplates/repositories/secret-cert.yaml") $ | trim)
+        | compact | toYaml | nindent 8 }}
+      helmreleases:
+        {{- list
+        (tpl (.Files.Get "resourcetemplates/helmreleases/ace/ace.yaml") $ | trim )
+        (tpl (.Files.Get "resourcetemplates/helmreleases/opscenter-datastore/kubedb.yaml") $ | trim)
+        | compact | toYaml | nindent 8 }}
+    version: {{ .Chart.AppVersion }}
+    # https://github.com/appscode-cloud/installer/blob/9dda4240d61d836cea9e24a55c71e2ac81dd85bd/apis/installer/v1alpha1/ace_options_types.go#L110
+    hostType: {{ ternary "ip" "domain" (eq (dig "releases" "ace" "values" "global" "infra" "dns" "provider" "none" .Values.helm) "none") }}
+    {{- with $licenses }}
+    licenses: {{ . | toJson }}
+    {{- end }}
+    {{- with .Values.registry }}
+    registry:
+      {{- . | toYaml | nindent 6 }}
+    {{- end }}
+    {{- with .Values.image }}
+    image:
+      {{- . | toYaml | nindent 6 }}
+    {{- end }}
+    orgname: {{ (dig "releases" "ace" "values" "setupJob" "config" "admin" "orgname" "appscode" .Values.helm) }}
+    selfManagement:
+      {{- (dig "releases" "ace" "values" "setupJob" "config" "selfManagement" (dict) .Values.helm) | toYaml | nindent 6 }}
+{{- end }}

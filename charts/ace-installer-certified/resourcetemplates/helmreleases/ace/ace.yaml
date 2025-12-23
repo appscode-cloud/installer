@@ -1,0 +1,61 @@
+{{- with (index .Values "helm" "releases" "ace") }}
+{{- if .enabled }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: ace
+  namespace: {{ $.Release.Namespace }}
+spec:
+  interval: 5m
+  timeout: 30m
+  releaseName: ace
+  targetNamespace: ace
+  storageNamespace: ace
+  install:
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    # crds: CreateReplace
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
+  dependsOn:
+  - name: opscenter-features
+    namespace: {{ $.Release.Namespace }}
+  {{- if (dig "cert-manager" "enabled" false $.Values.helm.releases) }}
+  - name: cert-manager
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
+  {{- if (dig "kubedb" "enabled" false $.Values.helm.releases) }}
+  - name: kubedb
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
+  - name: reloader
+    namespace: {{ $.Release.Namespace }}
+  {{- if (dig "kubestash" "enabled" false $.Values.helm.releases) }}
+  - name: kubestash
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
+  chart:
+    spec:
+      chart: ace
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: appscode-charts-oci
+        namespace: {{ $.Release.Namespace }}
+  valuesFrom:
+  {{- if eq (include "distro.openshift" $) "true" }}
+    - kind: ConfigMap
+      name: ace-openshift-scc
+      valuesKey: ace.yaml
+  {{- end }}
+{{- with (dig "values" dict .) }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}

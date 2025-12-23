@@ -1,0 +1,53 @@
+{{- with (index .Values "helm" "releases" "aceshifter") }}
+{{- if and .enabled (eq (include "distro.openshift" $) "true") }}
+
+{{ $defaults := dict "registryFQDN" (include "registry.ghcr" $) }}
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: aceshifter
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: aceshifter
+    app.kubernetes.io/part-of: opscenter-core
+spec:
+  interval: 5m
+  timeout: 30m
+  releaseName: aceshifter
+  targetNamespace: kubeops
+  storageNamespace: kubeops
+  install:
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    # crds: CreateReplace
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
+  chart:
+    spec:
+      chart: aceshifter
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: bootstrap
+        namespace: {{ $.Release.Namespace }}
+  valuesFrom:
+  {{- if eq (include "distro.openshift" $) "true" }}
+    - kind: ConfigMap
+      name: ace-openshift-scc
+      valuesKey: aceshifter.yaml
+      optional: true
+  {{- end }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}

@@ -1,0 +1,18 @@
+chart:
+  name: ace-installer-certified-crds
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.29+
+project:
+  app: charts for ACE
+  description: ACE Installer
+  name: ace-installer-certified-crds
+  shortName: ace-installer-certified-crds
+  url: https://github.com/appscode-cloud/installer
+release:
+  name: ace-installer-certified-crds
+  namespace: kubeops
+repository:
+  name: appscode
+  url: https://charts.appscode.com/stable/

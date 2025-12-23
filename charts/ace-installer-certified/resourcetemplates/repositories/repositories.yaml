@@ -1,0 +1,40 @@
+{{ $helmrepos := dict
+  "bootstrap" (index .Values.helm "repositories" "appscode-charts-oci")
+}}
+
+{{ range $name, $cfg := $helmrepos }}
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: {{ $name }}
+  namespace: {{ $.Release.Namespace }}
+  annotations:
+    argocd.argoproj.io/ignore-healthcheck: "true"
+  labels:
+    kubernetes.io/metadata.name: {{ $name }}
+spec:
+  {{- with $cfg.url }}
+  url: {{ . }}
+  {{- end }}
+  interval: {{ default "30m" $cfg.interval }}
+  timeout: {{ default "1m" $cfg.timeout }}
+
+  {{- if hasPrefix "oci://" $cfg.url }}
+  type: oci
+  {{- end }}
+
+  {{- with $cfg.provider }}
+  provider: {{ . }}
+  {{- end }}
+
+  {{- if $.Values.registry.credentials }}
+  secretRef:
+    name: {{ include "ace-installer.fullname" $ }}-helmcred
+  {{- end }}
+  {{- if $.Values.registry.certs }}
+  certSecretRef:
+    name: {{ include "ace-installer.fullname" $ }}-helmcert
+  {{- end }}
+
+---
+{{- end }}
