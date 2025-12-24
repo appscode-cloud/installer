@@ -528,7 +528,7 @@
         "sortBy": [
           {
             "desc": true,
-            "displayName": "Error Count"
+            "displayName": "P99 Latency (s)"
           }
         ]
       },
@@ -584,6 +584,7 @@
       "id": 6,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_auth_attempts_total{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) or on() vector(0)",
           "legendFormat": "Auth Attempts",
           "refId": "A"
@@ -630,6 +631,7 @@
       "id": 30,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "(sum by(auth_type)(rate(b3_auth_attempts_total{namespace=\"$namespace\", pod=~\"$pod\", auth_type!~\"None|\"}[5m]))) or on() vector(0)",
           "legendFormat": "{{ "{{" }}auth_type{{ "}}" }}",
           "refId": "A"
@@ -677,6 +679,7 @@
       "id": 7,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "(sum by(auth_type)(rate(b3_auth_failures_total{namespace=\"$namespace\", pod=~\"$pod\", auth_type!~\"None|\"}[5m]))) or on() vector(0)",
           "legendFormat": "{{ "{{" }}auth_type{{ "}}" }}",
           "refId": "A"
@@ -696,6 +699,7 @@
       "id": 32,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_authz_check_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) or on() vector(0)",
           "legendFormat": "Check Rate",
           "refId": "A"
@@ -724,11 +728,13 @@
       "id": 33,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_authz_check_allowed_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) or on() vector(0)",
           "legendFormat": "Allowed",
           "refId": "A"
         },
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_authz_check_denied_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) or on() vector(0)",
           "legendFormat": "Denied",
           "refId": "B"
@@ -749,6 +755,7 @@
       "id": 35,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(increase(b3_authz_check_count{namespace=\"$namespace\", pod=~\"$pod\", authz_server_error=\"true\"}[5m])) or on() vector(0)",
           "legendFormat": "Server Errors",
           "refId": "A"
@@ -806,6 +813,7 @@
       },
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(increase(b3_authz_check_denied_count{namespace=\"$namespace\", pod=~\"$pod\"}[$__range]))",
           "refId": "A"
         }
@@ -837,6 +845,7 @@
       "id": 8,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_db_client_operation_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) or on() vector(0)",
           "legendFormat": "Query Rate",
           "refId": "A"
@@ -856,6 +865,7 @@
       "id": 40,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_db_client_operation_count{namespace=\"$namespace\", pod=~\"$pod\", error=\"true\"}[5m])) or on() vector(0)",
           "legendFormat": "Error Rate",
           "refId": "A"
@@ -875,16 +885,19 @@
       "id": 42,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "histogram_quantile(0.99, sum(rate(b3_db_client_operation_duration_bucket{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) by (le))",
           "legendFormat": "P99",
           "refId": "A"
         },
         {
+          "datasource": "${datasource}",
           "expr": "histogram_quantile(0.95, sum(rate(b3_db_client_operation_duration_bucket{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) by (le))",
           "legendFormat": "P95",
           "refId": "B"
         },
         {
+          "datasource": "${datasource}",
           "expr": "histogram_quantile(0.50, sum(rate(b3_db_client_operation_duration_bucket{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) by (le))",
           "legendFormat": "P50",
           "refId": "C"
@@ -916,11 +929,13 @@
       "id": 43,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(b3_db_connections_active{namespace=\"$namespace\", pod=~\"$pod\"}) or on() vector(0)",
           "legendFormat": "Active",
           "refId": "A"
         },
         {
+          "datasource": "${datasource}",
           "expr": "sum(b3_db_connections_idle{namespace=\"$namespace\", pod=~\"$pod\"}) or on() vector(0)",
           "legendFormat": "Idle",
           "refId": "B"
@@ -940,6 +955,7 @@
       "id": 45,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(increase(b3_db_client_connection_error_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) or on() vector(0)",
           "legendFormat": "Connection Errors",
           "refId": "A"
@@ -972,6 +988,7 @@
       "id": 10,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(increase(b3_messaging_reconnect_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) or on() vector(0)",
           "legendFormat": "Reconnections",
           "refId": "A"
@@ -991,6 +1008,7 @@
       "id": 11,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(increase(b3_messaging_disconnect_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) or on() vector(0)",
           "legendFormat": "Disconnections",
           "refId": "A"
@@ -1058,6 +1076,7 @@
       },
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(increase(b3_messaging_subscription_error_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) or on() vector(0)",
           "legendFormat": "Subscription Errors",
           "refId": "A"
@@ -1090,6 +1109,7 @@
       "id": 12,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_proxy_k8s_operation_total{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) or on() vector(0)",
           "legendFormat": "Proxy Request Rate",
           "refId": "A"
@@ -1130,6 +1150,7 @@
       "id": 60,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum by(proxy_k8s_cluster)(rate(b3_proxy_k8s_operation_total{namespace=\"$namespace\", pod=~\"$pod\", proxy_k8s_cluster!~\"None|\"}[5m])) or on() vector(0)",
           "legendFormat": "Cluster: {{ "{{" }}proxy_k8s_cluster{{ "}}" }}",
           "refId": "A"
@@ -1149,6 +1170,7 @@
       "id": 61,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_proxy_k8s_operation_total{namespace=\"$namespace\", pod=~\"$pod\", proxy_request_status_code=~\"4..|5..\"}[5m])) or on() vector(0)",
           "legendFormat": "Error Rate",
           "refId": "A"
@@ -1168,16 +1190,19 @@
       "id": 13,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "histogram_quantile(0.99, sum(rate(b3_proxy_request_duration_bucket{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) by (le)) or vector(0)",
           "legendFormat": "P99 Latency",
           "refId": "A"
         },
         {
+          "datasource": "${datasource}",
           "expr": "histogram_quantile(0.95, sum(rate(b3_proxy_request_duration_bucket{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) by (le)) or vector(0)",
           "legendFormat": "P95 Latency",
           "refId": "B"
         },
         {
+          "datasource": "${datasource}",
           "expr": "histogram_quantile(0.50, sum(rate(b3_proxy_request_duration_bucket{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) by (le)) or vector(0)",
           "legendFormat": "P50 Latency",
           "refId": "C"
@@ -1218,6 +1243,7 @@
       "id": 63,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "histogram_quantile(0.95, sum by(proxy_k8s_cluster, le)(rate(b3_proxy_request_duration_bucket{namespace=\"$namespace\", pod=~\"$pod\", proxy_k8s_cluster!~\"None|\"}[5m]))) or on() vector(0)",
           "legendFormat": "{{ "{{" }}proxy_k8s_cluster{{ "}}" }} P95",
           "refId": "A"
@@ -1264,6 +1290,7 @@
       "id": 64,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum by(proxy_request_status_code)(rate(b3_proxy_k8s_operation_total{namespace=\"$namespace\", pod=~\"$pod\", proxy_request_status_code!~\"None|\"}[5m])) or on() vector(0)",
           "legendFormat": "{{ "{{" }}proxy_request_status_code{{ "}}" }}",
           "refId": "A"
@@ -1296,6 +1323,7 @@
       "id": 70,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_cluster_request_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) or on() vector(0)",
           "legendFormat": "Request Rate",
           "refId": "A"
@@ -1336,6 +1364,7 @@
       "id": 71,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum by(http_request_method)(rate(b3_cluster_request_count{namespace=\"$namespace\", pod=~\"$pod\", http_request_method!~\"None|\"}[5m])) or on() vector(0)",
           "legendFormat": "{{ "{{" }}http_request_method{{ "}}" }}",
           "refId": "A"
@@ -1355,6 +1384,7 @@
       "id": 72,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_cluster_request_count{namespace=\"$namespace\", pod=~\"$pod\", http_response_status_code=~\"4..|5..\"}[5m])) or on() vector(0)",
           "legendFormat": "Error Rate",
           "refId": "A"
@@ -1457,6 +1487,7 @@
       "id": 80,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_license_issuances_total{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) or on() vector(0)",
           "legendFormat": "Issuance Rate",
           "refId": "A"
@@ -1497,6 +1528,7 @@
       "id": 81,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum by(license_type)(rate(b3_license_issuances_total{namespace=\"$namespace\", pod=~\"$pod\", license_type!~\"None|\"}[5m])) or on() vector(0)",
           "legendFormat": "{{ "{{" }}license_type{{ "}}" }}",
           "refId": "A"
@@ -1520,6 +1552,7 @@
       "id": 83,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_license_issuances_total{namespace=\"$namespace\", pod=~\"$pod\", success=\"false\"}[5m])) or on() vector(0)",
           "legendFormat": "Failed Issuance Rate",
           "refId": "A"
@@ -1539,6 +1572,7 @@
       "id": 84,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_license_validations_total{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) or on() vector(0)",
           "legendFormat": "Validation Rate",
           "refId": "A"
@@ -1579,6 +1613,7 @@
       "id": 85,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum by(license_type)(rate(b3_license_validations_total{namespace=\"$namespace\", pod=~\"$pod\", license_type!~\"None|\"}[5m])) or on() vector(0)",
           "legendFormat": "{{ "{{" }}license_type{{ "}}" }}",
           "refId": "A"
@@ -1602,6 +1637,7 @@
       "id": 87,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_license_validations_total{namespace=\"$namespace\", pod=~\"$pod\", success=\"false\"}[5m])) or on() vector(0)",
           "legendFormat": "Failed Validation Rate",
           "refId": "A"
@@ -1633,6 +1669,7 @@
       "id": 90,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) or on() vector(0)",
           "legendFormat": "Operation Rate",
           "refId": "A"
@@ -1673,7 +1710,8 @@
       "id": 91,
       "targets": [
         {
-          "expr": "sum by(operation)(rate(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\", operation!~\"None|\"}[5m])) or on() vector(0)",
+          "datasource": "${datasource}",
+          "expr": "(sum by(operation)(rate(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\", operation!~\"None|\"}[5m]))) or vector(0)",
           "legendFormat": "{{ "{{" }}operation{{ "}}" }}",
           "refId": "A"
         }
@@ -1713,7 +1751,8 @@
       "id": 92,
       "targets": [
         {
-          "expr": "sum by(storage_type)(rate(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\", storage_type!~\"None|\"}[5m])) or on() vector(0)",
+          "datasource": "${datasource}",
+          "expr": "(sum by(storage_type)(rate(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\", storage_type!~\"None|\"}[5m]))) or vector(0)",
           "legendFormat": "{{ "{{" }}storage_type{{ "}}" }}",
           "refId": "A"
         }
@@ -1732,6 +1771,7 @@
       "id": 93,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(rate(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\", success=\"false\"}[5m])) or on() vector(0)",
           "legendFormat": "Error Rate",
           "refId": "A"
@@ -1772,6 +1812,7 @@
       "id": 95,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum by(operation)(rate(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\", success=\"false\", operation!~\"None|\"}[5m])) or on() vector(0)",
           "legendFormat": "{{ "{{" }}operation{{ "}}" }}",
           "refId": "A"
@@ -1825,6 +1866,7 @@
       },
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(b3_gitea_users{namespace=\"$namespace\", pod=~\"$pod\"})",
           "refId": "A"
         }
@@ -1865,6 +1907,7 @@
       },
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(b3_gitea_organizations{namespace=\"$namespace\", pod=~\"$pod\"})",
           "refId": "A"
         }
@@ -1905,6 +1948,7 @@
       },
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(b3_gitea_teams{namespace=\"$namespace\", pod=~\"$pod\"})",
           "refId": "A"
         }
@@ -1923,6 +1967,7 @@
       "id": 1003,
       "targets": [
         {
+          "datasource": "${datasource}",
           "expr": "sum(b3_gitea_users{namespace=\"$namespace\", pod=~\"$pod\"}) or on() vector(0)",
           "legendFormat": "Users",
           "refId": "A"
