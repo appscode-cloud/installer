@@ -38,14 +38,14 @@ geoipdb:
   tag: city-mmdb-latest
   pullPolicy: Always
 
-
+# Docker registry containing Gotenberg PDF converter
 gotenberg:
   # Docker registry used to pull app container image
   registry: appscode
   # App container image
   repository: gotenberg
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 8
+  tag: "8.25"
   pullPolicy: Always
 
 imagePullSecrets: []

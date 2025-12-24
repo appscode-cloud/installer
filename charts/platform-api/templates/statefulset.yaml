@@ -47,7 +47,7 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           {{- end }}
-          image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: {{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
             - api
@@ -172,7 +172,7 @@ spec:
             {{- toYaml . | nindent 12 }}
             {{- end }}
         - name: gotenberg
-          image: "{{ include "gotenberg.registry" . }}/{{ .Values.gotenberg.repository }}:{{ .Values.gotenberg.tag | default .Chart.AppVersion }}"
+          image: {{ include "gotenberg.registry" . }}/{{ .Values.gotenberg.repository }}:{{ .Values.gotenberg.tag | default .Chart.AppVersion }}
           imagePullPolicy: {{ .Values.gotenberg.pullPolicy }}
           ports:
             - containerPort: 3000
@@ -186,7 +186,7 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           {{- end }}
-          image: "{{ include "geoipdb.registry" . }}/{{ .Values.geoipdb.repository }}:{{ .Values.geoipdb.tag | default .Chart.AppVersion }}"
+          image: {{ include "geoipdb.registry" . }}/{{ .Values.geoipdb.repository }}:{{ .Values.geoipdb.tag | default .Chart.AppVersion }}
           imagePullPolicy: {{ .Values.geoipdb.pullPolicy }}
           command: [ "sh", "-c", "cp /GeoLite2-City.mmdb /data/b3/maxmind-geoip/GeoLite2-City.mmdb" ]
           volumeMounts:
