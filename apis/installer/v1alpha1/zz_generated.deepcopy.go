@@ -8755,6 +8755,7 @@ func (in *PlatformApiSpec) DeepCopyInto(out *PlatformApiSpec) {
 	*out = *in
 	out.Image = in.Image
 	out.GeoIPDB = in.GeoIPDB
+	out.Gotenberg = in.Gotenberg
 	if in.ImagePullSecrets != nil {
 		in, out := &in.ImagePullSecrets, &out.ImagePullSecrets
 		*out = make([]string, len(*in))

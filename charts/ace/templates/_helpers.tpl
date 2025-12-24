@@ -94,6 +94,14 @@ Returns the registry used for kubectl docker image
 {{- list .Values.global.registryFQDN (default .Values.kubectl.registry .Values.global.registry) | compact | join "/" }}
 {{- end }}
 
+{{- define "geoipdb.registry" -}}
+{{- list .Values.global.registryFQDN (default .Values.geoipdb.registry .Values.global.registry) | compact | join "/" }}
+{{- end }}
+
+{{- define "gotenberg.registry" -}}
+{{- list .Values.global.registryFQDN (default .Values.gotenberg.registry .Values.global.registry) | compact | join "/" }}
+{{- end }}
+
 {{/*
 Returns the appscode image pull secrets
 */}}

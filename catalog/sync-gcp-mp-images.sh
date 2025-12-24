@@ -156,8 +156,8 @@ crane cp --allow-nondistributable-artifacts rancher/kine:v0.11.4 $IMAGE_REGISTRY
 crane cp --allow-nondistributable-artifacts registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 $IMAGE_REGISTRY/cluster-autoscaler:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/csi-secrets-store/driver:v1.4.1 $IMAGE_REGISTRY/driver:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 $IMAGE_REGISTRY/ingress-nginx-kube-webhook-certgen:$TAG
-crane cp --allow-nondistributable-artifacts registry.k8s.io/kube-apiserver:v1.32.0 $IMAGE_REGISTRY/kube-apiserver:$TAG
-crane cp --allow-nondistributable-artifacts registry.k8s.io/kube-controller-manager:v1.32.0 $IMAGE_REGISTRY/kube-controller-manager:$TAG
+crane cp --allow-nondistributable-artifacts registry.k8s.io/kube-apiserver:v1.34.0 $IMAGE_REGISTRY/kube-apiserver:$TAG
+crane cp --allow-nondistributable-artifacts registry.k8s.io/kube-controller-manager:v1.34.0 $IMAGE_REGISTRY/kube-controller-manager:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0 $IMAGE_REGISTRY/kube-state-metrics:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/metrics-server/metrics-server:v0.7.2 $IMAGE_REGISTRY/metrics-server:$TAG
 crane cp --allow-nondistributable-artifacts registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2 $IMAGE_REGISTRY/prometheus-adapter:$TAG
