@@ -181,4 +181,4 @@ precheck:
   nodeSelector: {}
   tolerations: []
   affinity: {}
-options: null
+options: ""

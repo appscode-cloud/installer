@@ -119,7 +119,7 @@ Returns the registry used for app docker image
 Returns whether the OpenShift distribution is used
 */}}
 {{- define "distro.openshift" -}}
-{{- or (.Capabilities.APIVersions.Has "project.openshift.io/v1/Project") (dig "distro" "openshift" false (dict .Values.options)) -}}
+{{- or (.Capabilities.APIVersions.Has "project.openshift.io/v1/Project") (dig "distro" "openshift" false (.Values.options | fromYaml)) -}}
 {{- end }}
 
 {{/*
