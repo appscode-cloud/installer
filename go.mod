@@ -4,7 +4,7 @@ go 1.25
 
 require (
 	go.bytebuilders.dev/catalog v0.0.16-0.20250901123846-4b9ca50c3572
-	go.bytebuilders.dev/resource-model v0.3.2-0.20251217122906-e9488ec515e1
+	go.bytebuilders.dev/resource-model v0.3.2-0.20251226051038-81f80cc2a431
 	go.bytebuilders.dev/ui-wizards v0.28.0
 	go.openviz.dev/installer v0.0.0-20250617172415-ca61a7cbb8d5
 	gomodules.xyz/go-sh v0.2.0
