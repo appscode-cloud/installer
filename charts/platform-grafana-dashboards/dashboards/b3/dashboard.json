@@ -1236,7 +1236,7 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 12,
+        "w": 24,
         "x": 0,
         "y": 93
       },
@@ -1244,59 +1244,12 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "histogram_quantile(0.95, sum by(proxy_k8s_cluster, le)(rate(b3_proxy_request_duration_bucket{namespace=\"$namespace\", pod=~\"$pod\", proxy_k8s_cluster!~\"None|\"}[5m]))) or on() vector(0)",
+          "expr": "histogram_quantile(0.95, sum by(proxy_k8s_cluster, le)(rate(b3_proxy_request_duration_bucket{namespace=\"$namespace\", pod=~\"$pod\", proxy_k8s_cluster!~\"None|\"}[5m])))",
           "legendFormat": "{{ "{{" }}proxy_k8s_cluster{{ "}}" }} P95",
           "refId": "A"
         }
       ],
       "title": "Proxy Latency by Cluster",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "stacking": {
-              "mode": "normal"
-            }
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Value"
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": true,
-                  "tooltip": true,
-                  "viz": false
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 93
-      },
-      "id": 64,
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum by(proxy_request_status_code)(rate(b3_proxy_k8s_operation_total{namespace=\"$namespace\", pod=~\"$pod\", proxy_request_status_code!~\"None|\"}[5m])) or on() vector(0)",
-          "legendFormat": "{{ "{{" }}proxy_request_status_code{{ "}}" }}",
-          "refId": "A"
-        }
-      ],
-      "title": "Status Code Distribution",
       "type": "timeseries"
     },
     {
@@ -1463,7 +1416,7 @@
       ],
       "title": "Top Error Routes (Cluster API)",
       "type": "stat"
-    },
+    }{{- if .Values.dashboard.b3.showLicenseMetrics }},
     {
       "gridPos": {
         "h": 1,
@@ -1645,7 +1598,7 @@
       ],
       "title": "Failed Validation Rate",
       "type": "timeseries"
-    },
+    }{{- end }},
     {
       "gridPos": {
         "h": 1,
