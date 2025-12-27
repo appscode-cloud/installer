@@ -65,8 +65,8 @@ type PlatformApiSpec struct {
 	//+optional
 	PodSecurityContext *core.PodSecurityContext `json:"podSecurityContext"`
 	//+optional
-	SecurityContext *core.SecurityContext `json:"securityContext"`
-	Service         AceServiceSpec        `json:"service"`
+	SecurityContext *core.SecurityContext     `json:"securityContext"`
+	Service         AcePlatformAPIServiceSpec `json:"service"`
 	//+optional
 	Resources   core.ResourceRequirements `json:"resources"`
 	Autoscaling AutoscalingSpec           `json:"autoscaling"`
@@ -103,6 +103,11 @@ type PlatformApiSpec struct {
 	Env []core.EnvVar `json:"env"`
 	// +optional
 	Distro shared.DistroSpec `json:"distro"`
+}
+
+type AcePlatformAPIServiceSpec struct {
+	AceServiceSpec `json:",inline,omitempty"`
+	Metrics        *AceMetricsSpec `json:"metrics,omitempty"`
 }
 
 type AceAPISettings struct {

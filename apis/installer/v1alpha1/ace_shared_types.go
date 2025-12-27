@@ -38,6 +38,11 @@ type AceServiceSpec struct {
 	Port int    `json:"port"`
 }
 
+type AceMetricsSpec struct {
+	Enabled bool `json:"enabled"`
+	Port    int  `json:"port"`
+}
+
 type AutoscalingSpec struct {
 	Enabled     bool `json:"enabled"`
 	MinReplicas int  `json:"minReplicas"`
