@@ -13,6 +13,10 @@ livenessProbe:
 {{ $vals := dig "cert-manager-csi-driver-cacerts" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $defaults $vals }}
 
+{{- if eq (include "distro.openshift" $) "true" }}
+{{ $vals = mergeOverwrite $vals (dict "distro" .Values.distro) }}
+{{- end }}
+
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
 metadata:
