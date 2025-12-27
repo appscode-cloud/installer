@@ -1269,6 +1269,8 @@ properties:
             type: boolean
           kubeAPIServer:
             type: string
+          useGateway:
+            type: boolean
         type: object
       subscription:
         properties:

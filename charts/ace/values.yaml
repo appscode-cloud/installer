@@ -535,6 +535,7 @@ setupJob:
       targetIPs:
       enableFeatures: []
       disableFeatures: []
+      useGateway: false
 
 extraObjects: {}
 
