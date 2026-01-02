@@ -34,13 +34,291 @@
         "x": 0,
         "y": 0
       },
-      "id": 1,
+      "id": 900,
       "panels": [],
-      "title": "HTTP Overview",
+      "title": "Go Runtime & Process",
       "type": "row"
     },
     {
       "datasource": "${datasource}",
+      "description": "Process uptime since last restart",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 3600
+              },
+              {
+                "color": "green",
+                "value": 86400
+              }
+            ]
+          },
+          "unit": "dtdurations"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 1
+      },
+      "id": 904,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "time() - max(process_start_time_seconds{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "legendFormat": "Uptime",
+          "refId": "A"
+        }
+      ],
+      "title": "Process Uptime",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "CPU usage rate over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "decimals": 2,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 10,
+        "x": 4,
+        "y": 1
+      },
+      "id": 905,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "max"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(rate(process_cpu_seconds_total{namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
+          "legendFormat": "CPU (cores)",
+          "refId": "A"
+        }
+      ],
+      "title": "CPU Usage (Cores)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "Memory usage over time - RSS and heap breakdown",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 10,
+        "x": 14,
+        "y": 1
+      },
+      "id": 906,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "max"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(process_resident_memory_bytes{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "legendFormat": "RSS Memory",
+          "refId": "A"
+        },
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(go_memstats_heap_inuse_bytes{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "legendFormat": "Heap In Use",
+          "refId": "B"
+        },
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(go_memstats_heap_idle_bytes{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "legendFormat": "Heap Idle",
+          "refId": "C"
+        }
+      ],
+      "title": "Memory Usage (RSS)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "Current CPU usage in cores",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 5
+      },
+      "id": 901,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(rate(process_cpu_seconds_total{namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Current CPU (Cores)",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "Goroutines and OS threads over time",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -69,16 +347,13 @@
           },
           "decimals": 0,
           "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -88,14 +363,14 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 9,
+        "w": 8,
         "x": 0,
-        "y": 1
+        "y": 9
       },
-      "id": 24,
+      "id": 907,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["mean", "max"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -108,16 +383,23 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(b3_http_server_request_count{namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "Total Requests",
+          "expr": "sum(go_goroutines{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "legendFormat": "Goroutines",
           "refId": "A"
+        },
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(go_threads{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "legendFormat": "OS Threads",
+          "refId": "B"
         }
       ],
-      "title": "Total HTTP Requests",
+      "title": "Goroutines",
       "type": "timeseries"
     },
     {
       "datasource": "${datasource}",
+      "description": "GC pause duration percentiles over time",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -144,8 +426,8 @@
             "showPoints": "auto",
             "spanNulls": false
           },
-          "decimals": 0,
           "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -154,20 +436,21 @@
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "s"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 8,
-        "w": 6,
-        "x": 9,
-        "y": 1
+        "w": 8,
+        "x": 8,
+        "y": 9
       },
-      "id": 2,
+      "id": 908,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["mean", "max"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -180,104 +463,23 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(rate(b3_http_server_request_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
-          "legendFormat": "Request Rate",
+          "expr": "max(go_gc_duration_seconds{namespace=\"$namespace\", pod=~\"$pod\", quantile=\"1\"})",
+          "legendFormat": "P100 (Max)",
           "refId": "A"
-        }
-      ],
-      "title": "HTTP Request Rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Value"
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": true,
-                  "tooltip": true,
-                  "viz": false
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 9,
-        "x": 15,
-        "y": 1
-      },
-      "id": 3,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum by(http_request_method)(rate(b3_http_server_request_count{namespace=\"$namespace\", pod=~\"$pod\", http_request_method!~\"None|\"}[5m]))",
-          "legendFormat": "{{`{{http_request_method}}`}}",
-          "refId": "A"
+          "expr": "max(go_gc_duration_seconds{namespace=\"$namespace\", pod=~\"$pod\", quantile=\"0.5\"})",
+          "legendFormat": "P50",
+          "refId": "B"
         }
       ],
-      "title": "HTTP Request Rate by Method",
+      "title": "GC Pause Duration",
       "type": "timeseries"
     },
     {
       "datasource": "${datasource}",
+      "description": "Open file descriptors over time",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -306,6 +508,70 @@
           },
           "decimals": 0,
           "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 9
+      },
+      "id": 910,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "max"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(process_open_fds{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "legendFormat": "Open FDs",
+          "refId": "A"
+        }
+      ],
+      "title": "File Descriptors",
+      "type": "timeseries"
+    },
+    {
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 500,
+      "collapsed": false,
+      "panels": [],
+      "title": "Platform Statistics",
+      "type": "row"
+    },
+    {
+      "datasource": "${datasource}",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -318,21 +584,304 @@
                 "value": 80
               }
             ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 8,
+        "x": 0,
+        "y": 18
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "valueSize": 20
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.11",
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(b3_gitea_users{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "refId": "A"
+        }
+      ],
+      "title": "Total Users",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 7,
+        "x": 8,
+        "y": 18
+      },
+      "id": 1000,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "valueSize": 20
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.11",
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(b3_gitea_teams{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "refId": "A"
+        }
+      ],
+      "title": "Total Teams",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 9,
+        "x": 15,
+        "y": 18
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "valueSize": 20
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.11",
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(b3_gitea_organizations{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "refId": "A"
+        }
+      ],
+      "title": "Total Organizations",
+      "type": "stat"
+    },
+    {
+      "datasource": "${datasource}",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "graph": false,
+              "legend": false,
+              "tooltip": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 1003,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "max"],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltipOptions": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(b3_gitea_users{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "legendFormat": "Users",
+          "refId": "A"
+        }
+      ],
+      "title": "Users",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 32
+      },
+      "id": 1,
+      "panels": [],
+      "title": "HTTP Overview",
+      "type": "row"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "HTTP requests over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
           },
           "unit": "short"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
+        "h": 8,
         "w": 12,
         "x": 0,
-        "y": 9
+        "y": 33
       },
-      "id": 25,
+      "id": 24,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["mean", "max"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -345,12 +894,161 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(b3_http_server_request_count{namespace=\"$namespace\", pod=~\"$pod\", http_response_status_code=~\"4..|5..\"})",
-          "legendFormat": "Total Errors",
+          "expr": "sum(increase(b3_http_server_request_count{namespace=\"$namespace\", pod=~\"$pod\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "Requests",
           "refId": "A"
         }
       ],
-      "title": "Total HTTP Errors",
+      "title": "HTTP Requests",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "HTTP requests by method over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 33
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "max"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum by(http_request_method)(increase(b3_http_server_request_count{namespace=\"$namespace\", pod=~\"$pod\", http_request_method!~\"None|\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "{{`{{http_request_method}}`}}",
+          "refId": "A"
+        }
+      ],
+      "title": "HTTP Requests by Method",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "HTTP errors (4xx/5xx) over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 41
+      },
+      "id": 25,
+      "options": {
+        "legend": {
+          "calcs": ["sum"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(increase(b3_http_server_request_count{namespace=\"$namespace\", pod=~\"$pod\", http_response_status_code=~\"4..|5..\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "Errors",
+          "refId": "A"
+        }
+      ],
+      "title": "HTTP Errors",
       "type": "timeseries"
     },
     {
@@ -363,6 +1061,7 @@
           },
           "decimals": 0,
           "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -380,10 +1079,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
+        "h": 8,
         "w": 12,
         "x": 12,
-        "y": 9
+        "y": 41
       },
       "id": 22,
       "options": {
@@ -434,6 +1133,7 @@
           },
           "decimals": 0,
           "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -509,9 +1209,9 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 5,
+        "w": 6,
         "x": 0,
-        "y": 16
+        "y": 49
       },
       "id": 21,
       "options": {
@@ -566,7 +1266,9 @@
             "showPoints": "auto",
             "spanNulls": false
           },
+          "decimals": 0,
           "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -585,14 +1287,14 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 7,
-        "x": 5,
-        "y": 16
+        "w": 6,
+        "x": 6,
+        "y": 49
       },
       "id": 20,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["mean", "max"],
           "displayMode": "list",
           "placement": "bottom"
         },
@@ -641,6 +1343,7 @@
             "spanNulls": false
           },
           "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -662,7 +1365,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 16
+        "y": 49
       },
       "id": 5,
       "targets": [
@@ -697,6 +1400,7 @@
             "filterable": false
           },
           "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -722,7 +1426,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 24
+        "y": 57
       },
       "id": 23,
       "options": {
@@ -775,680 +1479,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 32
-      },
-      "id": 100,
-      "panels": [],
-      "title": "Authentication & Authorization",
-      "type": "row"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 0,
-        "y": 33
-      },
-      "id": 101,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(b3_auth_attempts_total{namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "Total Auth Operations",
-          "refId": "A"
-        }
-      ],
-      "title": "Total Authn Operations",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 8,
-        "y": 33
-      },
-      "id": 6,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(rate(b3_auth_attempts_total{namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
-          "legendFormat": "Auth Attempts",
-          "refId": "A"
-        }
-      ],
-      "title": "Authn Attempts Rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Value"
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": true,
-                  "tooltip": true,
-                  "viz": false
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 16,
-        "y": 33
-      },
-      "id": 30,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "(sum by(auth_type)(rate(b3_auth_attempts_total{namespace=\"$namespace\", pod=~\"$pod\", auth_type!~\"None|\"}[5m])))",
-          "legendFormat": "{{`{{auth_type}}`}}",
-          "refId": "A"
-        }
-      ],
-      "title": "Authn Attempts Rate by Type",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 0,
-        "y": 41
-      },
-      "id": 103,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(b3_auth_failures_total{namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "Auth Failures",
-          "refId": "A"
-        }
-      ],
-      "title": "Total Authn Failures",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Value"
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": true,
-                  "tooltip": true,
-                  "viz": false
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 12,
-        "y": 41
-      },
-      "id": 7,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "(sum by(auth_type)(rate(b3_auth_failures_total{namespace=\"$namespace\", pod=~\"$pod\", auth_type!~\"None|\"}[5m])))",
-          "legendFormat": "{{`{{auth_type}}`}}",
-          "refId": "A"
-        }
-      ],
-      "title": "Authn Failures Rate by Type",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 50
-      },
-      "id": 102,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(b3_authz_check_count{namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "Total Authz Operations",
-          "refId": "A"
-        }
-      ],
-      "title": "Total Authz Operations",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 6,
-        "x": 12,
-        "y": 50
-      },
-      "id": 104,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(b3_authz_check_allowed_count{namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "Authz Allowed",
-          "refId": "A"
-        }
-      ],
-      "title": "Total Authz Allowed",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 6,
-        "x": 18,
-        "y": 50
-      },
-      "id": 105,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(b3_authz_check_denied_count{namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "Authz Denied",
-          "refId": "A"
-        }
-      ],
-      "title": "Total Authz Denied",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 58
-      },
-      "id": 32,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(rate(b3_authz_check_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
-          "legendFormat": "Check Rate",
-          "refId": "A"
-        }
-      ],
-      "title": "Authz Check Rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 58
-      },
-      "id": 35,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(increase(b3_authz_check_count{namespace=\"$namespace\", pod=~\"$pod\", authz_server_error=\"true\"}[5m]))",
-          "legendFormat": "Server Errors",
-          "refId": "A"
-        }
-      ],
-      "title": "Authz Server Errors",
-      "type": "timeseries"
-    },
-    {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 74
+        "y": 65
       },
       "id": 200,
       "panels": [],
@@ -1506,12 +1537,12 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 75
+        "y": 66
       },
       "id": 44,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["mean", "max"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -1524,57 +1555,67 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(b3_db_client_operation_count{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "expr": "sum(increase(b3_db_client_operation_count{namespace=\"$namespace\", pod=~\"$pod\"}[$__rate_interval])) or on() vector(0)",
           "legendFormat": "DB Operations",
           "refId": "A"
         }
       ],
-      "title": "Total DB Operations",
+      "title": "DB Operations",
       "type": "timeseries"
     },
     {
       "datasource": "${datasource}",
-      "gridPos": {
-        "h": 4,
-        "w": 12,
-        "x": 12,
-        "y": 75
-      },
-      "id": 40,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "s"
         },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
+        "overrides": []
       },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(rate(b3_db_client_operation_count{namespace=\"$namespace\", pod=~\"$pod\", error=\"true\"}[5m]))",
-          "legendFormat": "Error Rate",
-          "refId": "A"
-        }
-      ],
-      "title": "Query Error Rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
       "gridPos": {
-        "h": 4,
+        "h": 8,
         "w": 12,
         "x": 12,
-        "y": 79
+        "y": 66
       },
       "id": 42,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["mean", "max"],
           "displayMode": "list",
           "placement": "bottom"
         },
@@ -1603,11 +1644,12 @@
           "refId": "C"
         }
       ],
-      "title": "Query Latency Percentiles",
+      "title": "DB Query Latency Percentiles",
       "type": "timeseries"
     },
     {
       "datasource": "${datasource}",
+      "description": "Database query errors over time",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1636,16 +1678,13 @@
           },
           "decimals": 0,
           "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -1655,14 +1694,14 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 12,
+        "w": 8,
         "x": 0,
-        "y": 83
+        "y": 74
       },
-      "id": 46,
+      "id": 40,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["sum"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -1675,16 +1714,17 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(b3_db_client_operation_count{namespace=\"$namespace\", pod=~\"$pod\", error=\"true\"})",
-          "legendFormat": "DB Errors",
+          "expr": "sum(increase(b3_db_client_operation_count{namespace=\"$namespace\", pod=~\"$pod\", error=\"true\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "Query Errors",
           "refId": "A"
         }
       ],
-      "title": "Total DB Errors",
+      "title": "DB Query Errors",
       "type": "timeseries"
     },
     {
       "datasource": "${datasource}",
+      "description": "Active and idle database connections over time",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1713,16 +1753,13 @@
           },
           "decimals": 0,
           "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -1732,75 +1769,22 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 83
-      },
-      "id": 47,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(b3_db_client_connection_error_count{namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "Connection Errors",
-          "refId": "A"
-        }
-      ],
-      "title": "Total Connection Errors",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 6,
-        "x": 0,
-        "y": 91
+        "w": 8,
+        "x": 8,
+        "y": 74
       },
       "id": 43,
       "options": {
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
+        "legend": {
+          "calcs": ["mean", "max"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
       },
       "targets": [
         {
@@ -1816,23 +1800,67 @@
           "refId": "B"
         }
       ],
-      "title": "Connection Pool Utilization",
-      "type": "gauge"
+      "title": "DB Connections",
+      "type": "timeseries"
     },
     {
       "datasource": "${datasource}",
+      "description": "Database connection errors over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 8,
-        "w": 6,
-        "x": 6,
-        "y": 91
+        "w": 8,
+        "x": 16,
+        "y": 74
       },
-      "id": 8,
+      "id": 45,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["sum"],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -1842,28 +1870,384 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(rate(b3_db_client_operation_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
-          "legendFormat": "Query Rate",
+          "expr": "sum(increase(b3_db_client_connection_error_count{namespace=\"$namespace\", pod=~\"$pod\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "Connection Errors",
           "refId": "A"
         }
       ],
-      "title": "Query Rate",
+      "title": "DB Connection Errors",
+      "type": "timeseries"
+    },
+    {
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 82
+      },
+      "id": 800,
+      "panels": [],
+      "title": "Blob Storage",
+      "type": "row"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "BlobFS operations over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 83
+      },
+      "id": 90,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "max"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(increase(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "Operations",
+          "refId": "A"
+        }
+      ],
+      "title": "BlobFS Operations",
       "type": "timeseries"
     },
     {
       "datasource": "${datasource}",
+      "description": "BlobFS operations by type over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 83
+      },
+      "id": 91,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "max"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum by(operation)(increase(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\", operation!~\"None|\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "{{`{{operation}}`}}",
+          "refId": "A"
+        }
+      ],
+      "title": "BlobFS Operations by Type",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "BlobFS operations by storage type over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 83
+      },
+      "id": 92,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "max"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum by(storage_type)(increase(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\", storage_type!~\"None|\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "{{`{{storage_type}}`}}",
+          "refId": "A"
+        }
+      ],
+      "title": "BlobFS Operations by Storage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "BlobFS errors over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 91
+      },
+      "id": 93,
+      "options": {
+        "legend": {
+          "calcs": ["sum"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(increase(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\", success=\"false\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "Errors",
+          "refId": "A"
+        }
+      ],
+      "title": "BlobFS Errors",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "BlobFS errors by operation over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 12,
         "y": 91
       },
-      "id": 45,
+      "id": 95,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["mean", "max"],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -1873,12 +2257,12 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(increase(b3_db_client_connection_error_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
-          "legendFormat": "Connection Errors",
+          "expr": "sum by(operation)(increase(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\", success=\"false\", operation!~\"None|\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "{{`{{operation}}`}}",
           "refId": "A"
         }
       ],
-      "title": "Connection Errors Rate",
+      "title": "BlobFS Errors by Operation",
       "type": "timeseries"
     },
     {
@@ -1896,6 +2280,7 @@
     },
     {
       "datasource": "${datasource}",
+      "description": "NATS reconnections over time",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1924,16 +2309,13 @@
           },
           "decimals": 0,
           "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -1950,7 +2332,7 @@
       "id": 52,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["sum"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -1963,16 +2345,17 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(b3_messaging_reconnect_count{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "expr": "sum(increase(b3_messaging_reconnect_count{namespace=\"$namespace\", pod=~\"$pod\"}[$__rate_interval])) or on() vector(0)",
           "legendFormat": "Reconnections",
           "refId": "A"
         }
       ],
-      "title": "Total Reconnections",
+      "title": "NATS Reconnections",
       "type": "timeseries"
     },
     {
       "datasource": "${datasource}",
+      "description": "NATS disconnections over time",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2001,16 +2384,13 @@
           },
           "decimals": 0,
           "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -2027,7 +2407,7 @@
       "id": 53,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["sum"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -2040,78 +2420,17 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(b3_messaging_disconnect_count{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "expr": "sum(increase(b3_messaging_disconnect_count{namespace=\"$namespace\", pod=~\"$pod\"}[$__rate_interval])) or on() vector(0)",
           "legendFormat": "Disconnections",
           "refId": "A"
         }
       ],
-      "title": "Total Disconnections",
+      "title": "NATS Disconnections",
       "type": "timeseries"
     },
     {
       "datasource": "${datasource}",
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 108
-      },
-      "id": 10,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(increase(b3_messaging_reconnect_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
-          "legendFormat": "Reconnections",
-          "refId": "A"
-        }
-      ],
-      "title": "Reconnections Rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 108
-      },
-      "id": 11,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(increase(b3_messaging_disconnect_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
-          "legendFormat": "Disconnections",
-          "refId": "A"
-        }
-      ],
-      "title": "Disconnections Rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
+      "description": "NATS disconnections by error type over time",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2122,7 +2441,7 @@
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 0,
+            "fillOpacity": 10,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
@@ -2138,52 +2457,35 @@
             "showPoints": "auto",
             "spanNulls": false
           },
+          "decimals": 0,
           "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
-          }
+          },
+          "unit": "short"
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Value"
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": true,
-                  "tooltip": true,
-                  "viz": false
-                }
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 8,
-        "w": 24,
+        "w": 12,
         "x": 0,
-        "y": 116
+        "y": 108
       },
       "id": 50,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["mean", "max"],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -2193,16 +2495,17 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum by(error_type)(increase(b3_messaging_disconnect_count{namespace=\"$namespace\", pod=~\"$pod\", error_type!~\"None|\"}[5m]))",
+          "expr": "sum by(error_type)(increase(b3_messaging_disconnect_count{namespace=\"$namespace\", pod=~\"$pod\", error_type!~\"None|\"}[$__rate_interval])) or on() vector(0)",
           "legendFormat": "{{`{{error_type}}`}}",
           "refId": "A"
         }
       ],
-      "title": "Disconnections by Error",
+      "title": "NATS Disconnections by Error",
       "type": "timeseries"
     },
     {
       "datasource": "${datasource}",
+      "description": "NATS subscription errors over time",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2231,16 +2534,13 @@
           },
           "decimals": 0,
           "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -2251,13 +2551,13 @@
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 0,
-        "y": 124
+        "x": 12,
+        "y": 108
       },
       "id": 54,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["sum"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -2270,43 +2570,12 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(b3_messaging_subscription_error_count{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "expr": "sum(increase(b3_messaging_subscription_error_count{namespace=\"$namespace\", pod=~\"$pod\"}[$__rate_interval])) or on() vector(0)",
           "legendFormat": "Subscription Errors",
           "refId": "A"
         }
       ],
-      "title": "Total Subscription Errors",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 124
-      },
-      "id": 51,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(increase(b3_messaging_subscription_error_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
-          "legendFormat": "Subscription Errors",
-          "refId": "A"
-        }
-      ],
-      "title": "Subscription Errors Rate",
+      "title": "NATS Subscription Errors",
       "type": "timeseries"
     },
     {
@@ -2315,15 +2584,16 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 132
+        "y": 116
       },
-      "id": 400,
+      "id": 100,
       "panels": [],
-      "title": "Cluster Proxy",
+      "title": "Authentication & Authorization",
       "type": "row"
     },
     {
       "datasource": "${datasource}",
+      "description": "Authentication attempts over time",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2352,16 +2622,13 @@
           },
           "decimals": 0,
           "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -2373,12 +2640,12 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 133
+        "y": 117
       },
-      "id": 64,
+      "id": 101,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["mean", "max"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -2391,16 +2658,17 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(b3_proxy_k8s_operation_total{namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "Proxy Operations",
+          "expr": "sum(increase(b3_auth_attempts_total{namespace=\"$namespace\", pod=~\"$pod\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "Auth Attempts",
           "refId": "A"
         }
       ],
-      "title": "Total Proxy Operations",
+      "title": "Authn Attempts",
       "type": "timeseries"
     },
     {
       "datasource": "${datasource}",
+      "description": "Authentication attempts by type over time",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2429,16 +2697,311 @@
           },
           "decimals": 0,
           "mappings": [],
+          "noValue": "No data found in response",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 117
+      },
+      "id": 30,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "max"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum by(auth_type)(increase(b3_auth_attempts_total{namespace=\"$namespace\", pod=~\"$pod\", auth_type!~\"None|\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "{{`{{auth_type}}`}}",
+          "refId": "A"
+        }
+      ],
+      "title": "Authn Attempts by Type",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "Authentication failures over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
               {
-                "color": "red",
-                "value": 80
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 125
+      },
+      "id": 103,
+      "options": {
+        "legend": {
+          "calcs": ["sum"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(increase(b3_auth_failures_total{namespace=\"$namespace\", pod=~\"$pod\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "Auth Failures",
+          "refId": "A"
+        }
+      ],
+      "title": "Authn Failures",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "Authentication failures by type over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 125
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "max"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum by(auth_type)(increase(b3_auth_failures_total{namespace=\"$namespace\", pod=~\"$pod\", auth_type!~\"None|\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "{{`{{auth_type}}`}}",
+          "refId": "A"
+        }
+      ],
+      "title": "Authn Failures by Type",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "Authorization checks over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 133
+      },
+      "id": 102,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "max"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "${datasource}",
+          "expr": "sum(increase(b3_authz_check_count{namespace=\"$namespace\", pod=~\"$pod\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "Authz Checks",
+          "refId": "A"
+        }
+      ],
+      "title": "Authz Checks",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${datasource}",
+      "description": "Authorization server errors over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "No data found in response",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -2452,10 +3015,10 @@
         "x": 12,
         "y": 133
       },
-      "id": 65,
+      "id": 35,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["sum"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -2468,920 +3031,13 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(b3_proxy_k8s_operation_total{namespace=\"$namespace\", pod=~\"$pod\", error=\"true\"})",
-          "legendFormat": "Proxy Errors",
+          "expr": "sum(increase(b3_authz_check_count{namespace=\"$namespace\", pod=~\"$pod\", authz_server_error=\"true\"}[$__rate_interval])) or on() vector(0)",
+          "legendFormat": "Server Errors",
           "refId": "A"
         }
       ],
-      "title": "Total Proxy Errors",
+      "title": "Authz Server Errors",
       "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 0,
-        "y": 141
-      },
-      "id": 12,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(rate(b3_proxy_k8s_operation_total{namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
-          "legendFormat": "Proxy Request Rate",
-          "refId": "A"
-        }
-      ],
-      "title": "Proxy Request Rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "decimals": 2,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 8,
-        "x": 16,
-        "y": 141
-      },
-      "id": 61,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(rate(b3_proxy_k8s_operation_total{namespace=\"$namespace\", pod=~\"$pod\", error=\"true\"}[5m]))",
-          "legendFormat": "Error Rate",
-          "refId": "A"
-        }
-      ],
-      "title": "Proxy Error Rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "s"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 8,
-        "x": 16,
-        "y": 145
-      },
-      "id": 13,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "histogram_quantile(0.99, sum(rate(b3_proxy_request_duration_bucket{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) by (le))",
-          "legendFormat": "P99",
-          "refId": "A"
-        },
-        {
-          "datasource": "${datasource}",
-          "expr": "histogram_quantile(0.95, sum(rate(b3_proxy_request_duration_bucket{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) by (le))",
-          "legendFormat": "P95",
-          "refId": "B"
-        },
-        {
-          "datasource": "${datasource}",
-          "expr": "histogram_quantile(0.50, sum(rate(b3_proxy_request_duration_bucket{namespace=\"$namespace\", pod=~\"$pod\"}[5m])) by (le))",
-          "legendFormat": "P50",
-          "refId": "C"
-        }
-      ],
-      "title": "Proxy Latency Percentiles",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Value"
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": true,
-                  "tooltip": true,
-                  "viz": false
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 8,
-        "y": 141
-      },
-      "id": 60,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum by(proxy_k8s_cluster)(rate(b3_proxy_k8s_operation_total{namespace=\"$namespace\", pod=~\"$pod\", proxy_k8s_cluster!~\"None|\"}[5m]))",
-          "legendFormat": "{{`Cluster: {{proxy_k8s_cluster}}`}}",
-          "refId": "A"
-        }
-      ],
-      "title": "Proxy Rate by Cluster",
-      "type": "timeseries"
-    },
-
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Value"
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": true,
-                  "tooltip": true,
-                  "viz": false
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 149
-      },
-      "id": 63,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "histogram_quantile(0.95, sum by(proxy_k8s_cluster, le)(rate(b3_proxy_request_duration_bucket{namespace=\"$namespace\", pod=~\"$pod\", proxy_k8s_cluster!~\"None|\"}[5m])))",
-          "legendFormat": "{{`{{proxy_k8s_cluster}} P95`}}",
-          "refId": "A"
-        }
-      ],
-      "title": "Proxy Latency by Cluster",
-      "type": "timeseries"
-    },
-    {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 157
-      },
-      "id": 600,
-      "panels": [],
-      "title": "Cluster Routes",
-      "type": "row"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 158
-      },
-      "id": 75,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(b3_cluster_request_count{namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "Cluster Requests",
-          "refId": "A"
-        }
-      ],
-      "title": "Total Cluster Requests",
-      "type": "timeseries"
-    },
-
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 158
-      },
-      "id": 76,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(b3_cluster_request_count{namespace=\"$namespace\", pod=~\"$pod\", http_response_status_code=~\"4..|5..\"})",
-          "legendFormat": "Cluster Errors",
-          "refId": "A"
-        }
-      ],
-      "title": "Total Cluster Errors",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 0,
-        "y": 166
-      },
-      "id": 70,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(rate(b3_cluster_request_count{namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
-          "legendFormat": "Request Rate",
-          "refId": "A"
-        }
-      ],
-      "title": "Cluster Routes Request Rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "decimals": 2,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 8,
-        "y": 166
-      },
-      "id": 72,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(rate(b3_cluster_request_count{namespace=\"$namespace\", pod=~\"$pod\", http_response_status_code=~\"4..|5..\"}[5m]))",
-          "legendFormat": "Error Rate",
-          "refId": "A"
-        }
-      ],
-      "title": "Cluster Routes Error Rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Value"
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": true,
-                  "tooltip": true,
-                  "viz": false
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 16,
-        "y": 166
-      },
-      "id": 71,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum by(http_request_method)(rate(b3_cluster_request_count{namespace=\"$namespace\", pod=~\"$pod\", http_request_method!~\"None|\"}[5m]))",
-          "legendFormat": "{{`{{http_request_method}}`}}",
-          "refId": "A"
-        }
-      ],
-      "title": "Cluster Routes Rate by Method",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 174
-      },
-      "id": 74,
-      "options": {
-        "footer": {
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
-        "showHeader": true,
-        "sortBy": [
-          {
-            "desc": true,
-            "displayName": "Error Count"
-          }
-        ]
-      },
-      "pluginVersion": "7.5.11",
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "topk(10, sum by(http_route)(b3_cluster_request_count{namespace=\"$namespace\", pod=~\"$pod\", http_response_status_code=~\"4..|5..\"})) > 0",
-          "format": "table",
-          "instant": true,
-          "legendFormat": "{{`{{http_route}}`}}",
-          "refId": "A"
-        }
-      ],
-      "title": "Top Error Routes (Cluster Routes)",
-      "transformations": [
-        {
-          "id": "organize",
-          "options": {
-            "excludeByName": {
-              "Time": true
-            },
-            "indexByName": {},
-            "renameByName": {
-              "Value": "Error Count",
-              "http_route": "Route"
-            }
-          }
-        }
-      ],
-      "type": "table"
     }
     {{- if .Values.dashboard.b3.showLicenseMetrics }},
     {
@@ -3389,7 +3045,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 182
+        "y": 141
       },
       "id": 700,
       "panels": [],
@@ -3417,7 +3073,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 183
+        "y": 142
       },
       "id": 80,
       "options": {
@@ -3492,12 +3148,12 @@
         "h": 8,
         "w": 16,
         "x": 8,
-        "y": 183
+        "y": 142
       },
       "id": 81,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["mean", "max"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -3515,7 +3171,7 @@
           "refId": "A"
         }
       ],
-      "title": "Licenses Issued Over Time",
+      "title": "Licenses Issued",
       "type": "timeseries"
     },
     {
@@ -3543,7 +3199,7 @@
         "h": 4,
         "w": 8,
         "x": 0,
-        "y": 191
+        "y": 150
       },
       "id": 82,
       "options": {
@@ -3618,12 +3274,12 @@
         "h": 4,
         "w": 8,
         "x": 8,
-        "y": 191
+        "y": 150
       },
       "id": 83,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["mean", "max"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -3641,7 +3297,7 @@
           "refId": "A"
         }
       ],
-      "title": "Issuances by Type",
+      "title": "License Issuances by Type",
       "type": "timeseries"
     },
     {
@@ -3665,7 +3321,7 @@
         "h": 4,
         "w": 8,
         "x": 0,
-        "y": 195
+        "y": 154
       },
       "id": 84,
       "options": {
@@ -3717,7 +3373,7 @@
         "h": 4,
         "w": 8,
         "x": 8,
-        "y": 195
+        "y": 154
       },
       "id": 85,
       "options": {
@@ -3792,12 +3448,12 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 191
+        "y": 150
       },
       "id": 86,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": ["mean", "max"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -3815,851 +3471,9 @@
           "refId": "A"
         }
       ],
-      "title": "Validations by Type",
+      "title": "License Validations by Type",
       "type": "timeseries"
-    }{{- end }},
-    {
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 199
-      },
-      "id": 800,
-      "panels": [],
-      "title": "Blob Storage",
-      "type": "row"
-    },
-
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 200
-      },
-      "id": 96,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "BlobFS Operations",
-          "refId": "A"
-        }
-      ],
-      "title": "Total BlobFS Operations",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 200
-      },
-      "id": 97,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\", success=\"false\"})",
-          "legendFormat": "BlobFS Errors",
-          "refId": "A"
-        }
-      ],
-      "title": "Total BlobFS Errors",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 0,
-        "y": 208
-      },
-      "id": 90,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(rate(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
-          "legendFormat": "Operation Rate",
-          "refId": "A"
-        }
-      ],
-      "title": "BlobFS Operation Rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Value"
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": true,
-                  "tooltip": true,
-                  "viz": false
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 8,
-        "y": 208
-      },
-      "id": 91,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "(sum by(operation)(rate(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\", operation!~\"None|\"}[5m])))",
-          "legendFormat": "{{`{{operation}}`}}",
-          "refId": "A"
-        }
-      ],
-      "title": "Blobfs Operations by Type",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Value"
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": true,
-                  "tooltip": true,
-                  "viz": false
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 16,
-        "y": 208
-      },
-      "id": 92,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "(sum by(storage_type)(rate(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\", storage_type!~\"None|\"}[5m])))",
-          "legendFormat": "{{`{{storage_type}}`}}",
-          "refId": "A"
-        }
-      ],
-      "title": "Blobfs Operations by Storage",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 12,
-        "x": 0,
-        "y": 216
-      },
-      "id": 93,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(rate(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\", success=\"false\"}[5m]))",
-          "legendFormat": "Error Rate",
-          "refId": "A"
-        }
-      ],
-      "title": "BlobFS Error Rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Value"
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": true,
-                  "tooltip": true,
-                  "viz": false
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 12,
-        "x": 12,
-        "y": 216
-      },
-      "id": 95,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum by(operation)(rate(b3_blobfs_operations_total{namespace=\"$namespace\", pod=~\"$pod\", success=\"false\", operation!~\"None|\"}[5m]))",
-          "legendFormat": "{{`{{operation}}`}}",
-          "refId": "A"
-        }
-      ],
-      "title": "Blobfs Error rate by Operation",
-      "type": "timeseries"
-    },
-    {
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 221
-      },
-      "id": 500,
-      "panels": [],
-      "title": "Platform Statistics",
-      "type": "row"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 8,
-        "x": 0,
-        "y": 222
-      },
-      "id": 14,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "center",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {
-          "valueSize": 20
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.5.11",
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(b3_gitea_users{namespace=\"$namespace\", pod=~\"$pod\"})",
-          "refId": "A"
-        }
-      ],
-      "title": "Total Users",
-      "type": "stat"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 7,
-        "x": 8,
-        "y": 222
-      },
-      "id": 1000,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "center",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {
-          "valueSize": 20
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.5.11",
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(b3_gitea_teams{namespace=\"$namespace\", pod=~\"$pod\"})",
-          "refId": "A"
-        }
-      ],
-      "title": "Total Teams",
-      "type": "stat"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 9,
-        "x": 15,
-        "y": 222
-      },
-      "id": 15,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "center",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {
-          "valueSize": 20
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.5.11",
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(b3_gitea_organizations{namespace=\"$namespace\", pod=~\"$pod\"})",
-          "refId": "A"
-        }
-      ],
-      "title": "Total Organizations",
-      "type": "stat"
-    },
-    {
-      "datasource": "${datasource}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 228
-      },
-      "id": 1003,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
-      },
-      "targets": [
-        {
-          "datasource": "${datasource}",
-          "expr": "sum(b3_gitea_users{namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "Users",
-          "refId": "A"
-        }
-      ],
-      "title": "Users Over Time",
-      "type": "timeseries"
-    }
+    }{{- end }}
   ],
   "refresh": "5s",
   "schemaVersion": 27,
