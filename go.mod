@@ -5,7 +5,7 @@ go 1.25.3
 require (
 	go.bytebuilders.dev/catalog v0.0.17
 	go.bytebuilders.dev/resource-model v0.4.0
-	go.bytebuilders.dev/ui-wizards v0.28.0
+	go.bytebuilders.dev/ui-wizards v0.29.0
 	go.openviz.dev/installer v0.0.0-20251229063709-2e10132c5d63
 	gomodules.xyz/go-sh v0.2.0
 	k8s.io/api v0.34.3
