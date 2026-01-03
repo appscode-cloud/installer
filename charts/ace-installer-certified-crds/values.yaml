@@ -142,6 +142,7 @@ selfManagement:
   targetIPs: []
   enableFeatures: []
   disableFeatures: []
+  useGateway: false
 precheck:
   enabled: true
   # Docker registry containing app image

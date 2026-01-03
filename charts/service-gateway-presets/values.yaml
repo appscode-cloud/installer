@@ -63,6 +63,7 @@ gateway:
       extensionApis: {}
   deployment:
     priorityClassName: system-cluster-critical
+    annotations: {}
   hpa:
     enabled: false
     behavior: {}
