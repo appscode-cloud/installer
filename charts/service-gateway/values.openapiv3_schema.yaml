@@ -716,6 +716,17 @@ properties:
                 additionalProperties:
                   type: string
                 type: object
+              pod:
+                properties:
+                  annotations:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  labels:
+                    additionalProperties:
+                      type: string
+                    type: object
+                type: object
               resources:
                 properties:
                   claims:
@@ -850,9 +861,6 @@ properties:
                 additionalProperties:
                   type: string
                 type: object
-            required:
-            - annotations
-            - labels
             type: object
         required:
         - job
@@ -885,6 +893,13 @@ properties:
                 type: object
               provider:
                 properties:
+                  kubernetes:
+                    properties:
+                      cleanupOffshootResources:
+                        type: boolean
+                    required:
+                    - cleanupOffshootResources
+                    type: object
                   type:
                     type: string
                 required:
@@ -900,6 +915,10 @@ properties:
         type: boolean
       deployment:
         properties:
+          annotations:
+            additionalProperties:
+              type: string
+            type: object
           envoyGateway:
             properties:
               image:
@@ -2043,6 +2062,20 @@ properties:
             type: object
           criticalAddon:
             type: boolean
+          distro:
+            properties:
+              openshift:
+                type: boolean
+              ubi:
+                enum:
+                - all
+                - catalog
+                - operator
+                type: string
+            required:
+            - openshift
+            - ubi
+            type: object
           enabled:
             type: boolean
           fullnameOverride:
@@ -2323,6 +2356,20 @@ properties:
         type: object
       global:
         properties:
+          distro:
+            properties:
+              openshift:
+                type: boolean
+              ubi:
+                enum:
+                - all
+                - catalog
+                - operator
+                type: string
+            required:
+            - openshift
+            - ubi
+            type: object
           imagePullSecrets:
             items:
               type: string
@@ -2760,7 +2807,6 @@ properties:
           enabled:
             type: boolean
         required:
-        - annotations
         - enabled
         type: object
     required:
@@ -2789,6 +2835,10 @@ properties:
                 type: boolean
               preferCNAME:
                 type: boolean
+              sdCreateTag:
+                additionalProperties:
+                  type: string
+                type: object
               sdServiceCleanup:
                 type: boolean
               secretRef:
@@ -2810,9 +2860,13 @@ properties:
                 type: array
               zoneType:
                 type: string
+            required:
+            - sdCreateTag
             type: object
           azure:
             properties:
+              maxRetriesCount:
+                type: integer
               resourceGroup:
                 type: string
               secretRef:
@@ -2829,12 +2883,28 @@ properties:
                 type: string
               userAssignedIdentityClientID:
                 type: string
+              zonesCacheDuration:
+                format: int64
+                type: integer
+            required:
+            - maxRetriesCount
+            - zonesCacheDuration
             type: object
           cloudflare:
             properties:
               baseURL:
                 type: string
+              customHostnames:
+                type: boolean
+              customHostnamesCertificateAuthority:
+                type: string
+              customHostnamesMinTLSVersion:
+                type: string
               proxied:
+                type: boolean
+              regionKey:
+                type: string
+              regionalServices:
                 type: boolean
               secretRef:
                 properties:
