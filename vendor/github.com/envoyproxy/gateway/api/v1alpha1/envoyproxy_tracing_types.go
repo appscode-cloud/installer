@@ -19,7 +19,6 @@ type ProxyTracing struct {
 	//
 	// +kubebuilder:validation:Minimum=0
 	// +kubebuilder:validation:Maximum=100
-	// +kubebuilder:default=100
 	// +optional
 	SamplingRate *uint32 `json:"samplingRate,omitempty"`
 	// SamplingFraction represents the fraction of requests that should be
@@ -32,6 +31,8 @@ type ProxyTracing struct {
 	SamplingFraction *gwapiv1.Fraction `json:"samplingFraction,omitempty"`
 	// CustomTags defines the custom tags to add to each span.
 	// If provider is kubernetes, pod name and namespace are added by default.
+	//
+	// +optional
 	CustomTags map[string]CustomTag `json:"customTags,omitempty"`
 	// Provider defines the tracing provider.
 	Provider TracingProvider `json:"provider"`
@@ -49,8 +50,8 @@ const (
 //
 // +kubebuilder:validation:XValidation:message="host or backendRefs needs to be set",rule="has(self.host) || self.backendRefs.size() > 0"
 // +kubebuilder:validation:XValidation:message="BackendRefs must be used, backendRef is not supported.",rule="!has(self.backendRef)"
-// +kubebuilder:validation:XValidation:message="only supports Service kind.",rule="has(self.backendRefs) ? self.backendRefs.all(f, f.kind == 'Service') : true"
-// +kubebuilder:validation:XValidation:message="BackendRefs only supports Core group.",rule="has(self.backendRefs) ? (self.backendRefs.all(f, f.group == \"\")) : true"
+// +kubebuilder:validation:XValidation:message="BackendRefs only support Service and Backend kind.",rule="has(self.backendRefs) ? self.backendRefs.all(f, f.kind == 'Service' || f.kind == 'Backend') : true"
+// +kubebuilder:validation:XValidation:message="BackendRefs only support Core and gateway.envoyproxy.io group.",rule="has(self.backendRefs) ? (self.backendRefs.all(f, f.group == \"\" || f.group == 'gateway.envoyproxy.io')) : true"
 type TracingProvider struct {
 	BackendCluster `json:",inline"`
 	// Type defines the tracing provider type.
@@ -69,6 +70,16 @@ type TracingProvider struct {
 	// +kubebuilder:validation:Minimum=0
 	// +kubebuilder:default=4317
 	Port int32 `json:"port,omitempty"`
+	// ServiceName defines the service name to use in tracing configuration.
+	// If not set, Envoy Gateway will use a default service name set as
+	// "name.namespace" (e.g., "my-gateway.default").
+	// Note: This field is only supported for OpenTelemetry and Datadog tracing providers.
+	// For Zipkin, the service name in traces is always derived from the Envoy --service-cluster flag
+	// (typically "namespace/name" format). Setting this field has no effect for Zipkin.
+	//
+	// +optional
+	// +kubebuilder:validation:XValidation:message="serviceName cannot be empty if provided",rule="self != \"\""
+	ServiceName *string `json:"serviceName,omitempty"`
 	// Zipkin defines the Zipkin tracing provider configuration
 	// +optional
 	Zipkin *ZipkinTracingProvider `json:"zipkin,omitempty"`

@@ -807,6 +807,8 @@ properties:
         items:
           type: string
         type: array
+      useGateway:
+        type: boolean
     type: object
 required:
 - fullnameOverride
