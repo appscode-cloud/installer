@@ -2,7 +2,7 @@ apiVersion: v2
 name: acerproxy
 description: A Helm chart for Rancher aware proxy of ACE api
 type: application
-version: v2025.12.15
+version: v2026.1.15
 appVersion: v0.1.0
 home: https://github.com/kubedb/acerproxy
 icon: https://cdn.appscode.com/images/products/kubedb/kubedb-icon.png
