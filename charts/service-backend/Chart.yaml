@@ -3,7 +3,7 @@ name: service-backend
 description: A Helm chart for Kubernetes
 type: application
 version: v2026.1.15
-appVersion: v0.0.1
+appVersion: v0.0.2
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:

@@ -293,12 +293,12 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-i
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-nats-2.10.24-alpine.tar $IMAGE_REGISTRY/appscode-images/nats:2.10.24-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-postgres-16.4-alpine.tar $IMAGE_REGISTRY/appscode-images/postgres:16.4-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-redis-7.2.4-bookworm.tar $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-aceshifter-v0.0.1.tar $IMAGE_REGISTRY/appscode/aceshifter:v0.0.1
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-aceshifter-v0.0.2.tar $IMAGE_REGISTRY/appscode/aceshifter:v0.0.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-b3-v2026.1.15.tar $IMAGE_REGISTRY/appscode/b3:v2026.1.15
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-capa-vpc-peering-operator-v0.0.4.tar $IMAGE_REGISTRY/appscode/capa-vpc-peering-operator:v0.0.4
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-capi-ops-manager-v0.0.2.tar $IMAGE_REGISTRY/appscode/capi-ops-manager:v0.0.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-catalog-manager-v0.9.0.tar $IMAGE_REGISTRY/appscode/catalog-manager:v0.9.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-cluster-presets-v0.0.9.tar $IMAGE_REGISTRY/appscode/cluster-presets:v0.0.9
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-cluster-presets-v0.0.10.tar $IMAGE_REGISTRY/appscode/cluster-presets:v0.0.10
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-cluster-ui-2.0.0.tar $IMAGE_REGISTRY/appscode/cluster-ui:2.0.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-config-syncer-v0.15.2-ent.tar $IMAGE_REGISTRY/appscode/config-syncer:v0.15.2-ent
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-csi-driver-cacerts-v0.1.0.tar $IMAGE_REGISTRY/appscode/csi-driver-cacerts:v0.1.0
@@ -319,7 +319,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rba
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-ui-server-v0.0.50.tar $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.50
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-nonroot-1.31.tar $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.31
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubedb-ui-2.0.0.tar $IMAGE_REGISTRY/appscode/kubedb-ui:2.0.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-license-proxyserver-v0.0.23.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.23
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-license-proxyserver-v0.0.25.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.25
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-maxmind-geoip-city-mmdb-latest.tar $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-openfga-v1.9.5.tar $IMAGE_REGISTRY/appscode/openfga:v1.9.5
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-operator-shard-manager-v0.0.1.tar $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
@@ -330,7 +330,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-prom-aut
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-reloader-v1.0.79.tar $IMAGE_REGISTRY/appscode/reloader:v1.0.79
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-s3proxy-sha-a82ca68.tar $IMAGE_REGISTRY/appscode/s3proxy:sha-a82ca68
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-scanner-v0.0.19.tar $IMAGE_REGISTRY/appscode/scanner:v0.0.19
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-service-provider-v0.0.1.tar $IMAGE_REGISTRY/appscode/service-provider:v0.0.1
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-service-provider-v0.0.2.tar $IMAGE_REGISTRY/appscode/service-provider:v0.0.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-sidekick-v0.0.11.tar $IMAGE_REGISTRY/appscode/sidekick:v0.0.11
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-supervisor-v0.0.7.tar $IMAGE_REGISTRY/appscode/supervisor:v0.0.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-trickster-v2.0.0-beta3.tar $IMAGE_REGISTRY/appscode/trickster:v2.0.0-beta3

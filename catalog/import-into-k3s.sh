@@ -291,12 +291,12 @@ k3s ctr images import images/appscode-images-ingress-nginx-controller-v1.11.1.ta
 k3s ctr images import images/appscode-images-nats-2.10.24-alpine.tar
 k3s ctr images import images/appscode-images-postgres-16.4-alpine.tar
 k3s ctr images import images/appscode-images-redis-7.2.4-bookworm.tar
-k3s ctr images import images/appscode-aceshifter-v0.0.1.tar
+k3s ctr images import images/appscode-aceshifter-v0.0.2.tar
 k3s ctr images import images/appscode-b3-v2026.1.15.tar
 k3s ctr images import images/appscode-capa-vpc-peering-operator-v0.0.4.tar
 k3s ctr images import images/appscode-capi-ops-manager-v0.0.2.tar
 k3s ctr images import images/appscode-catalog-manager-v0.9.0.tar
-k3s ctr images import images/appscode-cluster-presets-v0.0.9.tar
+k3s ctr images import images/appscode-cluster-presets-v0.0.10.tar
 k3s ctr images import images/appscode-cluster-ui-2.0.0.tar
 k3s ctr images import images/appscode-config-syncer-v0.15.2-ent.tar
 k3s ctr images import images/appscode-csi-driver-cacerts-v0.1.0.tar
@@ -317,7 +317,7 @@ k3s ctr images import images/appscode-kube-rbac-proxy-v0.18.2.tar
 k3s ctr images import images/appscode-kube-ui-server-v0.0.50.tar
 k3s ctr images import images/appscode-kubectl-nonroot-1.31.tar
 k3s ctr images import images/appscode-kubedb-ui-2.0.0.tar
-k3s ctr images import images/appscode-license-proxyserver-v0.0.23.tar
+k3s ctr images import images/appscode-license-proxyserver-v0.0.25.tar
 k3s ctr images import images/appscode-maxmind-geoip-city-mmdb-latest.tar
 k3s ctr images import images/appscode-openfga-v1.9.5.tar
 k3s ctr images import images/appscode-operator-shard-manager-v0.0.1.tar
@@ -328,7 +328,7 @@ k3s ctr images import images/appscode-prom-authproxy-v0.0.1.tar
 k3s ctr images import images/appscode-reloader-v1.0.79.tar
 k3s ctr images import images/appscode-s3proxy-sha-a82ca68.tar
 k3s ctr images import images/appscode-scanner-v0.0.19.tar
-k3s ctr images import images/appscode-service-provider-v0.0.1.tar
+k3s ctr images import images/appscode-service-provider-v0.0.2.tar
 k3s ctr images import images/appscode-sidekick-v0.0.11.tar
 k3s ctr images import images/appscode-supervisor-v0.0.7.tar
 k3s ctr images import images/appscode-trickster-v2.0.0-beta3.tar
