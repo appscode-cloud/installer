@@ -302,12 +302,12 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/in
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.24-alpine $IMAGE_REGISTRY/appscode-images/nats:2.10.24-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:16.4-alpine $IMAGE_REGISTRY/appscode-images/postgres:16.4-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/aceshifter:v0.0.1 $IMAGE_REGISTRY/appscode/aceshifter:v0.0.1
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/aceshifter:v0.0.2 $IMAGE_REGISTRY/appscode/aceshifter:v0.0.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/b3:v2026.1.15 $IMAGE_REGISTRY/appscode/b3:v2026.1.15
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 $IMAGE_REGISTRY/appscode/capa-vpc-peering-operator:v0.0.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capi-ops-manager:v0.0.2 $IMAGE_REGISTRY/appscode/capi-ops-manager:v0.0.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog-manager:v0.9.0 $IMAGE_REGISTRY/appscode/catalog-manager:v0.9.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-presets:v0.0.9 $IMAGE_REGISTRY/appscode/cluster-presets:v0.0.9
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-presets:v0.0.10 $IMAGE_REGISTRY/appscode/cluster-presets:v0.0.10
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:2.0.0 $IMAGE_REGISTRY/appscode/cluster-ui:2.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/config-syncer:v0.15.2-ent $IMAGE_REGISTRY/appscode/config-syncer:v0.15.2-ent
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/csi-driver-cacerts:v0.1.0 $IMAGE_REGISTRY/appscode/csi-driver-cacerts:v0.1.0
@@ -328,7 +328,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-ui-server:v0.0.50 $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.50
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.31 $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.31
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:2.0.0 $IMAGE_REGISTRY/appscode/kubedb-ui:2.0.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.23 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.23
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.25 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.25
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.9.5 $IMAGE_REGISTRY/appscode/openfga:v1.9.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
@@ -339,7 +339,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/prom-auth
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/reloader:v1.0.79 $IMAGE_REGISTRY/appscode/reloader:v1.0.79
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/s3proxy:sha-a82ca68 $IMAGE_REGISTRY/appscode/s3proxy:sha-a82ca68
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/scanner:v0.0.19 $IMAGE_REGISTRY/appscode/scanner:v0.0.19
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/service-provider:v0.0.1 $IMAGE_REGISTRY/appscode/service-provider:v0.0.1
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/service-provider:v0.0.2 $IMAGE_REGISTRY/appscode/service-provider:v0.0.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/sidekick:v0.0.11 $IMAGE_REGISTRY/appscode/sidekick:v0.0.11
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/supervisor:v0.0.7 $IMAGE_REGISTRY/appscode/supervisor:v0.0.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/trickster:v2.0.0-beta3 $IMAGE_REGISTRY/appscode/trickster:v2.0.0-beta3

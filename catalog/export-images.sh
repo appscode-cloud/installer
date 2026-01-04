@@ -299,12 +299,12 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.24-alpine images/appscode-images-nats-2.10.24-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:16.4-alpine images/appscode-images-postgres-16.4-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.2.4-bookworm images/appscode-images-redis-7.2.4-bookworm.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/aceshifter:v0.0.1 images/appscode-aceshifter-v0.0.1.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/aceshifter:v0.0.2 images/appscode-aceshifter-v0.0.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/b3:v2026.1.15 images/appscode-b3-v2026.1.15.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 images/appscode-capa-vpc-peering-operator-v0.0.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/capi-ops-manager:v0.0.2 images/appscode-capi-ops-manager-v0.0.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/catalog-manager:v0.9.0 images/appscode-catalog-manager-v0.9.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-presets:v0.0.9 images/appscode-cluster-presets-v0.0.9.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-presets:v0.0.10 images/appscode-cluster-presets-v0.0.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/cluster-ui:2.0.0 images/appscode-cluster-ui-2.0.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/config-syncer:v0.15.2-ent images/appscode-config-syncer-v0.15.2-ent.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/csi-driver-cacerts:v0.1.0 images/appscode-csi-driver-cacerts-v0.1.0.tar
@@ -325,7 +325,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rb
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-ui-server:v0.0.50 images/appscode-kube-ui-server-v0.0.50.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.31 images/appscode-kubectl-nonroot-1.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:2.0.0 images/appscode-kubedb-ui-2.0.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.23 images/appscode-license-proxyserver-v0.0.23.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.25 images/appscode-license-proxyserver-v0.0.25.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest images/appscode-maxmind-geoip-city-mmdb-latest.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.9.5 images/appscode-openfga-v1.9.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 images/appscode-operator-shard-manager-v0.0.1.tar
@@ -336,7 +336,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/prom-au
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/reloader:v1.0.79 images/appscode-reloader-v1.0.79.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/s3proxy:sha-a82ca68 images/appscode-s3proxy-sha-a82ca68.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/scanner:v0.0.19 images/appscode-scanner-v0.0.19.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/service-provider:v0.0.1 images/appscode-service-provider-v0.0.1.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/service-provider:v0.0.2 images/appscode-service-provider-v0.0.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/sidekick:v0.0.11 images/appscode-sidekick-v0.0.11.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/supervisor:v0.0.7 images/appscode-supervisor-v0.0.7.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/trickster:v2.0.0-beta3 images/appscode-trickster-v2.0.0-beta3.tar

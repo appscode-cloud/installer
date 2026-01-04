@@ -5,7 +5,7 @@ description: A webhook to use AppsCode DNS Proxy for Cloudfare as a DNS issuer f
 home: https://github.com/appscode-cloud/cert-manager-webhook-ace
 type: application
 version: v2026.1.15
-appVersion: v0.0.1
+appVersion: v0.0.2
 keywords:
 - cert-manager
 - letsencrypt

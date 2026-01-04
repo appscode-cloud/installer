@@ -40,12 +40,12 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/ingress-ngin
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/nats:2.10.24-alpine $IMAGE_REGISTRY/nats:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/postgres:16.4-alpine $IMAGE_REGISTRY/postgres:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/redis:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/aceshifter:v0.0.1 $IMAGE_REGISTRY/aceshifter:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/aceshifter:v0.0.2 $IMAGE_REGISTRY/aceshifter:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/b3:v2026.1.15 $IMAGE_REGISTRY/b3:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/capa-vpc-peering-operator:v0.0.4 $IMAGE_REGISTRY/capa-vpc-peering-operator:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/capi-ops-manager:v0.0.2 $IMAGE_REGISTRY/capi-ops-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/catalog-manager:v0.9.0 $IMAGE_REGISTRY/catalog-manager:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/cluster-presets:v0.0.9 $IMAGE_REGISTRY/cluster-presets:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/cluster-presets:v0.0.10 $IMAGE_REGISTRY/cluster-presets:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/cluster-ui:2.0.0 $IMAGE_REGISTRY/cluster-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/config-syncer:v0.15.2-ent $IMAGE_REGISTRY/config-syncer:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/csi-driver-cacerts:v0.1.0 $IMAGE_REGISTRY/csi-driver-cacerts:$TAG
@@ -63,7 +63,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-rbac-proxy:v0.
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kube-ui-server:v0.0.50 $IMAGE_REGISTRY/kube-ui-server:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubectl-nonroot:1.31 $IMAGE_REGISTRY/kubectl-nonroot:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubedb-ui:2.0.0 $IMAGE_REGISTRY/kubedb-ui:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/license-proxyserver:v0.0.23 $IMAGE_REGISTRY/license-proxyserver:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/license-proxyserver:v0.0.25 $IMAGE_REGISTRY/license-proxyserver:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/maxmind-geoip:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/openfga:v1.9.5 $IMAGE_REGISTRY/openfga:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/operator-shard-manager:v0.0.1 $IMAGE_REGISTRY/operator-shard-manager:$TAG
@@ -74,7 +74,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/prom-authproxy:v0.0
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/reloader:v1.0.79 $IMAGE_REGISTRY/reloader:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/s3proxy:sha-a82ca68 $IMAGE_REGISTRY/s3proxy:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/scanner:v0.0.19 $IMAGE_REGISTRY/scanner:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/service-provider:v0.0.1 $IMAGE_REGISTRY/service-provider:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/service-provider:v0.0.2 $IMAGE_REGISTRY/service-provider:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/sidekick:v0.0.11 $IMAGE_REGISTRY/sidekick:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/supervisor:v0.0.7 $IMAGE_REGISTRY/supervisor:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/trickster:v2.0.0-beta3 $IMAGE_REGISTRY/trickster:$TAG
