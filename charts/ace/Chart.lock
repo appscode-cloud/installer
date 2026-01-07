@@ -31,12 +31,12 @@ dependencies:
   version: 0.2.42
 - name: pgoutbox
   repository: oci://ghcr.io/appscode-charts
-  version: v2025.4.30
+  version: v2026.1.15
 - name: outbox-syncer
   repository: file://../outbox-syncer
   version: v2026.1.15
 - name: platform-opscenter
   repository: file://../platform-opscenter
   version: v2026.1.15
-digest: sha256:8dfd9a21662cfe9d53acf61fd7379b1d405a9c7b8583f36aef2e20caf03b413b
-generated: "2026-01-03T17:36:02.296879181Z"
+digest: sha256:7dfceb7b148a69deda78c4b0b52682e1bb85e72f98791174dc535762ad8aadc2
+generated: "2026-01-07T09:47:09.959432+06:00"
