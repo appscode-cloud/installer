@@ -55,7 +55,7 @@ dependencies:
 - name: pgoutbox
   repository: oci://ghcr.io/appscode-charts
   condition: pgoutbox.enabled
-  version: v2025.4.30
+  version: v2026.1.15
 - name: outbox-syncer
   repository: file://../outbox-syncer
   condition: outbox-syncer.enabled

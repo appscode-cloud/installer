@@ -317,7 +317,7 @@ k3s ctr images import images/appscode-kube-rbac-proxy-v0.18.2.tar
 k3s ctr images import images/appscode-kube-ui-server-v0.0.50.tar
 k3s ctr images import images/appscode-kubectl-nonroot-1.31.tar
 k3s ctr images import images/appscode-kubedb-ui-2.0.0.tar
-k3s ctr images import images/appscode-license-proxyserver-v0.0.25.tar
+k3s ctr images import images/appscode-license-proxyserver-v0.0.26.tar
 k3s ctr images import images/appscode-maxmind-geoip-city-mmdb-latest.tar
 k3s ctr images import images/appscode-openfga-v1.9.5.tar
 k3s ctr images import images/appscode-operator-shard-manager-v0.0.1.tar
