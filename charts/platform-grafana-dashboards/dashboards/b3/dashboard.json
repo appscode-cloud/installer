@@ -93,7 +93,7 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "time() - max(process_start_time_seconds{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "expr": "time() - max(process_start_time_seconds{job=\"{{ .Values.dashboard.b3.jobName }}\", namespace=\"$namespace\", pod=~\"$pod\"})",
           "legendFormat": "Uptime",
           "refId": "A"
         }
@@ -168,7 +168,7 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(rate(process_cpu_seconds_total{namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
+          "expr": "sum(rate(process_cpu_seconds_total{job=\"{{ .Values.dashboard.b3.jobName }}\", namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
           "legendFormat": "CPU (cores)",
           "refId": "A"
         }
@@ -242,19 +242,19 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(process_resident_memory_bytes{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "expr": "sum(process_resident_memory_bytes{job=\"{{ .Values.dashboard.b3.jobName }}\", namespace=\"$namespace\", pod=~\"$pod\"})",
           "legendFormat": "RSS Memory",
           "refId": "A"
         },
         {
           "datasource": "${datasource}",
-          "expr": "sum(go_memstats_heap_inuse_bytes{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "expr": "sum(go_memstats_heap_inuse_bytes{job=\"{{ .Values.dashboard.b3.jobName }}\", namespace=\"$namespace\", pod=~\"$pod\"})",
           "legendFormat": "Heap In Use",
           "refId": "B"
         },
         {
           "datasource": "${datasource}",
-          "expr": "sum(go_memstats_heap_idle_bytes{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "expr": "sum(go_memstats_heap_idle_bytes{job=\"{{ .Values.dashboard.b3.jobName }}\", namespace=\"$namespace\", pod=~\"$pod\"})",
           "legendFormat": "Heap Idle",
           "refId": "C"
         }
@@ -308,7 +308,7 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(rate(process_cpu_seconds_total{namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
+          "expr": "sum(rate(process_cpu_seconds_total{job=\"{{ .Values.dashboard.b3.jobName }}\", namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
           "legendFormat": "",
           "refId": "A"
         }
@@ -383,13 +383,13 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(go_goroutines{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "expr": "sum(go_goroutines{job=\"{{ .Values.dashboard.b3.jobName }}\", namespace=\"$namespace\", pod=~\"$pod\"})",
           "legendFormat": "Goroutines",
           "refId": "A"
         },
         {
           "datasource": "${datasource}",
-          "expr": "sum(go_threads{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "expr": "sum(go_threads{job=\"{{ .Values.dashboard.b3.jobName }}\", namespace=\"$namespace\", pod=~\"$pod\"})",
           "legendFormat": "OS Threads",
           "refId": "B"
         }
@@ -463,13 +463,13 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "max(go_gc_duration_seconds{namespace=\"$namespace\", pod=~\"$pod\", quantile=\"1\"})",
+          "expr": "max(go_gc_duration_seconds{job=\"{{ .Values.dashboard.b3.jobName }}\", namespace=\"$namespace\", pod=~\"$pod\", quantile=\"1\"})",
           "legendFormat": "P100 (Max)",
           "refId": "A"
         },
         {
           "datasource": "${datasource}",
-          "expr": "max(go_gc_duration_seconds{namespace=\"$namespace\", pod=~\"$pod\", quantile=\"0.5\"})",
+          "expr": "max(go_gc_duration_seconds{job=\"{{ .Values.dashboard.b3.jobName }}\", namespace=\"$namespace\", pod=~\"$pod\", quantile=\"0.5\"})",
           "legendFormat": "P50",
           "refId": "B"
         }
@@ -544,7 +544,7 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(process_open_fds{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "expr": "sum(process_open_fds{job=\"{{ .Values.dashboard.b3.jobName }}\", namespace=\"$namespace\", pod=~\"$pod\"})",
           "legendFormat": "Open FDs",
           "refId": "A"
         }
@@ -1368,6 +1368,18 @@
         "y": 49
       },
       "id": 5,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "max"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
       "targets": [
         {
           "datasource": "${datasource}",
