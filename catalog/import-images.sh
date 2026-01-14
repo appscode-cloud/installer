@@ -317,7 +317,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rba
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rbac-proxy-v0.15.0.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.15.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rbac-proxy-v0.18.2.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.18.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-ui-server-v0.0.50.tar $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.50
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-nonroot-1.31.tar $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.31
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-nonroot-1.34.tar $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.34
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubedb-ui-2.0.0.tar $IMAGE_REGISTRY/appscode/kubedb-ui:2.0.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-license-proxyserver-v0.0.26.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.26
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-maxmind-geoip-city-mmdb-latest.tar $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
