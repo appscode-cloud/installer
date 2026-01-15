@@ -103,7 +103,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "CPU usage rate over time",
+      "description": "CPU usage rate",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -178,7 +178,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "Memory usage over time - RSS and heap breakdown",
+      "description": "Memory usage - RSS and heap breakdown",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -318,7 +318,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "Goroutines and OS threads over time",
+      "description": "Goroutines and OS threads",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -399,7 +399,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "GC pause duration percentiles over time",
+      "description": "GC pause duration percentiles",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -479,7 +479,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "Open file descriptors over time",
+      "description": "Open file descriptors",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -829,7 +829,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "HTTP requests over time",
+      "description": "HTTP requests",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -904,7 +904,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "HTTP requests by method over time",
+      "description": "HTTP requests by method",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -978,7 +978,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "HTTP errors (4xx/5xx) over time",
+      "description": "HTTP errors (4xx/5xx)",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1661,7 +1661,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "Database query errors over time",
+      "description": "Database query errors",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1736,7 +1736,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "Active and idle database connections over time",
+      "description": "Active and idle database connections",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1817,7 +1817,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "Database connection errors over time",
+      "description": "Database connection errors",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1904,7 +1904,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "BlobFS operations over time",
+      "description": "BlobFS operations",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1979,7 +1979,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "BlobFS operations by type over time",
+      "description": "BlobFS operations by type",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2054,7 +2054,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "BlobFS operations by storage type over time",
+      "description": "BlobFS operations by storage type",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2129,7 +2129,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "BlobFS errors over time",
+      "description": "BlobFS errors",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2204,7 +2204,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "BlobFS errors by operation over time",
+      "description": "BlobFS errors by operation",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2292,7 +2292,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "NATS reconnections over time",
+      "description": "NATS reconnections",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2367,7 +2367,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "NATS disconnections over time",
+      "description": "NATS disconnections",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2442,7 +2442,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "NATS disconnections by error type over time",
+      "description": "NATS disconnections by error type",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2517,7 +2517,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "NATS subscription errors over time",
+      "description": "NATS subscription errors",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2605,7 +2605,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "Authentication attempts over time",
+      "description": "Authentication attempts",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2680,7 +2680,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "Authentication attempts by type over time",
+      "description": "Authentication attempts by type",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2754,7 +2754,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "Authentication failures over time",
+      "description": "Authentication failures",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2829,7 +2829,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "Authentication failures by type over time",
+      "description": "Authentication failures by type",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2903,7 +2903,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "Authorization checks over time",
+      "description": "Authorization checks",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2978,7 +2978,7 @@
     },
     {
       "datasource": "${datasource}",
-      "description": "Authorization server errors over time",
+      "description": "Authorization server errors",
       "fieldConfig": {
         "defaults": {
           "color": {
