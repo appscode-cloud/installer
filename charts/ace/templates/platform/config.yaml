@@ -136,6 +136,7 @@ stringData:
     BUCKET_ENDPOINT = {{ .Values.global.infra.objstore.endpoint }}
     BUCKET_REGION   = {{ .Values.global.infra.objstore.region }}
     BUCKET_PREFIX   = {{ .Values.global.infra.objstore.prefix }}
+    CA_CERT_PATH  =   /data/credentials/ca.crt
 
     [picture]
     DISABLE_GRAVATAR        = false
