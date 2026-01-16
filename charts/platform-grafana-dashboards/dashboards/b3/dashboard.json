@@ -616,7 +616,7 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(b3_gitea_users{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "expr": "sum(b3_legacy_users{namespace=\"$namespace\", pod=~\"$pod\"})",
           "refId": "A"
         }
       ],
@@ -674,7 +674,7 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(b3_gitea_teams{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "expr": "sum(b3_legacy_teams{namespace=\"$namespace\", pod=~\"$pod\"})",
           "refId": "A"
         }
       ],
@@ -732,7 +732,7 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(b3_gitea_organizations{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "expr": "sum(b3_legacy_organizations{namespace=\"$namespace\", pod=~\"$pod\"})",
           "refId": "A"
         }
       ],
@@ -806,7 +806,7 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(b3_gitea_users{namespace=\"$namespace\", pod=~\"$pod\"})",
+          "expr": "sum(b3_legacy_users{namespace=\"$namespace\", pod=~\"$pod\"})",
           "legendFormat": "Users",
           "refId": "A"
         }
