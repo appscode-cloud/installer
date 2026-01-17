@@ -95,7 +95,9 @@ stringData:
   {{- if (include "monitoring.agent" .) }}
 
     [metrics]
+    AGENT = {{ include "monitoring.agent" . }}
     ENABLED = true
+
   {{- end }}
 
     [cors]
