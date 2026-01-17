@@ -33,6 +33,23 @@ spec:
         kind: Deployment
         selector:
           app.kubernetes.io/name: panopticon
+  ignoreDifferences:
+  - jsonPointers:
+    - /data
+    kind: Secret
+    name: panopticon-apiserver-cert
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.validators.metrics.appscode.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apps
+    kind: Deployment
+    name: panopticon
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+    jsonPointers:
+    - /spec/template/metadata/annotations/checksum~1apiregistration.yaml
   chart:
     name: panopticon
     namespace: monitoring
