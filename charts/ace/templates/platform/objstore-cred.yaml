@@ -14,7 +14,9 @@ stringData:
 {{- if eq $objstore.provider "s3" }}
   AWS_ACCESS_KEY_ID: '{{ $objstore.s3.AWS_ACCESS_KEY_ID }}'
   AWS_SECRET_ACCESS_KEY: '{{ $objstore.s3.AWS_SECRET_ACCESS_KEY }}'
-  ca.crt: '{{ $objstore.s3.CA_CERT_DATA }}'
+  {{- if $objstore.s3.CA_CERT_DATA }}
+  ca.crt: {{ $objstore.s3.CA_CERT_DATA | quote }}
+  {{- end }}
   {{- with $objstore.s3.AWS_REGION }}
   AWS_REGION: '{{ . }}'
   {{- end }}
