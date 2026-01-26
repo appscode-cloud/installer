@@ -76,6 +76,7 @@ gateway:
   service:
     annotations: {}
     trafficDistribution: ""
+    type: "ClusterIP"
   topologyInjector:
     enabled: false
     annotations: {}
