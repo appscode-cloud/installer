@@ -61,13 +61,13 @@ helm:
       version: "v2024.10.24"
     cert-manager:
       enabled: true
-      version: "v1.18.2"
+      version: "v1.19.2"
     cert-manager-csi-driver-cacerts:
       enabled: true
-      version: "v2025.10.31"
+      version: "v2026.1.15"
     external-dns-operator:
       enabled: true
-      version: "v2025.12.5"
+      version: "v2026.1.15"
     flux2:
       enabled: false
       version: "2.17.0"
@@ -76,7 +76,7 @@ helm:
       version: "v2025.3.14"
     kubedb:
       enabled: true
-      version: "v2025.10.17"
+      version: "v2026.1.19"
       values: # +doc-gen:break
         kubedb-provisioner:
           enabled: true
@@ -96,19 +96,19 @@ helm:
           enabled: false
     kubestash:
       enabled: true
-      version: "v2025.10.17"
+      version: "v2026.1.19"
     kube-ui-server:
       enabled: true
       version: "v2026.1.15"
     license-proxyserver:
       enabled: true
-      version: "v2025.5.16"
+      version: "v2026.1.15"
     opscenter-features:
       enabled: true
       version: "v2026.1.15"
     panopticon:
       enabled: true
-      version: "v2025.6.30"
+      version: "v2026.1.15"
       values: # +doc-gen:break
         monitoring:
           agent: prometheus.io/operator

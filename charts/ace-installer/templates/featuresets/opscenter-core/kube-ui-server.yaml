@@ -29,6 +29,10 @@ ace-user-roles:
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $defaults $vals }}
 
+{{- if eq (include "distro.openshift" $) "true" }}
+{{ $vals = mergeOverwrite $vals (dict "distro" .Values.options.distro) }}
+{{- end }}
+
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -69,11 +73,6 @@ spec:
       name: ace-features-cred
       valuesKey: kube-ui-server.yaml
       optional: true
-  {{- if eq (include "distro.openshift" $) "true" }}
-    - kind: ConfigMap
-      name: ace-openshift-scc
-      valuesKey: kube-ui-server.yaml
-  {{- end }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
