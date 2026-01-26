@@ -51,8 +51,8 @@ github.com/dustin/go-humanize
 ## explicit; go 1.13
 github.com/emicklei/go-restful/v3
 github.com/emicklei/go-restful/v3/log
-# github.com/envoyproxy/gateway v1.6.1
-## explicit; go 1.25.3
+# github.com/envoyproxy/gateway v1.6.3
+## explicit; go 1.25.6
 github.com/envoyproxy/gateway/api/v1alpha1
 # github.com/evanphx/json-patch v5.9.11+incompatible
 ## explicit
@@ -317,8 +317,8 @@ github.com/zeebo/xxh3
 ## explicit; go 1.22.0
 go.appscode.dev/alerts/apis/alerts
 go.appscode.dev/alerts/apis/alerts/v1alpha1
-# go.bytebuilders.dev/catalog v0.0.17
-## explicit; go 1.25.3
+# go.bytebuilders.dev/catalog v0.0.18
+## explicit; go 1.25.6
 go.bytebuilders.dev/catalog/api/gateway/v1alpha1
 # go.bytebuilders.dev/resource-model v0.4.0
 ## explicit; go 1.25
@@ -330,7 +330,7 @@ go.bytebuilders.dev/resource-model/crds
 ## explicit; go 1.25
 go.bytebuilders.dev/ui-wizards/apis/wizards
 go.bytebuilders.dev/ui-wizards/apis/wizards/v1alpha1
-# go.openviz.dev/installer v0.0.0-20251229063709-2e10132c5d63
+# go.openviz.dev/installer v0.0.0-20260104052502-5deb6915c7d6
 ## explicit; go 1.24.0
 go.openviz.dev/installer/apis/installer
 go.openviz.dev/installer/apis/installer/v1alpha1
@@ -1013,7 +1013,7 @@ sigs.k8s.io/controller-runtime/pkg/webhook/admission/metrics
 sigs.k8s.io/controller-runtime/pkg/webhook/conversion
 sigs.k8s.io/controller-runtime/pkg/webhook/conversion/metrics
 sigs.k8s.io/controller-runtime/pkg/webhook/internal/metrics
-# sigs.k8s.io/gateway-api v1.4.0
+# sigs.k8s.io/gateway-api v1.4.1
 ## explicit; go 1.24.0
 sigs.k8s.io/gateway-api/apis/v1
 # sigs.k8s.io/json v0.0.0-20250730193827-2d320260d730
@@ -1053,8 +1053,8 @@ stash.appscode.dev/apimachinery/apis/stash
 stash.appscode.dev/apimachinery/apis/stash/v1alpha1
 stash.appscode.dev/apimachinery/apis/stash/v1beta1
 stash.appscode.dev/apimachinery/crds
-# voyagermesh.dev/installer v0.0.0-20251230080904-cdc0a2148b57
-## explicit; go 1.24.0
+# voyagermesh.dev/installer v0.0.0-20260126155429-994b493cefc6
+## explicit; go 1.25
 voyagermesh.dev/installer/apis/installer
 voyagermesh.dev/installer/apis/installer/v1alpha1
 # x-helm.dev/apimachinery v0.0.18

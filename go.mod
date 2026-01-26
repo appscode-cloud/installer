@@ -1,12 +1,12 @@
 module go.bytebuilders.dev/installer
 
-go 1.25.3
+go 1.25.6
 
 require (
-	go.bytebuilders.dev/catalog v0.0.17
+	go.bytebuilders.dev/catalog v0.0.18
 	go.bytebuilders.dev/resource-model v0.4.0
 	go.bytebuilders.dev/ui-wizards v0.29.0
-	go.openviz.dev/installer v0.0.0-20251229063709-2e10132c5d63
+	go.openviz.dev/installer v0.0.0-20260104052502-5deb6915c7d6
 	gomodules.xyz/go-sh v0.2.0
 	k8s.io/api v0.34.3
 	k8s.io/apimachinery v0.34.3
@@ -38,7 +38,7 @@ require (
 	github.com/docker/docker-credential-helpers v0.9.4 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/emicklei/go-restful/v3 v3.13.0 // indirect
-	github.com/envoyproxy/gateway v1.6.1 // indirect
+	github.com/envoyproxy/gateway v1.6.3 // indirect
 	github.com/evanphx/json-patch v5.9.11+incompatible // indirect
 	github.com/evanphx/json-patch/v5 v5.9.11 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
@@ -136,12 +136,12 @@ require (
 	kubeops.dev/scanner v0.0.19 // indirect
 	kubestash.dev/apimachinery v0.22.0 // indirect
 	sigs.k8s.io/controller-runtime v0.22.4 // indirect
-	sigs.k8s.io/gateway-api v1.4.0 // indirect
+	sigs.k8s.io/gateway-api v1.4.1 // indirect
 	sigs.k8s.io/json v0.0.0-20250730193827-2d320260d730 // indirect
 	sigs.k8s.io/randfill v1.0.0 // indirect
 	sigs.k8s.io/structured-merge-diff/v6 v6.3.0 // indirect
 	stash.appscode.dev/apimachinery v0.42.0 // indirect
-	voyagermesh.dev/installer v0.0.0-20251230080904-cdc0a2148b57 // indirect
+	voyagermesh.dev/installer v0.0.0-20260126155429-994b493cefc6 // indirect
 	x-helm.dev/apimachinery v0.0.18 // indirect
 )
 

@@ -5,7 +5,7 @@
 - ghcr.io/appscode/aceshifter:v0.0.2
 - ghcr.io/appscode/b3:v2026.1.15
 - ghcr.io/appscode/billing-ui:2.0.0
-- ghcr.io/appscode/catalog-manager:v0.9.0
+- ghcr.io/appscode/catalog-manager:v0.10.0
 - ghcr.io/appscode/cert-manager-webhook-ace:v0.0.2
 - ghcr.io/appscode/cloudflare-dns-proxy:v0.0.5
 - ghcr.io/appscode/cluster-presets:v0.0.10
