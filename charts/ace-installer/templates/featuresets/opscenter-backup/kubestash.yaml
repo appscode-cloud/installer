@@ -11,7 +11,7 @@ global:
 {{ $vals = mergeOverwrite $defaults $vals }}
 
 {{- if eq (include "distro.openshift" $) "true" }}
-{{ $vals = mergeOverwrite $vals (dict "global" (dict "distro" .Values.distro)) }}
+{{ $vals = mergeOverwrite $vals (dict "global" (pick ($.Values.options | fromYaml) "distro")) }}
 {{- end }}
 
 apiVersion: helm.toolkit.fluxcd.io/v2

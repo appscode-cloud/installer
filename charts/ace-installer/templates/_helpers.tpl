@@ -116,6 +116,13 @@ Returns the registry used for app docker image
 {{- end }}
 
 {{/*
+Returns the registry used for tester docker image
+*/}}
+{{- define "tester.image.registry" -}}
+{{- list .Values.image.proxies.ghcr .Values.tester.image.registry | compact | join "/" }}
+{{- end }}
+
+{{/*
 Returns whether the OpenShift distribution is used
 */}}
 {{- define "distro.openshift" -}}
@@ -126,5 +133,5 @@ Returns whether the OpenShift distribution is used
 Returns if ubi images are to be used
 */}}
 {{- define "operator.ubi" -}}
-{{ ternary "-ubi" "" (list "operator" "all" | has .Values.distro.ubi) }}
+{{ ternary "-ubi" "" (list "operator" "all" | has (dig "distro" "ubi" "" (.Values.options | fromYaml))) }}
 {{- end }}

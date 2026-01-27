@@ -27,16 +27,16 @@ spec:
       serviceAccountName: {{ include "ace-installer.fullname" . }}-precheck
       {{- if eq "true" ( include "distro.openshift" . ) }}
       securityContext:
-        {{- toYaml (omit .Values.podSecurityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 8 }}
+        {{- toYaml (omit .Values.precheck.podSecurityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 8 }}
       {{- else }}
       securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+        {{- toYaml .Values.precheck.podSecurityContext | nindent 8 }}
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.precheck.securityContext | nindent 12 }}
-          image: "{{ include "precheck.image.registry" . }}/{{ .Values.precheck.image.repository }}:{{ .Values.precheck.image.tag | default .Chart.AppVersion }}"
+          image: "{{ include "precheck.image.registry" . }}/{{ .Values.precheck.image.repository }}:{{ .Values.precheck.image.tag | default .Chart.AppVersion }}{{ include "operator.ubi" . }}"
           imagePullPolicy: Always
           args:
             - validate-installer
