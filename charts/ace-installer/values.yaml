@@ -61,7 +61,7 @@ helm:
       version: "v2024.10.24"
     catalog-manager:
       enabled: false
-      version: "v2025.12.15"
+      version: "v2026.1.15"
     cert-manager:
       enabled: true
       version: "v1.19.3"
@@ -124,7 +124,7 @@ helm:
       version: "1.0.79"
     service-gateway-presets:
       enabled: false
-      version: "v2025.12.15"
+      version: "v2026.1.15"
     stash-presets:
       enabled: false
       version: "v2026.2.16"
