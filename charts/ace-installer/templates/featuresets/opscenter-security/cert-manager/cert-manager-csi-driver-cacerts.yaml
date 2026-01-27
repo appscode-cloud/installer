@@ -17,7 +17,7 @@ livenessProbe:
 {{ $vals = mergeOverwrite $defaults $vals }}
 
 {{- if eq (include "distro.openshift" $) "true" }}
-{{ $vals = mergeOverwrite $vals (dict "distro" .Values.options.distro) }}
+{{ $vals = mergeOverwrite $vals (pick ($.Values.options | fromYaml) "distro") }}
 {{- end }}
 
 apiVersion: helm.toolkit.fluxcd.io/v2
