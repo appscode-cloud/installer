@@ -20,7 +20,6 @@ import (
 	catgwapi "go.bytebuilders.dev/catalog/api/gateway/v1alpha1"
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	"kmodules.xyz/resource-metadata/apis/shared"
 )
 
 const (
@@ -45,17 +44,11 @@ type ServiceGateway struct {
 }
 
 type ServiceGatewaySpec struct {
-	NameOverride           string                     `json:"nameOverride"`
-	FullnameOverride       string                     `json:"fullnameOverride"`
-	Global                 ServiceGatewayGlobalValues `json:"global"`
-	ClusterMetadata        StashClusterMetadata       `json:"clusterMetadata"`
-	GatewayClass           GatewayClassSpec           `json:"gatewayClass"`
+	NameOverride           string               `json:"nameOverride"`
+	FullnameOverride       string               `json:"fullnameOverride"`
+	ClusterMetadata        StashClusterMetadata `json:"clusterMetadata"`
+	GatewayClass           GatewayClassSpec     `json:"gatewayClass"`
 	catgwapi.GatewayValues `json:",inline,omitempty"`
-}
-
-type ServiceGatewayGlobalValues struct {
-	// +optional
-	Distro shared.DistroSpec `json:"distro"`
 }
 
 type GatewayClassSpec struct {
