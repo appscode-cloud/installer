@@ -11,15 +11,16 @@ gateway:
     envoyGateway:
       gateway:
         controllerName: gateway.voyagermesh.com/ace
-  deployment:
-    envoyGateway:
-      image:
-        repository: %s
-    kubeRbacProxy:
-      image:
-        repository: %s
-  gateway-converter:
-    registryFQDN: %s
+    deployment:
+      envoyGateway:
+        image:
+          repository: %s
+    tester:
+      image: %s
+    gateway-converter:
+      registryFQDN: %s
+    crd-manager:
+      registryFQDN: %s
 chart:
   version: %s
 `
@@ -28,7 +29,8 @@ chart:
   (include "image.ghcr" (merge (dict "_repo" "voyagermesh/envoy") $))
   (include "image.ghcr" (merge (dict "_repo" "voyagermesh/echoserver") $))
   (include "image.ghcr" (merge (dict "_repo" "voyagermesh/gateway") $))
-  (include "image.ghcr" (merge (dict "_repo" "appscode/kube-rbac-proxy") $))
+  (include "kubectl.image" $)
+  (include "registry.ghcr" $)
   (include "registry.ghcr" $)
   (dig "service-gateway-presets" "version" "" .Values.helm.releases)
   | fromYaml }}
@@ -37,7 +39,7 @@ chart:
 {{ $vals = mergeOverwrite $defaults $vals }}
 
 {{- if eq (include "distro.openshift" $) "true" }}
-{{ $vals = mergeOverwrite $vals (dict "distro" .Values.distro) }}
+{{ $vals = mergeOverwrite $vals (dict "global" (dict "distro" .Values.distro)) }}
 {{- end }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
