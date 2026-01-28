@@ -173,7 +173,7 @@ vcluster:
             runAsNonRoot: true
 `
   (dig "vcluster" "version" .Chart.AppVersion $.Values.helm.releases)
-  (include "image.dockerLibrary" (merge (dict "_repo" (ternary "redhat/ubi10-minimal" "alpine:3.20" (eq (include "distro.openshift" $) "true"))) $))
+  (ternary (include "image.dockerHub" (merge (dict "_repo" "redhat/ubi10-minimal") $)) (include "image.dockerLibrary" (merge (dict "_repo" "alpine:3.20") $)) (eq (include "distro.openshift" $) "true"))
   (include "registry.kubernetes" $)
   (include "registry.kubernetes" $)
   (include "registry.kubernetes" $)

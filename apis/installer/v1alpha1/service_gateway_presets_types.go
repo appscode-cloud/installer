@@ -44,10 +44,11 @@ type ServiceGatewayPresets struct {
 }
 
 type ServiceGatewayPresetsSpec struct {
-	NameOverride               string               `json:"nameOverride"`
-	FullnameOverride           string               `json:"fullnameOverride"`
-	ClusterMetadata            StashClusterMetadata `json:"clusterMetadata"`
-	SkipGatewayPreset          bool                 `json:"skipGatewayPreset"`
+	NameOverride               string                     `json:"nameOverride"`
+	FullnameOverride           string                     `json:"fullnameOverride"`
+	Global                     ServiceGatewayGlobalValues `json:"global"`
+	ClusterMetadata            StashClusterMetadata       `json:"clusterMetadata"`
+	SkipGatewayPreset          bool                       `json:"skipGatewayPreset"`
 	catgwapi.GatewayConfigSpec `json:",inline,omitempty"`
 }
 

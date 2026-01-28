@@ -32,20 +32,6 @@ properties:
     - name
     - uid
     type: object
-  distro:
-    properties:
-      openshift:
-        type: boolean
-      ubi:
-        enum:
-        - all
-        - catalog
-        - operator
-        type: string
-    required:
-    - openshift
-    - ubi
-    type: object
   echoserver:
     properties:
       image:
@@ -4526,6 +4512,23 @@ properties:
     - annotations
     - description
     type: object
+  global:
+    properties:
+      distro:
+        properties:
+          openshift:
+            type: boolean
+          ubi:
+            enum:
+            - all
+            - catalog
+            - operator
+            type: string
+        required:
+        - openshift
+        - ubi
+        type: object
+    type: object
   infra:
     properties:
       dns:
@@ -4690,6 +4693,7 @@ required:
 - gateway
 - gateway-dns
 - gatewayClass
+- global
 - infra
 - nameOverride
 type: object

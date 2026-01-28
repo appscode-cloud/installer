@@ -33,7 +33,8 @@
 - ghcr.io/appscode/website:v2026.1.15
 - ghcr.io/kluster-manager/multicluster-controlplane:v0.6.0
 - ghcr.io/open-telemetry/opentelemetry-operator/target-allocator:0.118.0
+- ghcr.io/voyagermesh/crd-manager:v0.1.0
 - ghcr.io/voyagermesh/echoserver:v20221109
-- ghcr.io/voyagermesh/envoy:v1.35.6-ac
-- ghcr.io/voyagermesh/gateway:v1.5.4
+- ghcr.io/voyagermesh/envoy:v1.36.4-ac
+- ghcr.io/voyagermesh/gateway:v1.6.2
 - minio/minio:RELEASE.2023-01-12T02-06-16Z

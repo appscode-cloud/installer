@@ -105,9 +105,9 @@
 - ghcr.io/kyverno/reports-controller:v1.12.5
 - ghcr.io/loft-sh/vcluster-oss:0.22.4
 - ghcr.io/voyagermesh/echoserver:v20221109
-- ghcr.io/voyagermesh/envoy:v1.35.6-ac
+- ghcr.io/voyagermesh/envoy:v1.36.4-ac
 - ghcr.io/voyagermesh/gateway-converter:v0.0.1
-- ghcr.io/voyagermesh/gateway:v1.5.4
+- ghcr.io/voyagermesh/gateway:v1.6.2
 - hashicorp/vault-csi-provider:1.4.1
 - hashicorp/vault-secrets-operator:0.4.3
 - hashicorp/vault:1.15.2

@@ -7,6 +7,13 @@ nameOverride: ""
 # Overrides fullname template
 fullnameOverride: ""
 
+global:
+  distro:
+    # Set true, if installed in OpenShift
+    openshift: false
+    # Set operator or all to use ubi images
+    ubi: ""
+
 clusterMetadata:
   uid: tbd
   name: tbd
@@ -96,7 +103,7 @@ cluster:
 envoy:
   provisionerType: Deployment # DaemonSet
   image: ghcr.io/voyagermesh/envoy
-  tag: "v1.35.6-ac"
+  tag: "v1.36.4-ac"
   service:
     # Default listener portmanager range to use for gateway exposure
     portRange: "10000-12767"
@@ -137,7 +144,3 @@ vaultServer:
   name: "vault"
   # Vault server namespace that exist on cluster
   namespace: "ace"
-
-distro:
-  openshift: false
-  ubi: ""

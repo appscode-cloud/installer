@@ -296,7 +296,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ui
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault-secrets-operator:0.4.3 $IMAGE_REGISTRY/appscode-charts/vault-secrets-operator:0.4.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault:0.27.0 $IMAGE_REGISTRY/appscode-charts/vault:0.27.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/virtual-secrets-server:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/virtual-secrets-server:v2025.3.14
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2025.10.24 $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2025.10.24
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2026.1.15 $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2026.1.15
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2025.9.19 $IMAGE_REGISTRY/appscode-charts/voyager:v2025.9.19
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/ingress-nginx-controller:v1.11.1 $IMAGE_REGISTRY/appscode-images/ingress-nginx-controller:v1.11.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.24-alpine $IMAGE_REGISTRY/appscode-images/nats:2.10.24-alpine
@@ -394,9 +394,9 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/kyvernopre
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kyverno/reports-controller:v1.12.5 $IMAGE_REGISTRY/kyverno/reports-controller:v1.12.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/loft-sh/vcluster-oss:0.22.4 $IMAGE_REGISTRY/loft-sh/vcluster-oss:0.22.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/echoserver:v20221109 $IMAGE_REGISTRY/voyagermesh/echoserver:v20221109
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.35.6-ac $IMAGE_REGISTRY/voyagermesh/envoy:v1.35.6-ac
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/envoy:v1.36.4-ac $IMAGE_REGISTRY/voyagermesh/envoy:v1.36.4-ac
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway-converter:v0.0.1 $IMAGE_REGISTRY/voyagermesh/gateway-converter:v0.0.1
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway:v1.5.4 $IMAGE_REGISTRY/voyagermesh/gateway:v1.5.4
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/voyagermesh/gateway:v1.6.2 $IMAGE_REGISTRY/voyagermesh/gateway:v1.6.2
 $CMD cp --allow-nondistributable-artifacts --insecure hashicorp/vault-csi-provider:1.4.1 $IMAGE_REGISTRY/hashicorp/vault-csi-provider:1.4.1
 $CMD cp --allow-nondistributable-artifacts --insecure hashicorp/vault-secrets-operator:0.4.3 $IMAGE_REGISTRY/hashicorp/vault-secrets-operator:0.4.3
 $CMD cp --allow-nondistributable-artifacts --insecure hashicorp/vault:1.15.2 $IMAGE_REGISTRY/hashicorp/vault:1.15.2
