@@ -16,6 +16,7 @@
 
 APPSCODE_CLOUD_CATALOG_TAG=${APPSCODE_CLOUD_CATALOG_TAG:-master}
 APPSCODE_CLOUD_KUBE_BIND_TAG=${APPSCODE_CLOUD_KUBE_BIND_TAG:-master}
+CERT_MANAGER_CERT_MANAGER_TAG=${CERT_MANAGER_CERT_MANAGER_TAG:-v1.19.2}
 ENVOYPROXY_GATEWAY_TAG=${ENVOYPROXY_GATEWAY_TAG:-v1.6.2}
 FLUXCD_HELM_CONTROLLER_TAG=${FLUXCD_HELM_CONTROLLER_TAG:-v1.3.0}
 FLUXCD_SOURCE_CONTROLLER_TAG=${FLUXCD_SOURCE_CONTROLLER_TAG:-v1.6.2}
@@ -95,8 +96,17 @@ crd-importer \
     --out=./charts/opscenter-features/crds
 
 crd-importer \
+    --input=https://github.com/envoyproxy/gateway/raw/${ENVOYPROXY_GATEWAY_TAG}/charts/gateway-helm/crds/generated/gateway.envoyproxy.io_envoyproxies.yaml \
     --input=https://github.com/kubeops/csi-driver-cacerts/raw/${KUBEOPS_CSI_DRIVER_CACERTS_TAG}/crds/cacerts.csi.cert-manager.io_caproviderclasses.yaml \
     --input=https://github.com/kubeops/external-dns-operator/raw/${KUBEOPS_EXTERNAL_DNS_OPERATOR}/crds/external-dns.appscode.com_externaldnses.yaml \
+    --input=https://github.com/kubernetes-sigs/gateway-api/raw/${KUBERNETES_SIGS_GATEWAY_API_TAG}/config/crd/standard/gateway.networking.k8s.io_gatewayclasses.yaml \
+    --input=https://github.com/kubernetes-sigs/gateway-api/raw/${KUBERNETES_SIGS_GATEWAY_API_TAG}/config/crd/standard/gateway.networking.k8s.io_gateways.yaml \
+    --input=https://github.com/kubernetes-sigs/gateway-api/raw/${KUBERNETES_SIGS_GATEWAY_API_TAG}/config/crd/standard/gateway.networking.k8s.io_httproutes.yaml \
+    --out=./charts/service-gateway/crds
+crd-importer \
+    --no-description \
+    --input=https://github.com/cert-manager/cert-manager/releases/download/${CERT_MANAGER_CERT_MANAGER_TAG}/cert-manager.crds.yaml \
+    --gk=ClusterIssuer.cert-manager.io --gk=Issuer.cert-manager.io --gk=Certificate.cert-manager.io \
     --out=./charts/service-gateway/crds
 
 crd-importer \
