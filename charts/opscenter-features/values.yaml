@@ -186,7 +186,7 @@ helm:
     voyager:
       version: "v2025.9.19"
     voyager-gateway:
-      version: "v2025.10.24"
+      version: "v2026.1.15"
     # secret management
     external-secrets:
       version: "0.9.12"

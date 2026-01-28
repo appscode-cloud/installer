@@ -45,11 +45,15 @@ type ServiceGateway struct {
 }
 
 type ServiceGatewaySpec struct {
-	NameOverride           string               `json:"nameOverride"`
-	FullnameOverride       string               `json:"fullnameOverride"`
-	ClusterMetadata        StashClusterMetadata `json:"clusterMetadata"`
-	GatewayClass           GatewayClassSpec     `json:"gatewayClass"`
+	NameOverride           string                     `json:"nameOverride"`
+	FullnameOverride       string                     `json:"fullnameOverride"`
+	Global                 ServiceGatewayGlobalValues `json:"global"`
+	ClusterMetadata        StashClusterMetadata       `json:"clusterMetadata"`
+	GatewayClass           GatewayClassSpec           `json:"gatewayClass"`
 	catgwapi.GatewayValues `json:",inline,omitempty"`
+}
+
+type ServiceGatewayGlobalValues struct {
 	// +optional
 	Distro shared.DistroSpec `json:"distro"`
 }

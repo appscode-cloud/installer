@@ -7,6 +7,13 @@ nameOverride: ""
 # Overrides fullname template
 fullnameOverride: ""
 
+global:
+  distro:
+    # Set true, if installed in OpenShift
+    openshift: false
+    # Set operator or all to use ubi images
+    ubi: ""
+
 clusterMetadata:
   uid: ""
   name: ""
@@ -137,7 +144,7 @@ chart:
   name: service-gateway
   namespace: ace
   createNamespace: true
-  version: "v2025.10.17"
+  version: "v2026.1.15"
   sourceRef:
     kind: HelmRepository
     name: appscode-charts-oci

@@ -135,7 +135,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.supervisor.version                                        |                                 | <code>"v2026.1.15"</code>                  |
 | helm.releases.topolvm.version                                           |                                 | <code>"15.0.0"</code>                      |
 | helm.releases.voyager.version                                           |                                 | <code>"v2025.9.19"</code>                  |
-| helm.releases.voyager-gateway.version                                   |                                 | <code>"v2025.10.24"</code>                 |
+| helm.releases.voyager-gateway.version                                   |                                 | <code>"v2026.1.15"</code>                  |
 | helm.releases.external-secrets.version                                  |                                 | <code>"0.9.12"</code>                      |
 | helm.releases.sealed-secrets.version                                    |                                 | <code>"2.14.2"</code>                      |
 | helm.releases.vault-secrets-operator.version                            |                                 | <code>"0.4.3"</code>                       |
