@@ -17,15 +17,43 @@ startupapicheck:
   image:
     repository: %s
 `
-  (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-controller") $))
-  (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-webhook") $))
-  (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-cainjector") $))
-  (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-acmesolver") $))
-  (include "image.quay" (merge (dict "_repo" "jetstack/cert-manager-startupapicheck") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/cert-manager-controller") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/cert-manager-webhook") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/cert-manager-cainjector") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/cert-manager-acmesolver") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/cert-manager-startupapicheck") $))
   | fromYaml }}
 
 {{ $vals := dig "cert-manager" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $defaults $vals }}
+
+{{- if eq (include "distro.openshift" $) "true" }}
+
+{{ $oc := printf `
+image:
+  tag: %s-ubi
+webhook:
+  image:
+    tag: %s-ubi
+cainjector:
+  image:
+    tag: %s-ubi
+acmesolver:
+  image:
+    tag: %s-ubi
+startupapicheck:
+  image:
+    tag: %s-ubi
+`
+  .version
+  .version
+  .version
+  .version
+  .version
+  | fromYaml }}
+{{ $vals = mergeOverwrite $vals $oc }}
+
+{{- end }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: Feature
@@ -83,11 +111,6 @@ spec:
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
   valuesFrom:
-  {{- if eq (include "distro.openshift" $) "true" }}
-    - kind: ConfigMap
-      name: ace-openshift-scc
-      valuesKey: cert-manager.yaml
-  {{- end }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
