@@ -2,23 +2,23 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: {{ include "ace.fullname" . }}
+  name: ace
   namespace: {{ .Release.Namespace }}
-  labels:
-    {{- include "ace.labels" . | nindent 4 }}
 spec:
   gatewayClassName: {{ .Values.httpRoute.gatewayClassName }}
   listeners:
   - name: https
     protocol: HTTPS
     port: 443
+    {{ if .Values.httpRoute.tls.enable }}
     tls:
       mode: Terminate
       certificateRefs:
       - group: ""
         kind: Secret
-        name: {{ include "ace.fullname" . }}-cert
+        name: {{ default (printf "%s-cert" (include "acaas.fullname" .)) .Values.httpRoute.tls.secret.name }}
         namespace: {{ .Release.Namespace }}
+    {{- end }}
     allowedRoutes:
       namespaces:
         from: Same

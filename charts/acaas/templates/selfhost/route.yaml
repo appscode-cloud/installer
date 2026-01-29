@@ -1,0 +1,30 @@
+{{ if .Values "httpRoute" "enabled" }}
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  {{- with .Values.httpRoute.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  name: selfhost
+  namespace: {{ .Release.Namespace }}
+spec:
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: ace
+      namespace: {{ .Release.Namespace }}
+      sectionName: https
+  hostnames:
+    - {{ .Values.global.platform.host }}
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /selfhost
+      backendRefs:
+        - kind: Service
+          name: selfhost
+          namespace: {{ .Release.Namespace }}
+          port: 443
+{{- end }}

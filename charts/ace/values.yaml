@@ -17,6 +17,15 @@ kubedb-ui:
 platform-api:
   enabled: false
 
+httpRoute:
+  annotations: {}
+  enabled: false
+  gatewayClassName: ace
+  tls:
+    enable: true
+    secret:
+      name: "ace-cert"
+
 ingress-nginx:
   enabled: false
   # controller:
