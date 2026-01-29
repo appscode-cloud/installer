@@ -70,7 +70,7 @@ spec:
       {{- else }}
       # Use ACEM http challenge for everything else
       http01:
-        {{ if (index .Values "setupJob" "config" "selfManagement" "useGateway") }}
+        {{ if (index .Values "httpRoute" "enabled") }}
         gatewayHTTPRoute:
           parentRefs:
           - group: gateway.networking.k8s.io
