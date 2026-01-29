@@ -1,10 +1,14 @@
-{{ if (index .Values "setupJob" "config" "selfManagement" "useGateway") }}
+{{ if (index .Values "httpRoute" "enabled") }}
 
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: {{ include "ace.fullname" . }}
   namespace: {{ .Release.Namespace }}
+  {{- with .Values.httpRoute.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   parentRefs:
   - group: gateway.networking.k8s.io
@@ -12,6 +16,10 @@ spec:
     name: {{ include "ace.fullname" . }}
     namespace: {{ .Release.Namespace }}
     sectionName: https
+  {{- if eq .Values.global.platform.hostType "domain" }}
+  hostnames:
+    - {{ .Values.global.platform.host }}
+  {{- end }}
   rules:
   - matches:
     - path:

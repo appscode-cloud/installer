@@ -55,7 +55,17 @@ global:
     openshift: false
     ubi: ""
 
+httpRoute:
+  annotations: {}
+  enabled: false
+  gatewayClassName: ace
+  tls:
+    enable: true
+    secret:
+      name: "ace-cert"
+
 ingress:
+  enabled: true
   className: "nginx-ace"
   tls:
     enable: true
