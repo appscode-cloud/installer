@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Copyright AppsCode Inc. and Contributors
 #
@@ -14,9 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -x
+set -euo pipefail
 
-if [ -z "${IMAGE_REGISTRY}" ]; then
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/concurrency_utils.sh"
+
+if [ -z "${IMAGE_REGISTRY:-}" ]; then
     echo "IMAGE_REGISTRY is not set"
     exit 1
 fi
@@ -29,11 +32,29 @@ ARCH=$(uname -m)
 if [ "${ARCH}" = "aarch64" ]; then
     ARCH=arm64
 fi
+echo "Downloading Crane for ${OS}/${ARCH}..."
 curl -sL "https://github.com/google/go-containerregistry/releases/latest/download/go-containerregistry_${OS}_${ARCH}.tar.gz" >/tmp/go-containerregistry.tar.gz
-tar -zxvf /tmp/go-containerregistry.tar.gz -C /tmp/
+tar -zxf /tmp/go-containerregistry.tar.gz -C /tmp/
 mv /tmp/crane .
 
-CMD="./crane"
+CRANE="./crane"
+
+crane_async() {
+    local args=("$@")
+    local desc="${args[*]}"
+    if [[ "${args[0]}" == "cp" && "${#args[@]}" -ge 3 ]]; then
+        local last_index=$((${#args[@]} - 1))
+        local src_index=$((last_index - 1))
+        local src="${args[$src_index]}"
+        local dest="${args[$last_index]}"
+        desc="${src} -> ${dest}"
+    fi
+    run_async "$desc" "$CRANE" "${args[@]}"
+}
+
+CMD=crane_async
+
+echo "Copying artifacts to ${IMAGE_REGISTRY}..."
 
 $CMD cp --allow-nondistributable-artifacts --insecure alpine:3.20 $IMAGE_REGISTRY/alpine:3.20
 $CMD cp --allow-nondistributable-artifacts --insecure bitnami/kubectl:latest $IMAGE_REGISTRY/bitnami/kubectl:latest
@@ -438,3 +459,5 @@ $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storag
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/nfsplugin:v4.7.0 $IMAGE_REGISTRY/sig-storage/nfsplugin:v4.7.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/snapshot-controller:v8.0.1 $IMAGE_REGISTRY/sig-storage/snapshot-controller:v8.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/snapshot-validation-webhook:v8.0.1 $IMAGE_REGISTRY/sig-storage/snapshot-validation-webhook:v8.0.1
+
+wait_all
