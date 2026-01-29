@@ -24,7 +24,7 @@ fi
 TARBALL=${1:-}
 tar -zxvf $TARBALL
 
-CMD="./crane"
+CMD="./images/crane"
 
 $CMD push --allow-nondistributable-artifacts --insecure images/library-alpine-3.20.tar $IMAGE_REGISTRY/alpine:3.20
 $CMD push --allow-nondistributable-artifacts --insecure images/bitnami-kubectl-latest.tar $IMAGE_REGISTRY/bitnami/kubectl:latest
