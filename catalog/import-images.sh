@@ -37,14 +37,14 @@ echo "Extracting $TARBALL..."
 tar -zxf "$TARBALL"
 
 CMD="./images/crane"
-TIMEOUT=${TIMEOUT:-600} # 5 minute timeout per operation
+TIMEOUT=${TIMEOUT:-300} # 5 minute timeout per operation
 
 init_concurrency
 
 import_image() {
     local tarfile="$1"
     local target="$2"
-    run_async "$target" timeout "$TIMEOUT" "$CMD" push --allow-nondistributable-artifacts --insecure "images/${tarfile}.tar" "$IMAGE_REGISTRY/${target}"
+    run_async timeout -k 10 "$TIMEOUT" "$CMD" push --allow-nondistributable-artifacts --insecure "images/${tarfile}.tar" "$IMAGE_REGISTRY/${target}"
 }
 
 import_chart() {
@@ -53,11 +53,11 @@ import_chart() {
     local tmpdir
     tmpdir=$(mktemp -d)
     local tarpath="images/${tarfile}.tar"
-    run_async "$target" bash -c "
+    run_async timeout -k 10 "$TIMEOUT" bash -c "
         trap 'rm -rf \"$tmpdir\"' EXIT
         tar -C '$tmpdir' -xf '$tarpath' &&
-                timeout $TIMEOUT '$CMD' push --allow-nondistributable-artifacts --insecure '$tmpdir/$tarfile' '$IMAGE_REGISTRY/${target}'
-        "
+        '$CMD' push --allow-nondistributable-artifacts --insecure '$tmpdir/$tarfile' '$IMAGE_REGISTRY/${target}'
+    "
 }
 
 # Note: For imports, we don't need a progress reporter since

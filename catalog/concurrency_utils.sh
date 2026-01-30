@@ -20,7 +20,7 @@
 # Usage: init_concurrency
 # Sets up FIFO for worker pool
 init_concurrency() {
-    local max_workers=${MAX_WORKERS:-20}
+    local max_workers=${MAX_WORKERS:-8}
     FIFO=$(mktemp -u) && mkfifo "$FIFO"
     exec 3<>"$FIFO" && rm "$FIFO"
     for ((i = 0; i < max_workers; i++)); do echo >&3; done
@@ -29,19 +29,14 @@ init_concurrency() {
 # Default max retries (can be overridden via MAX_RETRIES env var)
 MAX_RETRIES=${MAX_RETRIES:-3}
 FAILED_FILE=$(mktemp)
-RUNNING_DIR=$(mktemp -d)
 
 # Run a command asynchronously with retry logic
-# Usage: run_async <task_desc> <command> [args...]
+# Usage: run_async <command> [args...]
 # Commands are executed with up to MAX_RETRIES attempts and exponential backoff
 run_async() {
-    local task_desc="$1"
-    shift
     read -r -u 3
     {
-        local task_file="$RUNNING_DIR/$$"
-        echo "$task_desc" >"$task_file"
-
+        trap 'echo >&3' EXIT
         local max_attempts=$MAX_RETRIES
         local attempt=1
         local output=""
@@ -51,27 +46,29 @@ run_async() {
             output=$("$@" 2>&1)
             exit_code=$?
             if [ "$exit_code" -eq 0 ]; then
+                echo -e "\033[32mCompleted: $*\033[0m" >&2
                 break
             fi
             attempt=$((attempt + 1))
             if [ "$attempt" -le "$max_attempts" ]; then
-                # Exponential backoff: base + jitter (30%-100% of base)
-                local base_delay=$((2 ** attempt))
-                local jitter=$(((RANDOM % 71 + 30) * base_delay / 100))
+                local retry_msg
+                printf -v retry_msg '\033[33mAttempt %d failed for \047%s\047 (exit %d)\033[0m\nOutput: %s\n\033[33mRetrying...\033[0m' \
+                    $((attempt - 1)) "$*" "$exit_code" "$output"
+                echo -e "$retry_msg" >&2
+                # Linear backoff: 2s, 4s, 6s... + small jitter (0-2s)
+                local base_delay=$((attempt * 2))
+                local jitter=$((RANDOM % 3))
                 sleep $((base_delay + jitter))
             fi
         done
 
-        rm -f "$task_file"
-
         if [ "$exit_code" -ne 0 ]; then
             local msg
-            printf -v msg 'FAILED: %s\nCommand: %s\nExit code: %d\nOutput:\n%s\n-----------------------------------------' \
-                "$task_desc" "$*" "$exit_code" "$output"
-            echo -e "\033[31mFAILED: $task_desc (exit $exit_code)\033[0m" >&2
+            printf -v msg 'FAILED: %s\nExit code: %d\nOutput:\n%s\n-----------------------------------------' \
+                "$*" "$exit_code" "$output"
+            echo -e "\033[31mFAILED: $1 (exit $exit_code)\033[0m" >&2
             echo "$msg" >>"$FAILED_FILE"
         fi
-        echo >&3
     } &
 }
 
@@ -112,15 +109,10 @@ start_progress_reporter() {
         while true; do
             sleep "$interval"
             if [ -d "$dir" ]; then
-                local count size running
+                local count size
                 count=$(find "$dir" -type f -name '*.tar' 2>/dev/null | wc -l)
                 size=$(du -sh "$dir" 2>/dev/null | cut -f1)
-                running=$(head -1 "$RUNNING_DIR"/* 2>/dev/null | head -1)
-                if [ -n "$running" ]; then
-                    echo "[$(date '+%H:%M:%S')] $count files, $size | $running" >&2
-                else
-                    echo "[$(date '+%H:%M:%S')] $count files, $size" >&2
-                fi
+                echo "[$(date '+%H:%M:%S')] $count files, $size" >&2
             fi
         done
     ) &
@@ -140,7 +132,6 @@ stop_progress_reporter() {
 cleanup() {
     trap - EXIT INT TERM
     stop_progress_reporter
-    rm -rf "$RUNNING_DIR" 2>/dev/null || true
     kill 0 2>/dev/null || true
 }
 trap cleanup EXIT INT TERM

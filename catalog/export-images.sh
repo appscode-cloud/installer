@@ -19,7 +19,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/concurrency_utils.sh"
 
-MAX_WORKERS=${MAX_WORKERS:-20}
+MAX_WORKERS=${MAX_WORKERS:-8}
 
 mkdir -p images
 
@@ -38,14 +38,14 @@ tar -zxf /tmp/go-containerregistry.tar.gz -C /tmp/
 mv /tmp/crane images
 
 CMD="./images/crane"
-TIMEOUT=${TIMEOUT:-120} # 2 minute timeout per operation
+TIMEOUT=${TIMEOUT:-300} # 5 minute timeout per operation
 
 init_concurrency
 
 export_image() {
     local ref="$1"
     local output="$2"
-    run_async "$ref" timeout "$TIMEOUT" "$CMD" pull --allow-nondistributable-artifacts --insecure "$ref" "images/${output}.tar"
+    run_async timeout -k 10 "$TIMEOUT" "$CMD" pull --allow-nondistributable-artifacts --insecure "$ref" "images/${output}.tar"
 }
 
 export_chart() {
@@ -54,11 +54,11 @@ export_chart() {
     local tmpdir
     tmpdir=$(mktemp -d)
     local final_tar="images/${output}.tar"
-    run_async "$ref" bash -c "
+    run_async timeout -k 10 "$TIMEOUT" bash -c "
         trap 'rm -rf \"$tmpdir\"' EXIT
-        timeout $TIMEOUT '$CMD' pull --allow-nondistributable-artifacts --insecure --format=oci '$ref' '$tmpdir/$output' &&
-                tar -C '$tmpdir' -cf '$final_tar' '$output'
-        "
+        '$CMD' pull --allow-nondistributable-artifacts --insecure --format=oci '$ref' '$tmpdir/$output' &&
+        tar -C '$tmpdir' -cf '$final_tar' '$output'
+    "
 }
 
 echo "Exporting charts and images to ./images directory..."
