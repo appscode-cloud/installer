@@ -45,7 +45,7 @@ init_concurrency
 export_image() {
     local ref="$1"
     local output="$2"
-    run_async timeout -k 10 "$TIMEOUT" "$CMD" pull --allow-nondistributable-artifacts --insecure "$ref" "images/${output}.tar"
+    run_async "$CMD" pull --allow-nondistributable-artifacts --insecure "$ref" "images/${output}.tar"
 }
 
 export_chart() {
@@ -54,7 +54,7 @@ export_chart() {
     local tmpdir
     tmpdir=$(mktemp -d)
     local final_tar="images/${output}.tar"
-    run_async timeout -k 10 "$TIMEOUT" bash -c "
+    run_async bash -c "
         trap 'rm -rf \"$tmpdir\"' EXIT
         '$CMD' pull --allow-nondistributable-artifacts --insecure --format=oci '$ref' '$tmpdir/$output' &&
         tar -C '$tmpdir' -cf '$final_tar' '$output'
