@@ -1,0 +1,88 @@
+{{ if .Values "httpRoute" "enabled" }}
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  {{- with .Values.httpRoute.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  name: ace-hosted
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "acaas.labels" . | nindent 4 }}
+spec:
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: ace
+      namespace: {{ .Release.Namespace }}
+      sectionName: https
+  hostnames:
+    - {{ .Values.global.platform.host }}
+  rules:
+  {{- if (index .Values "billing-ui" "enabled") }}
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /billing
+      backendRefs:
+        - kind: Service
+          name: {{ .Release.Name }}-billing-ui
+          port: 80
+  {{- end }}
+
+  {{- if (index .Values "deploy-ui" "enabled") }}
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /deploy
+      backendRefs:
+        - kind: Service
+          name: {{ .Release.Name }}-deploy-ui
+          port: 80
+  {{- end }}
+
+  {{- if (index .Values "marketplace-api" "enabled") }}
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /marketplace/api
+      backendRefs:
+        - kind: Service
+          name: {{ .Release.Name }}-marketplace-api
+          port: 80
+  {{- end }}
+
+  {{- if (index .Values "marketplace-ui" "enabled") }}
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /marketplace
+      backendRefs:
+        - kind: Service
+          name: {{ .Release.Name }}-marketplace-ui
+          port: 80
+  {{- end }}
+
+  {{- if (index .Values "platform-links" "enabled") }}
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /links
+      backendRefs:
+        - kind: Service
+          name: {{ .Release.Name }}-platform-links
+          port: 80
+  {{- end }}
+
+  {{- if (index .Values "website" "enabled") }}
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - kind: Service
+          name: {{ .Release.Name }}-website
+          port: 80
+  {{- end }}
+{{- end }}

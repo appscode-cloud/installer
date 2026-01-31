@@ -59,6 +59,9 @@ helm:
     capi-catalog:
       enabled: false
       version: "v2024.10.24"
+    catalog-manager:
+      enabled: false
+      version: "v2026.1.15"
     cert-manager:
       enabled: true
       version: "v1.19.2"
@@ -119,6 +122,9 @@ helm:
     reloader:
       enabled: true
       version: "1.0.79"
+    service-gateway-presets:
+      enabled: false
+      version: "v2026.1.15"
     stash-presets:
       enabled: false
       version: "v2026.1.15"
@@ -143,6 +149,7 @@ selfManagement:
   enableFeatures: []
   disableFeatures: []
   useGateway: false
+
 precheck:
   enabled: true
   # Docker registry containing app image
