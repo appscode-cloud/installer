@@ -353,7 +353,7 @@ export_image ghcr.io/appscode/license-proxyserver:v0.0.26 appscode-license-proxy
 export_image ghcr.io/appscode/maxmind-geoip:city-mmdb-latest appscode-maxmind-geoip-city-mmdb-latest.tar
 export_image ghcr.io/appscode/openfga:v1.9.5 appscode-openfga-v1.9.5.tar
 export_image ghcr.io/appscode/operator-shard-manager:v0.0.1 appscode-operator-shard-manager-v0.0.1.tar
-export_image ghcr.io/appscode/outboxsyncer:v0.3.0 appscode-outboxsyncer-v0.3.0.tar
+export_image ghcr.io/appscode/outboxsyncer:v0.2.0 appscode-outboxsyncer-v0.2.0.tar
 export_image ghcr.io/appscode/panopticon:v0.0.21 appscode-panopticon-v0.0.21.tar
 export_image ghcr.io/appscode/petset:v0.0.16 appscode-petset-v0.0.16.tar
 export_image ghcr.io/appscode/pgoutbox:v0.0.3 appscode-pgoutbox-v0.0.3.tar
@@ -379,7 +379,7 @@ export_image ghcr.io/kedacore/http-add-on-scaler:0.8.0 kedacore-http-add-on-scal
 export_image ghcr.io/kedacore/keda-admission-webhooks:2.15.1 kedacore-keda-admission-webhooks-2.15.1.tar
 export_image ghcr.io/kedacore/keda-metrics-apiserver:2.15.1 kedacore-keda-metrics-apiserver-2.15.1.tar
 export_image ghcr.io/kedacore/keda:2.15.1 kedacore-keda-2.15.1.tar
-export_image ghcr.io/kluster-manager/addon-manager:v0.15.2 kluster-manager-addon-manager-v0.15.2.tar
+export_image ghcr.io/kluster-manager/addon-manager:v1.0.0 kluster-manager-addon-manager-v1.0.0.tar
 export_image ghcr.io/kluster-manager/cluster-auth:v0.4.1 kluster-manager-cluster-auth-v0.4.1.tar
 export_image ghcr.io/kluster-manager/cluster-gateway-manager:v1.11.0 kluster-manager-cluster-gateway-manager-v1.11.0.tar
 export_image ghcr.io/kluster-manager/cluster-gateway:v1.11.0 kluster-manager-cluster-gateway-v1.11.0.tar
@@ -388,11 +388,11 @@ export_image ghcr.io/kluster-manager/cluster-proxy:v0.7.0 kluster-manager-cluste
 export_image ghcr.io/kluster-manager/clusteradm:v1.0.0 kluster-manager-clusteradm-v1.0.0.tar
 export_image ghcr.io/kluster-manager/fluxcd-addon:v0.0.9 kluster-manager-fluxcd-addon-v0.0.9.tar
 export_image ghcr.io/kluster-manager/managed-serviceaccount:v0.8.1 kluster-manager-managed-serviceaccount-v0.8.1.tar
-export_image ghcr.io/kluster-manager/placement:v0.15.2 kluster-manager-placement-v0.15.2.tar
+export_image ghcr.io/kluster-manager/placement:v1.0.0 kluster-manager-placement-v1.0.0.tar
 export_image ghcr.io/kluster-manager/registration-operator:v0.15.2 kluster-manager-registration-operator-v0.15.2.tar
 export_image ghcr.io/kluster-manager/registration-operator:v1.0.0 kluster-manager-registration-operator-v1.0.0.tar
-export_image ghcr.io/kluster-manager/registration:v0.15.2 kluster-manager-registration-v0.15.2.tar
-export_image ghcr.io/kluster-manager/work:v0.15.2 kluster-manager-work-v0.15.2.tar
+export_image ghcr.io/kluster-manager/registration:v1.0.0 kluster-manager-registration-v1.0.0.tar
+export_image ghcr.io/kluster-manager/work:v1.0.0 kluster-manager-work-v1.0.0.tar
 export_image ghcr.io/kubedb/kubedb-autoscaler:v0.45.0 kubedb-kubedb-autoscaler-v0.45.0.tar
 export_image ghcr.io/kubedb/kubedb-crd-manager:v0.15.0 kubedb-kubedb-crd-manager-v0.15.0.tar
 export_image ghcr.io/kubedb/kubedb-ops-manager:v0.47.0 kubedb-kubedb-ops-manager-v0.47.0.tar
@@ -436,11 +436,11 @@ export_image quay.io/jetstack/cert-manager-cainjector:v1.19.2 jetstack-cert-mana
 export_image quay.io/jetstack/cert-manager-controller:v1.19.2 jetstack-cert-manager-controller-v1.19.2.tar
 export_image quay.io/jetstack/cert-manager-startupapicheck:v1.19.2 jetstack-cert-manager-startupapicheck-v1.19.2.tar
 export_image quay.io/jetstack/cert-manager-webhook:v1.19.2 jetstack-cert-manager-webhook-v1.19.2.tar
-export_image quay.io/prometheus-operator/prometheus-config-reloader:v0.75.2 prometheus-operator-prometheus-config-reloader-v0.75.2.tar
-export_image quay.io/prometheus-operator/prometheus-operator:v0.75.2 prometheus-operator-prometheus-operator-v0.75.2.tar
-export_image quay.io/prometheus/alertmanager:v0.27.0 prometheus-alertmanager-v0.27.0.tar
+export_image quay.io/prometheus-operator/prometheus-config-reloader:v0.80.0 prometheus-operator-prometheus-config-reloader-v0.80.0.tar
+export_image quay.io/prometheus-operator/prometheus-operator:v0.80.0 prometheus-operator-prometheus-operator-v0.80.0.tar
+export_image quay.io/prometheus/alertmanager:v0.28.0 prometheus-alertmanager-v0.28.0.tar
 export_image quay.io/prometheus/node-exporter:v1.8.2 prometheus-node-exporter-v1.8.2.tar
-export_image quay.io/prometheus/prometheus:v2.54.0 prometheus-prometheus-v2.54.0.tar
+export_image quay.io/prometheus/prometheus:v3.1.0 prometheus-prometheus-v3.1.0.tar
 export_image quay.io/thanos/thanos:v0.32.5 thanos-thanos-v0.32.5.tar
 export_image rabbitmq:3.12.1-management library-rabbitmq-3.12.1-management.tar
 export_image rancher/kine:v0.11.4 rancher-kine-v0.11.4.tar
@@ -455,7 +455,7 @@ export_image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-contro
 export_image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.5.1 ingress-nginx-kube-webhook-certgen-v1.5.1.tar
 export_image registry.k8s.io/kube-apiserver:v1.34.0 kube-apiserver-v1.34.0.tar
 export_image registry.k8s.io/kube-controller-manager:v1.34.0 kube-controller-manager-v1.34.0.tar
-export_image registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0 kube-state-metrics-kube-state-metrics-v2.13.0.tar
+export_image registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.14.0 kube-state-metrics-kube-state-metrics-v2.14.0.tar
 export_image registry.k8s.io/metrics-server/metrics-server:v0.7.2 metrics-server-metrics-server-v0.7.2.tar
 export_image registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2 prometheus-adapter-prometheus-adapter-v0.11.2.tar
 export_image registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.10.0 sig-storage-csi-node-driver-registrar-v2.10.0.tar

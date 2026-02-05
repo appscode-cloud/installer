@@ -347,7 +347,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-p
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.9.5 $IMAGE_REGISTRY/appscode/openfga:v1.9.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/outboxsyncer:v0.3.0 $IMAGE_REGISTRY/appscode/outboxsyncer:v0.3.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/outboxsyncer:v0.2.0 $IMAGE_REGISTRY/appscode/outboxsyncer:v0.2.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.21 $IMAGE_REGISTRY/appscode/panopticon:v0.0.21
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.16 $IMAGE_REGISTRY/appscode/petset:v0.0.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/pgoutbox:v0.0.3 $IMAGE_REGISTRY/appscode/pgoutbox:v0.0.3
@@ -373,7 +373,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kedacore/http-add-
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kedacore/keda-admission-webhooks:2.15.1 $IMAGE_REGISTRY/kedacore/keda-admission-webhooks:2.15.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kedacore/keda-metrics-apiserver:2.15.1 $IMAGE_REGISTRY/kedacore/keda-metrics-apiserver:2.15.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kedacore/keda:2.15.1 $IMAGE_REGISTRY/kedacore/keda:2.15.1
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/addon-manager:v0.15.2 $IMAGE_REGISTRY/kluster-manager/addon-manager:v0.15.2
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/addon-manager:v1.0.0 $IMAGE_REGISTRY/kluster-manager/addon-manager:v1.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-auth:v0.4.1 $IMAGE_REGISTRY/kluster-manager/cluster-auth:v0.4.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway-manager:v1.11.0 $IMAGE_REGISTRY/kluster-manager/cluster-gateway-manager:v1.11.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway:v1.11.0 $IMAGE_REGISTRY/kluster-manager/cluster-gateway:v1.11.0
@@ -382,11 +382,11 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cl
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/clusteradm:v1.0.0 $IMAGE_REGISTRY/kluster-manager/clusteradm:v1.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/fluxcd-addon:v0.0.9 $IMAGE_REGISTRY/kluster-manager/fluxcd-addon:v0.0.9
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/managed-serviceaccount:v0.8.1 $IMAGE_REGISTRY/kluster-manager/managed-serviceaccount:v0.8.1
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/placement:v0.15.2 $IMAGE_REGISTRY/kluster-manager/placement:v0.15.2
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/placement:v1.0.0 $IMAGE_REGISTRY/kluster-manager/placement:v1.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/registration-operator:v0.15.2 $IMAGE_REGISTRY/kluster-manager/registration-operator:v0.15.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/registration-operator:v1.0.0 $IMAGE_REGISTRY/kluster-manager/registration-operator:v1.0.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/registration:v0.15.2 $IMAGE_REGISTRY/kluster-manager/registration:v0.15.2
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/work:v0.15.2 $IMAGE_REGISTRY/kluster-manager/work:v0.15.2
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/registration:v1.0.0 $IMAGE_REGISTRY/kluster-manager/registration:v1.0.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/work:v1.0.0 $IMAGE_REGISTRY/kluster-manager/work:v1.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-autoscaler:v0.45.0 $IMAGE_REGISTRY/kubedb/kubedb-autoscaler:v0.45.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-crd-manager:v0.15.0 $IMAGE_REGISTRY/kubedb/kubedb-crd-manager:v0.15.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kubedb/kubedb-ops-manager:v0.47.0 $IMAGE_REGISTRY/kubedb/kubedb-ops-manager:v0.47.0
@@ -430,11 +430,11 @@ $CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-mana
 $CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-controller:v1.19.2 $IMAGE_REGISTRY/jetstack/cert-manager-controller:v1.19.2
 $CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-startupapicheck:v1.19.2 $IMAGE_REGISTRY/jetstack/cert-manager-startupapicheck:v1.19.2
 $CMD cp --allow-nondistributable-artifacts --insecure quay.io/jetstack/cert-manager-webhook:v1.19.2 $IMAGE_REGISTRY/jetstack/cert-manager-webhook:v1.19.2
-$CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus-operator/prometheus-config-reloader:v0.75.2 $IMAGE_REGISTRY/prometheus-operator/prometheus-config-reloader:v0.75.2
-$CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus-operator/prometheus-operator:v0.75.2 $IMAGE_REGISTRY/prometheus-operator/prometheus-operator:v0.75.2
-$CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus/alertmanager:v0.27.0 $IMAGE_REGISTRY/prometheus/alertmanager:v0.27.0
+$CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus-operator/prometheus-config-reloader:v0.80.0 $IMAGE_REGISTRY/prometheus-operator/prometheus-config-reloader:v0.80.0
+$CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus-operator/prometheus-operator:v0.80.0 $IMAGE_REGISTRY/prometheus-operator/prometheus-operator:v0.80.0
+$CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus/alertmanager:v0.28.0 $IMAGE_REGISTRY/prometheus/alertmanager:v0.28.0
 $CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus/node-exporter:v1.8.2 $IMAGE_REGISTRY/prometheus/node-exporter:v1.8.2
-$CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus/prometheus:v2.54.0 $IMAGE_REGISTRY/prometheus/prometheus:v2.54.0
+$CMD cp --allow-nondistributable-artifacts --insecure quay.io/prometheus/prometheus:v3.1.0 $IMAGE_REGISTRY/prometheus/prometheus:v3.1.0
 $CMD cp --allow-nondistributable-artifacts --insecure quay.io/thanos/thanos:v0.32.5 $IMAGE_REGISTRY/thanos/thanos:v0.32.5
 $CMD cp --allow-nondistributable-artifacts --insecure rabbitmq:3.12.1-management $IMAGE_REGISTRY/rabbitmq:3.12.1-management
 $CMD cp --allow-nondistributable-artifacts --insecure rancher/kine:v0.11.4 $IMAGE_REGISTRY/rancher/kine:v0.11.4
@@ -449,7 +449,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-ng
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.5.1 $IMAGE_REGISTRY/ingress-nginx/kube-webhook-certgen:v1.5.1
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-apiserver:v1.34.0 $IMAGE_REGISTRY/kube-apiserver:v1.34.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-controller-manager:v1.34.0 $IMAGE_REGISTRY/kube-controller-manager:v1.34.0
-$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.13.0 $IMAGE_REGISTRY/kube-state-metrics/kube-state-metrics:v2.13.0
+$CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.14.0 $IMAGE_REGISTRY/kube-state-metrics/kube-state-metrics:v2.14.0
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/metrics-server/metrics-server:v0.7.2 $IMAGE_REGISTRY/metrics-server/metrics-server:v0.7.2
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2 $IMAGE_REGISTRY/prometheus-adapter/prometheus-adapter:v0.11.2
 $CMD cp --allow-nondistributable-artifacts --insecure registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.10.0 $IMAGE_REGISTRY/sig-storage/csi-node-driver-registrar:v2.10.0

@@ -348,7 +348,7 @@ import_image appscode-license-proxyserver-v0.0.26.tar appscode/license-proxyserv
 import_image appscode-maxmind-geoip-city-mmdb-latest.tar appscode/maxmind-geoip:city-mmdb-latest
 import_image appscode-openfga-v1.9.5.tar appscode/openfga:v1.9.5
 import_image appscode-operator-shard-manager-v0.0.1.tar appscode/operator-shard-manager:v0.0.1
-import_image appscode-outboxsyncer-v0.3.0.tar appscode/outboxsyncer:v0.3.0
+import_image appscode-outboxsyncer-v0.2.0.tar appscode/outboxsyncer:v0.2.0
 import_image appscode-panopticon-v0.0.21.tar appscode/panopticon:v0.0.21
 import_image appscode-petset-v0.0.16.tar appscode/petset:v0.0.16
 import_image appscode-pgoutbox-v0.0.3.tar appscode/pgoutbox:v0.0.3
@@ -374,7 +374,7 @@ import_image kedacore-http-add-on-scaler-0.8.0.tar kedacore/http-add-on-scaler:0
 import_image kedacore-keda-admission-webhooks-2.15.1.tar kedacore/keda-admission-webhooks:2.15.1
 import_image kedacore-keda-metrics-apiserver-2.15.1.tar kedacore/keda-metrics-apiserver:2.15.1
 import_image kedacore-keda-2.15.1.tar kedacore/keda:2.15.1
-import_image kluster-manager-addon-manager-v0.15.2.tar kluster-manager/addon-manager:v0.15.2
+import_image kluster-manager-addon-manager-v1.0.0.tar kluster-manager/addon-manager:v1.0.0
 import_image kluster-manager-cluster-auth-v0.4.1.tar kluster-manager/cluster-auth:v0.4.1
 import_image kluster-manager-cluster-gateway-manager-v1.11.0.tar kluster-manager/cluster-gateway-manager:v1.11.0
 import_image kluster-manager-cluster-gateway-v1.11.0.tar kluster-manager/cluster-gateway:v1.11.0
@@ -383,11 +383,11 @@ import_image kluster-manager-cluster-proxy-v0.7.0.tar kluster-manager/cluster-pr
 import_image kluster-manager-clusteradm-v1.0.0.tar kluster-manager/clusteradm:v1.0.0
 import_image kluster-manager-fluxcd-addon-v0.0.9.tar kluster-manager/fluxcd-addon:v0.0.9
 import_image kluster-manager-managed-serviceaccount-v0.8.1.tar kluster-manager/managed-serviceaccount:v0.8.1
-import_image kluster-manager-placement-v0.15.2.tar kluster-manager/placement:v0.15.2
+import_image kluster-manager-placement-v1.0.0.tar kluster-manager/placement:v1.0.0
 import_image kluster-manager-registration-operator-v0.15.2.tar kluster-manager/registration-operator:v0.15.2
 import_image kluster-manager-registration-operator-v1.0.0.tar kluster-manager/registration-operator:v1.0.0
-import_image kluster-manager-registration-v0.15.2.tar kluster-manager/registration:v0.15.2
-import_image kluster-manager-work-v0.15.2.tar kluster-manager/work:v0.15.2
+import_image kluster-manager-registration-v1.0.0.tar kluster-manager/registration:v1.0.0
+import_image kluster-manager-work-v1.0.0.tar kluster-manager/work:v1.0.0
 import_image kubedb-kubedb-autoscaler-v0.45.0.tar kubedb/kubedb-autoscaler:v0.45.0
 import_image kubedb-kubedb-crd-manager-v0.15.0.tar kubedb/kubedb-crd-manager:v0.15.0
 import_image kubedb-kubedb-ops-manager-v0.47.0.tar kubedb/kubedb-ops-manager:v0.47.0
@@ -431,11 +431,11 @@ import_image jetstack-cert-manager-cainjector-v1.19.2.tar jetstack/cert-manager-
 import_image jetstack-cert-manager-controller-v1.19.2.tar jetstack/cert-manager-controller:v1.19.2
 import_image jetstack-cert-manager-startupapicheck-v1.19.2.tar jetstack/cert-manager-startupapicheck:v1.19.2
 import_image jetstack-cert-manager-webhook-v1.19.2.tar jetstack/cert-manager-webhook:v1.19.2
-import_image prometheus-operator-prometheus-config-reloader-v0.75.2.tar prometheus-operator/prometheus-config-reloader:v0.75.2
-import_image prometheus-operator-prometheus-operator-v0.75.2.tar prometheus-operator/prometheus-operator:v0.75.2
-import_image prometheus-alertmanager-v0.27.0.tar prometheus/alertmanager:v0.27.0
+import_image prometheus-operator-prometheus-config-reloader-v0.80.0.tar prometheus-operator/prometheus-config-reloader:v0.80.0
+import_image prometheus-operator-prometheus-operator-v0.80.0.tar prometheus-operator/prometheus-operator:v0.80.0
+import_image prometheus-alertmanager-v0.28.0.tar prometheus/alertmanager:v0.28.0
 import_image prometheus-node-exporter-v1.8.2.tar prometheus/node-exporter:v1.8.2
-import_image prometheus-prometheus-v2.54.0.tar prometheus/prometheus:v2.54.0
+import_image prometheus-prometheus-v3.1.0.tar prometheus/prometheus:v3.1.0
 import_image thanos-thanos-v0.32.5.tar thanos/thanos:v0.32.5
 import_image library-rabbitmq-3.12.1-management.tar rabbitmq:3.12.1-management
 import_image rancher-kine-v0.11.4.tar rancher/kine:v0.11.4
@@ -450,7 +450,7 @@ import_image ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g
 import_image ingress-nginx-kube-webhook-certgen-v1.5.1.tar ingress-nginx/kube-webhook-certgen:v1.5.1
 import_image kube-apiserver-v1.34.0.tar kube-apiserver:v1.34.0
 import_image kube-controller-manager-v1.34.0.tar kube-controller-manager:v1.34.0
-import_image kube-state-metrics-kube-state-metrics-v2.13.0.tar kube-state-metrics/kube-state-metrics:v2.13.0
+import_image kube-state-metrics-kube-state-metrics-v2.14.0.tar kube-state-metrics/kube-state-metrics:v2.14.0
 import_image metrics-server-metrics-server-v0.7.2.tar metrics-server/metrics-server:v0.7.2
 import_image prometheus-adapter-prometheus-adapter-v0.11.2.tar prometheus-adapter/prometheus-adapter:v0.11.2
 import_image sig-storage-csi-node-driver-registrar-v2.10.0.tar sig-storage/csi-node-driver-registrar:v2.10.0
@@ -469,7 +469,7 @@ import_image sig-storage-snapshot-validation-webhook-v8.0.1.tar sig-storage/snap
 import_image library-alpine-3.20.tar alpine:3.20
 import_image bitnami-kubectl-latest.tar bitnami/kubectl:latest
 import_image bitnami-sealed-secrets-controller-0.25.0.tar bitnami/sealed-secrets-controller:0.25.0
-import_image cassandra-4.1.3.tar cassandra:4.1.3
+import_image library-cassandra-4.1.3.tar cassandra:4.1.3
 import_image coredns-coredns-1.11.3.tar coredns/coredns:1.11.3
 import_image falcosecurity-falco-no-driver-0.37.0.tar falcosecurity/falco-no-driver:0.37.0
 import_image falcosecurity-falcoctl-0.7.1.tar falcosecurity/falcoctl:0.7.1
