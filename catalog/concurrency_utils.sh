@@ -16,8 +16,8 @@
 
 set -euo pipefail
 
-MAX_WORKERS=${MAX_WORKERS:-8}
-MAX_RETRIES=${MAX_RETRIES:-3}
+MAX_WORKERS=${MAX_WORKERS:-30}
+MAX_RETRIES=${MAX_RETRIES:-10}
 TIMEOUT=${TIMEOUT:-300}
 FAIL_LOG=$(mktemp)
 
@@ -45,7 +45,7 @@ run_async() {
             ((attempt++))
             [[ $attempt -gt $MAX_RETRIES ]] && break
             printf '\033[38;5;208m⚠ %s (attempt %d/%d, exit %d)\n%s\033[0m\n' "$desc" "$attempt" "$MAX_RETRIES" "$exit_code" "$out" >&2
-            sleep $((attempt * 2 + RANDOM % 3))
+            sleep $((attempt * 2 + RANDOM % (3 + attempt * 2)))
         done
         printf '\033[31m✗ %s (failed, exit %d)\n%s\033[0m\n' "$desc" "$exit_code" "$out" >&2
         {
