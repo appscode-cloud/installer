@@ -298,7 +298,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/va
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/virtual-secrets-server:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/virtual-secrets-server:v2025.3.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2026.1.15 $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2026.1.15
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2025.9.19 $IMAGE_REGISTRY/appscode-charts/voyager:v2025.9.19
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/ingress-nginx-controller:v1.11.1 $IMAGE_REGISTRY/appscode-images/ingress-nginx-controller:v1.11.1
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/ingress-nginx-controller:v1.14.3 $IMAGE_REGISTRY/appscode-images/ingress-nginx-controller:v1.14.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.24-alpine $IMAGE_REGISTRY/appscode-images/nats:2.10.24-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:16.4-alpine $IMAGE_REGISTRY/appscode-images/postgres:16.4-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
@@ -330,7 +330,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-n
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:2.0.0 $IMAGE_REGISTRY/appscode/kubedb-ui:2.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.26 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.26
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.9.5 $IMAGE_REGISTRY/appscode/openfga:v1.9.5
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.11.3 $IMAGE_REGISTRY/appscode/openfga:v1.11.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.16 $IMAGE_REGISTRY/appscode/panopticon:v0.0.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.16 $IMAGE_REGISTRY/appscode/petset:v0.0.16

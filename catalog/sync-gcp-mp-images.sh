@@ -36,7 +36,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace-installe
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace:v2026.1.15 $IMAGE_REGISTRY/ace:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/service-gateway:v2026.1.15 $IMAGE_REGISTRY/service-gateway:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10 $IMAGE_REGISTRY/spoke-cluster-addons:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/ingress-nginx-controller:v1.11.1 $IMAGE_REGISTRY/ingress-nginx-controller:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/ingress-nginx-controller:v1.14.3 $IMAGE_REGISTRY/ingress-nginx-controller:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/nats:2.10.24-alpine $IMAGE_REGISTRY/nats:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/postgres:16.4-alpine $IMAGE_REGISTRY/postgres:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/redis:$TAG
@@ -65,7 +65,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubectl-nonroot:1.3
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/kubedb-ui:2.0.0 $IMAGE_REGISTRY/kubedb-ui:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/license-proxyserver:v0.0.26 $IMAGE_REGISTRY/license-proxyserver:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/maxmind-geoip:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/openfga:v1.9.5 $IMAGE_REGISTRY/openfga:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/openfga:v1.11.3 $IMAGE_REGISTRY/openfga:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/operator-shard-manager:v0.0.1 $IMAGE_REGISTRY/operator-shard-manager:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/panopticon:v0.0.16 $IMAGE_REGISTRY/panopticon:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/petset:v0.0.16 $IMAGE_REGISTRY/petset:$TAG

@@ -43,7 +43,7 @@ dependencies:
 - name: ingress-nginx
   repository: oci://ghcr.io/appscode-charts
   condition: ingress-nginx.enabled
-  version: 4.13.1
+  version: 4.14.3
 - name: nats
   repository: oci://ghcr.io/appscode-charts
   condition: nats.enabled
@@ -51,7 +51,7 @@ dependencies:
 - name: openfga
   repository: oci://ghcr.io/appscode-charts
   condition: openfga.enabled
-  version: 0.2.42
+  version: 0.2.52
 - name: pgoutbox
   repository: oci://ghcr.io/appscode-charts
   condition: pgoutbox.enabled

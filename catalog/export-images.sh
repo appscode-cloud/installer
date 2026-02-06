@@ -295,7 +295,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/virtual-secrets-server:v2025.3.14 images/appscode-charts-virtual-secrets-server-v2025.3.14.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2026.1.15 images/appscode-charts-voyager-gateway-v2026.1.15.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2025.9.19 images/appscode-charts-voyager-v2025.9.19.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/ingress-nginx-controller:v1.11.1 images/appscode-images-ingress-nginx-controller-v1.11.1.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/ingress-nginx-controller:v1.14.3 images/appscode-images-ingress-nginx-controller-v1.14.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.24-alpine images/appscode-images-nats-2.10.24-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:16.4-alpine images/appscode-images-postgres-16.4-alpine.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.2.4-bookworm images/appscode-images-redis-7.2.4-bookworm.tar
@@ -327,7 +327,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:2.0.0 images/appscode-kubedb-ui-2.0.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.26 images/appscode-license-proxyserver-v0.0.26.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest images/appscode-maxmind-geoip-city-mmdb-latest.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.9.5 images/appscode-openfga-v1.9.5.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.11.3 images/appscode-openfga-v1.11.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 images/appscode-operator-shard-manager-v0.0.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/panopticon:v0.0.16 images/appscode-panopticon-v0.0.16.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/petset:v0.0.16 images/appscode-petset-v0.0.16.tar

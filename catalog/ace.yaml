@@ -9,7 +9,7 @@
 - ghcr.io/appscode-charts/ace:v2026.1.15
 - ghcr.io/appscode-charts/service-gateway:v2026.1.15
 - ghcr.io/appscode-charts/spoke-cluster-addons:v2024.7.10
-- ghcr.io/appscode-images/ingress-nginx-controller:v1.11.1
+- ghcr.io/appscode-images/ingress-nginx-controller:v1.14.3
 - ghcr.io/appscode-images/nats:2.10.24-alpine
 - ghcr.io/appscode-images/postgres:16.4-alpine
 - ghcr.io/appscode-images/redis:7.2.4-bookworm
@@ -41,7 +41,7 @@
 - ghcr.io/appscode/kubedb-ui:2.0.0
 - ghcr.io/appscode/license-proxyserver:v0.0.26
 - ghcr.io/appscode/maxmind-geoip:city-mmdb-latest
-- ghcr.io/appscode/openfga:v1.9.5
+- ghcr.io/appscode/openfga:v1.11.3
 - ghcr.io/appscode/operator-shard-manager:v0.0.1
 - ghcr.io/appscode/panopticon:v0.0.16
 - ghcr.io/appscode/petset:v0.0.16

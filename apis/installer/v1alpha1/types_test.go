@@ -71,7 +71,7 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.StashPresetsSpec{}},
 		sc.TestCase{Obj: v1alpha1.WebsiteSpec{}},
 		sc.TestCase{Obj: v1alpha1.NatsSpec{}, File: "https://github.com/nats-io/k8s/raw/nats-0.19.17/helm/charts/nats/values.yaml"},
-		sc.TestCase{Obj: v1alpha1.OpenfgaSpec{}, File: "https://github.com/tamalsaha/openfga-helm-charts/raw/release-0.2.22/charts/openfga/values.yaml"},
+		sc.TestCase{Obj: v1alpha1.OpenfgaSpec{}, File: "https://github.com/kubeops/openfga-helm-charts/raw/release-0.2.52/charts/openfga/values.yaml"},
 		sc.TestCase{Obj: v1alpha1.ReloaderSpec{}, File: "https://github.com/stakater/Reloader/raw/v1.0.79/deployments/kubernetes/chart/reloader/values.yaml"},
 	)
 	checker.TestAll(t)

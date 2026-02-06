@@ -22,13 +22,13 @@ dependencies:
   version: v2026.1.15
 - name: ingress-nginx
   repository: oci://ghcr.io/appscode-charts
-  version: 4.13.1
+  version: 4.14.3
 - name: nats
   repository: oci://ghcr.io/appscode-charts
   version: 0.19.17
 - name: openfga
   repository: oci://ghcr.io/appscode-charts
-  version: 0.2.42
+  version: 0.2.52
 - name: pgoutbox
   repository: oci://ghcr.io/appscode-charts
   version: v2026.1.15
@@ -38,5 +38,5 @@ dependencies:
 - name: platform-opscenter
   repository: file://../platform-opscenter
   version: v2026.1.15
-digest: sha256:7dfceb7b148a69deda78c4b0b52682e1bb85e72f98791174dc535762ad8aadc2
-generated: "2026-01-20T21:39:34.783116045+06:00"
+digest: sha256:f76aa2be3debd62b2e8a022c5973ce6c370d2ec36947becccb7a54689cf7d56a
+generated: "2026-02-06T13:06:03.805932-05:00"

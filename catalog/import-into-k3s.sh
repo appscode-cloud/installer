@@ -287,7 +287,7 @@ k3s ctr images import images/appscode-charts-vault-0.27.0.tar
 k3s ctr images import images/appscode-charts-virtual-secrets-server-v2025.3.14.tar
 k3s ctr images import images/appscode-charts-voyager-gateway-v2026.1.15.tar
 k3s ctr images import images/appscode-charts-voyager-v2025.9.19.tar
-k3s ctr images import images/appscode-images-ingress-nginx-controller-v1.11.1.tar
+k3s ctr images import images/appscode-images-ingress-nginx-controller-v1.14.3.tar
 k3s ctr images import images/appscode-images-nats-2.10.24-alpine.tar
 k3s ctr images import images/appscode-images-postgres-16.4-alpine.tar
 k3s ctr images import images/appscode-images-redis-7.2.4-bookworm.tar
@@ -319,7 +319,7 @@ k3s ctr images import images/appscode-kubectl-nonroot-1.34.tar
 k3s ctr images import images/appscode-kubedb-ui-2.0.0.tar
 k3s ctr images import images/appscode-license-proxyserver-v0.0.26.tar
 k3s ctr images import images/appscode-maxmind-geoip-city-mmdb-latest.tar
-k3s ctr images import images/appscode-openfga-v1.9.5.tar
+k3s ctr images import images/appscode-openfga-v1.11.3.tar
 k3s ctr images import images/appscode-operator-shard-manager-v0.0.1.tar
 k3s ctr images import images/appscode-panopticon-v0.0.16.tar
 k3s ctr images import images/appscode-petset-v0.0.16.tar

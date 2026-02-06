@@ -289,7 +289,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-v
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-virtual-secrets-server-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/virtual-secrets-server:v2025.3.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-gateway-v2026.1.15.tar $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2026.1.15
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-v2025.9.19.tar $IMAGE_REGISTRY/appscode-charts/voyager:v2025.9.19
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-ingress-nginx-controller-v1.11.1.tar $IMAGE_REGISTRY/appscode-images/ingress-nginx-controller:v1.11.1
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-ingress-nginx-controller-v1.14.3.tar $IMAGE_REGISTRY/appscode-images/ingress-nginx-controller:v1.14.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-nats-2.10.24-alpine.tar $IMAGE_REGISTRY/appscode-images/nats:2.10.24-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-postgres-16.4-alpine.tar $IMAGE_REGISTRY/appscode-images/postgres:16.4-alpine
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-redis-7.2.4-bookworm.tar $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
@@ -321,7 +321,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubedb-ui-2.0.0.tar $IMAGE_REGISTRY/appscode/kubedb-ui:2.0.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-license-proxyserver-v0.0.26.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.26
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-maxmind-geoip-city-mmdb-latest.tar $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-openfga-v1.9.5.tar $IMAGE_REGISTRY/appscode/openfga:v1.9.5
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-openfga-v1.11.3.tar $IMAGE_REGISTRY/appscode/openfga:v1.11.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-operator-shard-manager-v0.0.1.tar $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-panopticon-v0.0.16.tar $IMAGE_REGISTRY/appscode/panopticon:v0.0.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-petset-v0.0.16.tar $IMAGE_REGISTRY/appscode/petset:v0.0.16
