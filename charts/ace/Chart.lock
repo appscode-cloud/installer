@@ -16,7 +16,7 @@ dependencies:
   version: v2026.1.15
 - name: trickster
   repository: oci://ghcr.io/appscode-charts
-  version: v2024.9.30
+  version: v2026.1.15
 - name: s3proxy
   repository: file://../s3proxy
   version: v2026.1.15
@@ -38,5 +38,5 @@ dependencies:
 - name: platform-opscenter
   repository: file://../platform-opscenter
   version: v2026.1.15
-digest: sha256:f76aa2be3debd62b2e8a022c5973ce6c370d2ec36947becccb7a54689cf7d56a
-generated: "2026-02-06T13:06:03.805932-05:00"
+digest: sha256:02be2d927623b1c25dc6f4fb85386f012c6932e24a07f613e009c96ad56798f1
+generated: "2026-02-07T01:20:28.553444-05:00"
