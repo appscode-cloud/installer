@@ -35,7 +35,7 @@ dependencies:
 - name: trickster
   repository: oci://ghcr.io/appscode-charts
   condition: trickster.enabled
-  version: v2024.9.30
+  version: v2026.1.15
 - name: s3proxy
   repository: file://../s3proxy
   condition: s3proxy.enabled
