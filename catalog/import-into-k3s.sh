@@ -305,7 +305,6 @@ k3s ctr images import images/appscode-falco-ui-server-v0.0.4.tar
 k3s ctr images import images/appscode-fileserver-v0.0.1.tar
 k3s ctr images import images/appscode-flux-cli-v2.7.2.tar
 k3s ctr images import images/appscode-gotenberg-8.25.tar
-k3s ctr images import images/appscode-grafana-tools-v0.3.0.tar
 k3s ctr images import images/appscode-grafana-tools-v0.5.0.tar
 k3s ctr images import images/appscode-grafana-v2025.2.3.tar
 k3s ctr images import images/appscode-inbox-agent-v0.0.2.tar
@@ -334,7 +333,6 @@ k3s ctr images import images/appscode-s3proxy-sha-a82ca68.tar
 k3s ctr images import images/appscode-scanner-v0.0.19.tar
 k3s ctr images import images/appscode-service-provider-v0.0.2.tar
 k3s ctr images import images/appscode-sidekick-v0.0.13.tar
-k3s ctr images import images/appscode-supervisor-v0.0.7.tar
 k3s ctr images import images/appscode-supervisor-v0.0.12.tar
 k3s ctr images import images/appscode-trickster-v2.0.0-beta3.tar
 k3s ctr images import images/appscode-vcluster-plugin-ace-v0.0.3.tar
@@ -359,7 +357,6 @@ k3s ctr images import images/kluster-manager-clusteradm-v1.0.0.tar
 k3s ctr images import images/kluster-manager-fluxcd-addon-v0.0.9.tar
 k3s ctr images import images/kluster-manager-managed-serviceaccount-v0.8.1.tar
 k3s ctr images import images/kluster-manager-placement-v1.0.0.tar
-k3s ctr images import images/kluster-manager-registration-operator-v0.15.2.tar
 k3s ctr images import images/kluster-manager-registration-operator-v1.0.0.tar
 k3s ctr images import images/kluster-manager-registration-v1.0.0.tar
 k3s ctr images import images/kluster-manager-work-v1.0.0.tar
@@ -426,6 +423,7 @@ k3s ctr images import images/ingress-nginx-kube-webhook-certgen-v1.5.1.tar
 k3s ctr images import images/kube-apiserver-v1.35.0.tar
 k3s ctr images import images/kube-controller-manager-v1.35.0.tar
 k3s ctr images import images/kube-state-metrics-kube-state-metrics-v2.13.0.tar
+k3s ctr images import images/kube-state-metrics-kube-state-metrics-v2.14.0.tar
 k3s ctr images import images/metrics-server-metrics-server-v0.7.2.tar
 k3s ctr images import images/prometheus-adapter-prometheus-adapter-v0.11.2.tar
 k3s ctr images import images/sig-storage-csi-node-driver-registrar-v2.10.0.tar

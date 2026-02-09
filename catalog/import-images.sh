@@ -312,7 +312,7 @@ import_chart appscode-charts-vault-0.27.0.tar appscode-charts/vault:0.27.0
 import_chart appscode-charts-virtual-secrets-server-v2025.3.14.tar appscode-charts/virtual-secrets-server:v2025.3.14
 import_chart appscode-charts-voyager-gateway-v2026.1.15.tar appscode-charts/voyager-gateway:v2026.1.15
 import_chart appscode-charts-voyager-v2025.9.19.tar appscode-charts/voyager:v2025.9.19
-import_image appscode-images-ingress-nginx-controller-v1.13.1.tar appscode-images/ingress-nginx-controller:v1.13.1
+import_image appscode-images-ingress-nginx-controller-v1.14.3.tar appscode-images/ingress-nginx-controller:v1.14.3
 import_image appscode-images-nats-2.10.29-alpine.tar appscode-images/nats:2.10.29-alpine
 import_image appscode-images-postgres-16.4-alpine.tar appscode-images/postgres:16.4-alpine
 import_image appscode-images-redis-7.2.4-bookworm.tar appscode-images/redis:7.2.4-bookworm
@@ -330,7 +330,7 @@ import_image appscode-falco-ui-server-v0.0.4.tar appscode/falco-ui-server:v0.0.4
 import_image appscode-fileserver-v0.0.1.tar appscode/fileserver:v0.0.1
 import_image appscode-flux-cli-v2.7.2.tar appscode/flux-cli:v2.7.2
 import_image appscode-gotenberg-8.25.tar appscode/gotenberg:8.25
-import_image appscode-grafana-tools-v0.3.0.tar appscode/grafana-tools:v0.3.0
+import_image appscode-grafana-tools-v0.5.0.tar appscode/grafana-tools:v0.5.0
 import_image appscode-grafana-tools-v0.5.0.tar appscode/grafana-tools:v0.5.0
 import_image appscode-grafana-v2025.2.3.tar appscode/grafana:v2025.2.3
 import_image appscode-inbox-agent-v0.0.2.tar appscode/inbox-agent:v0.0.2
@@ -346,7 +346,7 @@ import_image appscode-kubectl-nonroot-1.34.tar appscode/kubectl-nonroot:1.34
 import_image appscode-kubedb-ui-2.0.0.tar appscode/kubedb-ui:2.0.0
 import_image appscode-license-proxyserver-v0.0.26.tar appscode/license-proxyserver:v0.0.26
 import_image appscode-maxmind-geoip-city-mmdb-latest.tar appscode/maxmind-geoip:city-mmdb-latest
-import_image appscode-openfga-v1.9.5.tar appscode/openfga:v1.9.5
+import_image appscode-openfga-v1.11.3.tar appscode/openfga:v1.11.3
 import_image appscode-operator-shard-manager-v0.0.1.tar appscode/operator-shard-manager:v0.0.1
 import_image appscode-outboxsyncer-v0.2.0.tar appscode/outboxsyncer:v0.2.0
 import_image appscode-panopticon-v0.0.21.tar appscode/panopticon:v0.0.21
@@ -359,7 +359,7 @@ import_image appscode-s3proxy-sha-a82ca68.tar appscode/s3proxy:sha-a82ca68
 import_image appscode-scanner-v0.0.19.tar appscode/scanner:v0.0.19
 import_image appscode-service-provider-v0.0.2.tar appscode/service-provider:v0.0.2
 import_image appscode-sidekick-v0.0.13.tar appscode/sidekick:v0.0.13
-import_image appscode-supervisor-v0.0.7.tar appscode/supervisor:v0.0.7
+import_image appscode-supervisor-v0.0.12.tar appscode/supervisor:v0.0.12
 import_image appscode-supervisor-v0.0.12.tar appscode/supervisor:v0.0.12
 import_image appscode-trickster-v2.0.0-beta3.tar appscode/trickster:v2.0.0-beta3
 import_image appscode-vcluster-plugin-ace-v0.0.3.tar appscode/vcluster-plugin-ace:v0.0.3
@@ -384,7 +384,7 @@ import_image kluster-manager-clusteradm-v1.0.0.tar kluster-manager/clusteradm:v1
 import_image kluster-manager-fluxcd-addon-v0.0.9.tar kluster-manager/fluxcd-addon:v0.0.9
 import_image kluster-manager-managed-serviceaccount-v0.8.1.tar kluster-manager/managed-serviceaccount:v0.8.1
 import_image kluster-manager-placement-v1.0.0.tar kluster-manager/placement:v1.0.0
-import_image kluster-manager-registration-operator-v0.15.2.tar kluster-manager/registration-operator:v0.15.2
+import_image kluster-manager-registration-operator-v1.0.0.tar kluster-manager/registration-operator:v1.0.0
 import_image kluster-manager-registration-operator-v1.0.0.tar kluster-manager/registration-operator:v1.0.0
 import_image kluster-manager-registration-v1.0.0.tar kluster-manager/registration:v1.0.0
 import_image kluster-manager-work-v1.0.0.tar kluster-manager/work:v1.0.0
@@ -447,7 +447,6 @@ import_image rancher-mirrored-pause-3.6.tar rancher/mirrored-pause:3.6
 import_image autoscaling-cluster-autoscaler-v1.27.1.tar autoscaling/cluster-autoscaler:v1.27.1
 import_image csi-secrets-store-driver-v1.4.1.tar csi-secrets-store/driver:v1.4.1
 import_image ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
-import_image ingress-nginx-kube-webhook-certgen-v1.5.1.tar ingress-nginx/kube-webhook-certgen:v1.5.1
 import_image kube-apiserver-v1.34.0.tar kube-apiserver:v1.34.0
 import_image kube-controller-manager-v1.34.0.tar kube-controller-manager:v1.34.0
 import_image kube-state-metrics-kube-state-metrics-v2.14.0.tar kube-state-metrics/kube-state-metrics:v2.14.0

@@ -317,7 +317,7 @@ export_chart ghcr.io/appscode-charts/virtual-secrets-server:v2025.3.14 appscode-
 export_chart ghcr.io/appscode-charts/voyager-gateway:v2026.1.15 appscode-charts-voyager-gateway-v2026.1.15.tar
 export_chart ghcr.io/appscode-charts/voyager:v2025.9.19 appscode-charts-voyager-v2025.9.19.tar
 
-export_image ghcr.io/appscode-images/ingress-nginx-controller:v1.13.1 appscode-images-ingress-nginx-controller-v1.13.1.tar
+export_image ghcr.io/appscode-images/ingress-nginx-controller:v1.14.3 appscode-images-ingress-nginx-controller-v1.14.3.tar
 export_image ghcr.io/appscode-images/nats:2.10.29-alpine appscode-images-nats-2.10.29-alpine.tar
 export_image ghcr.io/appscode-images/postgres:16.4-alpine appscode-images-postgres-16.4-alpine.tar
 export_image ghcr.io/appscode-images/redis:7.2.4-bookworm appscode-images-redis-7.2.4-bookworm.tar
@@ -335,7 +335,6 @@ export_image ghcr.io/appscode/falco-ui-server:v0.0.4 appscode-falco-ui-server-v0
 export_image ghcr.io/appscode/fileserver:v0.0.1 appscode-fileserver-v0.0.1.tar
 export_image ghcr.io/appscode/flux-cli:v2.7.2 appscode-flux-cli-v2.7.2.tar
 export_image ghcr.io/appscode/gotenberg:8.25 appscode-gotenberg-8.25.tar
-export_image ghcr.io/appscode/grafana-tools:v0.3.0 appscode-grafana-tools-v0.3.0.tar
 export_image ghcr.io/appscode/grafana-tools:v0.5.0 appscode-grafana-tools-v0.5.0.tar
 export_image ghcr.io/appscode/grafana:v2025.2.3 appscode-grafana-v2025.2.3.tar
 export_image ghcr.io/appscode/inbox-agent:v0.0.2 appscode-inbox-agent-v0.0.2.tar
@@ -351,7 +350,7 @@ export_image ghcr.io/appscode/kubectl-nonroot:1.34 appscode-kubectl-nonroot-1.34
 export_image ghcr.io/appscode/kubedb-ui:2.0.0 appscode-kubedb-ui-2.0.0.tar
 export_image ghcr.io/appscode/license-proxyserver:v0.0.26 appscode-license-proxyserver-v0.0.26.tar
 export_image ghcr.io/appscode/maxmind-geoip:city-mmdb-latest appscode-maxmind-geoip-city-mmdb-latest.tar
-export_image ghcr.io/appscode/openfga:v1.9.5 appscode-openfga-v1.9.5.tar
+export_image ghcr.io/appscode/openfga:v1.11.3 appscode-openfga-v1.11.3.tar
 export_image ghcr.io/appscode/operator-shard-manager:v0.0.1 appscode-operator-shard-manager-v0.0.1.tar
 export_image ghcr.io/appscode/outboxsyncer:v0.2.0 appscode-outboxsyncer-v0.2.0.tar
 export_image ghcr.io/appscode/panopticon:v0.0.21 appscode-panopticon-v0.0.21.tar
@@ -364,7 +363,6 @@ export_image ghcr.io/appscode/s3proxy:sha-a82ca68 appscode-s3proxy-sha-a82ca68.t
 export_image ghcr.io/appscode/scanner:v0.0.19 appscode-scanner-v0.0.19.tar
 export_image ghcr.io/appscode/service-provider:v0.0.2 appscode-service-provider-v0.0.2.tar
 export_image ghcr.io/appscode/sidekick:v0.0.13 appscode-sidekick-v0.0.13.tar
-export_image ghcr.io/appscode/supervisor:v0.0.7 appscode-supervisor-v0.0.7.tar
 export_image ghcr.io/appscode/supervisor:v0.0.12 appscode-supervisor-v0.0.12.tar
 export_image ghcr.io/appscode/trickster:v2.0.0-beta3 appscode-trickster-v2.0.0-beta3.tar
 export_image ghcr.io/appscode/vcluster-plugin-ace:v0.0.3 appscode-vcluster-plugin-ace-v0.0.3.tar
@@ -389,7 +387,6 @@ export_image ghcr.io/kluster-manager/clusteradm:v1.0.0 kluster-manager-clusterad
 export_image ghcr.io/kluster-manager/fluxcd-addon:v0.0.9 kluster-manager-fluxcd-addon-v0.0.9.tar
 export_image ghcr.io/kluster-manager/managed-serviceaccount:v0.8.1 kluster-manager-managed-serviceaccount-v0.8.1.tar
 export_image ghcr.io/kluster-manager/placement:v1.0.0 kluster-manager-placement-v1.0.0.tar
-export_image ghcr.io/kluster-manager/registration-operator:v0.15.2 kluster-manager-registration-operator-v0.15.2.tar
 export_image ghcr.io/kluster-manager/registration-operator:v1.0.0 kluster-manager-registration-operator-v1.0.0.tar
 export_image ghcr.io/kluster-manager/registration:v1.0.0 kluster-manager-registration-v1.0.0.tar
 export_image ghcr.io/kluster-manager/work:v1.0.0 kluster-manager-work-v1.0.0.tar
@@ -451,7 +448,6 @@ export_image rancher/mirrored-library-busybox:1.37.0 rancher-mirrored-library-bu
 export_image rancher/mirrored-pause:3.6 rancher-mirrored-pause-3.6.tar
 export_image registry.k8s.io/autoscaling/cluster-autoscaler:v1.27.1 autoscaling-cluster-autoscaler-v1.27.1.tar
 export_image registry.k8s.io/csi-secrets-store/driver:v1.4.1 csi-secrets-store-driver-v1.4.1.tar
-export_image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6 ingress-nginx-kube-webhook-certgen-v20221220-controller-v1.5.1-58-g787ea74b6.tar
 export_image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.5.1 ingress-nginx-kube-webhook-certgen-v1.5.1.tar
 export_image registry.k8s.io/kube-apiserver:v1.34.0 kube-apiserver-v1.34.0.tar
 export_image registry.k8s.io/kube-controller-manager:v1.34.0 kube-controller-manager-v1.34.0.tar
@@ -466,7 +462,6 @@ export_image registry.k8s.io/sig-storage/csi-provisioner:v4.0.0 sig-storage-csi-
 export_image registry.k8s.io/sig-storage/csi-snapshotter:v6.3.3 sig-storage-csi-snapshotter-v6.3.3.tar
 export_image registry.k8s.io/sig-storage/livenessprobe:v2.10.0 sig-storage-livenessprobe-v2.10.0.tar
 export_image registry.k8s.io/sig-storage/livenessprobe:v2.12.0 sig-storage-livenessprobe-v2.12.0.tar
-export_image registry.k8s.io/sig-storage/livenessprobe:v2.13.1 sig-storage-livenessprobe-v2.13.1.tar
 export_image registry.k8s.io/sig-storage/livenessprobe:v2.16.0 sig-storage-livenessprobe-v2.16.0.tar
 export_image registry.k8s.io/sig-storage/nfsplugin:v4.7.0 sig-storage-nfsplugin-v4.7.0.tar
 export_image registry.k8s.io/sig-storage/snapshot-controller:v8.0.1 sig-storage-snapshot-controller-v8.0.1.tar
