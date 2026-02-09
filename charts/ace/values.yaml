@@ -67,7 +67,8 @@ s3proxy:
 
 openfga:
   enabled: false
-  datastoreURI: ""
+  datastore:
+    uri: ""
   ## configured in lib-selfhost
   # securityContext: # +doc-gen:break
   #   allowPrivilegeEscalation: false

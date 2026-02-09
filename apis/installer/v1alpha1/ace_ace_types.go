@@ -163,8 +163,7 @@ type AceTrickster struct {
 }
 
 type AceOpenfga struct {
-	Enabled      bool   `json:"enabled"`
-	DatastoreURI string `json:"datastoreURI"`
+	Enabled      bool `json:"enabled"`
 	*OpenfgaSpec `json:",inline,omitempty"`
 }
 

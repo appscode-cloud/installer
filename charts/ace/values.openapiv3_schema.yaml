@@ -11099,8 +11099,6 @@ properties:
         - username
         - waitForMigrations
         type: object
-      datastoreURI:
-        type: string
       enabled:
         type: boolean
       experimentals:
@@ -16837,7 +16835,6 @@ properties:
     - customReadinessProbe
     - customStartupProbe
     - datastore
-    - datastoreURI
     - enabled
     - experimentals
     - extraEnvVars
