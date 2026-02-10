@@ -31,7 +31,7 @@ if [ -n "$TARBALL" ]; then
         exit 1
     fi
     echo "Extracting $TARBALL..."
-    tar -zxf "$TARBALL"
+    tar -zxvf "$TARBALL"
 elif [ -d "images" ] && [ -f "images/crane" ] && ls images/*.tar >/dev/null 2>&1; then
     echo "Found existing images directory with tarballs and crane binary. Skipping extraction..."
 else

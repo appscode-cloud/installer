@@ -34,7 +34,7 @@ fi
 
 echo "Downloading Crane for ${OS}/${ARCH}..."
 curl -sL "https://github.com/google/go-containerregistry/releases/latest/download/go-containerregistry_${OS}_${ARCH}.tar.gz" >/tmp/go-containerregistry.tar.gz
-tar -zxf /tmp/go-containerregistry.tar.gz -C /tmp/
+tar -zxvf /tmp/go-containerregistry.tar.gz -C /tmp/
 mv /tmp/crane images
 
 CMD="./images/crane"
