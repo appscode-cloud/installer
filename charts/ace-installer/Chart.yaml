@@ -2,8 +2,8 @@ apiVersion: v2
 name: ace-installer
 description: ACE Installer
 type: application
-version: v2026.1.15
-appVersion: v2026.1.15
+version: v2026.2.16
+appVersion: v2026.2.16
 kubeVersion: '>=1.28.0-0'
 annotations:
   charts.openshift.io/name: ace-installer

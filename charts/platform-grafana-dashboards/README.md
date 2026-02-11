@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm search repo appscode/platform-grafana-dashboards --version=v2026.1.15
-$ helm upgrade -i platform-grafana-dashboards appscode/platform-grafana-dashboards -n ace --create-namespace --version=v2026.1.15
+$ helm search repo appscode/platform-grafana-dashboards --version=v2026.2.16
+$ helm upgrade -i platform-grafana-dashboards appscode/platform-grafana-dashboards -n ace --create-namespace --version=v2026.2.16
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys a Platform Grafana Dashboards on a [Kubernetes](http://kubern
 To install/upgrade the chart with the release name `platform-grafana-dashboards`:
 
 ```bash
-$ helm upgrade -i platform-grafana-dashboards appscode/platform-grafana-dashboards -n ace --create-namespace --version=v2026.1.15
+$ helm upgrade -i platform-grafana-dashboards appscode/platform-grafana-dashboards -n ace --create-namespace --version=v2026.2.16
 ```
 
 The command deploys a Platform Grafana Dashboards on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -86,12 +86,12 @@ The following table lists the configurable parameters of the `platform-grafana-d
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i platform-grafana-dashboards appscode/platform-grafana-dashboards -n ace --create-namespace --version=v2026.1.15 --set resources=["nats","openfga","b3"]
+$ helm upgrade -i platform-grafana-dashboards appscode/platform-grafana-dashboards -n ace --create-namespace --version=v2026.2.16 --set resources=["nats","openfga","b3"]
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i platform-grafana-dashboards appscode/platform-grafana-dashboards -n ace --create-namespace --version=v2026.1.15 --values values.yaml
+$ helm upgrade -i platform-grafana-dashboards appscode/platform-grafana-dashboards -n ace --create-namespace --version=v2026.2.16 --values values.yaml
 ```

@@ -1,7 +1,7 @@
 annotations:
   charts.openshift.io/name: ace-installer-certified-crds
 apiVersion: v2
-appVersion: v2026.1.15
+appVersion: v2026.2.16
 description: Chart containing only CRDs from ace-installer chart
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/kubeops/icons/android-icon-192x192.png
@@ -12,4 +12,4 @@ maintainers:
 name: ace-installer-certified-crds
 sources:
 - https://github.com/appscode-cloud/installer
-version: 2026.1.15
+version: 2026.2.16

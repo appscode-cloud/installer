@@ -1,24 +1,24 @@
 dependencies:
 - name: billing
   repository: file://../billing
-  version: v2026.1.15
+  version: v2026.2.16
 - name: billing-ui
   repository: file://../billing-ui
-  version: v2026.1.15
+  version: v2026.2.16
 - name: deploy-ui
   repository: file://../deploy-ui
-  version: v2026.1.15
+  version: v2026.2.16
 - name: marketplace-api
   repository: file://../marketplace-api
-  version: v2026.1.15
+  version: v2026.2.16
 - name: marketplace-ui
   repository: file://../marketplace-ui
-  version: v2026.1.15
+  version: v2026.2.16
 - name: platform-links
   repository: file://../platform-links
-  version: v2026.1.15
+  version: v2026.2.16
 - name: website
   repository: file://../website
-  version: v2026.1.15
-digest: sha256:ad99446f1d814abd26a9712efbceb54ded4e921b4d64de824815bae42b92922d
-generated: "2026-01-05T14:26:22.879065+06:00"
+  version: v2026.2.16
+digest: sha256:dea07f859522eb5f10004e0659726fe0d8a6e03915856f841bc250d75a90d848
+generated: "2026-02-11T05:28:23.103047372Z"
