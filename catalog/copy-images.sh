@@ -321,6 +321,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vo
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2025.9.19 $IMAGE_REGISTRY/appscode-charts/voyager:v2025.9.19
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/ingress-nginx-controller:v1.14.3 $IMAGE_REGISTRY/appscode-images/ingress-nginx-controller:v1.14.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.10.29-alpine $IMAGE_REGISTRY/appscode-images/nats:2.10.29-alpine
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/nats:2.12.4-alpine $IMAGE_REGISTRY/appscode-images/nats:2.12.4-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/postgres:16.4-alpine $IMAGE_REGISTRY/appscode-images/postgres:16.4-alpine
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/redis:7.2.4-bookworm $IMAGE_REGISTRY/appscode-images/redis:7.2.4-bookworm
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/aceshifter:v0.0.2 $IMAGE_REGISTRY/appscode/aceshifter:v0.0.2
@@ -366,7 +367,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/scanner:v
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/service-provider:v0.0.2 $IMAGE_REGISTRY/appscode/service-provider:v0.0.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/sidekick:v0.0.13 $IMAGE_REGISTRY/appscode/sidekick:v0.0.13
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/supervisor:v0.0.12 $IMAGE_REGISTRY/appscode/supervisor:v0.0.12
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/trickster:v2.0.0-beta3 $IMAGE_REGISTRY/appscode/trickster:v2.0.0-beta3
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/trickster:v2.0.0 $IMAGE_REGISTRY/appscode/trickster:v2.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/vcluster-plugin-ace:v0.0.3 $IMAGE_REGISTRY/appscode/vcluster-plugin-ace:v0.0.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/external-secrets/external-secrets:v0.9.12 $IMAGE_REGISTRY/external-secrets/external-secrets:v0.9.12
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/helm-controller:v1.4.2 $IMAGE_REGISTRY/fluxcd/helm-controller:v1.4.2
@@ -426,7 +427,9 @@ $CMD cp --allow-nondistributable-artifacts --insecure hashicorp/vault-secrets-op
 $CMD cp --allow-nondistributable-artifacts --insecure hashicorp/vault:1.15.2 $IMAGE_REGISTRY/hashicorp/vault:1.15.2
 $CMD cp --allow-nondistributable-artifacts --insecure natsio/nats-boot-config:0.16.1 $IMAGE_REGISTRY/natsio/nats-boot-config:0.16.1
 $CMD cp --allow-nondistributable-artifacts --insecure natsio/nats-server-config-reloader:0.17.1 $IMAGE_REGISTRY/natsio/nats-server-config-reloader:0.17.1
+$CMD cp --allow-nondistributable-artifacts --insecure natsio/nats-server-config-reloader:0.22.1 $IMAGE_REGISTRY/natsio/nats-server-config-reloader:0.22.1
 $CMD cp --allow-nondistributable-artifacts --insecure natsio/prometheus-nats-exporter:0.16.0 $IMAGE_REGISTRY/natsio/prometheus-nats-exporter:0.16.0
+$CMD cp --allow-nondistributable-artifacts --insecure natsio/prometheus-nats-exporter:0.19.1 $IMAGE_REGISTRY/natsio/prometheus-nats-exporter:0.19.1
 $CMD cp --allow-nondistributable-artifacts --insecure openpolicyagent/gatekeeper:v3.13.3 $IMAGE_REGISTRY/openpolicyagent/gatekeeper:v3.13.3
 $CMD cp --allow-nondistributable-artifacts --insecure opensearchproject/opensearch:2.1.0 $IMAGE_REGISTRY/opensearchproject/opensearch:2.1.0
 $CMD cp --allow-nondistributable-artifacts --insecure prometheuscommunity/postgres-exporter:v0.18.1 $IMAGE_REGISTRY/prometheuscommunity/postgres-exporter:v0.18.1
