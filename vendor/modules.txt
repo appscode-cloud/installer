@@ -326,7 +326,7 @@ go.bytebuilders.dev/resource-model/apis/cloud
 go.bytebuilders.dev/resource-model/apis/cloud/v1alpha1
 go.bytebuilders.dev/resource-model/apis/config/v1alpha1
 go.bytebuilders.dev/resource-model/crds
-# go.bytebuilders.dev/ui-wizards v0.29.0
+# go.bytebuilders.dev/ui-wizards v0.30.0
 ## explicit; go 1.25
 go.bytebuilders.dev/ui-wizards/apis/wizards
 go.bytebuilders.dev/ui-wizards/apis/wizards/v1alpha1
@@ -927,7 +927,7 @@ kmodules.xyz/custom-resources/crds
 # kmodules.xyz/go-containerregistry v0.0.15
 ## explicit; go 1.24.0
 kmodules.xyz/go-containerregistry/name
-# kmodules.xyz/image-packer v0.0.0-20260103085352-350a15277b2f
+# kmodules.xyz/image-packer v0.0.0-20260211014345-daa6afa3ceba
 ## explicit; go 1.25
 kmodules.xyz/image-packer/pkg/lib
 # kmodules.xyz/monitoring-agent-api v0.34.0
@@ -942,7 +942,7 @@ kmodules.xyz/offshoot-api/api/v1
 # kmodules.xyz/prober v0.34.0
 ## explicit; go 1.24.0
 kmodules.xyz/prober/api/v1
-# kmodules.xyz/resource-metadata v0.41.0
+# kmodules.xyz/resource-metadata v0.42.0
 ## explicit; go 1.25
 kmodules.xyz/resource-metadata/apis/shared
 kmodules.xyz/resource-metadata/apis/ui
@@ -955,8 +955,8 @@ kmodules.xyz/schema-checker
 ## explicit; go 1.25
 kubeops.dev/external-dns-operator/apis/external
 kubeops.dev/external-dns-operator/apis/external/v1alpha1
-# kubeops.dev/installer v0.0.0-20260103043813-13df341d1a2b
-## explicit; go 1.24.0
+# kubeops.dev/installer v0.0.0-20260211052352-61a3b8b25cdd
+## explicit; go 1.25
 kubeops.dev/installer/apis/installer
 kubeops.dev/installer/apis/installer/v1alpha1
 # kubeops.dev/scanner v0.0.19

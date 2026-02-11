@@ -49,13 +49,13 @@ helm:
   releases:
     ace:
       enabled: false
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     acerproxy:
       enabled: false
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     aceshifter:
       enabled: true
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     capi-catalog:
       enabled: false
       version: "v2024.10.24"
@@ -99,13 +99,13 @@ helm:
       version: "v2026.1.19"
     kube-ui-server:
       enabled: true
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     license-proxyserver:
       enabled: true
       version: "v2026.1.15"
     opscenter-features:
       enabled: true
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     panopticon:
       enabled: true
       version: "v2026.1.15"
@@ -121,7 +121,7 @@ helm:
       version: "1.0.79"
     stash-presets:
       enabled: false
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     # feature less chart versions
     cluster-manager-spoke:
       enabled: false
@@ -182,7 +182,6 @@ precheck:
   nodeSelector: {}
   tolerations: []
   affinity: {}
-
 tester:
   # Docker registry containing app image
   image:
@@ -221,5 +220,4 @@ tester:
   nodeSelector: {}
   tolerations: []
   affinity: {}
-
 options: ""

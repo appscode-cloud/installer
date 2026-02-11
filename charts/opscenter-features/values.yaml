@@ -54,7 +54,7 @@ helm:
       url: oci://ghcr.io/appscode-charts
   releases:
     aceshifter:
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     appscode-otel-stack:
       version: "v2025.2.28"
     aws-credential-manager:
@@ -70,7 +70,7 @@ helm:
     capi-ops-manager:
       version: "v2024.8.14"
     catalog-manager:
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     cert-manager:
       version: "v1.19.2"
     cert-manager-csi-driver-cacerts:
@@ -78,7 +78,7 @@ helm:
     cluster-autoscaler:
       version: "9.29.0"
     cluster-presets:
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     config-syncer:
       version: "v0.15.4"
     crossplane:
@@ -112,9 +112,9 @@ helm:
     kube-prometheus-stack:
       version: "69.2.2"
     kubedb-ui-presets:
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     kube-ui-server:
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     kubedb:
       version: "v2026.1.19"
     kubedb-opscenter:
@@ -150,7 +150,7 @@ helm:
     opencost-grafana-dashboards:
       version: "v2023.10.1"
     opscenter-features:
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     panopticon:
       version: "v2026.1.15"
     prepare-cluster:
@@ -162,13 +162,13 @@ helm:
     scanner:
       version: "v2026.1.15"
     service-backend:
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     service-gateway:
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     service-gateway-presets:
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     service-provider:
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     sidekick:
       version: "v2026.1.15"
     snapshot-controller:
@@ -178,7 +178,7 @@ helm:
     stash-opscenter:
       version: "v2025.7.31"
     stash-presets:
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     supervisor:
       version: "v2026.1.15"
     topolvm:
@@ -240,7 +240,7 @@ helm:
     inbox-agent:
       version: "v2024.12.30"
     inbox-ui:
-      version: "v2026.1.15"
+      version: "v2026.2.16"
 licenseServer:
   baseURL: ""
   token: ""
