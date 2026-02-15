@@ -12,9 +12,6 @@ placement:
   create: true
   name: global
 
-kubectl:
-  image: ghcr.io/appscode/kubectl-nonroot:1.34
-
 platform:
   baseURL: ""
   token: ""
