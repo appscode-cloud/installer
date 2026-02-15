@@ -45,34 +45,32 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `license-proxyserver-manager` chart and their default values.
 
-|                Parameter                 |                             Description                             |                         Default                          |
-|------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------------|
-| nameOverride                             |                                                                     | <code>""</code>                                          |
-| fullnameOverride                         |                                                                     | <code>""</code>                                          |
-| registryFQDN                             | Docker registry fqdn used to pull license-proxyserver docker images | <code>ghcr.io</code>                                     |
-| image                                    |                                                                     | <code>ghcr.io/appscode/license-proxyserver</code>        |
-| tag                                      |                                                                     | <code>""</code>                                          |
-| imagePullPolicy                          |                                                                     | <code>Always</code>                                      |
-| kubeconfigSecretName                     |                                                                     | <code>""</code>                                          |
-| addonManagerNamespace                    |                                                                     | <code>open-cluster-management-license-proxyserver</code> |
-| placement.create                         |                                                                     | <code>true</code>                                        |
-| placement.name                           |                                                                     | <code>global</code>                                      |
-| kubectl.image                            |                                                                     | <code>ghcr.io/appscode/kubectl-nonroot:1.34</code>       |
-| platform.baseURL                         |                                                                     | <code>""</code>                                          |
-| platform.token                           |                                                                     | <code>""</code>                                          |
-| platform.tokenSecretName                 |                                                                     | <code>""</code>                                          |
-| platform.caBundle                        |                                                                     | <code>""</code>                                          |
-| platform.insecureSkipTLSVerify           |                                                                     | <code>false</code>                                       |
-| securityContext.allowPrivilegeEscalation |                                                                     | <code>false</code>                                       |
-| securityContext.privileged               |                                                                     | <code>false</code>                                       |
-| securityContext.runAsNonRoot             |                                                                     | <code>true</code>                                        |
-| securityContext.runAsUser                |                                                                     | <code>65534</code>                                       |
-| securityContext.readOnlyRootFilesystem   |                                                                     | <code>true</code>                                        |
-| securityContext.seccompProfile.type      |                                                                     | <code>RuntimeDefault</code>                              |
-| envFrom                                  | List of sources to populate environment variables in the container  | <code>[]</code>                                          |
-| env                                      | List of environment variables to set in the container               | <code>[]</code>                                          |
-| distro.openshift                         |                                                                     | <code>false</code>                                       |
-| distro.ubi                               |                                                                     | <code>""</code>                                          |
+|                Parameter                 |                             Description                             |                      Default                       |
+|------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|
+| nameOverride                             |                                                                     | <code>""</code>                                    |
+| fullnameOverride                         |                                                                     | <code>""</code>                                    |
+| registryFQDN                             | Docker registry fqdn used to pull license-proxyserver docker images | <code>ghcr.io</code>                               |
+| image                                    |                                                                     | <code>ghcr.io/appscode/license-proxyserver</code>  |
+| tag                                      |                                                                     | <code>""</code>                                    |
+| imagePullPolicy                          |                                                                     | <code>Always</code>                                |
+| placement.create                         |                                                                     | <code>true</code>                                  |
+| placement.name                           |                                                                     | <code>global</code>                                |
+| kubectl.image                            |                                                                     | <code>ghcr.io/appscode/kubectl-nonroot:1.34</code> |
+| platform.baseURL                         |                                                                     | <code>""</code>                                    |
+| platform.token                           |                                                                     | <code>""</code>                                    |
+| platform.tokenSecretName                 |                                                                     | <code>""</code>                                    |
+| platform.caBundle                        |                                                                     | <code>""</code>                                    |
+| platform.insecureSkipTLSVerify           |                                                                     | <code>false</code>                                 |
+| securityContext.allowPrivilegeEscalation |                                                                     | <code>false</code>                                 |
+| securityContext.privileged               |                                                                     | <code>false</code>                                 |
+| securityContext.runAsNonRoot             |                                                                     | <code>true</code>                                  |
+| securityContext.runAsUser                |                                                                     | <code>65534</code>                                 |
+| securityContext.readOnlyRootFilesystem   |                                                                     | <code>true</code>                                  |
+| securityContext.seccompProfile.type      |                                                                     | <code>RuntimeDefault</code>                        |
+| envFrom                                  | List of sources to populate environment variables in the container  | <code>[]</code>                                    |
+| env                                      | List of environment variables to set in the container               | <code>[]</code>                                    |
+| distro.openshift                         |                                                                     | <code>false</code>                                 |
+| distro.ubi                               |                                                                     | <code>""</code>                                    |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

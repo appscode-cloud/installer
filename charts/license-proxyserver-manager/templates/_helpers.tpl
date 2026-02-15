@@ -51,13 +51,6 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
-Addon manager namespace
-*/}}
-{{- define "license-proxyserver-manager.namespace" -}}
-{{ ternary .Release.Namespace (required "A valid .Values.addonManagerNamespace is required!" .Values.addonManagerNamespace) (empty .Values.kubeconfigSecretName) }}
-{{- end }}
-
-{{/*
 Returns whether the OpenShift distribution is used
 */}}
 {{- define "distro.openshift" -}}

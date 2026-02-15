@@ -2,7 +2,7 @@ apiVersion: work.open-cluster-management.io/v1alpha1
 kind: ManifestWorkReplicaSet
 metadata:
   name: license-agent
-  namespace: {{ include "license-proxyserver-manager.namespace" $ }}
+  namespace: {{ .Release.Namespace }}
 spec:
   placementRefs:
     - name: global
