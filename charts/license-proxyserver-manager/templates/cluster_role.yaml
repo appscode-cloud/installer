@@ -1,5 +1,3 @@
-{{- if not .Values.kubeconfigSecretName }}
-
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -47,5 +45,3 @@ rules:
   - apiGroups: ["addon.open-cluster-management.io"]
     resources: ["managedclusteraddons/status"]
     verbs: ["update", "patch"]
-
-{{- end }}

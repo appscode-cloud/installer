@@ -1,6 +1,4 @@
 properties:
-  addonManagerNamespace:
-    type: string
   distro:
     properties:
       openshift:
@@ -132,8 +130,6 @@ properties:
   image:
     type: string
   imagePullPolicy:
-    type: string
-  kubeconfigSecretName:
     type: string
   kubectl:
     properties:

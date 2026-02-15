@@ -56,7 +56,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.namespace
             - name: NAMESPACE
-              value: {{ include "license-proxyserver-manager.namespace" . }}
+              value: {{ .Release.Namespace }}
           {{- if eq "true" ( include "distro.openshift" . ) }}
           securityContext:
             {{- toYaml (omit .Values.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 12 }}

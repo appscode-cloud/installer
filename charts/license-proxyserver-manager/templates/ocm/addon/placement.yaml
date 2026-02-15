@@ -4,7 +4,7 @@ apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
   name: {{ .Values.placement.name }}
-  namespace: {{ include "license-proxyserver-manager.namespace" . }}
+  namespace: {{ .Release.Namespace }}
 spec:
   clusterSets:
     - global

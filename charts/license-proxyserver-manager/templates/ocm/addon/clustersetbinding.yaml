@@ -4,7 +4,7 @@ apiVersion: cluster.open-cluster-management.io/v1beta2
 kind: ManagedClusterSetBinding
 metadata:
   name: global
-  namespace: {{ include "license-proxyserver-manager.namespace" . }}
+  namespace: {{ .Release.Namespace }}
 spec:
   clusterSet: global
 
