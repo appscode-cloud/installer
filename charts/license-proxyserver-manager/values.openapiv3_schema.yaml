@@ -131,13 +131,6 @@ properties:
     type: string
   imagePullPolicy:
     type: string
-  kubectl:
-    properties:
-      image:
-        type: string
-    required:
-    - image
-    type: object
   nameOverride:
     type: string
   placement:
@@ -244,7 +237,6 @@ properties:
 required:
 - image
 - imagePullPolicy
-- kubectl
 - placement
 - platform
 - registryFQDN

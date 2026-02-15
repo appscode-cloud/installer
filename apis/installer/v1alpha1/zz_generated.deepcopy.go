@@ -5482,7 +5482,6 @@ func (in *LicenseProxyserverManagerList) DeepCopyObject() runtime.Object {
 func (in *LicenseProxyserverManagerSpec) DeepCopyInto(out *LicenseProxyserverManagerSpec) {
 	*out = *in
 	out.Placement = in.Placement
-	out.Kubectl = in.Kubectl
 	out.Platform = in.Platform
 	if in.SecurityContext != nil {
 		in, out := &in.SecurityContext, &out.SecurityContext

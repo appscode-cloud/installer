@@ -55,7 +55,6 @@ type LicenseProxyserverManagerSpec struct {
 	Tag             string        `json:"tag"`
 	ImagePullPolicy string        `json:"imagePullPolicy"`
 	Placement       PlacementSpec `json:"placement"`
-	Kubectl         DockerImage   `json:"kubectl"`
 	Platform        PlatformSpec  `json:"platform"`
 	//+optional
 	SecurityContext *core.SecurityContext `json:"securityContext"`

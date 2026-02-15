@@ -72,7 +72,7 @@ helm:
     catalog-manager:
       version: "v2026.2.16"
     cert-manager:
-      version: "v1.19.2"
+      version: "v1.19.3"
     cert-manager-csi-driver-cacerts:
       version: "v2026.1.15"
     cluster-autoscaler:
@@ -210,31 +210,27 @@ helm:
       version: "v2025.3.14"
     # ocm charts
     ingress-nginx:
-      version: "4.12.1"
+      version: "4.14.3"
     cluster-manager-hub:
-      version: "v2025.7.31"
+      version: "v2026.2.16"
     cluster-manager-spoke:
-      version: "v2025.10.17"
-    multicluster-controlplane:
-      version: "v2025.4.30"
-    multicluster-ingress-reader:
-      version: "v2024.7.10"
+      version: "v2026.2.16"
     managed-serviceaccount-manager:
-      version: "v2025.5.16"
+      version: "v2026.2.16"
     cluster-proxy-manager:
-      version: "v2025.4.30"
+      version: "v2026.2.16"
     cluster-gateway-manager:
-      version: "v2025.4.30"
+      version: "v2026.2.16"
     cluster-auth-manager:
-      version: "v2025.5.16"
+      version: "v2026.2.16"
     cluster-profile-manager:
-      version: "v2025.5.16"
+      version: "v2026.2.16"
     hub-cluster-robot:
-      version: "v2024.8.9"
+      version: "v2026.2.16"
     fluxcd-manager:
-      version: "v2025.7.31"
+      version: "v2026.2.16"
     license-proxyserver-manager:
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     inbox-server:
       version: "v2025.2.28"
     inbox-agent:
