@@ -66,6 +66,7 @@ type AceOptionsSpec struct {
 	KubedbUi             AceOptionsComponentSpec         `json:"kubedb-ui"`
 	PlatformApi          AceOptionsComponentSpec         `json:"platform-api"`
 	Ingress              AceOptionsIngressNginx          `json:"ingress"`
+	HTTPRoute            AceOptionsHTTPRoute             `json:"httpRoute"`
 	Nats                 AceOptionsNatsSettings          `json:"nats"`
 	Trickster            AceOptionsComponentSpec         `json:"trickster"`
 	Openfga              AceOptionsComponentSpec         `json:"openfga"`
@@ -186,6 +187,7 @@ const (
 )
 
 type AceOptionsIngressNginx struct {
+	Enabled     bool              `json:"enabled"`
 	Annotations map[string]string `json:"annotations,omitempty"`
 	ExposeVia   ServiceType       `json:"exposeVia"`
 	// DNS record types that will be considered for management
@@ -195,6 +197,10 @@ type AceOptionsIngressNginx struct {
 	NodeSelector map[string]string         `json:"nodeSelector"`
 	// +optional
 	ExternalIPs []string `json:"externalIPs"`
+}
+
+type AceOptionsHTTPRoute struct {
+	Enabled bool `json:"enabled"`
 }
 
 // +kubebuilder:validation:Enum=Ingress;HostPort

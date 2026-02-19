@@ -424,6 +424,13 @@ properties:
     required:
       - enabled
     type: object
+  httpRoute:
+    properties:
+      enabled:
+        type: boolean
+    required:
+      - enabled
+    type: object
   infra:
     properties:
       cloudServices:
@@ -810,6 +817,8 @@ properties:
         additionalProperties:
           type: string
         type: object
+      enabled:
+        type: boolean
       exposeVia:
         enum:
           - LoadBalancer
@@ -907,6 +916,7 @@ properties:
             type: object
         type: object
     required:
+      - enabled
       - exposeVia
       - nodeSelector
     type: object
@@ -2537,6 +2547,7 @@ required:
   - cluster-ui
   - context
   - grafana
+  - httpRoute
   - infra
   - ingress
   - initialSetup

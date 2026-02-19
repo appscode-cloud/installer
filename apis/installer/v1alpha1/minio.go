@@ -75,6 +75,7 @@ type MinioSpec struct {
 	Persistence  PersistenceSpec      `json:"persistence"`
 	StorageClass LocalObjectReference `json:"storageClass"`
 	Ingress      MinioIngress         `json:"ingress"`
+	HTTPRoute    AppHTTPRoute         `json:"httpRoute"`
 	Minio        MinioConfig          `json:"minio"`
 	// +optional
 	Distro shared.DistroSpec `json:"distro"`

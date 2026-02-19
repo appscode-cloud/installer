@@ -3449,6 +3449,36 @@ properties:
     - volumeMounts
     - volumes
     type: object
+  httpRoute:
+    properties:
+      annotations:
+        additionalProperties:
+          type: string
+        type: object
+      enabled:
+        type: boolean
+      gatewayClassName:
+        type: string
+      tls:
+        properties:
+          enabled:
+            type: boolean
+          secret:
+            properties:
+              name:
+                type: string
+            required:
+            - name
+            type: object
+        required:
+        - enabled
+        - secret
+        type: object
+    required:
+    - enabled
+    - gatewayClassName
+    - tls
+    type: object
   image:
     properties:
       pullPolicy:
@@ -23686,6 +23716,60 @@ properties:
         type: boolean
       fullnameOverride:
         type: string
+      httpRoute:
+        properties:
+          annotations:
+            additionalProperties:
+              type: string
+            type: object
+          enabled:
+            type: boolean
+          gatewayClassName:
+            type: string
+          hosts:
+            items:
+              properties:
+                host:
+                  type: string
+                paths:
+                  properties:
+                    path:
+                      type: string
+                    pathType:
+                      enum:
+                      - Exact
+                      - PathPrefix
+                      - RegularExpression
+                      type: string
+                  required:
+                  - path
+                  type: object
+              required:
+              - host
+              - paths
+              type: object
+            type: array
+          tls:
+            properties:
+              enabled:
+                type: boolean
+              secret:
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+                type: object
+            required:
+            - enabled
+            - secret
+            type: object
+        required:
+        - enabled
+        - gatewayClassName
+        - hosts
+        - tls
+        type: object
       image:
         properties:
           pullPolicy:
@@ -24021,6 +24105,7 @@ properties:
         type: array
     required:
     - enabled
+    - httpRoute
     - image
     - ingress
     - persistence
@@ -27310,6 +27395,7 @@ required:
 - extraObjects
 - global
 - grafana
+- httpRoute
 - image
 - ingress-dns
 - ingress-nginx
