@@ -471,7 +471,7 @@ properties:
     type: object
   fullnameOverride:
     type: string
-  httpRoute:
+  gateway:
     properties:
       annotations:
         additionalProperties:
@@ -1737,7 +1737,7 @@ properties:
     type: array
 required:
 - autoscaling
-- httpRoute
+- gateway
 - image
 - ingress
 - monitoring

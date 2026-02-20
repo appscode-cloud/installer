@@ -1,11 +1,11 @@
-{{ if and (index .Values "httpRoute" "enabled") (index .Values "platform-ui" "enabled") (not (eq .Values.global.platform.deploymentType "Hosted")) }}
+{{ if and (index .Values "gateway" "enabled") (index .Values "platform-ui" "enabled") (not (eq .Values.global.platform.deploymentType "Hosted")) }}
 
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: {{ include "ace.fullname" . }}-home
   namespace: {{ .Release.Namespace }}
-  {{- with .Values.httpRoute.annotations }}
+  {{- with .Values.gateway.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}

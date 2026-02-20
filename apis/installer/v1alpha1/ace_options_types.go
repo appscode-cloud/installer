@@ -66,7 +66,7 @@ type AceOptionsSpec struct {
 	KubedbUi             AceOptionsComponentSpec         `json:"kubedb-ui"`
 	PlatformApi          AceOptionsComponentSpec         `json:"platform-api"`
 	Ingress              AceOptionsIngressNginx          `json:"ingress"`
-	HTTPRoute            AceOptionsHTTPRoute             `json:"httpRoute"`
+	Gateway              AceOptionsGateway               `json:"gateway"`
 	Nats                 AceOptionsNatsSettings          `json:"nats"`
 	Trickster            AceOptionsComponentSpec         `json:"trickster"`
 	Openfga              AceOptionsComponentSpec         `json:"openfga"`
@@ -199,7 +199,7 @@ type AceOptionsIngressNginx struct {
 	ExternalIPs []string `json:"externalIPs"`
 }
 
-type AceOptionsHTTPRoute struct {
+type AceOptionsGateway struct {
 	Enabled bool `json:"enabled"`
 }
 

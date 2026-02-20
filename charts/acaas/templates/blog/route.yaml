@@ -1,8 +1,8 @@
-{{ if .Values "httpRoute" "enabled" }}
+{{ if (index .Values "gateway" "enabled") }}
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  {{- with .Values.httpRoute.annotations }}
+  {{- with .Values.gateway.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}

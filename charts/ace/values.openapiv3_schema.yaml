@@ -1319,6 +1319,36 @@ properties:
       type: object
       x-kubernetes-preserve-unknown-fields: true
     type: object
+  gateway:
+    properties:
+      annotations:
+        additionalProperties:
+          type: string
+        type: object
+      enabled:
+        type: boolean
+      gatewayClassName:
+        type: string
+      tls:
+        properties:
+          enabled:
+            type: boolean
+          secret:
+            properties:
+              name:
+                type: string
+            required:
+            - name
+            type: object
+        required:
+        - enabled
+        - secret
+        type: object
+    required:
+    - enabled
+    - gatewayClassName
+    - tls
+    type: object
   global:
     properties:
       distro:
@@ -3448,36 +3478,6 @@ properties:
     - settings
     - volumeMounts
     - volumes
-    type: object
-  httpRoute:
-    properties:
-      annotations:
-        additionalProperties:
-          type: string
-        type: object
-      enabled:
-        type: boolean
-      gatewayClassName:
-        type: string
-      tls:
-        properties:
-          enabled:
-            type: boolean
-          secret:
-            properties:
-              name:
-                type: string
-            required:
-            - name
-            type: object
-        required:
-        - enabled
-        - secret
-        type: object
-    required:
-    - enabled
-    - gatewayClassName
-    - tls
     type: object
   image:
     properties:
@@ -23716,7 +23716,7 @@ properties:
         type: boolean
       fullnameOverride:
         type: string
-      httpRoute:
+      gateway:
         properties:
           annotations:
             additionalProperties:
@@ -24105,7 +24105,7 @@ properties:
         type: array
     required:
     - enabled
-    - httpRoute
+    - gateway
     - image
     - ingress
     - persistence
@@ -27393,9 +27393,9 @@ required:
 - cloudProviderOptions
 - cluster-ui
 - extraObjects
+- gateway
 - global
 - grafana
-- httpRoute
 - image
 - ingress-dns
 - ingress-nginx

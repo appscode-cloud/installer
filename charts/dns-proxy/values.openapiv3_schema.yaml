@@ -479,20 +479,7 @@ properties:
     type: object
   fullnameOverride:
     type: string
-  geoipdb:
-    properties:
-      pullPolicy:
-        type: string
-      repository:
-        type: string
-      tag:
-        type: string
-    required:
-    - pullPolicy
-    - repository
-    - tag
-    type: object
-  httpRoute:
+  gateway:
     properties:
       annotations:
         additionalProperties:
@@ -545,6 +532,19 @@ properties:
     - gatewayClassName
     - hosts
     - tls
+    type: object
+  geoipdb:
+    properties:
+      pullPolicy:
+        type: string
+      repository:
+        type: string
+      tag:
+        type: string
+    required:
+    - pullPolicy
+    - repository
+    - tag
     type: object
   image:
     properties:
@@ -1865,8 +1865,8 @@ required:
 - args
 - autoscaling
 - envVars
+- gateway
 - geoipdb
-- httpRoute
 - image
 - ingress
 - podLabels

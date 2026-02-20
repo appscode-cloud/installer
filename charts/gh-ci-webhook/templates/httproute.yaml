@@ -1,4 +1,4 @@
-{{- if (index .Values "httpRoute" "enabled") }}
+{{- if (index .Values "gateway" "enabled") }}
 
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
@@ -7,7 +7,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "gh-ci-webhook.labels" . | nindent 4 }}
-  {{- with .Values.httpRoute.annotations }}
+  {{- with .Values.gateway.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
@@ -21,12 +21,12 @@ spec:
     sectionName: https
 
   hostnames:
-  {{- range .Values.httpRoute.hosts }}
+  {{- range .Values.gateway.hosts }}
     - {{ .host | quote }}
   {{- end }}
 
   rules:
-  {{- range .Values.httpRoute.hosts }}
+  {{- range .Values.gateway.hosts }}
     {{- range .paths }}
   - matches:
     - path:

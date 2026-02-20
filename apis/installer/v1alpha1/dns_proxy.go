@@ -76,7 +76,7 @@ type DnsProxySpec struct {
 	Affinity     *core.Affinity           `json:"affinity"`
 	Monitoring   CustomMonitoring         `json:"monitoring"`
 	Ingress      AppIngress               `json:"ingress"`
-	HTTPRoute    AppHTTPRoute             `json:"httpRoute"`
+	Gateway      AppGateway               `json:"gateway"`
 	Cloudflare   CloudflareTokenReference `json:"cloudflare"`
 	Auth         DNSProxyAuth             `json:"auth"`
 	TLSSecretRef LocalObjectReference     `json:"tlsSecretRef"`

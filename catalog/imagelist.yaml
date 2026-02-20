@@ -31,7 +31,6 @@
 - ghcr.io/appscode/service-provider:v0.0.2
 - ghcr.io/appscode/smtprelay:v0.0.4
 - ghcr.io/appscode/website:v2026.2.16
-- ghcr.io/kluster-manager/multicluster-controlplane:v0.6.0
 - ghcr.io/open-telemetry/opentelemetry-operator/target-allocator:0.118.0
 - ghcr.io/voyagermesh/crd-manager:v0.1.0
 - ghcr.io/voyagermesh/echoserver:v20221109

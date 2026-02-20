@@ -75,7 +75,7 @@ type S3proxySpec struct {
 	Persistence  PersistenceSpec      `json:"persistence"`
 	StorageClass LocalObjectReference `json:"storageClass"`
 	Ingress      S3proxyIngress       `json:"ingress"`
-	HTTPRoute    AppHTTPRoute         `json:"httpRoute"`
+	Gateway      AppGateway           `json:"gateway"`
 	S3proxy      S3proxyConfig        `json:"s3proxy"`
 	// +optional
 	Distro shared.DistroSpec `json:"distro"`

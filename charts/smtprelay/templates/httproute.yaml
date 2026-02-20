@@ -1,4 +1,4 @@
-{{- if (index .Values "httpRoute" "enabled") }}
+{{- if (index .Values "gateway" "enabled") }}
 {{- $fullName := include "smtprelay.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
 
@@ -9,7 +9,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "smtprelay.labels" . | nindent 4 }}
-  {{- with .Values.httpRoute.annotations }}
+  {{- with .Values.gateway.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}

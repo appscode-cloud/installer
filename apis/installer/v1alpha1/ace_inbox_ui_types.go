@@ -73,9 +73,9 @@ type InboxUiSpec struct {
 	Tolerations []core.Toleration `json:"tolerations"`
 	// If specified, the pod's scheduling constraints
 	// +optional
-	Affinity  *core.Affinity  `json:"affinity"`
-	Ingress   PlatformIngress `json:"ingress"`
-	HTTPRoute AppHTTPRoute    `json:"httpRoute"`
+	Affinity *core.Affinity  `json:"affinity"`
+	Ingress  PlatformIngress `json:"ingress"`
+	Gateway  AppGateway      `json:"gateway"`
 	// +optional
 	Distro shared.DistroSpec `json:"distro"`
 }

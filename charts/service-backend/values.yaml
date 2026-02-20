@@ -63,7 +63,7 @@ ingress:
   dns:
     targetIPs: []
 
-httpRoute:
+gateway:
   annotations: {}
   enabled: false
   gatewayClassName: ace

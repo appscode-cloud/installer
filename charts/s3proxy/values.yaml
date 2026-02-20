@@ -46,7 +46,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   domain: ""
 
-httpRoute:
+gateway:
   annotations: {}
   enabled: false
   gatewayClassName: ace

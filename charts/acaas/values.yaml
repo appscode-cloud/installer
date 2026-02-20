@@ -55,7 +55,7 @@ global:
     openshift: false
     ubi: ""
 
-httpRoute:
+gateway:
   annotations: {}
   enabled: false
   gatewayClassName: ace

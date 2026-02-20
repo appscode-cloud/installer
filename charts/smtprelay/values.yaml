@@ -68,7 +68,7 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-httpRoute:
+gateway:
   annotations: {}
   enabled: false
   gatewayClassName: ace

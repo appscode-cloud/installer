@@ -481,14 +481,7 @@ properties:
     type: object
   fullnameOverride:
     type: string
-  hostPort:
-    properties:
-      enabled:
-        type: boolean
-    required:
-    - enabled
-    type: object
-  httpRoute:
+  gateway:
     properties:
       annotations:
         additionalProperties:
@@ -541,6 +534,13 @@ properties:
     - gatewayClassName
     - hosts
     - tls
+    type: object
+  hostPort:
+    properties:
+      enabled:
+        type: boolean
+    required:
+    - enabled
     type: object
   image:
     properties:
@@ -917,7 +917,7 @@ properties:
 required:
 - autoscaling
 - controller
-- httpRoute
+- gateway
 - image
 - ingress
 - logLevel

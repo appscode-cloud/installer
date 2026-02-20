@@ -17,7 +17,7 @@ kubedb-ui:
 platform-api:
   enabled: false
 
-httpRoute:
+gateway:
   annotations: {}
   enabled: false
   gatewayClassName: ace

@@ -1,4 +1,4 @@
-{{- if (index .Values "httpRoute" "enabled") }}
+{{- if (index .Values "gateway" "enabled") }}
 {{- $fullName := include "dns-proxy.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
 
@@ -9,7 +9,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "dns-proxy.labels" . | nindent 4 }}
-  {{- with .Values.httpRoute.annotations }}
+  {{- with .Values.gateway.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
@@ -23,12 +23,12 @@ spec:
     sectionName: https
 
   hostnames:
-  {{- range .Values.httpRoute.hosts }}
+  {{- range .Values.gateway.hosts }}
     - {{ .host | quote }}
   {{- end }}
 
   rules:
-  {{- range .Values.httpRoute.hosts }}
+  {{- range .Values.gateway.hosts }}
     {{- range .paths }}
   - matches:
     - path:

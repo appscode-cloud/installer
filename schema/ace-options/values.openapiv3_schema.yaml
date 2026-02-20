@@ -341,6 +341,13 @@ properties:
       - openshift
       - ubi
     type: object
+  gateway:
+    properties:
+      enabled:
+        type: boolean
+    required:
+      - enabled
+    type: object
   grafana:
     properties:
       enabled:
@@ -421,13 +428,6 @@ properties:
               More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
-    required:
-      - enabled
-    type: object
-  httpRoute:
-    properties:
-      enabled:
-        type: boolean
     required:
       - enabled
     type: object
@@ -2546,8 +2546,8 @@ required:
   - cloudProviderOptions
   - cluster-ui
   - context
+  - gateway
   - grafana
-  - httpRoute
   - infra
   - ingress
   - initialSetup

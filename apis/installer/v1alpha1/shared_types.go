@@ -18,29 +18,29 @@ package v1alpha1
 
 import gwapi "sigs.k8s.io/gateway-api/apis/v1"
 
-type AppHTTPRoute struct {
-	Enabled        bool `json:"enabled"`
-	*HTTPRouteSpec `json:",inline,omitempty"`
-	Hosts          []HTTPRouteHost `json:"hosts"`
+type AppGateway struct {
+	Enabled      bool `json:"enabled"`
+	*GatewaySpec `json:",inline,omitempty"`
+	Hosts        []GatewayHost `json:"hosts"`
 }
 
-type HTTPRouteSpec struct {
+type GatewaySpec struct {
 	Annotations      map[string]string `json:"annotations,omitempty"`
 	GatewayClassName string            `json:"gatewayClassName"`
-	TLS              *HTTPRouteTLS     `json:"tls"`
+	TLS              *GatewayTLS       `json:"tls"`
 }
 
-type HTTPRouteTLS struct {
+type GatewayTLS struct {
 	Enabled bool                  `json:"enabled"`
 	Secret  *LocalObjectReference `json:"secret"`
 }
 
-type HTTPRouteHost struct {
-	Host  string        `json:"host"`
-	Paths HTTPRoutePath `json:"paths"`
+type GatewayHost struct {
+	Host  string      `json:"host"`
+	Paths GatewayPath `json:"paths"`
 }
 
-type HTTPRoutePath struct {
+type GatewayPath struct {
 	Path     string              `json:"path"`
 	PathType gwapi.PathMatchType `json:"pathType,omitempty"`
 }
