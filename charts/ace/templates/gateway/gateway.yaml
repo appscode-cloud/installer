@@ -22,4 +22,22 @@ spec:
     allowedRoutes:
       namespaces:
         from: Same
+  - allowedRoutes:
+      namespaces:
+        from: Same
+      kinds:
+        - group: gateway.networking.k8s.io
+          kind: TCPRoute
+    name: nats-tcp
+    port: 4222
+    protocol: TCP
+  - allowedRoutes:
+      namespaces:
+        from: Same
+      kinds:
+        - group: gateway.networking.k8s.io
+          kind: TCPRoute
+    name: s3proxy-tcp
+    port: 4224
+    protocol: TCP
 {{- end }}

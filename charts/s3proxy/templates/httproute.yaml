@@ -41,4 +41,26 @@ spec:
     {{- end }}
   {{- end }}
 
+---
+---
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TCPRoute
+metadata:
+  name: {{ include "s3proxy.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  parentRefs:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: ace
+    namespace: ace
+    sectionName: s3proxy-tcp
+  rules:
+  - backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ include "s3proxy.fullname" . }}
+      namespace: {{ .Release.Namespace }}
+      port: 4224
+      weight: 1
 {{- end }}

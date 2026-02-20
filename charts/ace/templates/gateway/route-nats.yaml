@@ -39,4 +39,29 @@ spec:
       port: 443
       weight: 1
 
+---
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TCPRoute
+metadata:
+  name: {{ include "ace.fullname" . }}-nats
+  namespace: {{ .Release.Namespace }}
+spec:
+  parentRefs:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: {{ include "ace.fullname" . }}
+    namespace: {{ .Release.Namespace }}
+    sectionName: nats-tcp
+  {{- if eq .Values.global.platform.hostType "domain" }}
+  hostnames:
+    - {{ .Values.global.platform.host }}
+  {{- end }}
+  rules:
+  - backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ include "ace.fullname" . }}-nats
+      namespace: {{ .Release.Namespace }}
+      port: 4222
+      weight: 1
 {{- end }}
