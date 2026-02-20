@@ -35,12 +35,6 @@ spec:
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
-  valuesFrom:
-  {{- if eq (include "distro.openshift" $) "true" }}
-    - kind: ConfigMap
-      name: ace-openshift-scc
-      valuesKey: cluster-presets.yaml
-  {{- end }}
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
