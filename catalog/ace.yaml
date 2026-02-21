@@ -53,7 +53,7 @@
 - ghcr.io/appscode/service-provider:v0.0.2
 - ghcr.io/appscode/sidekick:v0.0.13
 - ghcr.io/appscode/supervisor:v0.0.7
-- ghcr.io/appscode/trickster:v2.0.0-beta3
+- ghcr.io/appscode/trickster:v2.0.0
 - ghcr.io/appscode/vcluster-plugin-ace:v0.0.3
 - ghcr.io/external-secrets/external-secrets:v0.9.12
 - ghcr.io/fluxcd/helm-controller:v1.0.1

@@ -77,7 +77,7 @@ crane cp --allow-nondistributable-artifacts ghcr.io/appscode/scanner:v0.0.19 $IM
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/service-provider:v0.0.2 $IMAGE_REGISTRY/service-provider:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/sidekick:v0.0.13 $IMAGE_REGISTRY/sidekick:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/supervisor:v0.0.7 $IMAGE_REGISTRY/supervisor:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode/trickster:v2.0.0-beta3 $IMAGE_REGISTRY/trickster:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode/trickster:v2.0.0 $IMAGE_REGISTRY/trickster:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/appscode/vcluster-plugin-ace:v0.0.3 $IMAGE_REGISTRY/vcluster-plugin-ace:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/external-secrets/external-secrets:v0.9.12 $IMAGE_REGISTRY/external-secrets:$TAG
 crane cp --allow-nondistributable-artifacts ghcr.io/fluxcd/helm-controller:v1.0.1 $IMAGE_REGISTRY/flux-helm-controller:$TAG
