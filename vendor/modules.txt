@@ -1,4 +1,4 @@
-# filippo.io/edwards25519 v1.1.0
+# filippo.io/edwards25519 v1.1.1
 ## explicit; go 1.20
 filippo.io/edwards25519
 filippo.io/edwards25519/field
@@ -363,7 +363,7 @@ golang.org/x/oauth2/internal
 # golang.org/x/sync v0.19.0
 ## explicit; go 1.24.0
 golang.org/x/sync/errgroup
-# golang.org/x/sys v0.39.0
+# golang.org/x/sys v0.40.0
 ## explicit; go 1.24.0
 golang.org/x/sys/plan9
 golang.org/x/sys/unix
@@ -908,7 +908,7 @@ k8s.io/utils/trace
 # kmodules.xyz/apiversion v0.2.0
 ## explicit; go 1.14
 kmodules.xyz/apiversion
-# kmodules.xyz/client-go v0.34.2
+# kmodules.xyz/client-go v0.34.3
 ## explicit; go 1.24.0
 kmodules.xyz/client-go
 kmodules.xyz/client-go/api/v1
@@ -942,7 +942,7 @@ kmodules.xyz/offshoot-api/api/v1
 # kmodules.xyz/prober v0.34.0
 ## explicit; go 1.24.0
 kmodules.xyz/prober/api/v1
-# kmodules.xyz/resource-metadata v0.42.0
+# kmodules.xyz/resource-metadata v0.42.4
 ## explicit; go 1.25
 kmodules.xyz/resource-metadata/apis/shared
 kmodules.xyz/resource-metadata/apis/ui
@@ -955,7 +955,7 @@ kmodules.xyz/schema-checker
 ## explicit; go 1.25
 kubeops.dev/external-dns-operator/apis/external
 kubeops.dev/external-dns-operator/apis/external/v1alpha1
-# kubeops.dev/installer v0.0.0-20260211052352-61a3b8b25cdd
+# kubeops.dev/installer v0.0.0-20260225180715-ed6beb9704fe
 ## explicit; go 1.25
 kubeops.dev/installer/apis/installer
 kubeops.dev/installer/apis/installer/v1alpha1

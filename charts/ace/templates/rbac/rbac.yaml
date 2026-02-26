@@ -37,12 +37,22 @@ rules:
   - nodes
   verbs: ["get", "list", "watch"]
 - apiGroups:
+  - storage.k8s.io
+  resources:
+  - storageclasses
+  verbs: ["get", "list", "watch"]
+- apiGroups:
   - ""
   resources:
   - configmaps
-  resourceNames:
-  - ace-info
   verbs: ["get"]
+  resourceNames: ["ace-info"]
+- apiGroups:
+  - cluster.open-cluster-management.io
+  resources:
+  - clusterclaims
+  verbs: ["get"]
+  resourceNames: ["features.ace.info"]
 # for bootstrap data
 - apiGroups:
   - source.toolkit.fluxcd.io

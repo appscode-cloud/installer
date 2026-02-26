@@ -79,7 +79,7 @@ helm:
       version: "v2025.3.14"
     kubedb:
       enabled: true
-      version: "v2026.1.19"
+      version: "v2026.2.21-rc.1"
       values: # +doc-gen:break
         kubedb-provisioner:
           enabled: true
@@ -99,7 +99,7 @@ helm:
           enabled: false
     kubestash:
       enabled: true
-      version: "v2026.1.19"
+      version: "v2026.2.16-rc.0"
     kube-ui-server:
       enabled: true
       version: "v2026.2.16"
@@ -131,10 +131,10 @@ helm:
     # feature less chart versions
     cluster-manager-spoke:
       enabled: false
-      version: "v2025.10.17"
+      version: "v2026.2.16"
     spoke-cluster-addons:
       enabled: false
-      version: "v2025.8.31"
+      version: "v2026.2.16"
     vcluster:
       enabled: false
       version: "0.22.4"

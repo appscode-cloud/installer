@@ -11,19 +11,19 @@ require (
 	k8s.io/api v0.34.3
 	k8s.io/apimachinery v0.34.3
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
-	kmodules.xyz/client-go v0.34.2
+	kmodules.xyz/client-go v0.34.3
 	kmodules.xyz/image-packer v0.0.0-20260211014345-daa6afa3ceba
 	kmodules.xyz/objectstore-api v0.34.0
-	kmodules.xyz/resource-metadata v0.42.0
+	kmodules.xyz/resource-metadata v0.42.4
 	kmodules.xyz/schema-checker v0.4.3
 	kubeops.dev/external-dns-operator v0.3.0
-	kubeops.dev/installer v0.0.0-20260211052352-61a3b8b25cdd
+	kubeops.dev/installer v0.0.0-20260225180715-ed6beb9704fe
 	sigs.k8s.io/kustomize/kyaml v0.20.1
 	sigs.k8s.io/yaml v1.6.0
 )
 
 require (
-	filippo.io/edwards25519 v1.1.0 // indirect
+	filippo.io/edwards25519 v1.1.1 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver/v3 v3.4.0 // indirect
 	github.com/Masterminds/sprig/v3 v3.3.0 // indirect
@@ -108,7 +108,7 @@ require (
 	golang.org/x/net v0.47.0 // indirect
 	golang.org/x/oauth2 v0.33.0 // indirect
 	golang.org/x/sync v0.19.0 // indirect
-	golang.org/x/sys v0.39.0 // indirect
+	golang.org/x/sys v0.40.0 // indirect
 	golang.org/x/term v0.38.0 // indirect
 	golang.org/x/text v0.32.0 // indirect
 	golang.org/x/time v0.14.0 // indirect
