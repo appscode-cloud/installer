@@ -51,7 +51,7 @@ gateway:
   enabled: false
   gatewayClassName: ace
   tls:
-    enable: true
+    enabled: true
     secret:
       name: "ace-cert"
   hosts: []
