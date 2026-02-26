@@ -61,7 +61,7 @@ helm:
       version: "v2024.10.24"
     catalog-manager:
       enabled: false
-      version: "v2026.2.26"
+      version: "v2025.12.15" # catalog-manager tag: v0.9.0
     cert-manager:
       enabled: true
       version: "v1.19.3"
@@ -124,7 +124,7 @@ helm:
       version: "1.0.79"
     service-gateway-presets:
       enabled: false
-      version: "v2026.2.26"
+      version: "v2025.10.24" # gateway tag 1.5.4, envoy tag v1.35.6-ac
     stash-presets:
       enabled: false
       version: "v2026.2.16"
