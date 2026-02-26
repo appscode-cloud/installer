@@ -68,7 +68,7 @@ ingress:
   enabled: true
   className: "nginx-ace"
   tls:
-    enabled: true
+    enable: true
     secret:
       name: "ace-cert"
   rules:

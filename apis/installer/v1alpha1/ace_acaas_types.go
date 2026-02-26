@@ -54,6 +54,7 @@ type AcaasSpec struct {
 
 	Global  AcaasGlobalValues `json:"global"`
 	Ingress AcaasIngress      `json:"ingress"`
+	Gateway AceGateway        `json:"gateway"`
 }
 
 type AceBilling struct {
@@ -129,6 +130,7 @@ type AcaasSettingsSecretName struct {
 }
 
 type AcaasIngress struct {
+	Enabled   bool              `json:"enabled"`
 	ClassName string            `json:"className"`
 	TLS       AcaasIngressTLS   `json:"tls"`
 	Rules     AcaasIngressRules `json:"rules"`

@@ -25,7 +25,7 @@ type AppGateway struct {
 }
 
 type GatewaySpec struct {
-	Annotations      map[string]string `json:"annotations,omitempty"`
+	Annotations      map[string]string `json:"annotations"`
 	GatewayClassName string            `json:"gatewayClassName"`
 	TLS              *GatewayTLS       `json:"tls"`
 }

@@ -503,6 +503,7 @@ properties:
         - secret
         type: object
     required:
+    - annotations
     - enabled
     - gatewayClassName
     - hosts
