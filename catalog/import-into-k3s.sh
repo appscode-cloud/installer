@@ -312,7 +312,7 @@ k3s ctr images import images/appscode-kube-rbac-proxy-v0.18.2.tar
 k3s ctr images import images/appscode-kube-ui-server-v0.0.50.tar
 k3s ctr images import images/appscode-kubectl-nonroot-1.34.tar
 k3s ctr images import images/appscode-kubedb-ui-2.0.0.tar
-k3s ctr images import images/appscode-license-proxyserver-v0.0.26.tar
+k3s ctr images import images/appscode-license-proxyserver-v0.1.0.tar
 k3s ctr images import images/appscode-maxmind-geoip-city-mmdb-latest.tar
 k3s ctr images import images/appscode-openfga-v1.11.3.tar
 k3s ctr images import images/appscode-operator-shard-manager-v0.0.1.tar
@@ -324,7 +324,7 @@ k3s ctr images import images/appscode-reloader-v1.0.79.tar
 k3s ctr images import images/appscode-s3proxy-sha-a82ca68.tar
 k3s ctr images import images/appscode-scanner-v0.0.19.tar
 k3s ctr images import images/appscode-service-provider-v0.0.2.tar
-k3s ctr images import images/appscode-sidekick-v0.0.13.tar
+k3s ctr images import images/appscode-sidekick-v0.0.14.tar
 k3s ctr images import images/appscode-supervisor-v0.0.7.tar
 k3s ctr images import images/appscode-trickster-v2.0.0-beta3.tar
 k3s ctr images import images/appscode-vcluster-plugin-ace-v0.0.3.tar
@@ -343,7 +343,7 @@ k3s ctr images import images/kluster-manager-addon-manager-v0.15.2.tar
 k3s ctr images import images/kluster-manager-cluster-auth-v0.5.0.tar
 k3s ctr images import images/kluster-manager-cluster-gateway-manager-v1.12.0.tar
 k3s ctr images import images/kluster-manager-cluster-gateway-v1.12.0.tar
-k3s ctr images import images/kluster-manager-cluster-profile-v0.11.1.tar
+k3s ctr images import images/kluster-manager-cluster-profile-v0.11.5.tar
 k3s ctr images import images/kluster-manager-cluster-proxy-v0.10.0.tar
 k3s ctr images import images/kluster-manager-clusteradm-v1.2.0.tar
 k3s ctr images import images/kluster-manager-fluxcd-addon-v0.0.10.tar

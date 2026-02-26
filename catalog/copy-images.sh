@@ -323,7 +323,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-ui-server:v0.0.50 $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.50
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.34 $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.34
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:2.0.0 $IMAGE_REGISTRY/appscode/kubedb-ui:2.0.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.0.26 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.26
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.1.0 $IMAGE_REGISTRY/appscode/license-proxyserver:v0.1.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.11.3 $IMAGE_REGISTRY/appscode/openfga:v1.11.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
@@ -335,7 +335,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/reloader:
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/s3proxy:sha-a82ca68 $IMAGE_REGISTRY/appscode/s3proxy:sha-a82ca68
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/scanner:v0.0.19 $IMAGE_REGISTRY/appscode/scanner:v0.0.19
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/service-provider:v0.0.2 $IMAGE_REGISTRY/appscode/service-provider:v0.0.2
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/sidekick:v0.0.13 $IMAGE_REGISTRY/appscode/sidekick:v0.0.13
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/sidekick:v0.0.14 $IMAGE_REGISTRY/appscode/sidekick:v0.0.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/supervisor:v0.0.7 $IMAGE_REGISTRY/appscode/supervisor:v0.0.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/trickster:v2.0.0-beta3 $IMAGE_REGISTRY/appscode/trickster:v2.0.0-beta3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/vcluster-plugin-ace:v0.0.3 $IMAGE_REGISTRY/appscode/vcluster-plugin-ace:v0.0.3
@@ -354,7 +354,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/ad
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-auth:v0.5.0 $IMAGE_REGISTRY/kluster-manager/cluster-auth:v0.5.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway-manager:v1.12.0 $IMAGE_REGISTRY/kluster-manager/cluster-gateway-manager:v1.12.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-gateway:v1.12.0 $IMAGE_REGISTRY/kluster-manager/cluster-gateway:v1.12.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile:v0.11.1 $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.11.1
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-profile:v0.11.5 $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.11.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/cluster-proxy:v0.10.0 $IMAGE_REGISTRY/kluster-manager/cluster-proxy:v0.10.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/clusteradm:v1.2.0 $IMAGE_REGISTRY/kluster-manager/clusteradm:v1.2.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kluster-manager/fluxcd-addon:v0.0.10 $IMAGE_REGISTRY/kluster-manager/fluxcd-addon:v0.0.10

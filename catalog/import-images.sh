@@ -314,7 +314,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rba
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-ui-server-v0.0.50.tar $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.50
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-nonroot-1.34.tar $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.34
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubedb-ui-2.0.0.tar $IMAGE_REGISTRY/appscode/kubedb-ui:2.0.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-license-proxyserver-v0.0.26.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.0.26
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-license-proxyserver-v0.1.0.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.1.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-maxmind-geoip-city-mmdb-latest.tar $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-openfga-v1.11.3.tar $IMAGE_REGISTRY/appscode/openfga:v1.11.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-operator-shard-manager-v0.0.1.tar $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1
@@ -326,7 +326,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-reloader
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-s3proxy-sha-a82ca68.tar $IMAGE_REGISTRY/appscode/s3proxy:sha-a82ca68
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-scanner-v0.0.19.tar $IMAGE_REGISTRY/appscode/scanner:v0.0.19
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-service-provider-v0.0.2.tar $IMAGE_REGISTRY/appscode/service-provider:v0.0.2
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-sidekick-v0.0.13.tar $IMAGE_REGISTRY/appscode/sidekick:v0.0.13
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-sidekick-v0.0.14.tar $IMAGE_REGISTRY/appscode/sidekick:v0.0.14
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-supervisor-v0.0.7.tar $IMAGE_REGISTRY/appscode/supervisor:v0.0.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-trickster-v2.0.0-beta3.tar $IMAGE_REGISTRY/appscode/trickster:v2.0.0-beta3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-vcluster-plugin-ace-v0.0.3.tar $IMAGE_REGISTRY/appscode/vcluster-plugin-ace:v0.0.3
@@ -345,7 +345,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-a
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-auth-v0.5.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-auth:v0.5.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-gateway-manager-v1.12.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-gateway-manager:v1.12.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-gateway-v1.12.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-gateway:v1.12.0
-$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-profile-v0.11.1.tar $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.11.1
+$CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-profile-v0.11.5.tar $IMAGE_REGISTRY/kluster-manager/cluster-profile:v0.11.5
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-cluster-proxy-v0.10.0.tar $IMAGE_REGISTRY/kluster-manager/cluster-proxy:v0.10.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-clusteradm-v1.2.0.tar $IMAGE_REGISTRY/kluster-manager/clusteradm:v1.2.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kluster-manager-fluxcd-addon-v0.0.10.tar $IMAGE_REGISTRY/kluster-manager/fluxcd-addon:v0.0.10
