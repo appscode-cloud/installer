@@ -4612,6 +4612,11 @@ properties:
         - domain
         - ip
         type: string
+      tenantSpreadPolicy:
+        enum:
+        - single
+        - multi
+        type: string
       tls:
         properties:
           acme:
@@ -4671,6 +4676,7 @@ properties:
     - dns
     - host
     - hostType
+    - tenantSpreadPolicy
     - tls
     type: object
   nameOverride:
