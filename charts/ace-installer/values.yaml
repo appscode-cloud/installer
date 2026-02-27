@@ -102,7 +102,7 @@ helm:
       version: "v2026.2.16"
     license-proxyserver:
       enabled: true
-      version: "v2026.1.15"
+      version: "v2026.2.16"
     opscenter-features:
       enabled: true
       version: "v2026.2.16"
