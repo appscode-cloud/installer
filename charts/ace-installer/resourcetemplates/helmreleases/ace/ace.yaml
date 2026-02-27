@@ -40,7 +40,7 @@ spec:
   {{- end }}
   {{- if and (dig "catalog-manager" "enabled" false $.Values.helm.releases) (dig "service-gateway-presets" "enabled" false $.Values.helm.releases) }}
   - name: ace
-    namespace: {{ $.Release.Namespace }}-gw
+    namespace: ace-gw
   {{- end }}
   chart:
     spec:

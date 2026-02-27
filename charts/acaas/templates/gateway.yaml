@@ -5,12 +5,12 @@ metadata:
   name: ace
   namespace: {{ .Release.Namespace }}
 spec:
-  gatewayClassName: {{ .Values.gateway.gatewayClassName }}
+  gatewayClassName: ace
   listeners:
   - name: https
     protocol: HTTPS
     port: 443
-    {{ if .Values.gateway.tls.enable }}
+    {{ if .Values.gateway.tls.enabled }}
     tls:
       mode: Terminate
       certificateRefs:

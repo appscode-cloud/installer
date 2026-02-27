@@ -1327,8 +1327,6 @@ properties:
         type: object
       enabled:
         type: boolean
-      gatewayClassName:
-        type: string
       tls:
         properties:
           enabled:
@@ -1347,7 +1345,6 @@ properties:
     required:
     - annotations
     - enabled
-    - gatewayClassName
     - tls
     type: object
   global:
@@ -23725,8 +23722,6 @@ properties:
             type: object
           enabled:
             type: boolean
-          gatewayClassName:
-            type: string
           hosts:
             items:
               properties:
@@ -23768,7 +23763,6 @@ properties:
         required:
         - annotations
         - enabled
-        - gatewayClassName
         - hosts
         - tls
         type: object

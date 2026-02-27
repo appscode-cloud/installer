@@ -83,7 +83,6 @@ ingress:
 gateway:
   annotations: {}
   enabled: false
-  gatewayClassName: ace
   tls:
     enabled: true
     secret:

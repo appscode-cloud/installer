@@ -20,7 +20,6 @@ platform-api:
 gateway:
   annotations: {}
   enabled: false
-  gatewayClassName: ace
   tls:
     enabled: true
     secret:

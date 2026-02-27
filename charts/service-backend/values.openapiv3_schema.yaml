@@ -479,8 +479,6 @@ properties:
         type: object
       enabled:
         type: boolean
-      gatewayClassName:
-        type: string
       hosts:
         items:
           properties:
@@ -522,7 +520,6 @@ properties:
     required:
     - annotations
     - enabled
-    - gatewayClassName
     - hosts
     - tls
     type: object
