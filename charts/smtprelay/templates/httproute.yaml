@@ -1,0 +1,47 @@
+{{- if (index .Values "gateway" "enabled") }}
+{{- $fullName := include "smtprelay.fullname" . -}}
+{{- $svcPort := .Values.service.port -}}
+
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ $fullName }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "smtprelay.labels" . | nindent 4 }}
+  {{- with .Values.gateway.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+spec:
+  parentRefs:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: ace
+    namespace: ace
+    sectionName: https
+
+  hostnames:
+  {{- range .Values.ingress.hosts }}
+    - {{ .host | quote }}
+  {{- end }}
+
+  rules:
+  {{- range .Values.ingress.hosts }}
+    {{- range .paths }}
+  - matches:
+    - path:
+        type: PathPrefix
+        value: {{ .path }}
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ $fullName }}
+      namespace: {{ $.Release.Namespace }}
+      port: {{ $svcPort }}
+      weight: 1
+    {{- end }}
+  {{- end }}
+
+{{- end }}

@@ -1,0 +1,84 @@
+{{ if (and (index .Values "gateway" "enabled") (and .Values.nats.enabled (not .Values.nats.nats.externalAccess))) }}
+
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ include "ace.fullname" . }}-nats
+  namespace: {{ .Release.Namespace }}
+  {{- with .Values.gateway.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  parentRefs:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: {{ include "ace.fullname" . }}
+    namespace: {{ .Release.Namespace }}
+    sectionName: https
+  {{- if eq .Values.global.platform.hostType "domain" }}
+  hostnames:
+    - {{ .Values.global.platform.host }}
+  {{- end }}
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /nats # /nats(/|$)(.*)
+    filters:
+    - type: URLRewrite
+      urlRewrite:
+        path:
+          type: ReplacePrefixMatch
+          replacePrefixMatch: /
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ include "ace.fullname" . }}-nats
+      namespace: {{ .Release.Namespace }}
+      port: 443
+      weight: 1
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: BackendTLSPolicy
+metadata:
+  name: {{ include "ace.fullname" . }}-nats
+  namespace: {{ .Release.Namespace }}
+spec:
+  targetRefs:
+  - group: ""
+    kind: Service
+    name: {{ include "ace.fullname" . }}-nats
+  validation:
+    caCertificateRefs:
+    - group: ""
+      kind: Secret
+      name: {{ include "ace.fullname" . }}-cert
+    hostname: {{ include "ace.fullname" . }}-nats
+
+---
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TCPRoute
+metadata:
+  name: {{ include "ace.fullname" . }}-nats
+  namespace: {{ .Release.Namespace }}
+spec:
+  parentRefs:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: {{ include "ace.fullname" . }}
+    namespace: {{ .Release.Namespace }}
+    sectionName: nats-tcp
+  {{- if eq .Values.global.platform.hostType "domain" }}
+  hostnames:
+    - {{ .Values.global.platform.host }}
+  {{- end }}
+  rules:
+  - backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ include "ace.fullname" . }}-nats
+      namespace: {{ .Release.Namespace }}
+      port: 4222
+      weight: 1
+{{- end }}

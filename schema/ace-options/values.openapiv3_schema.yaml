@@ -341,6 +341,13 @@ properties:
       - openshift
       - ubi
     type: object
+  gateway:
+    properties:
+      enabled:
+        type: boolean
+    required:
+      - enabled
+    type: object
   grafana:
     properties:
       enabled:
@@ -810,6 +817,8 @@ properties:
         additionalProperties:
           type: string
         type: object
+      enabled:
+        type: boolean
       exposeVia:
         enum:
           - LoadBalancer
@@ -907,6 +916,7 @@ properties:
             type: object
         type: object
     required:
+      - enabled
       - exposeVia
       - nodeSelector
     type: object
@@ -2536,6 +2546,7 @@ required:
   - cloudProviderOptions
   - cluster-ui
   - context
+  - gateway
   - grafana
   - infra
   - ingress

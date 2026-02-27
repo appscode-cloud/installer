@@ -1319,6 +1319,34 @@ properties:
       type: object
       x-kubernetes-preserve-unknown-fields: true
     type: object
+  gateway:
+    properties:
+      annotations:
+        additionalProperties:
+          type: string
+        type: object
+      enabled:
+        type: boolean
+      tls:
+        properties:
+          enabled:
+            type: boolean
+          secret:
+            properties:
+              name:
+                type: string
+            required:
+            - name
+            type: object
+        required:
+        - enabled
+        - secret
+        type: object
+    required:
+    - annotations
+    - enabled
+    - tls
+    type: object
   global:
     properties:
       distro:
@@ -23686,6 +23714,58 @@ properties:
         type: boolean
       fullnameOverride:
         type: string
+      gateway:
+        properties:
+          annotations:
+            additionalProperties:
+              type: string
+            type: object
+          enabled:
+            type: boolean
+          hosts:
+            items:
+              properties:
+                host:
+                  type: string
+                paths:
+                  properties:
+                    path:
+                      type: string
+                    pathType:
+                      enum:
+                      - Exact
+                      - PathPrefix
+                      - RegularExpression
+                      type: string
+                  required:
+                  - path
+                  type: object
+              required:
+              - host
+              - paths
+              type: object
+            type: array
+          tls:
+            properties:
+              enabled:
+                type: boolean
+              secret:
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+                type: object
+            required:
+            - enabled
+            - secret
+            type: object
+        required:
+        - annotations
+        - enabled
+        - hosts
+        - tls
+        type: object
       image:
         properties:
           pullPolicy:
@@ -24021,6 +24101,7 @@ properties:
         type: array
     required:
     - enabled
+    - gateway
     - image
     - ingress
     - persistence
@@ -27308,6 +27389,7 @@ required:
 - cloudProviderOptions
 - cluster-ui
 - extraObjects
+- gateway
 - global
 - grafana
 - image
