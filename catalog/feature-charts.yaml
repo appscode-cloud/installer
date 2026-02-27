@@ -52,7 +52,7 @@
 - ghcr.io/appscode-charts/kyverno-policies:3.2.5
 - ghcr.io/appscode-charts/kyverno:3.2.6
 - ghcr.io/appscode-charts/license-proxyserver-manager:v2026.2.16
-- ghcr.io/appscode-charts/license-proxyserver:v2026.1.15
+- ghcr.io/appscode-charts/license-proxyserver:v2026.2.16
 - ghcr.io/appscode-charts/longhorn:1.7.2
 - ghcr.io/appscode-charts/managed-serviceaccount-manager:v2026.2.16
 - ghcr.io/appscode-charts/metrics-server:3.11.0

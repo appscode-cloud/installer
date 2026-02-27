@@ -176,7 +176,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-k
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kyverno-policies-3.2.5.tar $IMAGE_REGISTRY/appscode-charts/kyverno-policies:3.2.5
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kyverno-3.2.6.tar $IMAGE_REGISTRY/appscode-charts/kyverno:3.2.6
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-license-proxyserver-manager-v2026.2.16.tar $IMAGE_REGISTRY/appscode-charts/license-proxyserver-manager:v2026.2.16
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-license-proxyserver-v2026.1.15.tar $IMAGE_REGISTRY/appscode-charts/license-proxyserver:v2026.1.15
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-license-proxyserver-v2026.2.16.tar $IMAGE_REGISTRY/appscode-charts/license-proxyserver:v2026.2.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-longhorn-1.7.2.tar $IMAGE_REGISTRY/appscode-charts/longhorn:1.7.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-managed-serviceaccount-manager-v2026.2.16.tar $IMAGE_REGISTRY/appscode-charts/managed-serviceaccount-manager:v2026.2.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-metrics-server-3.11.0.tar $IMAGE_REGISTRY/appscode-charts/metrics-server:3.11.0
@@ -314,7 +314,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rba
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-ui-server-v0.0.50.tar $IMAGE_REGISTRY/appscode/kube-ui-server:v0.0.50
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubectl-nonroot-1.34.tar $IMAGE_REGISTRY/appscode/kubectl-nonroot:1.34
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kubedb-ui-2.0.0.tar $IMAGE_REGISTRY/appscode/kubedb-ui:2.0.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-license-proxyserver-v0.1.0.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.1.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-license-proxyserver-v0.1.1.tar $IMAGE_REGISTRY/appscode/license-proxyserver:v0.1.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-maxmind-geoip-city-mmdb-latest.tar $IMAGE_REGISTRY/appscode/maxmind-geoip:city-mmdb-latest
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-openfga-v1.11.3.tar $IMAGE_REGISTRY/appscode/openfga:v1.11.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-operator-shard-manager-v0.0.1.tar $IMAGE_REGISTRY/appscode/operator-shard-manager:v0.0.1

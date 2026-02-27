@@ -110,7 +110,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kubevault-opscenter.version                               |                                 | <code>"v2026.2.27"</code>                  |
 | helm.releases.kyverno.version                                           |                                 | <code>"3.2.6"</code>                       |
 | helm.releases.kyverno-policies.version                                  |                                 | <code>"3.2.5"</code>                       |
-| helm.releases.license-proxyserver.version                               |                                 | <code>"v2026.1.15"</code>                  |
+| helm.releases.license-proxyserver.version                               |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.longhorn.version                                          |                                 | <code>"1.7.2"</code>                       |
 | helm.releases.metrics-server.version                                    |                                 | <code>"3.11.0"</code>                      |
 | helm.releases.monitoring-operator.version                               |                                 | <code>"v2026.1.15"</code>                  |

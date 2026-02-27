@@ -182,7 +182,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno-policies:3.2.5 images/appscode-charts-kyverno-policies-3.2.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno:3.2.6 images/appscode-charts-kyverno-3.2.6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver-manager:v2026.2.16 images/appscode-charts-license-proxyserver-manager-v2026.2.16.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver:v2026.1.15 images/appscode-charts-license-proxyserver-v2026.1.15.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver:v2026.2.16 images/appscode-charts-license-proxyserver-v2026.2.16.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/longhorn:1.7.2 images/appscode-charts-longhorn-1.7.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/managed-serviceaccount-manager:v2026.2.16 images/appscode-charts-managed-serviceaccount-manager-v2026.2.16.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/metrics-server:3.11.0 images/appscode-charts-metrics-server-3.11.0.tar
@@ -320,7 +320,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rb
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-ui-server:v0.0.50 images/appscode-kube-ui-server-v0.0.50.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubectl-nonroot:1.34 images/appscode-kubectl-nonroot-1.34.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kubedb-ui:2.0.0 images/appscode-kubedb-ui-2.0.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.1.0 images/appscode-license-proxyserver-v0.1.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/license-proxyserver:v0.1.1 images/appscode-license-proxyserver-v0.1.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/maxmind-geoip:city-mmdb-latest images/appscode-maxmind-geoip-city-mmdb-latest.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/openfga:v1.11.3 images/appscode-openfga-v1.11.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/operator-shard-manager:v0.0.1 images/appscode-operator-shard-manager-v0.0.1.tar
