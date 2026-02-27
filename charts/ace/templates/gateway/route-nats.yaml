@@ -39,7 +39,7 @@ spec:
       port: 443
       weight: 1
 ---
-apiVersion: gateway.networking.k8s.io/v1alpha3
+apiVersion: gateway.networking.k8s.io/v1
 kind: BackendTLSPolicy
 metadata:
   name: {{ include "ace.fullname" . }}-nats
@@ -54,7 +54,7 @@ spec:
     - group: ""
       kind: Secret
       name: {{ include "ace.fullname" . }}-cert
-    hostname: "nobody"
+    hostname: {{ include "ace.fullname" . }}-nats
 
 ---
 apiVersion: gateway.networking.k8s.io/v1alpha2
