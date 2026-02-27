@@ -116,9 +116,9 @@ helm:
     kube-ui-server:
       version: "v2026.2.16"
     kubedb:
-      version: "v2026.2.21-rc.1"
+      version: "v2026.2.26"
     kubedb-opscenter:
-      version: "v2026.2.21-rc.1"
+      version: "v2026.2.26"
     kubedb-provider-aws:
       version: "v2024.1.31"
     kubedb-provider-azure:
@@ -126,11 +126,11 @@ helm:
     kubedb-provider-gcp:
       version: "v2024.1.31"
     kubestash:
-      version: "v2026.2.16-rc.0"
+      version: "v2026.2.26"
     kubevault:
-      version: "v2025.11.21"
+      version: "v2026.2.27"
     kubevault-opscenter:
-      version: "v2025.11.21"
+      version: "v2026.2.27"
     kyverno:
       version: "3.2.6"
     kyverno-policies:

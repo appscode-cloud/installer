@@ -76,7 +76,7 @@ helm:
       version: "v2025.3.14"
     kubedb:
       enabled: true
-      version: "v2026.2.21-rc.1"
+      version: "v2026.2.26"
       values: # +doc-gen:break
         kubedb-provisioner:
           enabled: true
@@ -96,7 +96,7 @@ helm:
           enabled: false
     kubestash:
       enabled: true
-      version: "v2026.2.16-rc.0"
+      version: "v2026.2.26"
     kube-ui-server:
       enabled: true
       version: "v2026.2.16"
