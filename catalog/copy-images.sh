@@ -228,7 +228,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sc
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sealed-secrets:2.14.2 $IMAGE_REGISTRY/appscode-charts/sealed-secrets:2.14.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-aws:0.3.6 $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-aws:0.3.6
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-gcp:0.1.0 $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-gcp:0.1.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-virtual-secrets:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-virtual-secrets:v2025.3.14
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-virtual-secrets:v2026.2.27 $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-virtual-secrets:v2026.2.27
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver:1.4.1 $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver:1.4.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-backend:v2026.2.16 $IMAGE_REGISTRY/appscode-charts/service-backend:v2026.2.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway-presets:v2026.2.16 $IMAGE_REGISTRY/appscode-charts/service-gateway-presets:v2026.2.16
@@ -290,7 +290,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ui
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uik8sappscodecom-featureset-saas-core-editor:v0.30.0 $IMAGE_REGISTRY/appscode-charts/uik8sappscodecom-featureset-saas-core-editor:v0.30.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault-secrets-operator:0.4.3 $IMAGE_REGISTRY/appscode-charts/vault-secrets-operator:0.4.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault:0.27.0 $IMAGE_REGISTRY/appscode-charts/vault:0.27.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/virtual-secrets-server:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/virtual-secrets-server:v2025.3.14
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/virtual-secrets-server:v2026.2.27 $IMAGE_REGISTRY/appscode-charts/virtual-secrets-server:v2026.2.27
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2026.1.15 $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2026.1.15
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2025.9.19 $IMAGE_REGISTRY/appscode-charts/voyager:v2025.9.19
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/ingress-nginx-controller:v1.14.3 $IMAGE_REGISTRY/appscode-images/ingress-nginx-controller:v1.14.3

@@ -69,7 +69,7 @@
 - ghcr.io/appscode-charts/sealed-secrets:2.14.2
 - ghcr.io/appscode-charts/secrets-store-csi-driver-provider-aws:0.3.6
 - ghcr.io/appscode-charts/secrets-store-csi-driver-provider-gcp:0.1.0
-- ghcr.io/appscode-charts/secrets-store-csi-driver-provider-virtual-secrets:v2025.3.14
+- ghcr.io/appscode-charts/secrets-store-csi-driver-provider-virtual-secrets:v2026.2.27
 - ghcr.io/appscode-charts/secrets-store-csi-driver:1.4.1
 - ghcr.io/appscode-charts/service-backend:v2026.2.16
 - ghcr.io/appscode-charts/service-gateway-presets:v2026.2.16
@@ -100,6 +100,6 @@
 - ghcr.io/appscode-charts/uik8sappscodecom-featureset-saas-core-editor:v0.30.0
 - ghcr.io/appscode-charts/vault-secrets-operator:0.4.3
 - ghcr.io/appscode-charts/vault:0.27.0
-- ghcr.io/appscode-charts/virtual-secrets-server:v2025.3.14
+- ghcr.io/appscode-charts/virtual-secrets-server:v2026.2.27
 - ghcr.io/appscode-charts/voyager-gateway:v2026.1.15
 - ghcr.io/appscode-charts/voyager:v2025.9.19
