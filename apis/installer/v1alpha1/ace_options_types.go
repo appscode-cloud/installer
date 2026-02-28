@@ -508,6 +508,7 @@ type CloudProviderOptions struct {
 }
 
 type ProviderAWSOptions struct {
+	AceInstallerARN  string   `json:"aceInstallerARN,omitempty"`
 	EipAllocationIDs []string `json:"eipAllocationIDs,omitempty"`
 	SubnetIDs        []string `json:"subnetIDs,omitempty"`
 }
