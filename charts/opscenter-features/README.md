@@ -144,8 +144,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.csi-secrets-store-provider-azure.version                  |                                 | <code>"1.5.2"</code>                       |
 | helm.releases.secrets-store-csi-driver-provider-gcp.version             |                                 | <code>"0.1.0"</code>                       |
 | helm.releases.vault.version                                             |                                 | <code>"0.27.0"</code>                      |
-| helm.releases.virtual-secrets-server.version                            |                                 | <code>"v2025.3.14"</code>                  |
-| helm.releases.secrets-store-csi-driver-provider-virtual-secrets.version |                                 | <code>"v2025.3.14"</code>                  |
+| helm.releases.virtual-secrets-server.version                            |                                 | <code>"v2026.2.27"</code>                  |
+| helm.releases.secrets-store-csi-driver-provider-virtual-secrets.version |                                 | <code>"v2026.2.27"</code>                  |
 | helm.releases.ingress-nginx.version                                     |                                 | <code>"4.14.3"</code>                      |
 | helm.releases.cluster-manager-hub.version                               |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.cluster-manager-spoke.version                             |                                 | <code>"v2026.2.16"</code>                  |

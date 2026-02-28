@@ -225,7 +225,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sealed-secrets:2.14.2 images/appscode-charts-sealed-secrets-2.14.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-aws:0.3.6 images/appscode-charts-secrets-store-csi-driver-provider-aws-0.3.6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-gcp:0.1.0 images/appscode-charts-secrets-store-csi-driver-provider-gcp-0.1.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-virtual-secrets:v2025.3.14 images/appscode-charts-secrets-store-csi-driver-provider-virtual-secrets-v2025.3.14.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-virtual-secrets:v2026.2.27 images/appscode-charts-secrets-store-csi-driver-provider-virtual-secrets-v2026.2.27.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver:1.4.1 images/appscode-charts-secrets-store-csi-driver-1.4.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-backend:v2026.2.16 images/appscode-charts-service-backend-v2026.2.16.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/service-gateway-presets:v2026.2.16 images/appscode-charts-service-gateway-presets-v2026.2.16.tar
@@ -287,7 +287,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uik8sappscodecom-featureset-saas-core-editor:v0.30.0 images/appscode-charts-uik8sappscodecom-featureset-saas-core-editor-v0.30.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault-secrets-operator:0.4.3 images/appscode-charts-vault-secrets-operator-0.4.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault:0.27.0 images/appscode-charts-vault-0.27.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/virtual-secrets-server:v2025.3.14 images/appscode-charts-virtual-secrets-server-v2025.3.14.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/virtual-secrets-server:v2026.2.27 images/appscode-charts-virtual-secrets-server-v2026.2.27.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2026.1.15 images/appscode-charts-voyager-gateway-v2026.1.15.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2025.9.19 images/appscode-charts-voyager-v2025.9.19.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/ingress-nginx-controller:v1.14.3 images/appscode-images-ingress-nginx-controller-v1.14.3.tar

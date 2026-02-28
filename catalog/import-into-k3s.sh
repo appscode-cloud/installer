@@ -217,7 +217,7 @@ k3s ctr images import images/appscode-charts-scanner-v2026.1.15.tar
 k3s ctr images import images/appscode-charts-sealed-secrets-2.14.2.tar
 k3s ctr images import images/appscode-charts-secrets-store-csi-driver-provider-aws-0.3.6.tar
 k3s ctr images import images/appscode-charts-secrets-store-csi-driver-provider-gcp-0.1.0.tar
-k3s ctr images import images/appscode-charts-secrets-store-csi-driver-provider-virtual-secrets-v2025.3.14.tar
+k3s ctr images import images/appscode-charts-secrets-store-csi-driver-provider-virtual-secrets-v2026.2.27.tar
 k3s ctr images import images/appscode-charts-secrets-store-csi-driver-1.4.1.tar
 k3s ctr images import images/appscode-charts-service-backend-v2026.2.16.tar
 k3s ctr images import images/appscode-charts-service-gateway-presets-v2026.2.16.tar
@@ -279,7 +279,7 @@ k3s ctr images import images/appscode-charts-uik8sappscodecom-featureset-opscent
 k3s ctr images import images/appscode-charts-uik8sappscodecom-featureset-saas-core-editor-v0.30.0.tar
 k3s ctr images import images/appscode-charts-vault-secrets-operator-0.4.3.tar
 k3s ctr images import images/appscode-charts-vault-0.27.0.tar
-k3s ctr images import images/appscode-charts-virtual-secrets-server-v2025.3.14.tar
+k3s ctr images import images/appscode-charts-virtual-secrets-server-v2026.2.27.tar
 k3s ctr images import images/appscode-charts-voyager-gateway-v2026.1.15.tar
 k3s ctr images import images/appscode-charts-voyager-v2025.9.19.tar
 k3s ctr images import images/appscode-images-ingress-nginx-controller-v1.14.3.tar
