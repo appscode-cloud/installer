@@ -61,7 +61,10 @@ The name of the tenant.
 The domain name used for the gateway.
 */}}
 {{- define "gateway.domain" -}}
-{{- ternary (printf "%s.%s" (trimSuffix "-gw" .Release.Namespace) .Values.infra.host) (printf "gw-%s.%s" (required "A valid .Values.clusterMetadata.name entry required!" .Values.clusterMetadata.name) .Values.infra.host) (hasSuffix "-gw" .Release.Namespace) }}
+{{- ternary
+(printf "%s.%s.%s" (trimSuffix "-gw" .Release.Namespace) .Values.clusterMetadata.name .Values.infra.host)
+(printf "%s.%s" (trimSuffix "-gw" .Release.Namespace) .Values.infra.host)
+(eq .Values.infra.tenantSpreadPolicy "multi") }}
 {{- end }}
 
 {{/*

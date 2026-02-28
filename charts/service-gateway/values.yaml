@@ -26,6 +26,7 @@ gatewayClass:
 infra:
   host: chart-example.local
   hostType: domain
+  tenantSpreadPolicy: "multi"
   tls:
     issuer: "ca" # ca,letsencrypt,letsencrypt-staging,external
     ca:

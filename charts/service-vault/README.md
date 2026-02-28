@@ -51,6 +51,7 @@ The following table lists the configurable parameters of the `service-vault` cha
 | fullnameOverride           | Overrides fullname template             | <code>""</code>                                                |
 | infra.host                 |                                         | <code>chart-example.local</code>                               |
 | infra.hostType             |                                         | <code>domain</code>                                            |
+| infra.tenantSpreadPolicy   |                                         | <code>"multi"</code>                                           |
 | infra.tls.issuer           |                                         | <code>"ca" # ca,letsencrypt,letsencrypt-staging</code>         |
 | infra.tls.ca.cert          |                                         | <code>""</code>                                                |
 | infra.tls.ca.key           |                                         | <code>""</code>                                                |
