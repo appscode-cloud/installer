@@ -57,6 +57,56 @@ spec:
       selector:
         app.kubernetes.io/name: kube-ui-server
         app.kubernetes.io/instance: kube-ui-server
+
+spec:
+  ignoreDifferences:
+  - jsonPointers:
+    - /data
+    kind: Secret
+    name: kube-ui-server-apiserver-cert
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.core.k8s.appscode.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.cost.k8s.appscode.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.identity.k8s.appscode.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.meta.k8s.appscode.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.offline.licenses.appscode.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.policy.k8s.appscode.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.reports.scanner.appscode.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apps
+    kind: Deployment
+    name: kube-ui-server
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+    jsonPointers:
+    - /spec/template/metadata/annotations/checksum~1apiregistration.yaml
+
   chart:
     name: kube-ui-server
     namespace: kubeops
