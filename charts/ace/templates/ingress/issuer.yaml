@@ -70,9 +70,19 @@ spec:
       {{- else }}
       # Use ACEM http challenge for everything else
       http01:
+        {{ if (index .Values "gateway" "enabled") }}
+        gatewayHTTPRoute:
+          parentRefs:
+          - group: gateway.networking.k8s.io
+            kind: Gateway
+            name: {{ include "ace.fullname" . }}
+            namespace: {{ .Release.Namespace }}
+            sectionName: api
+        {{- else }}
         ingress:
           ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
           serviceType: ClusterIP
+        {{- end }}
       {{- end }}
   {{- end }}
 {{- end }}

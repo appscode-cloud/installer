@@ -58,6 +58,7 @@ type AceSpec struct {
 	KubedbUi     AceKubedbUi     `json:"kubedb-ui"`
 	PlatformApi  AcePlatformApi  `json:"platform-api"`
 	IngressNginx AceIngressNginx `json:"ingress-nginx"`
+	Gateway      AceGateway      `json:"gateway"`
 	IngressDns   AceIngressDns   `json:"ingress-dns"`
 	Nats         AceNats         `json:"nats"`
 	NatsDns      AceNatsDns      `json:"nats-dns"`
@@ -135,6 +136,11 @@ type AcePlatformApi struct {
 type AceIngressNginx struct {
 	Enabled           bool `json:"enabled"`
 	*IngressNginxSpec `json:",inline,omitempty"`
+}
+
+type AceGateway struct {
+	Enabled      bool `json:"enabled"`
+	*GatewaySpec `json:",inline,omitempty"`
 }
 
 type AceIngressDns struct {

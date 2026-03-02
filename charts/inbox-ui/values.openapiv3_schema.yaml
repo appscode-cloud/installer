@@ -471,6 +471,58 @@ properties:
     type: object
   fullnameOverride:
     type: string
+  gateway:
+    properties:
+      annotations:
+        additionalProperties:
+          type: string
+        type: object
+      enabled:
+        type: boolean
+      hosts:
+        items:
+          properties:
+            host:
+              type: string
+            paths:
+              properties:
+                path:
+                  type: string
+                pathType:
+                  enum:
+                  - Exact
+                  - PathPrefix
+                  - RegularExpression
+                  type: string
+              required:
+              - path
+              type: object
+          required:
+          - host
+          - paths
+          type: object
+        type: array
+      tls:
+        properties:
+          enabled:
+            type: boolean
+          secret:
+            properties:
+              name:
+                type: string
+            required:
+            - name
+            type: object
+        required:
+        - enabled
+        - secret
+        type: object
+    required:
+    - annotations
+    - enabled
+    - hosts
+    - tls
+    type: object
   image:
     properties:
       pullPolicy:
@@ -784,6 +836,7 @@ properties:
     type: array
 required:
 - autoscaling
+- gateway
 - image
 - ingress
 - replicaCount

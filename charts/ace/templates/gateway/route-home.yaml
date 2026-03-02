@@ -1,0 +1,42 @@
+{{ if and (index .Values "gateway" "enabled") (index .Values "platform-ui" "enabled") (not (eq .Values.global.platform.deploymentType "Hosted")) }}
+
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ include "ace.fullname" . }}-home
+  namespace: {{ .Release.Namespace }}
+  {{- with .Values.gateway.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  parentRefs:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: {{ include "ace.fullname" . }}
+    namespace: {{ .Release.Namespace }}
+    sectionName: https
+  {{- if eq .Values.global.platform.hostType "domain" }}
+  hostnames:
+    - {{ .Values.global.platform.host }}
+  {{- end }}
+  rules:
+  - matches:
+      - path:
+          type: PathPrefix
+          value: /
+    filters:
+    - type: URLRewrite
+      urlRewrite:
+        path:
+          type: ReplaceFullPath
+          replaceFullPath: /accounts/selfhost-home
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ include "ace.fullname" . }}-platform-api
+      namespace: {{ .Release.Namespace }}
+      port: 80
+      weight: 1
+
+{{- end }}

@@ -16,9 +16,11 @@ spec:
     group: cert-manager.io
     kind: Issuer
     name: {{ include "ace.fullname" . }}
-  {{- if eq .Values.global.platform.hostType "domain" }}
-  commonName: "{{ .Values.global.platform.host }}"
   dnsNames:
+    - {{ include "ace.fullname" . }}-nats
+    - {{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc
+    - {{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc.cluster.local
+  {{- if eq .Values.global.platform.hostType "domain" }}
     - "{{ .Values.global.platform.host }}"
     {{- if and .Values.nats.enabled .Values.nats.nats.externalAccess }}
     - "nats.{{ .Values.global.platform.host }}"
@@ -29,6 +31,7 @@ spec:
     {{- if eq .Values.global.platform.host "appscode.com" }}
     - "api.byte.builders"
     {{- end }}
+  commonName: "{{ .Values.global.platform.host }}"
   {{- else }}
   ipAddresses:
     - "{{ .Values.global.platform.host }}"
