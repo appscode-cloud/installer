@@ -16,6 +16,8 @@ properties:
     properties:
       aws:
         properties:
+          aceInstallerARN:
+            type: string
           eipAllocationIDs:
             items:
               type: string
