@@ -49,13 +49,6 @@ spec:
         app: {{ include "tenant.name" . }}-gw-seed-backend
     spec:
       serviceAccountName: {{ include "tenant.name" . }}-gw-seed-backend
-      {{- if eq "true" ( include "distro.openshift" . ) }}
-      securityContext:
-        {{- toYaml (omit .Values.podSecurityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 8 }}
-      {{- else }}
-      securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      {{- end }}
       containers:
         - image: "{{ .Values.echoserver.image }}:{{ .Values.echoserver.tag }}"
           imagePullPolicy: IfNotPresent
