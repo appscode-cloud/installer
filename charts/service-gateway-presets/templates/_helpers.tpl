@@ -49,3 +49,10 @@ Selector labels
 app.kubernetes.io/name: {{ include "service-gateway-presets.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
+
+{{/*
+Returns whether the OpenShift distribution is used
+*/}}
+{{- define "distro.openshift" -}}
+{{- or (.Capabilities.APIVersions.Has "project.openshift.io/v1/Project") .Values.global.distro.openshift (and .Values.distro .Values.distro.openshift) -}}
+{{- end }}

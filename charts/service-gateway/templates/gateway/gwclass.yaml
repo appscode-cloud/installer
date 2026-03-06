@@ -40,8 +40,13 @@ spec:
       {{- end }}
         container:
           image: "{{ .Values.envoy.image }}:{{ .Values.envoy.tag }}"
+          {{- if eq "true" ( include "distro.openshift" . ) }}
+          securityContext:
+            {{- toYaml (omit .Values.envoy.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 12 }}
+          {{- else }}
           securityContext:
             {{- toYaml .Values.envoy.securityContext | nindent 12 }}
+          {{- end }}
         {{- if .Values.envoy.nodeSelector }}
         pod:
           nodeSelector:
@@ -54,8 +59,13 @@ spec:
                 spec:
                   containers:
                   - name: shutdown-manager
+                    {{- if eq "true" ( include "distro.openshift" . ) }}
+                    securityContext:
+                      {{- toYaml (omit .Values.envoy.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 22 }}
+                    {{- else }}
                     securityContext:
                       {{- toYaml .Values.envoy.securityContext | nindent 22 }}
+                    {{- end }}
 
       envoyService:
         {{- if eq .Values.infra.hostType "domain" }}

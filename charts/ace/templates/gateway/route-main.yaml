@@ -32,6 +32,9 @@ spec:
       namespace: {{ .Release.Namespace }}
       port: 80
       weight: 1
+    timeouts: # They default to 15s.
+      backendRequest: 2m
+      request: 2m
   - matches:
     - path:
         type: PathPrefix

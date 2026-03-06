@@ -49,6 +49,7 @@ spec:
             - --keda-proxyservice-namespace={{ .Values.keda.proxyService.namespace }}
             - --oci-registry-config-file=/var/platform-auth/oci.yaml
             - --platform-url={{ .Values.platform.baseURL }}
+            - --distro.openshift={{ include "distro.openshift" . }}
             {{- if .Values.platform.caBundle }}
             - --platform-ca-file=/var/platform-auth/ca.crt
             {{- end }}
