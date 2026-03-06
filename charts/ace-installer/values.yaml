@@ -98,7 +98,7 @@ helm:
         sidekick:
           enabled: false
     kubestash:
-      enabled: true
+      enabled: false
       version: "v2026.2.26"
     kube-ui-server:
       enabled: true
