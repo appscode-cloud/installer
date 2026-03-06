@@ -1,5 +1,5 @@
 {{- with (index .Values "helm" "releases" "gateway-api") }}
-{{- if .enabled }}
+{{- if and .enabled (not (include "distro.openshift" .))  }}
 
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
