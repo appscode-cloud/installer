@@ -81,6 +81,8 @@ properties:
             type: string
           microsoft:
             type: string
+          oracle:
+            type: string
           quay:
             type: string
           weaviate:

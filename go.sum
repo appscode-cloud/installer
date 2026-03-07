@@ -18,8 +18,8 @@ github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc h1:U9qPSI2PIWSS1VwoXQT9A3Wy9MM3WgvqSxFWenqJduM=
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/docker/cli v29.0.3+incompatible h1:8J+PZIcF2xLd6h5sHPsp5pvvJA+Sr2wGQxHkRl53a1E=
-github.com/docker/cli v29.0.3+incompatible/go.mod h1:JLrzqnKDaYBop7H2jaqPtU4hHvMKP+vjCwu2uszcLI8=
+github.com/docker/cli v29.2.0+incompatible h1:9oBd9+YM7rxjZLfyMGxjraKBKE4/nVyvVfN4qNl9XRM=
+github.com/docker/cli v29.2.0+incompatible/go.mod h1:JLrzqnKDaYBop7H2jaqPtU4hHvMKP+vjCwu2uszcLI8=
 github.com/docker/distribution v2.8.3+incompatible h1:AtKxIZ36LoNK51+Z6RpzLpddBirtxJnzDrHLEKxTAYk=
 github.com/docker/distribution v2.8.3+incompatible/go.mod h1:J2gT2udsDAN96Uj4KfcMRqY0/ypR+oyYUYmja8H+y+w=
 github.com/docker/docker-credential-helpers v0.9.4 h1:76ItO69/AP/V4yT9V4uuuItG0B1N8hvt0T0c0NN/DzI=
@@ -347,8 +347,8 @@ kmodules.xyz/offshoot-api v0.34.0 h1:HnOOp8FrCjTWjtNApRDo6Ahe79tOlLrJmyye4xxO4Kk
 kmodules.xyz/offshoot-api v0.34.0/go.mod h1:F+B59yYw4CZJ4uD4xu6C+mMLzIXUtuH7E+SbDICl9jE=
 kmodules.xyz/prober v0.34.0 h1:ElZkZYCjLaytAA0M8EH42To7i9gh1IIX+d0qfaIohys=
 kmodules.xyz/prober v0.34.0/go.mod h1:rsu/fxxfNxY70GDbH6Ju8G66459hi7AhWSSBoiIp8ic=
-kmodules.xyz/resource-metadata v0.42.4 h1:nFVo+PKmwWdzVwk7U3VZuKBQj3tPo6fyY5BC7gE2OB8=
-kmodules.xyz/resource-metadata v0.42.4/go.mod h1:++18wSB28Wrw3ZxnOd8o8IVg7oMyWPwaPfuLw21QnPc=
+kmodules.xyz/resource-metadata v0.42.9 h1:b1+CcGWh1fv0p5GhkI7NDEByxBX99Tu+WHdtfX//9cw=
+kmodules.xyz/resource-metadata v0.42.9/go.mod h1:bqm4/ZqHxA04H1/Mz79YhHgrePSKJfUVL7cpG8teKsA=
 kmodules.xyz/schema-checker v0.4.3 h1:LKXKNWwJ0bFOqCMbyfZk38uVJIejXsANdp7l+fkIiJQ=
 kmodules.xyz/schema-checker v0.4.3/go.mod h1:JjUB6Ih4gnrBwzJNO91Dz9xa8J92UHyvPSyfX++sksM=
 kubeops.dev/external-dns-operator v0.3.0 h1:KIWX0C+5en8levhkdlM9htZ+EsowIWm9mgLTdsJYUzo=

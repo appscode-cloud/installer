@@ -63,6 +63,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | image.proxies.quay                                                      | quay.io/company/bin:tag         | <code>quay.io</code>                       |
 | image.proxies.kubernetes                                                | registry.k8s.io/bin:tag         | <code>registry.k8s.io</code>               |
 | image.proxies.microsoft                                                 |                                 | <code>mcr.microsoft.com</code>             |
+| image.proxies.oracle                                                    |                                 | <code>container-registry.oracle.com</code> |
 | image.proxies.weaviate                                                  |                                 | <code>cr.weaviate.io</code>                |
 | registry.credentials                                                    |                                 | <code>{}</code>                            |
 | registry.certs                                                          | username: "abc" password: "xyz" | <code>{}</code>                            |

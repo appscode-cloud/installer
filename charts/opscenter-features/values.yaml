@@ -28,6 +28,7 @@ image:
     # registry.k8s.io/bin:tag
     kubernetes: registry.k8s.io
     microsoft: mcr.microsoft.com
+    oracle: container-registry.oracle.com
     weaviate: cr.weaviate.io
 # image:
 #   proxies:
