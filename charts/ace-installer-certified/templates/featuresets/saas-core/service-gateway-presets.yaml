@@ -1,36 +1,27 @@
-{{- with (index .Values "helm" "releases" "kubestash") }}
+{{- with (index .Values "helm" "releases" "service-gateway-presets") }}
 {{- if .enabled }}
 
-{{ $defaults := printf `
-global:
-  registryFQDN: %s
-` (include "registry.ghcr" $) | fromYaml }}
-{{ $_ := set $defaults "kubestash-catalog" $.Values.image }}
+{{ $defaults := dict "registryFQDN" (include "registry.ghcr" $) }}
 
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $defaults $vals }}
 
-{{- if eq (include "distro.openshift" $) "true" }}
-{{ $vals = mergeOverwrite $vals (dict "global" (pick ($.Values.options | fromYaml) "distro")) }}
-{{- end }}
-
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: kubestash
+  name: service-gateway-presets
   namespace: {{ $.Release.Namespace }}
   labels:
-    app.kubernetes.io/component: kubestash
-    app.kubernetes.io/part-of: opscenter-backup
+    app.kubernetes.io/component: service-gateway-presets
+    app.kubernetes.io/part-of: saas-core
 spec:
   interval: 5m
   timeout: 30m
-  releaseName: kubestash
-  targetNamespace: stash
-  storageNamespace: stash
+  releaseName: service-gateway-presets
+  targetNamespace: ace-gw
+  storageNamespace: ace-gw
   install:
     createNamespace: {{ $.Values.helm.createNamespace }}
-    # crds: CreateReplace
     remediation:
       retries: -1
   upgrade:
@@ -38,26 +29,22 @@ spec:
     remediation:
       retries: -1
   dependsOn:
-  - name: opscenter-features
-    namespace: {{ $.Release.Namespace }}
-  - name: license-proxyserver
+  - name: catalog-manager
     namespace: {{ $.Release.Namespace }}
   {{- if (dig "cert-manager" "enabled" false $.Values.helm.releases) }}
   - name: cert-manager
     namespace: {{ $.Release.Namespace }}
   {{- end }}
-  {{- if has "panopticon" $.Values.selfManagement.enableFeatures }}
-  - name: panopticon
-    namespace: {{ $.Release.Namespace }}
-  {{- end }}
   chart:
     spec:
-      chart: kubestash
+      chart: service-gateway-presets
       version: {{ .version | quote }}
+      interval: 60m
       sourceRef:
         kind: HelmRepository
         name: appscode-charts-oci
         namespace: {{ $.Release.Namespace }}
+
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
