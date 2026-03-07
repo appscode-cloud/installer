@@ -2,7 +2,7 @@
 - bats/bats:1.11.0
 - ghcr.io/appscode/ace:v0.2.0
 - ghcr.io/appscode/acerproxy:v0.2.0
-- ghcr.io/appscode/aceshifter:v0.0.2
+- ghcr.io/appscode/aceshifter:v0.0.3
 - ghcr.io/appscode/b3:v2026.2.16
 - ghcr.io/appscode/billing-ui:2.1.0
 - ghcr.io/appscode/catalog-manager:v0.11.0
