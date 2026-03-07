@@ -60,6 +60,9 @@ helm:
     capi-catalog:
       enabled: false
       version: "v2024.10.24"
+    catalog-manager:
+      enabled: false
+      version: "v2026.2.16"
     cert-manager:
       enabled: true
       version: "v1.19.3"
@@ -96,7 +99,7 @@ helm:
         sidekick:
           enabled: false
     kubestash:
-      enabled: true
+      enabled: false
       version: "v2026.2.26"
     kube-ui-server:
       enabled: true
@@ -119,7 +122,10 @@ helm:
               release: kube-prometheus-stack
     reloader:
       enabled: true
-      version: "1.0.79"
+      version: "2.2.9"
+    service-gateway-presets:
+      enabled: false
+      version: "v2026.2.16"
     stash-presets:
       enabled: false
       version: "v2026.2.16"
@@ -144,6 +150,7 @@ selfManagement:
   enableFeatures: []
   disableFeatures: []
   useGateway: false
+
 precheck:
   enabled: true
   # Docker registry containing app image
