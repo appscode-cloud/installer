@@ -14,7 +14,7 @@ require (
 	kmodules.xyz/client-go v0.34.3
 	kmodules.xyz/image-packer v0.0.0-20260211014345-daa6afa3ceba
 	kmodules.xyz/objectstore-api v0.34.0
-	kmodules.xyz/resource-metadata v0.42.4
+	kmodules.xyz/resource-metadata v0.42.9
 	kmodules.xyz/schema-checker v0.4.3
 	kubeops.dev/external-dns-operator v0.3.0
 	kubeops.dev/installer v0.0.0-20260225180715-ed6beb9704fe
@@ -34,7 +34,7 @@ require (
 	github.com/containerd/stargz-snapshotter/estargz v0.18.1 // indirect
 	github.com/cyphar/filepath-securejoin v0.4.1 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
-	github.com/docker/cli v29.0.3+incompatible // indirect
+	github.com/docker/cli v29.2.0+incompatible // indirect
 	github.com/docker/distribution v2.8.3+incompatible // indirect
 	github.com/docker/docker-credential-helpers v0.9.4 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
