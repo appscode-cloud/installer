@@ -16,6 +16,11 @@ kubedb-ui:
 
 platform-api:
   enabled: false
+  monitoring:
+    agent: prometheus.io/operator
+    serviceMonitor:
+      labels:
+        release: kube-prometheus-stack
 
 gateway:
   annotations: {}
