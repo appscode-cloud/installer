@@ -53,7 +53,7 @@ spec:
             - aggregator
           ports:
             - name: http
-              containerPort: 3000
+              containerPort: 3003
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
