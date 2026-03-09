@@ -617,6 +617,7 @@
         {
           "datasource": "${datasource}",
           "expr": "sum by(service_mode)(b3_legacy_users{namespace=\"$namespace\", pod=~\"$pod\", service_mode=~\"$service_mode\"})",
+          "legendFormat": "{{`{{service_mode}}`}}",
           "refId": "A"
         }
       ],
@@ -675,6 +676,7 @@
         {
           "datasource": "${datasource}",
           "expr": "sum by(service_mode)(b3_legacy_teams{namespace=\"$namespace\", pod=~\"$pod\", service_mode=~\"$service_mode\"})",
+          "legendFormat": "{{`{{service_mode}}`}}",
           "refId": "A"
         }
       ],
@@ -733,6 +735,7 @@
         {
           "datasource": "${datasource}",
           "expr": "sum by(service_mode)(b3_legacy_organizations{namespace=\"$namespace\", pod=~\"$pod\", service_mode=~\"$service_mode\"})",
+          "legendFormat": "{{`{{service_mode}}`}}",
           "refId": "A"
         }
       ],

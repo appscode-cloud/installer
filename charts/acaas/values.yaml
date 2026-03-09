@@ -4,11 +4,6 @@
 
 billing:
   enabled: false
-  monitoring:
-    agent: prometheus.io/operator
-    serviceMonitor:
-      labels:
-        release: kube-prometheus-stack
 
 billing-ui:
   enabled: false
@@ -18,11 +13,6 @@ deploy-ui:
 
 marketplace-api:
   enabled: false
-  monitoring:
-    agent: prometheus.io/operator
-    serviceMonitor:
-      labels:
-        release: kube-prometheus-stack
 
 marketplace-ui:
   enabled: false
