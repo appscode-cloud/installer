@@ -201,6 +201,10 @@ properties:
         type: object
       service:
         properties:
+          annotations:
+            additionalProperties:
+              type: string
+            type: object
           externalIPs:
             items:
               type: string
@@ -229,6 +233,7 @@ properties:
             - NodePort
             type: string
         required:
+        - annotations
         - externalTrafficPolicy
         - nodeportRange
         - portRange

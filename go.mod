@@ -3,7 +3,7 @@ module go.bytebuilders.dev/installer
 go 1.25.6
 
 require (
-	go.bytebuilders.dev/catalog v0.0.20-0.20260227123043-98fe0231f501
+	go.bytebuilders.dev/catalog v0.0.21-0.20260310064619-b60c91703ff4
 	go.bytebuilders.dev/resource-model v0.4.0
 	go.bytebuilders.dev/ui-wizards v0.30.0
 	go.openviz.dev/installer v0.0.0-20260104052502-5deb6915c7d6
@@ -141,7 +141,7 @@ require (
 	sigs.k8s.io/randfill v1.0.0 // indirect
 	sigs.k8s.io/structured-merge-diff/v6 v6.3.0 // indirect
 	stash.appscode.dev/apimachinery v0.42.0 // indirect
-	voyagermesh.dev/installer v0.0.0-20260126155429-994b493cefc6 // indirect
+	voyagermesh.dev/installer v0.0.0-20260306095111-0be6484ed3c8 // indirect
 	x-helm.dev/apimachinery v0.0.18 // indirect
 )
 
