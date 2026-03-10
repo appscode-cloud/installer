@@ -1307,11 +1307,11 @@
         "useTags": false
       },
       {
-        "allValue": null,
+        "allValue": ".*",
         "current": {
-          "selected": false,
-          "text": "openfga-0",
-          "value": "openfga-0"
+          "selected": true,
+          "text": ["All"],
+          "value": ["$__all"]
         },
         "datasource": "${datasource}",
         "definition": "label_values(grpc_server_handled_total{namespace=~\"$namespace\",grpc_service=\"openfga.v1.OpenFGAService\"},pod)",

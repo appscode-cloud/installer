@@ -1163,11 +1163,11 @@
         "useTags": false
       },
       {
-        "allValue": null,
+        "allValue": ".*",
         "current": {
-          "selected": false,
-          "text": "nats-demo-0",
-          "value": "nats-demo-0"
+          "selected": true,
+          "text": ["All"],
+          "value": ["$__all"]
         },
         "datasource": "${datasource}",
         "definition": "label_values(nats_varz_cpu{namespace=~\"$namespace\"},pod)",
@@ -1191,10 +1191,11 @@
         "useTags": false
       },
       {
+        "allValue": ".*",
         "current": {
-          "selected": false,
-          "text": "all",
-          "value": "all"
+          "selected": true,
+          "text": ["All"],
+          "value": ["$__all"]
         },
         "definition": "label_values(nats_stream_last_seq{namespace=~\"$namespace\",pod=~\"$pod\"}, stream_name)",
         "datasource": "${datasource}",
@@ -1218,10 +1219,11 @@
         "useTags": false
       },
       {
+        "allValue": ".*",
         "current": {
-          "selected": false,
-          "text": "all",
-          "value": "all"
+          "selected": true,
+          "text": ["All"],
+          "value": ["$__all"]
         },
         "definition": "label_values(nats_consumer_num_pending{namespace=~\"$namespace\",pod=~\"$pod\"}, consumer_name)",
         "datasource": "${datasource}",

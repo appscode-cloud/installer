@@ -3553,9 +3553,9 @@
       {
         "allValue": ".*",
         "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
+          "selected": true,
+          "text": ["All"],
+          "value": ["$__all"]
         },
         "datasource": "${datasource}",
         "definition": "label_values(b3_http_server_request_count{namespace=~\"$namespace\"},service_mode)",
@@ -3584,9 +3584,9 @@
       {
         "allValue": ".*",
         "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
+          "selected": true,
+          "text": ["All"],
+          "value": ["$__all"]
         },
         "datasource": "${datasource}",
         "definition": "label_values(b3_http_server_request_count{namespace=~\"$namespace\", service_mode=~\"$service_mode\"},pod)",
