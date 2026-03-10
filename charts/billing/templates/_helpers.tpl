@@ -75,38 +75,21 @@ imagePullSecrets:
 Returns the enabled monitoring agent name
 */}}
 {{- define "monitoring.agent" -}}
-{{- $localMonitoring := (get .Values "monitoring") | default dict -}}
-{{- $globalValues := (get .Values "global") | default dict -}}
-{{- $globalMonitoring := (get $globalValues "monitoring") | default dict -}}
-{{- (get $localMonitoring "agent") | default (get $globalMonitoring "agent") | default "" -}}
+{{- .Values.monitoring.agent }}
 {{- end }}
 
 {{/*
 Returns whether the ServiceMonitor will be labeled with custom label
 */}}
 {{- define "monitoring.apply-servicemonitor-label" -}}
-{{- $localMonitoring := (get .Values "monitoring") | default dict -}}
-{{- $localServiceMonitor := (get $localMonitoring "serviceMonitor") | default dict -}}
-{{- $globalValues := (get .Values "global") | default dict -}}
-{{- $globalMonitoring := (get $globalValues "monitoring") | default dict -}}
-{{- $globalServiceMonitor := (get $globalMonitoring "serviceMonitor") | default dict -}}
-{{- $local := (get $localServiceMonitor "labels") | default dict -}}
-{{- $global := (get $globalServiceMonitor "labels") | default dict -}}
-{{- ternary "false" "true" ( empty (coalesce $local $global) ) -}}
+{{- ternary "false" "true" ( empty .Values.monitoring.serviceMonitor.labels ) -}}
 {{- end }}
 
 {{/*
 Returns the ServiceMonitor labels
 */}}
 {{- define "monitoring.servicemonitor-label" -}}
-{{- $localMonitoring := (get .Values "monitoring") | default dict -}}
-{{- $localServiceMonitor := (get $localMonitoring "serviceMonitor") | default dict -}}
-{{- $globalValues := (get .Values "global") | default dict -}}
-{{- $globalMonitoring := (get $globalValues "monitoring") | default dict -}}
-{{- $globalServiceMonitor := (get $globalMonitoring "serviceMonitor") | default dict -}}
-{{- $local := (get $localServiceMonitor "labels") | default dict -}}
-{{- $global := (get $globalServiceMonitor "labels") | default dict -}}
-{{- range $key, $val := (coalesce $local $global) }}
+{{- range $key, $val := .Values.monitoring.serviceMonitor.labels }}
 {{ $key }}: {{ $val }}
 {{- end }}
 {{- end }}
