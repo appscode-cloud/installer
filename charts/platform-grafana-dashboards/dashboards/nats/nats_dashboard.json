@@ -959,11 +959,11 @@
         "useTags": false
       },
       {
-        "allValue": null,
+        "allValue": ".*",
         "current": {
-          "selected": false,
-          "text": "nats-demo-0",
-          "value": "nats-demo-0"
+          "selected": true,
+          "text": ["All"],
+          "value": ["$__all"]
         },
         "datasource": "${datasource}",
         "definition": "label_values(nats_varz_cpu{namespace=~\"$namespace\"},pod)",
