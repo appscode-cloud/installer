@@ -5909,6 +5909,7 @@ func (in *MarketplaceApiSpec) DeepCopyInto(out *MarketplaceApiSpec) {
 		*out = new(v1.Affinity)
 		(*in).DeepCopyInto(*out)
 	}
+	in.Monitoring.DeepCopyInto(&out.Monitoring)
 	out.Infra = in.Infra
 	out.Settings = in.Settings
 	if in.EnvFrom != nil {
