@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ include "acerproxy.fullname" . }}-token
+  name: {{ include "acerproxy.fullname" . }}-metrics-token
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "acerproxy.labels" . | nindent 4 }}
@@ -33,7 +33,7 @@ spec:
     authorization:
       type: Bearer
       credentials:
-        name: {{ include "acerproxy.fullname" . }}-token
+        name: {{ include "acerproxy.fullname" . }}-metrics-token
         key: token
     scheme: https
     tlsConfig:

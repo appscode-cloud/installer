@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ include "catalog-manager.fullname" . }}-token
+  name: {{ include "catalog-manager.fullname" . }}-metrics-token
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "catalog-manager.labels" . | nindent 4 }}
@@ -33,7 +33,7 @@ spec:
     authorization:
       type: Bearer
       credentials:
-        name: {{ include "catalog-manager.fullname" . }}-token
+        name: {{ include "catalog-manager.fullname" . }}-metrics-token
         key: token
     scheme: https
     tlsConfig:
