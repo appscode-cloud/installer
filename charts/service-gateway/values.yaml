@@ -106,6 +106,7 @@ envoy:
   image: ghcr.io/voyagermesh/envoy
   tag: "v1.36.4-ac"
   service:
+    annotations: {}
     # Default listener portmanager range to use for gateway exposure
     portRange: "10000-12767"
     # Default node portmanager range to use for gateway exposure

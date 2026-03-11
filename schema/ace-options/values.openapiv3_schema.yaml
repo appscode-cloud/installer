@@ -345,6 +345,10 @@ properties:
     type: object
   gateway:
     properties:
+      annotations:
+        additionalProperties:
+          type: string
+        type: object
       enabled:
         type: boolean
     required:
