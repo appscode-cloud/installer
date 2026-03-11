@@ -1,4 +1,5 @@
 {{- $shared := and (eq .Values.app.name "") (eq .Values.app.namespace "") -}}
+{{- $job := include "platform-grafana-dashboards.natsJobName" . -}}
 {
   "annotations": {
     "list": [
@@ -123,7 +124,7 @@
         {
           "datasource": "${datasource}",
           "exemplar": false,
-          "expr": "nats_varz_cpu{namespace=\"$namespace\", pod=~\"$pod\"}",
+          "expr": "nats_varz_cpu{namespace=\"$namespace\", pod=~\"$pod\", job=~\"{{ $job }}\"}",
           "intervalFactor": 2,
           "legendFormat": "{{`{{pod}}`}}",
           "refId": "A",
@@ -942,7 +943,7 @@
         "name": "namespace",
         "options": [],
         {{- if $shared }}
-        "query": "label_values(kube_namespace_created,namespace)",
+        "query": "label_values(nats_varz_cpu{job=~\"{{ $job }}\"},namespace)",
         "type": "query",
         {{- else }}
         "query": {{ $.Values.app.namespace | quote }},
@@ -955,7 +956,6 @@
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
-        "type": "query",
         "useTags": false
       },
       {
@@ -966,7 +966,7 @@
           "value": ["$__all"]
         },
         "datasource": "${datasource}",
-        "definition": "label_values(nats_varz_cpu{namespace=~\"$namespace\"},pod)",
+        "definition": "label_values(nats_varz_cpu{namespace=~\"$namespace\",job=~\"{{ $job }}\"},pod)",
         "description": null,
         "error": null,
         "hide": 0,
@@ -975,7 +975,7 @@
         "multi": true,
         "name": "pod",
         "options": [],
-        "query": "label_values(nats_varz_cpu{namespace=~\"$namespace\"},pod)",
+          "query": "label_values(nats_varz_cpu{namespace=~\"$namespace\",job=~\"{{ $job }}\"},pod)",
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
