@@ -1,17 +1,17 @@
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: FeatureSet
 metadata:
-  name: capi-capa
+  name: capi-capg
 spec:
-  title: Cluster API AWS (CAPA)
+  title: Cluster API GCP (CAPG)
   description: |
-    Tools for CAPA Clusters
+    Tools for CAPG Clusters
   icons:
     - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
       type: image/svg+xml
   recommended: false
   chart:
-    name: uik8sappscodecom-featureset-capi-capa-editor
+    name: uik8sappscodecom-featureset-capi-capg-editor
     version: {{ .Chart.AppVersion }}
     sourceRef:
       apiGroup: source.toolkit.fluxcd.io

@@ -30,6 +30,7 @@
 - ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1
 - ghcr.io/appscode-charts/gatekeeper:3.13.3
 - ghcr.io/appscode-charts/gateway-api:v2025.3.14
+- ghcr.io/appscode-charts/gcp-credential-manager:v2026.3.11
 - ghcr.io/appscode-charts/grafana-operator:v2026.1.15
 - ghcr.io/appscode-charts/hub-cluster-robot:v2026.2.16
 - ghcr.io/appscode-charts/inbox-agent:v2024.12.30
@@ -82,6 +83,7 @@
 - ghcr.io/appscode-charts/supervisor:v2026.1.15
 - ghcr.io/appscode-charts/topolvm:15.0.0
 - ghcr.io/appscode-charts/uik8sappscodecom-featureset-capi-capa-editor:v0.30.0
+- ghcr.io/appscode-charts/uik8sappscodecom-featureset-capi-capg-editor:v0.30.0
 - ghcr.io/appscode-charts/uik8sappscodecom-featureset-capi-core-editor:v0.30.0
 - ghcr.io/appscode-charts/uik8sappscodecom-featureset-crossplane-editor:v0.30.0
 - ghcr.io/appscode-charts/uik8sappscodecom-featureset-ocm-hub-editor:v0.30.0

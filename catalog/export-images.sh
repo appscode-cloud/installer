@@ -103,6 +103,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1 images/appscode-charts-gatekeeper-library-v2023.10.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper:3.13.3 images/appscode-charts-gatekeeper-3.13.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gateway-api:v2025.3.14 images/appscode-charts-gateway-api-v2025.3.14.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gcp-credential-manager:v2026.3.11 images/appscode-charts-gcp-credential-manager-v2026.3.11.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/grafana-operator:v2026.1.15 images/appscode-charts-grafana-operator-v2026.1.15.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/hub-cluster-robot:v2026.2.16 images/appscode-charts-hub-cluster-robot-v2026.2.16.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/inbox-agent:v2024.12.30 images/appscode-charts-inbox-agent-v2024.12.30.tar
@@ -261,6 +262,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-service-templates:v0.12.0 images/appscode-charts-uibytebuildersdev-component-service-templates-v0.12.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-stash-presets:v0.12.0 images/appscode-charts-uibytebuildersdev-component-stash-presets-v0.12.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uik8sappscodecom-featureset-capi-capa-editor:v0.30.0 images/appscode-charts-uik8sappscodecom-featureset-capi-capa-editor-v0.30.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uik8sappscodecom-featureset-capi-capg-editor:v0.30.0 images/appscode-charts-uik8sappscodecom-featureset-capi-capg-editor-v0.30.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uik8sappscodecom-featureset-capi-core-editor:v0.30.0 images/appscode-charts-uik8sappscodecom-featureset-capi-core-editor-v0.30.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uik8sappscodecom-featureset-crossplane-editor:v0.30.0 images/appscode-charts-uik8sappscodecom-featureset-crossplane-editor-v0.30.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uik8sappscodecom-featureset-ocm-hub-editor:v0.30.0 images/appscode-charts-uik8sappscodecom-featureset-ocm-hub-editor-v0.30.0.tar
