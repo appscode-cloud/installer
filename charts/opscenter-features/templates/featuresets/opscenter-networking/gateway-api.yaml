@@ -13,6 +13,11 @@ spec:
       type: image/svg+xml
   featureSet: opscenter-networking
   featureBlock: gateway-api
+  readinessChecks:
+    resources:
+      - group: gateway.networking.k8s.io
+        kind: Gateway
+        version: v1
   recommended: true
   chart:
     name: gateway-api
