@@ -97,6 +97,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-g
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gatekeeper-library-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/gatekeeper-library:v2023.10.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gatekeeper-3.13.3.tar $IMAGE_REGISTRY/appscode-charts/gatekeeper:3.13.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gateway-api-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/gateway-api:v2025.3.14
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gcp-credential-manager-v2026.3.11.tar $IMAGE_REGISTRY/appscode-charts/gcp-credential-manager:v2026.3.11
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-grafana-operator-v2026.1.15.tar $IMAGE_REGISTRY/appscode-charts/grafana-operator:v2026.1.15
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-hub-cluster-robot-v2026.2.16.tar $IMAGE_REGISTRY/appscode-charts/hub-cluster-robot:v2026.2.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-inbox-agent-v2024.12.30.tar $IMAGE_REGISTRY/appscode-charts/inbox-agent:v2024.12.30
@@ -255,6 +256,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-u
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uibytebuildersdev-component-service-templates-v0.12.0.tar $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-service-templates:v0.12.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uibytebuildersdev-component-stash-presets-v0.12.0.tar $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-stash-presets:v0.12.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uik8sappscodecom-featureset-capi-capa-editor-v0.30.0.tar $IMAGE_REGISTRY/appscode-charts/uik8sappscodecom-featureset-capi-capa-editor:v0.30.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uik8sappscodecom-featureset-capi-capg-editor-v0.30.0.tar $IMAGE_REGISTRY/appscode-charts/uik8sappscodecom-featureset-capi-capg-editor:v0.30.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uik8sappscodecom-featureset-capi-core-editor-v0.30.0.tar $IMAGE_REGISTRY/appscode-charts/uik8sappscodecom-featureset-capi-core-editor:v0.30.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uik8sappscodecom-featureset-crossplane-editor-v0.30.0.tar $IMAGE_REGISTRY/appscode-charts/uik8sappscodecom-featureset-crossplane-editor:v0.30.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uik8sappscodecom-featureset-ocm-hub-editor-v0.30.0.tar $IMAGE_REGISTRY/appscode-charts/uik8sappscodecom-featureset-ocm-hub-editor:v0.30.0

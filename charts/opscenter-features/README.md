@@ -73,6 +73,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.aceshifter.version                                        |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.appscode-otel-stack.version                               |                                 | <code>"v2025.2.28"</code>                  |
 | helm.releases.aws-credential-manager.version                            |                                 | <code>"v2026.1.20"</code>                  |
+| helm.releases.gcp-credential-manager.version                            |                                 | <code>"v2026.3.11"</code>                  |
 | helm.releases.aws-ebs-csi-driver.version                                |                                 | <code>"2.23.0"</code>                      |
 | helm.releases.aws-load-balancer-controller.version                      |                                 | <code>"1.11.0"</code>                      |
 | helm.releases.capa-vpc-peering-operator.version                         |                                 | <code>"v2023.12.11"</code>                 |
