@@ -77,3 +77,15 @@ Returns if ubi images are to be used
 {{- define "operator.ubi" -}}
 {{ ternary "-ubi" "" (list "operator" "all" | has .Values.distro.ubi) }}
 {{- end }}
+
+{{- define "platform-grafana-dashboards.openfgaJobName" -}}
+{{- default "openfga" .Values.dashboard.openfga.jobName -}}
+{{- end }}
+
+{{- define "platform-grafana-dashboards.natsJobName" -}}
+{{- default "ace-nats" .Values.dashboard.nats.jobName -}}
+{{- end }}
+
+{{- define "platform-grafana-dashboards.b3JobName" -}}
+{{- default "ace-platform-api|ace-platform-api-headless" .Values.dashboard.b3.jobName -}}
+{{- end }}

@@ -1,4 +1,5 @@
 {{- $shared := and (eq .Values.app.name "") (eq .Values.app.namespace "") -}}
+{{- $job := include "platform-grafana-dashboards.openfgaJobName" . -}}
 {
   "annotations": {
     "list": [
@@ -121,7 +122,7 @@
           "datasource": "${datasource}",
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "histogram_quantile(0.9, sum by(le, grpc_method, grpc_service) (rate(grpc_server_handling_seconds_bucket{namespace=\"$namespace\", pod=~\"$pod\", job=\"openfga\", grpc_type=\"unary\", grpc_service=\"openfga.v1.OpenFGAService\"}[2m])))",
+          "expr": "histogram_quantile(0.9, sum by(le, grpc_method, grpc_service) (rate(grpc_server_handling_seconds_bucket{namespace=\"$namespace\", pod=~\"$pod\", job=~\"{{ $job }}\", grpc_type=\"unary\", grpc_service=\"openfga.v1.OpenFGAService\"}[2m])))",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": true,
@@ -217,7 +218,7 @@
           "datasource": "${datasource}",
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "histogram_quantile(0.5, sum by(le, grpc_method, grpc_service) (rate(grpc_server_handling_seconds_bucket{namespace=\"$namespace\", pod=~\"$pod\", job=\"openfga\", grpc_type=\"unary\", grpc_service=\"openfga.v1.OpenFGAService\"}[2m])))",
+          "expr": "histogram_quantile(0.5, sum by(le, grpc_method, grpc_service) (rate(grpc_server_handling_seconds_bucket{namespace=\"$namespace\", pod=~\"$pod\", job=~\"{{ $job }}\", grpc_type=\"unary\", grpc_service=\"openfga.v1.OpenFGAService\"}[2m])))",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": true,
@@ -505,7 +506,7 @@
         {
           "datasource": "${datasource}",
           "editorMode": "code",
-          "expr": "sum(rate(grpc_server_started_total{namespace=\"$namespace\", pod=~\"$pod\", job=\"openfga\",grpc_service=\"openfga.v1.OpenFGAService\"}[1m])) by (grpc_method)\n",
+          "expr": "sum(rate(grpc_server_started_total{namespace=\"$namespace\", pod=~\"$pod\", job=~\"{{ $job }}\",grpc_service=\"openfga.v1.OpenFGAService\"}[1m])) by (grpc_method)\n",
           "legendFormat": "{{`openfga.v1.OpenFGAService/{{grpc_method}}`}}",
           "range": true,
           "refId": "A"
@@ -595,7 +596,7 @@
         {
           "datasource": "${datasource}",
           "editorMode": "builder",
-          "expr": "histogram_quantile(0.99, sum by(le, grpc_method, grpc_service) (rate(grpc_server_handling_seconds_bucket{namespace=\"$namespace\", pod=~\"$pod\", job=\"openfga\", grpc_type=\"unary\", grpc_service=\"openfga.v1.OpenFGAService\"}[2m])))",
+          "expr": "histogram_quantile(0.99, sum by(le, grpc_method, grpc_service) (rate(grpc_server_handling_seconds_bucket{namespace=\"$namespace\", pod=~\"$pod\", job=~\"{{ $job }}\", grpc_type=\"unary\", grpc_service=\"openfga.v1.OpenFGAService\"}[2m])))",
           "instant": true,
           "key": "Q-52ee0e33-980f-4a19-9821-39530de9f304-0",
           "legendFormat": "{{`{{grpc_service}}/{{grpc_method}}`}}",
@@ -820,7 +821,7 @@
         {
           "datasource": "${datasource}",
           "editorMode": "builder",
-          "expr": "go_goroutines{namespace=\"$namespace\", pod=~\"$pod\", job=\"openfga\"}",
+          "expr": "go_goroutines{namespace=\"$namespace\", pod=~\"$pod\", job=~\"{{ $job }}\"}",
           "legendFormat": "Goroutines (Count)",
           "range": true,
           "refId": "A"
@@ -828,7 +829,7 @@
         {
           "datasource": "${datasource}",
           "editorMode": "builder",
-          "expr": "irate(go_goroutines{namespace=\"$namespace\", pod=~\"$pod\", job=\"openfga\"}[2m])",
+          "expr": "irate(go_goroutines{namespace=\"$namespace\", pod=~\"$pod\", job=~\"{{ $job }}\"}[2m])",
           "hide": false,
           "legendFormat": "Goroutine (Derivative)",
           "range": true,
@@ -919,7 +920,7 @@
         {
           "datasource": "${datasource}",
           "editorMode": "builder",
-          "expr": "go_gc_duration_seconds{namespace=\"$namespace\", pod=~\"$pod\", job=\"openfga\", quantile=\"0.5\"}",
+          "expr": "go_gc_duration_seconds{namespace=\"$namespace\", pod=~\"$pod\", job=~\"{{ $job }}\", quantile=\"0.5\"}",
           "legendFormat": "p50",
           "range": true,
           "refId": "A"
@@ -927,7 +928,7 @@
         {
           "datasource": "${datasource}",
           "editorMode": "builder",
-          "expr": "go_gc_duration_seconds{namespace=\"$namespace\", pod=~\"$pod\", job=\"openfga\", quantile=\"0.75\"}",
+          "expr": "go_gc_duration_seconds{namespace=\"$namespace\", pod=~\"$pod\", job=~\"{{ $job }}\", quantile=\"0.75\"}",
           "hide": false,
           "legendFormat": "p75",
           "range": true,
@@ -936,7 +937,7 @@
         {
           "datasource": "${datasource}",
           "editorMode": "builder",
-          "expr": "go_gc_duration_seconds{namespace=\"$namespace\", pod=~\"$pod\", job=\"openfga\", quantile=\"1\"}",
+          "expr": "go_gc_duration_seconds{namespace=\"$namespace\", pod=~\"$pod\", job=~\"{{ $job }}\", quantile=\"1\"}",
           "hide": false,
           "legendFormat": "p100",
           "range": true,
@@ -1026,7 +1027,7 @@
         {
           "datasource": "${datasource}",
           "editorMode": "builder",
-          "expr": "go_memstats_heap_alloc_bytes{namespace=\"$namespace\", pod=~\"$pod\", job=\"openfga\"}",
+          "expr": "go_memstats_heap_alloc_bytes{namespace=\"$namespace\", pod=~\"$pod\", job=~\"{{ $job }}\"}",
           "legendFormat": "{{`{{label_name}}`}}",
           "range": true,
           "refId": "A"
@@ -1116,7 +1117,7 @@
         {
           "datasource": "${datasource}",
           "editorMode": "builder",
-          "expr": "rate(go_memstats_mallocs_total{namespace=\"$namespace\", pod=~\"$pod\", job=\"openfga\"}[2m])",
+          "expr": "rate(go_memstats_mallocs_total{namespace=\"$namespace\", pod=~\"$pod\", job=~\"{{ $job }}\"}[2m])",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -1206,7 +1207,7 @@
         {
           "datasource": "${datasource}",
           "editorMode": "builder",
-          "expr": "rate(go_memstats_alloc_bytes_total{namespace=\"$namespace\", pod=~\"$pod\", job=\"openfga\"}[2m])",
+          "expr": "rate(go_memstats_alloc_bytes_total{namespace=\"$namespace\", pod=~\"$pod\", job=~\"{{ $job }}\"}[2m])",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -1262,7 +1263,7 @@
         "name": "namespace",
         "options": [],
         {{- if $shared }}
-        "query": "label_values(kube_namespace_created,namespace)",
+        "query": "label_values(go_goroutines{job=~\"{{ $job }}\"},namespace)",
         "type": "query",
         {{- else }}
         "query": {{ $.Values.app.namespace | quote }},
@@ -1275,7 +1276,6 @@
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
-        "type": "query",
         "useTags": false
       },
       {
@@ -1286,7 +1286,7 @@
           "value": "ace-openfga"
         },
         "datasource": "${datasource}",
-        "definition": "label_values(go_goroutines{namespace=~\"$namespace\",job=\"openfga\"},service)",
+        "definition": "label_values(go_goroutines{namespace=~\"$namespace\",job=~\"{{ $job }}\"},service)",
         "description": null,
         "error": null,
         "hide": 0,
@@ -1295,7 +1295,7 @@
         "multi": false,
         "name": "service",
         "options": [],
-        "query": "label_values(go_goroutines{namespace=~\"$namespace\",job=\"openfga\"},service)",
+        "query": "label_values(go_goroutines{namespace=~\"$namespace\",job=~\"{{ $job }}\"},service)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
