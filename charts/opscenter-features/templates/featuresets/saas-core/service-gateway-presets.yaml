@@ -21,6 +21,10 @@ gateway:
       registryFQDN: %s
     crd-manager:
       registryFQDN: %s
+global:
+  distro:
+    openshift: %t
+    ubi: %q
 chart:
   version: %s
 `
@@ -32,6 +36,8 @@ chart:
   (include "kubectl.image" $)
   (include "registry.ghcr" $)
   (include "registry.ghcr" $)
+  $.Values.distro.openshift
+  $.Values.distro.ubi
   (dig "service-gateway-presets" "version" "" .Values.helm.releases)
   | fromYaml }}
 
