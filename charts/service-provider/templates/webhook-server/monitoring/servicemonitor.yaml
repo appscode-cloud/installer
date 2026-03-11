@@ -1,5 +1,16 @@
 {{- if or .Values.apiserver.enableMutatingWebhook .Values.apiserver.enableValidatingWebhook }}
 {{- if eq .Values.monitoring.agent "prometheus.io/operator" }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "service-provider.fullname" . }}-monitoring-token
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-provider.labels" . | nindent 4 }}
+  annotations:
+    kubernetes.io/service-account.name: {{ include "service-provider.serviceAccountName" . }}
+type: kubernetes.io/service-account-token
+---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
@@ -23,7 +34,11 @@ spec:
   endpoints:
   {{- if .Values.monitoring.operator }}
   - port: https
-    bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    authorization:
+      type: Bearer
+      credentials:
+        name: {{ include "service-provider.fullname" . }}-monitoring-token
+        key: token
     path: /metrics
     scheme: https
     tlsConfig:

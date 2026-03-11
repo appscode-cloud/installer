@@ -1,4 +1,15 @@
 {{- if eq "prometheus.io/operator" ( include "monitoring.agent" . ) }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "catalog-manager.fullname" . }}-monitoring-token
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "catalog-manager.labels" . | nindent 4 }}
+  annotations:
+    kubernetes.io/service-account.name: {{ include "catalog-manager.serviceAccountName" . }}
+type: kubernetes.io/service-account-token
+---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
@@ -19,7 +30,11 @@ spec:
       {{- include "catalog-manager.selectorLabels" . | nindent 6 }}
   endpoints:
   - port: api
-    bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    authorization:
+      type: Bearer
+      credentials:
+        name: {{ include "catalog-manager.fullname" . }}-monitoring-token
+        key: token
     scheme: https
     tlsConfig:
       ca:

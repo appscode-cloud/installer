@@ -1,4 +1,15 @@
 {{- if eq "prometheus.io/operator" ( include "monitoring.agent" . ) }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "license-proxyserver.fullname" . }}-monitoring-token
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "license-proxyserver.labels" . | nindent 4 }}
+  annotations:
+    kubernetes.io/service-account.name: {{ include "license-proxyserver.serviceAccountName" . }}
+type: kubernetes.io/service-account-token
+---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
@@ -19,7 +30,11 @@ spec:
       {{- include "license-proxyserver.selectorLabels" . | nindent 6 }}
   endpoints:
   - port: api
-    bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    authorization:
+      type: Bearer
+      credentials:
+        name: {{ include "license-proxyserver.fullname" . }}-monitoring-token
+        key: token
     scheme: https
     interval: 10s
     relabelings:
@@ -32,7 +47,11 @@ spec:
           key: ca.crt
       serverName: "{{ include "license-proxyserver.fullname" . }}.{{ .Release.Namespace }}.svc"
   - port: telemetry
-    bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    authorization:
+      type: Bearer
+      credentials:
+        name: {{ include "license-proxyserver.fullname" . }}-monitoring-token
+        key: token
     scheme: http
     interval: 10s
 {{- end }}
