@@ -50,7 +50,7 @@ helm:
   releases:
     ace:
       enabled: false
-      version: "v2026.2.16"
+      version: "v2026.2.16-alpha"
     acerproxy:
       enabled: false
       version: "v2026.2.16"

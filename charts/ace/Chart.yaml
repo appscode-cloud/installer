@@ -2,7 +2,7 @@ apiVersion: v2
 name: ace
 description: A Helm chart for AppsCode Container Engine
 type: application
-version: v2026.2.16
+version: v2026.2.16-alpha
 appVersion: v2026.2.16
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
@@ -63,4 +63,4 @@ dependencies:
 - name: platform-opscenter
   repository: file://../platform-opscenter
   condition: platform-opscenter.enabled
-  version: v2026.2.16
+  version: v2026.2.16-alpha
