@@ -146,6 +146,14 @@ spec:
           app: rancher-monitoring-prometheus
           app.kubernetes.io/instance: rancher-monitoring
           app.kubernetes.io/part-of: rancher-monitoring
+      # openshift-monitoring
+      - group: apps
+        version: v1
+        kind: StatefulSet
+        optional: "kube-prometheus-stack"
+        selector:
+          app.kubernetes.io/instance: k8s
+          app.kubernetes.io/part-of: openshift-monitoring
   chart:
     name: kube-prometheus-stack
     namespace: monitoring
