@@ -3564,7 +3564,7 @@
         "error": null,
         "hide": 0,
         "includeAll": true,
-        "label": "Service Mode",
+        "label": "Service",
         "multi": true,
         "name": "service_mode",
         "options": [],
@@ -3621,8 +3621,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "B3 Dashboard",
-  "uid": "b3-dashboard",
+  "title": "ACE Platform Dashboard",
+  "uid": "ace-platform-Dashboard",
   "version": 1,
   "weekStart": ""
 }
