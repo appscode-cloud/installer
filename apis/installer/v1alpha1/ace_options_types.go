@@ -373,13 +373,18 @@ type AceOptionsCacheSettings struct {
 }
 
 type AceOptionsSMTPSettings struct {
-	Enabled    bool   `json:"enabled"`
-	Host       string `json:"host"`
-	TlsEnabled bool   `json:"tlsEnabled"`
-	From       string `json:"from"`
-	Username   string `json:"username"`
-	Password   string `json:"password"`
+	Enabled bool   `json:"enabled"`
+	Host    string `json:"host"`
+	// +optional
+	TlsEnabled bool `json:"tlsEnabled,omitempty"`
+	// +optional
+	From string `json:"from,omitempty"`
+	// +optional
+	Username string `json:"username,omitempty"`
+	// +optional
+	Password string `json:"password,omitempty"`
 	// SubjectPrefix   string `json:"subjectPrefix"`
+	// +optional
 	SendAsPlainText bool `json:"sendAsPlainText"`
 }
 

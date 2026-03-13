@@ -2455,12 +2455,7 @@ properties:
             type: string
         required:
           - enabled
-          - from
           - host
-          - password
-          - sendAsPlainText
-          - tlsEnabled
-          - username
         type: object
     required:
       - cache
