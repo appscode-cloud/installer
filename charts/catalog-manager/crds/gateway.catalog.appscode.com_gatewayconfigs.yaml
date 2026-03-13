@@ -526,6 +526,10 @@ spec:
                     type: object
                   service:
                     properties:
+                      annotations:
+                        additionalProperties:
+                          type: string
+                        type: object
                       externalIPs:
                         items:
                           type: string
@@ -556,6 +560,7 @@ spec:
                         - NodePort
                         type: string
                     required:
+                    - annotations
                     - externalTrafficPolicy
                     - nodeportRange
                     - portRange
@@ -9428,6 +9433,11 @@ spec:
                     - domain
                     - ip
                     type: string
+                  tenantSpreadPolicy:
+                    enum:
+                    - single
+                    - multi
+                    type: string
                   tls:
                     properties:
                       acme:
@@ -9487,6 +9497,7 @@ spec:
                 - dns
                 - host
                 - hostType
+                - tenantSpreadPolicy
                 - tls
                 type: object
               vaultServer:
