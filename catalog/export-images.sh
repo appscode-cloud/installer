@@ -14,7 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -x
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/concurrency-utils.sh"
 
 mkdir -p images
 
@@ -30,7 +33,8 @@ curl -sL "https://github.com/google/go-containerregistry/releases/latest/downloa
 tar -zxvf /tmp/go-containerregistry.tar.gz -C /tmp/
 mv /tmp/crane images
 
-CMD="./images/crane"
+CMD="run_async ./images/crane"
+EXPECTED_COUNT=$(grep -cE '^\$CMD pull ' "${BASH_SOURCE[0]}")
 
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace-installer:v2026.3.30 images/appscode-charts-ace-installer-v2026.3.30.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace:v2026.3.30 images/appscode-charts-ace-v2026.3.30.tar
@@ -298,5 +302,16 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/virtual-secrets-server:v2026.2.27 images/appscode-charts-virtual-secrets-server-v2026.2.27.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2026.1.15 images/appscode-charts-voyager-gateway-v2026.1.15.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2026.3.23 images/appscode-charts-voyager-v2026.3.23.tar
+
+if ! wait_all; then
+    exit 1
+fi
+
+actual=$(find images -name '*.tar' | wc -l)
+if [[ "$actual" -ne "$EXPECTED_COUNT" ]]; then
+    printf '\033[31mValidation failed: expected %d files, got %d\033[0m\n' "$EXPECTED_COUNT" "$actual" >&2
+    exit 1
+fi
+printf '\033[32mValidation passed: %d files\033[0m\n' "$actual" >&2
 
 tar -czvf images.tar.gz images

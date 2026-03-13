@@ -14,17 +14,33 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -x
+set -euo pipefail
 
-if [ -z "${IMAGE_REGISTRY}" ]; then
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/concurrency-utils.sh"
+
+if [ -z "${IMAGE_REGISTRY:-}" ]; then
     echo "IMAGE_REGISTRY is not set"
     exit 1
 fi
 
 TARBALL=${1:-}
-tar -zxvf $TARBALL
+if [ -n "$TARBALL" ]; then
+    if [ ! -f "$TARBALL" ]; then
+        echo "Error: Tarball '$TARBALL' does not exist."
+        exit 1
+    fi
+    echo "Extracting $TARBALL..."
+    tar -zxvf "$TARBALL"
+elif [ -d "images" ] && [ -f "images/crane" ] && ls images/*.tar >/dev/null 2>&1; then
+    echo "Found existing images directory with tarballs and crane binary. Skipping extraction..."
+else
+    echo "Usage: $0 [images.tar.gz]"
+    echo "Error: No tarball provided and valid images directory not found."
+    exit 1
+fi
 
-CMD="./crane"
+CMD="run_async ./images/crane"
 
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ace-installer-v2026.3.30.tar $IMAGE_REGISTRY/appscode-charts/ace-installer:v2026.3.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ace-v2026.3.30.tar $IMAGE_REGISTRY/appscode-charts/ace:v2026.3.30
@@ -292,3 +308,5 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-v
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-virtual-secrets-server-v2026.2.27.tar $IMAGE_REGISTRY/appscode-charts/virtual-secrets-server:v2026.2.27
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-gateway-v2026.1.15.tar $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2026.1.15
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-v2026.3.23.tar $IMAGE_REGISTRY/appscode-charts/voyager:v2026.3.23
+
+wait_all
