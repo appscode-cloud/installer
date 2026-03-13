@@ -60,6 +60,11 @@ rules:
   - helmrepositories
   verbs: ["get", "list", "watch"]
 - apiGroups:
+  - helm.toolkit.fluxcd.io
+  resources:
+  - helmreleases
+  verbs: ["get", "list", "watch"]
+- apiGroups:
   - charts.x-helm.dev
   resources:
   - clusterchartpresets
