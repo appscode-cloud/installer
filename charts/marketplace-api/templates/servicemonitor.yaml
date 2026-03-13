@@ -2,14 +2,13 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: {{ include "billing.fullname" . }}-processor
+  name: {{ include "marketplace-api.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
-    app.kubernetes.io/component: "processor"
   {{- if eq "true" ( include "monitoring.apply-servicemonitor-label" . ) }}
     {{- include "monitoring.servicemonitor-label" . | nindent 4 }}
   {{- else }}
-    {{- include "billing.selectorLabels" . | nindent 4 }}
+    {{- include "marketplace-api.selectorLabels" . | nindent 4 }}
   {{- end }}
 spec:
   namespaceSelector:
@@ -17,8 +16,7 @@ spec:
     - {{ .Release.Namespace }}
   selector:
     matchLabels:
-      app.kubernetes.io/component: "processor"
-      {{- include "billing.selectorLabels" . | nindent 6 }}
+      {{- include "marketplace-api.selectorLabels" . | nindent 6 }}
   endpoints:
   - path: /metrics
     port: http

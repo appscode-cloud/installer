@@ -21,6 +21,6 @@ spec:
       {{- include "billing.selectorLabels" . | nindent 6 }}
   endpoints:
     - path: /metrics
-      port: metrics
+      port: http
       scheme: http
 {{- end }}
