@@ -50,19 +50,19 @@ helm:
   releases:
     ace:
       enabled: false
-      version: "v2026.2.16"
+      version: "v2026.3.30"
     acerproxy:
       enabled: false
-      version: "v2026.2.16"
+      version: "v2026.3.30"
     aceshifter:
       enabled: true
-      version: "v2026.2.16"
+      version: "v2026.3.30"
     capi-catalog:
       enabled: false
       version: "v2024.10.24"
     catalog-manager:
       enabled: false
-      version: "v2026.2.16"
+      version: "v2026.3.30"
     cert-manager:
       enabled: true
       version: "v1.19.3"
@@ -103,13 +103,13 @@ helm:
       version: "v2026.2.26"
     kube-ui-server:
       enabled: true
-      version: "v2026.2.16"
+      version: "v2026.3.30"
     license-proxyserver:
       enabled: true
       version: "v2026.2.16"
     opscenter-features:
       enabled: true
-      version: "v2026.2.16"
+      version: "v2026.3.30"
     panopticon:
       enabled: true
       version: "v2026.1.15"
@@ -125,10 +125,10 @@ helm:
       version: "2.2.9"
     service-gateway-presets:
       enabled: false
-      version: "v2026.2.16"
+      version: "v2026.3.30"
     stash-presets:
       enabled: false
-      version: "v2026.2.16"
+      version: "v2026.3.30"
     # feature less chart versions
     cluster-manager-spoke:
       enabled: false
@@ -150,7 +150,6 @@ selfManagement:
   enableFeatures: []
   disableFeatures: []
   useGateway: false
-
 precheck:
   enabled: true
   # Docker registry containing app image
