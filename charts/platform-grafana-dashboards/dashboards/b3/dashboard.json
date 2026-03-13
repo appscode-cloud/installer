@@ -618,7 +618,7 @@
         {
           "datasource": "${datasource}",
           "expr": "sum by(service_mode)(b3_legacy_users{namespace=\"$namespace\", pod=~\"$pod\", service_mode=~\"$service_mode\"})",
-          "legendFormat": "{{`{{service_mode}}`}}",
+          "legendFormat": "{{`{{service_mode}}`}}-error",
           "refId": "A"
         }
       ],
