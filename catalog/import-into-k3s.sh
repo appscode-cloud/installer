@@ -96,7 +96,7 @@ k3s ctr images import images/appscode-charts-gatekeeper-library-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-gatekeeper-3.13.3.tar
 k3s ctr images import images/appscode-charts-gateway-api-v2025.3.14.tar
 k3s ctr images import images/appscode-charts-gcp-credential-manager-v2026.3.11.tar
-k3s ctr images import images/appscode-charts-grafana-operator-v2026.1.15.tar
+k3s ctr images import images/appscode-charts-grafana-operator-v2026.3.30.tar
 k3s ctr images import images/appscode-charts-hub-cluster-robot-v2026.2.16.tar
 k3s ctr images import images/appscode-charts-inbox-agent-v2024.12.30.tar
 k3s ctr images import images/appscode-charts-inbox-server-v2025.2.28.tar
@@ -184,7 +184,7 @@ k3s ctr images import images/appscode-charts-license-proxyserver-v2026.2.16.tar
 k3s ctr images import images/appscode-charts-longhorn-1.7.2.tar
 k3s ctr images import images/appscode-charts-managed-serviceaccount-manager-v2026.2.16.tar
 k3s ctr images import images/appscode-charts-metrics-server-3.11.0.tar
-k3s ctr images import images/appscode-charts-monitoring-operator-v2026.1.15.tar
+k3s ctr images import images/appscode-charts-monitoring-operator-v2026.3.30.tar
 k3s ctr images import images/appscode-charts-opencost-grafana-dashboards-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-opencost-1.18.1.tar
 k3s ctr images import images/appscode-charts-operator-shard-manager-v2026.1.15.tar
