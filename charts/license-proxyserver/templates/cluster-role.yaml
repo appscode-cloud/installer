@@ -28,3 +28,6 @@ rules:
   resources:
   - klusterlets
   verbs: ["get", "list", "watch"]
+# metrics
+- nonResourceURLs: ["/metrics"]
+  verbs: ["get", "post"]
