@@ -39,7 +39,7 @@ spec:
           app.kubernetes.io/name: panopticon
   chart:
     name: panopticon
-    namespace: monitoring
+    namespace: {{ ternary "openshift-monitoring" "monitoring" (eq (include "distro.openshift" $) "true") }}
     createNamespace: {{ $.Values.helm.createNamespace }}
     version: {{ dig "panopticon" "version" "" $.Values.helm.releases }}
     sourceRef:
