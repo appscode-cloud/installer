@@ -14,15 +14,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -x
+set -euxo pipefail
 
-if [ -z "${IMAGE_REGISTRY}" ]; then
+if [ -z "${IMAGE_REGISTRY:-}" ]; then
     echo "IMAGE_REGISTRY is not set"
     exit 1
 fi
 
 TARBALL=${1:-}
-tar -zxvf $TARBALL
+if [ -n "$TARBALL" ]; then
+    if [ ! -f "$TARBALL" ]; then
+        echo "Error: Tarball '$TARBALL' does not exist."
+        exit 1
+    fi
+    echo "Extracting $TARBALL..."
+    tar -zxvf "$TARBALL"
+elif [ -d "images" ] && ls images/*.tar >/dev/null 2>&1; then
+    echo "Found existing images directory with tarballs. Skipping extraction..."
+else
+    echo "Usage: $0 [images.tar.gz]"
+    echo "Error: No tarball provided and valid images directory not found."
+    exit 1
+fi
 
 k3s ctr images import images/appscode-charts-ace-installer-v2026.3.30.tar
 k3s ctr images import images/appscode-charts-ace-v2026.3.30.tar
