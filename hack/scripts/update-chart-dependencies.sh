@@ -16,13 +16,6 @@
 
 set -e
 
-helm repo add appscode https://charts.appscode.com/stable/ || true
-helm repo add external-dns https://kubernetes-sigs.github.io/external-dns/ || true
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx || true
-helm repo add nats https://nats-io.github.io/k8s/helm/charts/ || true
-helm repo add openfga https://openfga.github.io/helm-charts || true
-helm repo add stakater https://stakater.github.io/stakater-charts || true
-
 helm dependency update charts/platform-grafana-dashboards
 helm dependency update charts/platform-opscenter
 helm dependency update charts/acaas
