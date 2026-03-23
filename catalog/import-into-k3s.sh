@@ -289,4 +289,4 @@ k3s ctr images import images/appscode-charts-vault-secrets-operator-0.4.3.tar
 k3s ctr images import images/appscode-charts-vault-0.27.0.tar
 k3s ctr images import images/appscode-charts-virtual-secrets-server-v2026.2.27.tar
 k3s ctr images import images/appscode-charts-voyager-gateway-v2026.1.15.tar
-k3s ctr images import images/appscode-charts-voyager-v2025.9.19.tar
+k3s ctr images import images/appscode-charts-voyager-v2026.3.23.tar

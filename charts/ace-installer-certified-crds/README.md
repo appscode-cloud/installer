@@ -1,14 +1,14 @@
-# ace-installer-certified-crds
+# ACE Installer
 
-[ace-installer-certified-crds](https://github.com/appscode-cloud/installer) - ACE Installer
+[ACE Installer](https://github.com/appscode-cloud/installer) - ACE Installer
 
 ## TL;DR;
 
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm search repo appscode/ace-installer-certified-crds --version=2026.3.30
-$ helm upgrade -i ace-installer-certified-crds appscode/ace-installer-certified-crds -n kubeops --create-namespace --version=2026.3.30
+$ helm search repo appscode/ace-installer --version=v2026.3.30
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2026.3.30
 ```
 
 ## Introduction
@@ -21,10 +21,10 @@ This chart deploys charts for ACE on a [Kubernetes](http://kubernetes.io) cluste
 
 ## Installing the Chart
 
-To install/upgrade the chart with the release name `ace-installer-certified-crds`:
+To install/upgrade the chart with the release name `ace-installer`:
 
 ```bash
-$ helm upgrade -i ace-installer-certified-crds appscode/ace-installer-certified-crds -n kubeops --create-namespace --version=2026.3.30
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2026.3.30
 ```
 
 The command deploys charts for ACE on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -33,17 +33,17 @@ The command deploys charts for ACE on the Kubernetes cluster in the default conf
 
 ## Uninstalling the Chart
 
-To uninstall the `ace-installer-certified-crds`:
+To uninstall the `ace-installer`:
 
 ```bash
-$ helm uninstall ace-installer-certified-crds -n kubeops
+$ helm uninstall ace-installer -n kubeops
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
 
 ## Configuration
 
-The following table lists the configurable parameters of the `ace-installer-certified-crds` chart and their default values.
+The following table lists the configurable parameters of the `ace-installer` chart and their default values.
 
 |                       Parameter                       |                          Description                           |                                                                                                                                                         Default                                                                                                                                                         |
 |-------------------------------------------------------|----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -149,12 +149,12 @@ The following table lists the configurable parameters of the `ace-installer-cert
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i ace-installer-certified-crds appscode/ace-installer-certified-crds -n kubeops --create-namespace --version=2026.3.30 --set image.proxies.appscode=r.appscode.com
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2026.3.30 --set image.proxies.appscode=r.appscode.com
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i ace-installer-certified-crds appscode/ace-installer-certified-crds -n kubeops --create-namespace --version=2026.3.30 --values values.yaml
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2026.3.30 --values values.yaml
 ```
