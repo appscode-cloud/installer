@@ -300,4 +300,4 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/va
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault:0.27.0 $IMAGE_REGISTRY/appscode-charts/vault:0.27.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/virtual-secrets-server:v2026.2.27 $IMAGE_REGISTRY/appscode-charts/virtual-secrets-server:v2026.2.27
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2026.1.15 $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2026.1.15
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2025.9.19 $IMAGE_REGISTRY/appscode-charts/voyager:v2025.9.19
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2026.3.23 $IMAGE_REGISTRY/appscode-charts/voyager:v2026.3.23

@@ -297,6 +297,6 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/vault:0.27.0 images/appscode-charts-vault-0.27.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/virtual-secrets-server:v2026.2.27 images/appscode-charts-virtual-secrets-server-v2026.2.27.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2026.1.15 images/appscode-charts-voyager-gateway-v2026.1.15.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2025.9.19 images/appscode-charts-voyager-v2025.9.19.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2026.3.23 images/appscode-charts-voyager-v2026.3.23.tar
 
 tar -czvf images.tar.gz images
