@@ -22,7 +22,7 @@ dependencies:
   version: v2026.3.30
 - name: ingress-nginx
   repository: oci://ghcr.io/appscode-charts
-  version: 4.15.0
+  version: 4.15.1
 - name: nats
   repository: oci://ghcr.io/appscode-charts
   version: 0.19.17
@@ -38,5 +38,5 @@ dependencies:
 - name: platform-opscenter
   repository: file://../platform-opscenter
   version: v2026.3.30
-digest: sha256:243d413893c3503fc76d420a5d9b068b78e2f1e631145212f6f405789e3c21fa
-generated: "2026-03-18T11:23:40.132493+06:00"
+digest: sha256:8c2b13a0788bfa9a76e051bf1e4501efa66f9a01d2033a3091e1fcee0ea84796
+generated: "2026-03-21T00:19:02.015614+06:00"
