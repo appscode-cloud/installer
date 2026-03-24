@@ -94,8 +94,8 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "time() - max(process_start_time_seconds{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "Uptime",
+          "expr": "time() - max by(service_mode) (process_start_time_seconds{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\", service_mode=~\"$service_mode\"})",
+          "legendFormat": "{{`{{service_mode}}`}} - Uptime",
           "refId": "A"
         }
       ],
@@ -169,8 +169,8 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(rate(process_cpu_seconds_total{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
-          "legendFormat": "CPU (cores)",
+          "expr": "sum by(service_mode)(rate(process_cpu_seconds_total{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\", service_mode=~\"$service_mode\"}[5m]))",
+          "legendFormat": "{{`{{service_mode}}`}} - CPU (cores)",
           "refId": "A"
         }
       ],
@@ -243,20 +243,20 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(process_resident_memory_bytes{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "RSS Memory",
+          "expr": "sum by(service_mode)(process_resident_memory_bytes{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\", service_mode=~\"$service_mode\"})",
+          "legendFormat": "{{`{{service_mode}}`}} - RSS Memory",
           "refId": "A"
         },
         {
           "datasource": "${datasource}",
-          "expr": "sum(go_memstats_heap_inuse_bytes{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "Heap In Use",
+          "expr": "sum by(service_mode)(go_memstats_heap_inuse_bytes{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\", service_mode=~\"$service_mode\"})",
+          "legendFormat": "{{`{{service_mode}}`}} - Heap In Use",
           "refId": "B"
         },
         {
           "datasource": "${datasource}",
-          "expr": "sum(go_memstats_heap_idle_bytes{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "Heap Idle",
+          "expr": "sum by(service_mode)(go_memstats_heap_idle_bytes{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\", service_mode=~\"$service_mode\"})",
+          "legendFormat": "{{`{{service_mode}}`}} - Heap Idle",
           "refId": "C"
         }
       ],
@@ -309,8 +309,8 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(rate(process_cpu_seconds_total{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\"}[5m]))",
-          "legendFormat": "",
+          "expr": "sum by(service_mode)(rate(process_cpu_seconds_total{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\", service_mode=~\"$service_mode\"}[5m]))",
+          "legendFormat": "{{`{{service_mode}}`}} - CPU (cores)",
           "refId": "A"
         }
       ],
@@ -384,14 +384,14 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(go_goroutines{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "Goroutines",
+          "expr": "sum by(service_mode)(go_goroutines{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\", service_mode=~\"$service_mode\"})",
+          "legendFormat": "{{`{{service_mode}}`}} - Goroutines",
           "refId": "A"
         },
         {
           "datasource": "${datasource}",
-          "expr": "sum(go_threads{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "OS Threads",
+          "expr": "sum by(service_mode)(go_threads{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\", service_mode=~\"$service_mode\"})",
+          "legendFormat": "{{`{{service_mode}}`}} - OS Threads",
           "refId": "B"
         }
       ],
@@ -464,14 +464,14 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "max(go_gc_duration_seconds{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\", quantile=\"1\"})",
-          "legendFormat": "P100 (Max)",
+          "expr": "max by(service_mode) (go_gc_duration_seconds{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\", service_mode=~\"$service_mode\", quantile=\"1\"})",
+          "legendFormat": "{{`{{service_mode}}`}} - P100 (Max)",
           "refId": "A"
         },
         {
           "datasource": "${datasource}",
-          "expr": "max(go_gc_duration_seconds{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\", quantile=\"0.5\"})",
-          "legendFormat": "P50",
+          "expr": "max by(service_mode) (go_gc_duration_seconds{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\", service_mode=~\"$service_mode\", quantile=\"0.5\"})",
+          "legendFormat": "{{`{{service_mode}}`}} - P50",
           "refId": "B"
         }
       ],
@@ -545,8 +545,8 @@
       "targets": [
         {
           "datasource": "${datasource}",
-          "expr": "sum(process_open_fds{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\"})",
-          "legendFormat": "Open FDs",
+          "expr": "sum by(service_mode)(process_open_fds{job=~\"{{ $job }}\", namespace=\"$namespace\", pod=~\"$pod\", service_mode=~\"$service_mode\"})",
+          "legendFormat": "{{`{{service_mode}}`}} - Open FDs",
           "refId": "A"
         }
       ],
