@@ -75,9 +75,9 @@ spec:
           parentRefs:
           - group: gateway.networking.k8s.io
             kind: Gateway
-            name: {{ include "ace.fullname" . }}
-            namespace: {{ .Release.Namespace }}
-            sectionName: api
+            name: {{ include "ace.fullname" . }}-gw-seed-backend
+            namespace: {{ .Release.Namespace }}-gw
+            sectionName: http
         {{- else }}
         ingress:
           ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}

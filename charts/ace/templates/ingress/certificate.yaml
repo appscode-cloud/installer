@@ -17,12 +17,14 @@ spec:
     kind: Issuer
     name: {{ include "ace.fullname" . }}
   dnsNames:
+  {{ if eq (index .Values "global" "platform" "hostType") "ip" }}
     - {{ include "ace.fullname" . }}-nats
     - {{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc
     - {{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc.cluster.local
     - {{ include "ace.fullname" . }}-s3proxy
     - {{ include "ace.fullname" . }}-s3proxy.{{ .Release.Namespace }}.svc
     - {{ include "ace.fullname" . }}-s3proxy.{{ .Release.Namespace }}.svc.cluster.local
+  {{- end }}
   {{- if eq .Values.global.platform.hostType "domain" }}
     - "{{ .Values.global.platform.host }}"
     {{- if and .Values.nats.enabled .Values.nats.nats.externalAccess }}
