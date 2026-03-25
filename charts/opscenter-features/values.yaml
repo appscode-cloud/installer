@@ -240,6 +240,24 @@ helm:
       version: "v2024.12.30"
     inbox-ui:
       version: "v2026.3.30"
+alertmanager:
+  email:
+    enabled: false
+    to: ""
+    from: ""
+    smarthost: ""
+    authUsername: ""
+    authSecretName: ""
+    authSecretKey: ""
+    authPassword: ""
+    requireTLS: true
+    sendResolved: true
+  webhook:
+    enabled: false
+    urlSecretName: ""
+    urlSecretKey: ""
+    url: ""
+    sendResolved: true
 licenseServer:
   baseURL: ""
   token: ""

@@ -1,4 +1,63 @@
 properties:
+  alertmanager:
+    properties:
+      email:
+        properties:
+          authPassword:
+            type: string
+          authSecretKey:
+            type: string
+          authSecretName:
+            type: string
+          authUsername:
+            type: string
+          enabled:
+            type: boolean
+          from:
+            type: string
+          requireTLS:
+            type: boolean
+          sendResolved:
+            type: boolean
+          smarthost:
+            type: string
+          to:
+            type: string
+        required:
+        - authPassword
+        - authSecretKey
+        - authSecretName
+        - authUsername
+        - enabled
+        - from
+        - requireTLS
+        - sendResolved
+        - smarthost
+        - to
+        type: object
+      webhook:
+        properties:
+          enabled:
+            type: boolean
+          sendResolved:
+            type: boolean
+          url:
+            type: string
+          urlSecretKey:
+            type: string
+          urlSecretName:
+            type: string
+        required:
+        - enabled
+        - sendResolved
+        - url
+        - urlSecretKey
+        - urlSecretName
+        type: object
+    required:
+    - email
+    - webhook
+    type: object
   clusterMetadata:
     properties:
       capi:
@@ -152,6 +211,7 @@ properties:
         type: array
     type: object
 required:
+- alertmanager
 - clusterMetadata
 - fullnameOverride
 - helm
