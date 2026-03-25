@@ -435,8 +435,19 @@ func (a AceOptionsSpec) DevDeployment() bool {
 		strings.HasSuffix(a.InitialSetup.Admin.Email, "@appscode.com")
 }
 
+// +kubebuilder:validation:Enum=Create;Reconfigure;Upgrade;PromoteToProd
+type ActionType string
+
+const (
+	ActionTypeCreate        ActionType = "Create"
+	ActionTypeReconfigure   ActionType = "Reconfigure"
+	ActionTypeUpgrade       ActionType = "Upgrade"
+	ActionTypePromoteToProd ActionType = "PromoteToProd"
+)
+
 type AceDeploymentContext struct {
 	DeploymentType DeploymentType `json:"deploymentType"`
+	ActionType     ActionType     `json:"actionType"`
 	InstallerName  string         `json:"installerName"`
 	UploadID       string         `json:"uploadID"`
 	Version        string         `json:"version"`
