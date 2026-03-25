@@ -50,14 +50,45 @@ type OpscenterFeaturesSpec struct {
 	FullnameOverride string `json:"fullnameOverride"`
 
 	// +optional
-	OfflineInstaller bool                     `json:"offlineInstaller"`
-	Image            shared.ImageRegistrySpec `json:"image"`
-	Helm             OpscenterHelmSpec        `json:"helm"`
-	Registry         shared.RegistryInfo      `json:"registry"`
-	ClusterMetadata  kmapi.ClusterInfo        `json:"clusterMetadata"`
-	LicenseServer    LicenseServerSpec        `json:"licenseServer"`
+	OfflineInstaller           bool                           `json:"offlineInstaller"`
+	Image                      shared.ImageRegistrySpec       `json:"image"`
+	Helm                       OpscenterHelmSpec              `json:"helm"`
+	Registry                   shared.RegistryInfo            `json:"registry"`
+	ClusterMetadata            kmapi.ClusterInfo              `json:"clusterMetadata"`
+	AlertmanagerConfigSelector AlertmanagerConfigSelectorSpec `json:"alertmanagerConfigSelector"`
+	Notifications              AlertmanagerNotificationsSpec  `json:"notifications"`
+	LicenseServer              LicenseServerSpec              `json:"licenseServer"`
 	// +optional
 	Distro shared.DistroSpec `json:"distro"`
+}
+
+type AlertmanagerConfigSelectorSpec struct {
+	LabelKey   string `json:"labelKey"`
+	LabelValue string `json:"labelValue"`
+}
+
+type AlertmanagerNotificationsSpec struct {
+	Email   AlertmanagerEmailNotificationSpec   `json:"email"`
+	Webhook AlertmanagerWebhookNotificationSpec `json:"webhook"`
+}
+
+type AlertmanagerEmailNotificationSpec struct {
+	Enabled      bool   `json:"enabled"`
+	Continue     bool   `json:"continue"`
+	To           string `json:"to"`
+	From         string `json:"from"`
+	Smarthost    string `json:"smarthost"`
+	AuthUsername string `json:"authUsername"`
+	AuthPassword string `json:"authPassword"`
+	RequireTLS   bool   `json:"requireTLS"`
+	SendResolved bool   `json:"sendResolved"`
+}
+
+type AlertmanagerWebhookNotificationSpec struct {
+	Enabled      bool   `json:"enabled"`
+	Continue     bool   `json:"continue"`
+	URL          string `json:"url"`
+	SendResolved bool   `json:"sendResolved"`
 }
 
 type OpscenterHelmSpec struct {

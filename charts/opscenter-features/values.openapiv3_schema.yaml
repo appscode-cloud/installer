@@ -1,4 +1,14 @@
 properties:
+  alertmanagerConfigSelector:
+    properties:
+      labelKey:
+        type: string
+      labelValue:
+        type: string
+    required:
+    - labelKey
+    - labelValue
+    type: object
   clusterMetadata:
     properties:
       capi:
@@ -134,6 +144,59 @@ properties:
     type: object
   nameOverride:
     type: string
+  notifications:
+    properties:
+      email:
+        properties:
+          authPassword:
+            type: string
+          authUsername:
+            type: string
+          continue:
+            type: boolean
+          enabled:
+            type: boolean
+          from:
+            type: string
+          requireTLS:
+            type: boolean
+          sendResolved:
+            type: boolean
+          smarthost:
+            type: string
+          to:
+            type: string
+        required:
+        - authPassword
+        - authUsername
+        - continue
+        - enabled
+        - from
+        - requireTLS
+        - sendResolved
+        - smarthost
+        - to
+        type: object
+      webhook:
+        properties:
+          continue:
+            type: boolean
+          enabled:
+            type: boolean
+          sendResolved:
+            type: boolean
+          url:
+            type: string
+        required:
+        - continue
+        - enabled
+        - sendResolved
+        - url
+        type: object
+    required:
+    - email
+    - webhook
+    type: object
   offlineInstaller:
     type: boolean
   registry:
@@ -152,11 +215,13 @@ properties:
         type: array
     type: object
 required:
+- alertmanagerConfigSelector
 - clusterMetadata
 - fullnameOverride
 - helm
 - image
 - licenseServer
 - nameOverride
+- notifications
 - registry
 type: object
