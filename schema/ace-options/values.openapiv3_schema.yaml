@@ -113,6 +113,13 @@ properties:
     type: object
   context:
     properties:
+      actionType:
+        enum:
+          - Create
+          - Reconfigure
+          - Upgrade
+          - PromoteToProd
+        type: string
       adminPassword:
         type: string
       backupPassword:
@@ -320,6 +327,7 @@ properties:
       version:
         type: string
     required:
+      - actionType
       - deploymentType
       - inboxServer
       - installerName
