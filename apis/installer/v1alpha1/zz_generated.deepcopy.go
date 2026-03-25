@@ -22,9 +22,11 @@ package v1alpha1
 
 import (
 	"encoding/json"
+
 	wizardsv1alpha1 "go.bytebuilders.dev/ui-wizards/apis/wizards/v1alpha1"
+
 	installerv1alpha1 "go.openviz.dev/installer/apis/installer/v1alpha1"
-	"k8s.io/api/core/v1"
+	v1 "k8s.io/api/core/v1"
 	networkingv1 "k8s.io/api/networking/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	autoscaling_k8s_iov1 "k8s.io/autoscaler/vertical-pod-autoscaler/pkg/apis/autoscaling.k8s.io/v1"

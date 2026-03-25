@@ -240,25 +240,29 @@ helm:
       version: "v2024.12.30"
     inbox-ui:
       version: "v2026.3.30"
-  alertmanagerConfigSelector:
-    labelKey: monitoring.appscode.com/alertmanager-config-set
-    labelValue: core
-  notifications:
-    email:
-      enabled: false
-      continue: true
-      to: ""
-      from: ""
-      smarthost: ""
-      authUsername: ""
-      authPassword: ""
-      requireTLS: true
-      sendResolved: true
-    webhook:
-      enabled: false
-      continue: true
-      url: ""
-      sendResolved: true
+alertmanagerConfigSelector:
+  labelKey: monitoring.appscode.com/alertmanager-config-set
+  labelValue: core
+notifications:
+  email:
+    enabled: false
+    continue: true
+    to: ""
+    from: ""
+    smarthost: ""
+    authUsername: ""
+    authSecretName: ""
+    authSecretKey: ""
+    authPassword: ""
+    requireTLS: true
+    sendResolved: true
+  webhook:
+    enabled: false
+    continue: true
+    urlSecretName: ""
+    urlSecretKey: ""
+    url: ""
+    sendResolved: true
 licenseServer:
   baseURL: ""
   token: ""

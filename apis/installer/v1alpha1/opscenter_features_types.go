@@ -73,22 +73,26 @@ type AlertmanagerNotificationsSpec struct {
 }
 
 type AlertmanagerEmailNotificationSpec struct {
-	Enabled      bool   `json:"enabled"`
-	Continue     bool   `json:"continue"`
-	To           string `json:"to"`
-	From         string `json:"from"`
-	Smarthost    string `json:"smarthost"`
-	AuthUsername string `json:"authUsername"`
-	AuthPassword string `json:"authPassword"`
-	RequireTLS   bool   `json:"requireTLS"`
-	SendResolved bool   `json:"sendResolved"`
+	Enabled        bool   `json:"enabled"`
+	Continue       bool   `json:"continue"`
+	To             string `json:"to"`
+	From           string `json:"from"`
+	Smarthost      string `json:"smarthost"`
+	AuthUsername   string `json:"authUsername"`
+	AuthSecretName string `json:"authSecretName"`
+	AuthSecretKey  string `json:"authSecretKey"`
+	AuthPassword   string `json:"authPassword"`
+	RequireTLS     bool   `json:"requireTLS"`
+	SendResolved   bool   `json:"sendResolved"`
 }
 
 type AlertmanagerWebhookNotificationSpec struct {
-	Enabled      bool   `json:"enabled"`
-	Continue     bool   `json:"continue"`
-	URL          string `json:"url"`
-	SendResolved bool   `json:"sendResolved"`
+	Enabled       bool   `json:"enabled"`
+	Continue      bool   `json:"continue"`
+	URLSecretName string `json:"urlSecretName"`
+	URLSecretKey  string `json:"urlSecretKey"`
+	URL           string `json:"url"`
+	SendResolved  bool   `json:"sendResolved"`
 }
 
 type OpscenterHelmSpec struct {

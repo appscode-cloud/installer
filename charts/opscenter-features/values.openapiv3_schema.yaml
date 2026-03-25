@@ -150,6 +150,10 @@ properties:
         properties:
           authPassword:
             type: string
+          authSecretKey:
+            type: string
+          authSecretName:
+            type: string
           authUsername:
             type: string
           continue:
@@ -168,6 +172,8 @@ properties:
             type: string
         required:
         - authPassword
+        - authSecretKey
+        - authSecretName
         - authUsername
         - continue
         - enabled
@@ -187,11 +193,17 @@ properties:
             type: boolean
           url:
             type: string
+          urlSecretKey:
+            type: string
+          urlSecretName:
+            type: string
         required:
         - continue
         - enabled
         - sendResolved
         - url
+        - urlSecretKey
+        - urlSecretName
         type: object
     required:
     - email
