@@ -103,8 +103,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-h
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-inbox-agent-v2024.12.30.tar $IMAGE_REGISTRY/appscode-charts/inbox-agent:v2024.12.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-inbox-server-v2025.2.28.tar $IMAGE_REGISTRY/appscode-charts/inbox-server:v2025.2.28
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-inbox-ui-v2026.3.30.tar $IMAGE_REGISTRY/appscode-charts/inbox-ui:v2026.3.30
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-keda-add-ons-http-0.10.0.tar $IMAGE_REGISTRY/appscode-charts/keda-add-ons-http:0.10.0
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-keda-2.17.2.tar $IMAGE_REGISTRY/appscode-charts/keda:2.17.2
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-keda-add-ons-http-0.12.0.tar $IMAGE_REGISTRY/appscode-charts/keda-add-ons-http:0.12.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-keda-2.19.0.tar $IMAGE_REGISTRY/appscode-charts/keda:2.19.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kube-grafana-dashboards-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/kube-grafana-dashboards:v2023.10.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kube-prometheus-stack-69.2.2.tar $IMAGE_REGISTRY/appscode-charts/kube-prometheus-stack:69.2.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kube-ui-server-v2026.3.30.tar $IMAGE_REGISTRY/appscode-charts/kube-ui-server:v2026.3.30

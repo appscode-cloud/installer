@@ -78,6 +78,9 @@ helm:
     gateway-api:
       enabled: true
       version: "v2025.3.14"
+    gateway-api-crds:
+      enabled: true
+      version: v1.4.1
     kubedb:
       enabled: true
       version: "v2026.2.26"

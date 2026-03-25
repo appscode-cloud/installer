@@ -101,8 +101,8 @@ k3s ctr images import images/appscode-charts-hub-cluster-robot-v2026.2.16.tar
 k3s ctr images import images/appscode-charts-inbox-agent-v2024.12.30.tar
 k3s ctr images import images/appscode-charts-inbox-server-v2025.2.28.tar
 k3s ctr images import images/appscode-charts-inbox-ui-v2026.3.30.tar
-k3s ctr images import images/appscode-charts-keda-add-ons-http-0.10.0.tar
-k3s ctr images import images/appscode-charts-keda-2.17.2.tar
+k3s ctr images import images/appscode-charts-keda-add-ons-http-0.12.0.tar
+k3s ctr images import images/appscode-charts-keda-2.19.0.tar
 k3s ctr images import images/appscode-charts-kube-grafana-dashboards-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-kube-prometheus-stack-69.2.2.tar
 k3s ctr images import images/appscode-charts-kube-ui-server-v2026.3.30.tar

@@ -88,8 +88,10 @@ spec:
   dependsOn:
   - name: opscenter-features
     namespace: {{ $.Release.Namespace }}
+  {{- if eq (include "distro.openshift" $) "false" }}
   - name: gateway-api
     namespace: {{ $.Release.Namespace }}
+  {{- end }}
   chart:
     spec:
       chart: cert-manager
