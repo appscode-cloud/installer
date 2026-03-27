@@ -91,6 +91,7 @@ rules:
   - ops.kubedb.com
   resources:
   - mongodbopsrequests
+  - redisopsrequests
   verbs: ["get", "list", "watch", "create"]
 - apiGroups:
   - kubevault.com
