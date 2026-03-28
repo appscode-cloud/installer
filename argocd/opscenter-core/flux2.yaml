@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: flux2
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: flux2
+    repoURL: ghcr.io/appscode-charts
+    targetRevision: 2.17.0
+    helm:
+      values: |
+        ace-user-roles:
+          enabled: false
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: flux-system
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true

@@ -1,0 +1,52 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: panopticon
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: panopticon
+    repoURL: ghcr.io/appscode-charts
+    targetRevision: v2026.1.15
+    helm:
+      values: |
+        ace-user-roles:
+          enabled: false
+        monitoring:
+          agent: prometheus.io/operator
+          enabled: true
+          serviceMonitor:
+            labels:
+              release: kube-prometheus-stack
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: monitoring
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+
+  ignoreDifferences:
+  - jsonPointers:
+    - /data
+    kind: Secret
+    name: panopticon-apiserver-cert
+    namespace: monitoring
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.ui.openviz.dev
+    jsonPointers:
+    - /spec/caBundle
+  - group: apps
+    kind: Deployment
+    name: panopticon
+    namespace: monitoring
+    jsonPointers:
+    - /spec/template/metadata/annotations/checksum~1apiregistration.yaml
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: servicemonitors.monitoring.coreos.com
+    jsonPointers:
+    - /metadata/annotations
+    - /spec

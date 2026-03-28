@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: inbox-agent
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: inbox-agent
+    repoURL: ghcr.io/appscode-charts
+    targetRevision: v2024.12.30
+    helm:
+      values: |
+        ace-user-roles:
+          enabled: false
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: monitoring
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+
+  ignoreDifferences:
+  - jsonPointers:
+    - /data
+    kind: Secret
+    name: inbox-agent-apiserver-cert
+    namespace: monitoring
+  - group: admissionregistration.k8s.io
+    kind: MutatingWebhookConfiguration
+    name: inbox-agent
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    name: inbox-agent
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
