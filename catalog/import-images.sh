@@ -32,11 +32,9 @@ if [ -n "$TARBALL" ]; then
     fi
     echo "Extracting $TARBALL..."
     tar -zxvf "$TARBALL"
-elif [ -d "images" ] && [ -f "images/crane" ] && ls images/*.tar >/dev/null 2>&1; then
-    echo "Found existing images directory with tarballs and crane binary. Skipping extraction..."
 else
+    echo "Error: No tarball provided."
     echo "Usage: $0 [images.tar.gz]"
-    echo "Error: No tarball provided and valid images directory not found."
     exit 1
 fi
 
