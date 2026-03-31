@@ -2465,6 +2465,8 @@ properties:
           - enabled
           - host
         type: object
+      tenantSpreadPolicy:
+        type: string
     required:
       - cache
       - db

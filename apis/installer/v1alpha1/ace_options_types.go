@@ -323,7 +323,8 @@ type AceOptionsSettings struct {
 	// +optional
 	LoginURL string `json:"loginURL"`
 	// +optional
-	LogoutURL string `json:"logoutURL"`
+	LogoutURL          string `json:"logoutURL"`
+	TenantSpreadPolicy string `json:"tenantSpreadPolicy,omitempty"`
 }
 
 type AceOptionsProxy struct {
