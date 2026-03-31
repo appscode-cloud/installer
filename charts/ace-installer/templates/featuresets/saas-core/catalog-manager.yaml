@@ -1,7 +1,15 @@
 {{- with (index .Values "helm" "releases" "catalog-manager") }}
 {{- if .enabled }}
 
-{{ $defaults := dict "registryFQDN" (include "registry.ghcr" $) }}
+{{ $defaults := printf `
+registryFQDN: %q
+helmrepo:
+  name: appscode-charts-oci
+  namespace: %q
+`
+  (include "registry.ghcr" $)
+  $.Release.Namespace
+  | fromYaml }}
 
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $defaults $vals }}
