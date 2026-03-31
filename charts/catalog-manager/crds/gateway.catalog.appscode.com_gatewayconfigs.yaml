@@ -560,7 +560,6 @@ spec:
                         - NodePort
                         type: string
                     required:
-                    - annotations
                     - externalTrafficPolicy
                     - nodeportRange
                     - portRange
