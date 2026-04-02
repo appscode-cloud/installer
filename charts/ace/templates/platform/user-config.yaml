@@ -1,3 +1,6 @@
+{{- $secretName := include "settings.platformUserConfigSecretName" . -}}
+{{- $secretNS   := .Release.Namespace -}}
+{{- if not (lookup "v1" "Secret" $secretNS $secretName) }}
 kind: Secret
 apiVersion: v1
 metadata:
@@ -16,3 +19,4 @@ stringData:
     FAVICON = `{{ .Values.branding.favicon }}`
     PRIMARY_COLOR = `{{ .Values.branding.primaryColor }}`
     SHOW_APP_TAG = {{ .Values.branding.showAppTag }}
+{{- end }}
