@@ -221,7 +221,7 @@ type AceOptionsNatsSettings struct {
 }
 
 type AceOptionsPlatformInfra struct {
-	StorageClass  LocalObjectReference         `json:"storageClass"`
+	StorageClass  LocalObjectReference         `json:"storageClass,omitempty"`
 	KubeStash     KubeStashOptions             `json:"kubestash"`
 	TLS           catgwapi.InfraTLS            `json:"tls"`
 	DNS           InfraDns                     `json:"dns"`
