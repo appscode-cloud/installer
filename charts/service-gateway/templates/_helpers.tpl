@@ -59,12 +59,13 @@ The name of the tenant.
 
 {{/*
 The domain name used for the gateway.
+<clusterName>.<orgName / "ace">.<domain>
 */}}
 {{- define "gateway.domain" -}}
-{{- ternary
-(printf "%s.%s.%s" (trimSuffix "-gw" .Release.Namespace) .Values.clusterMetadata.name .Values.infra.host)
-(printf "%s.%s" (trimSuffix "-gw" .Release.Namespace) .Values.infra.host)
-(eq .Values.infra.tenantSpreadPolicy "multi") }}
+{{- $ns := trimSuffix "-gw" .Release.Namespace -}}
+{{- $useClusterName := or (eq $ns "ace") (eq .Values.infra.tenantSpreadPolicy "multi") -}}
+{{- $prefix := ternary (printf "%s.%s" .Values.clusterMetadata.name $ns) $ns $useClusterName -}}
+{{- printf "%s.%s" $prefix .Values.infra.host -}}
 {{- end }}
 
 {{/*
