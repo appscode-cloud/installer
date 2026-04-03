@@ -2,6 +2,10 @@
 
 {{ $vals := dig "monitoring-operator" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $defaults $vals }}
+{{ $vals = mergeOverwrite $vals (dict "alertmanager" (dict
+  "email" .Values.alertmanager.email
+  "webhook" .Values.alertmanager.webhook
+)) }}
 
 {{- if eq (include "distro.openshift" $) "true" }}
 {{ $vals = mergeOverwrite $vals (dict "distro" .Values.distro) }}
