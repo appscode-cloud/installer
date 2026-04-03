@@ -822,7 +822,6 @@ properties:
       - cloudServices
       - dns
       - kubestash
-      - storageClass
       - tls
     type: object
   ingress:
