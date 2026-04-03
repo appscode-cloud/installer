@@ -1,0 +1,55 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: voyager
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: voyager
+    repoURL: ghcr.io/appscode-charts
+    targetRevision: v2026.3.23
+    helm:
+      values: |
+        ace-user-roles:
+          enabled: false
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: voyager
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+
+  ignoreDifferences:
+  - jsonPointers:
+    - /data
+    kind: Secret
+    name: voyager-apiserver-cert
+    namespace: voyager
+  - group: admissionregistration.k8s.io
+    kind: MutatingWebhookConfiguration
+    name: mutators.voyager.appscode.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    name: validators.voyager.appscode.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.validators.voyager.appscode.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.mutators.voyager.appscode.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apps
+    kind: Deployment
+    name: voyager-voyager-operator
+    namespace: voyager
+    jsonPointers:
+    - /spec/template/metadata/annotations/reload

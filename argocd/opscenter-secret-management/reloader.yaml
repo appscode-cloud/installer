@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: reloader
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: reloader
+    repoURL: ghcr.io/appscode-charts
+    targetRevision: 2.2.9
+    helm:
+      values: |
+        ace-user-roles:
+          enabled: false
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kubeops
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true

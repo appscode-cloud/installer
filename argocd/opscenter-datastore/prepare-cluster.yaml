@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prepare-cluster
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: prepare-cluster
+    repoURL: ghcr.io/appscode-charts
+    targetRevision: v2023.12.21
+    helm:
+      values: |
+        ace-user-roles:
+          enabled: false
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kubedb
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true

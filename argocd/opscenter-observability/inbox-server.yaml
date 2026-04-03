@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: inbox-server
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: inbox-server
+    repoURL: ghcr.io/appscode-charts
+    targetRevision: v2025.2.28
+    helm:
+      values: |
+        ace-user-roles:
+          enabled: false
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: ace
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
