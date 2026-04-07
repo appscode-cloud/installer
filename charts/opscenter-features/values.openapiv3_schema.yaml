@@ -3,12 +3,6 @@ properties:
     properties:
       email:
         properties:
-          authPassword:
-            type: string
-          authSecretKey:
-            type: string
-          authSecretName:
-            type: string
           authUsername:
             type: string
           enabled:
@@ -17,6 +11,19 @@ properties:
             type: string
           requireTLS:
             type: boolean
+          secret:
+            properties:
+              key:
+                type: string
+              name:
+                type: string
+              password:
+                type: string
+            required:
+            - key
+            - name
+            - password
+            type: object
           sendResolved:
             type: boolean
           smarthost:
@@ -24,13 +31,11 @@ properties:
           to:
             type: string
         required:
-        - authPassword
-        - authSecretKey
-        - authSecretName
         - authUsername
         - enabled
         - from
         - requireTLS
+        - secret
         - sendResolved
         - smarthost
         - to
@@ -39,20 +44,25 @@ properties:
         properties:
           enabled:
             type: boolean
+          secret:
+            properties:
+              key:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+            required:
+            - key
+            - name
+            - url
+            type: object
           sendResolved:
             type: boolean
-          url:
-            type: string
-          urlSecretKey:
-            type: string
-          urlSecretName:
-            type: string
         required:
         - enabled
+        - secret
         - sendResolved
-        - url
-        - urlSecretKey
-        - urlSecretName
         type: object
     required:
     - email
