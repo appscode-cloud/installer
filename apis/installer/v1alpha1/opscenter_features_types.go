@@ -50,49 +50,14 @@ type OpscenterFeaturesSpec struct {
 	FullnameOverride string `json:"fullnameOverride"`
 
 	// +optional
-	OfflineInstaller bool                          `json:"offlineInstaller"`
-	Image            shared.ImageRegistrySpec      `json:"image"`
-	Helm             OpscenterHelmSpec             `json:"helm"`
-	Registry         shared.RegistryInfo           `json:"registry"`
-	ClusterMetadata  kmapi.ClusterInfo             `json:"clusterMetadata"`
-	Alertmanager     AlertmanagerNotificationsSpec `json:"alertmanager"`
-	LicenseServer    LicenseServerSpec             `json:"licenseServer"`
+	OfflineInstaller bool                     `json:"offlineInstaller"`
+	Image            shared.ImageRegistrySpec `json:"image"`
+	Helm             OpscenterHelmSpec        `json:"helm"`
+	Registry         shared.RegistryInfo      `json:"registry"`
+	ClusterMetadata  kmapi.ClusterInfo        `json:"clusterMetadata"`
+	LicenseServer    LicenseServerSpec        `json:"licenseServer"`
 	// +optional
 	Distro shared.DistroSpec `json:"distro"`
-}
-
-type AlertmanagerNotificationsSpec struct {
-	Email   AlertmanagerEmailNotificationSpec   `json:"email"`
-	Webhook AlertmanagerWebhookNotificationSpec `json:"webhook"`
-}
-
-type AlertmanagerEmailSecretSpec struct {
-	Name     string `json:"name"`
-	Key      string `json:"key"`
-	Password string `json:"password"`
-}
-
-type AlertmanagerWebhookSecretSpec struct {
-	Name string `json:"name"`
-	Key  string `json:"key"`
-	URL  string `json:"url"`
-}
-
-type AlertmanagerEmailNotificationSpec struct {
-	Enabled      bool                        `json:"enabled"`
-	To           string                      `json:"to"`
-	From         string                      `json:"from"`
-	Smarthost    string                      `json:"smarthost"`
-	AuthUsername string                      `json:"authUsername"`
-	Secret       AlertmanagerEmailSecretSpec `json:"secret"`
-	RequireTLS   bool                        `json:"requireTLS"`
-	SendResolved bool                        `json:"sendResolved"`
-}
-
-type AlertmanagerWebhookNotificationSpec struct {
-	Enabled      bool                          `json:"enabled"`
-	Secret       AlertmanagerWebhookSecretSpec `json:"secret"`
-	SendResolved bool                          `json:"sendResolved"`
 }
 
 type OpscenterHelmSpec struct {
