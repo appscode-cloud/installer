@@ -157,7 +157,7 @@ helm:
             secret:
               name: "alertmanager-email-secret"
               key: "password"
-              password: "" #TODO: NOT expose secrets in values
+              password: "" # TODO: NOT expose secrets in values
             requireTLS: true
             sendResolved: true
           webhook:
