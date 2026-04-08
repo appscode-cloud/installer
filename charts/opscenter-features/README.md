@@ -121,14 +121,14 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.monitoring-operator.values.alertmanager.email.from            |                                 | <code>""</code>                                     |
 | helm.releases.monitoring-operator.values.alertmanager.email.smarthost       |                                 | <code>""</code>                                     |
 | helm.releases.monitoring-operator.values.alertmanager.email.authUsername    |                                 | <code>""</code>                                     |
-| helm.releases.monitoring-operator.values.alertmanager.email.secret.name     |                                 | <code>"alertmanager-email-smtp-secret"</code>       |
-| helm.releases.monitoring-operator.values.alertmanager.email.secret.key      |                                 | <code>"alertmanager-email-smtp-password"</code>     |
+| helm.releases.monitoring-operator.values.alertmanager.email.secret.name     |                                 | <code>"alertmanager-email-secret"</code>            |
+| helm.releases.monitoring-operator.values.alertmanager.email.secret.key      |                                 | <code>"password"</code>                             |
 | helm.releases.monitoring-operator.values.alertmanager.email.secret.password |                                 | <code>"" #TODO: NOT expose secrets in values</code> |
 | helm.releases.monitoring-operator.values.alertmanager.email.requireTLS      |                                 | <code>true</code>                                   |
 | helm.releases.monitoring-operator.values.alertmanager.email.sendResolved    |                                 | <code>true</code>                                   |
 | helm.releases.monitoring-operator.values.alertmanager.webhook.enabled       |                                 | <code>false</code>                                  |
 | helm.releases.monitoring-operator.values.alertmanager.webhook.secret.name   |                                 | <code>"alertmanager-webhook-secret"</code>          |
-| helm.releases.monitoring-operator.values.alertmanager.webhook.secret.key    |                                 | <code>"alertmanager-webhook-url"</code>             |
+| helm.releases.monitoring-operator.values.alertmanager.webhook.secret.key    |                                 | <code>"url"</code>                                  |
 | helm.releases.monitoring-operator.values.alertmanager.webhook.secret.url    |                                 | <code>""</code>                                     |
 | helm.releases.monitoring-operator.values.alertmanager.webhook.sendResolved  |                                 | <code>true</code>                                   |
 | helm.releases.operator-shard-manager.version                                |                                 | <code>"v2026.1.15"</code>                           |

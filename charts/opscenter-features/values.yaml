@@ -155,8 +155,8 @@ helm:
             smarthost: ""
             authUsername: ""
             secret:
-              name: "alertmanager-email-smtp-secret"
-              key: "alertmanager-email-smtp-password"
+              name: "alertmanager-email-secret"
+              key: "password"
               password: "" #TODO: NOT expose secrets in values
             requireTLS: true
             sendResolved: true
@@ -164,7 +164,7 @@ helm:
             enabled: false
             secret:
               name: "alertmanager-webhook-secret"
-              key: "alertmanager-webhook-url"
+              key: "url"
               url: ""
             sendResolved: true
     operator-shard-manager:
