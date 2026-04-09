@@ -1,0 +1,91 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubevault
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: kubevault
+    repoURL: ghcr.io/appscode-charts
+    targetRevision: v2026.2.27
+    helm:
+      values: |
+        ace-user-roles:
+          enabled: false
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kubevault
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+
+  ignoreDifferences:
+  - jsonPointers:
+    - /data
+    kind: Secret
+    name: kubevault-apiserver-cert
+    namespace: kubevault
+  - group: admissionregistration.k8s.io
+    kind: MutatingWebhookConfiguration
+    name: mutators.engine.kubevault.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: MutatingWebhookConfiguration
+    name: mutators.kubevault.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: MutatingWebhookConfiguration
+    name: mutators.policy.kubevault.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    name: validators.engine.kubevault.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    name: validators.kubevault.com
+    jqPathExpressions:
+    - .webhooks[].clientConfig.caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.mutators.engine.kubevault.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.mutators.kubevault.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.mutators.policy.kubevault.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.validators.engine.kubevault.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.validators.kubevault.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apps
+    kind: Deployment
+    name: kubevault-kubevault-operator
+    namespace: kubevault
+    jsonPointers:
+    - /spec/template/metadata/annotations/reload
+  - group: apps
+    kind: Deployment
+    name: kubevault-kubevault-webhook-server
+    namespace: kubevault
+    jsonPointers:
+    - /spec/template/metadata/annotations/reload

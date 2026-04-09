@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keda-add-ons-http
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: keda-add-ons-http
+    repoURL: ghcr.io/appscode-charts
+    targetRevision: 0.12.0
+    helm:
+      values: |
+        ace-user-roles:
+          enabled: false
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: keda
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true

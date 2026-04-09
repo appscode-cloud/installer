@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: opencost
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: opencost
+    repoURL: ghcr.io/appscode-charts
+    targetRevision: 1.18.1
+    helm:
+      values: |
+        ace-user-roles:
+          enabled: false
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: opencost
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
