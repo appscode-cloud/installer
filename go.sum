@@ -217,8 +217,8 @@ go.bytebuilders.dev/resource-model v0.4.0 h1:wDXg4SGYn3zNRuOj17gGo0qeSE//ytdzGPS
 go.bytebuilders.dev/resource-model v0.4.0/go.mod h1:wGndjj3y+Yjh7+e8Wjc6joqzZCC16WZfKNx9adAFVkw=
 go.bytebuilders.dev/ui-wizards v0.31.0 h1:jLKOZEdUQbyA6r0iFe9khwB5U46Ad2HfgBlqmysc73o=
 go.bytebuilders.dev/ui-wizards v0.31.0/go.mod h1:od0U+2LentkkvTNxRPtVnx4bDWehdzIsMFbmC5FIQ8A=
-go.openviz.dev/installer v0.0.0-20260104052502-5deb6915c7d6 h1:71aGKgbPoKqJWD4tTOVbe8p+hkhvsELsGPwuOCon3Wg=
-go.openviz.dev/installer v0.0.0-20260104052502-5deb6915c7d6/go.mod h1:a+eNwY1tC1B2eAD/K/8sAv7EJhs+KigwQHBz2fgG+1w=
+go.openviz.dev/installer v0.0.0-20260408131258-3023af9e16ae h1:L9zvhgJJVWqFYrgd5s9BzQ8SHCo897/+Xmt72pHvd6o=
+go.openviz.dev/installer v0.0.0-20260408131258-3023af9e16ae/go.mod h1:lGQ+iSgf2XHY2lTpPsuyIEp9Dfp6cLpjqzTgvy+XDmo=
 go.uber.org/automaxprocs v1.6.0 h1:O3y2/QNTOdbF+e/dpXNNW7Rx2hZ4sTIPyybbxyNqTUs=
 go.uber.org/automaxprocs v1.6.0/go.mod h1:ifeIMSnPZuznNm6jmdzmU3/bfk01Fe2fotchwEFJ8r8=
 go.uber.org/goleak v1.3.0 h1:2K3zAYmnTNqV73imy9J1T3WC+gmCePx2hEGkimedGto=
@@ -351,8 +351,8 @@ kmodules.xyz/resource-metadata v0.43.0 h1:MSUeMku47f1NhpTptkbWZbyGqp1oASTh/I2sBJ
 kmodules.xyz/resource-metadata v0.43.0/go.mod h1:bqm4/ZqHxA04H1/Mz79YhHgrePSKJfUVL7cpG8teKsA=
 kmodules.xyz/schema-checker v0.4.3 h1:LKXKNWwJ0bFOqCMbyfZk38uVJIejXsANdp7l+fkIiJQ=
 kmodules.xyz/schema-checker v0.4.3/go.mod h1:JjUB6Ih4gnrBwzJNO91Dz9xa8J92UHyvPSyfX++sksM=
-kubeops.dev/external-dns-operator v0.3.0 h1:KIWX0C+5en8levhkdlM9htZ+EsowIWm9mgLTdsJYUzo=
-kubeops.dev/external-dns-operator v0.3.0/go.mod h1:hJgsshVGN68A4eXPjGYCuKaWLgYbaYFCD9E+vydYJoE=
+kubeops.dev/external-dns-operator v0.3.1-0.20260409053434-d3838ac10fdf h1:mx8EWPxhDZkNM+knVHjEVxxUYDOwOCR18Rf85vHCA78=
+kubeops.dev/external-dns-operator v0.3.1-0.20260409053434-d3838ac10fdf/go.mod h1:hJgsshVGN68A4eXPjGYCuKaWLgYbaYFCD9E+vydYJoE=
 kubeops.dev/installer v0.0.0-20260313185651-062077f97cb4 h1:65oo3cimnAHgmP2PFnYU+NKsVYj5vJ8KAeoIi438H88=
 kubeops.dev/installer v0.0.0-20260313185651-062077f97cb4/go.mod h1:8X06Mr3+df3YsE1PMRSDBPaplOOS4js7tBBFK3Sx1Ug=
 kubeops.dev/scanner v0.0.19 h1:J8C94k4j3NY3Y8UGHcG4nCZtmpSqPneCmkuvGNUOv4s=

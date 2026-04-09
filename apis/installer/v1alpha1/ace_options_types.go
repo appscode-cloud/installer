@@ -25,6 +25,7 @@ import (
 	configapi "go.bytebuilders.dev/resource-model/apis/config/v1alpha1"
 	wizardsapi "go.bytebuilders.dev/ui-wizards/apis/wizards/v1alpha1"
 
+	openviz_installer "go.openviz.dev/installer/apis/installer/v1alpha1"
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	store "kmodules.xyz/objectstore-api/api/v1"
@@ -57,7 +58,7 @@ type AceOptionsSpec struct {
 	Context              AceDeploymentContext            `json:"context"`
 	Release              ObjectReference                 `json:"release"`
 	Registry             RegistrySpec                    `json:"registry"`
-	Monitoring           GlobalMonitoring                `json:"monitoring"`
+	Monitoring           AceOptionsMonitoring            `json:"monitoring"`
 	Infra                AceOptionsPlatformInfra         `json:"infra"`
 	Settings             AceOptionsSettings              `json:"settings"`
 	PlatformUi           AceOptionsComponentSpec         `json:"platform-ui"`
@@ -220,6 +221,13 @@ type AceOptionsNatsSettings struct {
 	NodeSelector map[string]string         `json:"nodeSelector"`
 }
 
+type AceOptionsMonitoring struct {
+	Agent          string                   `json:"agent"`
+	ServiceMonitor GlobalServiceMonitor     `json:"serviceMonitor"`
+	Exporter       GlobalPrometheusExporter `json:"exporter"`
+	//+optional
+	AlertManager openviz_installer.Alertmanager `json:"alertManager"`
+}
 type AceOptionsPlatformInfra struct {
 	StorageClass  LocalObjectReference         `json:"storageClass,omitempty"`
 	KubeStash     KubeStashOptions             `json:"kubestash"`
