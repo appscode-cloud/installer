@@ -6,7 +6,7 @@ require (
 	go.bytebuilders.dev/catalog v0.0.21-0.20260310064619-b60c91703ff4
 	go.bytebuilders.dev/resource-model v0.4.0
 	go.bytebuilders.dev/ui-wizards v0.31.0
-	go.openviz.dev/installer v0.0.0-20260104052502-5deb6915c7d6
+	go.openviz.dev/installer v0.0.0-20260408131258-3023af9e16ae
 	gomodules.xyz/go-sh v0.2.0
 	k8s.io/api v0.34.3
 	k8s.io/apimachinery v0.34.3
@@ -16,7 +16,7 @@ require (
 	kmodules.xyz/objectstore-api v0.34.0
 	kmodules.xyz/resource-metadata v0.43.0
 	kmodules.xyz/schema-checker v0.4.3
-	kubeops.dev/external-dns-operator v0.3.0
+	kubeops.dev/external-dns-operator v0.3.1-0.20260409053434-d3838ac10fdf
 	kubeops.dev/installer v0.0.0-20260313185651-062077f97cb4
 	sigs.k8s.io/gateway-api v1.4.1
 	sigs.k8s.io/kustomize/kyaml v0.20.1

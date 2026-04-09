@@ -330,8 +330,8 @@ go.bytebuilders.dev/resource-model/crds
 ## explicit; go 1.25
 go.bytebuilders.dev/ui-wizards/apis/wizards
 go.bytebuilders.dev/ui-wizards/apis/wizards/v1alpha1
-# go.openviz.dev/installer v0.0.0-20260104052502-5deb6915c7d6
-## explicit; go 1.24.0
+# go.openviz.dev/installer v0.0.0-20260408131258-3023af9e16ae
+## explicit; go 1.25
 go.openviz.dev/installer/apis/installer
 go.openviz.dev/installer/apis/installer/v1alpha1
 # go.yaml.in/yaml/v2 v2.4.3
@@ -951,7 +951,7 @@ kmodules.xyz/resource-metadata/crds
 # kmodules.xyz/schema-checker v0.4.3
 ## explicit; go 1.22.0
 kmodules.xyz/schema-checker
-# kubeops.dev/external-dns-operator v0.3.0
+# kubeops.dev/external-dns-operator v0.3.1-0.20260409053434-d3838ac10fdf
 ## explicit; go 1.25
 kubeops.dev/external-dns-operator/apis/external
 kubeops.dev/external-dns-operator/apis/external/v1alpha1
