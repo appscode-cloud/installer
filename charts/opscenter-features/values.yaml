@@ -146,6 +146,21 @@ helm:
       version: "3.11.0"
     monitoring-operator:
       version: "v2026.3.30"
+      values:
+        alertmanager:
+          email:
+            enabled: false
+            to: ""
+            from: ""
+            smarthost: ""
+            authUsername: ""
+            password: "" # TODO: NOT expose secrets in values
+            requireTLS: true
+            sendResolved: true
+          webhook:
+            enabled: false
+            url: ""
+            sendResolved: true
     operator-shard-manager:
       version: "v2026.1.15"
     opencost:
