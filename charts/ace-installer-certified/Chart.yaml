@@ -1,7 +1,7 @@
 annotations:
   charts.openshift.io/name: ace-installer-certified
 apiVersion: v2
-appVersion: v2026.3.30
+appVersion: v2026.4.30
 description: ACE Installer
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/kubeops/icons/android-icon-192x192.png
@@ -13,4 +13,4 @@ name: ace-installer-certified
 sources:
 - https://github.com/appscode-cloud/installer
 type: application
-version: 2026.3.30
+version: 2026.4.30
