@@ -46,6 +46,9 @@ spec:
       namespace: {{ .Release.Namespace }}
       port: 80
       weight: 1
+    timeouts:
+      backendRequest: 2m
+      request: 2m
   - matches:
     - path:
         type: PathPrefix
@@ -90,6 +93,9 @@ spec:
       namespace: {{ .Release.Namespace }}
       port: 80
       weight: 1
+    timeouts:
+      backendRequest: 2m
+      request: 2m
   - matches:
     - path:
         type: PathPrefix
@@ -101,4 +107,7 @@ spec:
       namespace: {{ .Release.Namespace }}
       port: 4000
       weight: 1
+    timeouts:
+      backendRequest: 2m
+      request: 2m
 {{- end }}
