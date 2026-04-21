@@ -45,15 +45,15 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `platform-opscenter` chart and their default values.
 
-|              Parameter              |         Description         |                 Default                 |
-|-------------------------------------|-----------------------------|-----------------------------------------|
-| nameOverride                        | Overrides name template     | <code>""</code>                         |
-| fullnameOverride                    | Overrides fullname template | <code>""</code>                         |
-| platform-grafana-dashboards.enabled |                             | <code>true</code>                       |
-| openfga-alerts.enabled              |                             | <code>true</code>                       |
-| openfga-alerts.grafana.jobName      |                             | <code>openfga</code>                    |
-| nats-alerts.enabled                 |                             | <code>true</code>                       |
-| nats-alerts.grafana.jobName         |                             | <code>"{{ .Release.name }}-nats"</code> |
+|              Parameter              |         Description         |        Default        |
+|-------------------------------------|-----------------------------|-----------------------|
+| nameOverride                        | Overrides name template     | <code>""</code>       |
+| fullnameOverride                    | Overrides fullname template | <code>""</code>       |
+| platform-grafana-dashboards.enabled |                             | <code>true</code>     |
+| openfga-alerts.enabled              |                             | <code>true</code>     |
+| openfga-alerts.grafana.jobName      |                             | <code>openfga</code>  |
+| nats-alerts.enabled                 |                             | <code>true</code>     |
+| nats-alerts.grafana.jobName         |                             | <code>ace-nats</code> |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
