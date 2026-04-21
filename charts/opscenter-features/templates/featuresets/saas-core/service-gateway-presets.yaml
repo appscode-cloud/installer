@@ -11,16 +11,16 @@ gateway:
     envoyGateway:
       gateway:
         controllerName: gateway.voyagermesh.com/ace
-    deployment:
-      envoyGateway:
-        image:
-          repository: %s
-    tester:
-      image: %s
-    gateway-converter:
-      registryFQDN: %s
-    crd-manager:
-      registryFQDN: %s
+  deployment:
+    envoyGateway:
+      image:
+        repository: %s
+  tester:
+    image: %s
+  gateway-converter:
+    registryFQDN: %s
+  crd-manager:
+    registryFQDN: %s
 chart:
   version: %s
 `
