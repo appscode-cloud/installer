@@ -3413,12 +3413,6 @@ spec:
                         type: integer
                     required:
                     - enabled
-                    - featureGates
-                    - image
-                    - imagePullPolicy
-                    - removeUnusedCRDs
-                    - serviceAccount
-                    - ttlSecondsAfterFinished
                     type: object
                   createNamespace:
                     type: boolean
@@ -6517,8 +6511,6 @@ spec:
                                 type: array
                             required:
                             - image
-                            - pullPolicy
-                            - pullSecrets
                             type: object
                           ratelimit:
                             properties:
@@ -6546,8 +6538,6 @@ spec:
                                 type: array
                             required:
                             - image
-                            - pullPolicy
-                            - pullSecrets
                             type: object
                         required:
                         - envoyGateway
@@ -8888,8 +8878,6 @@ spec:
                         type: object
                     required:
                     - image
-                    - pullPolicy
-                    - pullSecrets
                     type: object
                   topologyInjector:
                     properties:

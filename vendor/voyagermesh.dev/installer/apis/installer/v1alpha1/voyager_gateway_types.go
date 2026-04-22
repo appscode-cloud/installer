@@ -75,8 +75,10 @@ type Images struct {
 }
 
 type ImageDetails struct {
-	Image       string                      `json:"image"`
-	PullPolicy  string                      `json:"pullPolicy"`
+	Image string `json:"image"`
+	// +optional
+	PullPolicy string `json:"pullPolicy"`
+	// +optional
 	PullSecrets []core.LocalObjectReference `json:"pullSecrets"`
 }
 

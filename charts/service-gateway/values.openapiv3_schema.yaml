@@ -233,7 +233,6 @@ properties:
             - NodePort
             type: string
         required:
-        - annotations
         - externalTrafficPolicy
         - nodeportRange
         - portRange
@@ -1611,12 +1610,6 @@ properties:
             type: integer
         required:
         - enabled
-        - featureGates
-        - image
-        - imagePullPolicy
-        - removeUnusedCRDs
-        - serviceAccount
-        - ttlSecondsAfterFinished
         type: object
       createNamespace:
         type: boolean
@@ -3102,8 +3095,6 @@ properties:
                     type: array
                 required:
                 - image
-                - pullPolicy
-                - pullSecrets
                 type: object
               ratelimit:
                 properties:
@@ -3122,8 +3113,6 @@ properties:
                     type: array
                 required:
                 - image
-                - pullPolicy
-                - pullSecrets
                 type: object
             required:
             - envoyGateway
@@ -4233,8 +4222,6 @@ properties:
             type: object
         required:
         - image
-        - pullPolicy
-        - pullSecrets
         type: object
       topologyInjector:
         properties:
