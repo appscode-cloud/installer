@@ -50,9 +50,11 @@ type CrdManagerSpec struct {
 	//+optional
 	FullnameOverride string `json:"fullnameOverride"`
 	//+optional
-	RegistryFQDN    string   `json:"registryFQDN"`
-	Image           ImageRef `json:"image"`
-	ImagePullPolicy string   `json:"imagePullPolicy"`
+	RegistryFQDN string `json:"registryFQDN"`
+	// +optional
+	Image ImageRef `json:"image"`
+	// +optional
+	ImagePullPolicy string `json:"imagePullPolicy"`
 	//+optional
 	ImagePullSecrets []string `json:"imagePullSecrets"`
 	//+optional
@@ -72,11 +74,13 @@ type CrdManagerSpec struct {
 	Tolerations []core.Toleration `json:"tolerations"`
 	// If specified, the pod's scheduling constraints
 	// +optional
-	Affinity                *core.Affinity     `json:"affinity"`
-	ServiceAccount          ServiceAccountSpec `json:"serviceAccount"`
-	FeatureGates            map[string]bool    `json:"featureGates"`
-	RemoveUnusedCRDs        bool               `json:"removeUnusedCRDs"`
-	TTLSecondsAfterFinished int                `json:"ttlSecondsAfterFinished"`
+	Affinity *core.Affinity `json:"affinity"`
+	// +optional
+	ServiceAccount ServiceAccountSpec `json:"serviceAccount"`
+	// +optional
+	FeatureGates            map[string]bool `json:"featureGates"`
+	RemoveUnusedCRDs        bool            `json:"removeUnusedCRDs,omitempty"`
+	TTLSecondsAfterFinished int             `json:"ttlSecondsAfterFinished,omitempty"`
 	// +optional
 	Distro shared.DistroSpec `json:"distro"`
 }
