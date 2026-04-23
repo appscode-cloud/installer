@@ -60,6 +60,8 @@ helm:
       version: "v2025.2.28"
     aws-credential-manager:
       version: "v2026.1.20"
+    azure-credential-manager:
+      version: "v2026.4.16"
     gcp-credential-manager:
       version: "v2026.3.11"
     aws-ebs-csi-driver:
