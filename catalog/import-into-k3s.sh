@@ -95,6 +95,7 @@ k3s ctr images import images/appscode-charts-gatekeeper-grafana-dashboards-v2023
 k3s ctr images import images/appscode-charts-gatekeeper-library-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-gatekeeper-3.13.3.tar
 k3s ctr images import images/appscode-charts-gateway-api-v2025.3.14.tar
+k3s ctr images import images/appscode-charts-azure-credential-manager-v2026.4.16.tar
 k3s ctr images import images/appscode-charts-gcp-credential-manager-v2026.3.11.tar
 k3s ctr images import images/appscode-charts-grafana-operator-v2026.3.30.tar
 k3s ctr images import images/appscode-charts-hub-cluster-robot-v2026.2.16.tar
@@ -269,6 +270,7 @@ k3s ctr images import images/appscode-charts-uibytebuildersdev-component-service
 k3s ctr images import images/appscode-charts-uibytebuildersdev-component-stash-presets-v0.12.0.tar
 k3s ctr images import images/appscode-charts-uik8sappscodecom-featureset-capi-capa-editor-v0.32.0.tar
 k3s ctr images import images/appscode-charts-uik8sappscodecom-featureset-capi-capg-editor-v0.32.0.tar
+k3s ctr images import images/appscode-charts-uik8sappscodecom-featureset-capi-capz-editor-v0.32.0.tar
 k3s ctr images import images/appscode-charts-uik8sappscodecom-featureset-capi-core-editor-v0.32.0.tar
 k3s ctr images import images/appscode-charts-uik8sappscodecom-featureset-crossplane-editor-v0.32.0.tar
 k3s ctr images import images/appscode-charts-uik8sappscodecom-featureset-ocm-hub-editor-v0.32.0.tar
