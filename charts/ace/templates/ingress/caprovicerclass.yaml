@@ -15,7 +15,11 @@ spec:
   - apiGroup: ""
     kind: Secret
     namespace: {{ .Release.Namespace }}
+    {{- if (index .Values "gateway" "enabled") }}
+    name: {{ include "ace.fullname" . }}-gw-infra-cert
+    {{- else }}
     name: {{ include "ace.fullname" . }}-cert
+    {{- end }}
     key: "ca.crt"
 
 {{- end}}

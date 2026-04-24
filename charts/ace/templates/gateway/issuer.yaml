@@ -1,9 +1,9 @@
-{{- if and (has .Values.global.infra.tls.issuer (list "letsencrypt" "letsencrypt-staging" "ca")) (index .Values "ingress-nginx" "enabled") }}
+{{- if and (has .Values.global.infra.tls.issuer (list "letsencrypt" "letsencrypt-staging" "ca")) (index .Values "gateway" "enabled") }}
 
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: {{ include "ace.fullname" . }}
+  name: {{ include "ace.fullname" . }}-gw
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "ace.labels" . | nindent 4 }}
@@ -70,9 +70,13 @@ spec:
       {{- else }}
       # Use ACEM http challenge for everything else
       http01:
-        ingress:
-          ingressClassName: {{ index .Values "ingress-nginx" "controller" "ingressClassResource" "name" }}
-          serviceType: ClusterIP
+        gatewayHTTPRoute:
+          parentRefs:
+          - group: gateway.networking.k8s.io
+            kind: Gateway
+            name: {{ include "ace.fullname" . }}-gw-seed-backend
+            namespace: {{ .Release.Namespace }}-gw
+            sectionName: http
       {{- end }}
   {{- end }}
 {{- end }}
