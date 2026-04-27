@@ -27,6 +27,9 @@ spec:
   {{- end }}
   {{- if eq .Values.global.platform.hostType "domain" }}
     - "{{ .Values.global.platform.host }}"
+    {{- if eq (include "ace.gateway.migrationActive" .) "true" }}
+    - "{{ include "ace.gateway.fqdn" . }}"
+    {{- end }}
     {{- if and .Values.nats.enabled .Values.nats.nats.externalAccess }}
     - "nats.{{ .Values.global.platform.host }}"
     {{- end }}

@@ -1,3 +1,19 @@
 Application deployed. Find pods by running the following command:
 
 kubectl get pods -n {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "ace.name" . }},app.kubernetes.io/instance={{ .Release.Name }}"
+
+{{- if and (index .Values "gateway" "enabled") (not (eq .Values.global.infra.tls.issuer "external")) (eq .Values.global.infra.tls.acme.solver "Ingress") }}
+
+WARNING: gateway.enabled=true but global.infra.tls.acme.solver=Ingress.
+
+  After the ingress→gateway DNS cutover (CNAME {{ .Values.global.platform.host }} ->
+  {{ include "ace.gateway.fqdn" . }}), HTTP-01 challenges hit envoy, not nginx, and the
+  next certificate renewal will fail silently — typically discovered ~60 days later
+  when the cert expires.
+
+  Before the cutover:
+    1. Set global.infra.tls.acme.solver=Gateway (or use DNS-01 if a DNS provider is
+       configured under global.infra.dns).
+    2. Force a renewal of {{ include "ace.fullname" . }}-gw-infra-cert and confirm it
+       succeeds end-to-end.
+{{- end }}
