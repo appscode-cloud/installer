@@ -23,6 +23,7 @@ done
 
 echo "uninstall ace chart"
 helm uninstall ace -n ace
+helm uninstall ace -n ace-gw
 echo "deleting ace jobs"
 kubectl delete jobs -n ace ace-openfga-migrate ace-setup || true
 # wait for pods to teminate
@@ -48,6 +49,7 @@ done
 for x in $(kubectl get helmreleases.helm.toolkit.fluxcd.io -n kubeops -o name); do
     kubectl patch $x -n kubeops -p '{"metadata":{"finalizers":null}}' --type=merge
 done
+kubectl patch helmreleases.helm.toolkit.fluxcd.io ace -n ace-gw -p '{"metadata":{"finalizers":null}}' --type=merge
 # delete helmreleases
 kubectl delete helmreleases.helm.toolkit.fluxcd.io -n kubeops --all
 
