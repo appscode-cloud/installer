@@ -1,4 +1,4 @@
-{{- if not (eq .Values.global.infra.tls.issuer "external") }}
+{{- if and (not (eq .Values.global.infra.tls.issuer "external")) (index .Values "ingress-nginx" "enabled") }}
 
 apiVersion: cert-manager.io/v1
 kind: Certificate
