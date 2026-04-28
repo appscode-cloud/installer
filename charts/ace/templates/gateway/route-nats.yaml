@@ -56,7 +56,7 @@ spec:
     caCertificateRefs:
     - group: ""
       kind: Secret
-      name: {{ include "ace.fullname" . }}-gw-infra-cert
+      name: {{ include "ace.fullname" . }}-gw-cert
   {{ if eq (index .Values "global" "platform" "hostType") "ip" }}
     hostname: {{ include "ace.fullname" . }}-nats
   {{- else }}

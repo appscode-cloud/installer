@@ -23,7 +23,7 @@ spec:
       certificateRefs:
       - group: ""
         kind: Secret
-        name: {{ include "ace.fullname" . }}-gw-infra-cert
+        name: {{ include "ace.fullname" . }}-gw-cert
         namespace: {{ .Release.Namespace }}
     allowedRoutes:
       namespaces:
