@@ -25,6 +25,14 @@ spec:
         kind: Secret
         name: {{ include "ace.fullname" . }}-gw-cert
         namespace: {{ .Release.Namespace }}
+{{- $secretName := printf "%s-ingress-cert" (include "ace.fullname" .) }}
+{{- $existing := lookup "v1" "Secret" .Release.Namespace $secretName }}
+{{- if $existing }}
+      - group: ""
+        kind: Secret
+        name: {{ include "ace.fullname" . }}-ingress-cert
+        namespace: {{ .Release.Namespace }}
+{{- end }}
     allowedRoutes:
       namespaces:
         from: Same

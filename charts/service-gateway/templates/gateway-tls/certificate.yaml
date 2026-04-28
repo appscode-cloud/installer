@@ -1,6 +1,3 @@
-{{- $ing := lookup "networking.k8s.io/v1" "Ingress" "ace" "ace" -}}
-{{- $domain := include "gateway.domain" . -}}
-
 {{- if not (eq .Values.infra.tls.issuer "external") }}
 
 apiVersion: cert-manager.io/v1
@@ -22,10 +19,7 @@ spec:
   {{- if eq .Values.infra.hostType "domain" }}
   commonName: {{ include "gateway.domain" . }}
   dnsNames:
-    - {{ $domain }}
-    {{- if and $ing (hasPrefix "ace.ace." $domain) }}
-    - {{ trimPrefix "ace.ace." $domain }}
-    {{- end }}
+    - {{ include "gateway.domain" . }}
   {{- else }}
   ipAddresses:
     - "{{ .Values.infra.host }}"
