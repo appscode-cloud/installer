@@ -317,7 +317,7 @@ github.com/zeebo/xxh3
 ## explicit; go 1.22.0
 go.appscode.dev/alerts/apis/alerts
 go.appscode.dev/alerts/apis/alerts/v1alpha1
-# go.bytebuilders.dev/catalog v0.0.22
+# go.bytebuilders.dev/catalog v0.0.23-0.20260427125711-362e13006a81
 ## explicit; go 1.25.6
 go.bytebuilders.dev/catalog/api/gateway/v1alpha1
 # go.bytebuilders.dev/resource-model v0.4.0
@@ -1054,7 +1054,7 @@ stash.appscode.dev/apimachinery/apis/stash
 stash.appscode.dev/apimachinery/apis/stash/v1alpha1
 stash.appscode.dev/apimachinery/apis/stash/v1beta1
 stash.appscode.dev/apimachinery/crds
-# voyagermesh.dev/installer v0.0.0-20260422083412-9fb2b415ba60
+# voyagermesh.dev/installer v0.0.0-20260427124054-e6fbf86716f0
 ## explicit; go 1.25.0
 voyagermesh.dev/installer/apis/installer
 voyagermesh.dev/installer/apis/installer/v1alpha1

@@ -3367,8 +3367,6 @@ spec:
                             type: boolean
                           name:
                             type: string
-                        required:
-                        - create
                         type: object
                       tolerations:
                         description: If specified, the pod's tolerations.
@@ -4883,8 +4881,6 @@ spec:
                         type: string
                       replicas:
                         type: integer
-                    required:
-                    - priorityClassName
                     type: object
                   gateway-converter:
                     properties:
@@ -6416,8 +6412,6 @@ spec:
                             type: boolean
                           name:
                             type: string
-                        required:
-                        - create
                         type: object
                       tolerations:
                         description: If specified, the pod's tolerations.
