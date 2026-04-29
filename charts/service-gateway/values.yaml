@@ -73,8 +73,7 @@ gateway:
         controllerName: gateway.voyagermesh.com/ace
       extensionApis: {}
   deployment:
-    priorityClassName: system-cluster-critical
-    annotations: {}
+    priorityClassName: ""
   hpa:
     enabled: false
     behavior: {}

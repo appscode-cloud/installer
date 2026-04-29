@@ -210,6 +210,25 @@ Determine database host name
 {{- end -}}
 
 {{/*
+Gateway-native FQDN for the ace deployment.
+Only used during the ingress→gateway migration window so
+phase-2 testers can hit the gateway directly while ingress still owns the main host.
+*/}}
+{{- define "ace.gateway.fqdn" -}}
+{{- printf "ace.ace.%s" .Values.global.platform.host -}}
+{{- end }}
+
+{{/*
+True iff both ingress and gateway are enabled — i.e. the chart is rendered for
+ingress→gateway migration phase 2. Used to gate the inclusion of the gateway-native
+FQDN in cert SANs and HTTPRoute hostnames; new gateway-only deployments and
+ingress-only deployments do not need it.
+*/}}
+{{- define "ace.gateway.migrationActive" -}}
+{{- and (index .Values "ingress-nginx" "enabled") (index .Values "gateway" "enabled") -}}
+{{- end }}
+
+{{/*
 Returns whether the OpenShift distribution is used
 */}}
 {{- define "distro.openshift" -}}

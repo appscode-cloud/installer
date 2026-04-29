@@ -88,12 +88,13 @@ type PodDisruptionBudgetSpec struct {
 
 type DeploymentSpec struct {
 	// +optional
-	Annotations       map[string]string       `json:"annotations"`
-	EnvoyGateway      *EnvoyGatewayDeployment `json:"envoyGateway,omitempty"`
-	Ports             []Port                  `json:"ports,omitempty"`
-	PriorityClassName *string                 `json:"priorityClassName"`
-	Replicas          *int                    `json:"replicas,omitempty"`
-	Pod               *PodTemplateSpec        `json:"pod,omitempty"`
+	Annotations  map[string]string       `json:"annotations,omitempty"`
+	EnvoyGateway *EnvoyGatewayDeployment `json:"envoyGateway,omitempty"`
+	Ports        []Port                  `json:"ports,omitempty"`
+	// +optional
+	PriorityClassName *string          `json:"priorityClassName,omitempty"`
+	Replicas          *int             `json:"replicas,omitempty"`
+	Pod               *PodTemplateSpec `json:"pod,omitempty"`
 }
 
 type ServiceSpec struct {
@@ -130,17 +131,17 @@ type Port struct {
 
 type PodTemplateSpec struct {
 	// +optional
-	Affinity *core.Affinity `json:"affinity"`
+	Affinity *core.Affinity `json:"affinity,omitempty"`
 	// +optional
-	Annotations map[string]string `json:"annotations"`
+	Annotations map[string]string `json:"annotations,omitempty"`
 	// +optional
-	Labels map[string]string `json:"labels"`
+	Labels map[string]string `json:"labels,omitempty"`
 	// +optional
-	TopologySpreadConstraints []core.TopologySpreadConstraint `json:"topologySpreadConstraints"`
+	TopologySpreadConstraints []core.TopologySpreadConstraint `json:"topologySpreadConstraints,omitempty"`
 	// +optional
-	Tolerations []core.Toleration `json:"tolerations"`
+	Tolerations []core.Toleration `json:"tolerations,omitempty"`
 	// +optional
-	NodeSelector map[string]string `json:"nodeSelector"`
+	NodeSelector map[string]string `json:"nodeSelector,omitempty"`
 }
 
 type EnvoyGatewayConfig struct {
@@ -220,7 +221,7 @@ type TesterSpec struct {
 	Resources       core.ResourceRequirements `json:"resources"`
 	SecurityContext *core.SecurityContext     `json:"securityContext,omitempty"`
 	// +optional
-	Pod TesterPodSpec `json:"pod"`
+	Pod TesterPodSpec `json:"pod,omitempty"`
 }
 type TesterPodSpec struct {
 	PodTemplateSpec `json:",inline,omitempty"`

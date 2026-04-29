@@ -19,6 +19,9 @@ spec:
   {{- if eq .Values.global.platform.hostType "domain" }}
   hostnames:
     - {{ .Values.global.platform.host }}
+    {{- if eq (include "ace.gateway.migrationActive" .) "true" }}
+    - {{ include "ace.gateway.fqdn" . }}
+    {{- end }}
   {{- end }}
   rules:
   - matches:
@@ -53,7 +56,7 @@ spec:
     caCertificateRefs:
     - group: ""
       kind: Secret
-      name: {{ include "ace.fullname" . }}-cert
+      name: {{ include "ace.fullname" . }}-gw-cert
   {{ if eq (index .Values "global" "platform" "hostType") "ip" }}
     hostname: {{ include "ace.fullname" . }}-nats
   {{- else }}
@@ -73,10 +76,6 @@ spec:
     name: {{ include "ace.fullname" . }}
     namespace: {{ .Release.Namespace }}
     sectionName: nats-tcp
-  {{- if eq .Values.global.platform.hostType "domain" }}
-  hostnames:
-    - {{ .Values.global.platform.host }}
-  {{- end }}
   rules:
   - backendRefs:
     - group: ""

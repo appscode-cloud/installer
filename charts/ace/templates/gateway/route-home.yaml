@@ -19,6 +19,9 @@ spec:
   {{- if eq .Values.global.platform.hostType "domain" }}
   hostnames:
     - {{ .Values.global.platform.host }}
+    {{- if eq (include "ace.gateway.migrationActive" .) "true" }}
+    - {{ include "ace.gateway.fqdn" . }}
+    {{- end }}
   {{- end }}
   rules:
   - matches:
