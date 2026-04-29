@@ -40,6 +40,7 @@ spec:
             kubectl delete jobs -n {{ .Release.Namespace }} --selector app.kubernetes.io/instance=ace || true ; \
             kubectl delete cert -n {{ .Release.Namespace }} {{ include "ace.fullname" . }} || true ; \
             kubectl delete secret -n {{ .Release.Namespace }} {{ include "ace.fullname" . }}-cert || true
+            kubectl delete secret -n {{ .Release.Namespace }} {{ include "ace.fullname" . }}-gw-cert || true
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

@@ -58,7 +58,7 @@ spec:
     caCertificateRefs:
     - group: ""
       kind: Secret
-      name: {{ include "ace.fullname" . }}-cert
+      name: {{ include "ace.fullname" . }}-gw-cert
     hostname: {{ index .Values.gateway.hosts 0 }}
 {{- end }}
 
