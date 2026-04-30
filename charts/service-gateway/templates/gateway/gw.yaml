@@ -7,9 +7,6 @@ spec:
   gatewayClassName: {{ include "tenant.name" . }}
   listeners:
     - name: http
-{{/*      allowedRoutes:*/}}
-{{/*        namespaces:*/}}
-{{/*          from: All*/}}
       protocol: HTTP
     {{- if and (or (eq .Values.infra.tls.issuer "letsencrypt") (eq .Values.infra.tls.issuer "letsencrypt-staging")) (eq .Values.infra.tls.acme.solver "Gateway") }}
       port: 80
