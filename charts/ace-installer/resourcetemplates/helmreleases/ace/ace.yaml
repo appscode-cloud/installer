@@ -35,7 +35,7 @@ spec:
   - name: reloader
     namespace: {{ $.Release.Namespace }}
   {{- if and (dig "catalog-manager" "enabled" false $.Values.helm.releases) (dig "service-gateway-presets" "enabled" false $.Values.helm.releases) }}
-  - name: ace
+  - name: gateway
     namespace: ace
   {{- end }}
   chart:

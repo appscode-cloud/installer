@@ -8,6 +8,8 @@ metadata:
   namespace: {{ $secretNS }}
   labels:
     {{- include "ace.labels" . | nindent 4 }}
+  annotations:
+    helm.sh/resource-policy: keep
 stringData:
   system.ini: |-
     [openfga]
