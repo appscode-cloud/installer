@@ -54,13 +54,21 @@ spec:
     name: {{ include "ace.fullname" . }}-nats
   validation:
     caCertificateRefs:
+    {{- if and
+      (or (eq .Values.global.infra.tls.issuer "letsencrypt") (eq .Values.global.infra.tls.issuer "letsencrypt-staging"))
+      (index .Values "gateway" "enabled") }}
+    - group: ""
+      kind: Secret
+      name: {{ include "ace.fullname" . }}-acme-ca-cert
+    {{- else }}
     - group: ""
       kind: Secret
       name: {{ include "ace.fullname" . }}-gw-cert
+    {{- end }}
   {{ if eq (index .Values "global" "platform" "hostType") "ip" }}
     hostname: {{ include "ace.fullname" . }}-nats
   {{- else }}
-    hostname: {{ .Values.global.platform.host }}
+    hostname: {{ printf "ace.ace.%s" .Values.global.platform.host }}
   {{- end }}
 
 ---

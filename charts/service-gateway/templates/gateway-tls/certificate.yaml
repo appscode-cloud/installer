@@ -16,13 +16,22 @@ spec:
     group: cert-manager.io
     kind: Issuer
     name: {{ include "tenant.name" . }}-gw
-  {{- if eq .Values.infra.hostType "domain" }}
-  commonName: {{ include "gateway.domain" . }}
-  dnsNames:
-    - {{ include "gateway.domain" . }}
-  {{- else }}
+  {{- if eq .Values.infra.hostType "ip" }}
   ipAddresses:
     - "{{ .Values.infra.host }}"
+  dnsNames:
+    - {{ include "tenant.name" . }}-nats
+    - {{ include "tenant.name" . }}-nats.{{ .Release.Namespace }}.svc
+    - {{ include "tenant.name" . }}-nats.{{ .Release.Namespace }}.svc.cluster.local
+    - {{ include "tenant.name" . }}-s3proxy
+    - {{ include "tenant.name" . }}-s3proxy.{{ .Release.Namespace }}.svc
+    - {{ include "tenant.name" . }}-s3proxy.{{ .Release.Namespace }}.svc.cluster.local
+  {{- end }}
+
+  {{- if eq .Values.infra.hostType "domain" }}
+  dnsNames:
+    - {{ include "gateway.domain" . }}
+  commonName: {{ include "gateway.domain" . }}
   {{- end }}
   usages:
     - key agreement
