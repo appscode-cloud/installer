@@ -49,7 +49,7 @@ done
 for x in $(kubectl get helmreleases.helm.toolkit.fluxcd.io -n kubeops -o name); do
     kubectl patch $x -n kubeops -p '{"metadata":{"finalizers":null}}' --type=merge
 done
-kubectl patch helmreleases.helm.toolkit.fluxcd.io ace -n ace -p '{"metadata":{"finalizers":null}}' --type=merge
+kubectl patch helmreleases.helm.toolkit.fluxcd.io gateway -n ace -p '{"metadata":{"finalizers":null}}' --type=merge
 # delete helmreleases
 kubectl delete helmreleases.helm.toolkit.fluxcd.io -n kubeops --all
 

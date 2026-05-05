@@ -19,8 +19,8 @@ dependencies:
 - name: openfga-alerts
   repository: oci://ghcr.io/appscode-charts
   condition: openfga-alerts.enabled
-  version: v2025.6.30
+  version: v2026.2.24
 - name: nats-alerts
   repository: oci://ghcr.io/appscode-charts
   condition: nats-alerts.enabled
-  version: v2025.6.30
+  version: v2026.2.24
