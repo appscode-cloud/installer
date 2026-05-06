@@ -106,6 +106,15 @@ Returns the ServiceMonitor labels
 {{- end }}
 {{- end }}
 
+
+{{- define "catalog-manager.reservedPorts" -}}
+{{- if .Values.reservedPorts -}}
+{{ .Values.reservedPorts }}
+{{- else if .Capabilities.APIVersions.Has "k3s.cattle.io/v1" -}}
+"10010"
+{{- end -}}
+{{- end }}
+
 {{/*
 Returns whether the OpenShift distribution is used
 */}}
