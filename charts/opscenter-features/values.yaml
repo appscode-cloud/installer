@@ -57,7 +57,7 @@ helm:
     aceshifter:
       version: "v2026.4.30"
     appscode-otel-stack:
-      version: "v2025.2.28"
+      version: "v2026.4.30"
     aws-credential-manager:
       version: "v2026.1.20"
     azure-credential-manager:
@@ -177,6 +177,8 @@ helm:
       version: "v2023.12.21"
     prometheus-adapter:
       version: "4.9.0"
+    prom-label-proxy:
+      version: "v2026.4.30"
     reloader:
       version: "2.2.9"
     scanner:
@@ -201,6 +203,10 @@ helm:
       version: "v2026.4.30"
     supervisor:
       version: "v2026.1.15"
+    tenant-operator:
+      version: "v2026.4.30"
+    thanos-operator:
+      version: "v2026.4.30"
     topolvm:
       version: "15.0.0"
     voyager:

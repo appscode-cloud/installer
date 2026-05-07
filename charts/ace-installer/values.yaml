@@ -123,6 +123,9 @@ helm:
           serviceMonitor:
             labels:
               release: kube-prometheus-stack
+    prom-label-proxy:
+      enabled: false
+      version: "v2026.4.30"
     reloader:
       enabled: true
       version: "2.2.9"

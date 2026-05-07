@@ -85,6 +85,7 @@ spec:
       namespace: {{ .Release.Namespace }}
       port: 80
       weight: 1
+  {{- if (index .Values "grafana" "enabled") }}
   - matches:
     - path:
         type: PathPrefix
@@ -99,6 +100,23 @@ spec:
     timeouts:
       backendRequest: 2m
       request: 2m
+  {{- end }}
+  {{- if (index .Values "perses" "enabled") }}
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /observe
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ include "ace.fullname" . }}-perses
+      namespace: {{ .Release.Namespace }}
+      port: 8080
+      weight: 1
+    timeouts:
+      backendRequest: 2m
+      request: 2m
+  {{- end }}
   - matches:
     - path:
         type: PathPrefix
