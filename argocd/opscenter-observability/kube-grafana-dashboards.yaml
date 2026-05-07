@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-grafana-dashboards
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: kube-grafana-dashboards
+    repoURL: ghcr.io/appscode-charts
+    targetRevision: v2023.10.1
+    helm:
+      values: |
+        ace-user-roles:
+          enabled: false
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: monitoring
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true

@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubevault-opscenter
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: kubevault-opscenter
+    repoURL: ghcr.io/appscode-charts
+    targetRevision: v2026.2.27
+    helm:
+      values: |
+        ace-user-roles:
+          enabled: false
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kubevault
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true

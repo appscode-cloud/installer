@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: capi-ops-manager
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: capi-ops-manager
+    repoURL: ghcr.io/appscode-charts
+    targetRevision: v2024.8.14
+    helm:
+      values: |
+        ace-user-roles:
+          enabled: false
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: capi-system
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+
+  ignoreDifferences:
+  - jsonPointers:
+    - /data
+    kind: Secret
+    name: capi-ops-manager-apiserver-cert
+    namespace: capi-system
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.ui.openviz.dev
+    jsonPointers:
+    - /spec/caBundle
+  - group: apps
+    kind: Deployment
+    name: capi-ops-manager
+    namespace: capi-system
+    jsonPointers:
+    - /spec/template/metadata/annotations/checksum~1apiregistration.yaml
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: servicemonitors.monitoring.coreos.com
+    jsonPointers:
+    - /metadata/annotations
+    - /spec
