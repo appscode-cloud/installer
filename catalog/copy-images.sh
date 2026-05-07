@@ -14,9 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -x
+set -euo pipefail
 
-if [ -z "${IMAGE_REGISTRY}" ]; then
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/concurrency-utils.sh"
+
+if [ -z "${IMAGE_REGISTRY:-}" ]; then
     echo "IMAGE_REGISTRY is not set"
     exit 1
 fi
@@ -33,7 +36,7 @@ curl -sL "https://github.com/google/go-containerregistry/releases/latest/downloa
 tar -zxvf /tmp/go-containerregistry.tar.gz -C /tmp/
 mv /tmp/crane .
 
-CMD="./crane"
+CMD="run_async ./crane"
 
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace-installer:v2026.4.30 $IMAGE_REGISTRY/appscode-charts/ace-installer:v2026.4.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace:v2026.4.30 $IMAGE_REGISTRY/appscode-charts/ace:v2026.4.30
@@ -303,3 +306,5 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/va
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/virtual-secrets-server:v2026.2.27 $IMAGE_REGISTRY/appscode-charts/virtual-secrets-server:v2026.2.27
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager-gateway:v2026.1.15 $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2026.1.15
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/voyager:v2026.3.23 $IMAGE_REGISTRY/appscode-charts/voyager:v2026.3.23
+
+wait_all
