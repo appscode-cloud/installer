@@ -53,6 +53,10 @@ spec:
             {{- if .Values.platform.caBundle }}
             - --platform-ca-file=/var/platform-auth/ca.crt
             {{- end }}
+            {{- $ports := include "catalog-manager.reservedPorts" . }}
+            {{- if $ports }}
+            - --reserved-ports={{ $ports }}
+            {{- end }}
           ports:
             - name: metrics
               containerPort: 8080

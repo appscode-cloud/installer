@@ -745,6 +745,8 @@ properties:
     type: string
   replicaCount:
     type: integer
+  reservedPorts:
+    type: string
   serviceAccount:
     properties:
       annotations:
