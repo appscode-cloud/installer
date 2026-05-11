@@ -292,5 +292,5 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-u
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-vault-secrets-operator-0.4.3.tar $IMAGE_REGISTRY/appscode-charts/vault-secrets-operator:0.4.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-vault-0.27.0.tar $IMAGE_REGISTRY/appscode-charts/vault:0.27.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-virtual-secrets-server-v2026.2.27.tar $IMAGE_REGISTRY/appscode-charts/virtual-secrets-server:v2026.2.27
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-gateway-v2026.1.15.tar $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2026.1.15
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-gateway-v2026.1.15.tar $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2026.4.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-v2026.3.23.tar $IMAGE_REGISTRY/appscode-charts/voyager:v2026.3.23

@@ -105,5 +105,5 @@
 - ghcr.io/appscode-charts/vault-secrets-operator:0.4.3
 - ghcr.io/appscode-charts/vault:0.27.0
 - ghcr.io/appscode-charts/virtual-secrets-server:v2026.2.27
-- ghcr.io/appscode-charts/voyager-gateway:v2026.1.15
+- ghcr.io/appscode-charts/voyager-gateway:v2026.4.30
 - ghcr.io/appscode-charts/voyager:v2026.3.23
