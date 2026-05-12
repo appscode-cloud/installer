@@ -103,7 +103,7 @@ cluster:
 envoy:
   provisionerType: Deployment # DaemonSet
   image: ghcr.io/voyagermesh/envoy
-  tag: "v1.36.5-ac"
+  tag: "v1.37.2-ac"
   service:
     # Default listener portmanager range to use for gateway exposure
     portRange: "10000-12767"
