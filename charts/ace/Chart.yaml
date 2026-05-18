@@ -59,7 +59,7 @@ dependencies:
 - name: outbox-syncer
   repository: file://../outbox-syncer
   condition: outbox-syncer.enabled
-  version: v2026.4.30
+  version: v2026.5.30
 - name: platform-opscenter
   repository: file://../platform-opscenter
   condition: platform-opscenter.enabled
