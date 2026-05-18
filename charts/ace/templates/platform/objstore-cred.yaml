@@ -14,9 +14,7 @@ stringData:
 {{- if eq $objstore.provider "s3" }}
   AWS_ACCESS_KEY_ID: '{{ $objstore.s3.AWS_ACCESS_KEY_ID }}'
   AWS_SECRET_ACCESS_KEY: '{{ $objstore.s3.AWS_SECRET_ACCESS_KEY }}'
-  {{- if $objstore.s3.CA_CERT_DATA }}
-  ca.crt: {{ $objstore.s3.CA_CERT_DATA | quote }}
-  {{- end }}
+  ca.crt: {{ $objstore.s3.CA_CERT_DATA | default "" | quote }}
   {{- with $objstore.s3.AWS_REGION }}
   AWS_REGION: '{{ . }}'
   {{- end }}
@@ -30,7 +28,7 @@ stringData:
 {{- end }}
 
 {{- if eq $objstore.provider "gcs" }}
-  sa.json: '{{ $objstore.gcs.GOOGLE_SERVICE_ACCOUNT_JSON_KEY }}'
+  sa.json: {{ $objstore.gcs.GOOGLE_SERVICE_ACCOUNT_JSON_KEY | default "" | quote }}
 {{- end }}
 
 {{- end }}
