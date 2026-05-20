@@ -317,7 +317,7 @@ github.com/zeebo/xxh3
 ## explicit; go 1.22.0
 go.appscode.dev/alerts/apis/alerts
 go.appscode.dev/alerts/apis/alerts/v1alpha1
-# go.bytebuilders.dev/catalog v0.0.23-0.20260427125711-362e13006a81
+# go.bytebuilders.dev/catalog v0.0.23
 ## explicit; go 1.25.6
 go.bytebuilders.dev/catalog/api/gateway/v1alpha1
 # go.bytebuilders.dev/resource-model v0.4.0
@@ -326,7 +326,7 @@ go.bytebuilders.dev/resource-model/apis/cloud
 go.bytebuilders.dev/resource-model/apis/cloud/v1alpha1
 go.bytebuilders.dev/resource-model/apis/config/v1alpha1
 go.bytebuilders.dev/resource-model/crds
-# go.bytebuilders.dev/ui-wizards v0.32.0
+# go.bytebuilders.dev/ui-wizards v0.33.0
 ## explicit; go 1.25
 go.bytebuilders.dev/ui-wizards/apis/wizards
 go.bytebuilders.dev/ui-wizards/apis/wizards/v1alpha1
@@ -340,13 +340,13 @@ go.yaml.in/yaml/v2
 # go.yaml.in/yaml/v3 v3.0.4
 ## explicit; go 1.16
 go.yaml.in/yaml/v3
-# golang.org/x/crypto v0.49.0
+# golang.org/x/crypto v0.50.0
 ## explicit; go 1.25.0
 golang.org/x/crypto/bcrypt
 golang.org/x/crypto/blowfish
 golang.org/x/crypto/pbkdf2
 golang.org/x/crypto/scrypt
-# golang.org/x/net v0.52.0
+# golang.org/x/net v0.53.0
 ## explicit; go 1.25.0
 golang.org/x/net/html
 golang.org/x/net/html/atom
@@ -364,15 +364,15 @@ golang.org/x/oauth2/internal
 # golang.org/x/sync v0.20.0
 ## explicit; go 1.25.0
 golang.org/x/sync/errgroup
-# golang.org/x/sys v0.42.0
+# golang.org/x/sys v0.43.0
 ## explicit; go 1.25.0
 golang.org/x/sys/plan9
 golang.org/x/sys/unix
 golang.org/x/sys/windows
-# golang.org/x/term v0.41.0
+# golang.org/x/term v0.42.0
 ## explicit; go 1.25.0
 golang.org/x/term
-# golang.org/x/text v0.35.0
+# golang.org/x/text v0.36.0
 ## explicit; go 1.25.0
 golang.org/x/text/encoding
 golang.org/x/text/encoding/charmap
@@ -928,7 +928,7 @@ kmodules.xyz/custom-resources/crds
 # kmodules.xyz/go-containerregistry v0.0.15
 ## explicit; go 1.24.0
 kmodules.xyz/go-containerregistry/name
-# kmodules.xyz/image-packer v0.0.0-20260417211304-c41c38b52ffc
+# kmodules.xyz/image-packer v0.0.0-20260519161455-5f04d35b78c3
 ## explicit; go 1.25
 kmodules.xyz/image-packer/pkg/lib
 # kmodules.xyz/monitoring-agent-api v0.34.0
@@ -943,7 +943,7 @@ kmodules.xyz/offshoot-api/api/v1
 # kmodules.xyz/prober v0.34.0
 ## explicit; go 1.24.0
 kmodules.xyz/prober/api/v1
-# kmodules.xyz/resource-metadata v0.44.0
+# kmodules.xyz/resource-metadata v0.45.0
 ## explicit; go 1.25
 kmodules.xyz/resource-metadata/apis/shared
 kmodules.xyz/resource-metadata/apis/ui
@@ -956,7 +956,7 @@ kmodules.xyz/schema-checker
 ## explicit; go 1.25
 kubeops.dev/external-dns-operator/apis/external
 kubeops.dev/external-dns-operator/apis/external/v1alpha1
-# kubeops.dev/installer v0.0.0-20260417215107-8bdce5280a9a
+# kubeops.dev/installer v0.0.0-20260520034532-2c87a5eff691
 ## explicit; go 1.25
 kubeops.dev/installer/apis/installer
 kubeops.dev/installer/apis/installer/v1alpha1
@@ -1054,7 +1054,7 @@ stash.appscode.dev/apimachinery/apis/stash
 stash.appscode.dev/apimachinery/apis/stash/v1alpha1
 stash.appscode.dev/apimachinery/apis/stash/v1beta1
 stash.appscode.dev/apimachinery/crds
-# voyagermesh.dev/installer v0.0.0-20260427124054-e6fbf86716f0
+# voyagermesh.dev/installer v0.0.0-20260515120941-8ff789f06253
 ## explicit; go 1.25.0
 voyagermesh.dev/installer/apis/installer
 voyagermesh.dev/installer/apis/installer/v1alpha1

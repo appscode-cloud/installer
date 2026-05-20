@@ -2,8 +2,8 @@ apiVersion: v2
 name: acaas
 description: A Helm chart for ACE Hosted Service
 type: application
-version: v2026.4.30
-appVersion: v2026.4.30
+version: v2026.5.22
+appVersion: v2026.5.22
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
@@ -15,28 +15,28 @@ dependencies:
 - name: billing
   repository: file://../billing
   condition: billing.enabled
-  version: v2026.4.30
+  version: v2026.5.22
 - name: billing-ui
   repository: file://../billing-ui
   condition: billing-ui.enabled
-  version: v2026.4.30
+  version: v2026.5.22
 - name: deploy-ui
   repository: file://../deploy-ui
   condition: deploy-ui.enabled
-  version: v2026.4.30
+  version: v2026.5.22
 - name: marketplace-api
   repository: file://../marketplace-api
   condition: marketplace-api.enabled
-  version: v2026.4.30
+  version: v2026.5.22
 - name: marketplace-ui
   repository: file://../marketplace-ui
   condition: marketplace-ui.enabled
-  version: v2026.4.30
+  version: v2026.5.22
 - name: platform-links
   repository: file://../platform-links
   condition: platform-links.enabled
-  version: v2026.4.30
+  version: v2026.5.22
 - name: website
   repository: file://../website
   condition: website.enabled
-  version: v2026.4.30
+  version: v2026.5.22
