@@ -270,6 +270,16 @@ settings:
       username: postgres
       password: "xyz"
     logSQL: false
+  pgpool:
+    enabled: false
+    version: "4.5.0"
+    replicas: 2
+    resources:
+      limits:
+        memory: 512Mi
+      requests:
+        memory: 256Mi
+        cpu: 250m
   cache:
     version: "7.2.4"
     cacheInterval: 60

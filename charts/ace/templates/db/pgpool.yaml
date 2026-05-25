@@ -1,0 +1,67 @@
+{{- if .Values.settings.pgpool.enabled }}
+apiVersion: kubedb.com/v1alpha2
+kind: Pgpool
+metadata:
+  name: {{ include "ace.fullname" . }}-pgpool
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+spec:
+  version: "{{ .Values.settings.pgpool.version }}"
+  replicas: {{ .Values.settings.pgpool.replicas }}
+  postgresRef:
+    name: {{ include "ace.fullname" . }}-db
+    namespace: {{ .Release.Namespace }}
+  syncUsers: true
+  deletionPolicy: {{ .Values.settings.db.deletionPolicy }}
+  podTemplate:
+    spec:
+      containers:
+      - name: pgpool
+        resources:
+          {{- toYaml .Values.settings.pgpool.resources | nindent 10 }}
+    {{- if eq (include "distro.openshift" $) "true" }}
+        securityContext:
+          runAsGroup: {{ .Values.securityContext.runAsUser }}
+          runAsUser: {{ .Values.securityContext.runAsUser }}
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+      securityContext:
+        fsGroup: {{ .Values.securityContext.runAsUser }}
+        runAsUser: {{ .Values.securityContext.runAsUser }}
+        runAsGroup: {{ .Values.securityContext.runAsUser }}
+    {{- end }}
+{{- if .Values.global.monitoring }}
+  monitor:
+    agent: {{ .Values.global.monitoring.agent }}
+    prometheus:
+      serviceMonitor:
+        interval: 30s
+        labels:
+          {{- toYaml .Values.global.monitoring.serviceMonitor.labels | nindent 10 }}
+{{- end }}
+---
+apiVersion: appcatalog.appscode.com/v1alpha1
+kind: AppBinding
+metadata:
+  name: {{ include "ace.fullname" . }}-pgpool
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+spec:
+  type: kubedb.com/pgpool
+  appRef:
+    apiGroup: kubedb.com
+    kind: Pgpool
+    name: {{ include "ace.fullname" . }}-pgpool
+    namespace: {{ .Release.Namespace }}
+  clientConfig:
+    service:
+      name: {{ include "ace.fullname" . }}-pgpool
+      scheme: postgresql
+      port: 5432
+{{- end }}
