@@ -103,8 +103,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kube-prometheus-stack.version                                |                                 | <code>"69.2.2"</code>                                |
 | helm.releases.kubedb-ui-presets.version                                    |                                 | <code>"v2026.5.22"</code>                            |
 | helm.releases.kube-ui-server.version                                       |                                 | <code>"v2026.5.22"</code>                            |
-| helm.releases.kubedb.version                                               |                                 | <code>"v2026.4.27"</code>                            |
-| helm.releases.kubedb-opscenter.version                                     |                                 | <code>"v2026.4.27"</code>                            |
+| helm.releases.kubedb.version                                               |                                 | <code>"v2026.5.18-rc.0"</code>                       |
+| helm.releases.kubedb-opscenter.version                                     |                                 | <code>"v2026.5.18-rc.0"</code>                       |
 | helm.releases.kubedb-provider-aws.version                                  |                                 | <code>"v2024.1.31"</code>                            |
 | helm.releases.kubedb-provider-azure.version                                |                                 | <code>"v2024.1.31"</code>                            |
 | helm.releases.kubedb-provider-gcp.version                                  |                                 | <code>"v2024.1.31"</code>                            |
