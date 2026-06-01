@@ -44,24 +44,4 @@ spec:
         labels:
           {{- toYaml .Values.global.monitoring.serviceMonitor.labels | nindent 10 }}
 {{- end }}
----
-apiVersion: appcatalog.appscode.com/v1alpha1
-kind: AppBinding
-metadata:
-  name: {{ include "ace.fullname" . }}-pgpool
-  namespace: {{ .Release.Namespace }}
-  labels:
-    {{- include "ace.labels" . | nindent 4 }}
-spec:
-  type: kubedb.com/pgpool
-  appRef:
-    apiGroup: kubedb.com
-    kind: Pgpool
-    name: {{ include "ace.fullname" . }}-pgpool
-    namespace: {{ .Release.Namespace }}
-  clientConfig:
-    service:
-      name: {{ include "ace.fullname" . }}-pgpool
-      scheme: postgresql
-      port: 5432
 {{- end }}
