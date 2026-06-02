@@ -189,10 +189,10 @@ helm:
                   url: ""
                 mattermost:
                   url: ""
-              requestTimeout: 5s
-              dedupeCacheSize: 2000
-              dedupeWindowSeconds: 3600
-              maxRequestBodyBytes: 1048576
+              requestTimeout: 5s # Webhook timeout per provider
+              dedupeCacheSize: 2000 # Alert deduplication cache size
+              dedupeWindowSeconds: 3600 # Alert deduplication TTL
+              maxRequestBodyBytes: 1048576 # 1 MB (max alert body size)
     operator-shard-manager:
       version: "v2026.1.15"
     opencost:
