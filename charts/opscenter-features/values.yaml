@@ -121,9 +121,9 @@ helm:
     kube-ui-server:
       version: "v2026.5.22"
     kubedb:
-      version: "v2026.5.18-rc.0"
+      version: "v2026.4.27"
     kubedb-opscenter:
-      version: "v2026.5.18-rc.0"
+      version: "v2026.4.27"
     kubedb-provider-aws:
       version: "v2024.1.31"
     kubedb-provider-azure:
@@ -282,9 +282,9 @@ helm:
     license-proxyserver-manager:
       version: "v2026.2.16"
     inbox-server:
-      version: "v2025.2.28"
+      version: "v2025.12.25"
     inbox-agent:
-      version: "v2024.12.30"
+      version: "v2026.6.2"
     inbox-ui:
       version: "v2026.5.22"
 licenseServer:
