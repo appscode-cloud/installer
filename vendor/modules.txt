@@ -313,8 +313,8 @@ github.com/yudai/golcs
 # github.com/zeebo/xxh3 v1.0.2
 ## explicit; go 1.17
 github.com/zeebo/xxh3
-# go.appscode.dev/alerts v0.2.1-0.20250217100836-596fabefb762
-## explicit; go 1.22.0
+# go.appscode.dev/alerts v0.2.1-0.20260516020454-00c8e56b1991
+## explicit; go 1.25
 go.appscode.dev/alerts/apis/alerts
 go.appscode.dev/alerts/apis/alerts/v1alpha1
 # go.bytebuilders.dev/catalog v0.0.23
@@ -326,11 +326,11 @@ go.bytebuilders.dev/resource-model/apis/cloud
 go.bytebuilders.dev/resource-model/apis/cloud/v1alpha1
 go.bytebuilders.dev/resource-model/apis/config/v1alpha1
 go.bytebuilders.dev/resource-model/crds
-# go.bytebuilders.dev/ui-wizards v0.33.0
+# go.bytebuilders.dev/ui-wizards v0.34.0
 ## explicit; go 1.25
 go.bytebuilders.dev/ui-wizards/apis/wizards
 go.bytebuilders.dev/ui-wizards/apis/wizards/v1alpha1
-# go.openviz.dev/installer v0.0.0-20260408131258-3023af9e16ae
+# go.openviz.dev/installer v0.0.0-20260603111216-451cf0c30c60
 ## explicit; go 1.25
 go.openviz.dev/installer/apis/installer
 go.openviz.dev/installer/apis/installer/v1alpha1

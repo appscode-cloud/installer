@@ -5,8 +5,8 @@ go 1.25.6
 require (
 	go.bytebuilders.dev/catalog v0.0.23
 	go.bytebuilders.dev/resource-model v0.4.0
-	go.bytebuilders.dev/ui-wizards v0.33.0
-	go.openviz.dev/installer v0.0.0-20260408131258-3023af9e16ae
+	go.bytebuilders.dev/ui-wizards v0.34.0
+	go.openviz.dev/installer v0.0.0-20260603111216-451cf0c30c60
 	gomodules.xyz/go-sh v0.2.0
 	k8s.io/api v0.34.3
 	k8s.io/apimachinery v0.34.3
@@ -102,7 +102,7 @@ require (
 	github.com/yudai/gojsondiff v1.0.0 // indirect
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 	github.com/zeebo/xxh3 v1.0.2 // indirect
-	go.appscode.dev/alerts v0.2.1-0.20250217100836-596fabefb762 // indirect
+	go.appscode.dev/alerts v0.2.1-0.20260516020454-00c8e56b1991 // indirect
 	go.yaml.in/yaml/v2 v2.4.3 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
 	golang.org/x/crypto v0.50.0 // indirect

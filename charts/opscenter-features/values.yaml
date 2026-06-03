@@ -148,51 +148,6 @@ helm:
       version: "3.11.0"
     monitoring-operator:
       version: "v2026.3.30"
-      values:
-        alertmanager:
-          email:
-            enabled: false
-            to: ""
-            from: ""
-            smarthost: ""
-            authUsername: ""
-            password: "" # TODO: NOT expose secrets in values
-            requireTLS: true
-            sendResolved: true
-          webhook:
-            enabled: false
-            url: ""
-            sendResolved: true
-            relay:
-              replicaCount: 1
-              port: 8080
-              image:
-                registry: opnpulse
-                repository: alertmanager-webhook-relay
-                tag: "v0.1.0"
-                resources: {}
-                securityContext:
-                  allowPrivilegeEscalation: false
-                  capabilities:
-                    drop: ["ALL"]
-                  readOnlyRootFilesystem: true
-                  runAsNonRoot: true
-                  runAsUser: 65534
-                  seccompProfile:
-                    type: RuntimeDefault
-              providers:
-                googleChat:
-                  url: ""
-                slack:
-                  url: ""
-                msTeams:
-                  url: ""
-                mattermost:
-                  url: ""
-              requestTimeout: 5s # Webhook timeout per provider
-              dedupeCacheSize: 2000 # Alert deduplication cache size
-              dedupeWindowSeconds: 3600 # Alert deduplication TTL
-              maxRequestBodyBytes: 1048576 # 1 MB (max alert body size)
     operator-shard-manager:
       version: "v2026.1.15"
     opencost:

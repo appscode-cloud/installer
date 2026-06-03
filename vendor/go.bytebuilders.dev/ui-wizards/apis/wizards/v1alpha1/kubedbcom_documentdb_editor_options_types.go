@@ -17,38 +17,33 @@ limitations under the License.
 package v1alpha1
 
 import (
-	alerts "go.appscode.dev/alerts/apis/alerts/v1alpha1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	api "x-helm.dev/apimachinery/apis/releases/v1alpha1"
 )
 
-// KubedbcomHanaDBEditorOptions defines the schama for HanaDB Editor UI Options.
+// KubedbcomDocumentDBEditorOptions defines the schama for DocumentDB Editor UI Options.
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:path=kubedbcomhanadbeditoroptionss,singular=kubedbcomhanadbeditoroptions
-type KubedbcomHanaDBEditorOptions struct {
+// +kubebuilder:resource:path=kubedbcomdocumentdbeditoroptionss,singular=kubedbcomdocumentdbeditoroptions
+type KubedbcomDocumentDBEditorOptions struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              KubedbcomHanaDBEditorOptionsSpec `json:"spec,omitempty"`
+	Spec              KubedbcomDocumentDBEditorOptionsSpec `json:"spec,omitempty"`
 }
 
-// KubedbcomHanaDBEditorOptionsSpec is the schema for HanaDB profile values file
-type KubedbcomHanaDBEditorOptionsSpec struct {
+// KubedbcomDocumentDBEditorOptionsSpec is the schema for DocumentDB profile values file
+type KubedbcomDocumentDBEditorOptionsSpec struct {
 	api.Metadata `json:"metadata,omitempty"`
-	Spec         KubedbcomHanaDBEditorOptionsSpecSpec `json:"spec"`
-	Form         HanaDBalertsSpecForm                 `json:"form"`
+	Spec         KubedbcomDocumentDBEditorOptionsSpecSpec `json:"spec"`
 }
 
-type KubedbcomHanaDBEditorOptionsSpecSpec struct {
+type KubedbcomDocumentDBEditorOptionsSpecSpec struct {
 	// +optional
 	Annotations map[string]string `json:"annotations"`
 	// +optional
 	Labels map[string]string `json:"labels"`
-	Mode   HanaDBMode        `json:"mode"`
-	// +optional
-	SystemReplication *HanaDBSystemReplication `json:"systemReplication,omitempty"`
 	// +optional
 	Replicas       int                `json:"replicas,omitempty"`
 	Persistence    Persistence        `json:"persistence"`
@@ -63,30 +58,12 @@ type KubedbcomHanaDBEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-// +kubebuilder:validation:Enum=Standalone;SystemReplication
-type HanaDBMode string
-
-type HanaDBSystemReplication struct {
-	ReplicationMode HanaDBReplicationMode `json:"replicationMode"`
-	OperationMode   HanaDBOperationMode   `json:"operationMode"`
-}
-
-// +kubebuilder:validation:Enum=sync;syncmem;async;fullsync
-type HanaDBReplicationMode string
-
-// +kubebuilder:validation:Enum=logreplay;delta_datashipping;logreplay_readaccess
-type HanaDBOperationMode string
-
-type HanaDBalertsSpecForm struct {
-	Alert alerts.HanaDBAlert `json:"alert"`
-}
-
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// KubedbcomHanaDBEditorOptionsList is a list of KubedbcomHanaDBEditorOptionss
-type KubedbcomHanaDBEditorOptionsList struct {
+// KubedbcomDocumentDBEditorOptionsList is a list of KubedbcomDocumentDBEditorOptionss
+type KubedbcomDocumentDBEditorOptionsList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of KubedbcomHanaDBEditorOptions CRD objects
-	Items []KubedbcomHanaDBEditorOptions `json:"items,omitempty"`
+	// Items is a list of KubedbcomDocumentDBEditorOptions CRD objects
+	Items []KubedbcomDocumentDBEditorOptions `json:"items,omitempty"`
 }
