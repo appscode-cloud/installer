@@ -96,9 +96,35 @@ type AlertmanagerEmailSpec struct {
 }
 
 type AlertmanagerWebhookSpec struct {
-	Enabled      bool   `json:"enabled"`
-	URL          string `json:"url"`
-	SendResolved bool   `json:"sendResolved"`
+	Enabled      bool                         `json:"enabled"`
+	SendResolved bool                         `json:"sendResolved"`
+	Relay        AlertmanagerWebhookRelaySpec `json:"relay"`
+}
+
+type AlertmanagerWebhookRelaySpec struct {
+	ReplicaCount        int32                                 `json:"replicaCount"`
+	Port                int32                                 `json:"port"`
+	Image               ContianerRef                          `json:"image"`
+	Providers           AlertmanagerWebhookRelayProvidersSpec `json:"providers,omitempty"`
+	RequestTimeout      string                                `json:"requestTimeout,omitempty"`
+	DedupeCacheSize     int32                                 `json:"dedupeCacheSize,omitempty"`
+	DedupeWindowSeconds int32                                 `json:"dedupeWindowSeconds,omitempty"`
+	MaxRequestBodyBytes int64                                 `json:"maxRequestBodyBytesomitempty"`
+}
+
+type AlertmanagerWebhookRelayProvidersSpec struct {
+	// +optional
+	GoogleChat AlertmanagerWebhookRelayProviderSpec `json:"googleChat"`
+	// +optional
+	Slack AlertmanagerWebhookRelayProviderSpec `json:"slack"`
+	// +optional
+	MsTeams AlertmanagerWebhookRelayProviderSpec `json:"msTeams"`
+	// +optional
+	Mattermost AlertmanagerWebhookRelayProviderSpec `json:"mattermost"`
+}
+
+type AlertmanagerWebhookRelayProviderSpec struct {
+	URL string `json:"url"`
 }
 
 type EASSpec struct {

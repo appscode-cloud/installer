@@ -1447,14 +1447,43 @@ properties:
             properties:
               enabled:
                 type: boolean
+              providers:
+                properties:
+                  googleChat:
+                    properties:
+                      url:
+                        type: string
+                    required:
+                      - url
+                    type: object
+                  mattermost:
+                    properties:
+                      url:
+                        type: string
+                    required:
+                      - url
+                    type: object
+                  msTeams:
+                    properties:
+                      url:
+                        type: string
+                    required:
+                      - url
+                    type: object
+                  slack:
+                    properties:
+                      url:
+                        type: string
+                    required:
+                      - url
+                    type: object
+                type: object
               sendResolved:
                 type: boolean
-              url:
-                type: string
             required:
               - enabled
+              - providers
               - sendResolved
-              - url
             type: object
         required:
           - email

@@ -217,8 +217,8 @@ go.bytebuilders.dev/resource-model v0.4.0 h1:wDXg4SGYn3zNRuOj17gGo0qeSE//ytdzGPS
 go.bytebuilders.dev/resource-model v0.4.0/go.mod h1:wGndjj3y+Yjh7+e8Wjc6joqzZCC16WZfKNx9adAFVkw=
 go.bytebuilders.dev/ui-wizards v0.34.0 h1:mfVWHcWrKD6k6Hq2pC9fyEJ5UT9DCDqDysFtn0e1Wxw=
 go.bytebuilders.dev/ui-wizards v0.34.0/go.mod h1:MX/Ge9VWMSPEak3j14c3+6PmEY12A2JV1uGvHUt3nbM=
-go.openviz.dev/installer v0.0.0-20260408131258-3023af9e16ae h1:L9zvhgJJVWqFYrgd5s9BzQ8SHCo897/+Xmt72pHvd6o=
-go.openviz.dev/installer v0.0.0-20260408131258-3023af9e16ae/go.mod h1:lGQ+iSgf2XHY2lTpPsuyIEp9Dfp6cLpjqzTgvy+XDmo=
+go.openviz.dev/installer v0.0.0-20260603103950-9848a284ca80 h1:GkYOFkeUyEvJc23tLXU6s6xe3bzVKFiR698xHTIn5QE=
+go.openviz.dev/installer v0.0.0-20260603103950-9848a284ca80/go.mod h1:lGQ+iSgf2XHY2lTpPsuyIEp9Dfp6cLpjqzTgvy+XDmo=
 go.uber.org/automaxprocs v1.6.0 h1:O3y2/QNTOdbF+e/dpXNNW7Rx2hZ4sTIPyybbxyNqTUs=
 go.uber.org/automaxprocs v1.6.0/go.mod h1:ifeIMSnPZuznNm6jmdzmU3/bfk01Fe2fotchwEFJ8r8=
 go.uber.org/goleak v1.3.0 h1:2K3zAYmnTNqV73imy9J1T3WC+gmCePx2hEGkimedGto=

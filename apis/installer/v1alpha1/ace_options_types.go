@@ -226,8 +226,20 @@ type AceOptionsMonitoring struct {
 	ServiceMonitor GlobalServiceMonitor     `json:"serviceMonitor"`
 	Exporter       GlobalPrometheusExporter `json:"exporter"`
 	//+optional
-	AlertManager openviz_installer.Alertmanager `json:"alertManager"`
+	AlertManager AceOptionsAlertManager `json:"alertManager"`
 }
+
+type AceOptionsAlertManager struct {
+	Email   openviz_installer.AlertmanagerEmailSpec `json:"email"`
+	Webhook AceOptionsAlertManagerWebhook           `json:"webhook"`
+}
+
+type AceOptionsAlertManagerWebhook struct {
+	Enabled      bool                                                    `json:"enabled"`
+	SendResolved bool                                                    `json:"sendResolved"`
+	Providers    openviz_installer.AlertmanagerWebhookRelayProvidersSpec `json:"providers"`
+}
+
 type AceOptionsPlatformInfra struct {
 	StorageClass  LocalObjectReference         `json:"storageClass,omitempty"`
 	KubeStash     KubeStashOptions             `json:"kubestash"`
