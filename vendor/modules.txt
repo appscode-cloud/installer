@@ -330,7 +330,7 @@ go.bytebuilders.dev/resource-model/crds
 ## explicit; go 1.25
 go.bytebuilders.dev/ui-wizards/apis/wizards
 go.bytebuilders.dev/ui-wizards/apis/wizards/v1alpha1
-# go.openviz.dev/installer v0.0.0-20260408131258-3023af9e16ae
+# go.openviz.dev/installer v0.0.0-20260603103950-9848a284ca80
 ## explicit; go 1.25
 go.openviz.dev/installer/apis/installer
 go.openviz.dev/installer/apis/installer/v1alpha1
