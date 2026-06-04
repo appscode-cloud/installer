@@ -103,18 +103,14 @@ type AceWebsite struct {
 }
 
 type AcaasGlobalValues struct {
-	NameOverride     string                `json:"nameOverride"`
-	FullnameOverride string                `json:"fullnameOverride"`
-	Platform         AcaasPlatformSettings `json:"platform"`
-	Registry         string                `json:"registry"`
-	RegistryFQDN     string                `json:"registryFQDN"`
-	Settings         AcaasSettings         `json:"settings"`
+	NameOverride     string              `json:"nameOverride"`
+	FullnameOverride string              `json:"fullnameOverride"`
+	Platform         AcePlatformSettings `json:"platform"`
+	Registry         string              `json:"registry"`
+	RegistryFQDN     string              `json:"registryFQDN"`
+	Settings         AcaasSettings       `json:"settings"`
 	// +optional
 	Distro shared.DistroSpec `json:"distro"`
-}
-
-type AcaasPlatformSettings struct {
-	Host string `json:"host"`
 }
 
 type AcaasSettings struct {

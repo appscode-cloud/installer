@@ -10,6 +10,7 @@
 global:
   platform:
     host: appscode.com
+    deploymentType: Hosted
 
 ingress:
   rules:
