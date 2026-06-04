@@ -108,6 +108,7 @@ global:
     deploymentType: CloudDemo
     ownerID: 0
     ownerName: ""
+    offlineInstaller: false
 
   # License for the product.
   # Example:

@@ -201,6 +201,7 @@ type AcePlatformSettings struct {
 	Token              string         `json:"token,omitempty"`
 	OwnerID            int64          `json:"ownerID"`
 	OwnerName          string         `json:"ownerName"`
+	OfflineInstaller   bool           `json:"offlineInstaller"`
 }
 
 type HostInfo struct {
