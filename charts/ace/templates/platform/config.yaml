@@ -10,6 +10,7 @@ stringData:
     APP_NAME = {{ .Values.settings.platform.appName }}
     RUN_MODE = {{ .Values.settings.platform.runMode }}
     DEPLOYMENT_TYPE = {{ .Values.global.platform.deploymentType }}
+    OFFLINE_INSTALLER = {{ .Values.global.platform.offlineInstaller }}
 
     [server]
     PROTOCOL      = http

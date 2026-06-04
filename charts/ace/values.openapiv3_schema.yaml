@@ -1763,6 +1763,8 @@ properties:
             - domain
             - ip
             type: string
+          offlineInstaller:
+            type: boolean
           ownerID:
             format: int64
             type: integer
@@ -1776,6 +1778,7 @@ properties:
         - deploymentType
         - host
         - hostType
+        - offlineInstaller
         - ownerID
         - ownerName
         type: object
