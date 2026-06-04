@@ -96,17 +96,6 @@ opscenter-features:
 {{ $helmreleases = mergeOverwrite $helmreleases $defaults }}
 {{- end }}
 
-{{ $aceDefaults := printf `
-ace:
-  values:
-    global:
-      platform:
-        offlineInstaller: %v
-`
-  $.Values.offlineInstaller
-  | fromYaml }}
-{{ $helmreleases = mergeOverwrite $helmreleases $aceDefaults }}
-
 {{ $clusterManagerSpoke := printf `
 cluster-manager-spoke:
   version: %q
