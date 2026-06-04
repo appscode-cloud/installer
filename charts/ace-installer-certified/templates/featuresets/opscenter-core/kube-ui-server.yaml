@@ -10,6 +10,7 @@ ace-user-roles:
   enableClusterRoles:
     ace: true
     appcatalog: true
+    audit: true
     catalog: true
     cert-manager: true
     kubedb-ui: true
