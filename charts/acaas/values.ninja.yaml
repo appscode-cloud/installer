@@ -1,6 +1,7 @@
 global:
   platform:
     host: appscode.ninja
+    deploymentType: Hosted
 
 ingress:
   rules:
