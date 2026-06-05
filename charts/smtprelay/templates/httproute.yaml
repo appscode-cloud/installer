@@ -22,13 +22,21 @@ spec:
     namespace: ace
     sectionName: https
 
+  {{- $hostnames := list }}
+  {{- range .Values.gateway.hosts }}
+    {{- if .host }}
+      {{- $hostnames = append $hostnames .host }}
+    {{- end }}
+  {{- end }}
+  {{- if $hostnames }}
   hostnames:
-  {{- range .Values.ingress.hosts }}
-    - {{ .host | quote }}
+  {{- range $hostnames }}
+    - {{ . | quote }}
+  {{- end }}
   {{- end }}
 
   rules:
-  {{- range .Values.ingress.hosts }}
+  {{- range .Values.gateway.hosts }}
     {{- range .paths }}
   - matches:
     - path:

@@ -21,9 +21,17 @@ spec:
     name: ace
     namespace: ace
     sectionName: https
-  hostnames:
+  {{- $hostnames := list }}
   {{- range .Values.gateway.hosts }}
-    - {{ .host | quote }}
+    {{- if .host }}
+      {{- $hostnames = append $hostnames .host }}
+    {{- end }}
+  {{- end }}
+  {{- if $hostnames }}
+  hostnames:
+  {{- range $hostnames }}
+    - {{ . | quote }}
+  {{- end }}
   {{- end }}
 
   rules:
