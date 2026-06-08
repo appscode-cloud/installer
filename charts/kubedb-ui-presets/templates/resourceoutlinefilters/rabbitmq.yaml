@@ -28,6 +28,10 @@ spec:
       TLS Configure: true
     name: Security & Monitoring
     show: true
+  - items:
+      Expose via Gateway: true
+    name: Extras
+    show: true
   header: true
   pages:
   - name: Overview

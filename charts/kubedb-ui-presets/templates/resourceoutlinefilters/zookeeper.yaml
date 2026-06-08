@@ -25,6 +25,10 @@ spec:
     name: Scaling
     show: true
   - items:
+      Compute: true
+    name: Autoscaling
+    show: true
+  - items:
       Monitoring: true
       TLS Configure: true
     name: Security & Monitoring
