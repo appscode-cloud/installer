@@ -1,0 +1,255 @@
+{{ $app := printf "%s-db" (include "ace.fullname" .) }}
+
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: {{ $app }}
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    {{- include "ace.selectorLabels" . | nindent 4 }}
+spec:
+  groups:
+  - name: postgres.database.{{ $.Release.Namespace }}.{{ $app }}.rules
+    rules:
+    - alert: PostgresqlDown
+      expr: pg_up{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"} == 0
+      for: 0m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Postgres instance down (instance {{`{{`}} $labels.pod {{`}}`}})
+        description: "Postgres instance is down on {{`{{`}} $labels.pod {{`}}`}}\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: PostgresqlSplitBrain
+      expr: count(pg_replication_is_replica{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"} == 0) != 1
+      for: 0m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Postgresql split brain (instance {{`{{`}} $labels.pod {{`}}`}})
+        description: "Split Brain, too many primary Postgresql databases in read-write mode\n  {{`{{`}} $labels.pod {{`}}`}}\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: PostgresqlTooManyLocksAcquired
+      expr: ((sum by (pod) (pg_locks_count{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"}) ) / ( sum by (pod) (pg_settings_max_locks_per_transaction{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"}) * sum by (pod) (pg_settings_max_connections{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"}))) > 0.20
+      for: 2m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Postgresql too many locks acquired (instance {{`{{`}} $labels.pod {{`}}`}})
+        description: "Too many locks acquired on the database. \n  If this alert happens frequently, we may need to increase the postgres setting max_locks_per_transaction.\n  {{`{{`}} $labels.pod {{`}}`}}\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: PostgresReplicationSlotLagHigh
+      expr: max_over_time(pg_replication_slots_pg_wal_lsn_diff[1m]) > 838860800
+      for: 1m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: "High replication slot WAL lag detected on slot {{`{{`}} $labels.slot_name {{`}}`}}"
+        description: "The replication lag for slot {{`{{`}} $labels.slot_name {{`}}`}} is {{`{{`}} $value {{`}}`}} bytes, which may cause disk space issues or replication errors. This indicates the replica or consumer might be falling behind."
+    - alert: PostgresReplicationSlotLagCritical
+      expr: max_over_time(pg_replication_slots_pg_wal_lsn_diff[1m]) > 1288490188
+      for: 1m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: "Critical PostgreSQL replication lag detected on slot {{`{{`}} $labels.slot_name {{`}}`}}"
+        description: "Replication slot {{`{{`}} $labels.slot_name {{`}}`}} is lagging by more than {{`{{`}} $value {{`}}`}} bytes. WAL file deletion is imminent. Immediate intervention required to prevent replication slot invalidation and potential data loss."
+    - alert: PostgresqlRestarted
+      expr: time() - pg_postmaster_start_time_seconds{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"} < 60
+      for: 0m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Postgresql restarted (instance {{`{{`}} $labels.pod {{`}}`}})
+        description: "Postgresql restarted\n  {{`{{`}} $labels.pod {{`}}`}}\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: PostgresqlExporterError
+      expr: pg_exporter_last_scrape_error{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"} > 0
+      for: 5m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Postgresql exporter error (instance {{`{{`}} $labels.pod {{`}}`}})
+        description: "Postgresql exporter is showing errors. A query may be buggy in query.yaml\n  {{`{{`}} $labels.pod {{`}}`}}\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: PostgresqlHighRollbackRate
+      expr: rate(pg_stat_database_xact_rollback{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"}[3m]) / rate(pg_stat_database_xact_commit{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"}[3m]) > 0.02
+      for: 0m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Postgresql high rollback rate (instance {{`{{`}} $labels.pod {{`}}`}})
+        description: "Ratio of transactions being aborted compared to committed is hign. {{`{{`}} $labels.pod {{`}}`}}\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: PostgresTooManyConnections
+      expr: sum by (pod) (pg_stat_activity_count{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"}) >= sum by (pod) (pg_settings_max_connections{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"} * 80) / 100
+      for: 2m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Postgresql too many connections (instance {{`{{`}} $labels.pod {{`}}`}})
+        description: "PostgreSQL instance has too many connections. 80% of Postgres connections are in use on {{`{{`}} $labels.pod {{`}}`}}\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: DiskUsageHigh
+      expr: (kubelet_volume_stats_used_bytes{service="kubernetes"} / on(persistentvolumeclaim) group_left(pod) ((kubelet_volume_stats_used_bytes{service="kubernetes"} + on(persistentvolumeclaim) group_left(pod) kube_pod_spec_volumes_persistentvolumeclaims_info{pod=~"{{ $.Release.Name }}-.+$",namespace=~"{{ $.Release.Namespace }}"}) ) )
+        * 100 > 80
+      for: 1m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Persistent Volume Usages in instance {{`{{`}} $labels.instance {{`}}`}}
+        description: "Persistent Volume Usages\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: DiskAlmostFull
+      expr: (kubelet_volume_stats_used_bytes{service="kubernetes"} / on(persistentvolumeclaim) group_left(pod) ((kubelet_volume_stats_used_bytes{service="kubernetes"} + on(persistentvolumeclaim) group_left(pod) kube_pod_spec_volumes_persistentvolumeclaims_info{pod=~"{{ $.Release.Name }}-.+$",namespace=~"{{ $.Release.Namespace }}"}) ) )
+        * 100 > 95
+      for: 1m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Persistent Volume Usages in instance {{`{{`}} $labels.instance {{`}}`}}
+        description: "Persistent Volume Usages\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+
+  - name: postgres.provisioner.{{ $.Release.Namespace }}.{{ $app }}.rules
+    rules:
+    - alert: KubeDBPostgreSQLPhaseNotReady
+      expr: kubedb_com_postgres_status_phase{phase="NotReady",app="{{ $app }}",namespace="{{ $.Release.Namespace }}"} == 1
+      for: 1m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: KubeDB PostgreSQL Phase NotReady (postgres {{`{{`}} $labels.postgres {{`}}`}})
+        description: "KubeDB PostgreSQL Phase not ready on {{`{{`}} $labels.postgres {{`}}`}}\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: KubeDBPostgreSQLPhaseCritical
+      expr: kubedb_com_postgres_status_phase{phase="Critical",app="{{ $app }}",namespace="{{ $.Release.Namespace }}"} == 1
+      for: 15m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: KubeDB PostgreSQL Phase Critical (postgres {{`{{`}} $labels.postgres {{`}}`}})
+        description: "KubeDB PostgreSQL Phase Critical {{`{{`}} $labels.postgres {{`}}`}}\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+
+  - name: postgres.opsManager.{{ $.Release.Namespace }}.{{ $app }}.rules
+    rules:
+    - alert: KubeDBPostgreSQLOpsRequestOnProgress
+      expr: ops_kubedb_com_postgresopsrequest_status_phase{phase="Progressing",app="{{ $app }}",namespace="{{ $.Release.Namespace }}"} == 1
+      for: 0m
+      labels:
+        severity: info
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: PostgreSQLOpsRequest on progress (postgresopsrequest {{`{{`}} $labels.postgresopsrequest {{`}}`}})
+        description: "PostgresOpsRequest {{`{{`}} $labels.postgresopsrequest {{`}}`}} is in progressressing status\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: KubeDBPostgreSQLOpsRequestStatusProgressingToLong
+      expr: ops_kubedb_com_postgresopsrequest_status_phase{phase="Progressing",app="{{ $app }}",namespace="{{ $.Release.Namespace }}"} == 1
+      for: 30m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: PostgreSQLOpsRequest is in progressing status for too long (postgresopsrequest {{`{{`}} $labels.postgresopsrequest {{`}}`}})
+        description: "PostgresOpsRequest {{`{{`}} $labels.postgresopsrequest {{`}}`}} is in progressing status for too long\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: KubeDBPostgreSQLOpsRequestFailed
+      expr: ops_kubedb_com_postgresopsrequest_status_phase{phase="Failed",app="{{ $app }}",namespace="{{ $.Release.Namespace }}"} == 1
+      for: 0m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: PostgreSQLOpsRequest failed (postgresopsrequest {{`{{`}} $labels.postgresopsrequest {{`}}`}})
+        description: "PostgresOpsRequest {{`{{`}} $labels.postgresopsrequest {{`}}`}} failed \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+
+  - name: postgres.kubeStash.{{ $.Release.Namespace }}.{{ $app }}.rules
+    rules:
+    - alert: PostgreSQLKubeStashBackupSessionFailed
+      expr: core_kubestash_com_backupsession_phase{phase="Failed"} * on(backup_invoker_kind, backup_invoker_name, namespace) group_left(target_kind, target_name, target_namespace) core_kubestash_com_backupconfiguration_info{target_kind="PostgreSQL", target_name="{{ $app }}", target_namespace="{{ $.Release.Namespace }}"} == 1
+      for: 0m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: PostgreSQL KubeStash backup session failed (invoker_name {{`{{`}} $labels.invoker_name {{`}}`}})
+        description: "PostgreSQL KubeStash backupsession failed {{`{{`}} $labels.invoker_name {{`}}`}} \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: PostgreSQLKubeStashRestoreSessionFailed
+      expr: core_kubestash_com_restoresession_phase{target_kind="PostgreSQL", target_name="{{ $app }}", target_namespace="{{ $.Release.Namespace }}", phase="Failed"} == 1
+      for: 0m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: PostgreSQL KubeStash restore session failed (invoker_name {{`{{`}} $labels.invoker_name {{`}}`}})
+        description: "PostgreSQL KubeStash restore session failed {{`{{`}} $labels.invoker_name {{`}}`}} \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: PostgreSQLKubeStashNoBackupSessionForTooLong
+      expr: time() - max(core_kubestash_com_backupsession_created * on(backup_invoker_kind, backup_invoker_name, namespace) group_left(target_kind, target_name, target_namespace) core_kubestash_com_backupconfiguration_info{target_kind="PostgreSQL", target_name="{{ $app }}", target_namespace="{{ $.Release.Namespace }}"}) > 18000
+      for: 0m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: PostgreSQL KubeStash no backup for last 18000 second (invoker_name {{`{{`}} $labels.invoker_name {{`}}`}})
+        description: "PostgreSQL KubeStash no backup for too long {{`{{`}} $labels.invoker_name {{`}}`}} \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: PostgreSQLKubeStashRepositoryCorrupted
+      expr: storage_kubestash_com_repository_info{target_kind="PostgreSQL", target_name="{{ $app }}", target_namespace="{{ $.Release.Namespace }}", integrity="false"} == 1
+      for: 5m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: PostgreSQL KubeStash repository corrupted (invoker_name {{`{{`}} $labels.invoker_name {{`}}`}})
+        description: "PostgreSQL KubeStash repository corrupted {{`{{`}} $labels.invoker_name {{`}}`}} \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: PostgreSQLKubeStashRepositoryStorageRunningLow
+      expr: storage_kubestash_com_repository_size_bytes{target_kind="PostgreSQL", target_name="{{ $app }}", target_namespace="{{ $.Release.Namespace }}"} > 10737418240
+      for: 5m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: PostgreSQL KubeStash Repository storage more than 10737418240 byte. (invoker_name {{`{{`}} $labels.invoker_name {{`}}`}})
+        description: "PostgreSQL KubeStash Repository storage running low {{`{{`}} $labels.invoker_name {{`}}`}} \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: PostgreSQLKubeStashBackupSessionPeriodTooLong
+      expr: core_kubestash_com_backupsession_duration_seconds * on(backup_invoker_kind, backup_invoker_name, namespace) group_left(target_kind, target_name, target_namespace) core_kubestash_com_backupconfiguration_info{target_kind="PostgreSQL", target_name="{{ $app }}", target_namespace="{{ $.Release.Namespace }}"} > 1800
+      for: 0m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary:  PostgreSQL KubeStash backup session took more than 1800 second to complete. (invoker_name {{`{{`}} $labels.invoker_name {{`}}`}})
+        description: "PostgreSQL KubeStash backup session taking to long to complete {{`{{`}} $labels.invoker_name {{`}}`}} \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: PostgreSQLKubeStashRestoreSessionPeriodTooLong
+      expr: core_kubestash_com_restoresession_duration_seconds{target_kind="PostgreSQL", target_name="{{ $app }}", target_namespace="{{ $.Release.Namespace }}"} > 1800
+      for: 0m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary:  PostgreSQL KubeStash restore session took more than 1800 second to complete. (invoker_name {{`{{`}} $labels.invoker_name {{`}}`}})
+        description: "PostgreSQL KubeStash restore session taking to long to complete {{`{{`}} $labels.invoker_name {{`}}`}} \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"

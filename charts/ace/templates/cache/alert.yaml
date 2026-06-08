@@ -1,0 +1,215 @@
+{{ $app := printf "%s-cache" (include "ace.fullname" .) }}
+
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: {{ $app }}
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    {{- include "ace.selectorLabels" . | nindent 4 }}
+spec:
+  groups:
+  - name: redis.database.{{ $.Release.Namespace }}.{{ $app }}.rules
+    rules:
+    - alert: RedisDown
+      expr: redis_up{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"} == 0
+      for: 0m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Redis instance down (instance {{`{{`}} $labels.pod {{`}}`}})
+        description: "Redis instance is down on {{`{{`}} $labels.pod {{`}}`}}\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: RedisMissingMaster
+      expr: (count(redis_instance_info{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"}) or vector(0)) < 1
+      for: 0m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Redis missing master (instance {{`{{`}} $labels.pod {{`}}`}})
+        description: "Redis cluster has less than expected amount of node marked as master\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: RedisTooManyConnections
+      expr: redis_connected_clients{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"} > 100
+      for: 2m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Redis too many connections (instance {{`{{`}} $labels.pod {{`}}`}})
+        description: "Redis instance has too many connections. More than 100 of Redis connections are in use on {{`{{`}} $labels.pod {{`}}`}}\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: RedisTooManyMasters
+      expr: (count(redis_instance_info{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"})) > 1
+      for: 0m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Redis too many master nodes (instance {{`{{`}} $labels.pod {{`}}`}})
+        description: "Redis cluster has too many nodes marked as master. \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: RedisDisconnectedSlaves
+      expr: count without (instance) (redis_connected_slaves{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"}) - sum without (instance) (redis_connected_slaves{job="{{- $app -}}-stats",namespace="{{ $.Release.Namespace }}"}) - 1 > 0
+      for: 0m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Redis disconnected slaves (instance {{`{{`}} $labels.pod {{`}}`}})
+        description: "Redis not replicating for all slaves. Consider reviewing the redis replication status.\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: DiskUsageHigh
+      expr: (kubelet_volume_stats_used_bytes{service="kubernetes"} / on(persistentvolumeclaim) group_left(pod) ((kubelet_volume_stats_used_bytes{service="kubernetes"} + on(persistentvolumeclaim) group_left(pod) kube_pod_spec_volumes_persistentvolumeclaims_info{pod=~"{{ $.Release.Name }}-.+$",namespace=~"{{ $.Release.Namespace }}"}) ) )
+        * 100 > 80
+      for: 1m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Persistent Volume Usages in instance {{`{{`}} $labels.instance {{`}}`}}
+        description: "Persistent Volume Usages\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: DiskAlmostFull
+      expr: (kubelet_volume_stats_used_bytes{service="kubernetes"} / on(persistentvolumeclaim) group_left(pod) ((kubelet_volume_stats_used_bytes{service="kubernetes"} + on(persistentvolumeclaim) group_left(pod) kube_pod_spec_volumes_persistentvolumeclaims_info{pod=~"{{ $.Release.Name }}-.+$",namespace=~"{{ $.Release.Namespace }}"}) ) )
+        * 100 > 95
+      for: 1m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Persistent Volume Usages in instance {{`{{`}} $labels.instance {{`}}`}}
+        description: "Persistent Volume Usages\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+
+  - name: redis.provisioner.{{ $.Release.Namespace }}.{{ $app }}.rules
+    rules:
+    - alert: KubeDBRedisPhaseNotReady
+      expr: kubedb_com_redis_status_phase{phase="NotReady",app="{{ $app }}",namespace="{{ $.Release.Namespace }}"} == 1
+      for: 1m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: KubeDB Redis Phase NotReady (redis {{`{{`}} $labels.redis {{`}}`}})
+        description: "KubeDB Redis Phase not ready on {{`{{`}} $labels.redis {{`}}`}}\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: KubeDBRedisPhaseCritical
+      expr: kubedb_com_redis_status_phase{phase="Critical",app="{{ $app }}",namespace="{{ $.Release.Namespace }}"} == 1
+      for: 15m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: KubeDB Redis Phase Critical (redis {{`{{`}} $labels.redis {{`}}`}})
+        description: "KubeDB Redis Phase Critical {{`{{`}} $labels.redis {{`}}`}}\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+
+  - name: redis.opsManager.{{ $.Release.Namespace }}.{{ $app }}.rules
+    rules:
+    - alert: KubeDBRedisOpsRequestOnProgress
+      expr: ops_kubedb_com_redisopsrequest_status_phase{phase="Progressing",app="{{ $app }}",namespace="{{ $.Release.Namespace }}"} == 1
+      for: 0m
+      labels:
+        severity: info
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: RedisOpsRequest on progress (redisopsrequest {{`{{`}} $labels.redisopsrequest {{`}}`}})
+        description: "RedisOpsRequest {{`{{`}} $labels.redisopsrequest {{`}}`}} is in progressressing status\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: KubeDBRedisOpsRequestStatusProgressingToLong
+      expr: ops_kubedb_com_redisopsrequest_status_phase{phase="Progressing",app="{{ $app }}",namespace="{{ $.Release.Namespace }}"} == 1
+      for: 30m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: RedisOpsRequest is in progressing status for too long (redisopsrequest {{`{{`}} $labels.redisopsrequest {{`}}`}})
+        description: "RedisOpsRequest {{`{{`}} $labels.redisopsrequest {{`}}`}} is in progressing status for too long\n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: KubeDBRedisOpsRequestFailed
+      expr: ops_kubedb_com_redisopsrequest_status_phase{phase="Failed",app="{{ $app }}",namespace="{{ $.Release.Namespace }}"} == 1
+      for: 0m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: RedisOpsRequest failed (redisopsrequest {{`{{`}} $labels.redisopsrequest {{`}}`}})
+        description: "RedisOpsRequest {{`{{`}} $labels.redisopsrequest {{`}}`}} failed \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+
+  - name: redis.kubeStash.{{ $.Release.Namespace }}.{{ $app }}.rules
+    rules:
+    - alert: RedisKubeStashBackupSessionFailed
+      expr: core_kubestash_com_backupsession_phase{phase="Failed"} * on(backup_invoker_kind, backup_invoker_name, namespace) group_left(target_kind, target_name, target_namespace) core_kubestash_com_backupconfiguration_info{target_kind="Redis", target_name="{{ $app }}", target_namespace="{{ $.Release.Namespace }}"} == 1
+      for: 0m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Redis KubeStash backup session failed (invoker_name {{`{{`}} $labels.invoker_name {{`}}`}})
+        description: "Redis KubeStash backupsession failed {{`{{`}} $labels.invoker_name {{`}}`}} \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: RedisKubeStashRestoreSessionFailed
+      expr: core_kubestash_com_restoresession_phase{target_kind="Redis", target_name="{{ $app }}", target_namespace="{{ $.Release.Namespace }}", phase="Failed"} == 1
+      for: 0m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Redis KubeStash restore session failed (invoker_name {{`{{`}} $labels.invoker_name {{`}}`}})
+        description: "Redis KubeStash restore session failed {{`{{`}} $labels.invoker_name {{`}}`}} \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: RedisKubeStashNoBackupSessionForTooLong
+      expr: time() - max(core_kubestash_com_backupsession_created * on(backup_invoker_kind, backup_invoker_name, namespace) group_left(target_kind, target_name, target_namespace) core_kubestash_com_backupconfiguration_info{target_kind="Redis", target_name="{{ $app }}", target_namespace="{{ $.Release.Namespace }}"}) > 18000
+      for: 0m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Redis KubeStash no backup for last 18000 second (invoker_name {{`{{`}} $labels.invoker_name {{`}}`}})
+        description: "Redis KubeStash no backup for too long {{`{{`}} $labels.invoker_name {{`}}`}} \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: RedisKubeStashRepositoryCorrupted
+      expr: storage_kubestash_com_repository_info{target_kind="Redis", target_name="{{ $app }}", target_namespace="{{ $.Release.Namespace }}", integrity="false"} == 1
+      for: 5m
+      labels:
+        severity: critical
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Redis KubeStash repository corrupted (invoker_name {{`{{`}} $labels.invoker_name {{`}}`}})
+        description: "Redis KubeStash repository corrupted {{`{{`}} $labels.invoker_name {{`}}`}} \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: RedisKubeStashRepositoryStorageRunningLow
+      expr: storage_kubestash_com_repository_size_bytes{target_kind="Redis", target_name="{{ $app }}", target_namespace="{{ $.Release.Namespace }}"} > 10737418240
+      for: 5m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary: Redis KubeStash Repository storage more than 10737418240 byte. (invoker_name {{`{{`}} $labels.invoker_name {{`}}`}})
+        description: "Redis KubeStash Repository storage running low {{`{{`}} $labels.invoker_name {{`}}`}} \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: RedisKubeStashBackupSessionPeriodTooLong
+      expr: core_kubestash_com_backupsession_duration_seconds * on(backup_invoker_kind, backup_invoker_name, namespace) group_left(target_kind, target_name, target_namespace) core_kubestash_com_backupconfiguration_info{target_kind="Redis", target_name="{{ $app }}", target_namespace="{{ $.Release.Namespace }}"} > 1800
+      for: 0m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary:  Redis KubeStash backup session took more than 1800 second to complete. (invoker_name {{`{{`}} $labels.invoker_name {{`}}`}})
+        description: "Redis KubeStash backup session taking to long to complete {{`{{`}} $labels.invoker_name {{`}}`}} \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
+    - alert: RedisKubeStashRestoreSessionPeriodTooLong
+      expr: core_kubestash_com_restoresession_duration_seconds{target_kind="Redis", target_name="{{ $app }}", target_namespace="{{ $.Release.Namespace }}"} > 1800
+      for: 0m
+      labels:
+        severity: warning
+        app: {{ $app }}
+        app_namespace: {{ $.Release.Namespace }}
+      annotations:
+        summary:  Redis KubeStash restore session took more than 1800 second to complete. (invoker_name {{`{{`}} $labels.invoker_name {{`}}`}})
+        description: "Redis KubeStash restore session taking to long to complete {{`{{`}} $labels.invoker_name {{`}}`}} \n  VALUE = {{`{{`}} $value {{`}}`}}\n  LABELS = {{`{{`}} $labels {{`}}`}}"
