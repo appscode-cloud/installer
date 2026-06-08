@@ -13,6 +13,7 @@ spec:
   - items:
       Reconfigure: true
       Restart: true
+      Update Version: true
     name: Operations
     show: true
   - items:
@@ -32,6 +33,10 @@ spec:
       Monitoring: true
       TLS Configure: true
     name: Security & Monitoring
+    show: true
+  - items:
+      Expose via Gateway: true
+    name: Extras
     show: true
   header: true
   pages:

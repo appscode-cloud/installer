@@ -5,14 +5,22 @@ metadata:
 spec:
   actions:
   - items:
+      Configure Backup: true
+      Instant Backup: true
+      Restore: true
+    name: Backups
+    show: true
+  - items:
       Reconfigure: true
       Restart: true
+      Update Version: true
     name: Operations
     show: true
   - items:
       Scale Vertically: true
       Scale Storage: true
       Expand Volume: true
+      Horizontal Scale: true
       Vertical Scale: true
     name: Scaling
     show: true
@@ -23,7 +31,12 @@ spec:
     show: true
   - items:
       Monitoring: true
+      TLS Configure: true
     name: Security & Monitoring
+    show: true
+  - items:
+      Expose via Gateway: true
+    name: Extras
     show: true
   header: true
   pages:
