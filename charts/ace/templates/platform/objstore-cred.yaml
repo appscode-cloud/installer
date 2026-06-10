@@ -1,6 +1,6 @@
 {{ $objstore := .Values.global.infra.objstore }}
 
-{{- if and (include "settings.objstoreSecretName" .) ($objstore.provider) }}
+{{- if and (include "settings.objstoreSecretName" .) (or $objstore.s3 $objstore.azure $objstore.gcs) }}
 
 apiVersion: v1
 kind: Secret
@@ -11,24 +11,22 @@ metadata:
     {{- include "ace.labels" . | nindent 4 }}
 type: Opaque
 stringData:
-{{- if eq $objstore.provider "s3" }}
-  AWS_ACCESS_KEY_ID: '{{ $objstore.s3.AWS_ACCESS_KEY_ID }}'
-  AWS_SECRET_ACCESS_KEY: '{{ $objstore.s3.AWS_SECRET_ACCESS_KEY }}'
-  ca.crt: {{ $objstore.s3.CA_CERT_DATA | default "" | quote }}
-  {{- with $objstore.s3.AWS_REGION }}
+{{- with $objstore.s3 }}
+  AWS_ACCESS_KEY_ID: '{{ .AWS_ACCESS_KEY_ID }}'
+  AWS_SECRET_ACCESS_KEY: '{{ .AWS_SECRET_ACCESS_KEY }}'
+  ca.crt: {{ .CA_CERT_DATA | default "" | quote }}
+  {{- with .AWS_REGION }}
   AWS_REGION: '{{ . }}'
   {{- end }}
 {{- end }}
 
-{{- if eq $objstore.provider "azure" }}
-  {{- with $objstore.azure }}
+{{- with $objstore.azure }}
   AZURE_ACCOUNT_NAME: '{{ .AZURE_ACCOUNT_NAME }}'
   AZURE_ACCOUNT_KEY: '{{ .AZURE_ACCOUNT_KEY }}'
-  {{- end }}
 {{- end }}
 
-{{- if eq $objstore.provider "gcs" }}
-  sa.json: {{ $objstore.gcs.GOOGLE_SERVICE_ACCOUNT_JSON_KEY | default "" | quote }}
+{{- with $objstore.gcs }}
+  sa.json: {{ .GOOGLE_SERVICE_ACCOUNT_JSON_KEY | default "" | quote }}
 {{- end }}
 
 {{- end }}
