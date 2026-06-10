@@ -1,6 +1,10 @@
 {{ $infra := .Values.infra }}
+{{- $deploymentType := "" }}
 {{- if .Values.global }}
 {{- $infra = .Values.global.infra }}
+{{- if .Values.global.platform }}
+{{- $deploymentType = .Values.global.platform.deploymentType }}
+{{- end }}
 {{- end }}
 
 apiVersion: apps/v1
@@ -98,7 +102,7 @@ spec:
                   name: {{ . }}
                   key: consumer-id
           {{- end }}
-          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "gcs") }}
+          {{- if or (and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "gcs")) (eq $deploymentType "Hosted") }}
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: {{ $infra.objstore.mountPath }}/sa.json
           {{- end }}
