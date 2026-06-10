@@ -6,6 +6,7 @@ metadata:
   name: {{ $app }}
   namespace: {{ $.Release.Namespace }}
   labels:
+    release: kube-prometheus-stack
     app.kubernetes.io/managed-by: {{ .Release.Service }}
     {{- include "ace.selectorLabels" . | nindent 4 }}
 spec:
