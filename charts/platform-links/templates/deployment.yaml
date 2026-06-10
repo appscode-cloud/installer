@@ -89,7 +89,7 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
-          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "gcs") }}
+          {{- if (include "settings.objstoreSecretName" .) }}
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: {{ $infra.objstore.mountPath }}/sa.json
           {{- end }}
