@@ -17,6 +17,7 @@ spec:
   suspend: true
   jobTemplate:
     spec:
+      activeDeadlineSeconds: 21600
       template:
         spec:
           {{- include "appscode.imagePullSecrets" . | nindent 10 }}

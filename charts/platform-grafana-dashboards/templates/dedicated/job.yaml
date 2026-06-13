@@ -8,6 +8,7 @@ metadata:
   labels:
     {{- include "platform-grafana-dashboards.labels" . | nindent 4 }}
 spec:
+  activeDeadlineSeconds: 21600
   # ttlSecondsAfterFinished: 0
   backoffLimit: 3
   template:

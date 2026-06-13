@@ -22,6 +22,7 @@ metadata:
     helm.sh/hook-delete-policy: {{ .Values.setupJob.hook.hookDeletePolicy | quote }}
   {{- end}}
 spec:
+  activeDeadlineSeconds: 21600
   backoffLimit: 4
   {{- if ge (int .Values.setupJob.ttlSecondsAfterFinished) 0 }}
   ttlSecondsAfterFinished: {{ .Values.setupJob.ttlSecondsAfterFinished }}

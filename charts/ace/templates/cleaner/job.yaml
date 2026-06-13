@@ -8,6 +8,7 @@ metadata:
     "helm.sh/hook": pre-install,pre-upgrade,pre-rollback
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 spec:
+  activeDeadlineSeconds: 21600
   # ttlSecondsAfterFinished: 0
   backoffLimit: 3
   template:
