@@ -12,21 +12,33 @@ metadata:
 type: Opaque
 stringData:
 {{- with $objstore.s3 }}
-  AWS_ACCESS_KEY_ID: '{{ .AWS_ACCESS_KEY_ID }}'
-  AWS_SECRET_ACCESS_KEY: '{{ .AWS_SECRET_ACCESS_KEY }}'
-  ca.crt: {{ .CA_CERT_DATA | default "" | quote }}
+  {{- with .AWS_ACCESS_KEY_ID }}
+  AWS_ACCESS_KEY_ID: {{ . | quote }}
+  {{- end }}
+  {{- with .AWS_SECRET_ACCESS_KEY }}
+  AWS_SECRET_ACCESS_KEY: {{ . | quote }}
+  {{- end }}
+  {{- with .CA_CERT_DATA }}
+  ca.crt: {{ . | quote }}
+  {{- end }}
   {{- with .AWS_REGION }}
-  AWS_REGION: '{{ . }}'
+  AWS_REGION: {{ . | quote }}
   {{- end }}
 {{- end }}
 
 {{- with $objstore.azure }}
-  AZURE_ACCOUNT_NAME: '{{ .AZURE_ACCOUNT_NAME }}'
-  AZURE_ACCOUNT_KEY: '{{ .AZURE_ACCOUNT_KEY }}'
+  {{- with .AZURE_ACCOUNT_NAME }}
+  AZURE_ACCOUNT_NAME: {{ . | quote }}
+  {{- end }}
+  {{- with .AZURE_ACCOUNT_KEY }}
+  AZURE_ACCOUNT_KEY: {{ . | quote }}
+  {{- end }}
 {{- end }}
 
 {{- with $objstore.gcs }}
-  sa.json: {{ .GOOGLE_SERVICE_ACCOUNT_JSON_KEY | default "" | quote }}
+  {{- with .GOOGLE_SERVICE_ACCOUNT_JSON_KEY }}
+  sa.json: {{ . | quote }}
+  {{- end }}
 {{- end }}
 
 {{- end }}
