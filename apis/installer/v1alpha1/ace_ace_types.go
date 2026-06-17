@@ -68,6 +68,8 @@ type AceSpec struct {
 	S3proxy      AceS3proxy      `json:"s3proxy"`
 	PgOutbox     AcePgOutbox     `json:"pgoutbox"`
 	OutboxSyncer AceOutboxSyncer `json:"outbox-syncer"`
+	PostgresAlerts AcePostgresAlerts `json:"postgres-alerts"`
+	RedisAlerts    AceRedisAlerts    `json:"redis-alerts"`
 	// KubeBindServer AceKubeBindServer `json:"kube-bind-server"`
 	Global             AceGlobalValues           `json:"global"`
 	Settings           Settings                  `json:"settings"`
@@ -183,6 +185,16 @@ type AceOpenfga struct {
 type AceS3proxy struct {
 	Enabled      bool `json:"enabled"`
 	*S3proxySpec `json:",inline,omitempty"`
+}
+
+type AcePostgresAlerts struct {
+	Enabled bool         `json:"enabled"`
+	Form    AceAlertForm `json:"form,omitempty"`
+}
+
+type AceRedisAlerts struct {
+	Enabled bool         `json:"enabled"`
+	Form    AceAlertForm `json:"form,omitempty"`
 }
 
 type AceGlobalValues struct {

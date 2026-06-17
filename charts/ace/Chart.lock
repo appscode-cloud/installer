@@ -43,3 +43,12 @@ dependencies:
   version: v2026.4.30
 digest: sha256:51306d8960e8ba0feb0f46b472f4834d35361a1e261f3d7f4aaaa22b093839db
 generated: "2026-06-21T16:43:15.643432987Z"
+  version: v2026.6.12
+- name: postgres-alerts
+  repository: oci://ghcr.io/appscode-charts
+  version: v2026.2.24
+- name: redis-alerts
+  repository: oci://ghcr.io/appscode-charts
+  version: v2026.2.24
+digest: sha256:8960a14236fa95195d54db9f35eb381fb5f620775ace0499e2d137f909cfaa2c
+generated: "2026-06-17T14:16:36.261832093+06:00"
