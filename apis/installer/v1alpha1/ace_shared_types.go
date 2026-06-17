@@ -157,5 +157,5 @@ type AceAlertGroups struct {
 }
 
 type AceStashGroup struct {
-	Enabled bool `json:"enabled"`
+	Enabled string `json:"enabled"`
 }

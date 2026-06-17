@@ -106,7 +106,7 @@ postgres-alerts:
       appSuffix: "-db"
       groups:
         stash:
-          enabled: false
+          enabled: ""
 
 redis-alerts:
   enabled: true
@@ -115,7 +115,7 @@ redis-alerts:
       appSuffix: "-cache"
       groups:
         stash:
-          enabled: false
+          enabled: ""
 
 # -------------
 

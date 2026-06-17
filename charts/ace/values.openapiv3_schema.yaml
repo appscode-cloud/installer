@@ -23391,7 +23391,7 @@ properties:
                   stash:
                     properties:
                       enabled:
-                        type: boolean
+                        type: string
                     required:
                     - enabled
                     type: object
@@ -23416,7 +23416,7 @@ properties:
                   stash:
                     properties:
                       enabled:
-                        type: boolean
+                        type: string
                     required:
                     - enabled
                     type: object
