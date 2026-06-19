@@ -18,6 +18,7 @@ stringData:
       reloadPlatformAccounts: true
       {{- end }}
     importerServiceAccount: {{ include "appscode.serviceAccountName" . }}-importer
+    syncPersesAccounts: true
     {{- with .Values.setupJob.config }}
     {{- . | toYaml | nindent 4 }}
     {{- end }}

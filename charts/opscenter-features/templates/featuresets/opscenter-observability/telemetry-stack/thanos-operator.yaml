@@ -1,0 +1,47 @@
+{{ $defaults := dict "registryFQDN" (include "registry.ghcr" $) }}
+
+{{ $vals := dig "thanos-operator" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+{{- if eq (include "distro.openshift" $) "true" }}
+{{ $vals = mergeOverwrite $vals (dict "distro" .Values.distro) }}
+{{- end }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: thanos-operator
+  labels:
+    app.kubernetes.io/part-of: opscenter-observability
+spec:
+  title: Thanos Operator
+  description: |
+    Manage Thanos components for highly available, long-term Prometheus metrics storage and global querying.
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-observability
+  featureBlock: tenant-operator
+  recommended: true
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/component: manager
+          app.kubernetes.io/created-by: thanos-operator
+          app.kubernetes.io/part-of: thanos-operator
+          control-plane: controller-manager
+  chart:
+    name: thanos-operator
+    namespace: monitoring
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "appscode-otel-stack" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
