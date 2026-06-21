@@ -54,15 +54,6 @@ databases:
       available: []
       default: ""
       toggle: true
-  FerretDB:
-    versions:
-      available: []
-      default: ""
-      toggle: true
-    mode:
-      available: []
-      default: ""
-      toggle: true
   Hazelcast:
     versions:
       available: []
@@ -248,8 +239,9 @@ clusterIssuers:
   default: ""
   toggle: true
 expose:
-  default: true
-  toggle: true
+  enable:
+    default: true
+    toggle: true
 showPreview: false
 leftPanel:
   showInsights: true

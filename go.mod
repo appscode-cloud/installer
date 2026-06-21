@@ -5,19 +5,19 @@ go 1.25.6
 require (
 	go.bytebuilders.dev/catalog v0.0.23
 	go.bytebuilders.dev/resource-model v0.4.0
-	go.bytebuilders.dev/ui-wizards v0.34.0
+	go.bytebuilders.dev/ui-wizards v0.35.0
 	go.openviz.dev/installer v0.0.0-20260619044110-702becd1dd97
 	gomodules.xyz/go-sh v0.2.0
 	k8s.io/api v0.34.3
 	k8s.io/apimachinery v0.34.3
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
 	kmodules.xyz/client-go v0.34.3
-	kmodules.xyz/image-packer v0.0.0-20260603060232-aba754904b6a
+	kmodules.xyz/image-packer v0.0.0-20260621104135-d6091139328a
 	kmodules.xyz/objectstore-api v0.34.0
-	kmodules.xyz/resource-metadata v0.46.0
+	kmodules.xyz/resource-metadata v0.47.0
 	kmodules.xyz/schema-checker v0.4.3
 	kubeops.dev/external-dns-operator v0.3.1-0.20260409053434-d3838ac10fdf
-	kubeops.dev/installer v0.0.0-20260603063804-f6535efa5009
+	kubeops.dev/installer v0.0.0-20260621163847-ed4648ddcb9a
 	sigs.k8s.io/gateway-api v1.4.1
 	sigs.k8s.io/kustomize/kyaml v0.20.1
 	sigs.k8s.io/yaml v1.6.0
@@ -105,13 +105,13 @@ require (
 	go.appscode.dev/alerts v0.2.1-0.20260516020454-00c8e56b1991 // indirect
 	go.yaml.in/yaml/v2 v2.4.3 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
-	golang.org/x/crypto v0.50.0 // indirect
-	golang.org/x/net v0.53.0 // indirect
+	golang.org/x/crypto v0.52.0 // indirect
+	golang.org/x/net v0.55.0 // indirect
 	golang.org/x/oauth2 v0.34.0 // indirect
 	golang.org/x/sync v0.20.0 // indirect
-	golang.org/x/sys v0.43.0 // indirect
-	golang.org/x/term v0.42.0 // indirect
-	golang.org/x/text v0.36.0 // indirect
+	golang.org/x/sys v0.45.0 // indirect
+	golang.org/x/term v0.43.0 // indirect
+	golang.org/x/text v0.37.0 // indirect
 	golang.org/x/time v0.14.0 // indirect
 	gomodules.xyz/encoding v0.0.8 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.5.0 // indirect

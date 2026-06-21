@@ -25,6 +25,6 @@ if [ -z "${TAG}" ]; then
     exit 1
 fi
 
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace-installer:v2026.6.12 $IMAGE_REGISTRY/ace-installer:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace:v2026.6.12 $IMAGE_REGISTRY/ace:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/service-gateway:v2026.6.12 $IMAGE_REGISTRY/service-gateway:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace-installer:v2026.6.19 $IMAGE_REGISTRY/ace-installer:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace:v2026.6.19 $IMAGE_REGISTRY/ace:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/service-gateway:v2026.6.19 $IMAGE_REGISTRY/service-gateway:$TAG
