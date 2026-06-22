@@ -52,22 +52,24 @@ type Ace struct {
 
 // AceSpec is the schema for Ace Operator values file
 type AceSpec struct {
-	PlatformUi   AcePlatformUi   `json:"platform-ui"`
-	ClusterUi    AceClusterUi    `json:"cluster-ui"`
-	Grafana      AceGrafana      `json:"grafana"`
-	Perses       AcePerses       `json:"perses"`
-	KubedbUi     AceKubedbUi     `json:"kubedb-ui"`
-	PlatformApi  AcePlatformApi  `json:"platform-api"`
-	IngressNginx AceIngressNginx `json:"ingress-nginx"`
-	Gateway      AceGateway      `json:"gateway"`
-	IngressDns   AceIngressDns   `json:"ingress-dns"`
-	Nats         AceNats         `json:"nats"`
-	NatsDns      AceNatsDns      `json:"nats-dns"`
-	Trickster    AceTrickster    `json:"trickster"`
-	Openfga      AceOpenfga      `json:"openfga"`
-	S3proxy      AceS3proxy      `json:"s3proxy"`
-	PgOutbox     AcePgOutbox     `json:"pgoutbox"`
-	OutboxSyncer AceOutboxSyncer `json:"outbox-syncer"`
+	PlatformUi     AcePlatformUi     `json:"platform-ui"`
+	ClusterUi      AceClusterUi      `json:"cluster-ui"`
+	Grafana        AceGrafana        `json:"grafana"`
+	Perses         AcePerses         `json:"perses"`
+	KubedbUi       AceKubedbUi       `json:"kubedb-ui"`
+	PlatformApi    AcePlatformApi    `json:"platform-api"`
+	IngressNginx   AceIngressNginx   `json:"ingress-nginx"`
+	Gateway        AceGateway        `json:"gateway"`
+	IngressDns     AceIngressDns     `json:"ingress-dns"`
+	Nats           AceNats           `json:"nats"`
+	NatsDns        AceNatsDns        `json:"nats-dns"`
+	Trickster      AceTrickster      `json:"trickster"`
+	Openfga        AceOpenfga        `json:"openfga"`
+	S3proxy        AceS3proxy        `json:"s3proxy"`
+	PgOutbox       AcePgOutbox       `json:"pgoutbox"`
+	OutboxSyncer   AceOutboxSyncer   `json:"outbox-syncer"`
+	PostgresAlerts AcePostgresAlerts `json:"postgres-alerts"`
+	RedisAlerts    AceRedisAlerts    `json:"redis-alerts"`
 	// KubeBindServer AceKubeBindServer `json:"kube-bind-server"`
 	Global             AceGlobalValues           `json:"global"`
 	Settings           Settings                  `json:"settings"`
@@ -183,6 +185,16 @@ type AceOpenfga struct {
 type AceS3proxy struct {
 	Enabled      bool `json:"enabled"`
 	*S3proxySpec `json:",inline,omitempty"`
+}
+
+type AcePostgresAlerts struct {
+	Enabled bool         `json:"enabled"`
+	Form    AceAlertForm `json:"form,omitempty"`
+}
+
+type AceRedisAlerts struct {
+	Enabled bool         `json:"enabled"`
+	Form    AceAlertForm `json:"form,omitempty"`
 }
 
 type AceGlobalValues struct {

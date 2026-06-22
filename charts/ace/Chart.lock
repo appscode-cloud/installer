@@ -41,5 +41,11 @@ dependencies:
 - name: perses
   repository: oci://ghcr.io/appscode-charts
   version: v2026.4.30
-digest: sha256:51306d8960e8ba0feb0f46b472f4834d35361a1e261f3d7f4aaaa22b093839db
-generated: "2026-06-21T16:43:15.643432987Z"
+- name: postgres-alerts
+  repository: oci://ghcr.io/appscode-charts
+  version: v2026.2.24
+- name: redis-alerts
+  repository: oci://ghcr.io/appscode-charts
+  version: v2026.2.24
+digest: sha256:2c17b4f1a0c656fd03cb1adfde74bc352171c0f0086f3dff2d0b5a9ef4744f50
+generated: "2026-06-22T11:32:13.986278601+06:00"

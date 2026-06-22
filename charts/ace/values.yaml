@@ -99,6 +99,24 @@ pgoutbox:
 outbox-syncer:
   enabled: false
 
+postgres-alerts:
+  enabled: true
+  form:
+    alert:
+      appSuffix: "-db"
+      groups:
+        stash:
+          enabled: ""
+
+redis-alerts:
+  enabled: true
+  form:
+    alert:
+      appSuffix: "-cache"
+      groups:
+        stash:
+          enabled: ""
+
 # -------------
 
 global:
