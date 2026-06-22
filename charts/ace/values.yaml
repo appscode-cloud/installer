@@ -80,7 +80,7 @@ openfga:
   enabled: false
   datastoreURI: ""
   datastore:
-    maxOpenConns: 20
+    maxOpenConns: "20"
     connMaxIdleTime: "10m"
   ## configured in lib-selfhost
   # securityContext: # +doc-gen:break
