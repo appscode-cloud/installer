@@ -3,11 +3,11 @@ name: billing-ui
 description: A Helm chart for Kubernetes
 type: application
 version: v2026.6.19
-appVersion: 2.3.0
+appVersion: 2.4.0
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
-- https://github.com/appscode-cloud
+  - https://github.com/appscode-cloud
 maintainers:
-- name: appscode
-  email: support@appscode.com
+  - name: appscode
+    email: support@appscode.com
