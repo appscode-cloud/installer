@@ -4,6 +4,7 @@
 {{ $defaults := dict "offlineInstaller" $.Values.offlineInstaller "image" $.Values.image "registry" $.Values.registry "helm" dict }}
 
 {{ $helmrepos := dig "repositories" dict $.Values.helm | deepCopy }}
+{{- include "ace-installer.applyRegcache" (dict "top" $ "repos" $helmrepos) }}
 {{ $_ := set $defaults.helm "repositories" $helmrepos }}
 {{ $_ := set $defaults.helm "createNamespace" $.Values.helm.createNamespace }}
 

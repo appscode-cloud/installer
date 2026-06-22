@@ -1,0 +1,13 @@
+{{- if .Values.enabled }}
+The in-cluster registry pull-through cache has been deployed.
+
+Service (in-cluster registry endpoint):
+  {{ include "regcache.fullname" . }}.{{ .Release.Namespace }}.svc:{{ .Values.service.port }}
+
+It proxies: {{ .Values.remoteURL }}
+
+Find the pod by running:
+  kubectl get pods -n {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "regcache.name" . }},app.kubernetes.io/instance={{ .Release.Name }}"
+{{- else }}
+regcache is disabled (enabled: false). No resources were created.
+{{- end }}

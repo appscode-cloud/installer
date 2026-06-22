@@ -44,5 +44,12 @@ Helpers (invoked outside Make):
 - License: `LICENSE.md`. Sign off commits (`git commit -s`).
 - Vendor directory is checked in; keep `go mod tidy && go mod vendor` clean.
 - CRDs for charts are imported via `import-crds.sh`; don't hand-author `charts/*/crds/*.yaml`.
-- `-certified` charts mirror the standard charts for Red Hat certification — bumps must apply to both.
+- `-certified` charts mirror the standard charts for Red Hat certification. `charts/ace-installer-certified` and `charts/ace-installer-certified-crds` are **generated** — do not edit them directly. After changing `charts/ace-installer`, regenerate them with:
+
+  ```sh
+  rm -rf charts/ace-installer-certified charts/ace-installer-certified-crds
+  chart-packer crd-less --input charts/ace-installer --output charts
+  chart-packer crd-only --input charts/ace-installer --output charts
+  make gen-chart-doc
+  ```
 - Adding a new chart: create `charts/<name>/`, add a values-schema Go type under `apis/installer/v1alpha1/`, list images in `imagelist.yaml`, then run `make gen`.

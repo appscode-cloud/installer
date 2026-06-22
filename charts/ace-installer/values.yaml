@@ -47,6 +47,11 @@ helm:
     # oci://harbor.appscode.ninja/ac/appscode-charts
     appscode-charts-oci:
       url: oci://ghcr.io/appscode-charts
+    # Repository used by the platform UI deploy wizards. Defaults to the same
+    # upstream as appscode-charts-oci. When regcache.enabled is true, its URL is
+    # rewritten to the in-cluster registry proxy that fronts ghcr.io/appscode-charts.
+    appscode-wizards-oci:
+      url: oci://ghcr.io/appscode-charts
   releases:
     ace:
       enabled: false
@@ -233,4 +238,74 @@ tester:
   nodeSelector: {}
   tolerations: []
   affinity: {}
+
+# In-cluster pull-through Docker registry cache, deployed via the regcache
+# subchart (charts/regcache). When enabled (the default), it proxies the upstream
+# registry (ghcr.io by default) so ghcr.io/appscode-charts images are served from
+# within the cluster, and the appscode-wizards-oci HelmRepository is rewritten to
+# pull through this cache instead of directly from ghcr.io.
+# See charts/regcache/values.yaml for the full set of tunables.
+regcache:
+  enabled: true
+  replicaCount: 1
+  nameOverride: ""
+  fullnameOverride: ""
+  # Docker registry fqdn used to pull the registry image.
+  registryFQDN: ghcr.io
+  image:
+    # Docker registry used to pull the registry image
+    registry: appscode-images
+    # registry container image
+    repository: registry
+    # Overrides the image tag
+    tag: "3.1.1"
+    pullPolicy: IfNotPresent
+  imagePullSecrets: []
+  # Upstream registry URL that this instance proxies as a pull-through cache.
+  remoteURL: https://ghcr.io
+  # How long a cached blob/manifest is kept before the pull-through cache
+  # scheduler purges it. The cache has no capacity-based (LRU) eviction, so the
+  # on-disk size is roughly the set of distinct artifacts pulled within this
+  # window. Accepts a Go duration (e.g. 24h, 72h, 168h).
+  ttl: "72h"
+  # Optional credentials for authenticating against the upstream registry.
+  # Leave empty for anonymous pulls (ghcr.io/appscode-charts is public).
+  username: ""
+  password: ""
+  podAnnotations: {}
+  podSecurityContext: # +doc-gen:break
+    fsGroup: 65534
+  securityContext: # +doc-gen:break
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 65534
+    seccompProfile:
+      type: RuntimeDefault
+  service:
+    type: ClusterIP
+    port: 5000
+  persistence:
+    enabled: true
+    # StorageClass for the cache PVC. When empty, falls back to
+    # infra.storageClass.name below; if that is also unset, the cluster's default
+    # StorageClass is used. Use a StorageClass with `allowVolumeExpansion: true`
+    # to grow the cache later via a helm upgrade.
+    storageClass: ""
+    accessMode: ReadWriteOnce
+    size: 10Gi
+  resources: {}
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+  # Storage class fallback for the cache PVC (used when persistence.storageClass
+  # is empty). Set this to the storage class ACE uses for its data/backups.
+  infra:
+    storageClass:
+      name: ""
+  distro:
+    openshift: false
+    ubi: ""
 options: ""

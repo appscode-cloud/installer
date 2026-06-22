@@ -1,0 +1,18 @@
+project:
+  name: Registry Proxy by AppsCode
+  shortName: Registry Proxy
+  url: https://github.com/appscode-cloud
+  description: In-cluster pull-through Docker registry cache
+  app: a pull-through registry cache
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: regcache
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.29+
+release:
+  name: regcache
+  namespace: kubeops

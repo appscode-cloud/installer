@@ -1,0 +1,13 @@
+apiVersion: v2
+name: regcache
+description: In-cluster pull-through Docker registry cache (CNCF Distribution / registry:3)
+type: application
+version: v2026.6.19
+appVersion: v2026.6.19
+home: https://github.com/appscode-cloud
+icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
+sources:
+- https://github.com/appscode-cloud
+maintainers:
+- name: appscode
+  email: support@appscode.com

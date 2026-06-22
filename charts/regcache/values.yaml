@@ -1,0 +1,89 @@
+# Default values for regcache.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Deploys a CNCF Distribution (registry:3) instance configured as a pull-through
+# cache for the upstream registry (ghcr.io by default), so that
+# ghcr.io/appscode-charts images can be transparently served from within the
+# cluster.
+enabled: true
+replicaCount: 1
+
+nameOverride: ""
+fullnameOverride: ""
+
+# Docker registry fqdn used to pull the registry image.
+# Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image}
+registryFQDN: ghcr.io
+image:
+  # Docker registry used to pull the registry image
+  registry: appscode-images
+  # registry container image
+  repository: registry
+  # Overrides the image tag
+  tag: "3.1.1"
+  pullPolicy: IfNotPresent
+# Specify an array of imagePullSecrets.
+# Secrets must be manually created in the namespace.
+imagePullSecrets: []
+
+# Upstream registry URL that this instance proxies as a pull-through cache.
+remoteURL: https://ghcr.io
+# How long a cached blob/manifest is kept before the pull-through cache
+# scheduler purges it. This is the only thing that frees disk: the cache has no
+# capacity-based (LRU) eviction, so the on-disk size is roughly the set of
+# distinct artifacts pulled within this window. Shorten it to bound disk usage
+# (at the cost of re-fetching from upstream more often); lengthen it to cache
+# for longer. Accepts a Go duration (e.g. 24h, 72h, 168h).
+ttl: "72h"
+# Optional credentials for authenticating against the upstream registry.
+# Leave empty for anonymous pulls (ghcr.io/appscode-charts is public).
+username: ""
+password: ""
+
+podAnnotations: {}
+podSecurityContext: # +doc-gen:break
+  fsGroup: 65534
+securityContext: # +doc-gen:break
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["ALL"]
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 65534
+  seccompProfile:
+    type: RuntimeDefault
+service:
+  type: ClusterIP
+  port: 5000
+
+# Disk maintenance / GC: the cache reclaims space only by purging entries older
+# than `ttl` (above); it never evicts on capacity. If the volume fills before
+# entries expire, writes fail with ENOSPC and cache misses (uncached pulls)
+# start failing until space frees up. To reclaim space sooner, shorten `ttl`, or
+# recreate the PVC. Size `persistence.size` for the working set you expect within
+# one `ttl` window.
+persistence:
+  enabled: true
+  # StorageClass for the cache PVC. When empty, falls back to infra.storageClass
+  # .name (or the parent chart's global.infra.storageClass.name); if that is
+  # also unset, the cluster's default StorageClass is used (the PVC stays Pending
+  # if there is no default). To allow growing the cache later, pick a
+  # StorageClass with `allowVolumeExpansion: true`: then raising `size` and
+  # running a helm upgrade expands the existing PVC in place. Shrinking is
+  # rejected by Kubernetes and requires recreating the PVC.
+  storageClass: ""
+  accessMode: ReadWriteOnce
+  size: 10Gi
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+infra:
+  storageClass:
+    name: ""
+
+distro:
+  openshift: false
+  ubi: ""
