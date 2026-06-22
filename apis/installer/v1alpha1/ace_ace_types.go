@@ -177,9 +177,21 @@ type AceTrickster struct {
 }
 
 type AceOpenfga struct {
-	Enabled      bool   `json:"enabled"`
-	DatastoreURI string `json:"datastoreURI"`
+	Enabled      bool                 `json:"enabled"`
+	DatastoreURI string               `json:"datastoreURI"`
+	Datastore    *AceOpenfgaDatastore `json:"datastore,omitempty"`
 	*OpenfgaSpec `json:",inline,omitempty"`
+}
+
+// AceOpenfgaDatastore exposes the subset of openfga datastore connection
+// settings that can be overridden from the ace chart. It intentionally
+// shadows the inlined OpenfgaSpec.Datastore so that ace/values.yaml only
+// carries these knobs instead of the full upstream datastore schema.
+type AceOpenfgaDatastore struct {
+	// +optional
+	MaxOpenConns string `json:"maxOpenConns,omitempty"`
+	// +optional
+	ConnMaxIdleTime string `json:"connMaxIdleTime,omitempty"`
 }
 
 type AceS3proxy struct {
