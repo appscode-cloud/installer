@@ -295,6 +295,18 @@ settings:
       username: postgres
       password: "xyz"
     logSQL: false
+  pgpool:
+    enabled: true
+    replicas: 1
+    config:
+      num_init_children: "15"
+      max_pool: "4"
+    resources:
+      limits:
+        memory: 512Mi
+      requests:
+        memory: 256Mi
+        cpu: 250m
   cache:
     version: "7.2.4"
     cacheInterval: 60

@@ -395,6 +395,16 @@ type Settings struct {
 	Firebase    FirebaseSettings    `json:"firebase"`
 	// +optional
 	Marketplace *MarketplaceSettings `json:"marketplace,omitempty"`
+	// +optional
+	PgPool *PgPoolSettings `json:"pgpool,omitempty"`
+}
+
+type PgPoolSettings struct {
+	Enabled   bool                      `json:"enabled"`
+	Replicas  int                       `json:"replicas"`
+	Resources core.ResourceRequirements `json:"resources"`
+	// +optional
+	Config map[string]string `json:"config,omitempty"`
 }
 
 type DBSettings struct {
