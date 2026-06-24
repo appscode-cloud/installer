@@ -1,0 +1,43 @@
+{{- if .Values.cleaner.enabled -}}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "service-gateway.fullname" . }}-gwclass-cleaner
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    "helm.sh/hook-weight": "0"
+    "helm.sh/hook": pre-delete
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+spec:
+  backoffLimit: 3
+  template:
+    spec:
+      {{- include "appscode.imagePullSecrets" . | nindent 6 }}
+      serviceAccountName: {{ include "service-gateway.fullname" . }}-gwclass-cleaner
+      automountServiceAccountToken: true
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65534
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: kubectl
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 65534
+            seccompProfile:
+              type: RuntimeDefault
+          image: "{{ include "kubectl.registry" . }}/{{ .Values.kubectl.repository }}:{{ .Values.kubectl.tag }}"
+          imagePullPolicy: {{ .Values.kubectl.pullPolicy }}
+          command:
+          - /bin/sh
+          - -c
+          - |
+            kubectl patch gatewayclass {{ include "tenant.name" . }} --type=merge -p '{"metadata":{"finalizers":null}}' || true
+      restartPolicy: Never
+{{- end }}

@@ -81,3 +81,36 @@ Returns if ubi images are to be used
 {{- define "operator.ubi" -}}
 {{ ternary "-ubi" "" (list "operator" "all" | has (default (dig "ubi" "" (default dict .Values.distro)) .Values.global.distro.ubi)) }}
 {{- end }}
+
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "appscode.serviceAccountName" -}}
+{{- if .Values.global.serviceAccount.create }}
+{{- default (include "service-gateway.fullname" .) .Values.global.serviceAccount.name }}
+{{- else if .Values.serviceAccount }}
+{{- default "default" .Values.serviceAccount.name }}
+{{- else }}
+{{- "default" }}
+{{- end }}
+{{- end }}
+
+{{/*
+Returns the registry used for kubectl docker image
+*/}}
+{{- define "kubectl.registry" -}}
+{{- list .Values.global.registryFQDN (default .Values.kubectl.registry .Values.global.registry) | compact | join "/" }}
+{{- end }}
+
+{{/*
+Returns the appscode image pull secrets
+*/}}
+{{- define "appscode.imagePullSecrets" -}}
+{{- with .Values.global.imagePullSecrets -}}
+imagePullSecrets:
+{{- toYaml . | nindent 2 }}
+{{- else -}}
+imagePullSecrets:
+{{- toYaml $.Values.imagePullSecrets | nindent 2 }}
+{{- end }}
+{{- end }}
