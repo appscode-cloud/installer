@@ -40,11 +40,6 @@ spec:
           {{- end }}
           image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- if and .Values.global .Values.global.platform.offlineInstaller }}
-          env:
-            - name: ENABLE_OFFLINE_BILLING_UI
-              value: "true"
-          {{- end }}
           ports:
             - name: http
               containerPort: 8080

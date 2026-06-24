@@ -174,11 +174,6 @@ stringData:
     PATH   = {{ .Values.global.infra.badger.mountPath }}
     LEVELS = {{ .Values.global.infra.badger.levels }}
 
-    [contract]
-    BUCKET          = {{ .Values.settings.contract.bucket }}
-    PREFIX          = {{ .Values.settings.contract.prefix }}
-    LICENSE_BUCKET  = {{ .Values.settings.contract.licenseBucket }}
-
     [invoice]
     PATH          = {{ .Values.global.infra.invoice.mountPath }}
     BUCKET        = {{ .Values.global.infra.invoice.bucket }}
@@ -187,6 +182,11 @@ stringData:
   {{- end }}
 
   {{- if eq .Values.global.platform.deploymentType "Hosted" }}
+
+    [contract]
+    BUCKET          = {{ .Values.settings.contract.bucket }}
+    PREFIX          = {{ .Values.settings.contract.prefix }}
+    LICENSE_BUCKET  = {{ .Values.settings.contract.licenseBucket }}
 
     [fileserver]
     BASE_URL         = {{ .Values.global.infra.fileserver.baseURL }}
