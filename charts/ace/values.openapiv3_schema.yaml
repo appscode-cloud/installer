@@ -11101,6 +11101,10 @@ properties:
                 type: string
               usernameKey:
                 type: string
+            required:
+            - passwordKey
+            - uriKey
+            - usernameKey
             type: object
           uri:
             type: string
@@ -11110,6 +11114,23 @@ properties:
             type: string
           waitForMigrations:
             type: boolean
+        required:
+        - applyMigrations
+        - connMaxIdleTime
+        - connMaxLifetime
+        - engine
+        - existingSecret
+        - maxCacheSize
+        - maxIdleConns
+        - maxOpenConns
+        - migrationType
+        - migrations
+        - password
+        - secretKeys
+        - uri
+        - uriSecret
+        - username
+        - waitForMigrations
         type: object
       datastoreURI:
         type: string
@@ -16836,8 +16857,76 @@ properties:
           type: object
         type: array
     required:
+    - affinity
+    - allowEvaluating1_0Models
+    - allowWriting1_0Models
+    - annotations
+    - authn
+    - autoscaling
+    - changelogHorizonOffset
+    - checkQueryCache
+    - commonLabels
+    - customLivenessProbe
+    - customReadinessProbe
+    - customStartupProbe
+    - datastore
     - datastoreURI
     - enabled
+    - experimentals
+    - extraEnvVars
+    - extraInitContainers
+    - extraObjects
+    - extraVolumeMounts
+    - extraVolumes
+    - fullnameOverride
+    - grpc
+    - http
+    - image
+    - imagePullSecrets
+    - ingress
+    - initContainer
+    - lifecycle
+    - listObjectsDeadline
+    - listObjectsMaxResults
+    - listUsersDeadline
+    - listUsersMaxResults
+    - livenessProbe
+    - log
+    - maxAuthorizationModelSizeInBytes
+    - maxChecksPerBatchCheck
+    - maxConcurrentChecksPerBatchCheck
+    - maxConcurrentReadsForCheck
+    - maxConcurrentReadsForListObjects
+    - maxConcurrentReadsForListUsers
+    - maxTuplesPerWrite
+    - maxTypesPerAuthorizationModel
+    - migrate
+    - mysql
+    - nameOverride
+    - nodeSelector
+    - playground
+    - podAnnotations
+    - podExtraLabels
+    - podSecurityContext
+    - postgresql
+    - profiler
+    - readinessProbe
+    - replicaCount
+    - requestDurationDatastoreQueryCountBuckets
+    - requestTimeout
+    - resolveNodeBreadthLimit
+    - resolveNodeLimit
+    - resources
+    - securityContext
+    - service
+    - serviceAccount
+    - sidecars
+    - startupProbe
+    - telemetry
+    - testContainerSpec
+    - testPodSpec
+    - tolerations
+    - topologySpreadConstraints
     type: object
   outbox-syncer:
     properties:
