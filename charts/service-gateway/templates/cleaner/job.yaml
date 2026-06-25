@@ -15,23 +15,22 @@ spec:
       {{- include "appscode.imagePullSecrets" . | nindent 6 }}
       serviceAccountName: {{ include "service-gateway.fullname" . }}-gwclass-cleaner
       automountServiceAccountToken: true
+      {{- if eq "true" ( include "distro.openshift" . ) }}
       securityContext:
-        runAsNonRoot: true
-        runAsUser: 65534
-        seccompProfile:
-          type: RuntimeDefault
+        {{- toYaml (omit .Values.cleaner.podSecurityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 8 }}
+      {{- else }}
+      securityContext:
+        {{- toYaml .Values.cleaner.podSecurityContext | nindent 8 }}
+      {{- end }}
       containers:
         - name: kubectl
+          {{- if eq "true" ( include "distro.openshift" . ) }}
           securityContext:
-            allowPrivilegeEscalation: false
-            capabilities:
-              drop: ["ALL"]
-            privileged: false
-            readOnlyRootFilesystem: true
-            runAsNonRoot: true
-            runAsUser: 65534
-            seccompProfile:
-              type: RuntimeDefault
+            {{- toYaml (omit .Values.cleaner.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 12 }}
+          {{- else }}
+          securityContext:
+            {{- toYaml .Values.cleaner.securityContext | nindent 12 }}
+          {{- end }}
           image: "{{ include "kubectl.registry" . }}/{{ .Values.kubectl.repository }}:{{ .Values.kubectl.tag }}"
           imagePullPolicy: {{ .Values.kubectl.pullPolicy }}
           command:
