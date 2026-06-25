@@ -12,16 +12,8 @@ spec:
   backoffLimit: 3
   template:
     spec:
-      {{- include "appscode.imagePullSecrets" . | nindent 6 }}
       serviceAccountName: {{ include "service-gateway.fullname" . }}-gwclass-cleaner
       automountServiceAccountToken: true
-      {{- if eq "true" ( include "distro.openshift" . ) }}
-      securityContext:
-        {{- toYaml (omit .Values.cleaner.podSecurityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 8 }}
-      {{- else }}
-      securityContext:
-        {{- toYaml .Values.cleaner.podSecurityContext | nindent 8 }}
-      {{- end }}
       containers:
         - name: kubectl
           {{- if eq "true" ( include "distro.openshift" . ) }}
@@ -31,8 +23,8 @@ spec:
           securityContext:
             {{- toYaml .Values.cleaner.securityContext | nindent 12 }}
           {{- end }}
-          image: "{{ include "kubectl.registry" . }}/{{ .Values.kubectl.repository }}:{{ .Values.kubectl.tag }}"
-          imagePullPolicy: {{ .Values.kubectl.pullPolicy }}
+          image: "{{ .Values.cleaner.kubectl.registry }}/{{ .Values.cleaner.kubectl.repository }}:{{ .Values.cleaner.kubectl.tag }}"
+          imagePullPolicy: {{ .Values.cleaner.kubectl.pullPolicy }}
           command:
           - /bin/sh
           - -c
