@@ -121,9 +121,9 @@ helm:
     kube-ui-server:
       version: "v2026.6.19"
     kubedb:
-      version: "v2026.5.18-rc.0"
+      version: "v2026.6.19"
     kubedb-opscenter:
-      version: "v2026.5.18-rc.0"
+      version: "v2026.6.19"
     kubedb-provider-aws:
       version: "v2024.1.31"
     kubedb-provider-azure:
@@ -131,7 +131,7 @@ helm:
     kubedb-provider-gcp:
       version: "v2024.1.31"
     kubestash:
-      version: "v2026.4.27"
+      version: "v2026.6.19"
     kubevault:
       version: "v2026.2.27"
     kubevault-opscenter:
@@ -149,7 +149,7 @@ helm:
     monitoring-operator:
       version: "v2026.6.12"
     operator-shard-manager:
-      version: "v2026.1.15"
+      version: "v2026.6.22"
     opencost:
       version: "1.18.1"
     opencost-grafana-dashboards:
@@ -157,7 +157,7 @@ helm:
     opscenter-features:
       version: "v2026.6.19"
     panopticon:
-      version: "v2026.1.15"
+      version: "v2026.6.22"
     prepare-cluster:
       version: "v2023.12.21"
     prometheus-adapter:
@@ -177,7 +177,7 @@ helm:
     service-provider:
       version: "v2026.6.19"
     sidekick:
-      version: "v2026.2.16"
+      version: "v2026.6.22"
     snapshot-controller:
       version: "3.0.6"
     stash:

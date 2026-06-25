@@ -83,7 +83,7 @@ helm:
       version: v1.4.1
     kubedb:
       enabled: true
-      version: "v2026.4.27"
+      version: "v2026.6.19"
       values: # +doc-gen:break
         kubedb-provisioner:
           enabled: true
@@ -103,7 +103,7 @@ helm:
           enabled: false
     kubestash:
       enabled: false
-      version: "v2026.4.27"
+      version: "v2026.6.19"
     kube-ui-server:
       enabled: true
       version: "v2026.6.19"
@@ -115,7 +115,7 @@ helm:
       version: "v2026.6.19"
     panopticon:
       enabled: true
-      version: "v2026.1.15"
+      version: "v2026.6.22"
       values: # +doc-gen:break
         monitoring:
           agent: prometheus.io/operator
