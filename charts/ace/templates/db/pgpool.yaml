@@ -17,9 +17,10 @@ spec:
   {{- if .Values.settings.pgpool.config }}
   configuration:
     inline:
-      {{- range $k, $v := .Values.settings.pgpool.config }}
-      {{ $k }}: "{{ $v }}"
-      {{- end }}
+      pgpool.conf: |
+        {{- range $k, $v := .Values.settings.pgpool.config }}
+        {{ $k }}={{ $v }}
+        {{- end }}
   {{- end }}
   podTemplate:
     spec:
