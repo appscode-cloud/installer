@@ -45,6 +45,17 @@ type GatewaySpec struct {
 	Echoserver EchoserverSpec                      `json:"echoserver"`
 	// +optional
 	VaultServer kmapi.ObjectReference `json:"vaultServer"`
+	Cleaner     CleanerSpec           `json:"cleaner"`
+}
+
+type CleanerSpec struct {
+	Enabled    bool            `json:"enabled"`
+	Registry   string          `json:"registry"`
+	Repository string          `json:"repository"`
+	Tag        string          `json:"tag"`
+	PullPolicy core.PullPolicy `json:"pullPolicy"`
+	// +optional
+	SecurityContext *core.SecurityContext `json:"securityContext,omitempty"`
 }
 
 type GatewayValues struct {

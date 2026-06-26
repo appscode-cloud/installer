@@ -3,7 +3,7 @@ module go.bytebuilders.dev/installer
 go 1.25.6
 
 require (
-	go.bytebuilders.dev/catalog v0.0.23
+	go.bytebuilders.dev/catalog v0.0.25-0.20260626115826-a5d44c24f104
 	go.bytebuilders.dev/resource-model v0.4.0
 	go.bytebuilders.dev/ui-wizards v0.35.0
 	go.openviz.dev/installer v0.0.0-20260619044110-702becd1dd97
