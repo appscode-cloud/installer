@@ -87,16 +87,24 @@ opscenter-features:
     helm:
       createNamespace: %v
       repositories: %v
-    licenseServer: %v
 `
   $.Values.offlineInstaller
   ($.Values.image | toJson)
   ($.Values.registry | toJson)
   $.Values.helm.createNamespace
   ($.Values.helm.repositories | toJson)
-  ((dig "opscenter-features" "values" "licenseServer" (dict) $.Values.helm.releases) | toJson)
   | fromYaml }}
 {{ $helmreleases = mergeOverwrite $helmreleases $defaults }}
+{{- if not $.Values.offlineInstaller }}
+{{ $ls := printf `
+opscenter-features:
+  values:
+    licenseServer: %v
+`
+  ((dig "opscenter-features" "values" "licenseServer" (dict) $.Values.helm.releases) | toJson)
+  | fromYaml }}
+{{ $helmreleases = mergeOverwrite $helmreleases $ls }}
+{{- end }}
 {{- end }}
 
 {{ $clusterManagerSpoke := printf `
