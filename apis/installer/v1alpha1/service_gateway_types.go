@@ -19,6 +19,7 @@ package v1alpha1
 import (
 	catgwapi "go.bytebuilders.dev/catalog/api/gateway/v1alpha1"
 
+	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -48,12 +49,22 @@ type ServiceGatewaySpec struct {
 	FullnameOverride       string               `json:"fullnameOverride"`
 	ClusterMetadata        StashClusterMetadata `json:"clusterMetadata"`
 	GatewayClass           GatewayClassSpec     `json:"gatewayClass"`
+	Cleaner                CleanerSpec          `json:"cleaner"`
 	catgwapi.GatewayValues `json:",inline,omitempty"`
 }
 
 type GatewayClassSpec struct {
 	Annotations map[string]string `json:"annotations"`
 	Description string            `json:"description"`
+}
+
+type CleanerSpec struct {
+	Enabled         bool                  `json:"enabled"`
+	Registry        string                `json:"registry"`
+	Repository      string                `json:"repository"`
+	Tag             string                `json:"tag"`
+	PullPolicy      core.PullPolicy       `json:"pullPolicy"`
+	SecurityContext *core.SecurityContext `json:"securityContext,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

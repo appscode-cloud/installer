@@ -150,11 +150,10 @@ vaultServer:
 # and shuts down before it can remove the finalizer.
 cleaner:
   enabled: false
-  kubectl:
-    registry: ghcr.io/appscode
-    repository: kubectl-nonroot
-    tag: "1.34"
-    pullPolicy: IfNotPresent
+  registry: ghcr.io/appscode
+  repository: kubectl-nonroot
+  tag: "1.34"
+  pullPolicy: IfNotPresent
   securityContext:
     allowPrivilegeEscalation: false
     capabilities:

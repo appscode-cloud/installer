@@ -23,8 +23,8 @@ spec:
           securityContext:
             {{- toYaml .Values.cleaner.securityContext | nindent 12 }}
           {{- end }}
-          image: "{{ .Values.cleaner.kubectl.registry }}/{{ .Values.cleaner.kubectl.repository }}:{{ .Values.cleaner.kubectl.tag }}"
-          imagePullPolicy: {{ .Values.cleaner.kubectl.pullPolicy }}
+          image: "{{ .Values.cleaner.registry }}/{{ .Values.cleaner.repository }}:{{ .Values.cleaner.tag }}"
+          imagePullPolicy: {{ .Values.cleaner.pullPolicy }}
           command:
           - /bin/sh
           - -c
