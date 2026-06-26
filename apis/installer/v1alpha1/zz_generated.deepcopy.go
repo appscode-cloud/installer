@@ -1562,6 +1562,7 @@ func (in *AceOptionsSpec) DeepCopyInto(out *AceOptionsSpec) {
 	in.Gateway.DeepCopyInto(&out.Gateway)
 	in.Nats.DeepCopyInto(&out.Nats)
 	in.Trickster.DeepCopyInto(&out.Trickster)
+	in.Regcache.DeepCopyInto(&out.Regcache)
 	in.Openfga.DeepCopyInto(&out.Openfga)
 	in.PgOutbox.DeepCopyInto(&out.PgOutbox)
 	in.OutboxSyncer.DeepCopyInto(&out.OutboxSyncer)

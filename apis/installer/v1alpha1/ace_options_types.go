@@ -71,6 +71,7 @@ type AceOptionsSpec struct {
 	Gateway              AceOptionsGateway               `json:"gateway"`
 	Nats                 AceOptionsNatsSettings          `json:"nats"`
 	Trickster            AceOptionsComponentSpec         `json:"trickster"`
+	Regcache             AceOptionsComponentSpec         `json:"regcache"`
 	Openfga              AceOptionsComponentSpec         `json:"openfga"`
 	PgOutbox             AceOptionsComponentSpec         `json:"pgoutbox"`
 	OutboxSyncer         AceOptionsComponentSpec         `json:"outbox-syncer"`
