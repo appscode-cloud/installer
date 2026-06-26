@@ -23,6 +23,10 @@ spec:
   type: oci
   {{- end }}
 
+  {{- if $cfg.insecure }}
+  insecure: true
+  {{- end }}
+
   {{- with $cfg.provider }}
   provider: {{ . }}
   {{- end }}

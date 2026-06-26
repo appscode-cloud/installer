@@ -123,6 +123,41 @@ Returns the registry used for tester docker image
 {{- end }}
 
 {{/*
+Returns the in-cluster address (host:port) of the registry proxy service. This
+must match the regcache subchart's fullname (templates/_helpers.tpl in the
+regcache chart), since the subchart names its Service after it.
+*/}}
+{{- define "regcache.serviceAddress" -}}
+{{- $name := default "regcache" .Values.regcache.nameOverride -}}
+{{- $fullname := "" -}}
+{{- if .Values.regcache.fullnameOverride -}}
+{{- $fullname = .Values.regcache.fullnameOverride | trunc 63 | trimSuffix "-" -}}
+{{- else if contains $name .Release.Name -}}
+{{- $fullname = .Release.Name | trunc 63 | trimSuffix "-" -}}
+{{- else -}}
+{{- $fullname = printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
+{{- printf "%s.%s.svc:%v" $fullname .Release.Namespace (default 5000 .Values.regcache.service.port) -}}
+{{- end }}
+
+{{/*
+When the in-cluster registry proxy is enabled, rewrites the appscode-wizards-oci
+HelmRepository (if present) to pull through the proxy instead of directly from
+ghcr.io. The proxy serves plain HTTP, hence insecure. Mutates the passed repos
+dict in place; expects a dict with keys "top" (root ctx) and "repos".
+*/}}
+{{- define "ace-installer.applyRegcache" -}}
+{{- $top := .top -}}
+{{- if $top.Values.regcache.enabled -}}
+{{- with (dig "appscode-wizards-oci" dict .repos) -}}
+{{- $_ := set . "url" (printf "oci://%s/appscode-charts" (include "regcache.serviceAddress" $top)) -}}
+{{- $_ := set . "type" "oci" -}}
+{{- $_ := set . "insecure" true -}}
+{{- end -}}
+{{- end -}}
+{{- end }}
+
+{{/*
 Returns whether the OpenShift distribution is used
 */}}
 {{- define "distro.openshift" -}}

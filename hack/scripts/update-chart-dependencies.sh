@@ -20,4 +20,6 @@ helm dependency update charts/platform-grafana-dashboards
 helm dependency update charts/platform-opscenter
 helm dependency update charts/acaas
 helm dependency update charts/ace
+helm dependency update charts/ace-installer
+helm dependency update charts/ace-installer-certified
 helm dependency update charts/service-gateway

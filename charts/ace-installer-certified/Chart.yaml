@@ -2,6 +2,11 @@ annotations:
   charts.openshift.io/name: ace-installer-certified
 apiVersion: v2
 appVersion: v2026.6.19
+dependencies:
+- condition: regcache.enabled
+  name: regcache
+  repository: file://../regcache
+  version: v2026.6.19
 description: ACE Installer
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/kubeops/icons/android-icon-192x192.png

@@ -1,6 +1,7 @@
 {{ $vals := dict "offlineInstaller" $.Values.offlineInstaller "image" $.Values.image "registry" $.Values.registry "helm" dict }}
 
 {{ $helmrepos := dig "repositories" dict $.Values.helm | deepCopy }}
+{{- include "ace-installer.applyRegcache" (dict "top" $ "repos" $helmrepos) }}
 {{ $_ := set $vals.helm "repositories" $helmrepos }}
 {{ $_ := set $vals.helm "createNamespace" $.Values.helm.createNamespace }}
 
@@ -92,7 +93,7 @@ opscenter-features:
   ($.Values.image | toJson)
   ($.Values.registry | toJson)
   $.Values.helm.createNamespace
-  ($.Values.helm.repositories | toJson)
+  ($helmrepos | toJson)
   | fromYaml }}
 {{ $helmreleases = mergeOverwrite $helmreleases $defaults }}
 {{- if not $.Values.offlineInstaller }}

@@ -1,0 +1,109 @@
+{{- if .Values.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "regcache.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "regcache.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "regcache.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "regcache.selectorLabels" . | nindent 8 }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+      {{- with .Values.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    spec:
+      {{- include "regcache.imagePullSecrets" . | nindent 6 }}
+      {{- if eq "true" ( include "regcache.distro.openshift" . ) }}
+      securityContext:
+        {{- toYaml (omit .Values.podSecurityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 8 }}
+      {{- else }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- end }}
+      containers:
+      - name: registry
+        {{- if eq "true" ( include "regcache.distro.openshift" . ) }}
+        securityContext:
+          {{- toYaml (omit .Values.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 10 }}
+        {{- else }}
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 10 }}
+        {{- end }}
+        image: "{{ include "regcache.image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - name: registry
+          containerPort: 5000
+          protocol: TCP
+        env:
+        - name: REGISTRY_CONFIGURATION_PATH
+          value: /etc/docker/registry/config.yml
+        {{- if .Values.username }}
+        - name: REGISTRY_PROXY_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "regcache.fullname" . }}-auth
+              key: username
+        - name: REGISTRY_PROXY_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "regcache.fullname" . }}-auth
+              key: password
+        {{- end }}
+        livenessProbe:
+          httpGet:
+            path: /v2/
+            port: registry
+          initialDelaySeconds: 10
+          periodSeconds: 20
+        readinessProbe:
+          httpGet:
+            path: /v2/
+            port: registry
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
+        volumeMounts:
+        - name: config
+          mountPath: /etc/docker/registry
+          readOnly: true
+        - name: data
+          mountPath: /var/lib/registry
+        - name: tmp
+          mountPath: /tmp
+      volumes:
+      - name: config
+        configMap:
+          name: {{ include "regcache.fullname" . }}
+      - name: data
+      {{- if .Values.persistence.enabled }}
+        persistentVolumeClaim:
+          claimName: {{ include "regcache.fullname" . }}
+      {{- else }}
+        emptyDir: {}
+      {{- end }}
+      - name: tmp
+        emptyDir: {}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}

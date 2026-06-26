@@ -14,3 +14,8 @@ sources:
 maintainers:
 - name: appscode
   email: support@appscode.com
+dependencies:
+- name: regcache
+  repository: file://../regcache
+  condition: regcache.enabled
+  version: v2026.6.19

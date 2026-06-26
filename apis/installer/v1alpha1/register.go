@@ -130,6 +130,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&NatsList{},
 		&Openfga{},
 		&OpenfgaList{},
+		&Regcache{},
+		&RegcacheList{},
 		&Reloader{},
 		&ReloaderList{},
 		&S3proxy{},

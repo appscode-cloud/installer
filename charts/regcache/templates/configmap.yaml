@@ -1,0 +1,39 @@
+{{- if .Values.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "regcache.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "regcache.labels" . | nindent 4 }}
+data:
+  config.yml: |
+    version: 0.1
+    log:
+      level: info
+      fields:
+        service: registry
+    storage:
+      cache:
+        blobdescriptor: inmemory
+      filesystem:
+        rootdirectory: /var/lib/registry
+      maintenance:
+        uploadpurging:
+          enabled: true
+    http:
+      addr: :5000
+      headers:
+        X-Content-Type-Options: [nosniff]
+    health:
+      storagedriver:
+        enabled: true
+        interval: 10s
+        threshold: 3
+    proxy:
+      remoteurl: {{ .Values.remoteURL | quote }}
+      # ttl bounds disk usage: the scheduler purges cached content older than
+      # this. There is no capacity-based eviction, so size the PVC for the
+      # working set pulled within this window.
+      ttl: {{ .Values.ttl | default "72h" | quote }}
+{{- end }}
