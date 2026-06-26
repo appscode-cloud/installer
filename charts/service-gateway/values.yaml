@@ -149,7 +149,7 @@ vaultServer:
 # Disabled by default. Enable when the envoy-gateway controller is deployed as a sub-chart
 # and shuts down before it can remove the finalizer.
 cleaner:
-  enabled: false
+  enabled: true
   registry: ghcr.io/appscode
   repository: kubectl-nonroot
   tag: "1.34"
