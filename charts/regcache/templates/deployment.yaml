@@ -40,14 +40,13 @@ spec:
         {{- end }}
         image: "{{ include "regcache.image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
+        args: ["serve", "/etc/docker/registry/config.yml"]
         ports:
         - name: registry
           containerPort: 5000
           protocol: TCP
-        env:
-        - name: REGISTRY_CONFIGURATION_PATH
-          value: /etc/docker/registry/config.yml
         {{- if .Values.username }}
+        env:
         - name: REGISTRY_PROXY_USERNAME
           valueFrom:
             secretKeyRef:
