@@ -21,7 +21,7 @@ data:
       maintenance:
         uploadpurging:
           enabled: true
-          age: 168h
+          age: 72h
           interval: 24h
           dryrun: false
           dontcleanuptmpdir: false
