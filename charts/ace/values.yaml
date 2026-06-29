@@ -301,7 +301,7 @@ settings:
     config:
       num_init_children: "10"
       max_pool: "40"
-      client_idle_limit: "120"
+      client_idle_limit: "180"
     resources:
       limits:
         memory: 512Mi
