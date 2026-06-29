@@ -12,7 +12,7 @@ metadata:
     {{- with .Values.gatewayClass.annotations }}
       {{- toYaml . | nindent 4 }}
     {{- end }}
-    {{- if eq (dig "catalog.appscode.com/is-default-gatewayclass" "" .Values.gatewayClass.annotations) "true" }}
+    {{- if eq (dig "catalog.appscode.com/is-default-gatewayclass" "" (.Values.gatewayClass.annotations | default dict)) "true" }}
     helm.sh/resource-policy: keep
     {{- end }}
 spec:
