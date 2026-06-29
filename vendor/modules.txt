@@ -317,7 +317,7 @@ github.com/zeebo/xxh3
 ## explicit; go 1.25
 go.appscode.dev/alerts/apis/alerts
 go.appscode.dev/alerts/apis/alerts/v1alpha1
-# go.bytebuilders.dev/catalog v0.0.25-0.20260626115826-a5d44c24f104
+# go.bytebuilders.dev/catalog v0.0.23
 ## explicit; go 1.25.6
 go.bytebuilders.dev/catalog/api/gateway/v1alpha1
 # go.bytebuilders.dev/resource-model v0.4.0
