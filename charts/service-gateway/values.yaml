@@ -144,5 +144,3 @@ vaultServer:
   name: "vault"
   # Vault server namespace that exist on cluster
   namespace: "ace"
-
-
