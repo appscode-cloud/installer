@@ -55,7 +55,7 @@ spec:
   - name: Insights
     sections:
     - blocks:
-        Grafana Dashboards: true
+        Dashboards: true
         Indices: true
         Stats: true
       info: {}

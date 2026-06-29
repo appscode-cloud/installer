@@ -44,7 +44,7 @@ spec:
   - name: Insights
     sections:
     - blocks:
-        Grafana Dashboards: true
+        Dashboards: true
         Replication Status: true
       info:
         basic: true

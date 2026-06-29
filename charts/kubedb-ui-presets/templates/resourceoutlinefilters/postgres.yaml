@@ -56,7 +56,7 @@ spec:
     sections:
     - blocks:
         Databases: true
-        Grafana Dashboards: true
+        Dashboards: true
         Replication Status: true
         Slow Queries: true
       info:
