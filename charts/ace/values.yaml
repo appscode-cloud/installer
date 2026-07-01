@@ -80,6 +80,7 @@ openfga:
   enabled: false
   datastoreURI: ""
   datastore:
+    engine: postgres
     maxOpenConns: "20"
     connMaxIdleTime: "10m"
   ## configured in lib-selfhost

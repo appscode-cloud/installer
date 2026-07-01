@@ -189,6 +189,8 @@ type AceOpenfga struct {
 // carries these knobs instead of the full upstream datastore schema.
 type AceOpenfgaDatastore struct {
 	// +optional
+	Engine string `json:"engine"`
+	// +optional
 	MaxOpenConns string `json:"maxOpenConns,omitempty"`
 	// +optional
 	ConnMaxIdleTime string `json:"connMaxIdleTime,omitempty"`
