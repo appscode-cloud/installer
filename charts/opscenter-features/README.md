@@ -136,7 +136,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.stash.version                                             |                                 | <code>"v2025.7.31"</code>                  |
 | helm.releases.stash-opscenter.version                                   |                                 | <code>"v2025.7.31"</code>                  |
 | helm.releases.stash-presets.version                                     |                                 | <code>"v2026.6.19"</code>                  |
-| helm.releases.supervisor.version                                        |                                 | <code>"v2026.1.15"</code>                  |
+| helm.releases.supervisor.version                                        |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.tenant-operator.version                                   |                                 | <code>"v2026.6.2"</code>                   |
 | helm.releases.thanos-operator.version                                   |                                 | <code>"v2026.6.2"</code>                   |
 | helm.releases.topolvm.version                                           |                                 | <code>"15.0.0"</code>                      |
