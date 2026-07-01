@@ -68,6 +68,15 @@ spec:
         path: /grafana
         pathType: Prefix
       {{- end }}
+      {{- if (index .Values "perses" "enabled") }}
+      - backend:
+          service:
+            name: {{ include "ace.fullname" . }}-perses
+            port:
+              number: 8080
+        path: /observe
+        pathType: Prefix
+      {{- end }}
       {{- if (index .Values "trickster" "enabled") }}
       - backend:
           service:
