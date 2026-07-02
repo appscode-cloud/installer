@@ -18,6 +18,7 @@ metadata:
   name: {{ include "ace.fullname" . }}-db
   namespace: {{ .Release.Namespace }}
 spec:
+  deletionPolicy: Retain
   pause: false
   databases:
     namespaces:
