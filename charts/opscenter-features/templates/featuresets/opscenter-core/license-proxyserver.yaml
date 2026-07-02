@@ -35,6 +35,19 @@ spec:
       kind: Deployment
       selector:
         app.kubernetes.io/name: license-proxyserver
+
+  ignoreDifferences:
+  - jsonPointers:
+    - /data
+    kind: Secret
+    name: license-proxyserver-apiserver-cert
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.proxyserver.licenses.appscode.com
+    jsonPointers:
+    - /spec/caBundle
+
   chart:
     name: license-proxyserver
     namespace: kubeops

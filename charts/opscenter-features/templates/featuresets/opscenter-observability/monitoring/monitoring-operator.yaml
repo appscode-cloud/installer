@@ -30,6 +30,25 @@ spec:
         kind: Deployment
         selector:
           app.kubernetes.io/name: monitoring-operator
+
+  ignoreDifferences:
+  - jsonPointers:
+    - /data
+    kind: Secret
+    name: monitoring-operator-apiserver-cert
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.ui.openviz.dev
+    jsonPointers:
+    - /spec/caBundle
+  - group: apps
+    kind: Deployment
+    name: monitoring-operator
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+    jsonPointers:
+    - /spec/template/metadata/annotations/checksum~1apiregistration.yaml
+
   chart:
     name: monitoring-operator
     namespace: monitoring
