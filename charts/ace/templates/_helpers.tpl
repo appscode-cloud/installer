@@ -173,7 +173,11 @@ Returns the ServiceMonitor labels
 Determine database host name
 */}}
 {{- define "settings.database.host" -}}
+{{- if .Values.settings.pgpool.enabled -}}
+{{- printf "%s-pgpool.%s.svc:9999" (include "ace.fullname" .) .Release.Namespace -}}
+{{- else -}}
 {{- printf "%s-db.%s.svc:5432" (include "ace.fullname" .) .Release.Namespace -}}
+{{- end -}}
 {{- end -}}
 
 {{- define  "settings.oauth2JWTSecret" -}}

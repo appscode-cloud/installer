@@ -1,0 +1,76 @@
+{{- if .Values.settings.pgpool.enabled }}
+apiVersion: kubedb.com/v1alpha2
+kind: Pgpool
+metadata:
+  name: {{ include "ace.fullname" . }}-pgpool
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+spec:
+  version: "4.6.0"
+  replicas: {{ .Values.settings.pgpool.replicas }}
+  postgresRef:
+    name: {{ include "ace.fullname" . }}-db
+    namespace: {{ .Release.Namespace }}
+  syncUsers: true
+  deletionPolicy: {{ .Values.settings.db.deletionPolicy }}
+  {{- if .Values.settings.pgpool.config }}
+  configuration:
+    inline:
+      pgpool.conf: |
+        {{- range $k, $v := .Values.settings.pgpool.config }}
+        {{ $k }}={{ $v }}
+        {{- end }}
+  {{- end }}
+  podTemplate:
+    spec:
+      containers:
+      - name: pgpool
+        resources:
+          {{- toYaml .Values.settings.pgpool.resources | nindent 10 }}
+    {{- if eq (include "distro.openshift" $) "true" }}
+        securityContext:
+          runAsGroup: {{ .Values.securityContext.runAsUser }}
+          runAsUser: {{ .Values.securityContext.runAsUser }}
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+      securityContext:
+        fsGroup: {{ .Values.securityContext.runAsUser }}
+        runAsUser: {{ .Values.securityContext.runAsUser }}
+        runAsGroup: {{ .Values.securityContext.runAsUser }}
+    {{- end }}
+{{- if .Values.global.monitoring }}
+  monitor:
+    agent: {{ .Values.global.monitoring.agent }}
+    prometheus:
+      serviceMonitor:
+        interval: 30s
+        labels:
+          {{- toYaml .Values.global.monitoring.serviceMonitor.labels | nindent 10 }}
+{{- end }}
+{{- end }}
+
+---
+
+apiVersion: catalog.kubedb.com/v1alpha1
+kind: PgpoolVersion
+metadata:
+  name: 4.6.0
+spec:
+  exporter:
+    image: ghcr.io/appscode-images/pgpool2_exporter:v1.2.2
+  gitSyncer:
+    image: registry.k8s.io/git-sync/git-sync:v4.4.2
+  pgpool:
+    image: ghcr.io/appscode-images/pgpool2:4.6.0
+  securityContext:
+    runAsAnyNonRoot: true
+    runAsUser: 70
+  updateConstraints:
+    allowlist:
+      - '>= 4.6.0, <= 4.6.0'
+  version: 4.6.0
