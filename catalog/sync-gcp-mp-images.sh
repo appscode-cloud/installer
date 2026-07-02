@@ -14,13 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -x
+set -euxo pipefail
 
-if [ -z "${IMAGE_REGISTRY}" ]; then
+if [ -z "${IMAGE_REGISTRY:-}" ]; then
     echo "IMAGE_REGISTRY is not set"
     exit 1
 fi
-if [ -z "${TAG}" ]; then
+if [ -z "${TAG:-}" ]; then
     echo "TAG is not set"
     exit 1
 fi
