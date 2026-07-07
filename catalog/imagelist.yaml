@@ -5,11 +5,11 @@
 - ghcr.io/appscode/acerproxy:v0.2.0
 - ghcr.io/appscode/aceshifter:v0.0.3
 - ghcr.io/appscode/b3:v2026.6.19
-- ghcr.io/appscode/billing-ui:2.3.0
+- ghcr.io/appscode/billing-ui:2.4.0
 - ghcr.io/appscode/catalog-manager:v0.12.0
 - ghcr.io/appscode/cert-manager-webhook-ace:v0.0.2
 - ghcr.io/appscode/cloudflare-dns-proxy:v0.0.5
-- ghcr.io/appscode/cluster-presets:v0.0.11
+- ghcr.io/appscode/cluster-presets:v0.0.12
 - ghcr.io/appscode/cluster-ui:2.4.0
 - ghcr.io/appscode/curl:alpine
 - ghcr.io/appscode/deploy-ui:0.3.6
