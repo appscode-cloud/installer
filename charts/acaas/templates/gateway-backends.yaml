@@ -1,0 +1,44 @@
+{{- if and (eq (toString .Values.global.platform.deploymentType) "Hosted") (index .Values "gateway" "enabled") }}
+{{- range $name, $rule := .Values.gateway.rules }}
+---
+# Backend: resolves the external upstream by FQDN so Envoy uses a STRICT_DNS
+# cluster instead of Kubernetes EndpointSlices. An ExternalName Service has no
+# EndpointSlices, so plain backendRefs -> Service report zero ready endpoints.
+# Requires extensionApis.enableBackend: true in the EnvoyGateway config.
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: Backend
+metadata:
+  {{- with $.Values.gateway.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  name: {{ $name }}
+  namespace: {{ $.Release.Namespace }}
+spec:
+  endpoints:
+    - fqdn:
+        hostname: {{ $rule.upstream }}
+        port: 443
+---
+# BackendTLSPolicy: makes Envoy originate TLS to the Backend above. Without it
+# Envoy connects in plaintext on 443 and the upstream (which terminates TLS on
+# that port) resets the connection with a protocol_error.
+apiVersion: gateway.networking.k8s.io/v1alpha3
+kind: BackendTLSPolicy
+metadata:
+  {{- with $.Values.gateway.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  name: {{ $name }}
+  namespace: {{ $.Release.Namespace }}
+spec:
+  targetRefs:
+    - group: gateway.envoyproxy.io
+      kind: Backend
+      name: {{ $name }}
+  validation:
+    hostname: {{ $rule.upstream }}
+    wellKnownCACertificates: System
+{{- end }}
+{{- end }}

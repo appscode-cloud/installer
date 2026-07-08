@@ -23,8 +23,13 @@ spec:
             type: PathPrefix
             value: /docs
       backendRefs:
-        - kind: Service
+        - group: gateway.envoyproxy.io
+          kind: Backend
           name: docs
-          namespace: {{ .Release.Namespace }}
           port: 443
+          weight: 1
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            hostname: {{ .Values.gateway.rules.docs.upstream }}
 {{- end }}

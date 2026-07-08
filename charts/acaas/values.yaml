@@ -67,6 +67,17 @@ gateway:
     enabled: true
     secret:
       name: "ace-cert"
+  rules:
+    blog:
+      upstream: ""
+    docs:
+      upstream: ""
+    learn:
+      upstream: ""
+    license:
+      upstream: ""
+    selfhost:
+      upstream: ""
 
 ingress:
   enabled: true

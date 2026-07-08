@@ -1,4 +1,4 @@
-{{- if eq (toString .Values.global.platform.deploymentType) "Hosted" }}
+{{- if and (eq (toString .Values.global.platform.deploymentType) "Hosted") (index .Values "ingress" "enabled") }}
 apiVersion: v1
 kind: Service
 metadata:

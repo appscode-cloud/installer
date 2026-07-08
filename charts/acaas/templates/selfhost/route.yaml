@@ -23,8 +23,13 @@ spec:
             type: PathPrefix
             value: /selfhost
       backendRefs:
-        - kind: Service
+        - group: gateway.envoyproxy.io
+          kind: Backend
           name: selfhost
-          namespace: {{ .Release.Namespace }}
           port: 443
+          weight: 1
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            hostname: {{ .Values.gateway.rules.selfhost.upstream }}
 {{- end }}
