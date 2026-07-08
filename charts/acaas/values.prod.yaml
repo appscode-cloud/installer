@@ -12,6 +12,19 @@ global:
     host: appscode.com
     deploymentType: Hosted
 
+gateway:
+  rules:
+    blog:
+      upstream: blog-prod.web.app
+    docs:
+      upstream: byte-builders-docs.web.app
+    learn:
+      upstream: byte-builders-learn.web.app
+    license:
+      upstream: x.appscode.com
+    selfhost:
+      upstream: byte-builders-selfhosting.web.app
+
 ingress:
   rules:
     blog:

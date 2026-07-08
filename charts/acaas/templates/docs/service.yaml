@@ -1,11 +1,11 @@
-{{- if eq (toString .Values.global.platform.deploymentType) "Hosted" }}
+{{- if and (eq (toString .Values.global.platform.deploymentType) "Hosted") (index .Values "ingress" "enabled") }}
 apiVersion: v1
 kind: Service
 metadata:
   name: docs
   namespace: {{ .Release.Namespace }}
 spec:
-  externalName: {{ if .Values.gateway.enabled }}{{ .Values.gateway.rules.docs.upstream }}{{ else }}{{ .Values.ingress.rules.docs.upstream }}{{ end }}
+  externalName: {{ .Values.ingress.rules.docs.upstream }}
   sessionAffinity: None
   type: ExternalName
 {{- end }}

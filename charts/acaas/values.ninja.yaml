@@ -3,6 +3,19 @@ global:
     host: appscode.ninja
     deploymentType: Hosted
 
+gateway:
+  rules:
+    blog:
+      upstream: blog-prod.web.app
+    docs:
+      upstream: bb-docs-qa.web.app
+    learn:
+      upstream: learn-qa.web.app
+    license:
+      upstream: x.appscode.com
+    selfhost:
+      upstream: selfhosting-qa.web.app
+
 ingress:
   rules:
     blog:
