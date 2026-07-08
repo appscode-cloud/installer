@@ -98,7 +98,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/co
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/crossplane:1.14.0 $IMAGE_REGISTRY/appscode-charts/crossplane:1.14.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/csi-driver-nfs:v4.7.0 $IMAGE_REGISTRY/appscode-charts/csi-driver-nfs:v4.7.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/csi-secrets-store-provider-azure:1.5.2 $IMAGE_REGISTRY/appscode-charts/csi-secrets-store-provider-azure:1.5.2
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/external-dns-operator:v2026.1.15 $IMAGE_REGISTRY/appscode-charts/external-dns-operator:v2026.1.15
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/external-dns-operator:v2026.6.22 $IMAGE_REGISTRY/appscode-charts/external-dns-operator:v2026.6.22
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/external-secrets:0.9.12 $IMAGE_REGISTRY/appscode-charts/external-secrets:0.9.12
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco-ui-server:v2026.1.15 $IMAGE_REGISTRY/appscode-charts/falco-ui-server:v2026.1.15
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco:4.0.0 $IMAGE_REGISTRY/appscode-charts/falco:4.0.0

@@ -95,7 +95,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/crossplane:1.14.0 images/appscode-charts-crossplane-1.14.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/csi-driver-nfs:v4.7.0 images/appscode-charts-csi-driver-nfs-v4.7.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/csi-secrets-store-provider-azure:1.5.2 images/appscode-charts-csi-secrets-store-provider-azure-1.5.2.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/external-dns-operator:v2026.1.15 images/appscode-charts-external-dns-operator-v2026.1.15.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/external-dns-operator:v2026.6.22 images/appscode-charts-external-dns-operator-v2026.6.22.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/external-secrets:0.9.12 images/appscode-charts-external-secrets-0.9.12.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco-ui-server:v2026.1.15 images/appscode-charts-falco-ui-server-v2026.1.15.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco:4.0.0 images/appscode-charts-falco-4.0.0.tar
