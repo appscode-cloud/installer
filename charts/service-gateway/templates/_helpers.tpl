@@ -62,10 +62,14 @@ The domain name used for the gateway.
 <clusterName>.<orgName / "ace">.<domain>
 */}}
 {{- define "gateway.domain" -}}
+{{- if eq (dig "mode" "" (.Values.gatewayClass.annotations | default dict)) "hosted" -}}
+{{- .Values.infra.host -}}
+{{- else -}}
 {{- $ns := trimSuffix "-gw" .Release.Namespace -}}
 {{- $useClusterName := or (eq $ns "ace") (eq .Values.infra.tenantSpreadPolicy "multi") -}}
 {{- $prefix := ternary (printf "%s.%s" .Values.clusterMetadata.name $ns) $ns $useClusterName -}}
 {{- printf "%s.%s" $prefix .Values.infra.host -}}
+{{- end -}}
 {{- end }}
 
 {{/*
