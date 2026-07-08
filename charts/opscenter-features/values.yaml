@@ -146,6 +146,8 @@ helm:
       version: "1.7.2"
     metrics-server:
       version: "3.11.0"
+    storage-metrics-server:
+      version: "v0.1.0"
     monitoring-operator:
       version: "v2026.6.12"
     operator-shard-manager:

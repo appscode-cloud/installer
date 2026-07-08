@@ -83,6 +83,7 @@
 - ghcr.io/appscode-charts/stash-opscenter:v2025.7.31
 - ghcr.io/appscode-charts/stash-presets:v2026.6.19
 - ghcr.io/appscode-charts/stash:v2025.7.31
+- ghcr.io/appscode-charts/storage-metrics-server:v0.1.0
 - ghcr.io/appscode-charts/supervisor:v2026.2.16
 - ghcr.io/appscode-charts/tenant-operator:v2026.6.2
 - ghcr.io/appscode-charts/thanos-operator:v2026.6.2
