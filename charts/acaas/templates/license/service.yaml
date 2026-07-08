@@ -5,7 +5,7 @@ metadata:
   name: license
   namespace: {{ .Release.Namespace }}
 spec:
-  externalName: {{ .Values.ingress.rules.license.upstream }}
+  externalName: {{ if .Values.gateway.enabled }}{{ .Values.gateway.rules.license.upstream }}{{ else }}{{ .Values.ingress.rules.license.upstream }}{{ end }}
   sessionAffinity: None
   type: ExternalName
 {{- end }}

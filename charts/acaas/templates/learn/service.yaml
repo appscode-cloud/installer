@@ -5,7 +5,7 @@ metadata:
   name: learn
   namespace: {{ .Release.Namespace }}
 spec:
-  externalName: {{ .Values.ingress.rules.learn.upstream }}
+  externalName: {{ if .Values.gateway.enabled }}{{ .Values.gateway.rules.learn.upstream }}{{ else }}{{ .Values.ingress.rules.learn.upstream }}{{ end }}
   sessionAffinity: None
   type: ExternalName
 {{- end }}

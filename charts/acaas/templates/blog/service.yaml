@@ -5,7 +5,7 @@ metadata:
   name: blog
   namespace: {{ .Release.Namespace }}
 spec:
-  externalName: {{ .Values.ingress.rules.blog.upstream }}
+  externalName: {{ if .Values.gateway.enabled }}{{ .Values.gateway.rules.blog.upstream }}{{ else }}{{ .Values.ingress.rules.blog.upstream }}{{ end }}
   sessionAffinity: None
   type: ExternalName
 {{- end }}

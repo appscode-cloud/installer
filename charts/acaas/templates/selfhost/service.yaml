@@ -5,7 +5,7 @@ metadata:
   name: selfhost
   namespace: {{ .Release.Namespace }}
 spec:
-  externalName: {{ .Values.ingress.rules.selfhost.upstream }}
+  externalName: {{ if .Values.gateway.enabled }}{{ .Values.gateway.rules.selfhost.upstream }}{{ else }}{{ .Values.ingress.rules.selfhost.upstream }}{{ end }}
   sessionAffinity: None
   type: ExternalName
 {{- end }}
