@@ -141,6 +141,7 @@ rules:
   - gateway.envoyproxy.io
   resources:
   - envoyproxies
+  - envoypatchpolicies
   - backendtrafficpolicies
   - clienttrafficpolicies
   verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
