@@ -231,13 +231,13 @@ helm:
     managed-serviceaccount-manager:
       version: "v2026.2.16"
     cluster-proxy-manager:
-      version: "v2026.2.16"
+      version: "v2026.6.26"
     cluster-gateway-manager:
-      version: "v2026.2.16"
+      version: "v2026.6.26"
     cluster-auth-manager:
       version: "v2026.2.16"
     cluster-profile-manager:
-      version: "v2026.2.16"
+      version: "v2026.6.26"
     hub-cluster-robot:
       version: "v2026.2.16"
     fluxcd-manager:
