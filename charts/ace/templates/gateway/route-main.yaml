@@ -22,6 +22,9 @@ spec:
     {{- if eq (include "ace.gateway.migrationActive" .) "true" }}
     - {{ include "ace.gateway.fqdn" . }}
     {{- end }}
+    {{- if eq .Values.global.platform.deploymentType "Hosted" }}
+    - "api.{{ .Values.global.platform.host }}"
+    {{- end }}
   {{- end }}
   rules:
   - matches:
