@@ -774,21 +774,6 @@ properties:
     - securityContext
     - tolerations
     type: object
-  registry:
-    properties:
-      certs:
-        additionalProperties:
-          type: string
-        type: object
-      credentials:
-        additionalProperties:
-          type: string
-        type: object
-      imagePullSecrets:
-        items:
-          type: string
-        type: array
-    type: object
   regcache:
     properties:
       affinity:
@@ -1538,6 +1523,21 @@ properties:
     - replicaCount
     - service
     type: object
+  registry:
+    properties:
+      certs:
+        additionalProperties:
+          type: string
+        type: object
+      credentials:
+        additionalProperties:
+          type: string
+        type: object
+      imagePullSecrets:
+        items:
+          type: string
+        type: array
+    type: object
   selfManagement:
     properties:
       createCAPICluster:
@@ -2241,8 +2241,8 @@ required:
 - image
 - nameOverride
 - precheck
-- registry
 - regcache
+- registry
 - selfManagement
 - tester
 type: object

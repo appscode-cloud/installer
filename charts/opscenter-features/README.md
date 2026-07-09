@@ -116,6 +116,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.license-proxyserver.version                               |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.longhorn.version                                          |                                 | <code>"1.7.2"</code>                       |
 | helm.releases.metrics-server.version                                    |                                 | <code>"3.11.0"</code>                      |
+| helm.releases.storage-metrics-server.version                            |                                 | <code>"v0.1.0"</code>                      |
 | helm.releases.monitoring-operator.version                               |                                 | <code>"v2026.6.12"</code>                  |
 | helm.releases.operator-shard-manager.version                            |                                 | <code>"v2026.6.22"</code>                  |
 | helm.releases.opencost.version                                          |                                 | <code>"1.18.1"</code>                      |
