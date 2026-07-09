@@ -71,13 +71,17 @@ spec:
                     {{- end }}
 
       envoyService:
+        {{- $extraDomains := list }}
+        {{- if and (eq (dig "mode" "" (.Values.gatewayClass.annotations | default dict)) "hosted") (eq .Values.infra.host "appscode.com") }}
+        {{- $extraDomains = list (printf "nats.%s" .Values.infra.host) (printf "api.%s" .Values.infra.host) "api.byte.builders" }}
+        {{- end }}
         {{- if or .Values.envoy.service.annotations (eq .Values.infra.hostType "domain") }}
         annotations:
           {{- with .Values.envoy.service.annotations }}
           {{- toYaml . | nindent 10 }}
           {{- end }}
           {{- if eq .Values.infra.hostType "domain" }}
-          external-dns.alpha.kubernetes.io/hostname: {{ include "gateway.domain" . }}
+          external-dns.alpha.kubernetes.io/hostname: {{ prepend $extraDomains (include "gateway.domain" .) | join "," }}
           {{- end }}
         {{- end }}
         externalTrafficPolicy: {{ .Values.envoy.service.externalTrafficPolicy }}
