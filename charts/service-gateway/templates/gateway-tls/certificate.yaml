@@ -31,9 +31,10 @@ spec:
   {{- if eq .Values.infra.hostType "domain" }}
   dnsNames:
     - {{ include "gateway.domain" . }}
-    {{- if and (eq (dig "mode" "" (.Values.gatewayClass.annotations | default dict)) "hosted") (eq .Values.global.platform.host "appscode.com") }}
-    - "nats.{{ .Values.global.platform.host }}"
-    - "api.{{ .Values.global.platform.host }}"
+    {{- $platformHost := dig "platform" "host" "" (.Values.global | default dict) }}
+    {{- if and (eq (dig "mode" "" (.Values.gatewayClass.annotations | default dict)) "hosted") (eq $platformHost "appscode.com") }}
+    - "nats.{{ $platformHost }}"
+    - "api.{{ $platformHost }}"
     - "api.byte.builders"
     {{- end }}
   commonName: {{ include "gateway.domain" . }}
