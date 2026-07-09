@@ -30,7 +30,45 @@ spec:
       name: {{ include "tenant.name" . }}-gw-acme-cred
     solvers:
     # An empty 'selector' means that this solver matches all domains
-    {{- if (eq .Values.infra.tls.acme.solver "Ingress") }}
+    {{- if eq (dig "mode" "" (.Values.gatewayClass.annotations | default dict)) "hosted" }}
+    - selector: {}
+      dns01:
+        {{- if eq .Values.infra.dns.provider "cloudflare" }}
+        cloudflare:
+          apiTokenSecretRef:
+            name: {{ include "tenant.name" . }}-gw-dns-cred
+            key: CF_API_TOKEN
+        {{- end }}
+        {{- if eq .Values.infra.dns.provider "route53" }}
+        route53:
+          region: {{ .Values.infra.dns.auth.route53.AWS_REGION }}
+          accessKeyIDSecretRef:
+            name: {{ include "tenant.name" . }}-gw-dns-cred
+            key: AWS_ACCESS_KEY_ID
+          secretAccessKeySecretRef:
+            name: {{ include "tenant.name" . }}-gw-dns-cred
+            key: AWS_SECRET_ACCESS_KEY
+        {{- end }}
+        {{- if eq .Values.infra.dns.provider "cloudDNS" }}
+        cloudDNS:
+          project: {{ .Values.infra.dns.auth.cloudDNS.GOOGLE_PROJECT_ID }}
+          serviceAccountSecretRef:
+            name: {{ include "tenant.name" . }}-gw-dns-cred
+            key: GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+        {{- end }}
+        {{- if eq .Values.infra.dns.provider "azureDNS" }}
+        azureDNS:
+          clientID: {{ .Values.infra.dns.auth.azureDNS.servicePrincipalAppID }}
+          clientSecretSecretRef:
+            name: {{ include "tenant.name" . }}-gw-dns-cred
+            key: SERVICE_PRINCIPAL_PASSWORD
+          subscriptionID: {{ .Values.infra.dns.auth.azureDNS.subscriptionID }}
+          tenantID: {{ .Values.infra.dns.auth.azureDNS.tenantID }}
+          resourceGroupName: {{ .Values.infra.dns.auth.azureDNS.resourceGroupName }}
+          hostedZoneName: {{ .Values.infra.dns.auth.azureDNS.hostedZoneName }}
+          environment: {{ .Values.infra.dns.auth.azureDNS.environment | default "AzurePublicCloud" }}
+        {{- end }}
+    {{- else if (eq .Values.infra.tls.acme.solver "Ingress") }}
     - selector: {}
       http01:
         ingress:

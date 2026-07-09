@@ -31,6 +31,11 @@ spec:
   {{- if eq .Values.infra.hostType "domain" }}
   dnsNames:
     - {{ include "gateway.domain" . }}
+    {{- if and (eq (dig "mode" "" (.Values.gatewayClass.annotations | default dict)) "hosted") (eq .Values.infra.host "appscode.com") }}
+    - "nats.{{ .Values.infra.host }}"
+    - "api.{{ .Values.infra.host }}"
+    - "api.byte.builders"
+    {{- end }}
   commonName: {{ include "gateway.domain" . }}
   {{- end }}
   usages:
