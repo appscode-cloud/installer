@@ -29,7 +29,8 @@ import (
 )
 
 func TestDefaultValues(t *testing.T) {
-	checker := sc.New(os.DirFS("../../.."),
+	checker := sc.New(
+		os.DirFS("../../.."),
 		sc.TestCase{Obj: v1alpha1.AcaasSpec{}},
 		sc.TestCase{Obj: v1alpha1.AccountsUiSpec{}},
 		sc.TestCase{Obj: v1alpha1.AceInstallerSpec{}},

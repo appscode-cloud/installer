@@ -101,7 +101,8 @@ func process(filename string, charts map[string]string) error {
 		if rs != nil {
 			_, err = obj.Pipe(
 				yaml.Lookup("helm", "releases", name),
-				yaml.SetField("version", yaml.NewScalarRNode(chartVersion)))
+				yaml.SetField("version", yaml.NewScalarRNode(chartVersion)),
+			)
 			if err != nil {
 				log.Fatal(err)
 			}
