@@ -16,6 +16,14 @@
 
 set -eou pipefail
 
+# image-packer embeds the resource-metadata hubs (resourceeditors,
+# resourcedescriptors, clusterprofiles), but the reloader used by
+# kmodules.xyz/resource-metadata shadows the embedded copies with
+# /tmp/hub/<hub> when those directories exist. A stale or empty leftover
+# there makes image-packer load nothing and emit a broken catalog, so
+# remove them before running.
+rm -rf /tmp/hub
+
 image-packer list --root-dir=charts --output-dir=catalog
 
 image-packer list-feature-charts --root-dir=charts --output-dir=catalog
