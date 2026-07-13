@@ -20,6 +20,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"regexp"
 	"sort"
 	"strings"
 
@@ -92,6 +93,10 @@ func mapChartImages(rootDir string, values map[string]string, sh *shell.Session,
 		args = append(args, "--values="+tmpfile.Name())
 	}
 
+	if _, err := os.Stat(filepath.Join(rootDir, chartName, "ci", "ci-values.yaml")); err == nil {
+		args = append(args, "--values="+chartName+"/ci/ci-values.yaml")
+	}
+
 	if chartName == "cluster-manager-spoke" {
 		args = append(args, "--dry-run=server")
 	} else {
@@ -115,11 +120,16 @@ func mapChartImages(rootDir string, values map[string]string, sh *shell.Session,
 	}
 }
 
+// placeholderRE matches a shell-style ${...} template placeholder.
+var placeholderRE = regexp.MustCompile(`\$\{[^}]*\}`)
+
 func collectImages(obj map[string]any, images map[string]string, srcGK string) {
 	for k, v := range obj {
 		if k == "image" {
 			if s, ok := v.(string); ok && strings.ContainsRune(s, ':') {
-				images[s] = srcGK
+				for _, img := range expandVersionedImage(s, obj) {
+					images[img] = srcGK
+				}
 			}
 		} else if m, ok := v.(map[string]any); ok {
 			collectImages(m, images, srcGK)
@@ -131,6 +141,34 @@ func collectImages(obj map[string]any, images map[string]string, srcGK string) {
 			}
 		}
 	}
+}
+
+// expandVersionedImage expands a ${...} placeholder in an image reference using
+// the sibling "availableVersions" list found on the same object (kubestash addon
+// Function resources carry a "v0.29.0_${DB_VERSION}"-style tag alongside the list
+// of versions the image is published for). If the reference has no placeholder,
+// or no usable availableVersions is present, it is returned unchanged; unexpanded
+// placeholders are dropped later by ListImages/GroupImages.
+func expandVersionedImage(image string, obj map[string]any) []string {
+	if !placeholderRE.MatchString(image) {
+		return []string{image}
+	}
+
+	versions, ok := obj["availableVersions"].([]any)
+	if !ok || len(versions) == 0 {
+		return []string{image}
+	}
+
+	out := make([]string, 0, len(versions))
+	for _, v := range versions {
+		if ver, ok := v.(string); ok {
+			out = append(out, placeholderRE.ReplaceAllString(image, ver))
+		}
+	}
+	if len(out) == 0 {
+		return []string{image}
+	}
+	return out
 }
 
 func GroupImages(images map[string]string) map[string][]string {

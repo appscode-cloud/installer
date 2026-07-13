@@ -55,19 +55,19 @@ helm:
   releases:
     ace:
       enabled: false
-      version: "v2026.6.19"
+      version: "v2026.7.10"
     acerproxy:
       enabled: false
-      version: "v2026.6.19"
+      version: "v2026.7.10"
     aceshifter:
       enabled: true
-      version: "v2026.6.19"
+      version: "v2026.7.10"
     capi-catalog:
       enabled: false
       version: "v2024.10.24"
     catalog-manager:
       enabled: false
-      version: "v2026.6.19"
+      version: "v2026.7.10"
     cert-manager:
       enabled: true
       version: "v1.19.3"
@@ -111,13 +111,13 @@ helm:
       version: "v2026.6.19"
     kube-ui-server:
       enabled: true
-      version: "v2026.6.19"
+      version: "v2026.7.10"
     license-proxyserver:
       enabled: true
       version: "v2026.2.16"
     opscenter-features:
       enabled: true
-      version: "v2026.6.19"
+      version: "v2026.7.10"
     panopticon:
       enabled: true
       version: "v2026.6.22"
@@ -136,10 +136,10 @@ helm:
       version: "2.2.9"
     service-gateway-presets:
       enabled: false
-      version: "v2026.6.19"
+      version: "v2026.7.10"
     stash-presets:
       enabled: false
-      version: "v2026.6.19"
+      version: "v2026.7.10"
     # feature less chart versions
     cluster-manager-spoke:
       enabled: false
@@ -238,7 +238,6 @@ tester:
   nodeSelector: {}
   tolerations: []
   affinity: {}
-
 # In-cluster pull-through Docker registry cache, deployed via the regcache
 # subchart (charts/regcache). When enabled (the default), it proxies the upstream
 # registry (ghcr.io by default) so ghcr.io/appscode-charts images are served from
