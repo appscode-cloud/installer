@@ -26,6 +26,7 @@ Sibling pattern to `kubeops.dev/installer`, `kubevault.dev/installer`, etc. — 
 - `make gen-values-schema` — regenerate `values.openapiv3_schema.yaml`.
 - `make gen-chart-doc` — per-chart `README.md`.
 - `make update-charts` — refresh chart metadata.
+- `make refresh` — `gen update-catalog fmt`. **ALWAYS run this before opening a PR** so generated files are current.
 - `make fmt`, `make lint`, `make unit-tests` / `make test` — standard.
 - `make ct` — chart-testing.
 - `make verify` — module-tidy verification.

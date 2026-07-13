@@ -227,6 +227,9 @@ manifests: gen-crds gen-schema patch-schema gen-chart-doc
 .PHONY: gen
 gen: codegen manifests
 
+.PHONY: refresh
+refresh: gen update-catalog fmt
+
 BIN_DIR ?= $(CURDIR)/bin/$(OS)_$(ARCH)
 
 .PHONY: install-image-packer
