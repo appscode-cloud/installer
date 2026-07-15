@@ -26,6 +26,11 @@ spec:
     - {{ include "tenant.name" . }}-s3proxy
     - {{ include "tenant.name" . }}-s3proxy.{{ .Release.Namespace }}.svc
     - {{ include "tenant.name" . }}-s3proxy.{{ .Release.Namespace }}.svc.cluster.local
+    {{- if eq .Release.Namespace "monitoring" }}
+    - prom-label-proxy
+    - prom-label-proxy.{{ .Release.Namespace }}.svc
+    - prom-label-proxy.{{ .Release.Namespace }}.svc.cluster.local
+    {{- end }}
   {{- end }}
 
   {{- if eq .Values.infra.hostType "domain" }}
