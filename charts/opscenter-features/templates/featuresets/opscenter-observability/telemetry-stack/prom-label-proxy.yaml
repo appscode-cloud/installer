@@ -39,7 +39,7 @@ spec:
     name: prom-label-proxy
     namespace: monitoring
     createNamespace: {{ $.Values.helm.createNamespace }}
-    version: {{ dig "appscode-otel-stack" "version" "" $.Values.helm.releases }}
+    version: {{ dig "prom-label-proxy" "version" "" $.Values.helm.releases }}
     sourceRef:
       kind: HelmRepository
       name: appscode-charts-oci

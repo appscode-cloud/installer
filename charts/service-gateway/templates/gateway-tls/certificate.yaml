@@ -47,6 +47,9 @@ spec:
     - key agreement
     - digital signature
     - server auth
+    {{- if eq .Release.Namespace "monitoring" }}
+    - client auth
+    {{- end }}
   {{- if .Values.infra.tls.jks.password }}
   keystores:
     jks:
