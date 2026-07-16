@@ -35,7 +35,7 @@ CMD="./images/crane"
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace-installer:v2026.7.10 images/appscode-charts-ace-installer-v2026.7.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace:v2026.7.10 images/appscode-charts-ace-v2026.7.10.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aceshifter:v2026.7.10 images/appscode-charts-aceshifter-v2026.7.10.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/appscode-otel-stack:v2026.6.2 images/appscode-charts-appscode-otel-stack-v2026.6.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/appscode-otel-stack:v2026.7.15 images/appscode-charts-appscode-otel-stack-v2026.7.15.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-cassandraautoscaler-editor:v0.36.0 images/appscode-charts-autoscalingkubedbcom-cassandraautoscaler-editor-v0.36.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-clickhouseautoscaler-editor:v0.36.0 images/appscode-charts-autoscalingkubedbcom-clickhouseautoscaler-editor-v0.36.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-documentdbautoscaler-editor:v0.36.0 images/appscode-charts-autoscalingkubedbcom-documentdbautoscaler-editor-v0.36.0.tar
@@ -241,7 +241,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.36.0 images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.36.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2026.6.22 images/appscode-charts-panopticon-v2026.6.22.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prepare-cluster:v2023.12.21 images/appscode-charts-prepare-cluster-v2023.12.21.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prom-label-proxy:v2026.6.2 images/appscode-charts-prom-label-proxy-v2026.6.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prom-label-proxy:v2026.7.15 images/appscode-charts-prom-label-proxy-v2026.7.15.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prometheus-adapter:4.9.0 images/appscode-charts-prometheus-adapter-4.9.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/reloader:2.2.9 images/appscode-charts-reloader-2.2.9.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/scanner:v2026.1.15 images/appscode-charts-scanner-v2026.1.15.tar
@@ -267,7 +267,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/storagekubestashcom-retentionpolicy-editor:v0.36.0 images/appscode-charts-storagekubestashcom-retentionpolicy-editor-v0.36.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/storagekubestashcom-snapshot-editor:v0.36.0 images/appscode-charts-storagekubestashcom-snapshot-editor-v0.36.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/supervisor:v2026.2.16 images/appscode-charts-supervisor-v2026.2.16.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/tenant-operator:v2026.6.2 images/appscode-charts-tenant-operator-v2026.6.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/tenant-operator:v2026.7.15 images/appscode-charts-tenant-operator-v2026.7.15.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/thanos-operator:v2026.6.2 images/appscode-charts-thanos-operator-v2026.6.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/topolvm:15.0.0 images/appscode-charts-topolvm-15.0.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-alert:v0.12.0 images/appscode-charts-uibytebuildersdev-component-alert-v0.12.0.tar

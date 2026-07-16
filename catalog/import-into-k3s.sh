@@ -27,7 +27,7 @@ tar -zxvf $TARBALL
 k3s ctr images import images/appscode-charts-ace-installer-v2026.7.10.tar
 k3s ctr images import images/appscode-charts-ace-v2026.7.10.tar
 k3s ctr images import images/appscode-charts-aceshifter-v2026.7.10.tar
-k3s ctr images import images/appscode-charts-appscode-otel-stack-v2026.6.2.tar
+k3s ctr images import images/appscode-charts-appscode-otel-stack-v2026.7.15.tar
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-cassandraautoscaler-editor-v0.36.0.tar
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-clickhouseautoscaler-editor-v0.36.0.tar
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-documentdbautoscaler-editor-v0.36.0.tar
@@ -233,7 +233,7 @@ k3s ctr images import images/appscode-charts-opskubedbcom-weaviateopsrequest-edi
 k3s ctr images import images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.36.0.tar
 k3s ctr images import images/appscode-charts-panopticon-v2026.6.22.tar
 k3s ctr images import images/appscode-charts-prepare-cluster-v2023.12.21.tar
-k3s ctr images import images/appscode-charts-prom-label-proxy-v2026.6.2.tar
+k3s ctr images import images/appscode-charts-prom-label-proxy-v2026.7.15.tar
 k3s ctr images import images/appscode-charts-prometheus-adapter-4.9.0.tar
 k3s ctr images import images/appscode-charts-reloader-2.2.9.tar
 k3s ctr images import images/appscode-charts-scanner-v2026.1.15.tar
@@ -259,7 +259,7 @@ k3s ctr images import images/appscode-charts-storagekubestashcom-repository-edit
 k3s ctr images import images/appscode-charts-storagekubestashcom-retentionpolicy-editor-v0.36.0.tar
 k3s ctr images import images/appscode-charts-storagekubestashcom-snapshot-editor-v0.36.0.tar
 k3s ctr images import images/appscode-charts-supervisor-v2026.2.16.tar
-k3s ctr images import images/appscode-charts-tenant-operator-v2026.6.2.tar
+k3s ctr images import images/appscode-charts-tenant-operator-v2026.7.15.tar
 k3s ctr images import images/appscode-charts-thanos-operator-v2026.6.2.tar
 k3s ctr images import images/appscode-charts-topolvm-15.0.0.tar
 k3s ctr images import images/appscode-charts-uibytebuildersdev-component-alert-v0.12.0.tar
