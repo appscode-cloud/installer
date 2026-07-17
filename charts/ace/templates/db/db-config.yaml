@@ -12,7 +12,7 @@ metadata:
 type: Opaque
 stringData:
   user.conf: |
-    max_connections=110
+    max_connections=400
   {{- if .Values.pgoutbox.enabled }}
     wal_level=logical
     max_wal_senders=50
