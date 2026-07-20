@@ -71,7 +71,8 @@ gateway:
     envoyGateway:
       gateway:
         controllerName: gateway.voyagermesh.com/ace
-      extensionApis: {}
+      extensionApis:
+        enableEnvoyPatchPolicy: true
   deployment:
     priorityClassName: ""
   hpa:
