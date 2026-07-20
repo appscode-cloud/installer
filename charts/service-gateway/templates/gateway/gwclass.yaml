@@ -38,11 +38,18 @@ spec:
     kubernetes:
       {{- if eq .Values.envoy.provisionerType "Deployment" }}
       envoyDeployment:
+        {{- with .Values.envoy.replicas }}
+        replicas: {{ . }}
+        {{- end }}
       {{- else }}
       envoyDaemonSet:
       {{- end }}
         container:
           image: "{{ .Values.envoy.image }}:{{ .Values.envoy.tag }}"
+          {{- with .Values.envoy.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           {{- if eq "true" ( include "distro.openshift" . ) }}
           securityContext:
             {{- toYaml (omit .Values.envoy.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 12 }}

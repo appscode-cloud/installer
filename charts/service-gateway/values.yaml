@@ -104,6 +104,11 @@ envoy:
   provisionerType: Deployment # DaemonSet
   image: ghcr.io/voyagermesh/envoy
   tag: "v1.37.2-ac"
+  # replicas only applies when provisionerType is Deployment
+  # replicas: 2
+  # resources:
+  #   limits:
+  #     memory: 1.5Gi
   service:
     # Default listener portmanager range to use for gateway exposure
     portRange: "10000-12767"
