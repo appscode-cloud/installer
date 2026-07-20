@@ -361,8 +361,20 @@ properties:
         type: object
       enabled:
         type: boolean
+      exposeVia:
+        enum:
+          - LoadBalancer
+          - NodePort
+          - ClusterIP
+          - HostPort
+        type: string
+      externalIPs:
+        items:
+          type: string
+        type: array
     required:
       - enabled
+      - exposeVia
     type: object
   grafana:
     properties:

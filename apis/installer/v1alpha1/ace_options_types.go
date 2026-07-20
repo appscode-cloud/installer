@@ -205,6 +205,9 @@ type AceOptionsIngressNginx struct {
 type AceOptionsGateway struct {
 	Enabled     bool              `json:"enabled"`
 	Annotations map[string]string `json:"annotations,omitempty"`
+	ExposeVia   ServiceType       `json:"exposeVia"`
+	// +optional
+	ExternalIPs []string `json:"externalIPs"`
 }
 
 // +kubebuilder:validation:Enum=Ingress;HostPort
