@@ -18,4 +18,10 @@ stringData:
     max_wal_senders=50
     max_replication_slots=50
     # shared_buffers=258MB
+    # Required for PostgreSQL 17's failover logical replication slot sync
+    hot_standby_feedback=on
+    sync_replication_slots=on
+    {{- with .Values.pgoutbox.synchronizedStandbySlots }}
+    synchronized_standby_slots='{{ . }}'
+    {{- end }}
   {{- end }}

@@ -10,6 +10,12 @@ spec:
   version: "{{ .Values.settings.db.version }}"
   replicas: 3
   storageType: Durable
+  {{- if .Values.pgoutbox.enabled }}
+  # Required for PostgreSQL 17's failover logical replication slot sync
+  replication:
+    walLimitPolicy: ReplicationSlot
+    maxSlotWALKeepSize: -1
+  {{- end }}
   storage:
     storageClassName: {{ .Values.global.infra.storageClass.name }}
     accessModes:
