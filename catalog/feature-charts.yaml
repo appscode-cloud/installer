@@ -43,13 +43,13 @@
 - ghcr.io/appscode-charts/kube-grafana-dashboards:v2023.10.1
 - ghcr.io/appscode-charts/kube-prometheus-stack:69.2.2
 - ghcr.io/appscode-charts/kube-ui-server:v2026.7.10
-- ghcr.io/appscode-charts/kubedb-opscenter:v2026.6.19
+- ghcr.io/appscode-charts/kubedb-opscenter:v2026.7.10
 - ghcr.io/appscode-charts/kubedb-provider-aws:v2024.1.31
 - ghcr.io/appscode-charts/kubedb-provider-azure:v2024.1.31
 - ghcr.io/appscode-charts/kubedb-provider-gcp:v2024.1.31
 - ghcr.io/appscode-charts/kubedb-ui-presets:v2026.7.10
-- ghcr.io/appscode-charts/kubedb:v2026.6.19
-- ghcr.io/appscode-charts/kubestash:v2026.6.19
+- ghcr.io/appscode-charts/kubedb:v2026.7.10
+- ghcr.io/appscode-charts/kubestash:v2026.7.10
 - ghcr.io/appscode-charts/kubevault-opscenter:v2026.2.27
 - ghcr.io/appscode-charts/kubevault:v2026.2.27
 - ghcr.io/appscode-charts/kyverno-policies:3.2.5
@@ -78,7 +78,7 @@
 - ghcr.io/appscode-charts/service-backend:v2026.7.10
 - ghcr.io/appscode-charts/service-gateway-presets:v2026.7.10
 - ghcr.io/appscode-charts/service-provider:v2026.7.10
-- ghcr.io/appscode-charts/sidekick:v2026.6.22
+- ghcr.io/appscode-charts/sidekick:v2026.7.10
 - ghcr.io/appscode-charts/snapshot-controller:3.0.6
 - ghcr.io/appscode-charts/stash-opscenter:v2025.7.31
 - ghcr.io/appscode-charts/stash-presets:v2026.7.10
