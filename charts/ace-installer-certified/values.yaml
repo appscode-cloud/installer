@@ -90,6 +90,9 @@ helm:
       enabled: true
       version: "v2026.6.19"
       values: # +doc-gen:break
+        global:
+          featureGates:
+            Pgpool: true
         kubedb-provisioner:
           enabled: true
         kubedb-catalog:
