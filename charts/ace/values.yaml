@@ -279,7 +279,7 @@ global:
 
 settings:
   db:
-    version: "16.4"
+    version: "18.3"
     databaseName: bb
     deletionPolicy: Delete
     persistence:
