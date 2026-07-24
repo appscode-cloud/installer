@@ -31,7 +31,7 @@ dependencies:
   version: 0.2.52
 - name: pgoutbox
   repository: oci://ghcr.io/appscode-charts
-  version: v2026.1.15
+  version: v2026.7.10
 - name: outbox-syncer
   repository: file://../outbox-syncer
   version: v2026.7.10
@@ -47,5 +47,5 @@ dependencies:
 - name: redis-alerts
   repository: oci://ghcr.io/appscode-charts
   version: v2026.2.24
-digest: sha256:c554573d82d29958ab5eb4dda7ec2b98be32d3667a953ad530dbb14f9307615d
-generated: "2026-07-12T22:07:52.828707841Z"
+digest: sha256:a1f211954afda810110141b3f3f1825c2bb32df61b06575b7bbd63f6a379464c
+generated: "2026-07-24T06:21:38.049820345Z"

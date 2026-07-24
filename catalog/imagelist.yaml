@@ -32,8 +32,8 @@
 - ghcr.io/appscode/service-provider:v0.0.2
 - ghcr.io/appscode/smtprelay:v0.0.4
 - ghcr.io/appscode/website:v2026.7.10
-- ghcr.io/voyagermesh/crd-manager:v0.2.0
+- ghcr.io/voyagermesh/crd-manager:v0.3.0
 - ghcr.io/voyagermesh/echoserver:v20221109
 - ghcr.io/voyagermesh/envoy:v1.37.2-ac
-- ghcr.io/voyagermesh/gateway:v1.7.1
+- ghcr.io/voyagermesh/gateway:v1.8.2
 - minio/minio:RELEASE.2023-01-12T02-06-16Z
