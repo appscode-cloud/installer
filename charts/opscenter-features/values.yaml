@@ -121,9 +121,9 @@ helm:
     kube-ui-server:
       version: "v2026.7.10"
     kubedb:
-      version: "v2026.6.19"
+      version: "v2026.7.10"
     kubedb-opscenter:
-      version: "v2026.6.19"
+      version: "v2026.7.10"
     kubedb-provider-aws:
       version: "v2024.1.31"
     kubedb-provider-azure:
@@ -131,7 +131,7 @@ helm:
     kubedb-provider-gcp:
       version: "v2024.1.31"
     kubestash:
-      version: "v2026.6.19"
+      version: "v2026.7.10"
     kubevault:
       version: "v2026.2.27"
     kubevault-opscenter:
@@ -179,7 +179,7 @@ helm:
     service-provider:
       version: "v2026.7.10"
     sidekick:
-      version: "v2026.6.22"
+      version: "v2026.7.10"
     snapshot-controller:
       version: "3.0.6"
     stash:
