@@ -1,3 +1,5 @@
+{{- $dbUser := ternary .Values.securityContext.runAsUser 70 (eq (include "distro.openshift" $) "true") }}
+{{- $resizePolicy := list (dict "resourceName" "cpu" "restartPolicy" "NotRequired") (dict "resourceName" "memory" "restartPolicy" "NotRequired") }}
 apiVersion: kubedb.com/v1
 kind: Postgres
 metadata:
@@ -27,12 +29,13 @@ spec:
     spec:
       containers:
       - name: postgres
+        resizePolicy:
+          {{- toYaml $resizePolicy | nindent 8 }}
         resources:
           {{- toYaml .Values.settings.db.resources | nindent 10 }}
-    {{- if eq (include "distro.openshift" $) "true" }}
         securityContext:
-          runAsGroup: {{ .Values.securityContext.runAsUser }}
-          runAsUser: {{ .Values.securityContext.runAsUser }}
+          runAsGroup: {{ $dbUser }}
+          runAsUser: {{ $dbUser }}
           capabilities:
             drop:
             - ALL
@@ -40,9 +43,17 @@ spec:
           seccompProfile:
             type: RuntimeDefault
       - name: pg-coordinator
+        resizePolicy:
+          {{- toYaml $resizePolicy | nindent 8 }}
+        resources:
+          limits:
+            memory: 256Mi
+          requests:
+            cpu: 200m
+            memory: 256Mi
         securityContext:
-          runAsGroup: {{ .Values.securityContext.runAsUser }}
-          runAsUser: {{ .Values.securityContext.runAsUser }}
+          runAsGroup: {{ $dbUser }}
+          runAsUser: {{ $dbUser }}
           capabilities:
             drop:
             - ALL
@@ -52,8 +63,8 @@ spec:
       initContainers:
       - name: postgres-init-container
         securityContext:
-          runAsGroup: {{ .Values.securityContext.runAsUser }}
-          runAsUser: {{ .Values.securityContext.runAsUser }}
+          runAsGroup: {{ $dbUser }}
+          runAsUser: {{ $dbUser }}
           capabilities:
             drop:
             - ALL
@@ -61,16 +72,15 @@ spec:
           seccompProfile:
             type: RuntimeDefault
       securityContext:
-        fsGroup: {{ .Values.securityContext.runAsUser }}
-        runAsUser: {{ .Values.securityContext.runAsUser }}
-        runAsGroup: {{ .Values.securityContext.runAsUser }}
-    {{- end }}
+        fsGroup: {{ $dbUser }}
+        runAsUser: {{ $dbUser }}
+        runAsGroup: {{ $dbUser }}
   deletionPolicy: {{ .Values.settings.db.deletionPolicy }}
   authSecret:
     name: {{ include "ace.fullname" . }}-db-auth
     externallyManaged: true
-  configSecret:
-    name: {{ include "ace.fullname" . }}-db-config
+  configuration:
+    secretName: {{ include "ace.fullname" . }}-db-config
   init:
     waitForInitialRestore: false
     script:

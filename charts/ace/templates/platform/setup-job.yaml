@@ -41,6 +41,7 @@ spec:
         {{- include "ace.selectorLabels" . | nindent 8 }}
     spec:
       {{- include "appscode.imagePullSecrets" . | nindent 6 }}
+      serviceAccount: {{ include "appscode.serviceAccountName" . }}
       serviceAccountName: {{ include "appscode.serviceAccountName" . }}
       {{- if eq "true" ( include "distro.openshift" . ) }}
       securityContext:
@@ -53,10 +54,10 @@ spec:
         - name: {{ .Chart.Name }}
           {{- if eq "true" ( include "distro.openshift" . ) }}
           securityContext:
-            {{- toYaml (omit .Values.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 10 }}
+            {{- toYaml (omit .Values.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 12 }}
           {{- else }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 10 }}
+            {{- toYaml .Values.securityContext | nindent 12 }}
           {{- end }}
           image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
