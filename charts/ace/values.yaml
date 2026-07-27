@@ -279,7 +279,7 @@ global:
 
 settings:
   db:
-    version: "16.4"
+    version: "18.3"
     databaseName: bb
     deletionPolicy: Delete
     persistence:
@@ -296,11 +296,16 @@ settings:
     logSQL: false
   pgpool:
     enabled: true
-    replicas: 1
+    replicas: 2
     config:
-      num_init_children: "25"
-      max_pool: "15"
-      client_idle_limit: "60"
+      num_init_children: "32"
+      max_pool: "3"
+      listen_backlog_multiplier: "4"
+      child_life_time: "300"
+      child_max_connections: "1000"
+      connection_life_time: "600"
+      client_idle_limit: "300"
+      connection_cache: "on"
     resources:
       limits:
         memory: 512Mi
