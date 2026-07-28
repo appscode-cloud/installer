@@ -295,7 +295,7 @@ settings:
       password: "xyz"
     logSQL: false
   pgpool:
-    enabled: true
+    enabled: false
     replicas: 2
     config:
       num_init_children: "32"
