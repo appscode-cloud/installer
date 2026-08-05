@@ -1,7 +1,7 @@
 apiVersion: ui.k8s.appscode.com/v1alpha1
 kind: ResourceOutlineFilter
 metadata:
-  name: kubedb.com-v1-kafkas-kubedb
+  name: kubedb.com-v1alpha2-documentdbs-kubedb
 spec:
   actions:
   - items:
@@ -11,10 +11,10 @@ spec:
     name: Operations
     show: true
   - items:
-      Scale Vertically: true
-      Scale Storage: true
       Expand Volume: true
       Horizontal Scale: true
+      Scale Storage: true
+      Scale Vertically: true
       Vertical Scale: true
     name: Scaling
     show: true
@@ -28,41 +28,16 @@ spec:
       TLS Configure: true
     name: Security & Monitoring
     show: true
-  - items:
-      Expose via Gateway: true
-    name: Extras
-    show: true
   header: true
   pages:
   - name: Overview
     sections:
     - blocks:
-        Dashboards: true
         Nodes: true
       info:
         basic: true
-        inCluster: true
         gateway: true
-      insight: false
-      show: true
-    show: true
-  - name: Insights
-    sections:
-    - blocks:
-        Dashboards: true
-      info: {}
-      insight: false
-      show: true
-    show: true
-  - name: Users
-    sections:
-    - blocks:
-        AppBinding: true
-        Root User: true
-        SecretAccessRequests: true
-        SecretEngines: true
-        VaultServers: true
-      info: {}
+        inCluster: true
       insight: false
       show: true
     show: true
@@ -70,7 +45,6 @@ spec:
     sections:
     - blocks:
         Recent Operations: true
-        Recommendations: true
       info: {}
       insight: false
       show: true
@@ -125,8 +99,8 @@ spec:
     show: false
   resource:
     group: kubedb.com
-    kind: Kafka
-    name: kafkas
+    kind: DocumentDB
+    name: documentdbs
     scope: Namespaced
-    version: v1
+    version: v1alpha2
   tabBar: true
