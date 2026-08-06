@@ -5,6 +5,12 @@ metadata:
 spec:
   actions:
   - items:
+      Configure Backup: true
+      Instant Backup: true
+      Restore: true
+    name: Backups
+    show: true
+  - items:
       Reconfigure: true
       Restart: true
       Update Version: true
@@ -47,6 +53,18 @@ spec:
     - blocks:
         Recent Operations: true
         Recommendations: true
+      info: {}
+      insight: false
+      show: true
+    show: true
+  - name: Backup
+    sections:
+    - blocks:
+        Backup Configuration: true
+        CronJobs: true
+        Recent Backups: true
+        Recent Restores: true
+        Repository: true
       info: {}
       insight: false
       show: true
