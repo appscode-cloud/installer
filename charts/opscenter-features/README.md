@@ -109,8 +109,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kubedb-provider-azure.version                             |                                 | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubedb-provider-gcp.version                               |                                 | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubestash.version                                         |                                 | <code>"v2026.7.10"</code>                  |
-| helm.releases.kubevault.version                                         |                                 | <code>"v2026.2.27"</code>                  |
-| helm.releases.kubevault-opscenter.version                               |                                 | <code>"v2026.2.27"</code>                  |
+| helm.releases.kubevault.version                                         |                                 | <code>"v2026.8.7"</code>                   |
+| helm.releases.kubevault-opscenter.version                               |                                 | <code>"v2026.8.7"</code>                   |
 | helm.releases.kyverno.version                                           |                                 | <code>"3.2.6"</code>                       |
 | helm.releases.kyverno-policies.version                                  |                                 | <code>"3.2.5"</code>                       |
 | helm.releases.license-proxyserver.version                               |                                 | <code>"v2026.2.16"</code>                  |

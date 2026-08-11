@@ -186,8 +186,8 @@ k3s ctr images import images/appscode-charts-kubedbcom-weaviate-editor-v0.36.0.t
 k3s ctr images import images/appscode-charts-kubedbcom-zookeeper-editor-options-v0.36.0.tar
 k3s ctr images import images/appscode-charts-kubedbcom-zookeeper-editor-v0.36.0.tar
 k3s ctr images import images/appscode-charts-kubestash-v2026.7.10.tar
-k3s ctr images import images/appscode-charts-kubevault-opscenter-v2026.2.27.tar
-k3s ctr images import images/appscode-charts-kubevault-v2026.2.27.tar
+k3s ctr images import images/appscode-charts-kubevault-opscenter-v2026.8.7.tar
+k3s ctr images import images/appscode-charts-kubevault-v2026.8.7.tar
 k3s ctr images import images/appscode-charts-kyverno-policies-3.2.5.tar
 k3s ctr images import images/appscode-charts-kyverno-3.2.6.tar
 k3s ctr images import images/appscode-charts-license-proxyserver-manager-v2026.2.16.tar

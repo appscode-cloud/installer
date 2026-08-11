@@ -188,8 +188,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-k
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedbcom-zookeeper-editor-options-v0.36.0.tar $IMAGE_REGISTRY/appscode-charts/kubedbcom-zookeeper-editor-options:v0.36.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubedbcom-zookeeper-editor-v0.36.0.tar $IMAGE_REGISTRY/appscode-charts/kubedbcom-zookeeper-editor:v0.36.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubestash-v2026.7.10.tar $IMAGE_REGISTRY/appscode-charts/kubestash:v2026.7.10
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubevault-opscenter-v2026.2.27.tar $IMAGE_REGISTRY/appscode-charts/kubevault-opscenter:v2026.2.27
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubevault-v2026.2.27.tar $IMAGE_REGISTRY/appscode-charts/kubevault:v2026.2.27
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubevault-opscenter-v2026.8.7.tar $IMAGE_REGISTRY/appscode-charts/kubevault-opscenter:v2026.8.7
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubevault-v2026.8.7.tar $IMAGE_REGISTRY/appscode-charts/kubevault:v2026.8.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kyverno-policies-3.2.5.tar $IMAGE_REGISTRY/appscode-charts/kyverno-policies:3.2.5
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kyverno-3.2.6.tar $IMAGE_REGISTRY/appscode-charts/kyverno:3.2.6
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-license-proxyserver-manager-v2026.2.16.tar $IMAGE_REGISTRY/appscode-charts/license-proxyserver-manager:v2026.2.16
