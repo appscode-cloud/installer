@@ -268,7 +268,7 @@ global:
       levels: 7
     invoice:
       mountPath: /billing
-      bucket: gs://invoice-storage-demo
+      bucket:
       prefix: ""
       trackerEmail: invoice-tracker@appscode.com
     fileserver:
