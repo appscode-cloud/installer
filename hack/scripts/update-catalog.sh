@@ -34,12 +34,15 @@ image-packer list --root-dir=charts --output-dir=catalog
 #   - charts owned by a component -> that component installer's own
 #     catalog/imagelist.yaml, collected per org by appscode-cloud/artifacts
 #     (pkg/collect/orgs.go)
-#   - the externally maintained charts appscode-cloud/artifacts renders itself
-#     from curated CI values (pkg/collect/externals.go)
+#
+# Externally maintained charts -- cert-manager, flux2, keda, kube-prometheus-stack,
+# snapshot-controller -- are deliberately NOT excluded. Rendering them from the
+# values their Feature carries is what ACE actually deploys, so they belong in
+# this file rather than in a second hand-curated source.
 #
 # Charts NOT listed here -- reloader, prometheus-adapter, kyverno, longhorn,
-# opencost, stash, voyager, ... -- have no other publisher, which is why their
-# images went unmirrored until now.
+# opencost, ... -- have no other publisher, which is why their images went
+# unmirrored until now.
 feature_chart_exclusions=(
     # appscode-cloud/installer
     aceshifter
@@ -102,13 +105,16 @@ feature_chart_exclusions=(
     prom-label-proxy
     tenant-operator
     thanos-operator
-    # rendered by appscode-cloud/artifacts from hack/ci values
-    cert-manager
-    flux2
-    keda
-    keda-add-ons-http
-    kube-prometheus-stack
-    snapshot-controller
+    # stashed/installer
+    stash
+    stash-opscenter
+    # voyagermesh/installer
+    gateway-api
+    voyager
+    voyager-gateway
+    # virtual-secrets/installer
+    secrets-store-csi-driver-provider-virtual-secrets
+    virtual-secrets-server
 )
 
 exclude_args=()
