@@ -12,9 +12,9 @@ require (
 	k8s.io/apimachinery v0.34.3
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
 	kmodules.xyz/client-go v0.34.3
-	kmodules.xyz/image-packer v0.0.0-20260712174708-18b029a2e515
+	kmodules.xyz/image-packer v0.0.0-20260816165133-2fd27b057a22
 	kmodules.xyz/objectstore-api v0.34.0
-	kmodules.xyz/resource-metadata v0.48.0
+	kmodules.xyz/resource-metadata v0.48.1-0.20260713095944-b5ef2148513d
 	kmodules.xyz/schema-checker v0.4.3
 	kubeops.dev/external-dns-operator v0.3.1-0.20260409053434-d3838ac10fdf
 	kubeops.dev/installer v0.0.0-20260712202131-29761e3b9190
@@ -118,7 +118,7 @@ require (
 	gomodules.xyz/jsonpath v0.0.2 // indirect
 	gomodules.xyz/mergo v0.3.13 // indirect
 	gomodules.xyz/pointer v0.1.0 // indirect
-	gomodules.xyz/x v0.0.17 // indirect
+	gomodules.xyz/x v0.0.18 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/evanphx/json-patch.v4 v4.13.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect

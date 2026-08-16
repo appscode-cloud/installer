@@ -26,7 +26,103 @@ rm -rf /tmp/hub
 
 image-packer list --root-dir=charts --output-dir=catalog
 
-image-packer list-feature-charts --root-dir=charts --output-dir=catalog
+# Feature charts left out of catalog/feature-chart-images.yaml because another
+# catalog already publishes their images. Rendering them here would duplicate
+# those lists, and would mirror a second copy of every database image.
+#
+#   - charts owned by this repo   -> catalog/imagelist.yaml
+#   - charts owned by a component -> that component installer's own
+#     catalog/imagelist.yaml, collected per org by appscode-cloud/artifacts
+#     (pkg/collect/orgs.go)
+#
+# Externally maintained charts -- cert-manager, flux2, keda, kube-prometheus-stack,
+# snapshot-controller -- are deliberately NOT excluded. Rendering them from the
+# values their Feature carries is what ACE actually deploys, so they belong in
+# this file rather than in a second hand-curated source.
+#
+# Charts NOT listed here -- reloader, prometheus-adapter, kyverno, longhorn,
+# opencost, ... -- have no other publisher, which is why their images went
+# unmirrored until now.
+feature_chart_exclusions=(
+    # appscode-cloud/installer
+    aceshifter
+    catalog-manager
+    cluster-presets
+    inbox-ui
+    kubedb-ui-presets
+    license-proxyserver
+    license-proxyserver-manager
+    opscenter-features
+    service-backend
+    service-gateway-presets
+    service-provider
+    stash-presets
+    # kubedb/installer
+    kubedb
+    kubedb-opscenter
+    kubedb-provider-aws
+    kubedb-provider-azure
+    kubedb-provider-gcp
+    prepare-cluster
+    # kubestash/installer
+    kubestash
+    # kubevault/installer
+    kubevault
+    kubevault-opscenter
+    # kubeops/installer
+    cert-manager-csi-driver-cacerts
+    config-syncer
+    external-dns-operator
+    falco-ui-server
+    gatekeeper-grafana-dashboards
+    gatekeeper-library
+    kube-ui-server
+    opencost-grafana-dashboards
+    operator-shard-manager
+    panopticon
+    scanner
+    sidekick
+    storage-metrics-server
+    supervisor
+    # kluster-manager/installer
+    cluster-auth-manager
+    cluster-gateway-manager
+    cluster-manager-hub
+    cluster-manager-spoke
+    cluster-profile-manager
+    cluster-proxy-manager
+    fluxcd-manager
+    hub-cluster-robot
+    managed-serviceaccount-manager
+    # open-viz/installer
+    grafana-operator
+    kube-grafana-dashboards
+    monitoring-operator
+    # opnpulse/installer
+    appscode-otel-stack
+    inbox-agent
+    inbox-server
+    prom-label-proxy
+    tenant-operator
+    thanos-operator
+    # stashed/installer
+    stash
+    stash-opscenter
+    # voyagermesh/installer
+    gateway-api
+    voyager
+    voyager-gateway
+    # virtual-secrets/installer
+    secrets-store-csi-driver-provider-virtual-secrets
+    virtual-secrets-server
+)
+
+exclude_args=()
+for chart in "${feature_chart_exclusions[@]}"; do
+    exclude_args+=("--exclude-chart=${chart}")
+done
+
+image-packer list-feature-charts --root-dir=charts --output-dir=catalog "${exclude_args[@]}"
 
 image-packer ace-up --dir=.
 
@@ -45,6 +141,7 @@ image-packer generate-scripts --insecure --allow-nondistributable-artifacts \
     --src=catalog/ace.yaml \
     --src=catalog/editor-charts.yaml \
     --src=catalog/feature-charts.yaml \
+    --src=catalog/feature-chart-images.yaml \
     --src=catalog/reusable-ui-charts.yaml
 
 image-packer generate-gcp-script --allow-nondistributable-artifacts \

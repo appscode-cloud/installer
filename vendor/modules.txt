@@ -416,8 +416,8 @@ gomodules.xyz/mergo
 # gomodules.xyz/pointer v0.1.0
 ## explicit; go 1.15
 gomodules.xyz/pointer
-# gomodules.xyz/x v0.0.17
-## explicit; go 1.22.0
+# gomodules.xyz/x v0.0.18
+## explicit; go 1.25.0
 gomodules.xyz/x/filepath
 # google.golang.org/protobuf v1.36.11
 ## explicit; go 1.23
@@ -928,7 +928,7 @@ kmodules.xyz/custom-resources/crds
 # kmodules.xyz/go-containerregistry v0.0.15
 ## explicit; go 1.24.0
 kmodules.xyz/go-containerregistry/name
-# kmodules.xyz/image-packer v0.0.0-20260712174708-18b029a2e515
+# kmodules.xyz/image-packer v0.0.0-20260816165133-2fd27b057a22
 ## explicit; go 1.25.0
 kmodules.xyz/image-packer/pkg/lib
 # kmodules.xyz/monitoring-agent-api v0.34.0
@@ -943,7 +943,7 @@ kmodules.xyz/offshoot-api/api/v1
 # kmodules.xyz/prober v0.34.0
 ## explicit; go 1.24.0
 kmodules.xyz/prober/api/v1
-# kmodules.xyz/resource-metadata v0.48.0
+# kmodules.xyz/resource-metadata v0.48.1-0.20260713095944-b5ef2148513d
 ## explicit; go 1.25.0
 kmodules.xyz/resource-metadata/apis/shared
 kmodules.xyz/resource-metadata/apis/ui
