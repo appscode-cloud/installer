@@ -342,6 +342,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.15.0 $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.15.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/external-secrets/external-secrets:v0.9.12 $IMAGE_REGISTRY/external-secrets/external-secrets:v0.9.12
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/helm-controller:v1.4.2 $IMAGE_REGISTRY/fluxcd/helm-controller:v1.4.2
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/kustomize-controller:v1.7.1 $IMAGE_REGISTRY/fluxcd/kustomize-controller:v1.7.1
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/notification-controller:v1.7.3 $IMAGE_REGISTRY/fluxcd/notification-controller:v1.7.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/source-controller:v1.7.2 $IMAGE_REGISTRY/fluxcd/source-controller:v1.7.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kedacore/http-add-on-interceptor:0.12.0 $IMAGE_REGISTRY/kedacore/http-add-on-interceptor:0.12.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/kedacore/http-add-on-operator:0.12.0 $IMAGE_REGISTRY/kedacore/http-add-on-operator:0.12.0

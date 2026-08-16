@@ -33,9 +33,13 @@ imageAutomationController:
 imageReflectionController:
   create: false
 kustomizeController:
-  create: false
+  create: true
+  labels:
+    ace.appscode.com/managed: "true"
 notificationController:
-  create: false
+  create: true
+  labels:
+    ace.appscode.com/managed: "true"
 sourceController:
   create: true
   labels:

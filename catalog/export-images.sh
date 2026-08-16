@@ -339,6 +339,8 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rb
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode/kube-rbac-proxy:v0.15.0 images/appscode-kube-rbac-proxy-v0.15.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/external-secrets/external-secrets:v0.9.12 images/external-secrets-external-secrets-v0.9.12.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/helm-controller:v1.4.2 images/fluxcd-helm-controller-v1.4.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/kustomize-controller:v1.7.1 images/fluxcd-kustomize-controller-v1.7.1.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/notification-controller:v1.7.3 images/fluxcd-notification-controller-v1.7.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/fluxcd/source-controller:v1.7.2 images/fluxcd-source-controller-v1.7.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kedacore/http-add-on-interceptor:0.12.0 images/kedacore-http-add-on-interceptor-0.12.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/kedacore/http-add-on-operator:0.12.0 images/kedacore-http-add-on-operator-0.12.0.tar

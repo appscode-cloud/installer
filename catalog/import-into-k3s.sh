@@ -331,6 +331,8 @@ k3s ctr images import images/appscode-kube-rbac-proxy-v0.11.0.tar
 k3s ctr images import images/appscode-kube-rbac-proxy-v0.15.0.tar
 k3s ctr images import images/external-secrets-external-secrets-v0.9.12.tar
 k3s ctr images import images/fluxcd-helm-controller-v1.4.2.tar
+k3s ctr images import images/fluxcd-kustomize-controller-v1.7.1.tar
+k3s ctr images import images/fluxcd-notification-controller-v1.7.3.tar
 k3s ctr images import images/fluxcd-source-controller-v1.7.2.tar
 k3s ctr images import images/kedacore-http-add-on-interceptor-0.12.0.tar
 k3s ctr images import images/kedacore-http-add-on-operator-0.12.0.tar

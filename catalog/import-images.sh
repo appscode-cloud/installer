@@ -333,6 +333,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rba
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-kube-rbac-proxy-v0.15.0.tar $IMAGE_REGISTRY/appscode/kube-rbac-proxy:v0.15.0
 $CMD push --allow-nondistributable-artifacts --insecure images/external-secrets-external-secrets-v0.9.12.tar $IMAGE_REGISTRY/external-secrets/external-secrets:v0.9.12
 $CMD push --allow-nondistributable-artifacts --insecure images/fluxcd-helm-controller-v1.4.2.tar $IMAGE_REGISTRY/fluxcd/helm-controller:v1.4.2
+$CMD push --allow-nondistributable-artifacts --insecure images/fluxcd-kustomize-controller-v1.7.1.tar $IMAGE_REGISTRY/fluxcd/kustomize-controller:v1.7.1
+$CMD push --allow-nondistributable-artifacts --insecure images/fluxcd-notification-controller-v1.7.3.tar $IMAGE_REGISTRY/fluxcd/notification-controller:v1.7.3
 $CMD push --allow-nondistributable-artifacts --insecure images/fluxcd-source-controller-v1.7.2.tar $IMAGE_REGISTRY/fluxcd/source-controller:v1.7.2
 $CMD push --allow-nondistributable-artifacts --insecure images/kedacore-http-add-on-interceptor-0.12.0.tar $IMAGE_REGISTRY/kedacore/http-add-on-interceptor:0.12.0
 $CMD push --allow-nondistributable-artifacts --insecure images/kedacore-http-add-on-operator-0.12.0.tar $IMAGE_REGISTRY/kedacore/http-add-on-operator:0.12.0
