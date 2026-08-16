@@ -1,0 +1,87 @@
+# Sample values used only by `image-packer list` to render the optional subcharts
+# that are disabled in values.yaml, so their images reach catalog/imagelist.yaml.
+# Registry/tag overrides mirror what lib-selfhost applies to a real deployment.
+# Not consumed by `ct` or `helm install`.
+
+platform-ui:
+  enabled: true
+
+cluster-ui:
+  enabled: true
+
+kubedb-ui:
+  enabled: true
+
+platform-api:
+  enabled: true
+
+grafana:
+  enabled: true
+
+perses:
+  enabled: true
+
+trickster:
+  enabled: true
+  sidecars:
+    spec:
+      auth:
+        name: auth
+        image: ghcr.io/appscode/prom-authproxy:v0.0.2
+
+s3proxy:
+  enabled: true
+
+pgoutbox:
+  enabled: true
+
+outbox-syncer:
+  enabled: true
+
+gateway:
+  enabled: true
+
+ingress-nginx:
+  enabled: true
+  controller:
+    admissionWebhooks:
+      enabled: false
+    image:
+      registry: ghcr.io
+      image: appscode-images/ingress-nginx-controller
+      digest: ""
+  defaultBackend:
+    enabled: true
+    image:
+      registry: ghcr.io
+      image: voyagermesh/defaultbackend
+
+nats:
+  enabled: true
+  nats:
+    image:
+      registry: ghcr.io
+      repository: appscode-images/nats
+      tag: 2.12.6-alpine
+  bootconfig:
+    image:
+      tag: 0.22.3
+  reloader:
+    image:
+      tag: 0.22.3
+  exporter:
+    enabled: true
+    image:
+      tag: 0.19.2
+
+openfga:
+  enabled: true
+  # the migrate Job and its `wait-for-migration` init container only render for a
+  # sql engine, so k8s-wait-for is missed without this
+  datastore:
+    engine: postgres
+  datastoreURI: postgres://postgres:xyz@ace-db.ace.svc:5432/postgres?dbname=openfga&sslmode=disable
+  image:
+    repository: ghcr.io/appscode/openfga
+  initContainer:
+    repository: ghcr.io/appscode/k8s-wait-for
