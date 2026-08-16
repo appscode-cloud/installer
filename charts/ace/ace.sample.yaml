@@ -20,6 +20,9 @@ grafana:
 
 perses:
   enabled: true
+  # the bats test hook image is amd64 only and is never pulled by a real install
+  testFramework:
+    enabled: false
 
 trickster:
   enabled: true
@@ -50,8 +53,9 @@ ingress-nginx:
       registry: ghcr.io
       image: appscode-images/ingress-nginx-controller
       digest: ""
+  # defaultBackend stays disabled, as in a real install; the image override only
+  # documents which mirror would be used
   defaultBackend:
-    enabled: true
     image:
       registry: ghcr.io
       image: voyagermesh/defaultbackend
