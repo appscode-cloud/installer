@@ -45,6 +45,7 @@ image-packer generate-scripts --insecure --allow-nondistributable-artifacts \
     --src=catalog/ace.yaml \
     --src=catalog/editor-charts.yaml \
     --src=catalog/feature-charts.yaml \
+    --src=catalog/feature-chart-images.yaml \
     --src=catalog/reusable-ui-charts.yaml
 
 image-packer generate-gcp-script --allow-nondistributable-artifacts \
