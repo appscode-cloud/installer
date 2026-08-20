@@ -30,7 +30,7 @@ spec:
         {{- include "billing.selectorLabels" . | nindent 8 }}
     spec:
       {{- include "appscode.imagePullSecrets" . | nindent 6 }}
-      serviceAccountName: {{ include "appscode.serviceAccountName" . }}
+      serviceAccountName: {{ include "billing.serviceAccountName" . }}
       {{- if eq "true" ( include "distro.openshift" . ) }}
       securityContext:
         {{- toYaml (omit .Values.podSecurityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 8 }}

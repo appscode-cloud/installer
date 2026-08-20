@@ -63,7 +63,7 @@ roleRef:
   name: appscode:license-checker
 subjects:
 - kind: ServiceAccount
-  name: {{ include "appscode.serviceAccountName" . }}
+  name: {{ include "billing.serviceAccountName" . }}
   namespace: {{ .Release.Namespace }}
 
 ---
@@ -102,7 +102,7 @@ roleRef:
   name: appscode:license-reader
 subjects:
 - kind: ServiceAccount
-  name: {{ include "appscode.serviceAccountName" . }}
+  name: {{ include "billing.serviceAccountName" . }}
   namespace: {{ .Release.Namespace }}
 
 ---
@@ -150,5 +150,5 @@ roleRef:
   name: {{ include "billing.fullname" . }}
 subjects:
 - kind: ServiceAccount
-  name: {{ include "appscode.serviceAccountName" . }}
+  name: {{ include "billing.serviceAccountName" . }}
   namespace: {{ .Release.Namespace }}
