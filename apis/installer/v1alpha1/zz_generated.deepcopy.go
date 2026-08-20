@@ -2629,7 +2629,7 @@ func (in *BillingSpec) DeepCopyInto(out *BillingSpec) {
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
-	out.ServiceAccount = in.ServiceAccount
+	in.ServiceAccount.DeepCopyInto(&out.ServiceAccount)
 	if in.PodAnnotations != nil {
 		in, out := &in.PodAnnotations, &out.PodAnnotations
 		*out = make(map[string]string, len(*in))

@@ -1,0 +1,154 @@
+{{- /*
+appscode:license-checker and appscode:license-reader are shared with the ace
+chart (via platform-api), which templates them identically. Both charts declare
+them as pre-install/pre-upgrade hooks with hook-delete-policy
+before-hook-creation, so a hook run deletes and recreates whatever is already
+there - the chart reconciled last would win. Create them here only when they are
+absent so the ace chart stays authoritative and billing never overwrites them.
+Permissions billing needs on top of the shared set belong in the billing-owned
+ClusterRole at the bottom of this file, which is never contested.
+*/}}
+{{- if not (lookup "rbac.authorization.k8s.io/v1" "ClusterRole" "" "appscode:license-checker") }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: appscode:license-checker
+  annotations:
+    "helm.sh/hook": pre-install,pre-upgrade
+    "helm.sh/hook-delete-policy": before-hook-creation
+rules:
+# Get cluster id
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs: ["get"]
+# Issue license
+- apiGroups:
+  - proxyserver.licenses.appscode.com
+  resources:
+  - licenserequests
+  verbs: ["create"]
+# Detect workload/owner of operator pod
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs: ["get"]
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  - replicasets
+  verbs: ["get"]
+# Write events in case of license verification failure
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs: ["get", "list", "create", "patch"]
+{{- end }}
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ include "billing.fullname" . }}-license-checker
+  labels:
+    {{- include "billing.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: appscode:license-checker
+subjects:
+- kind: ServiceAccount
+  name: {{ include "appscode.serviceAccountName" . }}
+  namespace: {{ .Release.Namespace }}
+
+---
+
+{{- if not (lookup "rbac.authorization.k8s.io/v1" "ClusterRole" "" "appscode:license-reader") }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: appscode:license-reader
+  annotations:
+    "helm.sh/hook": pre-install,pre-upgrade
+    "helm.sh/hook-delete-policy": before-hook-creation
+rules:
+# Detect license server endpoint for kubedb addons
+- apiGroups:
+  - apiregistration.k8s.io
+  resources:
+  - apiservices
+  verbs: ["get"]
+- nonResourceURLs:
+  - /appscode/license
+  verbs: ["get"]
+{{- end }}
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ include "billing.fullname" . }}-license-reader
+  labels:
+    {{- include "billing.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: appscode:license-reader
+subjects:
+- kind: ServiceAccount
+  name: {{ include "appscode.serviceAccountName" . }}
+  namespace: {{ .Release.Namespace }}
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "billing.fullname" . }}
+  labels:
+    {{- include "billing.labels" . | nindent 4 }}
+rules:
+# Read the cluster metadata the license enforcer and the site info publisher
+# need. Kept here rather than in appscode:license-checker because that role is
+# shared with the ace chart and would lose this rule the next time the ace
+# chart reconciles it.
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  verbs: ["get"]
+  resourceNames: ["ace-info"]
+# for site info
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs: ["get", "list", "watch"]
+- apiGroups:
+  - storage.k8s.io
+  resources:
+  - storageclasses
+  verbs: ["get", "list", "watch"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ include "billing.fullname" . }}
+  labels:
+    {{- include "billing.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ include "billing.fullname" . }}
+subjects:
+- kind: ServiceAccount
+  name: {{ include "appscode.serviceAccountName" . }}
+  namespace: {{ .Release.Namespace }}
