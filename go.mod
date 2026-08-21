@@ -3,7 +3,7 @@ module go.bytebuilders.dev/installer
 go 1.25.6
 
 require (
-	go.bytebuilders.dev/catalog v0.0.25-0.20260706073121-789173bab27a
+	go.bytebuilders.dev/catalog v0.1.0
 	go.bytebuilders.dev/resource-model v0.4.0
 	go.bytebuilders.dev/ui-wizards v0.36.0
 	go.openviz.dev/installer v0.0.0-20260619044110-702becd1dd97
@@ -12,7 +12,7 @@ require (
 	k8s.io/apimachinery v0.34.3
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
 	kmodules.xyz/client-go v0.34.3
-	kmodules.xyz/image-packer v0.0.0-20260816165133-2fd27b057a22
+	kmodules.xyz/image-packer v0.0.0-20260821065815-3bdf20c5e1c0
 	kmodules.xyz/objectstore-api v0.34.0
 	kmodules.xyz/resource-metadata v0.48.1-0.20260713095944-b5ef2148513d
 	kmodules.xyz/schema-checker v0.4.3
