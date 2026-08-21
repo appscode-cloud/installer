@@ -281,7 +281,7 @@ settings:
   db:
     version: "18.3"
     databaseName: bb
-    deletionPolicy: Delete
+    deletionPolicy: Halt
     persistence:
       size: 10Gi
     resources:
@@ -324,7 +324,7 @@ settings:
     auth:
       username: root
       password: "xyz"
-    deletionPolicy: Delete
+    deletionPolicy: Halt
   # Mail service
   smtp:
     # mailerServiceType: smtp
