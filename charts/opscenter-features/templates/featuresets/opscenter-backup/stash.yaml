@@ -40,6 +40,37 @@ spec:
         kind: Deployment
         selector:
           app.kubernetes.io/name: stash-enterprise
+
+  ignoreDifferences:
+  - jsonPointers:
+    - /data
+    kind: Secret
+    name: stash-stash-enterprise-apiserver-cert
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.admission.stash.appscode.com
+    jsonPointers:
+    - /spec/caBundle
+    - /metadata/annotations/admission-webhook.appscode.com~1active
+    - /metadata/annotations/admission-webhook.appscode.com~1status
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1alpha1.repositories.stash.appscode.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apiregistration.k8s.io
+    kind: APIService
+    name: v1beta1.admission.stash.appscode.com
+    jsonPointers:
+    - /spec/caBundle
+  - group: apps
+    kind: Deployment
+    name: stash-stash-enterprise
+    namespace: {{ printf "{{ .Release.Namespace }}" }}
+    jsonPointers:
+    - /spec/template/metadata/annotations/checksum~1apiregistration.yaml
+
   chart:
     name: stash
     namespace: stash
