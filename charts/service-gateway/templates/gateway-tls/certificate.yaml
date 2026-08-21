@@ -26,14 +26,10 @@ spec:
     - {{ include "tenant.name" . }}-s3proxy
     - {{ include "tenant.name" . }}-s3proxy.{{ .Release.Namespace }}.svc
     - {{ include "tenant.name" . }}-s3proxy.{{ .Release.Namespace }}.svc.cluster.local
-    {{- if eq .Release.Namespace "monitoring" }}
-    - prom-label-proxy
-    - prom-label-proxy.{{ .Release.Namespace }}.svc
-    - prom-label-proxy.{{ .Release.Namespace }}.svc.cluster.local
-    {{- end }}
   {{- end }}
 
   {{- if eq .Values.infra.hostType "domain" }}
+  commonName: {{ include "gateway.domain" . }}
   dnsNames:
     - {{ include "gateway.domain" . }}
     {{- if and (eq (dig "mode" "" (.Values.gatewayClass.annotations | default dict)) "hosted") (eq .Values.infra.host "appscode.com") }}
@@ -41,7 +37,12 @@ spec:
     - "api.{{ .Values.infra.host }}"
     - "api.byte.builders"
     {{- end }}
-  commonName: {{ include "gateway.domain" . }}
+  {{- end }}
+
+  {{- if eq .Release.Namespace "monitoring" }}
+    - prom-label-proxy
+    - prom-label-proxy.{{ .Release.Namespace }}.svc
+    - prom-label-proxy.{{ .Release.Namespace }}.svc.cluster.local
   {{- end }}
   usages:
     - key agreement
