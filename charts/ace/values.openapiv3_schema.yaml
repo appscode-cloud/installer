@@ -25193,12 +25193,25 @@ properties:
             type: object
           selfManagement:
             properties:
+              argoCD:
+                properties:
+                  deployPrincipal:
+                    type: boolean
+                  enabled:
+                    type: boolean
+                  existingKubeconfig:
+                    type: string
+                  principalServiceType:
+                    type: string
+                type: object
               createCAPICluster:
                 type: boolean
               disableFeatures:
                 items:
                   type: string
                 type: array
+              enableCredLess:
+                type: boolean
               enableFeatures:
                 items:
                   type: string
@@ -25241,6 +25254,8 @@ properties:
                 - serviceControlProxyToken
                 type: object
             type: object
+          syncPersesAccounts:
+            type: boolean
         type: object
       hook:
         properties:

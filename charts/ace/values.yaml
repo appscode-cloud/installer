@@ -589,6 +589,8 @@ setupJob:
       enableFeatures: []
       disableFeatures: []
       useGateway: false
+      enableCredLess: false
+      argoCD: {}
 
 extraObjects: {}
 
