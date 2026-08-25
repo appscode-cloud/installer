@@ -181,7 +181,7 @@ helm:
     sidekick:
       version: "v2026.7.10"
     snapshot-controller:
-      version: "3.0.6"
+      version: "5.2.0"
     stash:
       version: "v2025.7.31"
     stash-opscenter:
