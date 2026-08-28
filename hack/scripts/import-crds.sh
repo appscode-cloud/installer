@@ -134,6 +134,8 @@ crd-importer \
     --input=https://github.com/kubevault/apimachinery/raw/${KUBEVAULT_APIMACHINERY_TAG}/crds/policy.kubevault.com_vaultpolicybindings.yaml \
     --input=https://github.com/kubevault/apimachinery/raw/${KUBEVAULT_APIMACHINERY_TAG}/crds/engine.kubevault.com_secretengines.yaml \
     --input=https://github.com/kubevault/apimachinery/raw/${KUBEVAULT_APIMACHINERY_TAG}/crds/engine.kubevault.com_pkiroles.yaml \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta1/0000_02_clusters.open-cluster-management.io_placements.crd.yaml \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta2/0000_01_clusters.open-cluster-management.io_managedclustersetbindings.crd.yaml \
     --out=./charts/service-vault/crds
 
 crd-importer \

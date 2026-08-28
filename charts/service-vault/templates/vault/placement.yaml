@@ -1,0 +1,26 @@
+apiVersion: cluster.open-cluster-management.io/v1beta2
+kind: ManagedClusterSetBinding
+metadata:
+  name: {{ .Values.vaultServer.relay.clusterSet }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-vault.labels" . | nindent 4 }}
+spec:
+  clusterSet: {{ .Values.vaultServer.relay.clusterSet }}
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: {{ include "service-vault.fullname" . }}-relay
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-vault.labels" . | nindent 4 }}
+spec:
+  clusterSets:
+    - {{ .Values.vaultServer.relay.clusterSet }}
+  numberOfClusters: 1
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchLabels:
+            cluster.appscode.com/profile: {{ .Values.vaultServer.relay.clusterSet }}

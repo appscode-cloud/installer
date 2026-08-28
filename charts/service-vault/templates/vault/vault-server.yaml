@@ -7,33 +7,49 @@ kind: VaultServer
 metadata:
   name: {{ .Values.vaultServer.name }}
   namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-vault.labels" . | nindent 4 }}
 spec:
-  # tls:
-  #   issuerRef:
-  #     apiGroup: "cert-manager.io"
-  #     kind: Issuer
-  #     name: vault-issuer
   allowedSecretEngines:
     namespaces:
       from: All
-  version: "1.13.3"
-  replicas: 3
+  isolateTenants: {{ .Values.vaultServer.isolateTenants }}
+  version: {{ .Values.vaultServer.version | quote }}
+  replicas: {{ .Values.vaultServer.replicas }}
+  tls:
+    issuerRef:
+      name: {{ include "service-vault.fullname" . }}-ca-issuer
+      kind: Issuer
+      apiGroup: cert-manager.io
   backend:
     raft:
       storage:
-        # storageClassName: ""
+        {{- with .Values.vaultServer.persistence.storageClassName }}
+        storageClassName: {{ . | quote }}
+        {{- end }}
         resources:
           requests:
-            storage: 1Gi
+            storage: {{ .Values.vaultServer.persistence.size }}
   unsealer:
-    secretShares: 5
-    secretThreshold: 3
+    secretShares: {{ .Values.vaultServer.unsealer.secretShares }}
+    secretThreshold: {{ .Values.vaultServer.unsealer.secretThreshold }}
     mode:
       kubernetesSecret:
-        secretName: vault-keys
+        secretName: {{ .Values.vaultServer.name }}-keys
+  {{- if ne (toString .Values.vaultServer.serviceType) "ClusterIP" }}
+  serviceTemplates:
+    - alias: vault
+      spec:
+        type: {{ .Values.vaultServer.serviceType }}
+  {{- end }}
+  relayPlacementRef:
+    name: {{ include "service-vault.fullname" . }}-relay
+  relayTemplate:
+    namespace: {{ .Values.vaultServer.relay.namespace }}
+    bootstrapTokenTTL: {{ .Values.vaultServer.relay.bootstrapTokenTTL }}
   monitor:
     agent: prometheus.io
     prometheus:
       exporter:
         resources: {}
-  terminationPolicy: Delete
+  terminationPolicy: {{ .Values.vaultServer.terminationPolicy }}
