@@ -5,19 +5,19 @@ go 1.25.6
 require (
 	go.bytebuilders.dev/catalog v0.1.0
 	go.bytebuilders.dev/resource-model v0.4.0
-	go.bytebuilders.dev/ui-wizards v0.36.0
+	go.bytebuilders.dev/ui-wizards v0.37.0
 	go.openviz.dev/installer v0.0.0-20260619044110-702becd1dd97
 	gomodules.xyz/go-sh v0.2.0
 	k8s.io/api v0.34.3
 	k8s.io/apimachinery v0.34.3
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
 	kmodules.xyz/client-go v0.34.3
-	kmodules.xyz/image-packer v0.0.0-20260821065815-3bdf20c5e1c0
+	kmodules.xyz/image-packer v0.0.0-20260828095825-4ee8d7b90748
 	kmodules.xyz/objectstore-api v0.34.0
-	kmodules.xyz/resource-metadata v0.48.1-0.20260713095944-b5ef2148513d
+	kmodules.xyz/resource-metadata v0.49.0
 	kmodules.xyz/schema-checker v0.4.3
 	kubeops.dev/external-dns-operator v0.3.1-0.20260409053434-d3838ac10fdf
-	kubeops.dev/installer v0.0.0-20260712202131-29761e3b9190
+	kubeops.dev/installer v0.0.0-20260828113655-d8ce0857aa76
 	sigs.k8s.io/gateway-api v1.4.1
 	sigs.k8s.io/kustomize/kyaml v0.20.1
 	sigs.k8s.io/yaml v1.6.0
@@ -102,7 +102,7 @@ require (
 	github.com/yudai/gojsondiff v1.0.0 // indirect
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 	github.com/zeebo/xxh3 v1.0.2 // indirect
-	go.appscode.dev/alerts v0.2.1-0.20260516020454-00c8e56b1991 // indirect
+	go.appscode.dev/alerts v0.2.1-0.20260811095631-791e5af59674 // indirect
 	go.yaml.in/yaml/v2 v2.4.3 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
 	golang.org/x/crypto v0.52.0 // indirect
