@@ -1,6 +1,6 @@
 dependencies:
 - name: regcache
   repository: file://../regcache
-  version: v2026.7.10
-digest: sha256:398af00a1f21ce4c4d917a2726ec060668051ec3c9650d3b267e4cbdc090c057
-generated: "2026-07-12T22:07:53.649517237Z"
+  version: v2026.9.11
+digest: sha256:b6e6ad3e41e85a36201a3f559dd110602226f71a27f9c96c2170fa36d4434f2f
+generated: "2026-08-28T11:41:34.730915475Z"
