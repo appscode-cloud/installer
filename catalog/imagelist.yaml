@@ -6,7 +6,7 @@
 - ghcr.io/appscode/ace:v0.2.0
 - ghcr.io/appscode/acerproxy:v0.2.0
 - ghcr.io/appscode/aceshifter:v0.0.3
-- ghcr.io/appscode/b3:v2026.7.10
+- ghcr.io/appscode/b3:v2026.9.11
 - ghcr.io/appscode/billing-ui:2.4.10
 - ghcr.io/appscode/catalog-manager:v0.13.0
 - ghcr.io/appscode/cert-manager-webhook-ace:v0.0.2
@@ -38,7 +38,7 @@
 - ghcr.io/appscode/service-provider:v0.0.2
 - ghcr.io/appscode/smtprelay:v0.0.4
 - ghcr.io/appscode/trickster:v2.0.0
-- ghcr.io/appscode/website:v2026.7.10
+- ghcr.io/appscode/website:v2026.9.11
 - ghcr.io/opnpulse/perses:v2026.4.24
 - ghcr.io/voyagermesh/crd-manager:v0.3.0
 - ghcr.io/voyagermesh/echoserver:v20221109

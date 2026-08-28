@@ -77,5 +77,4 @@
 - registry.k8s.io/sig-storage/livenessprobe:v2.10.0
 - registry.k8s.io/sig-storage/livenessprobe:v2.12.0
 - registry.k8s.io/sig-storage/nfsplugin:v4.7.0
-- registry.k8s.io/sig-storage/snapshot-controller:v8.1.0
-- registry.k8s.io/sig-storage/snapshot-validation-webhook:v8.1.0
+- registry.k8s.io/sig-storage/snapshot-controller:v8.6.0
