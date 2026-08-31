@@ -1,0 +1,34 @@
+{{ if (index .Values "gateway" "enabled") }}
+
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: BackendTrafficPolicy
+metadata:
+  name: {{ include "ace.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  targetRefs:
+  - group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    name: {{ include "ace.fullname" . }}
+  retry:
+    numRetries: 2
+    retryOn:
+      # Only triggers where the backend provably never saw the request, so retrying a
+      # non-idempotent POST (/api/v1/register, /api/v1/license/issue) stays safe.
+      triggers:
+      - connect-failure
+      - refused-stream
+      - reset-before-request
+    perRetry:
+      backOff:
+        baseInterval: 100ms
+        maxInterval: 1s
+  healthCheck:
+    passive:
+      # Eject a replica that is failing but still listed in the endpoints, which readiness
+      # alone takes up to 30s to do.
+      consecutiveGatewayErrors: 3
+      interval: 5s
+      baseEjectionTime: 30s
+      maxEjectionPercent: 50
+{{ end }}

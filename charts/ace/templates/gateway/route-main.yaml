@@ -38,9 +38,11 @@ spec:
       namespace: {{ .Release.Namespace }}
       port: 80
       weight: 1
-    timeouts: # They default to 15s.
-      backendRequest: 2m
-      request: 2m
+    # Kept under Cloudflare's 100s origin timeout so a slow backend surfaces as a
+    # gateway 504 rather than a Cloudflare 520/524. They default to 15s.
+    timeouts:
+      backendRequest: 55s
+      request: 55s
   - matches:
     - path:
         type: PathPrefix
@@ -53,8 +55,8 @@ spec:
       port: 80
       weight: 1
     timeouts:
-      backendRequest: 2m
-      request: 2m
+      backendRequest: 55s
+      request: 55s
   - matches:
     - path:
         type: PathPrefix
@@ -101,8 +103,8 @@ spec:
       port: 80
       weight: 1
     timeouts:
-      backendRequest: 2m
-      request: 2m
+      backendRequest: 55s
+      request: 55s
   {{- end }}
   {{- if (index .Values "perses" "enabled") }}
   - matches:
@@ -117,8 +119,8 @@ spec:
       port: 8080
       weight: 1
     timeouts:
-      backendRequest: 2m
-      request: 2m
+      backendRequest: 55s
+      request: 55s
   {{- end }}
   - matches:
     - path:
@@ -132,6 +134,6 @@ spec:
       port: 4000
       weight: 1
     timeouts:
-      backendRequest: 2m
-      request: 2m
+      backendRequest: 55s
+      request: 55s
 {{- end }}

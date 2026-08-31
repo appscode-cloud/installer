@@ -68,16 +68,26 @@ spec:
               port: http
             # wait for cert and nats to be ready
             initialDelaySeconds: 60
+            timeoutSeconds: 5
             failureThreshold: 18
             periodSeconds: 30
           livenessProbe:
             httpGet:
               path: /api/v1/version
               port: http
+            # /api/v1/version is served by the same process as every other request, so it
+            # stalls whenever the process does. Restart only a genuinely wedged process
+            # (~2m); the 1s/30s default kills all replicas together on transient slowness.
+            timeoutSeconds: 10
+            periodSeconds: 20
+            failureThreshold: 6
           readinessProbe:
             httpGet:
               path: /api/v1/version
               port: http
+            timeoutSeconds: 5
+            periodSeconds: 10
+            failureThreshold: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.envFrom }}
