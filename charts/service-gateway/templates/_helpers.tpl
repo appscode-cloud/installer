@@ -64,6 +64,8 @@ The domain name used for the gateway.
 {{- define "gateway.domain" -}}
 {{- if eq (dig "mode" "" (.Values.gatewayClass.annotations | default dict)) "hosted" -}}
 {{- .Values.infra.host -}}
+{{- else if and (eq .Values.infra.hostType "domain") (eq .Release.Namespace "ace") -}}
+{{- .Values.infra.host -}}
 {{- else -}}
 {{- $ns := trimSuffix "-gw" .Release.Namespace -}}
 {{- $useClusterName := or (eq $ns "ace") (eq .Values.infra.tenantSpreadPolicy "multi") -}}
