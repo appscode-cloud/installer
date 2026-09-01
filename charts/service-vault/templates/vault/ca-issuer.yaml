@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: {{ include "service-vault.fullname" . }}-ca-issuer
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-vault.labels" . | nindent 4 }}
+spec:
+  {{- if .Values.vaultServer.tls.caSecretName }}
+  ca:
+    secretName: {{ .Values.vaultServer.tls.caSecretName }}
+  {{- else }}
+  selfSigned: {}
+  {{- end }}
