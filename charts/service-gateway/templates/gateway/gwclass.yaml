@@ -3,6 +3,7 @@
   "vaultServer" .Values.vaultServer
   "frontendTLSSecretRef" (dict "name" (printf "%s-gw-cert" (include "tenant.name" .)) "namespace" .Release.Namespace)
 }}
+{{- $multiReplica := and (eq .Values.envoy.provisionerType "Deployment") (gt (int (.Values.envoy.replicas | default 1)) 1) }}
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: GatewayClass
 metadata:
@@ -57,10 +58,24 @@ spec:
           securityContext:
             {{- toYaml .Values.envoy.securityContext | nindent 12 }}
           {{- end }}
-        {{- if .Values.envoy.nodeSelector }}
+        {{- if or .Values.envoy.nodeSelector $multiReplica }}
         pod:
+          {{- with .Values.envoy.nodeSelector }}
           nodeSelector:
-            {{- toYaml .Values.envoy.nodeSelector | nindent 12 }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- if $multiReplica }}
+          topologySpreadConstraints:
+          - maxSkew: 1
+            topologyKey: kubernetes.io/hostname
+            # ScheduleAnyway so a cluster with fewer nodes than replicas still schedules.
+            whenUnsatisfiable: ScheduleAnyway
+            labelSelector:
+              matchLabels:
+                app.kubernetes.io/name: envoy
+                app.kubernetes.io/component: proxy
+                gateway.envoyproxy.io/owning-gatewayclass: {{ include "tenant.name" . }}
+          {{- end }}
         {{- end }}
         patch:
           value:
@@ -76,6 +91,11 @@ spec:
                     securityContext:
                       {{- toYaml .Values.envoy.securityContext | nindent 22 }}
                     {{- end }}
+
+      {{- if $multiReplica }}
+      envoyPDB:
+        maxUnavailable: 1
+      {{- end }}
 
       envoyService:
         {{- $extraDomains := list }}
