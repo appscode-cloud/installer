@@ -68,7 +68,7 @@ spec:
   {{ if eq (index .Values "global" "platform" "hostType") "ip" }}
     hostname: {{ include "ace.fullname" . }}-nats
   {{- else }}
-    hostname: {{ printf "ace.ace.%s" .Values.global.platform.host }}
+    hostname: {{ printf "%s" .Values.global.platform.host }}
   {{- end }}
 
 ---
