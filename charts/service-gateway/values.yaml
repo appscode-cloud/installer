@@ -104,7 +104,7 @@ cluster:
 envoy:
   provisionerType: Deployment # DaemonSet
   image: ghcr.io/voyagermesh/envoy
-  tag: "v1.37.2-ac"
+  tag: "v1.38.3-ac"
   resources: {}
   # replicas only applies when provisionerType is Deployment
   # replicas: 2
