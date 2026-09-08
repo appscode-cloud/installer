@@ -186,7 +186,7 @@ type AceOpenfga struct {
 }
 
 type AceCadence struct {
-	Enabled    bool `json:"enabled"`
+	Enabled      bool `json:"enabled"`
 	*CadenceSpec `json:",inline,omitempty"`
 }
 
