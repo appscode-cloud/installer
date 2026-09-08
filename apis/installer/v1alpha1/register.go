@@ -73,6 +73,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&BillingUiList{},
 		&CatalogManager{},
 		&CatalogManagerList{},
+		&Cadence{},
+		&CadenceList{},
 		&CertManagerWebhookAce{},
 		&CertManagerWebhookAceList{},
 		&ClusterImporter{},

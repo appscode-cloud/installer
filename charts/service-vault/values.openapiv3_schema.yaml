@@ -5,13 +5,13 @@ properties:
         type: boolean
       ubi:
         enum:
-        - all
-        - catalog
-        - operator
+          - all
+          - catalog
+          - operator
         type: string
     required:
-    - openshift
-    - ubi
+      - openshift
+      - ubi
     type: object
   fullnameOverride:
     type: string
@@ -49,8 +49,8 @@ properties:
                   name:
                     type: string
                 required:
-                - credentialKey
-                - name
+                  - credentialKey
+                  - name
                 type: object
               zoneCacheDuration:
                 format: int64
@@ -62,7 +62,7 @@ properties:
               zoneType:
                 type: string
             required:
-            - sdCreateTag
+              - sdCreateTag
             type: object
           azure:
             properties:
@@ -77,8 +77,8 @@ properties:
                   name:
                     type: string
                 required:
-                - credentialKey
-                - name
+                  - credentialKey
+                  - name
                 type: object
               subscriptionId:
                 type: string
@@ -88,8 +88,8 @@ properties:
                 format: int64
                 type: integer
             required:
-            - maxRetriesCount
-            - zonesCacheDuration
+              - maxRetriesCount
+              - zonesCacheDuration
             type: object
           cloudflare:
             properties:
@@ -118,7 +118,7 @@ properties:
                   name:
                     type: string
                 required:
-                - name
+                  - name
                 type: object
             type: object
           connectorSourceServer:
@@ -155,8 +155,8 @@ properties:
                   name:
                     type: string
                 required:
-                - credentialKey
-                - name
+                  - credentialKey
+                  - name
                 type: object
               zoneVisibility:
                 type: string
@@ -242,12 +242,12 @@ properties:
                   version:
                     type: string
                 required:
-                - group
-                - kind
-                - version
+                  - group
+                  - kind
+                  - version
                 type: object
             required:
-            - type
+              - type
             type: object
           txtOwnerID:
             type: string
@@ -262,11 +262,11 @@ properties:
               type: string
             type: array
         required:
-        - provider
-        - source
+          - provider
+          - source
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   infra:
     properties:
@@ -291,12 +291,12 @@ properties:
                   tenantID:
                     type: string
                 required:
-                - hostedZoneName
-                - resourceGroupName
-                - servicePrincipalAppID
-                - servicePrincipalAppPassword
-                - subscriptionID
-                - tenantID
+                  - hostedZoneName
+                  - resourceGroupName
+                  - servicePrincipalAppID
+                  - servicePrincipalAppPassword
+                  - subscriptionID
+                  - tenantID
                 type: object
               cloudDNS:
                 properties:
@@ -305,8 +305,8 @@ properties:
                   GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
                     type: string
                 required:
-                - GOOGLE_PROJECT_ID
-                - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                  - GOOGLE_PROJECT_ID
+                  - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
                 type: object
               cloudflare:
                 properties:
@@ -315,7 +315,7 @@ properties:
                   token:
                     type: string
                 required:
-                - token
+                  - token
                 type: object
               route53:
                 properties:
@@ -326,35 +326,35 @@ properties:
                   AWS_SECRET_ACCESS_KEY:
                     type: string
                 required:
-                - AWS_ACCESS_KEY_ID
-                - AWS_REGION
-                - AWS_SECRET_ACCESS_KEY
+                  - AWS_ACCESS_KEY_ID
+                  - AWS_REGION
+                  - AWS_SECRET_ACCESS_KEY
                 type: object
             type: object
           provider:
             enum:
-            - none
-            - external
-            - cloudflare
-            - route53
-            - cloudDNS
-            - azureDNS
+              - none
+              - external
+              - cloudflare
+              - route53
+              - cloudDNS
+              - azureDNS
             type: string
         required:
-        - auth
-        - provider
+          - auth
+          - provider
         type: object
       host:
         type: string
       hostType:
         enum:
-        - domain
-        - ip
+          - domain
+          - ip
         type: string
       tenantSpreadPolicy:
         enum:
-        - single
-        - multi
+          - single
+          - multi
         type: string
       tls:
         properties:
@@ -366,13 +366,13 @@ properties:
                 type: string
               solver:
                 enum:
-                - Gateway
-                - Ingress
+                  - Gateway
+                  - Ingress
                 type: string
             required:
-            - email
-            - gatewayName
-            - solver
+              - email
+              - gatewayName
+              - solver
             type: object
           ca:
             properties:
@@ -390,10 +390,10 @@ properties:
             type: object
           issuer:
             enum:
-            - ca
-            - letsencrypt
-            - letsencrypt-staging
-            - external
+              - ca
+              - letsencrypt
+              - letsencrypt-staging
+              - external
             type: string
           jks:
             properties:
@@ -406,17 +406,17 @@ properties:
                 format: byte
                 type: string
             required:
-            - password
+              - password
             type: object
         required:
-        - issuer
+          - issuer
         type: object
     required:
-    - dns
-    - host
-    - hostType
-    - tenantSpreadPolicy
-    - tls
+      - dns
+      - host
+      - hostType
+      - tenantSpreadPolicy
+      - tls
     type: object
   nameOverride:
     type: string
@@ -425,11 +425,11 @@ properties:
       name:
         type: string
     required:
-    - name
+      - name
     type: object
 required:
-- fullnameOverride
-- gateway-dns
-- infra
-- nameOverride
+  - fullnameOverride
+  - gateway-dns
+  - infra
+  - nameOverride
 type: object

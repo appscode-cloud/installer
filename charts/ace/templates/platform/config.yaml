@@ -168,6 +168,13 @@ stringData:
     API_URL                = {{ .Values.settings.openfga.apiURL }}
     PRE_SHARED_KEY         = {{ .Values.settings.openfga.preSharedKey }}
 
+  {{- if .Values.cadence.enabled }}
+
+    [cadence]
+    FRONTEND_ADDRESS = {{ .Values.settings.cadence.frontendAddress }}
+    DOMAIN           = {{ .Values.settings.cadence.domain }}
+  {{- end }}
+
   {{- if (or (eq .Values.global.platform.deploymentType "Hosted") .Values.global.platform.offlineInstaller) }}
 
     [badger]

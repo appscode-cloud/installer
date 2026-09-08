@@ -9,16 +9,16 @@ properties:
             type: string
           provider:
             enum:
-            - capa
-            - capg
-            - capz
-            - caph
-            - capk
+              - capa
+              - capg
+              - capz
+              - caph
+              - capk
             type: string
         required:
-        - clusterName
-        - namespace
-        - provider
+          - clusterName
+          - namespace
+          - provider
         type: object
       clusterManagers:
         items:
@@ -29,9 +29,9 @@ properties:
       uid:
         type: string
     required:
-    - clusterManagers
-    - name
-    - uid
+      - clusterManagers
+      - name
+      - uid
     type: object
   distro:
     properties:
@@ -39,13 +39,13 @@ properties:
         type: boolean
       ubi:
         enum:
-        - all
-        - catalog
-        - operator
+          - all
+          - catalog
+          - operator
         type: string
     required:
-    - openshift
-    - ubi
+      - openshift
+      - ubi
     type: object
   fullnameOverride:
     type: string
@@ -62,7 +62,7 @@ properties:
             version:
               type: string
           required:
-          - version
+            - version
           type: object
         type: object
       repositories:
@@ -74,10 +74,10 @@ properties:
             provider:
               default: generic
               enum:
-              - generic
-              - aws
-              - azure
-              - gcp
+                - generic
+                - aws
+                - azure
+                - gcp
               type: string
             secretName:
               type: string
@@ -85,19 +85,19 @@ properties:
               type: string
             type:
               enum:
-              - default
-              - oci
+                - default
+                - oci
               type: string
             url:
               type: string
           required:
-          - url
+            - url
           type: object
         type: object
     required:
-    - createNamespace
-    - releases
-    - repositories
+      - createNamespace
+      - releases
+      - repositories
     type: object
   image:
     properties:
@@ -130,7 +130,7 @@ properties:
       token:
         type: string
     required:
-    - baseURL
+      - baseURL
     type: object
   nameOverride:
     type: string
@@ -152,11 +152,11 @@ properties:
         type: array
     type: object
 required:
-- clusterMetadata
-- fullnameOverride
-- helm
-- image
-- licenseServer
-- nameOverride
-- registry
+  - clusterMetadata
+  - fullnameOverride
+  - helm
+  - image
+  - licenseServer
+  - nameOverride
+  - registry
 type: object
