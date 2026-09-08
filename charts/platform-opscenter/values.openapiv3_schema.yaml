@@ -8,20 +8,20 @@ properties:
       enabled:
         type: boolean
     required:
-    - enabled
+      - enabled
     type: object
   openfga-alerts:
     properties:
       enabled:
         type: boolean
     required:
-    - enabled
+      - enabled
     type: object
   platform-grafana-dashboards:
     properties:
       enabled:
         type: boolean
     required:
-    - enabled
+      - enabled
     type: object
 type: object
