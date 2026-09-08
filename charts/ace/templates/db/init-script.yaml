@@ -16,3 +16,7 @@ stringData:
      {{- if .Values.openfga.enabled }}
      CREATE DATABASE openfga;
      {{- end }}
+     {{- if .Values.cadence.enabled }}
+     CREATE DATABASE cadence;
+     CREATE DATABASE cadence_visibility;
+     {{- end }}

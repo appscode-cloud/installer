@@ -73,6 +73,7 @@ type AceOptionsSpec struct {
 	Trickster            AceOptionsComponentSpec         `json:"trickster"`
 	Regcache             AceOptionsComponentSpec         `json:"regcache"`
 	Openfga              AceOptionsComponentSpec         `json:"openfga"`
+	Cadence              AceOptionsComponentSpec         `json:"cadence"`
 	PgOutbox             AceOptionsComponentSpec         `json:"pgoutbox"`
 	OutboxSyncer         AceOptionsComponentSpec         `json:"outbox-syncer"`
 	S3proxy              AceOptionsComponentSpec         `json:"s3proxy"`

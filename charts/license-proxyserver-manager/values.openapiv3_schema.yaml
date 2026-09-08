@@ -5,13 +5,13 @@ properties:
         type: boolean
       ubi:
         enum:
-        - all
-        - catalog
-        - operator
+          - all
+          - catalog
+          - operator
         type: string
     required:
-    - openshift
-    - ubi
+      - openshift
+      - ubi
     type: object
   env:
     items:
@@ -27,12 +27,12 @@ properties:
                 key:
                   type: string
                 name:
-                  default: ''
+                  default: ""
                   type: string
                 optional:
                   type: boolean
               required:
-              - key
+                - key
               type: object
               x-kubernetes-map-type: atomic
             fieldRef:
@@ -42,7 +42,7 @@ properties:
                 fieldPath:
                   type: string
               required:
-              - fieldPath
+                - fieldPath
               type: object
               x-kubernetes-map-type: atomic
             fileKeyRef:
@@ -57,9 +57,9 @@ properties:
                 volumeName:
                   type: string
               required:
-              - key
-              - path
-              - volumeName
+                - key
+                - path
+                - volumeName
               type: object
               x-kubernetes-map-type: atomic
             resourceFieldRef:
@@ -68,14 +68,14 @@ properties:
                   type: string
                 divisor:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 resource:
                   type: string
               required:
-              - resource
+                - resource
               type: object
               x-kubernetes-map-type: atomic
             secretKeyRef:
@@ -83,21 +83,21 @@ properties:
                 key:
                   type: string
                 name:
-                  default: ''
+                  default: ""
                   type: string
                 optional:
                   type: boolean
               required:
-              - key
+                - key
               type: object
               x-kubernetes-map-type: atomic
           type: object
       required:
-      - name
+        - name
       type: object
     type: array
     x-kubernetes-list-map-keys:
-    - name
+      - name
     x-kubernetes-list-type: map
   envFrom:
     items:
@@ -105,7 +105,7 @@ properties:
         configMapRef:
           properties:
             name:
-              default: ''
+              default: ""
               type: string
             optional:
               type: boolean
@@ -116,7 +116,7 @@ properties:
         secretRef:
           properties:
             name:
-              default: ''
+              default: ""
               type: string
             optional:
               type: boolean
@@ -140,8 +140,8 @@ properties:
       name:
         type: string
     required:
-    - create
-    - name
+      - create
+      - name
     type: object
   platform:
     properties:
@@ -156,7 +156,7 @@ properties:
       tokenSecretName:
         type: string
     required:
-    - baseURL
+      - baseURL
     type: object
   registryFQDN:
     type: string
@@ -171,7 +171,7 @@ properties:
           type:
             type: string
         required:
-        - type
+          - type
         type: object
       capabilities:
         properties:
@@ -218,7 +218,7 @@ properties:
           type:
             type: string
         required:
-        - type
+          - type
         type: object
       windowsOptions:
         properties:
@@ -235,9 +235,9 @@ properties:
   tag:
     type: string
 required:
-- image
-- imagePullPolicy
-- placement
-- platform
-- registryFQDN
+  - image
+  - imagePullPolicy
+  - placement
+  - platform
+  - registryFQDN
 type: object
