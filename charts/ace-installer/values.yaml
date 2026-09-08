@@ -164,6 +164,8 @@ selfManagement:
   enableFeatures: []
   disableFeatures: []
   useGateway: false
+  enableCredLess: false
+  argoCD: {}
 precheck:
   enabled: true
   # Docker registry containing app image

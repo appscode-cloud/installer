@@ -213,8 +213,8 @@ go.appscode.dev/alerts v0.2.1-0.20260811095631-791e5af59674 h1:zD3qTcb3tjUgP1cvv
 go.appscode.dev/alerts v0.2.1-0.20260811095631-791e5af59674/go.mod h1:oG1OnN2JTilTTqGAHv4CCoqnvT3u0J8c7YgNny0Rj7g=
 go.bytebuilders.dev/catalog v0.1.0 h1:nJ4NaHm/B00cSBGfJwNimA1i1KvHWXTU2ap0lpr4uOY=
 go.bytebuilders.dev/catalog v0.1.0/go.mod h1:zXAS4yNzCueduM3glK0JDuPuJd2MDvCx2PtauRtzT7I=
-go.bytebuilders.dev/resource-model v0.4.0 h1:wDXg4SGYn3zNRuOj17gGo0qeSE//ytdzGPSxkHa8JvA=
-go.bytebuilders.dev/resource-model v0.4.0/go.mod h1:wGndjj3y+Yjh7+e8Wjc6joqzZCC16WZfKNx9adAFVkw=
+go.bytebuilders.dev/resource-model v0.4.1-0.20260908050049-ce9aabf9ad5c h1:tdHnmhlBIUya2IseofzqXEZ1Hb7VOZ6+kst6C8Jf9P4=
+go.bytebuilders.dev/resource-model v0.4.1-0.20260908050049-ce9aabf9ad5c/go.mod h1:wGndjj3y+Yjh7+e8Wjc6joqzZCC16WZfKNx9adAFVkw=
 go.bytebuilders.dev/ui-wizards v0.37.0 h1:TVlHcVSVFd9s55wGnc2GrI6ht+seKA85NWyctkQvQDY=
 go.bytebuilders.dev/ui-wizards v0.37.0/go.mod h1:Gvl3KLmo5MQ2KNWM4p652q3Jj1NzYhIenAW4iX854Os=
 go.openviz.dev/installer v0.0.0-20260619044110-702becd1dd97 h1:8fc2qZRqIL8swjMKUnmiWK/ijjEUQ9Zmhe3qRIkUrj8=
