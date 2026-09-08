@@ -6,8 +6,8 @@ properties:
       uid:
         type: string
     required:
-      - name
-      - uid
+    - name
+    - uid
     type: object
   kubestash:
     properties:
@@ -22,8 +22,8 @@ properties:
                   AZURE_ACCOUNT_NAME:
                     type: string
                 required:
-                  - AZURE_ACCOUNT_KEY
-                  - AZURE_ACCOUNT_NAME
+                - AZURE_ACCOUNT_KEY
+                - AZURE_ACCOUNT_NAME
                 type: object
               spec:
                 properties:
@@ -35,10 +35,10 @@ properties:
                   prefix:
                     type: string
                 required:
-                  - container
+                - container
                 type: object
             required:
-              - spec
+            - spec
             type: object
           gcs:
             properties:
@@ -49,8 +49,8 @@ properties:
                   GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
                     type: string
                 required:
-                  - GOOGLE_PROJECT_ID
-                  - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                - GOOGLE_PROJECT_ID
+                - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
                 type: object
               spec:
                 properties:
@@ -62,10 +62,10 @@ properties:
                   prefix:
                     type: string
                 required:
-                  - bucket
+                - bucket
                 type: object
             required:
-              - spec
+            - spec
             type: object
           local:
             properties:
@@ -78,17 +78,17 @@ properties:
                   readOnly:
                     type: boolean
                 required:
-                  - claimName
+                - claimName
                 type: object
               subPath:
                 type: string
             type: object
           provider:
             enum:
-              - s3
-              - azure
-              - gcs
-              - local
+            - s3
+            - azure
+            - gcs
+            - local
             type: string
           s3:
             properties:
@@ -101,8 +101,8 @@ properties:
                   CA_CERT_DATA:
                     type: string
                 required:
-                  - AWS_ACCESS_KEY_ID
-                  - AWS_SECRET_ACCESS_KEY
+                - AWS_ACCESS_KEY_ID
+                - AWS_SECRET_ACCESS_KEY
                 type: object
               spec:
                 properties:
@@ -117,24 +117,24 @@ properties:
                   region:
                     type: string
                 required:
-                  - bucket
-                  - endpoint
+                - bucket
+                - endpoint
                 type: object
             required:
-              - spec
+            - spec
             type: object
         required:
-          - provider
+        - provider
         type: object
       encryptionSecret:
         type: string
       retentionPolicy:
         default: keep-1mo
         enum:
-          - keep-1wk
-          - keep-1mo
-          - keep-3mo
-          - keep-1yr
+        - keep-1wk
+        - keep-1mo
+        - keep-3mo
+        - keep-1yr
         type: string
       schedule:
         type: string
@@ -144,18 +144,18 @@ properties:
             type: boolean
         type: object
     required:
-      - backend
-      - encryptionSecret
-      - retentionPolicy
-      - storageSecret
+    - backend
+    - encryptionSecret
+    - retentionPolicy
+    - storageSecret
     type: object
   tool:
     default: KubeStash
     enum:
-      - KubeStash
-      - Stash
+    - KubeStash
+    - Stash
     type: string
 required:
-  - kubestash
-  - tool
+- kubestash
+- tool
 type: object

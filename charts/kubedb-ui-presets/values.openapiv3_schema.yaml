@@ -4,7 +4,7 @@ properties:
       toggle:
         type: boolean
     required:
-      - toggle
+    - toggle
     type: object
   archiver:
     properties:
@@ -15,21 +15,21 @@ properties:
           toggle:
             type: boolean
         required:
-          - default
-          - toggle
+        - default
+        - toggle
         type: object
       via:
         default: Restic
         enum:
-          - Restic
-          - WalG
-          - VolumeSnapshotter
-          - Solr
-          - Medusa
+        - Restic
+        - WalG
+        - VolumeSnapshotter
+        - Solr
+        - Medusa
         type: string
     required:
-      - enable
-      - via
+    - enable
+    - via
     type: object
   authCredential:
     properties:
@@ -38,16 +38,16 @@ properties:
       referExisting:
         type: boolean
     required:
-      - customize
-      - referExisting
+    - customize
+    - referExisting
     type: object
   backup:
     properties:
       by:
         default: BackupConfiguration
         enum:
-          - BackupConfiguration
-          - BackupBlueprint
+        - BackupConfiguration
+        - BackupBlueprint
         type: string
       enable:
         properties:
@@ -56,22 +56,22 @@ properties:
           toggle:
             type: boolean
         required:
-          - default
-          - toggle
+        - default
+        - toggle
         type: object
       via:
         default: Restic
         enum:
-          - Restic
-          - WalG
-          - VolumeSnapshotter
-          - Solr
-          - Medusa
+        - Restic
+        - WalG
+        - VolumeSnapshotter
+        - Solr
+        - Medusa
         type: string
     required:
-      - by
-      - enable
-      - via
+    - by
+    - enable
+    - via
     type: object
   clusterIssuers:
     properties:
@@ -84,15 +84,15 @@ properties:
       toggle:
         type: boolean
     required:
-      - toggle
+    - toggle
     type: object
   clusterTier:
     properties:
       default:
         enum:
-          - GeneralPurpose
-          - MemoryOptimized
-          - CPUOptimized
+        - GeneralPurpose
+        - MemoryOptimized
+        - CPUOptimized
         type: string
       nodeTopology:
         properties:
@@ -105,7 +105,7 @@ properties:
           toggle:
             type: boolean
         required:
-          - toggle
+        - toggle
         type: object
       placement:
         properties:
@@ -118,15 +118,15 @@ properties:
           toggle:
             type: boolean
         required:
-          - toggle
+        - toggle
         type: object
       toggle:
         type: boolean
     required:
-      - default
-      - nodeTopology
-      - placement
-      - toggle
+    - default
+    - nodeTopology
+    - placement
+    - toggle
     type: object
   customConfiguration:
     type: boolean
@@ -145,9 +145,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -160,13 +160,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       ClickHouse:
         properties:
@@ -181,9 +181,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -196,13 +196,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       DB2:
         properties:
@@ -217,9 +217,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -232,13 +232,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Druid:
         properties:
@@ -253,9 +253,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -268,13 +268,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Elasticsearch:
         properties:
@@ -289,9 +289,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -304,13 +304,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       HanaDB:
         properties:
@@ -325,9 +325,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -340,13 +340,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Hazelcast:
         properties:
@@ -361,9 +361,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -376,13 +376,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Ignite:
         properties:
@@ -397,9 +397,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -412,13 +412,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Kafka:
         properties:
@@ -433,9 +433,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -448,13 +448,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       MSSQLServer:
         properties:
@@ -469,9 +469,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -484,13 +484,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       MariaDB:
         properties:
@@ -505,9 +505,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -520,13 +520,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Memcached:
         properties:
@@ -541,9 +541,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -556,13 +556,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Milvus:
         properties:
@@ -577,9 +577,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -592,13 +592,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       MongoDB:
         properties:
@@ -613,9 +613,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -628,13 +628,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       MySQL:
         properties:
@@ -649,9 +649,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -664,13 +664,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Neo4j:
         properties:
@@ -685,9 +685,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -700,13 +700,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Oracle:
         properties:
@@ -721,9 +721,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -736,13 +736,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       PerconaXtraDB:
         properties:
@@ -757,9 +757,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -772,13 +772,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       PgBouncer:
         properties:
@@ -793,9 +793,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -808,13 +808,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Pgpool:
         properties:
@@ -829,9 +829,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -844,13 +844,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Postgres:
         properties:
@@ -865,9 +865,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -880,13 +880,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       ProxySQL:
         properties:
@@ -901,9 +901,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -916,13 +916,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Qdrant:
         properties:
@@ -937,9 +937,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -952,13 +952,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       RabbitMQ:
         properties:
@@ -973,9 +973,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -988,13 +988,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Redis:
         properties:
@@ -1009,9 +1009,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -1024,13 +1024,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Singlestore:
         properties:
@@ -1045,9 +1045,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -1060,13 +1060,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Solr:
         properties:
@@ -1081,9 +1081,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -1096,13 +1096,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       Weaviate:
         properties:
@@ -1117,9 +1117,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -1132,13 +1132,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
       ZooKeeper:
         properties:
@@ -1153,9 +1153,9 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
           versions:
             properties:
@@ -1168,13 +1168,13 @@ properties:
               toggle:
                 type: boolean
             required:
-              - available
-              - default
-              - toggle
+            - available
+            - default
+            - toggle
             type: object
         required:
-          - mode
-          - versions
+        - mode
+        - versions
         type: object
     type: object
   deletionPolicy:
@@ -1184,21 +1184,21 @@ properties:
       toggle:
         type: boolean
     required:
-      - default
-      - toggle
+    - default
+    - toggle
     type: object
   deployment:
     properties:
       default:
         enum:
-          - Shared
-          - Dedicated
+        - Shared
+        - Dedicated
         type: string
       toggle:
         type: boolean
     required:
-      - default
-      - toggle
+    - default
+    - toggle
     type: object
   expose:
     properties:
@@ -1209,8 +1209,8 @@ properties:
           toggle:
             type: boolean
         required:
-          - default
-          - toggle
+        - default
+        - toggle
         type: object
       uiExposure:
         properties:
@@ -1219,11 +1219,11 @@ properties:
           disableUI:
             type: boolean
         required:
-          - disableCostEfficiency
-          - disableUI
+        - disableCostEfficiency
+        - disableUI
         type: object
     required:
-      - enable
+    - enable
     type: object
   gitOps:
     properties:
@@ -1234,11 +1234,11 @@ properties:
           toggle:
             type: boolean
         required:
-          - default
-          - toggle
+        - default
+        - toggle
         type: object
     required:
-      - enable
+    - enable
     type: object
   leftPanel:
     properties:
@@ -1255,12 +1255,12 @@ properties:
       showVaultInfo:
         type: boolean
     required:
-      - showBackup
-      - showBackupLegacy
-      - showInsights
-      - showOperations
-      - showSecurity
-      - showVaultInfo
+    - showBackup
+    - showBackupLegacy
+    - showInsights
+    - showOperations
+    - showSecurity
+    - showVaultInfo
     type: object
   machineProfiles:
     properties:
@@ -1278,30 +1278,30 @@ properties:
             limits:
               additionalProperties:
                 anyOf:
-                  - type: integer
-                  - type: string
+                - type: integer
+                - type: string
                 pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                 x-kubernetes-int-or-string: true
               type: object
             name:
               type: string
           required:
-            - id
-            - limits
+          - id
+          - limits
           type: object
         type: array
     required:
-      - available
-      - default
-      - machines
+    - available
+    - default
+    - machines
     type: object
   monitoring:
     properties:
       agent:
         enum:
-          - prometheus.io/operator
-          - prometheus.io
-          - prometheus.io/builtin
+        - prometheus.io/operator
+        - prometheus.io
+        - prometheus.io/builtin
         type: string
       exporter:
         properties:
@@ -1315,25 +1315,25 @@ properties:
                     request:
                       type: string
                   required:
-                    - name
+                  - name
                   type: object
                 type: array
                 x-kubernetes-list-map-keys:
-                  - name
+                - name
                 x-kubernetes-list-type: map
               limits:
                 additionalProperties:
                   anyOf:
-                    - type: integer
-                    - type: string
+                  - type: integer
+                  - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 type: object
               requests:
                 additionalProperties:
                   anyOf:
-                    - type: integer
-                    - type: string
+                  - type: integer
+                  - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 type: object
@@ -1342,9 +1342,9 @@ properties:
       toggle:
         type: boolean
     required:
-      - agent
-      - exporter
-      - toggle
+    - agent
+    - exporter
+    - toggle
     type: object
   nodeSelector:
     additionalProperties:
@@ -1357,8 +1357,8 @@ properties:
       toggle:
         type: boolean
     required:
-      - default
-      - toggle
+    - default
+    - toggle
     type: object
   showPreview:
     type: boolean
@@ -1373,9 +1373,9 @@ properties:
       toggle:
         type: boolean
     required:
-      - available
-      - default
-      - toggle
+    - available
+    - default
+    - toggle
     type: object
   tls:
     properties:
@@ -1384,8 +1384,8 @@ properties:
       toggle:
         type: boolean
     required:
-      - default
-      - toggle
+    - default
+    - toggle
     type: object
   tolerations:
     items:
@@ -1404,23 +1404,23 @@ properties:
       type: object
     type: array
 required:
-  - alert
-  - archiver
-  - authCredential
-  - backup
-  - clusterIssuers
-  - clusterTier
-  - customConfiguration
-  - databases
-  - deletionPolicy
-  - deployment
-  - expose
-  - gitOps
-  - leftPanel
-  - machineProfiles
-  - monitoring
-  - pointInTimeRecovery
-  - showPreview
-  - storageClasses
-  - tls
+- alert
+- archiver
+- authCredential
+- backup
+- clusterIssuers
+- clusterTier
+- customConfiguration
+- databases
+- deletionPolicy
+- deployment
+- expose
+- gitOps
+- leftPanel
+- machineProfiles
+- monitoring
+- pointInTimeRecovery
+- showPreview
+- storageClasses
+- tls
 type: object

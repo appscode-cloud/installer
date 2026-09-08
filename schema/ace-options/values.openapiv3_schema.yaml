@@ -24,28 +24,35 @@ properties:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
           claims:
-            description: |-
-              Claims lists the names of resources, defined in spec.resourceClaims,
+            description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
               that are used by this container.
 
+
               This field depends on the
+
               DynamicResourceAllocation feature gate.
 
-              This field is immutable. It can only be set for containers.
+
+              This field is immutable. It can only be set for containers.'
             items:
               description: ResourceClaim references one entry in PodSpec.ResourceClaims.
               properties:
                 name:
-                  description: |-
-                    Name must match the name of one entry in pod.spec.resourceClaims of
+                  description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                    of
+
                     the Pod where this field is used. It makes that resource available
-                    inside a container.
+
+                    inside a container.'
                   type: string
                 request:
-                  description: |-
-                    Request is the name chosen for a request in the referenced claim.
+                  description: 'Request is the name chosen for a request in the referenced
+                    claim.
+
                     If empty, everything from the claim is made available, otherwise
-                    only the result of this request.
+
+                    only the result of this request.'
                   type: string
               required:
                 - name
@@ -61,9 +68,10 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Limits describes the maximum amount of compute resources allowed.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Limits describes the maximum amount of compute resources
+              allowed.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
           requests:
             additionalProperties:
@@ -72,11 +80,16 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Requests describes the minimum amount of compute resources required.
-              If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-              otherwise to an implementation-defined value. Requests cannot exceed Limits.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Requests describes the minimum amount of compute resources
+              required.
+
+              If Requests is omitted for a container, it defaults to Limits if that
+              is explicitly specified,
+
+              otherwise to an implementation-defined value. Requests cannot exceed
+              Limits.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
     required:
@@ -110,28 +123,35 @@ properties:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
           claims:
-            description: |-
-              Claims lists the names of resources, defined in spec.resourceClaims,
+            description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
               that are used by this container.
 
+
               This field depends on the
+
               DynamicResourceAllocation feature gate.
 
-              This field is immutable. It can only be set for containers.
+
+              This field is immutable. It can only be set for containers.'
             items:
               description: ResourceClaim references one entry in PodSpec.ResourceClaims.
               properties:
                 name:
-                  description: |-
-                    Name must match the name of one entry in pod.spec.resourceClaims of
+                  description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                    of
+
                     the Pod where this field is used. It makes that resource available
-                    inside a container.
+
+                    inside a container.'
                   type: string
                 request:
-                  description: |-
-                    Request is the name chosen for a request in the referenced claim.
+                  description: 'Request is the name chosen for a request in the referenced
+                    claim.
+
                     If empty, everything from the claim is made available, otherwise
-                    only the result of this request.
+
+                    only the result of this request.'
                   type: string
               required:
                 - name
@@ -147,9 +167,10 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Limits describes the maximum amount of compute resources allowed.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Limits describes the maximum amount of compute resources
+              allowed.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
           requests:
             additionalProperties:
@@ -158,11 +179,16 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Requests describes the minimum amount of compute resources required.
-              If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-              otherwise to an implementation-defined value. Requests cannot exceed Limits.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Requests describes the minimum amount of compute resources
+              required.
+
+              If Requests is omitted for a container, it defaults to Limits if that
+              is explicitly specified,
+
+              otherwise to an implementation-defined value. Requests cannot exceed
+              Limits.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
     required:
@@ -189,24 +215,38 @@ properties:
             type: string
         type: object
       clusterID:
-        description: |
-          ClusterID is used to uniquely identify a Kubernetes cluster.
+        description: 'ClusterID is used to uniquely identify a Kubernetes cluster.
+
 
           If you have an existing cluster, run:
+
           ```sh
-          kubectl get ns kube-system -o=jsonpath='{.metadata.uid}'
+
+          kubectl get ns kube-system -o=jsonpath=''{.metadata.uid}''
+
           ```
 
-          To create a new cluster, get a Ubuntu 22.04 server with **16 GB ram**, **4+ cpus** & routable IP.
+
+          To create a new cluster, get a Ubuntu 22.04 server with **16 GB ram**, **4+
+          cpus** & routable IP.
+
 
           ```sh
+
           # Create k3s cluster
-          curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--disable=traefik --disable=metrics-server" sh -
+
+          curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--disable=traefik --disable=metrics-server"
+          sh -
+
 
           export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 
-          kubectl get ns kube-system -o=jsonpath='{.metadata.uid}'
+
+          kubectl get ns kube-system -o=jsonpath=''{.metadata.uid}''
+
           ```
+
+          '
         type: string
       csrfSecretKey:
         type: string
@@ -235,9 +275,9 @@ properties:
       installerName:
         type: string
       installerSecret:
-        description: |-
-          InstallerSecret used by hosted mode (prod and ninja)
-          to generate and validate marketplace self-hosted installer options
+        description: 'InstallerSecret used by hosted mode (prod and ninja)
+
+          to generate and validate marketplace self-hosted installer options'
         type: string
       jksPassword:
         description: JKS password is used to create keystore for s3proxy
@@ -431,28 +471,35 @@ properties:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
           claims:
-            description: |-
-              Claims lists the names of resources, defined in spec.resourceClaims,
+            description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
               that are used by this container.
 
+
               This field depends on the
+
               DynamicResourceAllocation feature gate.
 
-              This field is immutable. It can only be set for containers.
+
+              This field is immutable. It can only be set for containers.'
             items:
               description: ResourceClaim references one entry in PodSpec.ResourceClaims.
               properties:
                 name:
-                  description: |-
-                    Name must match the name of one entry in pod.spec.resourceClaims of
+                  description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                    of
+
                     the Pod where this field is used. It makes that resource available
-                    inside a container.
+
+                    inside a container.'
                   type: string
                 request:
-                  description: |-
-                    Request is the name chosen for a request in the referenced claim.
+                  description: 'Request is the name chosen for a request in the referenced
+                    claim.
+
                     If empty, everything from the claim is made available, otherwise
-                    only the result of this request.
+
+                    only the result of this request.'
                   type: string
               required:
                 - name
@@ -468,9 +515,10 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Limits describes the maximum amount of compute resources allowed.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Limits describes the maximum amount of compute resources
+              allowed.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
           requests:
             additionalProperties:
@@ -479,11 +527,16 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Requests describes the minimum amount of compute resources required.
-              If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-              otherwise to an implementation-defined value. Requests cannot exceed Limits.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Requests describes the minimum amount of compute resources
+              required.
+
+              If Requests is omitted for a container, it defaults to Limits if that
+              is explicitly specified,
+
+              otherwise to an implementation-defined value. Requests cannot exceed
+              Limits.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
     required:
@@ -570,38 +623,29 @@ properties:
           auth:
             properties:
               azureDNS:
-                description: |
-                  ## AzureDNS
-
-                  To use AzureDNS as your DNS provider, run the following commands
-                  - Set the following ENVs with the preferred `Service Principal`, `Resource Group` and `DNS Zone`
-                      ```sh
-                      NEW_SERVICE_PRINCIPAL_NAME=azuredns-sp
-                      DNS_ZONE=<your-preferred-domain> # DNS_ZONE=appscode.com
-                      # Resource Group where you created the zone
-                      DNS_ZONE_RESOURCE_GROUP=<resource-group-name>
-                      ```
-                  - Create a Service Principal RBAC
-                      ```sh
-                      DNS_SP=$(az ad sp create-for-rbac --name $NEW_SERVICE_PRINCIPAL_NAME)
-                      ```
-                  - Assign required roles for the Service Principal
-                      ```sh
-                      SERVICE_PRINCIPAL_APP_ID=$(echo $DNS_SP | jq -r '.appId')
-                      DNS_ID=$(az network dns zone show --name $DNS_ZONE --resource-group $DNS_ZONE_RESOURCE_GROUP --query "id" --output tsv)
-
-                      az role assignment create --assignee $SERVICE_PRINCIPAL_APP_ID --role "DNS Zone Contributor" --scope $DNS_ID
-                      az role assignment create --assignee $SERVICE_PRINCIPAL_APP_ID --role "Reader" --scope $DNS_ID
-                      ```
-                  - Print and provide us the following data
-                      ```sh
-                      echo "SERVICE_PRINCIPAL_APP_ID: $(echo $DNS_SP | jq -r '.appId')"
-                      echo "SERVICE_PRINCIPAL_APP_PASSWORD: $(echo $DNS_SP | jq -r '.password')"
-                      echo "SUBSCRIPTION_ID: $(az account show | jq -r '.id')"
-                      echo "TENANT_ID: $(echo $DNS_SP | jq -r '.tenant')"
-                      echo "DNS_ZONE: $DNS_ZONE"
-                      echo "DNS_ZONE_RESOURCE_GROUP: $DNS_ZONE_RESOURCE_GROUP"
-                      ```
+                description: "## AzureDNS\n\nTo use AzureDNS as your DNS provider,\
+                  \ run the following commands\n- Set the following ENVs with the\
+                  \ preferred `Service Principal`, `Resource Group` and `DNS Zone`\n\
+                  \    ```sh\n    NEW_SERVICE_PRINCIPAL_NAME=azuredns-sp\n    DNS_ZONE=<your-preferred-domain>\
+                  \ # DNS_ZONE=appscode.com\n    # Resource Group where you created\
+                  \ the zone\n    DNS_ZONE_RESOURCE_GROUP=<resource-group-name>\n\
+                  \    ```\n- Create a Service Principal RBAC\n    ```sh\n    DNS_SP=$(az\
+                  \ ad sp create-for-rbac --name $NEW_SERVICE_PRINCIPAL_NAME)\n  \
+                  \  ```\n- Assign required roles for the Service Principal\n    ```sh\n\
+                  \    SERVICE_PRINCIPAL_APP_ID=$(echo $DNS_SP | jq -r '.appId')\n\
+                  \    DNS_ID=$(az network dns zone show --name $DNS_ZONE --resource-group\
+                  \ $DNS_ZONE_RESOURCE_GROUP --query \"id\" --output tsv)\n\n    az\
+                  \ role assignment create --assignee $SERVICE_PRINCIPAL_APP_ID --role\
+                  \ \"DNS Zone Contributor\" --scope $DNS_ID\n    az role assignment\
+                  \ create --assignee $SERVICE_PRINCIPAL_APP_ID --role \"Reader\"\
+                  \ --scope $DNS_ID\n    ```\n- Print and provide us the following\
+                  \ data\n    ```sh\n    echo \"SERVICE_PRINCIPAL_APP_ID: $(echo $DNS_SP\
+                  \ | jq -r '.appId')\"\n    echo \"SERVICE_PRINCIPAL_APP_PASSWORD:\
+                  \ $(echo $DNS_SP | jq -r '.password')\"\n    echo \"SUBSCRIPTION_ID:\
+                  \ $(az account show | jq -r '.id')\"\n    echo \"TENANT_ID: $(echo\
+                  \ $DNS_SP | jq -r '.tenant')\"\n    echo \"DNS_ZONE: $DNS_ZONE\"\
+                  \n    echo \"DNS_ZONE_RESOURCE_GROUP: $DNS_ZONE_RESOURCE_GROUP\"\
+                  \n    ```\n"
                 properties:
                   environment:
                     type: string
@@ -626,32 +670,21 @@ properties:
                   - tenantID
                 type: object
               cloudDNS:
-                description: |
-                  ## Google CloudDNS
-
-                  To use Google CloudDNS as your DNS provider, you need to create a GCP service account with the dns.admin role.
-
-                  - Set Project id, service account name
-                      ```sh
-                      # Set the project ID where you registered your Domain
-                      PROJECT_ID="myproject-id"
-                      DNS_SA_NAME="clouddns-sa"
-                      DNS_SA_EMAIL="$DNS_SA_NAME@${PROJECT_ID}.iam.gserviceaccount.com"
-                      ```
-                  - Create Service account and Assign permission
-                      ```sh
-                      gcloud iam service-accounts create $DNS_SA_NAME --display-name $DNS_SA_NAME
-
-                      # assign google service account to dns.admin role in cloud-dns project
-                      gcloud projects add-iam-policy-binding $PROJECT_ID \
-                      --member serviceAccount:$DNS_SA_EMAIL --role "roles/dns.admin"
-                      ```
-                  - Create a Service Account Secret
-                      ```sh
-                      # download static credentials
-                      gcloud iam service-accounts keys create $DNS_SA_NAME-credentials.json \
-                      --iam-account $DNS_SA_EMAIL
-                      ```
+                description: "## Google CloudDNS\n\nTo use Google CloudDNS as your\
+                  \ DNS provider, you need to create a GCP service account with the\
+                  \ dns.admin role.\n\n- Set Project id, service account name\n  \
+                  \  ```sh\n    # Set the project ID where you registered your Domain\n\
+                  \    PROJECT_ID=\"myproject-id\"\n    DNS_SA_NAME=\"clouddns-sa\"\
+                  \n    DNS_SA_EMAIL=\"$DNS_SA_NAME@${PROJECT_ID}.iam.gserviceaccount.com\"\
+                  \n    ```\n- Create Service account and Assign permission\n    ```sh\n\
+                  \    gcloud iam service-accounts create $DNS_SA_NAME --display-name\
+                  \ $DNS_SA_NAME\n\n    # assign google service account to dns.admin\
+                  \ role in cloud-dns project\n    gcloud projects add-iam-policy-binding\
+                  \ $PROJECT_ID \\\n    --member serviceAccount:$DNS_SA_EMAIL --role\
+                  \ \"roles/dns.admin\"\n    ```\n- Create a Service Account Secret\n\
+                  \    ```sh\n    # download static credentials\n    gcloud iam service-accounts\
+                  \ keys create $DNS_SA_NAME-credentials.json \\\n    --iam-account\
+                  \ $DNS_SA_EMAIL\n    ```\n"
                 properties:
                   GOOGLE_PROJECT_ID:
                     type: string
@@ -662,19 +695,13 @@ properties:
                   - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
                 type: object
               cloudflare:
-                description: |
-                  ## Cloudflare
-
-                  To use Cloudflare as your DNS provider, you need to create a API Token some specified permissions.
-
-                  Tokens can be created at `User Profile` > `API Tokens` > `API Tokens`. The following settings are recommended:
-                  - Permissions:
-                      - `Zone` - `DNS` - `Edit`
-                      - `Zone` - `Zone` - `Read`
-                  - Zone Resources:
-                      - `Include` - `All zones` </br>
-                      or
-                      - `Include` - `Specific zone` - `Your desired zone`
+                description: "## Cloudflare\n\nTo use Cloudflare as your DNS provider,\
+                  \ you need to create a API Token some specified permissions.\n\n\
+                  Tokens can be created at `User Profile` > `API Tokens` > `API Tokens`.\
+                  \ The following settings are recommended:\n- Permissions:\n    -\
+                  \ `Zone` - `DNS` - `Edit`\n    - `Zone` - `Zone` - `Read`\n- Zone\
+                  \ Resources:\n    - `Include` - `All zones` </br>\n    or\n    -\
+                  \ `Include` - `Specific zone` - `Your desired zone`\n"
                 properties:
                   baseURL:
                     type: string
@@ -684,55 +711,33 @@ properties:
                   - token
                 type: object
               route53:
-                description: |
-                  ## Route53
-
-                  To use Route53 as your DNS provider, you need to run the following commands and provide us the generated `AccessKeyID` and `SecretAccessKey`.
-                  - Create a policy
-                      ```sh
-                      echo '{
-                          "Version": "2012-10-17",
-                          "Statement": [
-                              {
-                                  "Effect": "Allow",
-                                  "Action": "route53:GetChange",
-                                  "Resource": "arn:aws:route53:::change/*"
-                              },
-                              {
-                                  "Effect": "Allow",
-                                  "Action": [
-                                      "route53:ChangeResourceRecordSets",
-                                      "route53:ListResourceRecordSets"
-                                  ],
-                                  "Resource": "arn:aws:route53:::hostedzone/*"
-                              },
-                              {
-                                  "Effect": "Allow",
-                                  "Action": [
-                                      "route53:ListHostedZones",
-                                      "route53:ListHostedZonesByName",
-                                      "route53:ListResourceRecordSets",
-                                      "route53:ListTagsForResource"
-                                  ],
-                                  "Resource": "*"
-                              }
-                          ]
-                      }' > route53-policy.json
-                      ```
-                      ```sh
-                      aws iam create-policy --policy-name route53-policy --policy-document file://route53-policy.json
-
-                      POLICY_ARN=$(aws iam list-policies --query 'Policies[?PolicyName==`route53-policy`].Arn' --output text)
-                      ```
-                  - Create a user and attach this policy to that user
-                      ```sh
-                      aws iam create-user --user-name "route53"
-                      aws iam attach-user-policy --user-name "route53" --policy-arn $POLICY_ARN
-                      ```
-                  - Create Access Token for the user
-                      ```sh
-                      aws iam create-access-key --user-name "route53"
-                      ```
+                description: "## Route53\n\nTo use Route53 as your DNS provider, you\
+                  \ need to run the following commands and provide us the generated\
+                  \ `AccessKeyID` and `SecretAccessKey`.\n- Create a policy\n    ```sh\n\
+                  \    echo '{\n        \"Version\": \"2012-10-17\",\n        \"Statement\"\
+                  : [\n            {\n                \"Effect\": \"Allow\",\n   \
+                  \             \"Action\": \"route53:GetChange\",\n             \
+                  \   \"Resource\": \"arn:aws:route53:::change/*\"\n            },\n\
+                  \            {\n                \"Effect\": \"Allow\",\n       \
+                  \         \"Action\": [\n                    \"route53:ChangeResourceRecordSets\"\
+                  ,\n                    \"route53:ListResourceRecordSets\"\n    \
+                  \            ],\n                \"Resource\": \"arn:aws:route53:::hostedzone/*\"\
+                  \n            },\n            {\n                \"Effect\": \"\
+                  Allow\",\n                \"Action\": [\n                    \"\
+                  route53:ListHostedZones\",\n                    \"route53:ListHostedZonesByName\"\
+                  ,\n                    \"route53:ListResourceRecordSets\",\n   \
+                  \                 \"route53:ListTagsForResource\"\n            \
+                  \    ],\n                \"Resource\": \"*\"\n            }\n  \
+                  \      ]\n    }' > route53-policy.json\n    ```\n    ```sh\n   \
+                  \ aws iam create-policy --policy-name route53-policy --policy-document\
+                  \ file://route53-policy.json\n\n    POLICY_ARN=$(aws iam list-policies\
+                  \ --query 'Policies[?PolicyName==`route53-policy`].Arn' --output\
+                  \ text)\n    ```\n- Create a user and attach this policy to that\
+                  \ user\n    ```sh\n    aws iam create-user --user-name \"route53\"\
+                  \n    aws iam attach-user-policy --user-name \"route53\" --policy-arn\
+                  \ $POLICY_ARN\n    ```\n- Create Access Token for the user\n   \
+                  \ ```sh\n    aws iam create-access-key --user-name \"route53\"\n\
+                  \    ```\n"
                 properties:
                   AWS_ACCESS_KEY_ID:
                     type: string
@@ -814,7 +819,8 @@ properties:
             type: object
           retentionPolicy:
             default: keep-1mo
-            description: RetentionPolicy indicates the policy to follow to clean old backup snapshots
+            description: RetentionPolicy indicates the policy to follow to clean old
+              backup snapshots
             enum:
               - keep-1wk
               - keep-1mo
@@ -870,35 +876,19 @@ properties:
             properties:
               cert:
                 type: string
-                description: |
-                  - Create a Root CA Certificate and Key.
-                  ```sh
-                  openssl req -x509 -newkey rsa:2048 -keyout ./ca.key -out ./ca.crt -days 3650 -nodes -subj "/CN=ca/O=ace"
-                  ```
-
-                  - Create and Sign a Server Certificate and Key.
-
-                    1. Create the Server private key.
-                      ```sh
-                      openssl genrsa -out server.key 2048
-                      ```
-
-                    2. Create the Server certificate signing request (csr).
-                      ```
-                      openssl req -new -key server.key -out server.csr -subj "/CN=ace/O=ace"
-                      ```
-
-                    3. Create the SANs list.
-                      ```sh
-                      $ echo subjectAltName = IP:<TARGET-IP>,DNS:<domain> > extfile.cnf
-                      ```
-
-                    4. Use the my-root-ca to sign the server certificate.
-                      ```sh
-                      openssl x509 -req -in server.csr -CA ca.crt \
-                      -CAkey ca.key -CAcreateserial -out server.crt \
-                      -days 365 -extfile extfile.cnf
-                      ```
+                description: "- Create a Root CA Certificate and Key.\n```sh\nopenssl\
+                  \ req -x509 -newkey rsa:2048 -keyout ./ca.key -out ./ca.crt -days\
+                  \ 3650 -nodes -subj \"/CN=ca/O=ace\"\n```\n\n- Create and Sign a\
+                  \ Server Certificate and Key.\n\n  1. Create the Server private\
+                  \ key.\n    ```sh\n    openssl genrsa -out server.key 2048\n   \
+                  \ ```\n\n  2. Create the Server certificate signing request (csr).\n\
+                  \    ```\n    openssl req -new -key server.key -out server.csr -subj\
+                  \ \"/CN=ace/O=ace\"\n    ```\n\n  3. Create the SANs list.\n   \
+                  \ ```sh\n    $ echo subjectAltName = IP:<TARGET-IP>,DNS:<domain>\
+                  \ > extfile.cnf\n    ```\n\n  4. Use the my-root-ca to sign the\
+                  \ server certificate.\n    ```sh\n    openssl x509 -req -in server.csr\
+                  \ -CA ca.crt \\\n    -CAkey ca.key -CAcreateserial -out server.crt\
+                  \ \\\n    -days 365 -extfile extfile.cnf\n    ```\n"
               key:
                 type: string
             type: object
@@ -967,28 +957,35 @@ properties:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
           claims:
-            description: |-
-              Claims lists the names of resources, defined in spec.resourceClaims,
+            description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
               that are used by this container.
 
+
               This field depends on the
+
               DynamicResourceAllocation feature gate.
 
-              This field is immutable. It can only be set for containers.
+
+              This field is immutable. It can only be set for containers.'
             items:
               description: ResourceClaim references one entry in PodSpec.ResourceClaims.
               properties:
                 name:
-                  description: |-
-                    Name must match the name of one entry in pod.spec.resourceClaims of
+                  description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                    of
+
                     the Pod where this field is used. It makes that resource available
-                    inside a container.
+
+                    inside a container.'
                   type: string
                 request:
-                  description: |-
-                    Request is the name chosen for a request in the referenced claim.
+                  description: 'Request is the name chosen for a request in the referenced
+                    claim.
+
                     If empty, everything from the claim is made available, otherwise
-                    only the result of this request.
+
+                    only the result of this request.'
                   type: string
               required:
                 - name
@@ -1004,9 +1001,10 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Limits describes the maximum amount of compute resources allowed.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Limits describes the maximum amount of compute resources
+              allowed.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
           requests:
             additionalProperties:
@@ -1015,11 +1013,16 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Requests describes the minimum amount of compute resources required.
-              If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-              otherwise to an implementation-defined value. Requests cannot exceed Limits.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Requests describes the minimum amount of compute resources
+              required.
+
+              If Requests is omitted for a container, it defaults to Limits if that
+              is explicitly specified,
+
+              otherwise to an implementation-defined value. Requests cannot exceed
+              Limits.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
     required:
@@ -1036,7 +1039,8 @@ properties:
           email:
             type: string
           orgname:
-            description: Organization name should contain only alphanumeric, dash ('-'), underscore ('_') and dot ('.') characters.
+            description: Organization name should contain only alphanumeric, dash
+              ('-'), underscore ('_') and dot ('.') characters.
             type: string
           password:
             type: string
@@ -1046,19 +1050,28 @@ properties:
       cloudCredential:
         properties:
           apiVersion:
-            description: |-
-              APIVersion defines the versioned schema of this representation of an object.
-              Servers should convert recognized schemas to the latest internal value, and
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object.
+
+              Servers should convert recognized schemas to the latest internal value,
+              and
+
               may reject unrecognized values.
-              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
             type: string
           kind:
-            description: |-
-              Kind is a string value representing the REST resource this object represents.
-              Servers may infer this from the endpoint the client submits requests to.
+            description: 'Kind is a string value representing the REST resource this
+              object represents.
+
+              Servers may infer this from the endpoint the client submits requests
+              to.
+
               Cannot be updated.
+
               In CamelCase.
-              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
             type: string
           metadata:
             properties:
@@ -1294,9 +1307,11 @@ properties:
           status:
             properties:
               observedGeneration:
-                description: |-
-                  ObservedGeneration is the most recent generation observed for this resource. It corresponds to the
-                  resource's generation, which is updated on mutation by the API Server.
+                description: 'ObservedGeneration is the most recent generation observed
+                  for this resource. It corresponds to the
+
+                  resource''s generation, which is updated on mutation by the API
+                  Server.'
                 format: int64
                 type: integer
             type: object
@@ -1420,28 +1435,35 @@ properties:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
           claims:
-            description: |-
-              Claims lists the names of resources, defined in spec.resourceClaims,
+            description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
               that are used by this container.
 
+
               This field depends on the
+
               DynamicResourceAllocation feature gate.
 
-              This field is immutable. It can only be set for containers.
+
+              This field is immutable. It can only be set for containers.'
             items:
               description: ResourceClaim references one entry in PodSpec.ResourceClaims.
               properties:
                 name:
-                  description: |-
-                    Name must match the name of one entry in pod.spec.resourceClaims of
+                  description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                    of
+
                     the Pod where this field is used. It makes that resource available
-                    inside a container.
+
+                    inside a container.'
                   type: string
                 request:
-                  description: |-
-                    Request is the name chosen for a request in the referenced claim.
+                  description: 'Request is the name chosen for a request in the referenced
+                    claim.
+
                     If empty, everything from the claim is made available, otherwise
-                    only the result of this request.
+
+                    only the result of this request.'
                   type: string
               required:
                 - name
@@ -1457,9 +1479,10 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Limits describes the maximum amount of compute resources allowed.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Limits describes the maximum amount of compute resources
+              allowed.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
           requests:
             additionalProperties:
@@ -1468,11 +1491,16 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Requests describes the minimum amount of compute resources required.
-              If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-              otherwise to an implementation-defined value. Requests cannot exceed Limits.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Requests describes the minimum amount of compute resources
+              required.
+
+              If Requests is omitted for a container, it defaults to Limits if that
+              is explicitly specified,
+
+              otherwise to an implementation-defined value. Requests cannot exceed
+              Limits.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
     required:
@@ -1564,28 +1592,35 @@ properties:
             description: ResourceRequirements describes the compute resource requirements.
             properties:
               claims:
-                description: |-
-                  Claims lists the names of resources, defined in spec.resourceClaims,
+                description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
                   that are used by this container.
 
+
                   This field depends on the
+
                   DynamicResourceAllocation feature gate.
 
-                  This field is immutable. It can only be set for containers.
+
+                  This field is immutable. It can only be set for containers.'
                 items:
                   description: ResourceClaim references one entry in PodSpec.ResourceClaims.
                   properties:
                     name:
-                      description: |-
-                        Name must match the name of one entry in pod.spec.resourceClaims of
+                      description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                        of
+
                         the Pod where this field is used. It makes that resource available
-                        inside a container.
+
+                        inside a container.'
                       type: string
                     request:
-                      description: |-
-                        Request is the name chosen for a request in the referenced claim.
+                      description: 'Request is the name chosen for a request in the
+                        referenced claim.
+
                         If empty, everything from the claim is made available, otherwise
-                        only the result of this request.
+
+                        only the result of this request.'
                       type: string
                   required:
                     - name
@@ -1601,9 +1636,10 @@ properties:
                     - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
-                description: |-
-                  Limits describes the maximum amount of compute resources allowed.
-                  More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+                description: 'Limits describes the maximum amount of compute resources
+                  allowed.
+
+                  More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                 type: object
               requests:
                 additionalProperties:
@@ -1612,11 +1648,16 @@ properties:
                     - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
-                description: |-
-                  Requests describes the minimum amount of compute resources required.
-                  If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-                  otherwise to an implementation-defined value. Requests cannot exceed Limits.
-                  More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+                description: 'Requests describes the minimum amount of compute resources
+                  required.
+
+                  If Requests is omitted for a container, it defaults to Limits if
+                  that is explicitly specified,
+
+                  otherwise to an implementation-defined value. Requests cannot exceed
+                  Limits.
+
+                  More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                 type: object
             type: object
         required:
@@ -1653,28 +1694,35 @@ properties:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
           claims:
-            description: |-
-              Claims lists the names of resources, defined in spec.resourceClaims,
+            description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
               that are used by this container.
 
+
               This field depends on the
+
               DynamicResourceAllocation feature gate.
 
-              This field is immutable. It can only be set for containers.
+
+              This field is immutable. It can only be set for containers.'
             items:
               description: ResourceClaim references one entry in PodSpec.ResourceClaims.
               properties:
                 name:
-                  description: |-
-                    Name must match the name of one entry in pod.spec.resourceClaims of
+                  description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                    of
+
                     the Pod where this field is used. It makes that resource available
-                    inside a container.
+
+                    inside a container.'
                   type: string
                 request:
-                  description: |-
-                    Request is the name chosen for a request in the referenced claim.
+                  description: 'Request is the name chosen for a request in the referenced
+                    claim.
+
                     If empty, everything from the claim is made available, otherwise
-                    only the result of this request.
+
+                    only the result of this request.'
                   type: string
               required:
                 - name
@@ -1690,9 +1738,10 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Limits describes the maximum amount of compute resources allowed.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Limits describes the maximum amount of compute resources
+              allowed.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
           requests:
             additionalProperties:
@@ -1701,11 +1750,16 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Requests describes the minimum amount of compute resources required.
-              If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-              otherwise to an implementation-defined value. Requests cannot exceed Limits.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Requests describes the minimum amount of compute resources
+              required.
+
+              If Requests is omitted for a container, it defaults to Limits if that
+              is explicitly specified,
+
+              otherwise to an implementation-defined value. Requests cannot exceed
+              Limits.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
     required:
@@ -1725,28 +1779,35 @@ properties:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
           claims:
-            description: |-
-              Claims lists the names of resources, defined in spec.resourceClaims,
+            description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
               that are used by this container.
 
+
               This field depends on the
+
               DynamicResourceAllocation feature gate.
 
-              This field is immutable. It can only be set for containers.
+
+              This field is immutable. It can only be set for containers.'
             items:
               description: ResourceClaim references one entry in PodSpec.ResourceClaims.
               properties:
                 name:
-                  description: |-
-                    Name must match the name of one entry in pod.spec.resourceClaims of
+                  description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                    of
+
                     the Pod where this field is used. It makes that resource available
-                    inside a container.
+
+                    inside a container.'
                   type: string
                 request:
-                  description: |-
-                    Request is the name chosen for a request in the referenced claim.
+                  description: 'Request is the name chosen for a request in the referenced
+                    claim.
+
                     If empty, everything from the claim is made available, otherwise
-                    only the result of this request.
+
+                    only the result of this request.'
                   type: string
               required:
                 - name
@@ -1762,9 +1823,10 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Limits describes the maximum amount of compute resources allowed.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Limits describes the maximum amount of compute resources
+              allowed.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
           requests:
             additionalProperties:
@@ -1773,11 +1835,16 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Requests describes the minimum amount of compute resources required.
-              If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-              otherwise to an implementation-defined value. Requests cannot exceed Limits.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Requests describes the minimum amount of compute resources
+              required.
+
+              If Requests is omitted for a container, it defaults to Limits if that
+              is explicitly specified,
+
+              otherwise to an implementation-defined value. Requests cannot exceed
+              Limits.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
     required:
@@ -1795,28 +1862,35 @@ properties:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
           claims:
-            description: |-
-              Claims lists the names of resources, defined in spec.resourceClaims,
+            description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
               that are used by this container.
 
+
               This field depends on the
+
               DynamicResourceAllocation feature gate.
 
-              This field is immutable. It can only be set for containers.
+
+              This field is immutable. It can only be set for containers.'
             items:
               description: ResourceClaim references one entry in PodSpec.ResourceClaims.
               properties:
                 name:
-                  description: |-
-                    Name must match the name of one entry in pod.spec.resourceClaims of
+                  description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                    of
+
                     the Pod where this field is used. It makes that resource available
-                    inside a container.
+
+                    inside a container.'
                   type: string
                 request:
-                  description: |-
-                    Request is the name chosen for a request in the referenced claim.
+                  description: 'Request is the name chosen for a request in the referenced
+                    claim.
+
                     If empty, everything from the claim is made available, otherwise
-                    only the result of this request.
+
+                    only the result of this request.'
                   type: string
               required:
                 - name
@@ -1832,9 +1906,10 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Limits describes the maximum amount of compute resources allowed.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Limits describes the maximum amount of compute resources
+              allowed.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
           requests:
             additionalProperties:
@@ -1843,11 +1918,16 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Requests describes the minimum amount of compute resources required.
-              If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-              otherwise to an implementation-defined value. Requests cannot exceed Limits.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Requests describes the minimum amount of compute resources
+              required.
+
+              If Requests is omitted for a container, it defaults to Limits if that
+              is explicitly specified,
+
+              otherwise to an implementation-defined value. Requests cannot exceed
+              Limits.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
     required:
@@ -1865,28 +1945,35 @@ properties:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
           claims:
-            description: |-
-              Claims lists the names of resources, defined in spec.resourceClaims,
+            description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
               that are used by this container.
 
+
               This field depends on the
+
               DynamicResourceAllocation feature gate.
 
-              This field is immutable. It can only be set for containers.
+
+              This field is immutable. It can only be set for containers.'
             items:
               description: ResourceClaim references one entry in PodSpec.ResourceClaims.
               properties:
                 name:
-                  description: |-
-                    Name must match the name of one entry in pod.spec.resourceClaims of
+                  description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                    of
+
                     the Pod where this field is used. It makes that resource available
-                    inside a container.
+
+                    inside a container.'
                   type: string
                 request:
-                  description: |-
-                    Request is the name chosen for a request in the referenced claim.
+                  description: 'Request is the name chosen for a request in the referenced
+                    claim.
+
                     If empty, everything from the claim is made available, otherwise
-                    only the result of this request.
+
+                    only the result of this request.'
                   type: string
               required:
                 - name
@@ -1902,9 +1989,10 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Limits describes the maximum amount of compute resources allowed.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Limits describes the maximum amount of compute resources
+              allowed.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
           requests:
             additionalProperties:
@@ -1913,11 +2001,16 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Requests describes the minimum amount of compute resources required.
-              If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-              otherwise to an implementation-defined value. Requests cannot exceed Limits.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Requests describes the minimum amount of compute resources
+              required.
+
+              If Requests is omitted for a container, it defaults to Limits if that
+              is explicitly specified,
+
+              otherwise to an implementation-defined value. Requests cannot exceed
+              Limits.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
     required:
@@ -1935,28 +2028,35 @@ properties:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
           claims:
-            description: |-
-              Claims lists the names of resources, defined in spec.resourceClaims,
+            description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
               that are used by this container.
 
+
               This field depends on the
+
               DynamicResourceAllocation feature gate.
 
-              This field is immutable. It can only be set for containers.
+
+              This field is immutable. It can only be set for containers.'
             items:
               description: ResourceClaim references one entry in PodSpec.ResourceClaims.
               properties:
                 name:
-                  description: |-
-                    Name must match the name of one entry in pod.spec.resourceClaims of
+                  description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                    of
+
                     the Pod where this field is used. It makes that resource available
-                    inside a container.
+
+                    inside a container.'
                   type: string
                 request:
-                  description: |-
-                    Request is the name chosen for a request in the referenced claim.
+                  description: 'Request is the name chosen for a request in the referenced
+                    claim.
+
                     If empty, everything from the claim is made available, otherwise
-                    only the result of this request.
+
+                    only the result of this request.'
                   type: string
               required:
                 - name
@@ -1972,9 +2072,10 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Limits describes the maximum amount of compute resources allowed.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Limits describes the maximum amount of compute resources
+              allowed.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
           requests:
             additionalProperties:
@@ -1983,11 +2084,16 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Requests describes the minimum amount of compute resources required.
-              If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-              otherwise to an implementation-defined value. Requests cannot exceed Limits.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Requests describes the minimum amount of compute resources
+              required.
+
+              If Requests is omitted for a container, it defaults to Limits if that
+              is explicitly specified,
+
+              otherwise to an implementation-defined value. Requests cannot exceed
+              Limits.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
     required:
@@ -2005,28 +2111,35 @@ properties:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
           claims:
-            description: |-
-              Claims lists the names of resources, defined in spec.resourceClaims,
+            description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
               that are used by this container.
 
+
               This field depends on the
+
               DynamicResourceAllocation feature gate.
 
-              This field is immutable. It can only be set for containers.
+
+              This field is immutable. It can only be set for containers.'
             items:
               description: ResourceClaim references one entry in PodSpec.ResourceClaims.
               properties:
                 name:
-                  description: |-
-                    Name must match the name of one entry in pod.spec.resourceClaims of
+                  description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                    of
+
                     the Pod where this field is used. It makes that resource available
-                    inside a container.
+
+                    inside a container.'
                   type: string
                 request:
-                  description: |-
-                    Request is the name chosen for a request in the referenced claim.
+                  description: 'Request is the name chosen for a request in the referenced
+                    claim.
+
                     If empty, everything from the claim is made available, otherwise
-                    only the result of this request.
+
+                    only the result of this request.'
                   type: string
               required:
                 - name
@@ -2042,9 +2155,10 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Limits describes the maximum amount of compute resources allowed.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Limits describes the maximum amount of compute resources
+              allowed.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
           requests:
             additionalProperties:
@@ -2053,11 +2167,16 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Requests describes the minimum amount of compute resources required.
-              If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-              otherwise to an implementation-defined value. Requests cannot exceed Limits.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Requests describes the minimum amount of compute resources
+              required.
+
+              If Requests is omitted for a container, it defaults to Limits if that
+              is explicitly specified,
+
+              otherwise to an implementation-defined value. Requests cannot exceed
+              Limits.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
     required:
@@ -2075,28 +2194,35 @@ properties:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
           claims:
-            description: |-
-              Claims lists the names of resources, defined in spec.resourceClaims,
+            description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
               that are used by this container.
 
+
               This field depends on the
+
               DynamicResourceAllocation feature gate.
 
-              This field is immutable. It can only be set for containers.
+
+              This field is immutable. It can only be set for containers.'
             items:
               description: ResourceClaim references one entry in PodSpec.ResourceClaims.
               properties:
                 name:
-                  description: |-
-                    Name must match the name of one entry in pod.spec.resourceClaims of
+                  description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                    of
+
                     the Pod where this field is used. It makes that resource available
-                    inside a container.
+
+                    inside a container.'
                   type: string
                 request:
-                  description: |-
-                    Request is the name chosen for a request in the referenced claim.
+                  description: 'Request is the name chosen for a request in the referenced
+                    claim.
+
                     If empty, everything from the claim is made available, otherwise
-                    only the result of this request.
+
+                    only the result of this request.'
                   type: string
               required:
                 - name
@@ -2112,9 +2238,10 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Limits describes the maximum amount of compute resources allowed.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Limits describes the maximum amount of compute resources
+              allowed.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
           requests:
             additionalProperties:
@@ -2123,11 +2250,16 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Requests describes the minimum amount of compute resources required.
-              If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-              otherwise to an implementation-defined value. Requests cannot exceed Limits.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Requests describes the minimum amount of compute resources
+              required.
+
+              If Requests is omitted for a container, it defaults to Limits if that
+              is explicitly specified,
+
+              otherwise to an implementation-defined value. Requests cannot exceed
+              Limits.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
     required:
@@ -2145,28 +2277,35 @@ properties:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
           claims:
-            description: |-
-              Claims lists the names of resources, defined in spec.resourceClaims,
+            description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
               that are used by this container.
 
+
               This field depends on the
+
               DynamicResourceAllocation feature gate.
 
-              This field is immutable. It can only be set for containers.
+
+              This field is immutable. It can only be set for containers.'
             items:
               description: ResourceClaim references one entry in PodSpec.ResourceClaims.
               properties:
                 name:
-                  description: |-
-                    Name must match the name of one entry in pod.spec.resourceClaims of
+                  description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                    of
+
                     the Pod where this field is used. It makes that resource available
-                    inside a container.
+
+                    inside a container.'
                   type: string
                 request:
-                  description: |-
-                    Request is the name chosen for a request in the referenced claim.
+                  description: 'Request is the name chosen for a request in the referenced
+                    claim.
+
                     If empty, everything from the claim is made available, otherwise
-                    only the result of this request.
+
+                    only the result of this request.'
                   type: string
               required:
                 - name
@@ -2182,9 +2321,10 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Limits describes the maximum amount of compute resources allowed.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Limits describes the maximum amount of compute resources
+              allowed.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
           requests:
             additionalProperties:
@@ -2193,11 +2333,16 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Requests describes the minimum amount of compute resources required.
-              If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-              otherwise to an implementation-defined value. Requests cannot exceed Limits.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Requests describes the minimum amount of compute resources
+              required.
+
+              If Requests is omitted for a container, it defaults to Limits if that
+              is explicitly specified,
+
+              otherwise to an implementation-defined value. Requests cannot exceed
+              Limits.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
     required:
@@ -2277,17 +2422,18 @@ properties:
         type: boolean
     type: object
   release:
-    description: ObjectReference contains enough information to let you inspect or modify the referred object.
+    description: ObjectReference contains enough information to let you inspect or
+      modify the referred object.
     properties:
       name:
-        description: |-
-          Name of the referent.
-          More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+        description: 'Name of the referent.
+
+          More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names'
         type: string
       namespace:
-        description: |-
-          Namespace of the referent.
-          More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+        description: 'Namespace of the referent.
+
+          More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/'
         type: string
     required:
       - name
@@ -2305,28 +2451,35 @@ properties:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
           claims:
-            description: |-
-              Claims lists the names of resources, defined in spec.resourceClaims,
+            description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
               that are used by this container.
 
+
               This field depends on the
+
               DynamicResourceAllocation feature gate.
 
-              This field is immutable. It can only be set for containers.
+
+              This field is immutable. It can only be set for containers.'
             items:
               description: ResourceClaim references one entry in PodSpec.ResourceClaims.
               properties:
                 name:
-                  description: |-
-                    Name must match the name of one entry in pod.spec.resourceClaims of
+                  description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                    of
+
                     the Pod where this field is used. It makes that resource available
-                    inside a container.
+
+                    inside a container.'
                   type: string
                 request:
-                  description: |-
-                    Request is the name chosen for a request in the referenced claim.
+                  description: 'Request is the name chosen for a request in the referenced
+                    claim.
+
                     If empty, everything from the claim is made available, otherwise
-                    only the result of this request.
+
+                    only the result of this request.'
                   type: string
               required:
                 - name
@@ -2342,9 +2495,10 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Limits describes the maximum amount of compute resources allowed.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Limits describes the maximum amount of compute resources
+              allowed.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
           requests:
             additionalProperties:
@@ -2353,11 +2507,16 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Requests describes the minimum amount of compute resources required.
-              If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-              otherwise to an implementation-defined value. Requests cannot exceed Limits.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Requests describes the minimum amount of compute resources
+              required.
+
+              If Requests is omitted for a container, it defaults to Limits if that
+              is explicitly specified,
+
+              otherwise to an implementation-defined value. Requests cannot exceed
+              Limits.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
     required:
@@ -2382,28 +2541,35 @@ properties:
             description: ResourceRequirements describes the compute resource requirements.
             properties:
               claims:
-                description: |-
-                  Claims lists the names of resources, defined in spec.resourceClaims,
+                description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
                   that are used by this container.
 
+
                   This field depends on the
+
                   DynamicResourceAllocation feature gate.
 
-                  This field is immutable. It can only be set for containers.
+
+                  This field is immutable. It can only be set for containers.'
                 items:
                   description: ResourceClaim references one entry in PodSpec.ResourceClaims.
                   properties:
                     name:
-                      description: |-
-                        Name must match the name of one entry in pod.spec.resourceClaims of
+                      description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                        of
+
                         the Pod where this field is used. It makes that resource available
-                        inside a container.
+
+                        inside a container.'
                       type: string
                     request:
-                      description: |-
-                        Request is the name chosen for a request in the referenced claim.
+                      description: 'Request is the name chosen for a request in the
+                        referenced claim.
+
                         If empty, everything from the claim is made available, otherwise
-                        only the result of this request.
+
+                        only the result of this request.'
                       type: string
                   required:
                     - name
@@ -2419,9 +2585,10 @@ properties:
                     - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
-                description: |-
-                  Limits describes the maximum amount of compute resources allowed.
-                  More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+                description: 'Limits describes the maximum amount of compute resources
+                  allowed.
+
+                  More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                 type: object
               requests:
                 additionalProperties:
@@ -2430,11 +2597,16 @@ properties:
                     - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
-                description: |-
-                  Requests describes the minimum amount of compute resources required.
-                  If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-                  otherwise to an implementation-defined value. Requests cannot exceed Limits.
-                  More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+                description: 'Requests describes the minimum amount of compute resources
+                  required.
+
+                  If Requests is omitted for a container, it defaults to Limits if
+                  that is explicitly specified,
+
+                  otherwise to an implementation-defined value. Requests cannot exceed
+                  Limits.
+
+                  More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                 type: object
             type: object
         required:
@@ -2458,28 +2630,35 @@ properties:
             description: ResourceRequirements describes the compute resource requirements.
             properties:
               claims:
-                description: |-
-                  Claims lists the names of resources, defined in spec.resourceClaims,
+                description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
                   that are used by this container.
 
+
                   This field depends on the
+
                   DynamicResourceAllocation feature gate.
 
-                  This field is immutable. It can only be set for containers.
+
+                  This field is immutable. It can only be set for containers.'
                 items:
                   description: ResourceClaim references one entry in PodSpec.ResourceClaims.
                   properties:
                     name:
-                      description: |-
-                        Name must match the name of one entry in pod.spec.resourceClaims of
+                      description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                        of
+
                         the Pod where this field is used. It makes that resource available
-                        inside a container.
+
+                        inside a container.'
                       type: string
                     request:
-                      description: |-
-                        Request is the name chosen for a request in the referenced claim.
+                      description: 'Request is the name chosen for a request in the
+                        referenced claim.
+
                         If empty, everything from the claim is made available, otherwise
-                        only the result of this request.
+
+                        only the result of this request.'
                       type: string
                   required:
                     - name
@@ -2495,9 +2674,10 @@ properties:
                     - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
-                description: |-
-                  Limits describes the maximum amount of compute resources allowed.
-                  More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+                description: 'Limits describes the maximum amount of compute resources
+                  allowed.
+
+                  More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                 type: object
               requests:
                 additionalProperties:
@@ -2506,11 +2686,16 @@ properties:
                     - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
-                description: |-
-                  Requests describes the minimum amount of compute resources required.
-                  If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-                  otherwise to an implementation-defined value. Requests cannot exceed Limits.
-                  More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+                description: 'Requests describes the minimum amount of compute resources
+                  required.
+
+                  If Requests is omitted for a container, it defaults to Limits if
+                  that is explicitly specified,
+
+                  otherwise to an implementation-defined value. Requests cannot exceed
+                  Limits.
+
+                  More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                 type: object
             type: object
         required:
@@ -2518,10 +2703,11 @@ properties:
           - resources
         type: object
       domainWhiteList:
-        description: |-
-          DomainWhiteList is an array of domain names that are allowed.
+        description: 'DomainWhiteList is an array of domain names that are allowed.
+
           Each domain should be in the format of a fully qualified domain name,
-          such as 'example.com' or 'appscode.com' etc.
+
+          such as ''example.com'' or ''appscode.com'' etc.'
         items:
           type: string
         type: array
@@ -2636,28 +2822,35 @@ properties:
         description: ResourceRequirements describes the compute resource requirements.
         properties:
           claims:
-            description: |-
-              Claims lists the names of resources, defined in spec.resourceClaims,
+            description: 'Claims lists the names of resources, defined in spec.resourceClaims,
+
               that are used by this container.
 
+
               This field depends on the
+
               DynamicResourceAllocation feature gate.
 
-              This field is immutable. It can only be set for containers.
+
+              This field is immutable. It can only be set for containers.'
             items:
               description: ResourceClaim references one entry in PodSpec.ResourceClaims.
               properties:
                 name:
-                  description: |-
-                    Name must match the name of one entry in pod.spec.resourceClaims of
+                  description: 'Name must match the name of one entry in pod.spec.resourceClaims
+                    of
+
                     the Pod where this field is used. It makes that resource available
-                    inside a container.
+
+                    inside a container.'
                   type: string
                 request:
-                  description: |-
-                    Request is the name chosen for a request in the referenced claim.
+                  description: 'Request is the name chosen for a request in the referenced
+                    claim.
+
                     If empty, everything from the claim is made available, otherwise
-                    only the result of this request.
+
+                    only the result of this request.'
                   type: string
               required:
                 - name
@@ -2673,9 +2866,10 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Limits describes the maximum amount of compute resources allowed.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Limits describes the maximum amount of compute resources
+              allowed.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
           requests:
             additionalProperties:
@@ -2684,11 +2878,16 @@ properties:
                 - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
-            description: |-
-              Requests describes the minimum amount of compute resources required.
-              If Requests is omitted for a container, it defaults to Limits if that is explicitly specified,
-              otherwise to an implementation-defined value. Requests cannot exceed Limits.
-              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+            description: 'Requests describes the minimum amount of compute resources
+              required.
+
+              If Requests is omitted for a container, it defaults to Limits if that
+              is explicitly specified,
+
+              otherwise to an implementation-defined value. Requests cannot exceed
+              Limits.
+
+              More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
             type: object
         type: object
     required:

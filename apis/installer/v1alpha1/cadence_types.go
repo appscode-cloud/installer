@@ -50,23 +50,23 @@ type CadenceImageReference struct {
 }
 
 type CadenceServiceSpec struct {
-	Replicas          int                       `json:"replicas"`
-	Port              int                       `json:"port"`
-	GrpcPort          int                       `json:"grpcPort"`
-	Resources         core.ResourceRequirements `json:"resources"`
-	NodeSelector      map[string]string         `json:"nodeSelector"`
-	PodAnnotations    map[string]string         `json:"podAnnotations"`
-	Affinity          *core.Affinity            `json:"affinity"`
-	Tolerations       []core.Toleration         `json:"tolerations"`
-	ContainerSecurityContext *core.SecurityContext `json:"containerSecurityContext"`
+	Replicas                 int                       `json:"replicas"`
+	Port                     int                       `json:"port"`
+	GrpcPort                 int                       `json:"grpcPort"`
+	Resources                core.ResourceRequirements `json:"resources"`
+	NodeSelector             map[string]string         `json:"nodeSelector"`
+	PodAnnotations           map[string]string         `json:"podAnnotations"`
+	Affinity                 *core.Affinity            `json:"affinity"`
+	Tolerations              []core.Toleration         `json:"tolerations"`
+	ContainerSecurityContext *core.SecurityContext     `json:"containerSecurityContext"`
 }
 
 type CadenceWebSpec struct {
-	Enabled                 bool                      `json:"enabled"`
-	Image                   CadenceImageReference     `json:"image"`
-	Replicas                int                       `json:"replicas"`
-	Resources               core.ResourceRequirements `json:"resources"`
-	NodeSelector            map[string]string         `json:"nodeSelector"`
+	Enabled                  bool                      `json:"enabled"`
+	Image                    CadenceImageReference     `json:"image"`
+	Replicas                 int                       `json:"replicas"`
+	Resources                core.ResourceRequirements `json:"resources"`
+	NodeSelector             map[string]string         `json:"nodeSelector"`
 	ContainerSecurityContext *core.SecurityContext     `json:"containerSecurityContext"`
 }
 
@@ -77,8 +77,8 @@ type CadenceServiceAccountSpec struct {
 }
 
 type CadenceMetricsSpec struct {
-	Enabled        bool              `json:"enabled"`
-	Port           int               `json:"port"`
+	Enabled        bool                  `json:"enabled"`
+	Port           int                   `json:"port"`
 	ServiceMonitor CadenceServiceMonitor `json:"serviceMonitor"`
 }
 
@@ -96,32 +96,32 @@ type CadenceServiceMonitor struct {
 
 // CadenceSpec is the schema for Cadence Operator values file
 type CadenceSpec struct {
-	NameOverride     string                      `json:"nameOverride"`
-	FullnameOverride string                      `json:"fullnameOverride"`
-	Global           CadenceGlobalSpec           `json:"global"`
-	Frontend         CadenceServiceSpec          `json:"frontend"`
-	Matching         CadenceServiceSpec          `json:"matching"`
-	History          CadenceServiceSpec          `json:"history"`
-	Worker           CadenceServiceSpec          `json:"worker"`
-	Web              CadenceWebSpec              `json:"web"`
-	ServiceAccount   CadenceServiceAccountSpec   `json:"serviceAccount"`
-	Metrics          CadenceMetricsSpec          `json:"metrics"`
-	Cassandra        CadenceCassandraSpec        `json:"cassandra"`
-	Postgresql       CadencePostgresqlSpec       `json:"postgresql"`
-	Mysql            CadenceMysqlSpec            `json:"mysql"`
-	Config           CadenceConfigSpec           `json:"config"`
-	Schema           CadenceSchemaSpec           `json:"schema"`
+	NameOverride     string                    `json:"nameOverride"`
+	FullnameOverride string                    `json:"fullnameOverride"`
+	Global           CadenceGlobalSpec         `json:"global"`
+	Frontend         CadenceServiceSpec        `json:"frontend"`
+	Matching         CadenceServiceSpec        `json:"matching"`
+	History          CadenceServiceSpec        `json:"history"`
+	Worker           CadenceServiceSpec        `json:"worker"`
+	Web              CadenceWebSpec            `json:"web"`
+	ServiceAccount   CadenceServiceAccountSpec `json:"serviceAccount"`
+	Metrics          CadenceMetricsSpec        `json:"metrics"`
+	Cassandra        CadenceCassandraSpec      `json:"cassandra"`
+	Postgresql       CadencePostgresqlSpec     `json:"postgresql"`
+	Mysql            CadenceMysqlSpec          `json:"mysql"`
+	Config           CadenceConfigSpec         `json:"config"`
+	Schema           CadenceSchemaSpec         `json:"schema"`
 }
 
 type CadenceGlobalSpec struct {
-	Image                    CadenceImageReference     `json:"image"`
+	Image                    CadenceImageReference       `json:"image"`
 	ImagePullSecrets         []core.LocalObjectReference `json:"imagePullSecrets"`
-	PodSecurityContext       *core.PodSecurityContext  `json:"podSecurityContext"`
-	ContainerSecurityContext *core.SecurityContext     `json:"containerSecurityContext"`
-	Affinity                 *core.Affinity            `json:"affinity"`
-	Tolerations              []core.Toleration         `json:"tolerations"`
-	NodeSelector             map[string]string         `json:"nodeSelector"`
-	Log                      CadenceLogSpec            `json:"log"`
+	PodSecurityContext       *core.PodSecurityContext    `json:"podSecurityContext"`
+	ContainerSecurityContext *core.SecurityContext       `json:"containerSecurityContext"`
+	Affinity                 *core.Affinity              `json:"affinity"`
+	Tolerations              []core.Toleration           `json:"tolerations"`
+	NodeSelector             map[string]string           `json:"nodeSelector"`
+	Log                      CadenceLogSpec              `json:"log"`
 }
 
 type CadenceLogSpec struct {
@@ -130,20 +130,20 @@ type CadenceLogSpec struct {
 }
 
 type CadenceCassandraSpec struct {
-	Enabled bool   `json:"enabled"`
-	Hosts   string `json:"hosts"`
-	Port    int    `json:"port"`
+	Enabled  bool   `json:"enabled"`
+	Hosts    string `json:"hosts"`
+	Port     int    `json:"port"`
 	Keyspace string `json:"keyspace"`
-	User    string `json:"user"`
+	User     string `json:"user"`
 	Password string `json:"password"`
 }
 
 type CadencePostgresqlSpec struct {
-	Enabled bool   `json:"enabled"`
+	Enabled bool `json:"enabled"`
 }
 
 type CadenceMysqlSpec struct {
-	Enabled bool   `json:"enabled"`
+	Enabled bool `json:"enabled"`
 }
 
 type CadenceConfigSpec struct {
@@ -151,24 +151,24 @@ type CadenceConfigSpec struct {
 }
 
 type CadencePersistenceSpec struct {
-	NumHistoryShards int              `json:"numHistoryShards"`
-	DefaultStore     string           `json:"defaultStore"`
-	VisibilityStore  string           `json:"visibilityStore"`
+	NumHistoryShards int                 `json:"numHistoryShards"`
+	DefaultStore     string              `json:"defaultStore"`
+	VisibilityStore  string              `json:"visibilityStore"`
 	Database         CadenceDatabaseSpec `json:"database"`
 }
 
 type CadenceDatabaseSpec struct {
-	Driver string          `json:"driver"`
-	Sql    CadenceSqlSpec  `json:"sql"`
+	Driver string         `json:"driver"`
+	Sql    CadenceSqlSpec `json:"sql"`
 }
 
 type CadenceSqlSpec struct {
-	Hosts     string `json:"hosts"`
-	Port      int    `json:"port"`
-	Dbname    string `json:"dbname"`
-	User      string `json:"user"`
-	Password  string `json:"password"`
-	MaxConns  int    `json:"maxConns"`
+	Hosts    string `json:"hosts"`
+	Port     int    `json:"port"`
+	Dbname   string `json:"dbname"`
+	User     string `json:"user"`
+	Password string `json:"password"`
+	MaxConns int    `json:"maxConns"`
 }
 
 type CadenceSchemaSpec struct {
