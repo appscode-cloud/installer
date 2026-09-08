@@ -21,8 +21,8 @@ properties:
                             type: array
                             x-kubernetes-list-type: atomic
                         required:
-                          - key
-                          - operator
+                        - key
+                        - operator
                         type: object
                       type: array
                       x-kubernetes-list-type: atomic
@@ -39,8 +39,8 @@ properties:
                             type: array
                             x-kubernetes-list-type: atomic
                         required:
-                          - key
-                          - operator
+                        - key
+                        - operator
                         type: object
                       type: array
                       x-kubernetes-list-type: atomic
@@ -50,8 +50,8 @@ properties:
                   format: int32
                   type: integer
               required:
-                - preference
-                - weight
+              - preference
+              - weight
               type: object
             type: array
             x-kubernetes-list-type: atomic
@@ -73,8 +73,8 @@ properties:
                             type: array
                             x-kubernetes-list-type: atomic
                         required:
-                          - key
-                          - operator
+                        - key
+                        - operator
                         type: object
                       type: array
                       x-kubernetes-list-type: atomic
@@ -91,8 +91,8 @@ properties:
                             type: array
                             x-kubernetes-list-type: atomic
                         required:
-                          - key
-                          - operator
+                        - key
+                        - operator
                         type: object
                       type: array
                       x-kubernetes-list-type: atomic
@@ -101,7 +101,7 @@ properties:
                 type: array
                 x-kubernetes-list-type: atomic
             required:
-              - nodeSelectorTerms
+            - nodeSelectorTerms
             type: object
             x-kubernetes-map-type: atomic
         type: object
@@ -127,8 +127,8 @@ properties:
                                 type: array
                                 x-kubernetes-list-type: atomic
                             required:
-                              - key
-                              - operator
+                            - key
+                            - operator
                             type: object
                           type: array
                           x-kubernetes-list-type: atomic
@@ -163,8 +163,8 @@ properties:
                                 type: array
                                 x-kubernetes-list-type: atomic
                             required:
-                              - key
-                              - operator
+                            - key
+                            - operator
                             type: object
                           type: array
                           x-kubernetes-list-type: atomic
@@ -182,14 +182,14 @@ properties:
                     topologyKey:
                       type: string
                   required:
-                    - topologyKey
+                  - topologyKey
                   type: object
                 weight:
                   format: int32
                   type: integer
               required:
-                - podAffinityTerm
-                - weight
+              - podAffinityTerm
+              - weight
               type: object
             type: array
             x-kubernetes-list-type: atomic
@@ -211,8 +211,8 @@ properties:
                             type: array
                             x-kubernetes-list-type: atomic
                         required:
-                          - key
-                          - operator
+                        - key
+                        - operator
                         type: object
                       type: array
                       x-kubernetes-list-type: atomic
@@ -247,8 +247,8 @@ properties:
                             type: array
                             x-kubernetes-list-type: atomic
                         required:
-                          - key
-                          - operator
+                        - key
+                        - operator
                         type: object
                       type: array
                       x-kubernetes-list-type: atomic
@@ -266,7 +266,7 @@ properties:
                 topologyKey:
                   type: string
               required:
-                - topologyKey
+              - topologyKey
               type: object
             type: array
             x-kubernetes-list-type: atomic
@@ -293,8 +293,8 @@ properties:
                                 type: array
                                 x-kubernetes-list-type: atomic
                             required:
-                              - key
-                              - operator
+                            - key
+                            - operator
                             type: object
                           type: array
                           x-kubernetes-list-type: atomic
@@ -329,8 +329,8 @@ properties:
                                 type: array
                                 x-kubernetes-list-type: atomic
                             required:
-                              - key
-                              - operator
+                            - key
+                            - operator
                             type: object
                           type: array
                           x-kubernetes-list-type: atomic
@@ -348,14 +348,14 @@ properties:
                     topologyKey:
                       type: string
                   required:
-                    - topologyKey
+                  - topologyKey
                   type: object
                 weight:
                   format: int32
                   type: integer
               required:
-                - podAffinityTerm
-                - weight
+              - podAffinityTerm
+              - weight
               type: object
             type: array
             x-kubernetes-list-type: atomic
@@ -377,8 +377,8 @@ properties:
                             type: array
                             x-kubernetes-list-type: atomic
                         required:
-                          - key
-                          - operator
+                        - key
+                        - operator
                         type: object
                       type: array
                       x-kubernetes-list-type: atomic
@@ -413,8 +413,8 @@ properties:
                             type: array
                             x-kubernetes-list-type: atomic
                         required:
-                          - key
-                          - operator
+                        - key
+                        - operator
                         type: object
                       type: array
                       x-kubernetes-list-type: atomic
@@ -432,7 +432,7 @@ properties:
                 topologyKey:
                   type: string
               required:
-                - topologyKey
+              - topologyKey
               type: object
             type: array
             x-kubernetes-list-type: atomic
@@ -451,9 +451,9 @@ properties:
       targetMemoryUtilizationPercentage:
         type: integer
     required:
-      - enabled
-      - maxReplicas
-      - minReplicas
+    - enabled
+    - maxReplicas
+    - minReplicas
     type: object
   distro:
     properties:
@@ -461,13 +461,13 @@ properties:
         type: boolean
       ubi:
         enum:
-          - all
-          - catalog
-          - operator
+        - all
+        - catalog
+        - operator
         type: string
     required:
-      - openshift
-      - ubi
+    - openshift
+    - ubi
     type: object
   fullnameOverride:
     type: string
@@ -482,10 +482,10 @@ properties:
       tag:
         type: string
     required:
-      - pullPolicy
-      - registry
-      - repository
-      - tag
+    - pullPolicy
+    - registry
+    - repository
+    - tag
     type: object
   imagePullSecrets:
     items:
@@ -498,14 +498,14 @@ properties:
           mountPath:
             type: string
         required:
-          - mountPath
+        - mountPath
         type: object
       invoice:
         properties:
           mountPath:
             type: string
         required:
-          - mountPath
+        - mountPath
         type: object
       objstore:
         properties:
@@ -516,21 +516,21 @@ properties:
           provider:
             type: string
         required:
-          - mountPath
-          - provider
+        - mountPath
+        - provider
         type: object
       storageClass:
         properties:
           name:
             type: string
         required:
-          - name
+        - name
         type: object
     required:
-      - badger
-      - invoice
-      - objstore
-      - storageClass
+    - badger
+    - invoice
+    - objstore
+    - storageClass
     type: object
   license:
     type: string
@@ -538,9 +538,9 @@ properties:
     properties:
       agent:
         enum:
-          - prometheus.io
-          - prometheus.io/operator
-          - prometheus.io/builtin
+        - prometheus.io
+        - prometheus.io/operator
+        - prometheus.io/builtin
         type: string
       serviceMonitor:
         properties:
@@ -550,8 +550,8 @@ properties:
             type: object
         type: object
     required:
-      - agent
-      - serviceMonitor
+    - agent
+    - serviceMonitor
     type: object
   nameOverride:
     type: string
@@ -563,12 +563,12 @@ properties:
     properties:
       size:
         anyOf:
-          - type: integer
-          - type: string
+        - type: integer
+        - type: string
         pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
         x-kubernetes-int-or-string: true
     required:
-      - size
+    - size
     type: object
   podAnnotations:
     additionalProperties:
@@ -583,7 +583,7 @@ properties:
           type:
             type: string
         required:
-          - type
+        - type
         type: object
       fsGroup:
         format: int64
@@ -618,7 +618,7 @@ properties:
           type:
             type: string
         required:
-          - type
+        - type
         type: object
       supplementalGroups:
         items:
@@ -636,8 +636,8 @@ properties:
             value:
               type: string
           required:
-            - name
-            - value
+          - name
+          - value
           type: object
         type: array
         x-kubernetes-list-type: atomic
@@ -667,25 +667,25 @@ properties:
             request:
               type: string
           required:
-            - name
+          - name
           type: object
         type: array
         x-kubernetes-list-map-keys:
-          - name
+        - name
         x-kubernetes-list-type: map
       limits:
         additionalProperties:
           anyOf:
-            - type: integer
-            - type: string
+          - type: integer
+          - type: string
           pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
           x-kubernetes-int-or-string: true
         type: object
       requests:
         additionalProperties:
           anyOf:
-            - type: integer
-            - type: string
+          - type: integer
+          - type: string
           pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
           x-kubernetes-int-or-string: true
         type: object
@@ -701,7 +701,7 @@ properties:
           type:
             type: string
         required:
-          - type
+        - type
         type: object
       capabilities:
         properties:
@@ -748,7 +748,7 @@ properties:
           type:
             type: string
         required:
-          - type
+        - type
         type: object
       windowsOptions:
         properties:
@@ -769,15 +769,15 @@ properties:
       type:
         type: string
     required:
-      - port
-      - type
+    - port
+    - type
     type: object
   serviceAccount:
     properties:
       name:
         type: string
     required:
-      - name
+    - name
     type: object
   settings:
     properties:
@@ -798,16 +798,16 @@ properties:
           platformUserConfig:
             type: string
         required:
-          - grafanaConfig
-          - nats
-          - objstore
-          - platformConfig
-          - platformSystemConfig
-          - platformUserConfig
+        - grafanaConfig
+        - nats
+        - objstore
+        - platformConfig
+        - platformSystemConfig
+        - platformUserConfig
         type: object
     required:
-      - caProviderClass
-      - secretName
+    - caProviderClass
+    - secretName
     type: object
   tolerations:
     items:
@@ -826,13 +826,13 @@ properties:
       type: object
     type: array
 required:
-  - autoscaling
-  - image
-  - infra
-  - monitoring
-  - persistence
-  - replicaCount
-  - service
-  - serviceAccount
-  - settings
+- autoscaling
+- image
+- infra
+- monitoring
+- persistence
+- replicaCount
+- service
+- serviceAccount
+- settings
 type: object
