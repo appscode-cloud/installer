@@ -18,30 +18,8 @@ package v1alpha1
 
 import (
 	core "k8s.io/api/core/v1"
-	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 )
-
-const (
-	ResourceKindCadence = "Cadence"
-	ResourceCadence     = "cadence"
-	ResourceCadences    = "cadences"
-)
-
-// Cadence defines the schama for Cadence Installer.
-
-// +genclient
-// +genclient:skipVerbs=updateStatus
-// +k8s:openapi-gen=true
-// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
-
-// +kubebuilder:object:root=true
-// +kubebuilder:resource:path=cadences,singular=cadence,categories={kubeops,appscode}
-type Cadence struct {
-	metav1.TypeMeta   `json:",inline,omitempty"`
-	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              CadenceSpec `json:"spec,omitempty"`
-}
 
 type CadenceImageReference struct {
 	Repository string `json:"repository"`
@@ -178,14 +156,4 @@ type CadenceSchemaSpec struct {
 type CadenceSchemaJobSpec struct {
 	Enabled   bool                      `json:"enabled"`
 	Resources core.ResourceRequirements `json:"resources"`
-}
-
-// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
-
-// CadenceList is a list of Cadences
-type CadenceList struct {
-	metav1.TypeMeta `json:",inline"`
-	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of Cadence CRD objects
-	Items []Cadence `json:"items,omitempty"`
 }
