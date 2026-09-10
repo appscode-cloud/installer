@@ -253,6 +253,7 @@ helm:
 licenseServer:
   baseURL: ""
   token: ""
+  caBundle: ""
 distro:
   openshift: false
   ubi: ""

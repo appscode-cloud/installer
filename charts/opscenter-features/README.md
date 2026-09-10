@@ -169,6 +169,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.inbox-ui.version                                          |                                 | <code>"v2026.9.11"</code>                  |
 | licenseServer.baseURL                                                   |                                 | <code>""</code>                            |
 | licenseServer.token                                                     |                                 | <code>""</code>                            |
+| licenseServer.caBundle                                                  |                                 | <code>""</code>                            |
 | distro.openshift                                                        |                                 | <code>false</code>                         |
 | distro.ubi                                                              |                                 | <code>""</code>                            |
 

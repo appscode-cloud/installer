@@ -127,6 +127,8 @@ properties:
     properties:
       baseURL:
         type: string
+      caBundle:
+        type: string
       token:
         type: string
     required:
