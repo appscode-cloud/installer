@@ -55,6 +55,27 @@ gateway-dns:
 vaultServer:
   # Vault server name that exist on cluster
   name: "vault"
+  version: sigilr-2.6.1.1
+  replicas: 3
+  # propagated to the spoke's AppBinding; set false for the root case
+  isolateTenants: true
+  # ClusterIP | LoadBalancer | NodePort
+  # LoadBalancer and NodePort emit spec.serviceTemplates on the VaultServer
+  serviceType: ClusterIP
+  terminationPolicy: WipeOut
+  persistence:
+    storageClassName: ""
+    size: 1Gi
+  unsealer:
+    secretShares: 5
+    secretThreshold: 3
+  tls:
+    # cert-manager CA secret backing the vault issuer; empty means a selfSigned issuer
+    caSecretName: vault-ca
+  relay:
+    clusterSet: cp-dbaas-generic
+    namespace: vault-relay-demo
+    bootstrapTokenTTL: 24h
 
 distro:
   openshift: false
