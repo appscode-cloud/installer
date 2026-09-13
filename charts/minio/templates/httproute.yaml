@@ -1,5 +1,5 @@
 {{- if (index .Values "gateway" "enabled") }}
-{{- $fullName := include "service-backend.fullname" . -}}
+{{- $fullName := include "minio.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
 
 apiVersion: gateway.networking.k8s.io/v1
@@ -8,7 +8,7 @@ metadata:
   name: {{ include "minio.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "service-backend.labels" . | nindent 4 }}
+    {{- include "minio.labels" . | nindent 4 }}
   {{- with .Values.gateway.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
@@ -45,7 +45,7 @@ spec:
     backendRefs:
     - group: ""
       kind: Service
-      name: {{ include "minio.fullname" . }}
+      name: {{ $fullName }}
       namespace: {{ $.Release.Namespace }}
       port: {{ $svcPort }}
       weight: 1
