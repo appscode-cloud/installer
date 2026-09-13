@@ -15,8 +15,10 @@ spec:
       name: ace
       namespace: {{ .Release.Namespace }}
       sectionName: https
+  {{- if eq .Values.global.platform.hostType "domain" }}
   hostnames:
     - {{ .Values.global.platform.host }}
+  {{- end }}
   rules:
     - matches:
         - path:
