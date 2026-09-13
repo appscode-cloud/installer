@@ -50,6 +50,8 @@ spec:
         runAsGroup: {{ .Values.securityContext.runAsUser }}
     {{- end }}
   deletionPolicy: {{ .Values.settings.cache.deletionPolicy }}
+  configuration:
+    secretName: {{ include "ace.fullname" . }}-cache-config
   authSecret:
     name: {{ include "ace.fullname" . }}-cache-auth
     externallyManaged: true
