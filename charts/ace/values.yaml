@@ -93,6 +93,9 @@ openfga:
   #   seccompProfile:
   #     type: RuntimeDefault
 
+cadence:
+  enabled: false
+
 pgoutbox:
   enabled: false
 
@@ -353,6 +356,11 @@ settings:
   openfga:
     apiURL: ""
     preSharedKey: ""
+
+  # cadence server
+  cadence:
+    frontendAddress: ""
+    domain: ""
 
   ######## settings:
   platform:

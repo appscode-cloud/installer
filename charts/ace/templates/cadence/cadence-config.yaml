@@ -1,0 +1,12 @@
+{{- if .Values.cadence.enabled }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "ace.fullname" . }}-cadence-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.offshootLabels" . | nindent 4 }}
+stringData:
+  frontend-address: '{{ .Values.settings.cadence.frontendAddress }}'
+  domain: '{{ .Values.settings.cadence.domain }}'
+{{- end }}

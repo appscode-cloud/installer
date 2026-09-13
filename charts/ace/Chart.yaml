@@ -52,6 +52,10 @@ dependencies:
   repository: oci://ghcr.io/appscode-charts
   condition: openfga.enabled
   version: 0.2.52
+- name: cadence
+  repository: https://cadence-workflow.github.io/cadence-charts
+  condition: cadence.enabled
+  version: 1.6.7
 - name: pgoutbox
   repository: oci://ghcr.io/appscode-charts
   condition: pgoutbox.enabled
