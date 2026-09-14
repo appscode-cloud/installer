@@ -43,3 +43,4 @@ _testmain.go
 /charts/opscenter-features/charts
 /charts/platform-opscenter/charts
 /charts/service-gateway/charts
+/charts/service-vault/charts

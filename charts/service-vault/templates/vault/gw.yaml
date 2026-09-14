@@ -26,7 +26,7 @@ spec:
   parentRefs:
     - name: vault
   hostnames:
-    - "{{ printf "gw-%s.%s" .Values.infra.clusterName .Values.infra.host }}"
+    - {{ include "service-vault.gatewayHost" . | quote }}
   rules:
     - backendRefs:
         - group: ""

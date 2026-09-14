@@ -137,6 +137,9 @@ helm:
     reloader:
       enabled: true
       version: "2.2.9"
+    service-vault:
+      enabled: false
+      version: "v2026.9.11"
     service-gateway-presets:
       enabled: false
       version: "v2026.9.11"

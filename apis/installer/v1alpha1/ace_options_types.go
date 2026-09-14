@@ -76,6 +76,7 @@ type AceOptionsSpec struct {
 	PgOutbox             AceOptionsComponentSpec         `json:"pgoutbox"`
 	OutboxSyncer         AceOptionsComponentSpec         `json:"outbox-syncer"`
 	S3proxy              AceOptionsComponentSpec         `json:"s3proxy"`
+	SecretManagement     AceOptionsSecretManagement      `json:"secretManagement"`
 	Branding             AceBrandingSpec                 `json:"branding"`
 	CloudProviderOptions CloudProviderOptions            `json:"cloudProviderOptions"`
 	InitialSetup         configapi.AceSetupInlineOptions `json:"initialSetup"`
@@ -156,6 +157,10 @@ type HelmOptions struct {
 type HelmRepositories struct {
 	//+optional
 	AppscodeChartsOci string `json:"appscode-charts-oci"`
+}
+
+type AceOptionsSecretManagement struct {
+	Vault AceOptionsComponentSpec `json:"vault"`
 }
 
 type AceOptionsComponentSpec struct {

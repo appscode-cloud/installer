@@ -23,3 +23,4 @@ helm dependency update charts/ace
 helm dependency update charts/ace-installer
 helm dependency update charts/ace-installer-certified
 helm dependency update charts/service-gateway
+helm dependency update charts/service-vault

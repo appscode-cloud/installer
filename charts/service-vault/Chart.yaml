@@ -11,3 +11,7 @@ sources:
 maintainers:
 - name: appscode
   email: support@appscode.com
+dependencies:
+- name: kubevault
+  repository: oci://ghcr.io/appscode-charts
+  version: v2026.8.7

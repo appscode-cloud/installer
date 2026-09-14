@@ -7,6 +7,30 @@ nameOverride: ""
 # Overrides fullname template
 fullnameOverride: ""
 
+global:
+  # License for the product.
+  # Example:
+  # helm install appscode/service-vault \
+  #   --set-file global.license=/path/to/license/file
+  license: ""
+  # Name of Secret with the license as key.txt key
+  licenseSecretName: ""
+  # Docker registry used to pull the images
+  registry: ""
+  # Docker registry fqdn used to pull the images.
+  # Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image}
+  registryFQDN: ghcr.io
+  # Specify an array of imagePullSecrets.
+  # Secrets must be manually created in the namespace.
+  imagePullSecrets: []
+  distro:
+    openshift: false
+    ubi: ""
+
+clusterMetadata:
+  uid: ""
+  name: ""
+
 infra:
   host: chart-example.local
   hostType: domain
@@ -55,6 +79,27 @@ gateway-dns:
 vaultServer:
   # Vault server name that exist on cluster
   name: "vault"
+  version: sigilr-2.6.1.1
+  replicas: 3
+  # propagated to the spoke's AppBinding; set false for the root case
+  isolateTenants: true
+  # ClusterIP | LoadBalancer | NodePort
+  # LoadBalancer and NodePort emit spec.serviceTemplates on the VaultServer
+  serviceType: ClusterIP
+  terminationPolicy: WipeOut
+  persistence:
+    storageClassName: ""
+    size: 1Gi
+  unsealer:
+    secretShares: 5
+    secretThreshold: 3
+  tls:
+    # cert-manager CA secret backing the vault issuer; empty means a selfSigned issuer
+    caSecretName: vault-ca
+  relay:
+    clusterSet: cp-dbaas-generic
+    namespace: vault-relay-demo
+    bootstrapTokenTTL: 24h
 
 distro:
   openshift: false
