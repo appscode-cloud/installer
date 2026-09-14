@@ -27,7 +27,7 @@ KUBEOPS_EXTERNAL_DNS_OPERATOR=${KUBEOPS_EXTERNAL_DNS_OPERATOR:-v0.3.0}
 KUBEOPS_PETSET_TAG=${KUBEOPS_PETSET_TAG:-v0.0.16}
 KUBERNETES_SIGS_GATEWAY_API_TAG=${KUBERNETES_SIGS_GATEWAY_API_TAG:-v1.4.1}
 KUBESTASH_APIMACHINERY_TAG=${KUBESTASH_APIMACHINERY_TAG:-v0.23.0}
-KUBEVAULT_APIMACHINERY_TAG=${KUBEVAULT_APIMACHINERY_TAG:-v0.23.0}
+KUBEVAULT_APIMACHINERY_TAG=${KUBEVAULT_APIMACHINERY_TAG:-v0.25.0}
 OPEN_CLUSTER_MANAGEMENT_IO_API_TAG=${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG:-v1.2.0}
 PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR=${PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR:-v0.87.1}
 X_HELM_APIMACHINERY_TAG=${X_HELM_APIMACHINERY_TAG:-v0.0.18}
@@ -125,15 +125,12 @@ crd-importer \
     --input=https://github.com/appscode-cloud/kube-bind/raw/${APPSCODE_CLOUD_KUBE_BIND_TAG}/crds/kube-bind.appscode.com_clusterbindings.yaml \
     --out=./charts/service-provider/crds
 
+# Gateway API, caprovider and OCM CRDs are installed by their own releases before the
+# ace release that carries this chart; see charts/ace/crds, which ships none of them either.
 crd-importer \
-    --input=https://github.com/kubeops/csi-driver-cacerts/raw/${KUBEOPS_CSI_DRIVER_CACERTS_TAG}/crds/cacerts.csi.cert-manager.io_caproviderclasses.yaml \
-    --input=https://github.com/kubernetes-sigs/gateway-api/raw/${KUBERNETES_SIGS_GATEWAY_API_TAG}/config/crd/standard/gateway.networking.k8s.io_gateways.yaml \
-    --input=https://github.com/kubernetes-sigs/gateway-api/raw/${KUBERNETES_SIGS_GATEWAY_API_TAG}/config/crd/standard/gateway.networking.k8s.io_httproutes.yaml \
     --input=https://github.com/kubevault/apimachinery/raw/${KUBEVAULT_APIMACHINERY_TAG}/crds/kubevault.com_vaultservers.yaml \
     --input=https://github.com/kubevault/apimachinery/raw/${KUBEVAULT_APIMACHINERY_TAG}/crds/policy.kubevault.com_vaultpolicies.yaml \
     --input=https://github.com/kubevault/apimachinery/raw/${KUBEVAULT_APIMACHINERY_TAG}/crds/policy.kubevault.com_vaultpolicybindings.yaml \
-    --input=https://github.com/kubevault/apimachinery/raw/${KUBEVAULT_APIMACHINERY_TAG}/crds/engine.kubevault.com_secretengines.yaml \
-    --input=https://github.com/kubevault/apimachinery/raw/${KUBEVAULT_APIMACHINERY_TAG}/crds/engine.kubevault.com_pkiroles.yaml \
     --out=./charts/service-vault/crds
 
 crd-importer \

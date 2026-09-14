@@ -54,12 +54,31 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 Returns whether the OpenShift distribution is used
 */}}
 {{- define "distro.openshift" -}}
-{{- or (.Capabilities.APIVersions.Has "project.openshift.io/v1/Project") .Values.distro.openshift -}}
+{{- or (.Capabilities.APIVersions.Has "project.openshift.io/v1/Project") .Values.global.distro.openshift (and .Values.distro .Values.distro.openshift) -}}
 {{- end }}
 
 {{/*
 Returns if ubi images are to be used
 */}}
 {{- define "operator.ubi" -}}
-{{ ternary "-ubi" "" (list "operator" "all" | has .Values.distro.ubi) }}
+{{ ternary "-ubi" "" (list "operator" "all" | has (default (dig "ubi" "" (default dict .Values.distro)) .Values.global.distro.ubi)) }}
+{{- end }}
+
+{{/*
+Name of the cluster hosting this vault. The hub installs itself as `ace`
+(see charts/ace-installer/templates/featuresets/saas-core/service-gateway-presets.yaml).
+*/}}
+{{- define "service-vault.clusterName" -}}
+{{- default "ace" .Values.clusterMetadata.name -}}
+{{- end }}
+
+{{/*
+Gateway hostname serving the vault, and the vault PKI domain derived from it.
+*/}}
+{{- define "service-vault.gatewayHost" -}}
+{{- printf "gw-%s.%s" (include "service-vault.clusterName" .) .Values.infra.host -}}
+{{- end }}
+
+{{- define "service-vault.pkiDomain" -}}
+{{- include "service-vault.gatewayHost" . | replace "." "-" -}}
 {{- end }}

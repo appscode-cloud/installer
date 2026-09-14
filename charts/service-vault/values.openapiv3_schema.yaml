@@ -1,4 +1,14 @@
 properties:
+  clusterMetadata:
+    properties:
+      name:
+        type: string
+      uid:
+        type: string
+    required:
+    - name
+    - uid
+    type: object
   distro:
     properties:
       openshift:
@@ -268,6 +278,41 @@ properties:
     required:
     - enabled
     type: object
+  global:
+    properties:
+      distro:
+        properties:
+          openshift:
+            type: boolean
+          ubi:
+            enum:
+            - all
+            - catalog
+            - operator
+            type: string
+        required:
+        - openshift
+        - ubi
+        type: object
+      imagePullSecrets:
+        items:
+          type: string
+        type: array
+      license:
+        type: string
+      licenseSecretName:
+        type: string
+      registry:
+        type: string
+      registryFQDN:
+        type: string
+    required:
+    - imagePullSecrets
+    - license
+    - licenseSecretName
+    - registry
+    - registryFQDN
+    type: object
   infra:
     properties:
       dns:
@@ -422,14 +467,82 @@ properties:
     type: string
   vaultServer:
     properties:
+      isolateTenants:
+        type: boolean
       name:
         type: string
+      persistence:
+        properties:
+          size:
+            anyOf:
+            - type: integer
+            - type: string
+            pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+            x-kubernetes-int-or-string: true
+          storageClassName:
+            type: string
+        required:
+        - size
+        - storageClassName
+        type: object
+      relay:
+        properties:
+          bootstrapTokenTTL:
+            type: string
+          clusterSet:
+            type: string
+          namespace:
+            type: string
+        required:
+        - bootstrapTokenTTL
+        - clusterSet
+        - namespace
+        type: object
+      replicas:
+        format: int32
+        type: integer
+      serviceType:
+        type: string
+      terminationPolicy:
+        type: string
+      tls:
+        properties:
+          caSecretName:
+            type: string
+        required:
+        - caSecretName
+        type: object
+      unsealer:
+        properties:
+          secretShares:
+            format: int32
+            type: integer
+          secretThreshold:
+            format: int32
+            type: integer
+        required:
+        - secretShares
+        - secretThreshold
+        type: object
+      version:
+        type: string
     required:
+    - isolateTenants
     - name
+    - persistence
+    - relay
+    - replicas
+    - serviceType
+    - terminationPolicy
+    - tls
+    - unsealer
+    - version
     type: object
 required:
+- clusterMetadata
 - fullnameOverride
 - gateway-dns
+- global
 - infra
 - nameOverride
 type: object

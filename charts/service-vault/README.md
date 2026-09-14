@@ -45,36 +45,58 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `service-vault` chart and their default values.
 
-|         Parameter          |               Description               |                            Default                             |
-|----------------------------|-----------------------------------------|----------------------------------------------------------------|
-| nameOverride               | Overrides name template                 | <code>""</code>                                                |
-| fullnameOverride           | Overrides fullname template             | <code>""</code>                                                |
-| infra.host                 |                                         | <code>chart-example.local</code>                               |
-| infra.hostType             |                                         | <code>domain</code>                                            |
-| infra.tenantSpreadPolicy   |                                         | <code>"multi"</code>                                           |
-| infra.tls.issuer           |                                         | <code>"ca" # ca,letsencrypt,letsencrypt-staging</code>         |
-| infra.tls.ca.cert          |                                         | <code>""</code>                                                |
-| infra.tls.ca.key           |                                         | <code>""</code>                                                |
-| infra.tls.acme.email       |                                         | <code>ops@appscode.com</code>                                  |
-| infra.tls.acme.solver      |                                         | <code>Gateway</code>                                           |
-| infra.tls.acme.gatewayName |                                         | <code>backend</code>                                           |
-| infra.tls.certificate.cert |                                         | <code>""</code>                                                |
-| infra.tls.certificate.key  |                                         | <code>""</code>                                                |
-| infra.tls.jks.keystore     |                                         | <code></code>                                                  |
-| infra.tls.jks.truststore   |                                         | <code></code>                                                  |
-| infra.tls.jks.password     |                                         | <code>""</code>                                                |
-| infra.dns.provider         |                                         | <code>"external" # external,cloudflare,route53,cloudDNS</code> |
-| infra.dns.auth             |                                         | <code>{}</code>                                                |
-| gateway-dns.enabled        |                                         | <code>false</code>                                             |
-| vaultServer.name           | Vault server name that exist on cluster | <code>"vault"</code>                                           |
-| distro.openshift           |                                         | <code>false</code>                                             |
-| distro.ubi                 |                                         | <code>""</code>                                                |
+|                Parameter                 |                                                                Description                                                                 |                            Default                             |
+|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| nameOverride                             | Overrides name template                                                                                                                    | <code>""</code>                                                |
+| fullnameOverride                         | Overrides fullname template                                                                                                                | <code>""</code>                                                |
+| global.license                           | License for the product. <br> Example: <br> `helm install appscode/service-vault \` <br> `--set-file global.license=/path/to/license/file` | <code>""</code>                                                |
+| global.licenseSecretName                 | Name of Secret with the license as key.txt key                                                                                             | <code>""</code>                                                |
+| global.registry                          | Docker registry used to pull the images                                                                                                    | <code>""</code>                                                |
+| global.registryFQDN                      | Docker registry fqdn used to pull the images. Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image}               | <code>ghcr.io</code>                                           |
+| global.imagePullSecrets                  | Specify an array of imagePullSecrets. Secrets must be manually created in the namespace.                                                   | <code>[]</code>                                                |
+| global.distro.openshift                  |                                                                                                                                            | <code>false</code>                                             |
+| global.distro.ubi                        |                                                                                                                                            | <code>""</code>                                                |
+| clusterMetadata.uid                      |                                                                                                                                            | <code>""</code>                                                |
+| clusterMetadata.name                     |                                                                                                                                            | <code>""</code>                                                |
+| infra.host                               |                                                                                                                                            | <code>chart-example.local</code>                               |
+| infra.hostType                           |                                                                                                                                            | <code>domain</code>                                            |
+| infra.tenantSpreadPolicy                 |                                                                                                                                            | <code>"multi"</code>                                           |
+| infra.tls.issuer                         |                                                                                                                                            | <code>"ca" # ca,letsencrypt,letsencrypt-staging</code>         |
+| infra.tls.ca.cert                        |                                                                                                                                            | <code>""</code>                                                |
+| infra.tls.ca.key                         |                                                                                                                                            | <code>""</code>                                                |
+| infra.tls.acme.email                     |                                                                                                                                            | <code>ops@appscode.com</code>                                  |
+| infra.tls.acme.solver                    |                                                                                                                                            | <code>Gateway</code>                                           |
+| infra.tls.acme.gatewayName               |                                                                                                                                            | <code>backend</code>                                           |
+| infra.tls.certificate.cert               |                                                                                                                                            | <code>""</code>                                                |
+| infra.tls.certificate.key                |                                                                                                                                            | <code>""</code>                                                |
+| infra.tls.jks.keystore                   |                                                                                                                                            | <code></code>                                                  |
+| infra.tls.jks.truststore                 |                                                                                                                                            | <code></code>                                                  |
+| infra.tls.jks.password                   |                                                                                                                                            | <code>""</code>                                                |
+| infra.dns.provider                       |                                                                                                                                            | <code>"external" # external,cloudflare,route53,cloudDNS</code> |
+| infra.dns.auth                           |                                                                                                                                            | <code>{}</code>                                                |
+| gateway-dns.enabled                      |                                                                                                                                            | <code>false</code>                                             |
+| vaultServer.name                         | Vault server name that exist on cluster                                                                                                    | <code>"vault"</code>                                           |
+| vaultServer.version                      |                                                                                                                                            | <code>sigilr-2.6.1.1</code>                                    |
+| vaultServer.replicas                     |                                                                                                                                            | <code>3</code>                                                 |
+| vaultServer.isolateTenants               | propagated to the spoke's AppBinding; set false for the root case                                                                          | <code>true</code>                                              |
+| vaultServer.serviceType                  | ClusterIP | LoadBalancer | NodePort LoadBalancer and NodePort emit spec.serviceTemplates on the VaultServer                                | <code>ClusterIP</code>                                         |
+| vaultServer.terminationPolicy            |                                                                                                                                            | <code>WipeOut</code>                                           |
+| vaultServer.persistence.storageClassName |                                                                                                                                            | <code>""</code>                                                |
+| vaultServer.persistence.size             |                                                                                                                                            | <code>1Gi</code>                                               |
+| vaultServer.unsealer.secretShares        |                                                                                                                                            | <code>5</code>                                                 |
+| vaultServer.unsealer.secretThreshold     |                                                                                                                                            | <code>3</code>                                                 |
+| vaultServer.tls.caSecretName             | cert-manager CA secret backing the vault issuer; empty means a selfSigned issuer                                                           | <code>vault-ca</code>                                          |
+| vaultServer.relay.clusterSet             |                                                                                                                                            | <code>cp-dbaas-generic</code>                                  |
+| vaultServer.relay.namespace              |                                                                                                                                            | <code>vault-relay-demo</code>                                  |
+| vaultServer.relay.bootstrapTokenTTL      |                                                                                                                                            | <code>24h</code>                                               |
+| distro.openshift                         |                                                                                                                                            | <code>false</code>                                             |
+| distro.ubi                               |                                                                                                                                            | <code>""</code>                                                |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i service-vault appscode/service-vault -n ace --create-namespace --version=v2026.9.11 --set infra.host=chart-example.local
+$ helm upgrade -i service-vault appscode/service-vault -n ace --create-namespace --version=v2026.9.11 --set global.registryFQDN=ghcr.io
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
