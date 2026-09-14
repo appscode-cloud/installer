@@ -65,6 +65,7 @@ type AceSpec struct {
 	NatsDns        AceNatsDns        `json:"nats-dns"`
 	Trickster      AceTrickster      `json:"trickster"`
 	Openfga        AceOpenfga        `json:"openfga"`
+	Cadence        AceCadence        `json:"cadence"`
 	S3proxy        AceS3proxy        `json:"s3proxy"`
 	PgOutbox       AcePgOutbox       `json:"pgoutbox"`
 	OutboxSyncer   AceOutboxSyncer   `json:"outbox-syncer"`
@@ -180,6 +181,11 @@ type AceOpenfga struct {
 	Enabled      bool   `json:"enabled"`
 	DatastoreURI string `json:"datastoreURI"`
 	*OpenfgaSpec `json:",inline,omitempty"`
+}
+
+type AceCadence struct {
+	Enabled      bool `json:"enabled"`
+	*CadenceSpec `json:",inline,omitempty"`
 }
 
 // AceOpenfgaDatastore exposes the subset of openfga datastore connection
@@ -387,6 +393,7 @@ type Settings struct {
 	Smtp        SmtpSettings        `json:"smtp"`
 	Nats        NatsSettings        `json:"nats"`
 	OpenFGA     OpenFGASettings     `json:"openfga"`
+	Cadence     CadenceSettings     `json:"cadence"`
 	Platform    PlatformSettings    `json:"platform"`
 	Security    SecuritySettings    `json:"security"`
 	Grafana     GrafanaSettings     `json:"grafana"`
@@ -525,6 +532,11 @@ type InboxServerSettings struct {
 type OpenFGASettings struct {
 	ApiURL       string `json:"apiURL"`
 	PreSharedKey string `json:"preSharedKey"`
+}
+
+type CadenceSettings struct {
+	FrontendAddress string `json:"frontendAddress"`
+	Domain          string `json:"domain"`
 }
 
 type ContractStorage struct {
