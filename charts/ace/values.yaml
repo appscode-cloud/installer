@@ -295,16 +295,16 @@ settings:
       password: "xyz"
     logSQL: false
   pgpool:
-    enabled: false
+    enabled: true
     replicas: 2
     config:
       num_init_children: "32"
       max_pool: "3"
       listen_backlog_multiplier: "4"
-      child_life_time: "300"
+      child_life_time: "0"
       child_max_connections: "1000"
-      connection_life_time: "600"
-      client_idle_limit: "300"
+      connection_life_time: "0"
+      client_idle_limit: "60"
       connection_cache: "on"
     resources:
       limits:
