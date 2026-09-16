@@ -9883,6 +9883,11 @@ func (in *PlatformSettings) DeepCopyInto(out *PlatformSettings) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.DisableRegularOrgCreation != nil {
+		in, out := &in.DisableRegularOrgCreation, &out.DisableRegularOrgCreation
+		*out = new(bool)
+		**out = **in
+	}
 	if in.ServiceDomainWhiteList != nil {
 		in, out := &in.ServiceDomainWhiteList, &out.ServiceDomainWhiteList
 		*out = make([]string, len(*in))

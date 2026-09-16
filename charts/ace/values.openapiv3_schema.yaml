@@ -24750,6 +24750,8 @@ properties:
             type: string
           disableHttpGit:
             type: boolean
+          disableRegularOrgCreation:
+            type: boolean
           enableCSRFCookieHttpOnly:
             type: boolean
           forcePrivate:

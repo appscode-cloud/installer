@@ -14,6 +14,11 @@ stringData:
   user.ini: |-
     [service]
     EMAIL_DOMAIN_WHITELIST = {{ join "," .Values.settings.platform.serviceDomainWhiteList }}
+{{- if kindIs "bool" .Values.settings.platform.disableRegularOrgCreation }}
+
+    [admin]
+    DISABLE_REGULAR_ORG_CREATION = {{ .Values.settings.platform.disableRegularOrgCreation }}
+{{- end }}
 
     [branding]
     APP_NAME = {{ .Values.settings.platform.appName }}
