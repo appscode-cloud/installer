@@ -42,8 +42,8 @@ spec:
   interval: 5m
   timeout: 30m
   releaseName: service-vault
-  targetNamespace: ace
-  storageNamespace: ace
+  targetNamespace: kubevault
+  storageNamespace: kubevault
   install:
     createNamespace: {{ $.Values.helm.createNamespace }}
     crds: CreateReplace
