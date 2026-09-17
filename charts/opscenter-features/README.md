@@ -82,7 +82,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.capi-ops-manager.version                                  |                                 | <code>"v2024.8.14"</code>                  |
 | helm.releases.catalog-manager.version                                   |                                 | <code>"v2026.9.11"</code>                  |
 | helm.releases.cert-manager.version                                      |                                 | <code>"v1.19.3"</code>                     |
-| helm.releases.cert-manager-csi-driver-cacerts.version                   |                                 | <code>"v2026.1.15"</code>                  |
+| helm.releases.cert-manager-csi-driver-cacerts.version                   |                                 | <code>"v2026.9.18"</code>                  |
 | helm.releases.cluster-autoscaler.version                                |                                 | <code>"9.29.0"</code>                      |
 | helm.releases.cluster-presets.version                                   |                                 | <code>"v2026.9.11"</code>                  |
 | helm.releases.config-syncer.version                                     |                                 | <code>"v0.15.4"</code>                     |
@@ -103,12 +103,12 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kube-prometheus-stack.version                             |                                 | <code>"69.2.2"</code>                      |
 | helm.releases.kubedb-ui-presets.version                                 |                                 | <code>"v2026.9.11"</code>                  |
 | helm.releases.kube-ui-server.version                                    |                                 | <code>"v2026.9.11"</code>                  |
-| helm.releases.kubedb.version                                            |                                 | <code>"v2026.7.10"</code>                  |
-| helm.releases.kubedb-opscenter.version                                  |                                 | <code>"v2026.7.10"</code>                  |
+| helm.releases.kubedb.version                                            |                                 | <code>"v2026.8.26-rc.2"</code>             |
+| helm.releases.kubedb-opscenter.version                                  |                                 | <code>"v2026.8.26-rc.2"</code>             |
 | helm.releases.kubedb-provider-aws.version                               |                                 | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubedb-provider-azure.version                             |                                 | <code>"v2024.1.31"</code>                  |
 | helm.releases.kubedb-provider-gcp.version                               |                                 | <code>"v2024.1.31"</code>                  |
-| helm.releases.kubestash.version                                         |                                 | <code>"v2026.7.10"</code>                  |
+| helm.releases.kubestash.version                                         |                                 | <code>"v2026.8.12-rc.0"</code>             |
 | helm.releases.kubevault.version                                         |                                 | <code>"v2026.8.7"</code>                   |
 | helm.releases.kubevault-opscenter.version                               |                                 | <code>"v2026.8.7"</code>                   |
 | helm.releases.kyverno.version                                           |                                 | <code>"3.2.6"</code>                       |
@@ -160,7 +160,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.cluster-proxy-manager.version                             |                                 | <code>"v2026.6.26"</code>                  |
 | helm.releases.cluster-gateway-manager.version                           |                                 | <code>"v2026.6.26"</code>                  |
 | helm.releases.cluster-auth-manager.version                              |                                 | <code>"v2026.2.16"</code>                  |
-| helm.releases.cluster-profile-manager.version                           |                                 | <code>"v2026.6.26"</code>                  |
+| helm.releases.cluster-profile-manager.version                           |                                 | <code>"v2026.9.18"</code>                  |
 | helm.releases.hub-cluster-robot.version                                 |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.fluxcd-manager.version                                    |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.license-proxyserver-manager.version                       |                                 | <code>"v2026.2.16"</code>                  |

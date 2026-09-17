@@ -79,7 +79,7 @@ helm:
     cert-manager:
       version: "v1.19.3"
     cert-manager-csi-driver-cacerts:
-      version: "v2026.1.15"
+      version: "v2026.9.18"
     cluster-autoscaler:
       version: "9.29.0"
     cluster-presets:
@@ -121,9 +121,9 @@ helm:
     kube-ui-server:
       version: "v2026.9.11"
     kubedb:
-      version: "v2026.7.10"
+      version: "v2026.8.26-rc.2"
     kubedb-opscenter:
-      version: "v2026.7.10"
+      version: "v2026.8.26-rc.2"
     kubedb-provider-aws:
       version: "v2024.1.31"
     kubedb-provider-azure:
@@ -131,7 +131,7 @@ helm:
     kubedb-provider-gcp:
       version: "v2024.1.31"
     kubestash:
-      version: "v2026.7.10"
+      version: "v2026.8.12-rc.0"
     kubevault:
       version: "v2026.8.7"
     kubevault-opscenter:
@@ -237,7 +237,7 @@ helm:
     cluster-auth-manager:
       version: "v2026.2.16"
     cluster-profile-manager:
-      version: "v2026.6.26"
+      version: "v2026.9.18"
     hub-cluster-robot:
       version: "v2026.2.16"
     fluxcd-manager:

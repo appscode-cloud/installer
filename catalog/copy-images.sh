@@ -86,7 +86,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ca
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-catalog:v2024.10.24 $IMAGE_REGISTRY/appscode-charts/capi-catalog:v2024.10.24
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/capi-ops-manager:v2024.8.14 $IMAGE_REGISTRY/appscode-charts/capi-ops-manager:v2024.8.14
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/catalog-manager:v2026.9.11 $IMAGE_REGISTRY/appscode-charts/catalog-manager:v2026.9.11
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2026.1.15 $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2026.1.15
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager-csi-driver-cacerts:v2026.9.18 $IMAGE_REGISTRY/appscode-charts/cert-manager-csi-driver-cacerts:v2026.9.18
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cert-manager:v1.19.3 $IMAGE_REGISTRY/appscode-charts/cert-manager:v1.19.3
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-chartpreset-editor:v0.37.0 $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-chartpreset-editor:v0.37.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.37.0 $IMAGE_REGISTRY/appscode-charts/chartsxhelmdev-clusterchartpreset-editor-options:v0.37.0
@@ -97,7 +97,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cl
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-hub:v2026.2.16 $IMAGE_REGISTRY/appscode-charts/cluster-manager-hub:v2026.2.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-spoke:v2026.2.16 $IMAGE_REGISTRY/appscode-charts/cluster-manager-spoke:v2026.2.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-presets:v2026.9.11 $IMAGE_REGISTRY/appscode-charts/cluster-presets:v2026.9.11
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-profile-manager:v2026.6.26 $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2026.6.26
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-profile-manager:v2026.9.18 $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2026.9.18
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-proxy-manager:v2026.6.26 $IMAGE_REGISTRY/appscode-charts/cluster-proxy-manager:v2026.6.26
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/config-syncer:v0.15.4 $IMAGE_REGISTRY/appscode-charts/config-syncer:v0.15.4
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/corekubestashcom-backupbatch-editor:v0.37.0 $IMAGE_REGISTRY/appscode-charts/corekubestashcom-backupbatch-editor:v0.37.0
@@ -135,12 +135,12 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ke
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-grafana-dashboards:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/kube-grafana-dashboards:v2023.10.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-prometheus-stack:69.2.2 $IMAGE_REGISTRY/appscode-charts/kube-prometheus-stack:69.2.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-ui-server:v2026.9.11 $IMAGE_REGISTRY/appscode-charts/kube-ui-server:v2026.9.11
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-opscenter:v2026.7.10 $IMAGE_REGISTRY/appscode-charts/kubedb-opscenter:v2026.7.10
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-opscenter:v2026.8.26-rc.2 $IMAGE_REGISTRY/appscode-charts/kubedb-opscenter:v2026.8.26-rc.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-provider-aws:v2024.1.31 $IMAGE_REGISTRY/appscode-charts/kubedb-provider-aws:v2024.1.31
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-provider-azure:v2024.1.31 $IMAGE_REGISTRY/appscode-charts/kubedb-provider-azure:v2024.1.31
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-provider-gcp:v2024.1.31 $IMAGE_REGISTRY/appscode-charts/kubedb-provider-gcp:v2024.1.31
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-ui-presets:v2026.9.11 $IMAGE_REGISTRY/appscode-charts/kubedb-ui-presets:v2026.9.11
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb:v2026.7.10 $IMAGE_REGISTRY/appscode-charts/kubedb:v2026.7.10
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb:v2026.8.26-rc.2 $IMAGE_REGISTRY/appscode-charts/kubedb:v2026.8.26-rc.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-aerospike-editor:v0.37.0 $IMAGE_REGISTRY/appscode-charts/kubedbcom-aerospike-editor:v0.37.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-cassandra-editor-options:v0.37.0 $IMAGE_REGISTRY/appscode-charts/kubedbcom-cassandra-editor-options:v0.37.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-cassandra-editor:v0.37.0 $IMAGE_REGISTRY/appscode-charts/kubedbcom-cassandra-editor:v0.37.0
@@ -204,7 +204,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ku
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-weaviate-editor:v0.37.0 $IMAGE_REGISTRY/appscode-charts/kubedbcom-weaviate-editor:v0.37.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-zookeeper-editor-options:v0.37.0 $IMAGE_REGISTRY/appscode-charts/kubedbcom-zookeeper-editor-options:v0.37.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-zookeeper-editor:v0.37.0 $IMAGE_REGISTRY/appscode-charts/kubedbcom-zookeeper-editor:v0.37.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubestash:v2026.7.10 $IMAGE_REGISTRY/appscode-charts/kubestash:v2026.7.10
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubestash:v2026.8.12-rc.0 $IMAGE_REGISTRY/appscode-charts/kubestash:v2026.8.12-rc.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubevault-opscenter:v2026.8.7 $IMAGE_REGISTRY/appscode-charts/kubevault-opscenter:v2026.8.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubevault:v2026.8.7 $IMAGE_REGISTRY/appscode-charts/kubevault:v2026.8.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno-policies:3.2.5 $IMAGE_REGISTRY/appscode-charts/kyverno-policies:3.2.5
