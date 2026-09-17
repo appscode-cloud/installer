@@ -89,3 +89,6 @@ openfga:
     repository: ghcr.io/appscode/openfga
   initContainer:
     repository: ghcr.io/appscode/k8s-wait-for
+
+cadence:
+  enabled: true
