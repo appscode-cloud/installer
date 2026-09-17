@@ -480,8 +480,10 @@ type PlatformSettings struct {
 	ServiceEnableCaptcha         bool    `json:"serviceEnableCaptcha"`
 	ServiceRegisterEmailConfirm  bool    `json:"serviceRegisterEmailConfirm"`
 	ServiceDisableRegistration   bool    `json:"serviceDisableRegistration"`
-	ServiceRequireSignInView     bool    `json:"serviceRequireSignInView"`
-	ServiceEnableNotifyMail      bool    `json:"serviceEnableNotifyMail"`
+	// +optional
+	DisableRegularOrgCreation *bool `json:"disableRegularOrgCreation"`
+	ServiceRequireSignInView  bool  `json:"serviceRequireSignInView"`
+	ServiceEnableNotifyMail   bool  `json:"serviceEnableNotifyMail"`
 	// +optional
 	ServiceDomainWhiteList          []string `json:"serviceDomainWhiteList"`
 	CookieName                      string   `json:"cookieName"`

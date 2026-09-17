@@ -402,6 +402,11 @@ settings:
     ##
     serviceDisableRegistration: false
 
+    ## Bar regular users from creating organizations. Only seeds the ace-user-config secret;
+    ## site admins toggle it at runtime. Null lets the platform decide (on for selfhosted).
+    ##
+    disableRegularOrgCreation: null
+
     ## Weather or not sign in is required to view anything.
     ##
     serviceRequireSignInView: false
