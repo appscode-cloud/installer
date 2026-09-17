@@ -95,6 +95,48 @@ openfga:
 
 cadence:
   enabled: false
+  global:
+    # Image of the frontend, matching, history and worker services
+    image:
+      repository: docker.io/ubercadence/server
+      tag: v1.4.1
+      pullPolicy: IfNotPresent
+    # templates/cadence/cadence-db-secret.yaml creates this secret from settings.db.auth.password
+    env:
+    - name: POSTGRES_PWD
+      valueFrom:
+        secretKeyRef:
+          name: ace-cadence-db
+          key: POSTGRES_PWD
+  web:
+    image:
+      repository: docker.io/ubercadence/web
+      tag: v4.0.11
+      pullPolicy: IfNotPresent
+  # Store cadence data in the ace postgres database
+  config:
+    persistence:
+      database:
+        driver: postgres
+        sql:
+          # ace postgres service
+          hosts: ace-db
+          # templates/db/init-script.yaml creates the dbname and visibilityDbname databases
+          dbname: cadence
+          visibilityDbname: cadence_visibility
+          # must match settings.db.auth.username
+          user: postgres
+          # Placeholder. It must be non-empty for cadence to read the password from
+          # POSTGRES_PWD, which the ace chart sets from settings.db.auth.password.
+          password: set-from-settings-db-auth-password
+          maxConns: 20
+          maxIdleConns: 20
+          maxConnLifetime: 1h
+          tls:
+            enabled: false
+  # The cadence chart deploys cassandra by default. ace uses its own postgres instead.
+  cassandra:
+    enabled: false
 
 pgoutbox:
   enabled: false
@@ -359,8 +401,27 @@ settings:
 
   # cadence server
   cadence:
-    frontendAddress: ""
-    domain: ""
+    # Defaults to the frontend service of the bundled cadence chart
+    # (<release>-cadence-frontend.<namespace>.svc) when empty.
+    host: ""
+    # tchannel port of the cadence frontend
+    port: 7933
+    domain: ace-domain
+    taskList: ace-task-list
+    serviceName: cadence-frontend
+    maxConcurrentActivityExecutionSize: 100
+    maxConcurrentWorkflowTaskExecutionSize: 50
+    maxConcurrentActivityTaskPollers: 5
+    maxConcurrentDecisionTaskPollers: 5
+    maxConcurrentLocalActivityExecutionSize: 100
+    # 0 uses the cadence client default
+    workerActivitiesPerSecond: 0
+    # 0 uses the cadence client default
+    taskListActivitiesPerSecond: 0
+    workerStopTimeout: 1m0s
+    enableLogging: false
+    disableStickyExecution: false
+    stickyScheduleToStartTimeout: 5s
 
   ######## settings:
   platform:

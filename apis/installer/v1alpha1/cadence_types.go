@@ -18,109 +18,42 @@ package v1alpha1
 
 import (
 	core "k8s.io/api/core/v1"
-	"k8s.io/apimachinery/pkg/runtime"
 )
+
+// CadenceSpec is the schema for the cadence chart values set by the ace chart.
+// It covers only the subset of
+// https://github.com/cadence-workflow/cadence-charts/blob/cadence-1.6.7/charts/cadence/values.yaml
+// that ace overrides; every other value keeps the cadence chart default.
+type CadenceSpec struct {
+	Global    CadenceGlobalSpec    `json:"global"`
+	Web       CadenceWebSpec       `json:"web"`
+	Config    CadenceConfigSpec    `json:"config"`
+	Cassandra CadenceCassandraSpec `json:"cassandra"`
+}
+
+// CadenceGlobalSpec holds the values shared by the cadence server services
+// (frontend, matching, history and worker).
+type CadenceGlobalSpec struct {
+	Image CadenceImageReference `json:"image"`
+	// Env is added to every cadence server container. The ace chart uses it to
+	// hand the database password (POSTGRES_PWD) to the servers.
+	Env []core.EnvVar `json:"env"`
+}
 
 type CadenceImageReference struct {
 	Repository string `json:"repository"`
-	PullPolicy string `json:"pullPolicy"`
 	Tag        string `json:"tag"`
-}
-
-type CadenceServiceSpec struct {
-	Replicas                 int                       `json:"replicas"`
-	Port                     int                       `json:"port"`
-	GrpcPort                 int                       `json:"grpcPort"`
-	Resources                core.ResourceRequirements `json:"resources"`
-	NodeSelector             map[string]string         `json:"nodeSelector"`
-	PodAnnotations           map[string]string         `json:"podAnnotations"`
-	Affinity                 *core.Affinity            `json:"affinity"`
-	Tolerations              []core.Toleration         `json:"tolerations"`
-	ContainerSecurityContext *core.SecurityContext     `json:"containerSecurityContext"`
+	PullPolicy string `json:"pullPolicy"`
 }
 
 type CadenceWebSpec struct {
-	Enabled                  bool                      `json:"enabled"`
-	Image                    CadenceImageReference     `json:"image"`
-	Replicas                 int                       `json:"replicas"`
-	Resources                core.ResourceRequirements `json:"resources"`
-	NodeSelector             map[string]string         `json:"nodeSelector"`
-	ContainerSecurityContext *core.SecurityContext     `json:"containerSecurityContext"`
+	Image CadenceImageReference `json:"image"`
 }
 
-type CadenceServiceAccountSpec struct {
-	Create      bool              `json:"create"`
-	Annotations map[string]string `json:"annotations"`
-	Name        string            `json:"name"`
-}
-
-type CadenceMetricsSpec struct {
-	Enabled        bool                  `json:"enabled"`
-	Port           int                   `json:"port"`
-	ServiceMonitor CadenceServiceMonitor `json:"serviceMonitor"`
-}
-
-type CadenceServiceMonitor struct {
-	Enabled           bool                   `json:"enabled"`
-	AdditionalLabels  map[string]string      `json:"additionalLabels"`
-	Annotations       map[string]string      `json:"annotations"`
-	ScrapeInterval    string                 `json:"scrapeInterval"`
-	Namespace         string                 `json:"namespace"`
-	NamespaceSelector map[string]string      `json:"namespaceSelector"`
-	TargetLabels      []runtime.RawExtension `json:"targetLabels"`
-	Relabelings       []runtime.RawExtension `json:"relabelings"`
-	MetricRelabelings []runtime.RawExtension `json:"metricRelabelings"`
-}
-
-// CadenceSpec is the schema for Cadence Operator values file
-type CadenceSpec struct {
-	NameOverride     string                    `json:"nameOverride"`
-	FullnameOverride string                    `json:"fullnameOverride"`
-	Global           CadenceGlobalSpec         `json:"global"`
-	Frontend         CadenceServiceSpec        `json:"frontend"`
-	Matching         CadenceServiceSpec        `json:"matching"`
-	History          CadenceServiceSpec        `json:"history"`
-	Worker           CadenceServiceSpec        `json:"worker"`
-	Web              CadenceWebSpec            `json:"web"`
-	ServiceAccount   CadenceServiceAccountSpec `json:"serviceAccount"`
-	Metrics          CadenceMetricsSpec        `json:"metrics"`
-	Cassandra        CadenceCassandraSpec      `json:"cassandra"`
-	Postgresql       CadencePostgresqlSpec     `json:"postgresql"`
-	Mysql            CadenceMysqlSpec          `json:"mysql"`
-	Config           CadenceConfigSpec         `json:"config"`
-	Schema           CadenceSchemaSpec         `json:"schema"`
-}
-
-type CadenceGlobalSpec struct {
-	Image                    CadenceImageReference       `json:"image"`
-	ImagePullSecrets         []core.LocalObjectReference `json:"imagePullSecrets"`
-	PodSecurityContext       *core.PodSecurityContext    `json:"podSecurityContext"`
-	ContainerSecurityContext *core.SecurityContext       `json:"containerSecurityContext"`
-	Affinity                 *core.Affinity              `json:"affinity"`
-	Tolerations              []core.Toleration           `json:"tolerations"`
-	NodeSelector             map[string]string           `json:"nodeSelector"`
-	Log                      CadenceLogSpec              `json:"log"`
-}
-
-type CadenceLogSpec struct {
-	Stdout bool   `json:"stdout"`
-	Level  string `json:"level"`
-}
-
+// CadenceCassandraSpec toggles the cassandra chart bundled with the cadence
+// chart. The ace chart disables it and stores cadence data in its own
+// postgres database.
 type CadenceCassandraSpec struct {
-	Enabled  bool   `json:"enabled"`
-	Hosts    string `json:"hosts"`
-	Port     int    `json:"port"`
-	Keyspace string `json:"keyspace"`
-	User     string `json:"user"`
-	Password string `json:"password"`
-}
-
-type CadencePostgresqlSpec struct {
-	Enabled bool `json:"enabled"`
-}
-
-type CadenceMysqlSpec struct {
 	Enabled bool `json:"enabled"`
 }
 
@@ -129,31 +62,30 @@ type CadenceConfigSpec struct {
 }
 
 type CadencePersistenceSpec struct {
-	NumHistoryShards int                 `json:"numHistoryShards"`
-	DefaultStore     string              `json:"defaultStore"`
-	VisibilityStore  string              `json:"visibilityStore"`
-	Database         CadenceDatabaseSpec `json:"database"`
+	Database CadenceDatabaseSpec `json:"database"`
 }
 
 type CadenceDatabaseSpec struct {
+	// Driver is one of cassandra, mysql or postgres.
 	Driver string         `json:"driver"`
-	Sql    CadenceSqlSpec `json:"sql"`
+	SQL    CadenceSQLSpec `json:"sql"`
 }
 
-type CadenceSqlSpec struct {
-	Hosts    string `json:"hosts"`
-	Port     int    `json:"port"`
-	Dbname   string `json:"dbname"`
-	User     string `json:"user"`
-	Password string `json:"password"`
-	MaxConns int    `json:"maxConns"`
+type CadenceSQLSpec struct {
+	Hosts            string `json:"hosts"`
+	Dbname           string `json:"dbname"`
+	VisibilityDbname string `json:"visibilityDbname"`
+	User             string `json:"user"`
+	// Password must be non-empty for the cadence chart to read the password
+	// from POSTGRES_PWD. The ace chart sets POSTGRES_PWD to
+	// settings.db.auth.password, so this value itself is never used.
+	Password        string            `json:"password"`
+	MaxConns        int               `json:"maxConns"`
+	MaxIdleConns    int               `json:"maxIdleConns"`
+	MaxConnLifetime string            `json:"maxConnLifetime"`
+	TLS             CadenceSQLTLSSpec `json:"tls"`
 }
 
-type CadenceSchemaSpec struct {
-	ServerJob CadenceSchemaJobSpec `json:"serverJob"`
-}
-
-type CadenceSchemaJobSpec struct {
-	Enabled   bool                      `json:"enabled"`
-	Resources core.ResourceRequirements `json:"resources"`
+type CadenceSQLTLSSpec struct {
+	Enabled bool `json:"enabled"`
 }

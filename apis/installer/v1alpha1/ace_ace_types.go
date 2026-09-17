@@ -534,9 +534,40 @@ type OpenFGASettings struct {
 	PreSharedKey string `json:"preSharedKey"`
 }
 
+// CadenceSettings configures the [cadence] section of the platform config read
+// by b3. Zero values of the optional fields fall back to the b3 defaults.
 type CadenceSettings struct {
-	FrontendAddress string `json:"frontendAddress"`
-	Domain          string `json:"domain"`
+	// Host of the cadence frontend service. When empty, it defaults to the
+	// frontend service of the cadence chart bundled with ace.
+	Host   string `json:"host"`
+	Port   int    `json:"port"`
+	Domain string `json:"domain"`
+	// +optional
+	TaskList string `json:"taskList"`
+	// +optional
+	ServiceName string `json:"serviceName"`
+	// +optional
+	MaxConcurrentActivityExecutionSize int `json:"maxConcurrentActivityExecutionSize"`
+	// +optional
+	MaxConcurrentWorkflowTaskExecutionSize int `json:"maxConcurrentWorkflowTaskExecutionSize"`
+	// +optional
+	MaxConcurrentActivityTaskPollers int `json:"maxConcurrentActivityTaskPollers"`
+	// +optional
+	MaxConcurrentDecisionTaskPollers int `json:"maxConcurrentDecisionTaskPollers"`
+	// +optional
+	MaxConcurrentLocalActivityExecutionSize int `json:"maxConcurrentLocalActivityExecutionSize"`
+	// +optional
+	WorkerActivitiesPerSecond float64 `json:"workerActivitiesPerSecond"`
+	// +optional
+	TaskListActivitiesPerSecond float64 `json:"taskListActivitiesPerSecond"`
+	// +optional
+	WorkerStopTimeout metav1.Duration `json:"workerStopTimeout"`
+	// +optional
+	EnableLogging bool `json:"enableLogging"`
+	// +optional
+	DisableStickyExecution bool `json:"disableStickyExecution"`
+	// +optional
+	StickyScheduleToStartTimeout metav1.Duration `json:"stickyScheduleToStartTimeout"`
 }
 
 type ContractStorage struct {

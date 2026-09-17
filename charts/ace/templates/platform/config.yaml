@@ -168,11 +168,27 @@ stringData:
     API_URL                = {{ .Values.settings.openfga.apiURL }}
     PRE_SHARED_KEY         = {{ .Values.settings.openfga.preSharedKey }}
 
-  {{- if .Values.cadence.enabled }}
+  {{- if (or .Values.cadence.enabled .Values.settings.cadence.host) }}
+  {{- with .Values.settings.cadence }}
 
     [cadence]
-    FRONTEND_ADDRESS = {{ .Values.settings.cadence.frontendAddress }}
-    DOMAIN           = {{ .Values.settings.cadence.domain }}
+    HOST                                         = {{ include "settings.cadence.host" $ }}
+    PORT                                         = {{ .port | default 7933 }}
+    DOMAIN                                       = {{ .domain | default "ace-domain" }}
+    TASK_LIST                                    = {{ .taskList | default "ace-task-list" }}
+    SERVICE_NAME                                 = {{ .serviceName }}
+    MAX_CONCURRENT_ACTIVITY_EXECUTION_SIZE       = {{ .maxConcurrentActivityExecutionSize }}
+    MAX_CONCURRENT_WORKFLOW_TASK_EXECUTION_SIZE  = {{ .maxConcurrentWorkflowTaskExecutionSize }}
+    MAX_CONCURRENT_ACTIVITY_TASK_POLLERS         = {{ .maxConcurrentActivityTaskPollers }}
+    MAX_CONCURRENT_DECISION_TASK_POLLERS         = {{ .maxConcurrentDecisionTaskPollers }}
+    MAX_CONCURRENT_LOCAL_ACTIVITY_EXECUTION_SIZE = {{ .maxConcurrentLocalActivityExecutionSize }}
+    WORKER_ACTIVITIES_PER_SECOND                 = {{ .workerActivitiesPerSecond }}
+    TASK_LIST_ACTIVITIES_PER_SECOND              = {{ .taskListActivitiesPerSecond }}
+    WORKER_STOP_TIMEOUT                          = {{ .workerStopTimeout }}
+    ENABLE_LOGGING                               = {{ .enableLogging }}
+    DISABLE_STICKY_EXECUTION                     = {{ .disableStickyExecution }}
+    STICKY_SCHEDULE_TO_START_TIMEOUT             = {{ .stickyScheduleToStartTimeout }}
+  {{- end }}
   {{- end }}
 
   {{- if (or (eq .Values.global.platform.deploymentType "Hosted") .Values.global.platform.offlineInstaller) }}
