@@ -209,8 +209,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ku
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubevault:v2026.8.7 $IMAGE_REGISTRY/appscode-charts/kubevault:v2026.8.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno-policies:3.2.5 $IMAGE_REGISTRY/appscode-charts/kyverno-policies:3.2.5
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno:3.2.6 $IMAGE_REGISTRY/appscode-charts/kyverno:3.2.6
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver-manager:v2026.2.16 $IMAGE_REGISTRY/appscode-charts/license-proxyserver-manager:v2026.2.16
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver:v2026.2.16 $IMAGE_REGISTRY/appscode-charts/license-proxyserver:v2026.2.16
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver-manager:v2026.9.18 $IMAGE_REGISTRY/appscode-charts/license-proxyserver-manager:v2026.9.18
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver:v2026.9.18 $IMAGE_REGISTRY/appscode-charts/license-proxyserver:v2026.9.18
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/longhorn:1.7.2 $IMAGE_REGISTRY/appscode-charts/longhorn:1.7.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/managed-serviceaccount-manager:v2026.2.16 $IMAGE_REGISTRY/appscode-charts/managed-serviceaccount-manager:v2026.2.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/metrics-server:3.11.0 $IMAGE_REGISTRY/appscode-charts/metrics-server:3.11.0
