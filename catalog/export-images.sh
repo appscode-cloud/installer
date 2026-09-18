@@ -206,8 +206,8 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubevault:v2026.8.7 images/appscode-charts-kubevault-v2026.8.7.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno-policies:3.2.5 images/appscode-charts-kyverno-policies-3.2.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno:3.2.6 images/appscode-charts-kyverno-3.2.6.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver-manager:v2026.2.16 images/appscode-charts-license-proxyserver-manager-v2026.2.16.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver:v2026.2.16 images/appscode-charts-license-proxyserver-v2026.2.16.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver-manager:v2026.9.18 images/appscode-charts-license-proxyserver-manager-v2026.9.18.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver:v2026.9.18 images/appscode-charts-license-proxyserver-v2026.9.18.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/longhorn:1.7.2 images/appscode-charts-longhorn-1.7.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/managed-serviceaccount-manager:v2026.2.16 images/appscode-charts-managed-serviceaccount-manager-v2026.2.16.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/metrics-server:3.11.0 images/appscode-charts-metrics-server-3.11.0.tar
