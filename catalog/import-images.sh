@@ -200,8 +200,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-k
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kubevault-v2026.8.7.tar $IMAGE_REGISTRY/appscode-charts/kubevault:v2026.8.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kyverno-policies-3.2.5.tar $IMAGE_REGISTRY/appscode-charts/kyverno-policies:3.2.5
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-kyverno-3.2.6.tar $IMAGE_REGISTRY/appscode-charts/kyverno:3.2.6
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-license-proxyserver-manager-v2026.2.16.tar $IMAGE_REGISTRY/appscode-charts/license-proxyserver-manager:v2026.2.16
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-license-proxyserver-v2026.2.16.tar $IMAGE_REGISTRY/appscode-charts/license-proxyserver:v2026.2.16
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-license-proxyserver-manager-v2026.9.18.tar $IMAGE_REGISTRY/appscode-charts/license-proxyserver-manager:v2026.9.18
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-license-proxyserver-v2026.9.18.tar $IMAGE_REGISTRY/appscode-charts/license-proxyserver:v2026.9.18
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-longhorn-1.7.2.tar $IMAGE_REGISTRY/appscode-charts/longhorn:1.7.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-managed-serviceaccount-manager-v2026.2.16.tar $IMAGE_REGISTRY/appscode-charts/managed-serviceaccount-manager:v2026.2.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-metrics-server-3.11.0.tar $IMAGE_REGISTRY/appscode-charts/metrics-server:3.11.0

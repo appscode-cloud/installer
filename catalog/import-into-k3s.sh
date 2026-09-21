@@ -198,8 +198,8 @@ k3s ctr images import images/appscode-charts-kubevault-opscenter-v2026.8.7.tar
 k3s ctr images import images/appscode-charts-kubevault-v2026.8.7.tar
 k3s ctr images import images/appscode-charts-kyverno-policies-3.2.5.tar
 k3s ctr images import images/appscode-charts-kyverno-3.2.6.tar
-k3s ctr images import images/appscode-charts-license-proxyserver-manager-v2026.2.16.tar
-k3s ctr images import images/appscode-charts-license-proxyserver-v2026.2.16.tar
+k3s ctr images import images/appscode-charts-license-proxyserver-manager-v2026.9.18.tar
+k3s ctr images import images/appscode-charts-license-proxyserver-v2026.9.18.tar
 k3s ctr images import images/appscode-charts-longhorn-1.7.2.tar
 k3s ctr images import images/appscode-charts-managed-serviceaccount-manager-v2026.2.16.tar
 k3s ctr images import images/appscode-charts-metrics-server-3.11.0.tar
