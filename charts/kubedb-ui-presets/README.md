@@ -205,6 +205,7 @@ The following table lists the configurable parameters of the `kubedb-ui-presets`
 | clusterIssuers.toggle                      |                                                                                                      | <code>true</code>                   |
 | expose.enable.default                      |                                                                                                      | <code>true</code>                   |
 | expose.enable.toggle                       |                                                                                                      | <code>true</code>                   |
+| serviceTemplates                           |                                                                                                      | <code>[]</code>                     |
 | showPreview                                |                                                                                                      | <code>false</code>                  |
 | leftPanel.showInsights                     |                                                                                                      | <code>true</code>                   |
 | leftPanel.showVaultInfo                    |                                                                                                      | <code>true</code>                   |

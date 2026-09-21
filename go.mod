@@ -5,18 +5,18 @@ go 1.25.6
 require (
 	go.bytebuilders.dev/catalog v0.1.0
 	go.bytebuilders.dev/resource-model v0.4.1-0.20260908050049-ce9aabf9ad5c
-	go.bytebuilders.dev/ui-wizards v0.37.0
+	go.bytebuilders.dev/ui-wizards v0.37.2-0.20260918135229-de962d0d64b6
 	go.openviz.dev/installer v0.0.0-20260619044110-702becd1dd97
 	gomodules.xyz/go-sh v0.2.0
-	k8s.io/api v0.34.3
-	k8s.io/apimachinery v0.34.3
+	k8s.io/api v0.34.8
+	k8s.io/apimachinery v0.34.8
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
 	kmodules.xyz/client-go v0.34.3
 	kmodules.xyz/image-packer v0.0.0-20260828095825-4ee8d7b90748
 	kmodules.xyz/objectstore-api v0.34.0
 	kmodules.xyz/resource-metadata v0.49.0
 	kmodules.xyz/schema-checker v0.4.3
-	kubeops.dev/external-dns-operator v0.3.1-0.20260409053434-d3838ac10fdf
+	kubeops.dev/external-dns-operator v0.4.1-0.20260711084336-46e45f490d84
 	kubeops.dev/installer v0.0.0-20260828113655-d8ce0857aa76
 	sigs.k8s.io/gateway-api v1.4.1
 	sigs.k8s.io/kustomize/kyaml v0.20.1
@@ -82,7 +82,7 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.3-0.20250322232337-35a7c28c31ee // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
-	github.com/onsi/gomega v1.38.2 // indirect
+	github.com/onsi/gomega v1.38.3 // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/opencontainers/image-spec v1.1.1 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
@@ -94,7 +94,7 @@ require (
 	github.com/prometheus/procfs v0.17.0 // indirect
 	github.com/sergi/go-diff v1.3.1 // indirect
 	github.com/shopspring/decimal v1.4.0 // indirect
-	github.com/sirupsen/logrus v1.9.3 // indirect
+	github.com/sirupsen/logrus v1.9.4 // indirect
 	github.com/spf13/cast v1.10.0 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/vbatts/tar-split v0.12.2 // indirect
@@ -123,8 +123,8 @@ require (
 	gopkg.in/evanphx/json-patch.v4 v4.13.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	k8s.io/apiextensions-apiserver v0.34.3 // indirect
-	k8s.io/client-go v0.34.3 // indirect
+	k8s.io/apiextensions-apiserver v0.34.8 // indirect
+	k8s.io/client-go v0.34.8 // indirect
 	k8s.io/klog/v2 v2.130.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20250910181357-589584f1c912 // indirect
 	k8s.io/utils v0.0.0-20251002143259-bc988d571ff4 // indirect
@@ -136,7 +136,7 @@ require (
 	kmodules.xyz/prober v0.34.0 // indirect
 	kubeops.dev/scanner v0.0.19 // indirect
 	kubestash.dev/apimachinery v0.22.0 // indirect
-	sigs.k8s.io/controller-runtime v0.22.4 // indirect
+	sigs.k8s.io/controller-runtime v0.22.5 // indirect
 	sigs.k8s.io/json v0.0.0-20250730193827-2d320260d730 // indirect
 	sigs.k8s.io/randfill v1.0.0 // indirect
 	sigs.k8s.io/structured-merge-diff/v6 v6.3.0 // indirect

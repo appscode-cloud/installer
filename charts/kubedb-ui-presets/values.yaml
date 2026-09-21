@@ -242,6 +242,7 @@ expose:
   enable:
     default: true
     toggle: true
+serviceTemplates: []
 showPreview: false
 leftPanel:
   showInsights: true

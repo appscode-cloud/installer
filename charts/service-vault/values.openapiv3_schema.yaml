@@ -178,8 +178,17 @@ properties:
           ocRouterName:
             type: string
           policy:
+            enum:
+            - sync
+            - upsert-only
+            - create-only
             type: string
           provider:
+            enum:
+            - aws
+            - cloudflare
+            - azure
+            - google
             type: string
           registry:
             type: string
