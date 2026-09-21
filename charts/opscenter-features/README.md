@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm search repo appscode/opscenter-features --version=v2026.9.11
-$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2026.9.11
+$ helm search repo appscode/opscenter-features --version=v2026.9.22
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2026.9.22
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys a ACE Opscenter Configurator on a [Kubernetes](http://kuberne
 To install/upgrade the chart with the release name `opscenter-features`:
 
 ```bash
-$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2026.9.11
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2026.9.22
 ```
 
 The command deploys a ACE Opscenter Configurator on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -71,7 +71,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.createNamespace                                                    |                                 | <code>true</code>                          |
 | helm.repositories.appscode-charts-oci.url                               |                                 | <code>oci://ghcr.io/appscode-charts</code> |
 | helm.releases.aceshifter.version                                        |                                 | <code>"v2026.9.11"</code>                  |
-| helm.releases.appscode-otel-stack.version                               |                                 | <code>"v2026.7.15"</code>                  |
+| helm.releases.appscode-otel-stack.version                               |                                 | <code>"v2026.9.22"</code>                  |
 | helm.releases.aws-credential-manager.version                            |                                 | <code>"v2026.1.20"</code>                  |
 | helm.releases.azure-credential-manager.version                          |                                 | <code>"v2026.4.16"</code>                  |
 | helm.releases.gcp-credential-manager.version                            |                                 | <code>"v2026.3.11"</code>                  |
@@ -125,7 +125,8 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.panopticon.version                                        |                                 | <code>"v2026.6.22"</code>                  |
 | helm.releases.prepare-cluster.version                                   |                                 | <code>"v2023.12.21"</code>                 |
 | helm.releases.prometheus-adapter.version                                |                                 | <code>"4.9.0"</code>                       |
-| helm.releases.prom-label-proxy.version                                  |                                 | <code>"v2026.7.15"</code>                  |
+| helm.releases.otel-nats.version                                         |                                 | <code>"v2026.9.22"</code>                  |
+| helm.releases.prom-label-proxy.version                                  |                                 | <code>"v2026.9.22"</code>                  |
 | helm.releases.reloader.version                                          |                                 | <code>"2.2.9"</code>                       |
 | helm.releases.scanner.version                                           |                                 | <code>"v2026.1.15"</code>                  |
 | helm.releases.service-backend.version                                   |                                 | <code>"v2026.9.11"</code>                  |
@@ -138,8 +139,9 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.stash-opscenter.version                                   |                                 | <code>"v2025.7.31"</code>                  |
 | helm.releases.stash-presets.version                                     |                                 | <code>"v2026.9.11"</code>                  |
 | helm.releases.supervisor.version                                        |                                 | <code>"v2026.2.16"</code>                  |
-| helm.releases.tenant-operator.version                                   |                                 | <code>"v2026.7.15"</code>                  |
+| helm.releases.tenant-operator.version                                   |                                 | <code>"v2026.9.22"</code>                  |
 | helm.releases.thanos-operator.version                                   |                                 | <code>"v2026.6.2"</code>                   |
+| helm.releases.victoria-metrics-operator.version                         |                                 | <code>0.67.3</code>                        |
 | helm.releases.topolvm.version                                           |                                 | <code>"15.0.0"</code>                      |
 | helm.releases.voyager.version                                           |                                 | <code>"v2026.3.23"</code>                  |
 | helm.releases.voyager-gateway.version                                   |                                 | <code>"v2026.1.15"</code>                  |
@@ -177,12 +179,12 @@ The following table lists the configurable parameters of the `opscenter-features
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2026.9.11 --set clusterMetadata.uid=TBD
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2026.9.22 --set clusterMetadata.uid=TBD
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2026.9.11 --values values.yaml
+$ helm upgrade -i opscenter-features appscode/opscenter-features -n kubeops --create-namespace --version=v2026.9.22 --values values.yaml
 ```

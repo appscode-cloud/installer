@@ -4,6 +4,15 @@
 - docker.io/bitnami/sealed-secrets-controller:0.25.0
 - docker.io/falcosecurity/falco-no-driver:0.37.0
 - docker.io/falcosecurity/falcoctl:0.7.1
+- docker.io/victoriametrics/operator:config-reloader-v0.74.1
+- docker.io/victoriametrics/operator:v0.74.1
+- docker.io/victoriametrics/victoria-logs:v1.52.0
+- docker.io/victoriametrics/victoria-metrics:v1.151.0
+- docker.io/victoriametrics/victoria-traces:v0.11.0
+- docker.io/victoriametrics/vmalert:v1.151.0
+- docker.io/victoriametrics/vminsert:v1.151.0-cluster
+- docker.io/victoriametrics/vmselect:v1.151.0-cluster
+- docker.io/victoriametrics/vmstorage:v1.151.0-cluster
 - gcr.io/k8s-staging-test-infra/kubekins-e2e:v20230727-ea685f8747-master
 - ghcr.io/appscode-images/cert-manager-acmesolver:v1.19.3
 - ghcr.io/appscode-images/cert-manager-cainjector:v1.19.3

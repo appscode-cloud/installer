@@ -1,0 +1,48 @@
+{{ $vals := dig "otel-nats" "values" (dict) .Values.helm.releases }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: otel-nats
+  labels:
+    app.kubernetes.io/part-of: opscenter-observability
+spec:
+  title: OTel NATS
+  description: |
+    Buffer telemetry in NATS JetStream between the workload clusters and the storage backends,
+    so a backend outage queues on disk instead of dropping data.
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-observability
+  featureBlock: tenant-operator
+  recommended: false
+  requirements:
+    features:
+      - tenant-operator
+      - prom-label-proxy
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: StatefulSet
+        selector:
+          app.kubernetes.io/name: nats
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/name: otel-nats
+          app.kubernetes.io/component: forwarder
+  chart:
+    name: otel-nats
+    namespace: monitoring
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "otel-nats" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

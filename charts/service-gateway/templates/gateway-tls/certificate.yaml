@@ -43,6 +43,17 @@ spec:
     - prom-label-proxy
     - prom-label-proxy.{{ .Release.Namespace }}.svc
     - prom-label-proxy.{{ .Release.Namespace }}.svc.cluster.local
+    - otel-nats
+    - otel-nats.{{ .Release.Namespace }}.svc
+    - otel-nats.{{ .Release.Namespace }}.svc.cluster.local
+    - otel-forwarder
+    - otel-forwarder.{{ .Release.Namespace }}.svc
+    - otel-forwarder.{{ .Release.Namespace }}.svc.cluster.local
+    # Route URLs address each pod as otel-nats-N.otel-nats.<ns>.svc.cluster.local,
+    # so the cluster cannot form without these.
+    - "*.otel-nats"
+    - "*.otel-nats.{{ .Release.Namespace }}.svc"
+    - "*.otel-nats.{{ .Release.Namespace }}.svc.cluster.local"
   {{- end }}
   usages:
     - key agreement

@@ -64,6 +64,7 @@
 - ghcr.io/appscode-charts/opencost:1.18.1
 - ghcr.io/appscode-charts/operator-shard-manager:v2026.6.22
 - ghcr.io/appscode-charts/opscenter-features:v2026.9.11
+- ghcr.io/appscode-charts/otel-nats:v2026.9.14
 - ghcr.io/appscode-charts/panopticon:v2026.6.22
 - ghcr.io/appscode-charts/prepare-cluster:v2023.12.21
 - ghcr.io/appscode-charts/prom-label-proxy:v2026.7.15
@@ -109,6 +110,7 @@
 - ghcr.io/appscode-charts/uik8sappscodecom-featureset-saas-core-editor:v0.37.0
 - ghcr.io/appscode-charts/vault-secrets-operator:0.4.3
 - ghcr.io/appscode-charts/vault:0.27.0
+- ghcr.io/appscode-charts/victoria-metrics-operator:0.67.3
 - ghcr.io/appscode-charts/virtual-secrets-server:v2026.2.27
 - ghcr.io/appscode-charts/voyager-gateway:v2026.1.15
 - ghcr.io/appscode-charts/voyager:v2026.3.23

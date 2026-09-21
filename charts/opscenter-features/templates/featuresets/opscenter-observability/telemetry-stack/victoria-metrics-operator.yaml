@@ -1,0 +1,73 @@
+{{ $image := printf `
+image:
+  registry: %s
+crds:
+  enabled: true
+global:
+  # Pin the versions the operator hands to the CRs it creates, so the mirrored
+  # image list and what actually runs cannot drift apart on an air-gapped install.
+  versions:
+    metrics: v1.151.0
+    logs: v1.52.0
+    traces: v0.11.0
+operator:
+  # The converter rewrites every ServiceMonitor and PrometheusRule in the cluster
+  # into VictoriaMetrics CRs. Clusters here already run kube-prometheus-stack, so
+  # leave it off and generate the CRs the telemetry stack actually needs.
+  disable_prometheus_converter: true
+`
+  (default "docker.io" (include "registry.dockerHub" $))
+  | fromYaml }}
+
+{{ $vals := dig "victoria-metrics-operator" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite dict $image $vals }}
+
+{{- if eq (include "distro.openshift" $) "true" }}
+{{ $vals = mergeOverwrite $vals (dict "operator" (dict "openshift_compatibility" true)) }}
+{{- end }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: victoria-metrics-operator
+  labels:
+    app.kubernetes.io/part-of: opscenter-observability
+spec:
+  title: VictoriaMetrics Operator
+  description: |
+    Manage VictoriaMetrics, VictoriaLogs and VictoriaTraces as backends for the telemetry stack.
+  icons:
+    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+      type: image/svg+xml
+  featureSet: opscenter-observability
+  featureBlock: tenant-operator
+  recommended: false
+  requirements:
+    features:
+      - tenant-operator
+  readinessChecks:
+    resources:
+      - group: operator.victoriametrics.com
+        version: v1beta1
+        kind: VMCluster
+      - group: operator.victoriametrics.com
+        version: v1
+        kind: VLCluster
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/name: victoria-metrics-operator
+  chart:
+    name: victoria-metrics-operator
+    namespace: monitoring
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "victoria-metrics-operator" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
