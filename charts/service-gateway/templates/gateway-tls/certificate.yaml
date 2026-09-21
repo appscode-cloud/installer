@@ -44,6 +44,15 @@ spec:
     - prom-label-proxy
     - prom-label-proxy.monitoring.svc
     - prom-label-proxy.monitoring.svc.cluster.local
+    - otel-nats
+    - otel-nats.{{ .Release.Namespace }}.svc
+    - otel-nats.{{ .Release.Namespace }}.svc.cluster.local
+    - otel-forwarder
+    - otel-forwarder.{{ .Release.Namespace }}.svc
+    - otel-forwarder.{{ .Release.Namespace }}.svc.cluster.local
+    - "*.otel-nats"
+    - "*.otel-nats.{{ .Release.Namespace }}.svc"
+    - "*.otel-nats.{{ .Release.Namespace }}.svc.cluster.local"
   usages:
     - key agreement
     - digital signature
