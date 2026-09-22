@@ -4,7 +4,7 @@ metadata:
   name: open-cluster-management:license-proxyserver:addon-manager
 rules:
   - apiGroups: [""]
-    resources: ["configmaps", "events", "namespace", "secrets"]
+    resources: ["configmaps", "events", "namespaces", "secrets"]
     verbs: ["get", "list", "watch", "create", "update", "delete", "deletecollection", "patch"]
   - apiGroups: ["coordination.k8s.io"]
     resources: ["leases"]
