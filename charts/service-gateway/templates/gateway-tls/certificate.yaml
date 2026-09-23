@@ -38,12 +38,9 @@ spec:
     - "api.byte.builders"
     {{- end }}
   {{- end }}
-
-  {{- if eq .Release.Namespace "monitoring" }}
     - prom-label-proxy
-    - prom-label-proxy.{{ .Release.Namespace }}.svc
-    - prom-label-proxy.{{ .Release.Namespace }}.svc.cluster.local
-  {{- end }}
+    - prom-label-proxy.monitoring.svc
+    - prom-label-proxy.monitoring.svc.cluster.local
   usages:
     - key agreement
     - digital signature
