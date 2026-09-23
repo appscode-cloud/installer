@@ -88,7 +88,7 @@ k3s ctr images import images/appscode-charts-cluster-manager-spoke-v2026.2.16.ta
 k3s ctr images import images/appscode-charts-cluster-presets-v2026.9.11.tar
 k3s ctr images import images/appscode-charts-cluster-profile-manager-v2026.9.18.tar
 k3s ctr images import images/appscode-charts-cluster-proxy-manager-v2026.6.26.tar
-k3s ctr images import images/appscode-charts-config-syncer-v0.15.4.tar
+k3s ctr images import images/appscode-charts-config-syncer-v0.15.5.tar
 k3s ctr images import images/appscode-charts-corekubestashcom-backupbatch-editor-v0.37.0.tar
 k3s ctr images import images/appscode-charts-corekubestashcom-backupblueprint-editor-v0.37.0.tar
 k3s ctr images import images/appscode-charts-corekubestashcom-backupconfiguration-editor-options-v0.37.0.tar

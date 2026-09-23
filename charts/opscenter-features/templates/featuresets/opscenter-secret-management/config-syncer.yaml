@@ -1,5 +1,5 @@
 {{ $defaults := printf `
-mode: enterprise
+mode: oss
 registryFQDN: %q
 `
   (include "registry.ghcr" $)

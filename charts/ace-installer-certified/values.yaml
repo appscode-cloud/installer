@@ -74,6 +74,9 @@ helm:
     cert-manager-csi-driver-cacerts:
       enabled: true
       version: "v2026.9.18"
+    config-syncer:
+      enabled: true
+      version: "v0.15.5"
     external-dns-operator:
       enabled: true
       version: "v2026.6.22"

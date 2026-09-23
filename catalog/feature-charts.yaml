@@ -18,7 +18,7 @@
 - ghcr.io/appscode-charts/cluster-presets:v2026.9.11
 - ghcr.io/appscode-charts/cluster-profile-manager:v2026.9.18
 - ghcr.io/appscode-charts/cluster-proxy-manager:v2026.6.26
-- ghcr.io/appscode-charts/config-syncer:v0.15.4
+- ghcr.io/appscode-charts/config-syncer:v0.15.5
 - ghcr.io/appscode-charts/crossplane:1.14.0
 - ghcr.io/appscode-charts/csi-driver-nfs:v4.7.0
 - ghcr.io/appscode-charts/csi-secrets-store-provider-azure:1.5.2
