@@ -306,6 +306,7 @@ settings:
       connection_life_time: "0"
       client_idle_limit: "60"
       connection_cache: "on"
+      primary_routing_query_pattern_list: "'.*cluster_info.*;.*cluster_user_auth.*'"
     resources:
       limits:
         memory: 512Mi
