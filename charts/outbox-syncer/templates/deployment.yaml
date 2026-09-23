@@ -33,6 +33,36 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       {{- end }}
+      {{- if (include "settings.platformConfigSecretName" .) }}
+      initContainers:
+        - name: wait-for-db
+          {{- if eq "true" ( include "distro.openshift" . ) }}
+          securityContext:
+            {{- toYaml (omit .Values.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 12 }}
+          {{- else }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          {{- end }}
+          image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - sh
+            - -c
+            - |
+              addr=$(awk -F= '/^[[:space:]]*\[/ {section=$0} section ~ /\[database\]/ && $1 ~ /^[[:space:]]*HOST[[:space:]]*$/ {gsub(/[[:space:]"]/, "", $2); print $2; exit}' /data/outbox-syncer/conf/app.ini)
+              host=${addr%:*}
+              port=${addr##*:}
+              case "$addr" in *:*) ;; *) port=5432 ;; esac
+              until nc -z "$host" "$port"; do
+                echo "waiting for database $host:$port"
+                sleep 2
+              done
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: config
+              mountPath: /data/outbox-syncer/conf
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           {{- if eq "true" ( include "distro.openshift" . ) }}
