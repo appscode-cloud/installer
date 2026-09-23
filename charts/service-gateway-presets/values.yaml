@@ -153,7 +153,7 @@ chart:
   name: service-gateway
   namespace: ace
   createNamespace: true
-  version: "v2026.7.10"
+  version: "v2026.9.11"
   sourceRef:
     kind: HelmRepository
     name: appscode-charts-oci
