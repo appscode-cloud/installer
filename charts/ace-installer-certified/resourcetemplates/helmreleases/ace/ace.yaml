@@ -34,6 +34,10 @@ spec:
   {{- end }}
   - name: reloader
     namespace: {{ $.Release.Namespace }}
+  {{- if (dig "config-syncer" "enabled" false $.Values.helm.releases) }}
+  - name: config-syncer
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
   {{- if (dig "service-vault" "enabled" false $.Values.helm.releases) }}
   - name: service-vault
     namespace: {{ $.Release.Namespace }}

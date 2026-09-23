@@ -85,7 +85,7 @@ helm:
     cluster-presets:
       version: "v2026.9.11"
     config-syncer:
-      version: "v0.15.4"
+      version: "v0.15.5"
     crossplane:
       version: "1.14.0"
     csi-driver-nfs:
