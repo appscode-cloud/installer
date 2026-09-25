@@ -123,7 +123,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/fl
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/gatekeeper-library:v2023.10.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper:3.13.3 $IMAGE_REGISTRY/appscode-charts/gatekeeper:3.13.3
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gateway-api:v2025.3.14 $IMAGE_REGISTRY/appscode-charts/gateway-api:v2025.3.14
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gateway-api:v2026.9.18 $IMAGE_REGISTRY/appscode-charts/gateway-api:v2026.9.18
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gcp-credential-manager:v2026.3.11 $IMAGE_REGISTRY/appscode-charts/gcp-credential-manager:v2026.3.11
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/grafana-operator:v2026.6.12 $IMAGE_REGISTRY/appscode-charts/grafana-operator:v2026.6.12
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/hub-cluster-robot:v2026.2.16 $IMAGE_REGISTRY/appscode-charts/hub-cluster-robot:v2026.2.16

@@ -114,7 +114,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-f
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gatekeeper-grafana-dashboards-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gatekeeper-library-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/gatekeeper-library:v2023.10.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gatekeeper-3.13.3.tar $IMAGE_REGISTRY/appscode-charts/gatekeeper:3.13.3
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gateway-api-v2025.3.14.tar $IMAGE_REGISTRY/appscode-charts/gateway-api:v2025.3.14
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gateway-api-v2026.9.18.tar $IMAGE_REGISTRY/appscode-charts/gateway-api:v2026.9.18
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gcp-credential-manager-v2026.3.11.tar $IMAGE_REGISTRY/appscode-charts/gcp-credential-manager:v2026.3.11
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-grafana-operator-v2026.6.12.tar $IMAGE_REGISTRY/appscode-charts/grafana-operator:v2026.6.12
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-hub-cluster-robot-v2026.2.16.tar $IMAGE_REGISTRY/appscode-charts/hub-cluster-robot:v2026.2.16
