@@ -120,7 +120,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1 images/appscode-charts-gatekeeper-grafana-dashboards-v2023.10.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1 images/appscode-charts-gatekeeper-library-v2023.10.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper:3.13.3 images/appscode-charts-gatekeeper-3.13.3.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gateway-api:v2025.3.14 images/appscode-charts-gateway-api-v2025.3.14.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gateway-api:v2026.9.18 images/appscode-charts-gateway-api-v2026.9.18.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gcp-credential-manager:v2026.3.11 images/appscode-charts-gcp-credential-manager-v2026.3.11.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/grafana-operator:v2026.6.12 images/appscode-charts-grafana-operator-v2026.6.12.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/hub-cluster-robot:v2026.2.16 images/appscode-charts-hub-cluster-robot-v2026.2.16.tar

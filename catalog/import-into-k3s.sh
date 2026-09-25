@@ -112,7 +112,7 @@ k3s ctr images import images/appscode-charts-fluxcd-manager-v2026.2.16.tar
 k3s ctr images import images/appscode-charts-gatekeeper-grafana-dashboards-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-gatekeeper-library-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-gatekeeper-3.13.3.tar
-k3s ctr images import images/appscode-charts-gateway-api-v2025.3.14.tar
+k3s ctr images import images/appscode-charts-gateway-api-v2026.9.18.tar
 k3s ctr images import images/appscode-charts-gcp-credential-manager-v2026.3.11.tar
 k3s ctr images import images/appscode-charts-grafana-operator-v2026.6.12.tar
 k3s ctr images import images/appscode-charts-hub-cluster-robot-v2026.2.16.tar
