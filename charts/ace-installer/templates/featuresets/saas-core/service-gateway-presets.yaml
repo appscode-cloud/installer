@@ -1,7 +1,7 @@
 {{- with (index .Values "helm" "releases" "service-gateway-presets") }}
 {{- if .enabled }}
 
-{{ $defaults := dict "registryFQDN" (include "registry.ghcr" $) }}
+{{ $defaults := dict }}
 
 {{ $vals := dig "values" dict . }}
 {{ $vals = mergeOverwrite $defaults $vals }}
