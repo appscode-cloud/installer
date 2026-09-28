@@ -40,8 +40,8 @@ spec:
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
-  valuesFrom:
   {{- if eq (include "distro.openshift" $) "true" }}
+  valuesFrom:
     - kind: ConfigMap
       name: ace-openshift-scc
       valuesKey: kubedb-provider-gcp.yaml
