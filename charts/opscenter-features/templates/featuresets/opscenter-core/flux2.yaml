@@ -14,13 +14,13 @@ notificationController:
 sourceController:
   image: %s
 `
-  (include "image.ghcr" (merge (dict "_repo" "appscode/flux-cli") $))
-  (include "image.ghcr" (merge (dict "_repo" "fluxcd/helm-controller") $))
-  (include "image.ghcr" (merge (dict "_repo" "fluxcd/image-automation-controller") $))
-  (include "image.ghcr" (merge (dict "_repo" "fluxcd/image-reflector-controller") $))
-  (include "image.ghcr" (merge (dict "_repo" "fluxcd/kustomize-controller") $))
-  (include "image.ghcr" (merge (dict "_repo" "fluxcd/notification-controller") $))
-  (include "image.ghcr" (merge (dict "_repo" "fluxcd/source-controller") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/fluxcd-cli") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/fluxcd-helm-controller") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/fluxcd-image-automation-controller") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/fluxcd-image-reflector-controller") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/fluxcd-kustomize-controller") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/fluxcd-notification-controller") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/fluxcd-source-controller") $))
   | fromYaml }}
 
 {{ $vals := `

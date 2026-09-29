@@ -199,8 +199,6 @@ global:
         cert: ""
         key: ""
       jks:
-        keystore:
-        truststore:
         password: ""
     dns:
       targetIPs: []
