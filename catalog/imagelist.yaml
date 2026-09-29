@@ -5,6 +5,7 @@
 - ghcr.io/appscode-images/ingress-nginx-controller:v1.15.1
 - ghcr.io/appscode-images/nats:2.12.6-alpine
 - ghcr.io/appscode-images/registry:3.1.1
+- ghcr.io/appscode-images/rustfs:1.0.0
 - ghcr.io/appscode-images/vault:1.10.3
 - ghcr.io/appscode-images/vault:1.11.5
 - ghcr.io/appscode-images/vault:1.12.1
@@ -62,4 +63,3 @@
 - natsio/nats-box:0.13.8
 - natsio/nats-server-config-reloader:0.22.3
 - natsio/prometheus-nats-exporter:0.19.2
-- quay.io/minio/minio:RELEASE.2023-01-12T02-06-16Z

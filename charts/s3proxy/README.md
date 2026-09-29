@@ -1,6 +1,6 @@
-# MinIO
+# S3Proxy
 
-[MinIO](https://github.com/appscode-cloud) - MinIO Demo Deployment
+[S3Proxy](https://github.com/appscode-cloud) - S3Proxy Deployment
 
 ## TL;DR;
 
@@ -13,7 +13,7 @@ $ helm upgrade -i s3proxy appscode/s3proxy -n ace --create-namespace --version=v
 
 ## Introduction
 
-This chart deploys a MinIO on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart deploys a S3Proxy on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ To install/upgrade the chart with the release name `s3proxy`:
 $ helm upgrade -i s3proxy appscode/s3proxy -n ace --create-namespace --version=v2026.9.11
 ```
 
-The command deploys a MinIO on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
+The command deploys a S3Proxy on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
 
 > **Tip**: List all releases using `helm list`
 
