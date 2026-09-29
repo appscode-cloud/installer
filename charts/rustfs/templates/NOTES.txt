@@ -1,0 +1,3 @@
+To verify that RustFS has started, run:
+
+  kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "rustfs.name" . }},app.kubernetes.io/instance={{ .Release.Name }}"

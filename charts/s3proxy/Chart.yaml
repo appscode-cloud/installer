@@ -1,6 +1,6 @@
 apiVersion: v2
 name: s3proxy
-description: A Helm chart for MinIO Demo Deployment
+description: A Helm chart for S3Proxy Deployment
 type: application
 version: v2026.9.11
 appVersion: v0.0.1

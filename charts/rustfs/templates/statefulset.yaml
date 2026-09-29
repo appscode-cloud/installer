@@ -5,24 +5,24 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ include "minio.fullname" . }}
+  name: {{ include "rustfs.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "minio.labels" . | nindent 4 }}
+    {{- include "rustfs.labels" . | nindent 4 }}
   {{- with .Values.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
   replicas: {{ .Values.replicaCount }}
-  serviceName: {{ include "minio.fullname" . }}-pods
+  serviceName: {{ include "rustfs.fullname" . }}-pods
   selector:
     matchLabels:
-      {{- include "minio.selectorLabels" . | nindent 6 }}
+      {{- include "rustfs.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "minio.selectorLabels" . | nindent 8 }}
+        {{- include "rustfs.selectorLabels" . | nindent 8 }}
       {{- if $criticalAddon }}
         scheduler.alpha.kubernetes.io/critical-pod: ''
       {{- end }}
@@ -32,7 +32,7 @@ spec:
     spec:
       {{- include "appscode.imagePullSecrets" . | nindent 6 }}
       containers:
-      - name: minio
+      - name: rustfs
         {{- if eq "true" ( include "distro.openshift" . ) }}
         securityContext:
           {{- toYaml (omit .Values.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 10 }}
@@ -40,47 +40,71 @@ spec:
         securityContext:
           {{- toYaml .Values.securityContext | nindent 10 }}
         {{- end }}
-        image: "{{ include "minio.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        image: "{{ include "rustfs.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        {{- if .Values.minio.tls.mount }}
-        command: ["sh", "-c", "mkdir -p /storage/backupbucket && mkdir -p /root/.minio/certs && ln -s /root/certs/private.key /root/.minio/certs/private.key && ln -s /root/certs/public.crt /root/.minio/certs/public.crt && exec minio server /storage --console-address=:9001"]
-        {{- else }}
-        command: ["sh", "-c", "mkdir -p /storage/backupbucket && exec minio server /storage --console-address=:9001"]
-        {{- end }}
+        command: ["sh", "-c", "mkdir -p /data/backupbucket && exec /entrypoint.sh rustfs"]
         ports:
         - containerPort: 9000
         - containerPort: 9001
         env:
-        - name: MINIO_ROOT_USER
+        - name: RUSTFS_ACCESS_KEY
           valueFrom:
             secretKeyRef:
-              name: {{ include "minio.fullname" . }}
+              name: {{ include "rustfs.fullname" . }}
               key: AWS_ACCESS_KEY_ID
-        - name: MINIO_ROOT_PASSWORD
+        - name: RUSTFS_SECRET_KEY
           valueFrom:
             secretKeyRef:
-              name: {{ include "minio.fullname" . }}
+              name: {{ include "rustfs.fullname" . }}
               key: AWS_SECRET_ACCESS_KEY
+        - name: RUSTFS_VOLUMES
+          value: /data
+        - name: RUSTFS_ADDRESS
+          value: ":9000"
+        - name: RUSTFS_CONSOLE_ENABLE
+          value: "true"
+        - name: RUSTFS_CONSOLE_ADDRESS
+          value: ":9001"
+        {{- if .Values.rustfs.tls.mount }}
+        - name: RUSTFS_TLS_PATH
+          value: /opt/tls
+        {{- end }}
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 9000
+            scheme: {{ ternary "HTTPS" "HTTP" .Values.rustfs.tls.mount }}
+          initialDelaySeconds: 30
+          periodSeconds: 5
+          timeoutSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 9000
+            scheme: {{ ternary "HTTPS" "HTTP" .Values.rustfs.tls.mount }}
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3
         resources:
           {{- toYaml .Values.resources | nindent 10 }}
         volumeMounts:
         - name: storage
-          mountPath: "/storage"
-        {{- if .Values.minio.tls.mount }}
+          mountPath: "/data"
+        {{- if .Values.rustfs.tls.mount }}
         - name: certificates
-          mountPath: "/root/certs"
+          mountPath: "/opt/tls"
           readOnly: true
         {{- end }}
-      {{- if .Values.minio.tls.mount }}
+      {{- if .Values.rustfs.tls.mount }}
       volumes:
       - name: certificates
         secret:
-          secretName: {{ default (printf "%s-cert" (include "minio.fullname" .)) .Values.minio.tls.secret.name }}
+          secretName: {{ default (printf "%s-cert" (include "rustfs.fullname" .)) .Values.rustfs.tls.secret.name }}
           items:
           - key: tls.crt
-            path: public.crt
+            path: rustfs_cert.pem
           - key: tls.key
-            path: private.key
+            path: rustfs_key.pem
       {{- end }}
       {{- if eq "true" ( include "distro.openshift" . ) }}
       securityContext:

@@ -1,4 +1,4 @@
-# Default values for minio.
+# Default values for rustfs.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -6,14 +6,14 @@ replicaCount: 1
 
 # Docker registry fqdn used to pull app related images.
 # Set this to use docker registry hosted at ${registryFQDN}/${registry}/${image}
-registryFQDN: quay.io
+registryFQDN: ghcr.io
 
 # Docker registry containing app images
 image:
   # Docker registry used to pull app container image
-  registry: minio
+  registry: appscode-images
   # App container image
-  repository: minio
+  repository: rustfs
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
   pullPolicy: IfNotPresent
@@ -25,7 +25,7 @@ fullnameOverride: ""
 podAnnotations: {}
 
 podSecurityContext: # +doc-gen:break
-  fsGroup: 65534
+  fsGroup: 10001
 
 # Security options this container should run with
 securityContext: # +doc-gen:break
@@ -34,7 +34,8 @@ securityContext: # +doc-gen:break
     drop: ["ALL"]
   # readOnlyRootFilesystem: true
   runAsNonRoot: true
-  runAsUser: 65534
+  runAsUser: 10001
+  runAsGroup: 10001
   seccompProfile:
     type: RuntimeDefault
 
@@ -87,7 +88,7 @@ tolerations: []
 
 affinity: {}
 
-minio:
+rustfs:
   auth:
     accessKeyId: ""
     secretAccessKey: ""

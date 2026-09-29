@@ -1,9 +1,9 @@
 apiVersion: v2
-name: minio
-description: A Helm chart for MinIO Demo Deployment
+name: rustfs
+description: A Helm chart for RustFS Demo Deployment
 type: application
 version: v2026.9.11
-appVersion: RELEASE.2023-01-12T02-06-16Z
+appVersion: 1.0.0
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:

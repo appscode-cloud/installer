@@ -544,51 +544,6 @@ properties:
     - domain
     - enabled
     type: object
-  minio:
-    properties:
-      auth:
-        properties:
-          accessKeyId:
-            type: string
-          secretAccessKey:
-            type: string
-        required:
-        - accessKeyId
-        - secretAccessKey
-        type: object
-      tls:
-        properties:
-          enable:
-            type: boolean
-          issuer:
-            properties:
-              kind:
-                type: string
-              name:
-                type: string
-            required:
-            - kind
-            - name
-            type: object
-          mount:
-            type: boolean
-          secret:
-            properties:
-              name:
-                type: string
-            required:
-            - name
-            type: object
-        required:
-        - enable
-        - issuer
-        - mount
-        - secret
-        type: object
-    required:
-    - auth
-    - tls
-    type: object
   nameOverride:
     type: string
   nodeSelector:
@@ -726,6 +681,51 @@ properties:
           x-kubernetes-int-or-string: true
         type: object
     type: object
+  rustfs:
+    properties:
+      auth:
+        properties:
+          accessKeyId:
+            type: string
+          secretAccessKey:
+            type: string
+        required:
+        - accessKeyId
+        - secretAccessKey
+        type: object
+      tls:
+        properties:
+          enable:
+            type: boolean
+          issuer:
+            properties:
+              kind:
+                type: string
+              name:
+                type: string
+            required:
+            - kind
+            - name
+            type: object
+          mount:
+            type: boolean
+          secret:
+            properties:
+              name:
+                type: string
+            required:
+            - name
+            type: object
+        required:
+        - enable
+        - issuer
+        - mount
+        - secret
+        type: object
+    required:
+    - auth
+    - tls
+    type: object
   securityContext:
     properties:
       allowPrivilegeEscalation:
@@ -835,9 +835,9 @@ required:
 - gateway
 - image
 - ingress
-- minio
 - persistence
 - replicaCount
+- rustfs
 - service
 - storageClass
 type: object

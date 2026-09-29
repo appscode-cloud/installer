@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "minio.fullname" . }}
+  name: {{ include "rustfs.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "minio.labels" . | nindent 4 }}
+    {{- include "rustfs.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -17,7 +17,7 @@ spec:
       protocol: TCP
       name: ui
   selector:
-    {{- include "minio.selectorLabels" . | nindent 4 }}
+    {{- include "rustfs.selectorLabels" . | nindent 4 }}
   sessionAffinity: ClientIP
 
 ---
@@ -25,10 +25,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "minio.fullname" . }}-pods
+  name: {{ include "rustfs.fullname" . }}-pods
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "minio.labels" . | nindent 4 }}
+    {{- include "rustfs.labels" . | nindent 4 }}
 spec:
   ports:
     # port needed to create SRV records, SRV records have pod DNS name
@@ -44,4 +44,4 @@ spec:
   clusterIP: None
   # selector needed to create pods dns name
   selector:
-    {{- include "minio.selectorLabels" . | nindent 4 }}
+    {{- include "rustfs.selectorLabels" . | nindent 4 }}
