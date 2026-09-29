@@ -1,3 +1,13 @@
+{{- $spec := omit $.Values "nameOverride" "fullnameOverride" "clusterMetadata" "skipGatewayPreset" | deepCopy }}
+{{- /* jks.keystore/truststore are optional []byte fields in the GatewayConfig CRD
+       (type: string, format: byte). Unset values render as null, which server-side
+       apply rejects. Drop them unless set. */}}
+{{- $jks := dig "infra" "tls" "jks" nil $spec }}
+{{- if kindIs "map" $jks }}
+{{-   range $k := list "keystore" "truststore" }}
+{{-     if not (get $jks $k) }}{{ $_ := unset $jks $k }}{{ end }}
+{{-   end }}
+{{- end }}
 apiVersion: gateway.catalog.appscode.com/v1alpha1
 kind: GatewayConfig
 metadata:
@@ -8,4 +18,4 @@ metadata:
   labels:
     {{- include "service-gateway-presets.labels" . | nindent 4 }}
 spec:
-  {{- omit $.Values "nameOverride" "fullnameOverride" "clusterMetadata" "skipGatewayPreset" | toYaml | nindent 2 }}
+  {{- $spec | toYaml | nindent 2 }}

@@ -12,7 +12,9 @@ metadata:
   labels:
     {{- include "platform-links.labels" . | nindent 4 }}
 spec:
-  storageClassName: {{ $infra.storageClass.name }}
+  {{- with $infra.storageClass.name }}
+  storageClassName: {{ . }}
+  {{- end }}
   accessModes:
     - ReadWriteOnce
   resources:

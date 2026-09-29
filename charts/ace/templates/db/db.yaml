@@ -19,7 +19,9 @@ spec:
     maxSlotWALKeepSize: -1
   {{- end }}
   storage:
-    storageClassName: {{ .Values.global.infra.storageClass.name }}
+    {{- with .Values.global.infra.storageClass.name }}
+    storageClassName: {{ . }}
+    {{- end }}
     accessModes:
     - ReadWriteOnce
     resources:

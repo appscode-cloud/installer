@@ -212,4 +212,6 @@ spec:
         resources:
           requests:
             storage: {{ .Values.persistence.size }}
-        storageClassName: {{ $infra.storageClass.name }}
+        {{- with $infra.storageClass.name }}
+        storageClassName: {{ . }}
+        {{- end }}
