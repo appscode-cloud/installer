@@ -42,6 +42,7 @@ func Test_CheckImageArchitectures(t *testing.T) {
 		[]string{
 			"ghcr.io/appscode-charts/opskubedbcom-igniteopsrequest-editor:v0.18.0",
 			"ghcr.io/appscode-charts/opskubedbcom-igniteopsrequest-editor:v0.19.0",
+			"quay.io/minio/minio:RELEASE.2023-01-12T02-06-16Z",
 		}); err != nil {
 		t.Errorf("CheckImageArchitectures() error = %v", err)
 	}

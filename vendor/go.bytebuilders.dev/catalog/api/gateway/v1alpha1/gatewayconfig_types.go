@@ -107,9 +107,9 @@ type TLSData struct {
 
 type Keystore struct {
 	// +optional
-	Truststore []byte `json:"truststore"`
+	Truststore []byte `json:"truststore,omitempty"`
 	// +optional
-	Keystore []byte `json:"keystore"`
+	Keystore []byte `json:"keystore,omitempty"`
 	Password string `json:"password"`
 }
 
