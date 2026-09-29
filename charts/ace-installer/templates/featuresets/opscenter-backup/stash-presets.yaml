@@ -36,8 +36,6 @@ spec:
   - name: kubestash
     namespace: {{ $.Release.Namespace }}
   {{- end }}
-  - name: ace
-    namespace: {{ $.Release.Namespace }}
   chart:
     spec:
       chart: stash-presets
