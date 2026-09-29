@@ -17,7 +17,7 @@
 APPSCODE_CLOUD_CATALOG_TAG=${APPSCODE_CLOUD_CATALOG_TAG:-v0.1.1}
 APPSCODE_CLOUD_KUBE_BIND_TAG=${APPSCODE_CLOUD_KUBE_BIND_TAG:-master}
 CERT_MANAGER_CERT_MANAGER_TAG=${CERT_MANAGER_CERT_MANAGER_TAG:-v1.19.2}
-ENVOYPROXY_GATEWAY_TAG=${ENVOYPROXY_GATEWAY_TAG:-v1.6.2}
+ENVOYPROXY_GATEWAY_TAG=${ENVOYPROXY_GATEWAY_TAG:-v1.8.3}
 FLUXCD_HELM_CONTROLLER_TAG=${FLUXCD_HELM_CONTROLLER_TAG:-v1.6.4}
 FLUXCD_SOURCE_CONTROLLER_TAG=${FLUXCD_SOURCE_CONTROLLER_TAG:-v1.9.5}
 KLUSTER_MANAGER_CLUSTER_AUTH_TAG=${KLUSTER_MANAGER_CLUSTER_AUTH_TAG:-master}
@@ -25,7 +25,7 @@ KMODULES_RESOURCE_METADATA_TAG=${KMODULES_RESOURCE_METADATA_TAG:-master}
 KUBEOPS_CSI_DRIVER_CACERTS_TAG=${KUBEOPS_CSI_DRIVER_CACERTS_TAG:-v0.5.0}
 KUBEOPS_EXTERNAL_DNS_OPERATOR=${KUBEOPS_EXTERNAL_DNS_OPERATOR:-v0.3.0}
 KUBEOPS_PETSET_TAG=${KUBEOPS_PETSET_TAG:-v0.0.16}
-KUBERNETES_SIGS_GATEWAY_API_TAG=${KUBERNETES_SIGS_GATEWAY_API_TAG:-v1.4.1}
+KUBERNETES_SIGS_GATEWAY_API_TAG=${KUBERNETES_SIGS_GATEWAY_API_TAG:-v1.5.1}
 KUBESTASH_APIMACHINERY_TAG=${KUBESTASH_APIMACHINERY_TAG:-v0.23.0}
 KUBEVAULT_APIMACHINERY_TAG=${KUBEVAULT_APIMACHINERY_TAG:-v0.25.0}
 OPEN_CLUSTER_MANAGEMENT_IO_API_TAG=${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG:-v1.2.0}
@@ -64,7 +64,7 @@ crd-importer \
     --out=./charts/catalog-manager/crds
 
 crd-importer \
-    --input=https://github.com/envoyproxy/gateway/raw/${ENVOYPROXY_GATEWAY_TAG}/charts/gateway-helm/crds/generated/gateway.envoyproxy.io_envoyproxies.yaml \
+    --input=https://github.com/envoyproxy/gateway/raw/${ENVOYPROXY_GATEWAY_TAG}/charts/gateway-helm/charts/crds/crds/generated/gateway.envoyproxy.io_envoyproxies.yaml \
     --out=./charts/catalog-manager/crds
 
 crd-importer \
@@ -99,7 +99,7 @@ crd-importer \
     --out=./charts/opscenter-features/crds
 
 crd-importer \
-    --input=https://github.com/envoyproxy/gateway/raw/${ENVOYPROXY_GATEWAY_TAG}/charts/gateway-helm/crds/generated/gateway.envoyproxy.io_envoyproxies.yaml \
+    --input=https://github.com/envoyproxy/gateway/raw/${ENVOYPROXY_GATEWAY_TAG}/charts/gateway-helm/charts/crds/crds/generated/gateway.envoyproxy.io_envoyproxies.yaml \
     --input=https://github.com/kubeops/csi-driver-cacerts/raw/${KUBEOPS_CSI_DRIVER_CACERTS_TAG}/crds/cacerts.csi.cert-manager.io_caproviderclasses.yaml \
     --input=https://github.com/kubeops/external-dns-operator/raw/${KUBEOPS_EXTERNAL_DNS_OPERATOR}/crds/external-dns.appscode.com_externaldnses.yaml \
     --input=https://github.com/kubernetes-sigs/gateway-api/raw/${KUBERNETES_SIGS_GATEWAY_API_TAG}/config/crd/standard/gateway.networking.k8s.io_gatewayclasses.yaml \
