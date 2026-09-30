@@ -1516,6 +1516,8 @@ properties:
           - email
           - webhook
         type: object
+      centralizedOTEL:
+        type: boolean
       exporter:
         properties:
           resources:
