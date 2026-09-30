@@ -4,6 +4,7 @@
 - docker.io/bitnami/sealed-secrets-controller:0.25.0
 - docker.io/falcosecurity/falco-no-driver:0.37.0
 - docker.io/falcosecurity/falcoctl:0.7.1
+- docker.io/victoriametrics/operator:v0.74.1
 - gcr.io/k8s-staging-test-infra/kubekins-e2e:v20230727-ea685f8747-master
 - ghcr.io/appscode-images/cert-manager-acmesolver:v1.19.3
 - ghcr.io/appscode-images/cert-manager-cainjector:v1.19.3

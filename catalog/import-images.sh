@@ -32,12 +32,13 @@ $CMD push --allow-nondistributable-artifacts --insecure images/curlimages-curl-7
 $CMD push --allow-nondistributable-artifacts --insecure images/bitnami-sealed-secrets-controller-0.25.0.tar $IMAGE_REGISTRY/bitnami/sealed-secrets-controller:0.25.0
 $CMD push --allow-nondistributable-artifacts --insecure images/falcosecurity-falco-no-driver-0.37.0.tar $IMAGE_REGISTRY/falcosecurity/falco-no-driver:0.37.0
 $CMD push --allow-nondistributable-artifacts --insecure images/falcosecurity-falcoctl-0.7.1.tar $IMAGE_REGISTRY/falcosecurity/falcoctl:0.7.1
+$CMD push --allow-nondistributable-artifacts --insecure images/victoriametrics-operator-v0.74.1.tar $IMAGE_REGISTRY/victoriametrics/operator:v0.74.1
 $CMD push --allow-nondistributable-artifacts --insecure images/k8s-staging-test-infra-kubekins-e2e-v20230727-ea685f8747-master.tar $IMAGE_REGISTRY/k8s-staging-test-infra/kubekins-e2e:v20230727-ea685f8747-master
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-acaas-v2026.9.11.tar $IMAGE_REGISTRY/appscode-charts/acaas:v2026.9.11
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ace-installer-v2026.9.11.tar $IMAGE_REGISTRY/appscode-charts/ace-installer:v2026.9.11
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ace-v2026.9.11.tar $IMAGE_REGISTRY/appscode-charts/ace:v2026.9.11
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-aceshifter-v2026.9.11.tar $IMAGE_REGISTRY/appscode-charts/aceshifter:v2026.9.11
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-appscode-otel-stack-v2026.7.15.tar $IMAGE_REGISTRY/appscode-charts/appscode-otel-stack:v2026.7.15
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-appscode-otel-stack-v2026.9.22.tar $IMAGE_REGISTRY/appscode-charts/appscode-otel-stack:v2026.9.22
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-cassandraautoscaler-editor-v0.37.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-cassandraautoscaler-editor:v0.37.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-clickhouseautoscaler-editor-v0.37.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-clickhouseautoscaler-editor:v0.37.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-documentdbautoscaler-editor-v0.37.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-documentdbautoscaler-editor:v0.37.0
@@ -241,9 +242,10 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-o
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-solropsrequest-editor-v0.37.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-solropsrequest-editor:v0.37.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-weaviateopsrequest-editor-v0.37.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-weaviateopsrequest-editor:v0.37.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.37.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.37.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-otel-nats-v2026.9.22.tar $IMAGE_REGISTRY/appscode-charts/otel-nats:v2026.9.22
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-panopticon-v2026.6.22.tar $IMAGE_REGISTRY/appscode-charts/panopticon:v2026.6.22
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prepare-cluster-v2023.12.21.tar $IMAGE_REGISTRY/appscode-charts/prepare-cluster:v2023.12.21
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prom-label-proxy-v2026.7.15.tar $IMAGE_REGISTRY/appscode-charts/prom-label-proxy:v2026.7.15
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prom-label-proxy-v2026.9.22.tar $IMAGE_REGISTRY/appscode-charts/prom-label-proxy:v2026.9.22
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prometheus-adapter-4.9.0.tar $IMAGE_REGISTRY/appscode-charts/prometheus-adapter:4.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-reloader-2.2.9.tar $IMAGE_REGISTRY/appscode-charts/reloader:2.2.9
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-scanner-v2026.1.15.tar $IMAGE_REGISTRY/appscode-charts/scanner:v2026.1.15
@@ -269,7 +271,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-s
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-storagekubestashcom-retentionpolicy-editor-v0.37.0.tar $IMAGE_REGISTRY/appscode-charts/storagekubestashcom-retentionpolicy-editor:v0.37.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-storagekubestashcom-snapshot-editor-v0.37.0.tar $IMAGE_REGISTRY/appscode-charts/storagekubestashcom-snapshot-editor:v0.37.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-supervisor-v2026.2.16.tar $IMAGE_REGISTRY/appscode-charts/supervisor:v2026.2.16
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-tenant-operator-v2026.7.15.tar $IMAGE_REGISTRY/appscode-charts/tenant-operator:v2026.7.15
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-tenant-operator-v2026.9.22.tar $IMAGE_REGISTRY/appscode-charts/tenant-operator:v2026.9.22
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-thanos-operator-v2026.6.2.tar $IMAGE_REGISTRY/appscode-charts/thanos-operator:v2026.6.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-topolvm-15.0.0.tar $IMAGE_REGISTRY/appscode-charts/topolvm:15.0.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uibytebuildersdev-component-alert-v0.12.0.tar $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-alert:v0.12.0
@@ -316,6 +318,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-u
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uik8sappscodecom-featureset-saas-core-editor-v0.37.0.tar $IMAGE_REGISTRY/appscode-charts/uik8sappscodecom-featureset-saas-core-editor:v0.37.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-vault-secrets-operator-0.4.3.tar $IMAGE_REGISTRY/appscode-charts/vault-secrets-operator:0.4.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-vault-0.27.0.tar $IMAGE_REGISTRY/appscode-charts/vault:0.27.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-victoria-metrics-operator-0.67.3.tar $IMAGE_REGISTRY/appscode-charts/victoria-metrics-operator:0.67.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-virtual-secrets-server-v2026.2.27.tar $IMAGE_REGISTRY/appscode-charts/virtual-secrets-server:v2026.2.27
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-gateway-v2026.1.15.tar $IMAGE_REGISTRY/appscode-charts/voyager-gateway:v2026.1.15
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-voyager-v2026.3.23.tar $IMAGE_REGISTRY/appscode-charts/voyager:v2026.3.23
