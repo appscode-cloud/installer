@@ -237,6 +237,8 @@ type AceOptionsMonitoring struct {
 	Exporter       GlobalPrometheusExporter `json:"exporter"`
 	//+optional
 	AlertManager AceOptionsAlertManager `json:"alertManager"`
+	// +optional
+	CentralizedOTEL bool `json:"centralizedOTEL"`
 }
 
 type AceOptionsAlertManager struct {
