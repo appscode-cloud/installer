@@ -35,7 +35,7 @@ spec:
     remediation:
       retries: -1
   upgrade:
-    crds: CreateReplace
+    crds: Skip
     remediation:
       retries: -1
   {{- if eq (include "distro.openshift" $) "true" }}

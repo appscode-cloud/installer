@@ -46,7 +46,7 @@ spec:
   storageNamespace: kubevault
   install:
     createNamespace: {{ $.Values.helm.createNamespace }}
-    crds: CreateReplace
+    # crds: CreateReplace
     remediation:
       retries: -1
   upgrade:
