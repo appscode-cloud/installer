@@ -46,6 +46,7 @@ image-packer list --root-dir=charts --output-dir=catalog
 feature_chart_exclusions=(
     # appscode-cloud/installer
     aceshifter
+    akp-crd-manager
     catalog-manager
     cluster-presets
     inbox-ui

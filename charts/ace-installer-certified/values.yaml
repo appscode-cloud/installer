@@ -62,6 +62,9 @@ helm:
     aceshifter:
       enabled: true
       version: "v2026.9.11"
+    akp-crd-manager:
+      enabled: true
+      version: "v2026.9.11"
     capi-catalog:
       enabled: false
       version: "v2024.10.24"

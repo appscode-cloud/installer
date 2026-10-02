@@ -1,3 +1,4 @@
+{{- if .Capabilities.APIVersions.Has "gateway.networking.k8s.io/v1/Gateway" }}
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
@@ -13,6 +14,7 @@ spec:
     {{- else }}
       port: {{ .Values.envoy.service.seedBackendPort }}
     {{- end }}
+{{- end }}
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -72,6 +74,7 @@ spec:
             {{- toYaml .Values.echoserver.securityContext | nindent 12 }}
           {{- end }}
 
+{{- if .Capabilities.APIVersions.Has "gateway.networking.k8s.io/v1/HTTPRoute" }}
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
@@ -96,3 +99,4 @@ spec:
         - path:
             type: Exact
             value: /info
+{{- end }}

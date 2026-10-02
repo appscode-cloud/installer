@@ -16,6 +16,18 @@
 
 set -eou pipefail
 
+FLUX2_CHART_VERSION=${FLUX2_CHART_VERSION:-2.19.1}
+
+# ace-installer renders Flux HelmRepository/HelmRelease objects but no longer ships their CRDs.
+# Only the CRDs are applied, so the HelmReleases are not reconciled inside the test cluster.
+applyFluxCRDs() {
+    helm template flux2 oci://ghcr.io/appscode-charts/flux2 \
+        --version ${FLUX2_CHART_VERSION} \
+        --show-only templates/helm-controller.crds.yaml \
+        --show-only templates/source-controller.crds.yaml |
+        kubectl apply --server-side -f -
+}
+
 for dir in charts/*/; do
     dir=${dir%*/}
     dir=${dir##*/}
@@ -52,9 +64,13 @@ for dir in charts/*/; do
         ct_cleanup=true
         kubectl create ns $ns
         kubectl label ns $ns pod-security.kubernetes.io/enforce=restricted
+        # make ct runs `kubectl delete crds --all` when CT_CLEANUP=true, which would drop the Flux CRDs.
+        if [[ "$dir" = "ace-installer" ]] || [[ "$dir" = "ace-installer-certified" ]]; then
+            applyFluxCRDs
+            ct_cleanup=false
+        fi
         if [[ "$dir" = "ace-installer-certified" ]]; then
             helm install -n $ns ace-installer-certified-crds charts/ace-installer-certified-crds
-            ct_cleanup=false
         fi
         make ct TEST_CHARTS=charts/$dir KUBE_NAMESPACE=$ns CT_CLEANUP=$ct_cleanup
         kubectl patch $(kubectl get gatewayclass -o name) -p '{"metadata":{"finalizers":null}}' --type=merge || true
