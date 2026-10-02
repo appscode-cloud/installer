@@ -75,6 +75,7 @@ type VaultServerSpec struct {
 	Replicas          int32                `json:"replicas"`
 	IsolateTenants    bool                 `json:"isolateTenants"`
 	ServiceType       core.ServiceType     `json:"serviceType"`
+	ServerAddress     string               `json:"serverAddress"`
 	TerminationPolicy string               `json:"terminationPolicy"`
 	Persistence       VaultPersistenceSpec `json:"persistence"`
 	Unsealer          VaultUnsealerSpec    `json:"unsealer"`

@@ -20,6 +20,7 @@ clusterMetadata:
 
 {{- with (dig "host" "" $platform) }}
 {{ $_ := set $defaults "infra" (dict "host" . "hostType" (dig "hostType" "domain" $platform)) }}
+{{ $_ := set $defaults "vaultServer" (dict "serverAddress" .) }}
 {{- end }}
 
 {{ $vals := dig "values" dict . }}

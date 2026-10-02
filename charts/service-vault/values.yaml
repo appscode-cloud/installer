@@ -84,6 +84,9 @@ vaultServer:
   # ClusterIP | LoadBalancer | NodePort
   # LoadBalancer and NodePort emit spec.serviceTemplates on the VaultServer
   serviceType: ClusterIP
+  # externally-resolvable host/IP (no port) spoke relays use to reach vault; set as the
+  # kubevault.com/server-address annotation. Required for relay when serviceType is ClusterIP
+  serverAddress: ""
   terminationPolicy: WipeOut
   persistence:
     storageClassName: ""
@@ -92,8 +95,8 @@ vaultServer:
     secretShares: 5
     secretThreshold: 3
   tls:
-    # cert-manager CA secret backing the vault issuer; empty means a selfSigned issuer
-    caSecretName: vault-ca
+    # existing cert-manager CA secret backing the vault issuer; empty bootstraps a CA in the chart
+    caSecretName: ""
   relay:
     clusterSet: cp-dbaas-generic
     namespace: vault-relay-demo
