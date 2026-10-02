@@ -18840,6 +18840,32 @@ properties:
           - name
           type: object
         type: array
+      image:
+        properties:
+          name:
+            type: string
+          pullPolicy:
+            type: string
+          version:
+            type: string
+        type: object
+      initContainer:
+        properties:
+          enabled:
+            type: boolean
+          image:
+            properties:
+              pullPolicy:
+                type: string
+              repository:
+                type: string
+              tag:
+                type: string
+            type: object
+        required:
+        - enabled
+        - image
+        type: object
       podAnnotations:
         additionalProperties:
           type: string
