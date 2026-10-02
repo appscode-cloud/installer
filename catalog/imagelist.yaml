@@ -18,6 +18,7 @@
 - ghcr.io/appscode/ace:v0.2.0
 - ghcr.io/appscode/acerproxy:v0.2.0
 - ghcr.io/appscode/aceshifter:v0.0.3
+- ghcr.io/appscode/akp-crd-manager:v0.0.1
 - ghcr.io/appscode/b3:v2026.9.11
 - ghcr.io/appscode/billing-ui:2.5.0
 - ghcr.io/appscode/catalog-manager:v0.14.0
@@ -58,7 +59,6 @@
 - ghcr.io/sigilr/openbao:2.6.1-sigilr.1
 - ghcr.io/voyagermesh/crd-manager:v0.3.0
 - ghcr.io/voyagermesh/echoserver:v20221109
-- ghcr.io/voyagermesh/envoy:v1.38.3-ac
 - ghcr.io/voyagermesh/gateway:v1.8.2
 - natsio/nats-box:0.13.8
 - natsio/nats-server-config-reloader:0.22.3

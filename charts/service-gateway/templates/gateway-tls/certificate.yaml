@@ -1,4 +1,4 @@
-{{- if not (eq .Values.infra.tls.issuer "external") }}
+{{- if and (not (eq .Values.infra.tls.issuer "external")) (.Capabilities.APIVersions.Has "cert-manager.io/v1/Certificate") }}
 
 apiVersion: cert-manager.io/v1
 kind: Certificate

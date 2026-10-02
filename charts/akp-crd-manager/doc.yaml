@@ -1,0 +1,18 @@
+project:
+  name: CRD Manager by AppsCode
+  shortName: CRD Manager
+  url: https://github.com/appscode-cloud/crd-manager
+  description: Third-party CRD Installer
+  app: a CRD Manager operator
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: akp-crd-manager
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+  - Kubernetes 1.20+
+release:
+  name: akp-crd-manager
+  namespace: kubeops

@@ -4,6 +4,7 @@
   "frontendTLSSecretRef" (dict "name" (printf "%s-gw-cert" (include "tenant.name" .)) "namespace" .Release.Namespace)
 }}
 {{- $multiReplica := and (eq .Values.envoy.provisionerType "Deployment") (gt (int (.Values.envoy.replicas | default 1)) 1) }}
+{{- if .Capabilities.APIVersions.Has "gateway.networking.k8s.io/v1beta1/GatewayClass" }}
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: GatewayClass
 metadata:
@@ -26,6 +27,8 @@ spec:
     kind: EnvoyProxy
     name: {{ include "tenant.name" . }}
     namespace: {{ .Release.Namespace }}
+{{- end }}
+{{- if .Capabilities.APIVersions.Has "gateway.envoyproxy.io/v1alpha1/EnvoyProxy" }}
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: EnvoyProxy
@@ -119,3 +122,4 @@ spec:
               externalIPs: {{- toYaml .Values.envoy.service.externalIPs | nindent 14 }}
         {{- end }}
         type: {{ .Values.envoy.service.type }}
+{{- end }}

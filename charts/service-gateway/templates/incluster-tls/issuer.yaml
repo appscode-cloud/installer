@@ -1,4 +1,4 @@
-{{- if (eq .Values.cluster.tls.issuer "ca") }}
+{{- if and (eq .Values.cluster.tls.issuer "ca") (.Capabilities.APIVersions.Has "cert-manager.io/v1/ClusterIssuer") }}
 
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer

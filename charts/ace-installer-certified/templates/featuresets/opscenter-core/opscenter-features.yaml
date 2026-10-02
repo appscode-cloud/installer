@@ -38,10 +38,18 @@ spec:
     crds: CreateReplace
     remediation:
       retries: -1
-  {{- if eq (include "distro.openshift" $) "true" }}
+  {{- $crdManager := dig "akp-crd-manager" "enabled" false $.Values.helm.releases }}
+  {{- $openshift := eq (include "distro.openshift" $) "true" }}
+  {{- if or $crdManager $openshift }}
   dependsOn:
+  {{- if $crdManager }}
+  - name: akp-crd-manager
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
+  {{- if $openshift }}
   - name: aceshifter
     namespace: {{ $.Release.Namespace }}
+  {{- end }}
   {{- end }}
   chart:
     spec:
