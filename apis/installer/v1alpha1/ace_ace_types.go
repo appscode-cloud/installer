@@ -278,9 +278,28 @@ type KubeStashSpec struct {
 }
 
 type PersesSpec struct {
-	Config         PersesConfig      `json:"config"`
-	Env            []core.EnvVar     `json:"env"`
-	PodAnnotations map[string]string `json:"podAnnotations"`
+	Image          *PersesImage         `json:"image,omitempty"`
+	InitContainer  *PersesInitContainer `json:"initContainer,omitempty"`
+	Config         PersesConfig         `json:"config"`
+	Env            []core.EnvVar        `json:"env"`
+	PodAnnotations map[string]string    `json:"podAnnotations"`
+}
+
+type PersesImage struct {
+	Name       string `json:"name,omitempty"`
+	Version    string `json:"version,omitempty"`
+	PullPolicy string `json:"pullPolicy,omitempty"`
+}
+
+type PersesInitContainer struct {
+	Enabled bool                     `json:"enabled"`
+	Image   PersesInitContainerImage `json:"image"`
+}
+
+type PersesInitContainerImage struct {
+	Repository string `json:"repository,omitempty"`
+	Tag        string `json:"tag,omitempty"`
+	PullPolicy string `json:"pullPolicy,omitempty"`
 }
 
 type PersesConfig struct {
