@@ -91,7 +91,7 @@ helm:
       version: v1.5.1
     kubedb:
       enabled: true
-      version: "v2026.7.10"
+      version: "v2026.8.26-rc.2"
       values: # +doc-gen:break
         global:
           featureGates:

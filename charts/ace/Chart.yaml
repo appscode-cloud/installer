@@ -67,7 +67,7 @@ dependencies:
 - name: perses
   repository: oci://ghcr.io/appscode-charts
   condition: perses.enabled
-  version: v2026.4.30
+  version: v2026.6.2
 - name: postgres-alerts
   repository: oci://ghcr.io/appscode-charts
   condition: postgres-alerts.enabled
