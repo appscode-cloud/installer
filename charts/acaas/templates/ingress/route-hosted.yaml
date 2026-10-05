@@ -1,4 +1,5 @@
-{{ if (index .Values "gateway" "enabled") }}
+{{- $anyBackend := or (index .Values "billing-ui" "enabled") (index .Values "deploy-ui" "enabled") (index .Values "marketplace-api" "enabled") (index .Values "marketplace-ui" "enabled") (index .Values "platform-links" "enabled") (index .Values "website" "enabled") }}
+{{- if and (index .Values "gateway" "enabled") $anyBackend }}
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
