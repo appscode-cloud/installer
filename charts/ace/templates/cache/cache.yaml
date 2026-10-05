@@ -61,6 +61,7 @@ spec:
   monitor:
     agent: {{ .Values.global.monitoring.agent }}
     prometheus:
+      {{- if or .Values.global.monitoring.exporter.resources (eq (include "distro.openshift" $) "true") }}
       exporter:
       {{- with .Values.global.monitoring.exporter.resources }}
         resources:
@@ -77,6 +78,7 @@ spec:
           runAsUser: {{ .Values.securityContext.runAsUser }}
           seccompProfile:
             type: RuntimeDefault
+      {{- end }}
       {{- end }}
       serviceMonitor:
         interval: 30s

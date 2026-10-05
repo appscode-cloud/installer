@@ -33,6 +33,11 @@ spec:
   {{- end }}
   {{- end }}
 
+  {{- $hasPaths := false }}
+  {{- range .Values.gateway.hosts }}
+    {{- if .paths }}{{ $hasPaths = true }}{{ end }}
+  {{- end }}
+  {{- if $hasPaths }}
   rules:
   {{- range .Values.gateway.hosts }}
     {{- range .paths }}
@@ -48,6 +53,7 @@ spec:
       port: {{ $.Values.service.port }}
       weight: 1
     {{- end }}
+  {{- end }}
   {{- end }}
 
 {{- end }}

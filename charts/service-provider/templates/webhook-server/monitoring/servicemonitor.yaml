@@ -32,7 +32,6 @@ spec:
     matchLabels:
       {{- include "service-provider.selectorLabels" . | nindent 6 }}
   endpoints:
-  {{- if .Values.monitoring.operator }}
   - port: https
     authorization:
       type: Bearer
@@ -47,6 +46,5 @@ spec:
           name: {{ include "service-provider.fullname" . }}-webhook-cert
           key: tls.crt
       serverName: "{{ include "service-provider.fullname" . }}.{{ .Release.Namespace }}.svc"
-  {{- end }}
 {{- end }}
 {{ end }}
