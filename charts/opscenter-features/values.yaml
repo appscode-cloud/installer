@@ -56,6 +56,8 @@ helm:
   releases:
     aceshifter:
       version: "v2026.9.11"
+    akp-crd-manager:
+      version: "v2026.9.11"
     appscode-otel-stack:
       version: "v2026.9.22"
     aws-credential-manager:

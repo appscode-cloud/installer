@@ -71,6 +71,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.createNamespace                                                    |                                 | <code>true</code>                          |
 | helm.repositories.appscode-charts-oci.url                               |                                 | <code>oci://ghcr.io/appscode-charts</code> |
 | helm.releases.aceshifter.version                                        |                                 | <code>"v2026.9.11"</code>                  |
+| helm.releases.akp-crd-manager.version                                   |                                 | <code>"v2026.9.11"</code>                  |
 | helm.releases.appscode-otel-stack.version                               |                                 | <code>"v2026.9.22"</code>                  |
 | helm.releases.aws-credential-manager.version                            |                                 | <code>"v2026.1.20"</code>                  |
 | helm.releases.azure-credential-manager.version                          |                                 | <code>"v2026.4.16"</code>                  |

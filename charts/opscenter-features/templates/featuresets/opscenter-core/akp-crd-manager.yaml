@@ -1,0 +1,42 @@
+{{ $defaults := dict "registryFQDN" (include "registry.ghcr" $) }}
+
+{{ $vals := dig "akp-crd-manager" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+{{- if eq (include "distro.openshift" $) "true" }}
+{{ $vals = mergeOverwrite $vals (dict "distro" .Values.distro) }}
+{{- end }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: akp-crd-manager
+  labels:
+    app.kubernetes.io/part-of: opscenter-core
+spec:
+  title: CRD Manager
+  description: |
+    Installs missing third-party CRDs required by ACE
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-core
+  featureBlock: akp-crd-manager
+  recommended: false
+  {{- if eq (include "distro.openshift" $) "true" }}
+  requirements:
+    features:
+      - aceshifter
+  {{- end }}
+  chart:
+    name: akp-crd-manager
+    namespace: kubeops
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "akp-crd-manager" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}

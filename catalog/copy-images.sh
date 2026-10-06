@@ -47,6 +47,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ac
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace-installer:v2026.9.11 $IMAGE_REGISTRY/appscode-charts/ace-installer:v2026.9.11
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace:v2026.9.11 $IMAGE_REGISTRY/appscode-charts/ace:v2026.9.11
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aceshifter:v2026.9.11 $IMAGE_REGISTRY/appscode-charts/aceshifter:v2026.9.11
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/akp-crd-manager:v2026.9.11 $IMAGE_REGISTRY/appscode-charts/akp-crd-manager:v2026.9.11
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/appscode-otel-stack:v2026.9.22 $IMAGE_REGISTRY/appscode-charts/appscode-otel-stack:v2026.9.22
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-cassandraautoscaler-editor:v0.37.0 $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-cassandraautoscaler-editor:v0.37.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-clickhouseautoscaler-editor:v0.37.0 $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-clickhouseautoscaler-editor:v0.37.0

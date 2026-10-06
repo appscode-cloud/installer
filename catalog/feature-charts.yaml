@@ -1,4 +1,5 @@
 - ghcr.io/appscode-charts/aceshifter:v2026.9.11
+- ghcr.io/appscode-charts/akp-crd-manager:v2026.9.11
 - ghcr.io/appscode-charts/appscode-otel-stack:v2026.9.22
 - ghcr.io/appscode-charts/aws-credential-manager:v2026.1.20
 - ghcr.io/appscode-charts/aws-ebs-csi-driver:2.23.0
