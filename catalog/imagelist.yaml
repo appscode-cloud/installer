@@ -58,7 +58,7 @@
 - ghcr.io/kubevault/vault-unsealer:v0.25.0
 - ghcr.io/opnpulse/perses:v2026.4.24
 - ghcr.io/sigilr/openbao:2.6.1-sigilr.1
-- ghcr.io/voyagermesh/crd-manager:v0.3.0
+- ghcr.io/voyagermesh/crd-manager:v0.4.0
 - ghcr.io/voyagermesh/echoserver:v20221109
 - ghcr.io/voyagermesh/gateway:v1.8.2
 - natsio/nats-box:0.13.8
