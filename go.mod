@@ -3,7 +3,7 @@ module go.bytebuilders.dev/installer
 go 1.25.6
 
 require (
-	go.bytebuilders.dev/catalog v0.1.2-0.20260929092917-fc6c2da65b4f
+	go.bytebuilders.dev/catalog v0.1.2-0.20261006105413-f96363d5bf8d
 	go.bytebuilders.dev/resource-model v0.4.1-0.20260908050049-ce9aabf9ad5c
 	go.bytebuilders.dev/ui-wizards v0.37.2-0.20260929044756-ebda42e77495
 	go.openviz.dev/installer v0.0.0-20260619044110-702becd1dd97
@@ -11,10 +11,10 @@ require (
 	k8s.io/api v0.34.8
 	k8s.io/apimachinery v0.34.8
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
-	kmodules.xyz/client-go v0.34.3
+	kmodules.xyz/client-go v0.34.7-0.20260916091548-45e2a0e7782d
 	kmodules.xyz/image-packer v0.0.0-20260828095825-4ee8d7b90748
 	kmodules.xyz/objectstore-api v0.34.0
-	kmodules.xyz/resource-metadata v0.49.0
+	kmodules.xyz/resource-metadata v0.49.1-0.20260916091615-a7e699f904a2
 	kmodules.xyz/schema-checker v0.4.3
 	kubeops.dev/external-dns-operator v0.4.1-0.20260711084336-46e45f490d84
 	kubeops.dev/installer v0.0.0-20260828113655-d8ce0857aa76
@@ -105,13 +105,13 @@ require (
 	go.appscode.dev/alerts v0.2.1-0.20260811095631-791e5af59674 // indirect
 	go.yaml.in/yaml/v2 v2.4.3 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
-	golang.org/x/crypto v0.52.0 // indirect
-	golang.org/x/net v0.55.0 // indirect
-	golang.org/x/oauth2 v0.34.0 // indirect
-	golang.org/x/sync v0.20.0 // indirect
-	golang.org/x/sys v0.45.0 // indirect
-	golang.org/x/term v0.43.0 // indirect
-	golang.org/x/text v0.37.0 // indirect
+	golang.org/x/crypto v0.55.0 // indirect
+	golang.org/x/net v0.57.0 // indirect
+	golang.org/x/oauth2 v0.36.0 // indirect
+	golang.org/x/sync v0.22.0 // indirect
+	golang.org/x/sys v0.47.0 // indirect
+	golang.org/x/term v0.45.0 // indirect
+	golang.org/x/text v0.41.0 // indirect
 	golang.org/x/time v0.14.0 // indirect
 	gomodules.xyz/encoding v0.0.8 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.5.0 // indirect
@@ -141,7 +141,7 @@ require (
 	sigs.k8s.io/randfill v1.0.0 // indirect
 	sigs.k8s.io/structured-merge-diff/v6 v6.3.0 // indirect
 	stash.appscode.dev/apimachinery v0.42.0 // indirect
-	voyagermesh.dev/installer v0.0.0-20260515120941-8ff789f06253 // indirect
+	voyagermesh.dev/installer v0.0.0-20261006102643-3da5e1900dff // indirect
 	x-helm.dev/apimachinery v0.0.18 // indirect
 )
 

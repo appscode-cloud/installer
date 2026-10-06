@@ -88,8 +88,12 @@ spec:
   dependsOn:
   - name: opscenter-features
     namespace: {{ $.Release.Namespace }}
-  {{- if eq (include "distro.openshift" $) "false" }}
+  {{- if and (dig "gateway-api" "enabled" false $.Values.helm.releases) (eq (include "distro.openshift" $) "false") }}
   - name: gateway-api
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
+  {{- if (dig "akp-crd-manager" "enabled" false $.Values.helm.releases) }}
+  - name: akp-crd-manager
     namespace: {{ $.Release.Namespace }}
   {{- end }}
   chart:

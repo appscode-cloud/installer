@@ -26,7 +26,6 @@ spec:
   requirements:
     features:
       - thanos-operator
-      - gateway-api
       - catalog-manager
   readinessChecks:
     workloads:
