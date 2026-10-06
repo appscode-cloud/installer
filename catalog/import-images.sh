@@ -38,6 +38,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-a
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ace-installer-v2026.9.11.tar $IMAGE_REGISTRY/appscode-charts/ace-installer:v2026.9.11
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-ace-v2026.9.11.tar $IMAGE_REGISTRY/appscode-charts/ace:v2026.9.11
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-aceshifter-v2026.9.11.tar $IMAGE_REGISTRY/appscode-charts/aceshifter:v2026.9.11
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-akp-crd-manager-v2026.9.11.tar $IMAGE_REGISTRY/appscode-charts/akp-crd-manager:v2026.9.11
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-appscode-otel-stack-v2026.9.22.tar $IMAGE_REGISTRY/appscode-charts/appscode-otel-stack:v2026.9.22
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-cassandraautoscaler-editor-v0.37.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-cassandraautoscaler-editor:v0.37.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-autoscalingkubedbcom-clickhouseautoscaler-editor-v0.37.0.tar $IMAGE_REGISTRY/appscode-charts/autoscalingkubedbcom-clickhouseautoscaler-editor:v0.37.0

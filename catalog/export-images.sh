@@ -44,6 +44,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace-installer:v2026.9.11 images/appscode-charts-ace-installer-v2026.9.11.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ace:v2026.9.11 images/appscode-charts-ace-v2026.9.11.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/aceshifter:v2026.9.11 images/appscode-charts-aceshifter-v2026.9.11.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/akp-crd-manager:v2026.9.11 images/appscode-charts-akp-crd-manager-v2026.9.11.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/appscode-otel-stack:v2026.9.22 images/appscode-charts-appscode-otel-stack-v2026.9.22.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-cassandraautoscaler-editor:v0.37.0 images/appscode-charts-autoscalingkubedbcom-cassandraautoscaler-editor-v0.37.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/autoscalingkubedbcom-clickhouseautoscaler-editor:v0.37.0 images/appscode-charts-autoscalingkubedbcom-clickhouseautoscaler-editor-v0.37.0.tar
