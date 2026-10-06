@@ -7,6 +7,30 @@
 {{ $vals = mergeOverwrite $defaults $vals }}
 {{ $vals = mergeOverwrite $vals (dict "clusterMetadata" (dict "name" "ace")) }}
 
+{{- /* Gateway API / Envoy CRDs pre-installed by the platform vendor (VMware, Nutanix NKP, ...)
+       must not be overwritten by crd-manager. A CRD is ours if crd-manager (voyager or akp)
+       wrote it, or the ace-installer managed gateway-api release installed it. */}}
+{{- if not (hasKey (dig "gateway" "crd-manager" dict $vals) "updateExistingCRDs") }}
+{{-   $vendorManaged := false }}
+{{-   range $name := list "gatewayclasses.gateway.networking.k8s.io" "envoyproxies.gateway.envoyproxy.io" }}
+{{-     with (lookup "apiextensions.k8s.io/v1" "CustomResourceDefinition" "" $name) }}
+{{-       $labels := .metadata.labels | default dict }}
+{{-       $ours := and (eq (get $labels "helm.toolkit.fluxcd.io/name") "gateway-api") (eq (get $labels "helm.toolkit.fluxcd.io/namespace") $.Release.Namespace) }}
+{{-       range (.metadata.managedFields | default list) }}
+{{-         if eq .manager "crd-manager" }}{{ $ours = true }}{{ end }}
+{{-       end }}
+{{-       if not $ours }}{{ $vendorManaged = true }}{{ end }}
+{{-     end }}
+{{-   end }}
+{{-   if $vendorManaged }}
+{{-     $gw := get $vals "gateway" | default dict }}
+{{-     $cm := get $gw "crd-manager" | default dict }}
+{{-     $_ := set $cm "updateExistingCRDs" false }}
+{{-     $_ = set $gw "crd-manager" $cm }}
+{{-     $_ = set $vals "gateway" $gw }}
+{{-   end }}
+{{- end }}
+
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:

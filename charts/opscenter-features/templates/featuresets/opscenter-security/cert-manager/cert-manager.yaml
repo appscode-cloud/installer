@@ -74,7 +74,7 @@ spec:
   recommended: false
   requirements:
     features:
-      - gateway-api
+      - akp-crd-manager
   readinessChecks:
     workloads:
       - group: apps

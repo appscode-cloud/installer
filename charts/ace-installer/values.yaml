@@ -84,7 +84,7 @@ helm:
       enabled: false
       version: "2.19.1"
     gateway-api:
-      enabled: true
+      enabled: false
       version: "v2026.9.18"
     gateway-api-crds:
       enabled: true

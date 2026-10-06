@@ -1,6 +1,6 @@
 dependencies:
 - name: voyager-gateway
   repository: oci://ghcr.io/appscode-charts
-  version: v2026.7.21
-digest: sha256:883ba5331f0aba702701e7c3c4d2e9ab3a6d105bfdc877c438847fa8790169bb
-generated: "2026-07-24T06:37:37.018419284Z"
+  version: v2026.10.10
+digest: sha256:de556b7e00af5a71eb40c7a814385d62a1260f5a40eae00229c5f2cdf07ab419
+generated: "2026-10-06T16:45:23.415070508+06:00"
