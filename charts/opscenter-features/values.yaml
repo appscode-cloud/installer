@@ -247,7 +247,7 @@ helm:
     hub-cluster-robot:
       version: "v2026.2.16"
     fluxcd-manager:
-      version: "v2026.2.16"
+      version: "v2026.9.18"
     license-proxyserver-manager:
       version: "v2026.9.18"
     inbox-server:
