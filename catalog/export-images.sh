@@ -118,7 +118,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco-ui-server:v2026.1.15 images/appscode-charts-falco-ui-server-v2026.1.15.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco:4.0.0 images/appscode-charts-falco-4.0.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/flux2:2.19.1 images/appscode-charts-flux2-2.19.1.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/fluxcd-manager:v2026.2.16 images/appscode-charts-fluxcd-manager-v2026.2.16.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/fluxcd-manager:v2026.9.18 images/appscode-charts-fluxcd-manager-v2026.9.18.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1 images/appscode-charts-gatekeeper-grafana-dashboards-v2023.10.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1 images/appscode-charts-gatekeeper-library-v2023.10.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper:3.13.3 images/appscode-charts-gatekeeper-3.13.3.tar

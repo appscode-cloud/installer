@@ -95,6 +95,7 @@ helm:
       values: # +doc-gen:break
         global:
           featureGates:
+            ClickHouse: true
             Pgpool: true
         kubedb-provisioner:
           enabled: true
