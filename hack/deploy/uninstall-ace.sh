@@ -126,6 +126,13 @@ done
 deleteAndWait "$hr" kubeops $(grep -x ace <<<"$aceHRs" || true)
 deleteAndWait "$hr" kubeops $(grep -x catalog-manager <<<"$aceHRs" || true)
 deleteAndWait "$hr" ace gateway
+# the cluster-manager operator tears down the hub it created only while it is still running
+if grep -qx cluster-manager-hub <<<"$aceHRs" && crdExists clustermanagers.operator.open-cluster-management.io; then
+    # their namespaces' ManifestWork finalizers are cleared by the hub's work-controller
+    timeout=30s deleteAll managedclusters.cluster.open-cluster-management.io
+    deleteAll clustermanagers.operator.open-cluster-management.io
+    kubectl delete ns open-cluster-management-hub --ignore-not-found --timeout="$timeout"
+fi
 # shellcheck disable=SC2046
 deleteAndWait "$hr" kubeops $(grep -vxE "ace|catalog-manager|opscenter-features|$coreHRs" <<<"$aceHRs" || true)
 # before kube-ui-server, which clears the Feature finalizers
