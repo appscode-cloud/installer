@@ -121,7 +121,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/ex
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco-ui-server:v2026.1.15 $IMAGE_REGISTRY/appscode-charts/falco-ui-server:v2026.1.15
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/falco:4.0.0 $IMAGE_REGISTRY/appscode-charts/falco:4.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/flux2:2.19.1 $IMAGE_REGISTRY/appscode-charts/flux2:2.19.1
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/fluxcd-manager:v2026.2.16 $IMAGE_REGISTRY/appscode-charts/fluxcd-manager:v2026.2.16
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/fluxcd-manager:v2026.9.18 $IMAGE_REGISTRY/appscode-charts/fluxcd-manager:v2026.9.18
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper-library:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/gatekeeper-library:v2023.10.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/gatekeeper:3.13.3 $IMAGE_REGISTRY/appscode-charts/gatekeeper:3.13.3

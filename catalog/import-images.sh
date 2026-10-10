@@ -112,7 +112,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-e
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-falco-ui-server-v2026.1.15.tar $IMAGE_REGISTRY/appscode-charts/falco-ui-server:v2026.1.15
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-falco-4.0.0.tar $IMAGE_REGISTRY/appscode-charts/falco:4.0.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-flux2-2.19.1.tar $IMAGE_REGISTRY/appscode-charts/flux2:2.19.1
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-fluxcd-manager-v2026.2.16.tar $IMAGE_REGISTRY/appscode-charts/fluxcd-manager:v2026.2.16
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-fluxcd-manager-v2026.9.18.tar $IMAGE_REGISTRY/appscode-charts/fluxcd-manager:v2026.9.18
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gatekeeper-grafana-dashboards-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/gatekeeper-grafana-dashboards:v2023.10.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gatekeeper-library-v2023.10.1.tar $IMAGE_REGISTRY/appscode-charts/gatekeeper-library:v2023.10.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-gatekeeper-3.13.3.tar $IMAGE_REGISTRY/appscode-charts/gatekeeper:3.13.3

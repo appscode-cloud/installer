@@ -110,7 +110,7 @@ k3s ctr images import images/appscode-charts-external-secrets-0.9.12.tar
 k3s ctr images import images/appscode-charts-falco-ui-server-v2026.1.15.tar
 k3s ctr images import images/appscode-charts-falco-4.0.0.tar
 k3s ctr images import images/appscode-charts-flux2-2.19.1.tar
-k3s ctr images import images/appscode-charts-fluxcd-manager-v2026.2.16.tar
+k3s ctr images import images/appscode-charts-fluxcd-manager-v2026.9.18.tar
 k3s ctr images import images/appscode-charts-gatekeeper-grafana-dashboards-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-gatekeeper-library-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-gatekeeper-3.13.3.tar
