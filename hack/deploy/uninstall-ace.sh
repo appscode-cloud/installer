@@ -156,6 +156,17 @@ for name in $(kubectl get apiservices -o json | jq -r --argjson ns "$aceNamespac
     kubectl delete apiservice "$name"
 done
 
+# helm keeps hook-created webhook configs (e.g. kubestash) on uninstall; their dead services block later installs
+for kind in mutatingwebhookconfigurations validatingwebhookconfigurations; do
+    kubectl get "$kind" -o json | jq -r --argjson ns "$aceNamespaces" '.items[]
+        | select(.metadata.labels["helm.toolkit.fluxcd.io/namespace"] == "kubeops" or any(.webhooks[]?; .clientConfig.service.namespace as $n | $n != null and ($ns | index($n))))
+        | .metadata.name as $name | .webhooks[]?.clientConfig.service | select(. != null)
+        | "\($name) \(.namespace) \(.name)"' | sort -u |
+        while read -r name ns svc; do
+            kubectl get svc "$svc" -n "$ns" >/dev/null 2>&1 || kubectl delete "$kind" "$name" --ignore-not-found
+        done
+done
+
 if [[ $fullPrune == true ]]; then
     crds=$(kubectl get crd -o json | jq -r --arg re "^($appscodeGroups)$" '.items[] | select(.spec.group | test($re)) | .metadata.name')
     for crd in $crds; do
