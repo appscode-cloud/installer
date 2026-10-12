@@ -134,12 +134,12 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-grafana-dashboards:v2023.10.1 images/appscode-charts-kube-grafana-dashboards-v2023.10.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-prometheus-stack:69.2.2 images/appscode-charts-kube-prometheus-stack-69.2.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-ui-server:v2026.10.12 images/appscode-charts-kube-ui-server-v2026.10.12.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-opscenter:v2026.8.26-rc.2 images/appscode-charts-kubedb-opscenter-v2026.8.26-rc.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-opscenter:v2026.10.12 images/appscode-charts-kubedb-opscenter-v2026.10.12.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-provider-aws:v2024.1.31 images/appscode-charts-kubedb-provider-aws-v2024.1.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-provider-azure:v2024.1.31 images/appscode-charts-kubedb-provider-azure-v2024.1.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-provider-gcp:v2024.1.31 images/appscode-charts-kubedb-provider-gcp-v2024.1.31.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb-ui-presets:v2026.10.12 images/appscode-charts-kubedb-ui-presets-v2026.10.12.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb:v2026.8.26-rc.2 images/appscode-charts-kubedb-v2026.8.26-rc.2.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedb:v2026.10.12 images/appscode-charts-kubedb-v2026.10.12.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-aerospike-editor:v0.38.0 images/appscode-charts-kubedbcom-aerospike-editor-v0.38.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-cassandra-editor-options:v0.38.0 images/appscode-charts-kubedbcom-cassandra-editor-options-v0.38.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-cassandra-editor:v0.38.0 images/appscode-charts-kubedbcom-cassandra-editor-v0.38.0.tar
@@ -203,9 +203,9 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-weaviate-editor:v0.38.0 images/appscode-charts-kubedbcom-weaviate-editor-v0.38.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-zookeeper-editor-options:v0.38.0 images/appscode-charts-kubedbcom-zookeeper-editor-options-v0.38.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubedbcom-zookeeper-editor:v0.38.0 images/appscode-charts-kubedbcom-zookeeper-editor-v0.38.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubestash:v2026.8.12-rc.0 images/appscode-charts-kubestash-v2026.8.12-rc.0.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubevault-opscenter:v2026.8.7 images/appscode-charts-kubevault-opscenter-v2026.8.7.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubevault:v2026.8.7 images/appscode-charts-kubevault-v2026.8.7.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubestash:v2026.10.12 images/appscode-charts-kubestash-v2026.10.12.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubevault-opscenter:v2026.10.12 images/appscode-charts-kubevault-opscenter-v2026.10.12.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kubevault:v2026.10.12 images/appscode-charts-kubevault-v2026.10.12.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno-policies:3.2.5 images/appscode-charts-kyverno-policies-3.2.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kyverno:3.2.6 images/appscode-charts-kyverno-3.2.6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/license-proxyserver-manager:v2026.9.18 images/appscode-charts-license-proxyserver-manager-v2026.9.18.tar

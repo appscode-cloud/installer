@@ -126,12 +126,12 @@ k3s ctr images import images/appscode-charts-keda-2.19.0.tar
 k3s ctr images import images/appscode-charts-kube-grafana-dashboards-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-kube-prometheus-stack-69.2.2.tar
 k3s ctr images import images/appscode-charts-kube-ui-server-v2026.10.12.tar
-k3s ctr images import images/appscode-charts-kubedb-opscenter-v2026.8.26-rc.2.tar
+k3s ctr images import images/appscode-charts-kubedb-opscenter-v2026.10.12.tar
 k3s ctr images import images/appscode-charts-kubedb-provider-aws-v2024.1.31.tar
 k3s ctr images import images/appscode-charts-kubedb-provider-azure-v2024.1.31.tar
 k3s ctr images import images/appscode-charts-kubedb-provider-gcp-v2024.1.31.tar
 k3s ctr images import images/appscode-charts-kubedb-ui-presets-v2026.10.12.tar
-k3s ctr images import images/appscode-charts-kubedb-v2026.8.26-rc.2.tar
+k3s ctr images import images/appscode-charts-kubedb-v2026.10.12.tar
 k3s ctr images import images/appscode-charts-kubedbcom-aerospike-editor-v0.38.0.tar
 k3s ctr images import images/appscode-charts-kubedbcom-cassandra-editor-options-v0.38.0.tar
 k3s ctr images import images/appscode-charts-kubedbcom-cassandra-editor-v0.38.0.tar
@@ -195,9 +195,9 @@ k3s ctr images import images/appscode-charts-kubedbcom-weaviate-editor-options-v
 k3s ctr images import images/appscode-charts-kubedbcom-weaviate-editor-v0.38.0.tar
 k3s ctr images import images/appscode-charts-kubedbcom-zookeeper-editor-options-v0.38.0.tar
 k3s ctr images import images/appscode-charts-kubedbcom-zookeeper-editor-v0.38.0.tar
-k3s ctr images import images/appscode-charts-kubestash-v2026.8.12-rc.0.tar
-k3s ctr images import images/appscode-charts-kubevault-opscenter-v2026.8.7.tar
-k3s ctr images import images/appscode-charts-kubevault-v2026.8.7.tar
+k3s ctr images import images/appscode-charts-kubestash-v2026.10.12.tar
+k3s ctr images import images/appscode-charts-kubevault-opscenter-v2026.10.12.tar
+k3s ctr images import images/appscode-charts-kubevault-v2026.10.12.tar
 k3s ctr images import images/appscode-charts-kyverno-policies-3.2.5.tar
 k3s ctr images import images/appscode-charts-kyverno-3.2.6.tar
 k3s ctr images import images/appscode-charts-license-proxyserver-manager-v2026.9.18.tar
