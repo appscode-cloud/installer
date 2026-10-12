@@ -48,7 +48,7 @@ type KubedbcomNeo4jEditorOptionsSpecSpec struct {
 	Annotations map[string]string `json:"annotations"`
 	// +optional
 	Labels map[string]string `json:"labels"`
-	Mode   GeneralMode       `json:"mode"`
+	Mode   ClusterMode       `json:"mode"`
 	// +optional
 	Replicas int `json:"replicas,omitempty"`
 	// +optional
@@ -58,8 +58,10 @@ type KubedbcomNeo4jEditorOptionsSpecSpec struct {
 	PodResources    PodResources   `json:"podResources"`
 	AuthSecret      AuthSecret     `json:"authSecret"`
 	DeletionPolicy  DeletionPolicy `json:"deletionPolicy"`
-	Configuration   string         `json:"configuration"`
-	TLS             Neo4jTLS       `json:"tls"`
+	// +optional
+	Init          InitScriptOnly `json:"init"`
+	Configuration string         `json:"configuration"`
+	TLS           Neo4jTLS       `json:"tls"`
 	// +optional
 	ServiceTemplates []Neo4jServiceTemplate `json:"serviceTemplates"`
 	Admin            AdminOptions           `json:"admin"`
