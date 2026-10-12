@@ -2,7 +2,7 @@ apiVersion: v2
 name: s3proxy
 description: A Helm chart for S3Proxy Deployment
 type: application
-version: v2026.9.11
+version: v2026.10.12
 appVersion: v0.0.1
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png

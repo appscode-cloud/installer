@@ -45,13 +45,16 @@ type KubedbcomDocumentDBEditorOptionsSpecSpec struct {
 	Annotations map[string]string `json:"annotations"`
 	// +optional
 	Labels map[string]string `json:"labels"`
+	Mode   GeneralMode       `json:"mode"`
 	// +optional
 	Replicas       int            `json:"replicas,omitempty"`
 	Persistence    Persistence    `json:"persistence"`
 	PodResources   PodResources   `json:"podResources"`
 	AuthSecret     AuthSecret     `json:"authSecret"`
 	DeletionPolicy DeletionPolicy `json:"deletionPolicy"`
-	Configuration  string         `json:"configuration"`
+	// +optional
+	Init          InitScriptOnly `json:"init"`
+	Configuration string         `json:"configuration"`
 	// +optional
 	ServiceTemplates []DocumentDBServiceTemplate `json:"serviceTemplates"`
 	Admin            AdminOptions                `json:"admin"`
