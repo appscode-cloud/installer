@@ -21,6 +21,8 @@ fullPrune=false
 timeout=2m
 # removed after other releases, as they serve webhooks/APIServices those releases depend on
 coreHRs="cert-manager|cert-manager-csi-driver-cacerts|license-proxyserver|kube-ui-server|akp-crd-manager"
+# dependencies missing from spec.dependsOn: kubestash clears the finalizer of stash-presets' BackupStorage
+extraDeps='{"stash-presets":["kubestash"]}'
 # third-party CRDs (cert-manager, prometheus-operator, gateway-api, OCM, ...) may be vendor-managed
 appscodeGroups='(.*\.)?(appscode\.com|kubedb\.com|kubestash\.com|x-helm\.dev|openviz\.dev|klusters\.dev|voyagermesh\.com)|cacerts\.csi\.cert-manager\.io|fluxcd\.open-cluster-management\.io'
 
@@ -32,6 +34,13 @@ for arg in "$@"; do
             exit 1
             ;;
     esac
+done
+
+for bin in kubectl helm jq; do
+    if ! command -v "$bin" >/dev/null; then
+        echo "$bin is required" >&2
+        exit 1
+    fi
 done
 
 crdExists() {
@@ -104,8 +113,21 @@ owners='["ace-installer"]'
 if crdExists featuresets.ui.k8s.appscode.com; then
     owners=$(kubectl get featuresets.ui.k8s.appscode.com -o json | jq -c '["ace-installer"] + [.items[].metadata.name]')
 fi
+# HRs created outside the ace-installer/FeatureSet charts (e.g. by b3) carry only the part-of label
 aceHRJSON=$(kubectl get "$hr" -n kubeops -o json | jq --argjson owners "$owners" \
-    '[.items[] | select(.metadata.annotations["meta.helm.sh/release-name"] as $r | $owners | index($r))]')
+    '[.items[] | select((.metadata.annotations["meta.helm.sh/release-name"] // .metadata.labels["app.kubernetes.io/part-of"]) as $r | $owners | index($r))]')
+
+# Flux is kept: helm-controller skips the uninstall (and HelmChart cleanup) of a suspended HR
+if [[ $(jq 'any(.[]; .metadata.name == "flux2")' <<<"$aceHRJSON") == true ]]; then
+    fluxChart=$(kubectl get "$hr" flux2 -n kubeops -o jsonpath='{.status.helmChart}')
+    kubectl patch "$hr" flux2 -n kubeops --type=merge -p '{"spec":{"suspend":true}}'
+    deleteAndWait "$hr" kubeops flux2
+    if [[ -n $fluxChart ]]; then
+        kubectl delete helmcharts.source.toolkit.fluxcd.io "${fluxChart#*/}" -n "${fluxChart%%/*}" --ignore-not-found
+    fi
+    aceHRJSON=$(jq '[.[] | select(.metadata.name != "flux2")]' <<<"$aceHRJSON")
+fi
+
 aceHRs=$(jq -r '.[].metadata.name' <<<"$aceHRJSON")
 aceNamespaces=$(jq -c '["ace", "kubeops"] + [.[].spec.targetNamespace // empty] | unique' <<<"$aceHRJSON")
 echo "ACE HelmReleases: $(echo $aceHRs)"
@@ -133,15 +155,30 @@ done
 deleteAndWait "$hr" kubeops $(grep -x ace <<<"$aceHRs" || true)
 deleteAndWait "$hr" kubeops $(grep -x catalog-manager <<<"$aceHRs" || true)
 deleteAndWait "$hr" ace gateway
-# the cluster-manager operator tears down the hub it created only while it is still running
-if grep -qx cluster-manager-hub <<<"$aceHRs" && crdExists clustermanagers.operator.open-cluster-management.io; then
-    # their namespaces' ManifestWork finalizers are cleared by the hub's work-controller
-    timeout=30s deleteAll managedclusters.cluster.open-cluster-management.io
-    deleteAll clustermanagers.operator.open-cluster-management.io
-    kubectl delete ns open-cluster-management-hub --ignore-not-found --timeout="$timeout"
-fi
-# shellcheck disable=SC2046
-deleteAndWait "$hr" kubeops $(grep -vxE "ace|catalog-manager|opscenter-features|$coreHRs" <<<"$aceHRs" || true)
+
+# Releases go in reverse dependsOn order, so operators outlive the objects whose finalizers or CRDs they own
+# (e.g. OCM addon managers' ClusterManagementAddOns need the hub CRDs).
+deps=$(jq -c --arg pinned "^(ace|catalog-manager|opscenter-features|$coreHRs)$" --argjson extra "$extraDeps" \
+    '[.[] | .metadata.name as $n | select($n | test($pinned) | not)
+        | {key: $n, value: ([.spec.dependsOn[]?.name] + ($extra[$n] // []))}] | from_entries' <<<"$aceHRJSON")
+while [[ $deps != "{}" ]]; do
+    wave=$(jq -r '([.[][]] | unique) as $needed | keys[] | select(. as $n | $needed | index($n) | not)' <<<"$deps")
+    if [[ -z $wave ]]; then
+        echo "dependency cycle, deleting the rest together"
+        wave=$(jq -r 'keys[]' <<<"$deps")
+    fi
+    # the cluster-manager operator tears down the hub it created only while it is still running
+    if grep -qx cluster-manager-hub <<<"$wave" && crdExists clustermanagers.operator.open-cluster-management.io; then
+        # their namespaces' ManifestWork finalizers are cleared by the hub's work-controller
+        timeout=30s deleteAll managedclusters.cluster.open-cluster-management.io
+        deleteAll clustermanagers.operator.open-cluster-management.io
+        kubectl delete ns open-cluster-management-hub --ignore-not-found --timeout="$timeout"
+    fi
+    # shellcheck disable=SC2086
+    deleteAndWait "$hr" kubeops $wave
+    deps=$(jq -c --arg wave "$wave" '($wave | split("\n")) as $w | with_entries(select(.key as $k | $w | index($k) | not))' <<<"$deps")
+done
+
 # before kube-ui-server, which clears the Feature finalizers
 deleteAndWait "$hr" kubeops $(grep -x opscenter-features <<<"$aceHRs" || true)
 for kind in features.ui.k8s.appscode.com featuresets.ui.k8s.appscode.com; do
