@@ -86,11 +86,18 @@ patchAll() {
         done
 }
 
-for deploy in helm-controller source-controller; do
-    if [[ $(kubectl get deploy "$deploy" -n flux-system -o jsonpath='{.spec.replicas}') == 0 ]]; then
-        kubectl scale deploy "$deploy" -n flux-system --replicas=1
+for component in helm-controller source-controller; do
+    fluxDeploy=$(kubectl get deploy -A -l "app.kubernetes.io/component=$component,app.kubernetes.io/part-of=flux" -o json |
+        jq -r '.items[0] // empty | "\(.metadata.namespace) \(.metadata.name) \(.spec.replicas)"')
+    if [[ -z $fluxDeploy ]]; then
+        echo "flux $component deployment not found" >&2
+        exit 1
     fi
-    kubectl rollout status deploy "$deploy" -n flux-system --timeout="$timeout"
+    read -r ns deploy replicas <<<"$fluxDeploy"
+    if [[ $replicas == 0 ]]; then
+        kubectl scale deploy "$deploy" -n "$ns" --replicas=1
+    fi
+    kubectl rollout status deploy "$deploy" -n "$ns" --timeout="$timeout"
 done
 
 owners='["ace-installer"]'
