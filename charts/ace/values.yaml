@@ -304,7 +304,7 @@ settings:
       connection_life_time: "0"
       client_idle_limit: "60"
       connection_cache: "on"
-      primary_routing_query_pattern_list: "'.*cluster_info.*;.*cluster_user_auth.*'"
+      primary_routing_query_pattern_list: "'.*cluster_info.*;.*cluster_user_auth.*;.*perses_project.*;.*perses_folder.*;.*perses_secret.*;.*perses_datasource.*'"
     resources:
       limits:
         memory: 512Mi
