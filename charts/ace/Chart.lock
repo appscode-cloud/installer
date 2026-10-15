@@ -50,5 +50,5 @@ dependencies:
 - name: redis-alerts
   repository: oci://ghcr.io/appscode-charts
   version: v2026.7.14
-digest: sha256:45869e0452e31ee25f30b3142d39897bcc699b8fc433afc3daa6d2dfd02600aa
-generated: "2026-10-14T12:07:39.892740025+06:00"
+digest: sha256:a48ec7684c130f6d81159db3c52f1d6f744231b4bc85b1456f00b16759229eb4
+generated: "2026-11-02T04:23:12.552927843Z"

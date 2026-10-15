@@ -50,6 +50,11 @@ app.kubernetes.io/name: {{ include "platform-api.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
+{{- define "platform-api.workerSelectorLabels" -}}
+app.kubernetes.io/name: {{ include "platform-api.name" . }}-worker
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
 {{/*
 Create the name of the service account to use
 */}}
