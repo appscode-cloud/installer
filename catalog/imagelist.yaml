@@ -4,7 +4,7 @@
 - docker.io/openbao/openbao:2.4.3
 - docker.io/openbao/openbao:2.6.1
 - docker.io/openbao/openbao:2.7.1
-- docker.io/ubercadence/server:v1.4.1
+- docker.io/ubercadence/server:v1.4.2
 - docker.io/ubercadence/web:v4.0.11
 - ghcr.io/appscode-images/ingress-nginx-controller:v1.15.1
 - ghcr.io/appscode-images/nats:2.12.6-alpine
