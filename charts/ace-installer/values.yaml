@@ -55,7 +55,7 @@ helm:
   releases:
     ace:
       enabled: false
-      version: "v2026.10.12"
+      version: "v2026.10.15"
     acerproxy:
       enabled: false
       version: "v2026.10.12"

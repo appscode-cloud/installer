@@ -44,6 +44,12 @@ type PlatformApi struct {
 }
 
 // PlatformApiSpec is the schema for PlatformApi Operator values file
+type PlatformApiWorkerSpec struct {
+	Enabled      bool                      `json:"enabled"`
+	ReplicaCount int                       `json:"replicaCount"`
+	Resources    core.ResourceRequirements `json:"resources"`
+}
+
 type PlatformApiSpec struct {
 	ReplicaCount int `json:"replicaCount"`
 	// +optional
@@ -69,6 +75,7 @@ type PlatformApiSpec struct {
 	Service         AceServiceSpec        `json:"service"`
 	//+optional
 	Resources   core.ResourceRequirements `json:"resources"`
+	Worker      PlatformApiWorkerSpec     `json:"worker"`
 	Autoscaling AutoscalingSpec           `json:"autoscaling"`
 	//+optional
 	NodeSelector map[string]string `json:"nodeSelector"`

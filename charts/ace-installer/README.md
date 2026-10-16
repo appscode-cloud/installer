@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm search repo appscode/ace-installer --version=v2026.10.12
-$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2026.10.12
+$ helm search repo appscode/ace-installer --version=v2026.10.15
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2026.10.15
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys charts for ACE on a [Kubernetes](http://kubernetes.io) cluste
 To install/upgrade the chart with the release name `ace-installer`:
 
 ```bash
-$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2026.10.12
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2026.10.15
 ```
 
 The command deploys charts for ACE on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -68,7 +68,7 @@ The following table lists the configurable parameters of the `ace-installer` cha
 | helm.repositories.appscode-charts-oci.url             |                                                                                                                                                                                                                                                                                 | <code>oci://ghcr.io/appscode-charts</code>                                                                                                                                                                                                                                                                                                                                          |
 | helm.repositories.appscode-wizards-oci.url            |                                                                                                                                                                                                                                                                                 | <code>oci://ghcr.io/appscode-charts</code>                                                                                                                                                                                                                                                                                                                                          |
 | helm.releases.ace.enabled                             |                                                                                                                                                                                                                                                                                 | <code>false</code>                                                                                                                                                                                                                                                                                                                                                                  |
-| helm.releases.ace.version                             |                                                                                                                                                                                                                                                                                 | <code>"v2026.10.12"</code>                                                                                                                                                                                                                                                                                                                                                          |
+| helm.releases.ace.version                             |                                                                                                                                                                                                                                                                                 | <code>"v2026.10.15"</code>                                                                                                                                                                                                                                                                                                                                                          |
 | helm.releases.acerproxy.enabled                       |                                                                                                                                                                                                                                                                                 | <code>false</code>                                                                                                                                                                                                                                                                                                                                                                  |
 | helm.releases.acerproxy.version                       |                                                                                                                                                                                                                                                                                 | <code>"v2026.10.12"</code>                                                                                                                                                                                                                                                                                                                                                          |
 | helm.releases.aceshifter.enabled                      |                                                                                                                                                                                                                                                                                 | <code>true</code>                                                                                                                                                                                                                                                                                                                                                                   |
@@ -190,12 +190,12 @@ The following table lists the configurable parameters of the `ace-installer` cha
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2026.10.12 --set image.proxies.appscode=r.appscode.com
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2026.10.15 --set image.proxies.appscode=r.appscode.com
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2026.10.12 --values values.yaml
+$ helm upgrade -i ace-installer appscode/ace-installer -n kubeops --create-namespace --version=v2026.10.15 --values values.yaml
 ```

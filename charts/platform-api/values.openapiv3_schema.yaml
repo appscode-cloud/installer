@@ -1814,6 +1814,50 @@ properties:
       - name
       type: object
     type: array
+  worker:
+    properties:
+      enabled:
+        type: boolean
+      replicaCount:
+        type: integer
+      resources:
+        properties:
+          claims:
+            items:
+              properties:
+                name:
+                  type: string
+                request:
+                  type: string
+              required:
+              - name
+              type: object
+            type: array
+            x-kubernetes-list-map-keys:
+            - name
+            x-kubernetes-list-type: map
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+    required:
+    - enabled
+    - replicaCount
+    - resources
+    type: object
 required:
 - autoscaling
 - geoipdb
@@ -1828,4 +1872,5 @@ required:
 - settings
 - volumeMounts
 - volumes
+- worker
 type: object

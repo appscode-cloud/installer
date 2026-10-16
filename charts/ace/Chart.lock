@@ -29,6 +29,9 @@ dependencies:
 - name: openfga
   repository: oci://ghcr.io/appscode-charts
   version: 0.2.52
+- name: cadence
+  repository: https://cadence-workflow.github.io/cadence-charts
+  version: 1.6.7
 - name: pgoutbox
   repository: oci://ghcr.io/appscode-charts
   version: v2026.7.10
@@ -47,5 +50,5 @@ dependencies:
 - name: redis-alerts
   repository: oci://ghcr.io/appscode-charts
   version: v2026.7.14
-digest: sha256:7f54e347e7207089346c0f433ffda6d9ee4abd0e62a78069163d7b037f91d141
-generated: "2026-10-12T10:51:29.821812211Z"
+digest: sha256:45869e0452e31ee25f30b3142d39897bcc699b8fc433afc3daa6d2dfd02600aa
+generated: "2026-10-14T12:07:39.892740025+06:00"

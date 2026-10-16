@@ -451,6 +451,206 @@ properties:
       showAppTag:
         type: boolean
     type: object
+  cadence:
+    properties:
+      cassandra:
+        properties:
+          enabled:
+            type: boolean
+        required:
+        - enabled
+        type: object
+      config:
+        properties:
+          persistence:
+            properties:
+              database:
+                properties:
+                  driver:
+                    type: string
+                  sql:
+                    properties:
+                      dbname:
+                        type: string
+                      hosts:
+                        type: string
+                      maxConnLifetime:
+                        type: string
+                      maxConns:
+                        type: integer
+                      maxIdleConns:
+                        type: integer
+                      password:
+                        type: string
+                      tls:
+                        properties:
+                          enabled:
+                            type: boolean
+                        required:
+                        - enabled
+                        type: object
+                      user:
+                        type: string
+                      visibilityDbname:
+                        type: string
+                    required:
+                    - dbname
+                    - hosts
+                    - maxConnLifetime
+                    - maxConns
+                    - maxIdleConns
+                    - password
+                    - tls
+                    - user
+                    - visibilityDbname
+                    type: object
+                required:
+                - driver
+                - sql
+                type: object
+            required:
+            - database
+            type: object
+        required:
+        - persistence
+        type: object
+      enabled:
+        type: boolean
+      global:
+        properties:
+          env:
+            items:
+              properties:
+                name:
+                  type: string
+                value:
+                  type: string
+                valueFrom:
+                  properties:
+                    configMapKeyRef:
+                      properties:
+                        key:
+                          type: string
+                        name:
+                          default: ''
+                          type: string
+                        optional:
+                          type: boolean
+                      required:
+                      - key
+                      type: object
+                      x-kubernetes-map-type: atomic
+                    fieldRef:
+                      properties:
+                        apiVersion:
+                          type: string
+                        fieldPath:
+                          type: string
+                      required:
+                      - fieldPath
+                      type: object
+                      x-kubernetes-map-type: atomic
+                    fileKeyRef:
+                      properties:
+                        key:
+                          type: string
+                        optional:
+                          default: false
+                          type: boolean
+                        path:
+                          type: string
+                        volumeName:
+                          type: string
+                      required:
+                      - key
+                      - path
+                      - volumeName
+                      type: object
+                      x-kubernetes-map-type: atomic
+                    resourceFieldRef:
+                      properties:
+                        containerName:
+                          type: string
+                        divisor:
+                          anyOf:
+                          - type: integer
+                          - type: string
+                          pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                          x-kubernetes-int-or-string: true
+                        resource:
+                          type: string
+                      required:
+                      - resource
+                      type: object
+                      x-kubernetes-map-type: atomic
+                    secretKeyRef:
+                      properties:
+                        key:
+                          type: string
+                        name:
+                          default: ''
+                          type: string
+                        optional:
+                          type: boolean
+                      required:
+                      - key
+                      type: object
+                      x-kubernetes-map-type: atomic
+                  type: object
+              required:
+              - name
+              type: object
+            type: array
+          image:
+            properties:
+              pullPolicy:
+                type: string
+              repository:
+                type: string
+              tag:
+                type: string
+            required:
+            - pullPolicy
+            - repository
+            - tag
+            type: object
+        required:
+        - env
+        - image
+        type: object
+      web:
+        properties:
+          busybox:
+            properties:
+              enabled:
+                type: boolean
+            required:
+            - enabled
+            type: object
+          image:
+            properties:
+              pullPolicy:
+                type: string
+              repository:
+                type: string
+              tag:
+                type: string
+            required:
+            - pullPolicy
+            - repository
+            - tag
+            type: object
+        required:
+        - busybox
+        - image
+        type: object
+    required:
+    - cassandra
+    - config
+    - enabled
+    - global
+    - web
+    type: object
   cloudProviderOptions:
     properties:
       aws:
@@ -22527,6 +22727,50 @@ properties:
           - name
           type: object
         type: array
+      worker:
+        properties:
+          enabled:
+            type: boolean
+          replicaCount:
+            type: integer
+          resources:
+            properties:
+              claims:
+                items:
+                  properties:
+                    name:
+                      type: string
+                    request:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - enabled
+        - replicaCount
+        - resources
+        type: object
     required:
     - autoscaling
     - enabled
@@ -22542,6 +22786,7 @@ properties:
     - settings
     - volumeMounts
     - volumes
+    - worker
     type: object
   platform-ui:
     properties:
@@ -24502,6 +24747,47 @@ properties:
         - resources
         - version
         type: object
+      cadence:
+        properties:
+          disableStickyExecution:
+            type: boolean
+          domain:
+            type: string
+          enableLogging:
+            type: boolean
+          host:
+            type: string
+          maxConcurrentActivityExecutionSize:
+            type: integer
+          maxConcurrentActivityTaskPollers:
+            type: integer
+          maxConcurrentDecisionTaskPollers:
+            type: integer
+          maxConcurrentLocalActivityExecutionSize:
+            type: integer
+          maxConcurrentWorkflowTaskExecutionSize:
+            type: integer
+          port:
+            type: integer
+          serviceName:
+            type: string
+          stickyScheduleToStartTimeout:
+            type: string
+          taskList:
+            type: string
+          taskListActivitiesPerSecond:
+            format: double
+            type: number
+          workerActivitiesPerSecond:
+            format: double
+            type: number
+          workerStopTimeout:
+            type: string
+        required:
+        - domain
+        - host
+        - port
+        type: object
       contract:
         properties:
           bucket:
@@ -24913,6 +25199,7 @@ properties:
         type: object
     required:
     - cache
+    - cadence
     - contract
     - db
     - firebase
@@ -27707,6 +27994,7 @@ properties:
 required:
 - affinity
 - branding
+- cadence
 - cloudProviderOptions
 - cluster-ui
 - extraObjects

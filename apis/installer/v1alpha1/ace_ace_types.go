@@ -65,6 +65,7 @@ type AceSpec struct {
 	NatsDns        AceNatsDns        `json:"nats-dns"`
 	Trickster      AceTrickster      `json:"trickster"`
 	Openfga        AceOpenfga        `json:"openfga"`
+	Cadence        AceCadence        `json:"cadence"`
 	S3proxy        AceS3proxy        `json:"s3proxy"`
 	PgOutbox       AcePgOutbox       `json:"pgoutbox"`
 	OutboxSyncer   AceOutboxSyncer   `json:"outbox-syncer"`
@@ -180,6 +181,11 @@ type AceOpenfga struct {
 	Enabled      bool   `json:"enabled"`
 	DatastoreURI string `json:"datastoreURI"`
 	*OpenfgaSpec `json:",inline,omitempty"`
+}
+
+type AceCadence struct {
+	Enabled      bool `json:"enabled"`
+	*CadenceSpec `json:",inline,omitempty"`
 }
 
 // AceOpenfgaDatastore exposes the subset of openfga datastore connection
@@ -406,6 +412,7 @@ type Settings struct {
 	Smtp        SmtpSettings        `json:"smtp"`
 	Nats        NatsSettings        `json:"nats"`
 	OpenFGA     OpenFGASettings     `json:"openfga"`
+	Cadence     CadenceSettings     `json:"cadence"`
 	Platform    PlatformSettings    `json:"platform"`
 	Security    SecuritySettings    `json:"security"`
 	Grafana     GrafanaSettings     `json:"grafana"`
@@ -546,6 +553,42 @@ type InboxServerSettings struct {
 type OpenFGASettings struct {
 	ApiURL       string `json:"apiURL"`
 	PreSharedKey string `json:"preSharedKey"`
+}
+
+// CadenceSettings configures the [cadence] section of the platform config read
+// by b3. Zero values of the optional fields fall back to the b3 defaults.
+type CadenceSettings struct {
+	// Host of the cadence frontend service. When empty, it defaults to the
+	// frontend service of the cadence chart bundled with ace.
+	Host   string `json:"host"`
+	Port   int    `json:"port"`
+	Domain string `json:"domain"`
+	// +optional
+	TaskList string `json:"taskList"`
+	// +optional
+	ServiceName string `json:"serviceName"`
+	// +optional
+	MaxConcurrentActivityExecutionSize int `json:"maxConcurrentActivityExecutionSize"`
+	// +optional
+	MaxConcurrentWorkflowTaskExecutionSize int `json:"maxConcurrentWorkflowTaskExecutionSize"`
+	// +optional
+	MaxConcurrentActivityTaskPollers int `json:"maxConcurrentActivityTaskPollers"`
+	// +optional
+	MaxConcurrentDecisionTaskPollers int `json:"maxConcurrentDecisionTaskPollers"`
+	// +optional
+	MaxConcurrentLocalActivityExecutionSize int `json:"maxConcurrentLocalActivityExecutionSize"`
+	// +optional
+	WorkerActivitiesPerSecond float64 `json:"workerActivitiesPerSecond"`
+	// +optional
+	TaskListActivitiesPerSecond float64 `json:"taskListActivitiesPerSecond"`
+	// +optional
+	WorkerStopTimeout metav1.Duration `json:"workerStopTimeout"`
+	// +optional
+	EnableLogging bool `json:"enableLogging"`
+	// +optional
+	DisableStickyExecution bool `json:"disableStickyExecution"`
+	// +optional
+	StickyScheduleToStartTimeout metav1.Duration `json:"stickyScheduleToStartTimeout"`
 }
 
 type ContractStorage struct {

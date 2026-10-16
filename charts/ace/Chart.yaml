@@ -2,8 +2,8 @@ apiVersion: v2
 name: ace
 description: A Helm chart for AppsCode Container Engine
 type: application
-version: v2026.10.12
-appVersion: v2026.10.12
+version: v2026.10.15
+appVersion: v2026.10.15
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
 sources:
@@ -27,7 +27,7 @@ dependencies:
 - name: platform-api
   repository: file://../platform-api
   condition: platform-api.enabled
-  version: v2026.10.12
+  version: v2026.10.15
 - name: grafana
   repository: file://../grafana
   condition: grafana.enabled
@@ -52,6 +52,10 @@ dependencies:
   repository: oci://ghcr.io/appscode-charts
   condition: openfga.enabled
   version: 0.2.52
+- name: cadence
+  repository: https://cadence-workflow.github.io/cadence-charts
+  condition: cadence.enabled
+  version: 1.6.7
 - name: pgoutbox
   repository: oci://ghcr.io/appscode-charts
   condition: pgoutbox.enabled

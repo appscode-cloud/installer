@@ -80,6 +80,15 @@ resources:
     cpu: 500m
     memory: 1Gi
 
+# Runs `b3 worker`, which executes the Cadence workflows dispatched by the API.
+worker:
+  enabled: true
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 250m
+      memory: 512Mi
+
 autoscaling:
   enabled: false
   minReplicas: 1

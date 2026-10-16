@@ -214,6 +214,40 @@ Determine database host name
 {{- end -}}
 
 {{/*
+Replicates "cadence.fullname" of the cadence chart, so that the ace chart can
+refer to the resources created by the cadence chart.
+*/}}
+{{- define "ace.cadenceFullname" -}}
+{{- if .Values.cadence.fullnameOverride -}}
+{{- .Values.cadence.fullnameOverride | trunc 63 | trimSuffix "-" -}}
+{{- else -}}
+{{- $name := default "cadence" .Values.cadence.nameOverride -}}
+{{- if contains $name .Release.Name -}}
+{{- .Release.Name | trunc 63 | trimSuffix "-" -}}
+{{- else -}}
+{{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Determine cadence frontend host name
+*/}}
+{{- define "settings.cadence.host" -}}
+{{- .Values.settings.cadence.host | default (printf "%s-frontend.%s.svc" (include "ace.cadenceFullname" .) .Release.Namespace) -}}
+{{- end -}}
+
+{{/*
+Overrides "cadence.databaseSecrets" of the cadence chart (the parent chart's
+definition wins), so that the cadence chart does not create its
+<cadence fullname>-<service>-secrets from config.persistence.database.sql.password.
+templates/cadence/cadence-db-secret.yaml creates them from settings.db.auth.password.
+*/}}
+{{- define "cadence.databaseSecrets" -}}
+{{- $_ := set . "databaseSecrets" list -}}
+{{- end -}}
+
+{{/*
 Gateway-native FQDN for the ace deployment.
 Only used during the ingress→gateway migration window so
 phase-2 testers can hit the gateway directly while ingress still owns the main host.

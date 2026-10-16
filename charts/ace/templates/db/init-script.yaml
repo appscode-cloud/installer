@@ -16,3 +16,9 @@ stringData:
      {{- if .Values.openfga.enabled }}
      CREATE DATABASE openfga;
      {{- end }}
+     {{- if .Values.cadence.enabled }}
+     {{- with .Values.cadence.config.persistence.database.sql }}
+     CREATE DATABASE {{ .dbname }};
+     CREATE DATABASE {{ .visibilityDbname }};
+     {{- end }}
+     {{- end }}

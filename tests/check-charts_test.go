@@ -38,7 +38,10 @@ func Test_CheckImageArchitectures(t *testing.T) {
 		filepath.Join(dir, "catalog", "imagelist.yaml"),
 		filepath.Join(dir, "catalog", "reusable-ui-charts.yaml"),
 	},
-		[]string{"ghcr.io/voyagermesh/envoy:v1.38.3-ac"},
+		[]string{
+			"ghcr.io/voyagermesh/envoy:v1.38.3-ac",
+			"docker.io/ubercadence/web:v4.0.11",
+		},
 		[]string{
 			"ghcr.io/appscode-charts/opskubedbcom-igniteopsrequest-editor:v0.18.0",
 			"ghcr.io/appscode-charts/opskubedbcom-igniteopsrequest-editor:v0.19.0",
