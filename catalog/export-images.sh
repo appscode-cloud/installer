@@ -334,7 +334,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/cert-manager-controller:v1.19.3 images/appscode-images-cert-manager-controller-v1.19.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/cert-manager-startupapicheck:v1.19.3 images/appscode-images-cert-manager-startupapicheck-v1.19.3.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/cert-manager-webhook:v1.19.3 images/appscode-images-cert-manager-webhook-v1.19.3.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/fluxcd-cli:v2.9.5 images/appscode-images-fluxcd-cli-v2.9.5.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/fluxcd-cli:v2.9.6 images/appscode-images-fluxcd-cli-v2.9.6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/fluxcd-helm-controller:v1.6.4 images/appscode-images-fluxcd-helm-controller-v1.6.4.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/fluxcd-kustomize-controller:v1.9.5 images/appscode-images-fluxcd-kustomize-controller-v1.9.5.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-images/fluxcd-notification-controller:v1.9.4 images/appscode-images-fluxcd-notification-controller-v1.9.4.tar

@@ -326,7 +326,7 @@ k3s ctr images import images/appscode-images-cert-manager-cainjector-v1.19.3.tar
 k3s ctr images import images/appscode-images-cert-manager-controller-v1.19.3.tar
 k3s ctr images import images/appscode-images-cert-manager-startupapicheck-v1.19.3.tar
 k3s ctr images import images/appscode-images-cert-manager-webhook-v1.19.3.tar
-k3s ctr images import images/appscode-images-fluxcd-cli-v2.9.5.tar
+k3s ctr images import images/appscode-images-fluxcd-cli-v2.9.6.tar
 k3s ctr images import images/appscode-images-fluxcd-helm-controller-v1.6.4.tar
 k3s ctr images import images/appscode-images-fluxcd-kustomize-controller-v1.9.5.tar
 k3s ctr images import images/appscode-images-fluxcd-notification-controller-v1.9.4.tar
