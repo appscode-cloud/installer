@@ -328,7 +328,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-c
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-cert-manager-controller-v1.19.3.tar $IMAGE_REGISTRY/appscode-images/cert-manager-controller:v1.19.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-cert-manager-startupapicheck-v1.19.3.tar $IMAGE_REGISTRY/appscode-images/cert-manager-startupapicheck:v1.19.3
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-cert-manager-webhook-v1.19.3.tar $IMAGE_REGISTRY/appscode-images/cert-manager-webhook:v1.19.3
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-fluxcd-cli-v2.9.5.tar $IMAGE_REGISTRY/appscode-images/fluxcd-cli:v2.9.5
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-fluxcd-cli-v2.9.6.tar $IMAGE_REGISTRY/appscode-images/fluxcd-cli:v2.9.6
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-fluxcd-helm-controller-v1.6.4.tar $IMAGE_REGISTRY/appscode-images/fluxcd-helm-controller:v1.6.4
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-fluxcd-kustomize-controller-v1.9.5.tar $IMAGE_REGISTRY/appscode-images/fluxcd-kustomize-controller:v1.9.5
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-images-fluxcd-notification-controller-v1.9.4.tar $IMAGE_REGISTRY/appscode-images/fluxcd-notification-controller:v1.9.4

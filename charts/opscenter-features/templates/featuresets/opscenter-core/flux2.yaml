@@ -45,7 +45,7 @@ sourceController:
   labels:
     ace.appscode.com/managed: "true"
 ` | fromYaml }}
-{{ $vals = mergeOverwrite $defaults $vals }}
+{{ $vals = mergeOverwrite $defaults $vals (dig "flux2" "values" (dict) .Values.helm.releases) }}
 
 {{- if eq (include "distro.openshift" $) "true" }}
 {{ $vals = mergeOverwrite $vals (dict "distro" .Values.distro) }}
