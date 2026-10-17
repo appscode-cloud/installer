@@ -17,7 +17,7 @@ require (
 	kmodules.xyz/resource-metadata v0.51.0
 	kmodules.xyz/schema-checker v0.4.3
 	kubeops.dev/external-dns-operator v0.4.1-0.20260711084336-46e45f490d84
-	kubeops.dev/installer v0.0.0-20261017095226-eda89ba8ffa1
+	kubeops.dev/installer v0.0.0-20261017111602-ec2b982d67b8
 	sigs.k8s.io/gateway-api v1.4.1
 	sigs.k8s.io/kustomize/kyaml v0.20.1
 	sigs.k8s.io/yaml v1.6.0
