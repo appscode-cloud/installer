@@ -2,7 +2,7 @@ apiVersion: v2
 name: rustfs
 description: A Helm chart for RustFS Demo Deployment
 type: application
-version: v2026.10.12
+version: v2026.11.30
 appVersion: 1.0.0
 home: https://github.com/appscode-cloud
 icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png

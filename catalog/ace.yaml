@@ -1,4 +1,4 @@
-- ghcr.io/appscode-charts/acaas:v2026.10.12
-- ghcr.io/appscode-charts/ace-installer:v2026.10.12
-- ghcr.io/appscode-charts/ace:v2026.10.12
-- ghcr.io/appscode-charts/service-gateway:v2026.10.12
+- ghcr.io/appscode-charts/acaas:v2026.11.30
+- ghcr.io/appscode-charts/ace-installer:v2026.11.30
+- ghcr.io/appscode-charts/ace:v2026.11.30
+- ghcr.io/appscode-charts/service-gateway:v2026.11.30

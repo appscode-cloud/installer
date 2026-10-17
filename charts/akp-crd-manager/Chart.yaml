@@ -2,7 +2,7 @@ apiVersion: v2
 name: akp-crd-manager
 description: A Helm chart for AppsCode third-party CRD Manager
 type: application
-version: v2026.10.12
+version: v2026.11.30
 appVersion: v0.0.1
 home: https://github.com/appscode-cloud/crd-manager
 icon: https://cdn.appscode.com/images/products/searchlight/icons/android-icon-192x192.png
