@@ -21,7 +21,7 @@
 - ghcr.io/appscode/acerproxy:v0.2.0
 - ghcr.io/appscode/aceshifter:v0.0.3
 - ghcr.io/appscode/akp-crd-manager:v0.0.1
-- ghcr.io/appscode/b3:v2026.10.12
+- ghcr.io/appscode/b3:v2026.11.30
 - ghcr.io/appscode/billing-ui:2.5.0
 - ghcr.io/appscode/catalog-manager:v0.14.0
 - ghcr.io/appscode/cert-manager-webhook-ace:v0.0.2
@@ -53,7 +53,7 @@
 - ghcr.io/appscode/service-provider:v0.0.2
 - ghcr.io/appscode/smtprelay:v0.0.4
 - ghcr.io/appscode/trickster:v2.0.0
-- ghcr.io/appscode/website:v2026.10.12
+- ghcr.io/appscode/website:v2026.11.30
 - ghcr.io/kubevault/kubevault-crd-manager:v0.2.0
 - ghcr.io/kubevault/vault-exporter:v0.1.1
 - ghcr.io/kubevault/vault-operator:v0.26.0

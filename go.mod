@@ -5,19 +5,19 @@ go 1.25.6
 require (
 	go.bytebuilders.dev/catalog v0.1.2-0.20261006105413-f96363d5bf8d
 	go.bytebuilders.dev/resource-model v0.4.1-0.20260908050049-ce9aabf9ad5c
-	go.bytebuilders.dev/ui-wizards v0.38.0
+	go.bytebuilders.dev/ui-wizards v0.39.0
 	go.openviz.dev/installer v0.0.0-20260619044110-702becd1dd97
 	gomodules.xyz/go-sh v0.2.0
 	k8s.io/api v0.34.8
 	k8s.io/apimachinery v0.34.8
 	k8s.io/autoscaler/vertical-pod-autoscaler v1.0.0
 	kmodules.xyz/client-go v0.34.7-0.20260916091548-45e2a0e7782d
-	kmodules.xyz/image-packer v0.0.0-20261012091807-e1541d969c2e
+	kmodules.xyz/image-packer v0.0.0-20261017085800-d6c2b59bd12d
 	kmodules.xyz/objectstore-api v0.34.0
-	kmodules.xyz/resource-metadata v0.50.0
+	kmodules.xyz/resource-metadata v0.51.0
 	kmodules.xyz/schema-checker v0.4.3
 	kubeops.dev/external-dns-operator v0.4.1-0.20260711084336-46e45f490d84
-	kubeops.dev/installer v0.0.0-20261012104620-04912000824b
+	kubeops.dev/installer v0.0.0-20261017095226-eda89ba8ffa1
 	sigs.k8s.io/gateway-api v1.4.1
 	sigs.k8s.io/kustomize/kyaml v0.20.1
 	sigs.k8s.io/yaml v1.6.0
