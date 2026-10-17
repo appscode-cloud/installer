@@ -956,7 +956,7 @@ kmodules.xyz/schema-checker
 ## explicit; go 1.25.0
 kubeops.dev/external-dns-operator/apis/external
 kubeops.dev/external-dns-operator/apis/external/v1alpha1
-# kubeops.dev/installer v0.0.0-20261017095226-eda89ba8ffa1
+# kubeops.dev/installer v0.0.0-20261017111602-ec2b982d67b8
 ## explicit; go 1.25.0
 kubeops.dev/installer/apis/installer
 kubeops.dev/installer/apis/installer/v1alpha1

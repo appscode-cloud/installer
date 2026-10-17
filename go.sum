@@ -350,8 +350,8 @@ kmodules.xyz/schema-checker v0.4.3 h1:LKXKNWwJ0bFOqCMbyfZk38uVJIejXsANdp7l+fkIiJ
 kmodules.xyz/schema-checker v0.4.3/go.mod h1:JjUB6Ih4gnrBwzJNO91Dz9xa8J92UHyvPSyfX++sksM=
 kubeops.dev/external-dns-operator v0.4.1-0.20260711084336-46e45f490d84 h1:igPhaEvEhmbN/deC6mruuDwmYErFicm4mSn4WQzpfE0=
 kubeops.dev/external-dns-operator v0.4.1-0.20260711084336-46e45f490d84/go.mod h1:DUs2HIOUPj9qduuPJEeTq651E5n8d3U867Jjt1FG4UU=
-kubeops.dev/installer v0.0.0-20261017095226-eda89ba8ffa1 h1:e713r1K+hpPg3j+3eHSrJ1QM7jBuK605dAjajepepuk=
-kubeops.dev/installer v0.0.0-20261017095226-eda89ba8ffa1/go.mod h1:L0dNGHGb8ucOn8gnmQTmlMUSXY8HwCm7nmZ3b5xbz78=
+kubeops.dev/installer v0.0.0-20261017111602-ec2b982d67b8 h1:Df+8tLWRSjwkezOLUwhiwS3nxyHu4Vs8cCHXHYk2A0k=
+kubeops.dev/installer v0.0.0-20261017111602-ec2b982d67b8/go.mod h1:L0dNGHGb8ucOn8gnmQTmlMUSXY8HwCm7nmZ3b5xbz78=
 kubeops.dev/scanner v0.0.19 h1:J8C94k4j3NY3Y8UGHcG4nCZtmpSqPneCmkuvGNUOv4s=
 kubeops.dev/scanner v0.0.19/go.mod h1:FAKPsS+FhrOPwsbwXJOE1vLvIFWBcBcSXpaAztezvu4=
 kubestash.dev/apimachinery v0.22.0 h1:vp3Z7ISU2WYR6LkU7WLjbiCMSZQEjfzANN/C1cZ7L+s=

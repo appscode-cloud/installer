@@ -55,22 +55,22 @@ helm:
   releases:
     ace:
       enabled: false
-      version: "v2026.11.30"
+      version: "v2026.10.30"
     acerproxy:
       enabled: false
-      version: "v2026.11.30"
+      version: "v2026.10.30"
     aceshifter:
       enabled: true
-      version: "v2026.11.30"
+      version: "v2026.10.30"
     akp-crd-manager:
       enabled: true
-      version: "v2026.11.30"
+      version: "v2026.10.30"
     capi-catalog:
       enabled: false
       version: "v2024.10.24"
     catalog-manager:
       enabled: false
-      version: "v2026.11.30"
+      version: "v2026.10.30"
     cert-manager:
       enabled: true
       version: "v1.19.3"
@@ -118,13 +118,13 @@ helm:
       version: "v2026.10.12"
     kube-ui-server:
       enabled: true
-      version: "v2026.11.30"
+      version: "v2026.10.30"
     license-proxyserver:
       enabled: true
       version: "v2026.9.18"
     opscenter-features:
       enabled: true
-      version: "v2026.11.30"
+      version: "v2026.10.30"
     panopticon:
       enabled: true
       version: "v2026.6.22"
@@ -143,13 +143,13 @@ helm:
       version: "2.2.9"
     service-vault:
       enabled: false
-      version: "v2026.11.30"
+      version: "v2026.10.30"
     service-gateway-presets:
       enabled: false
-      version: "v2026.11.30"
+      version: "v2026.10.30"
     stash-presets:
       enabled: false
-      version: "v2026.11.30"
+      version: "v2026.10.30"
     # feature less chart versions
     cluster-manager-spoke:
       enabled: false
