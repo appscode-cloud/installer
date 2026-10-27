@@ -61,7 +61,7 @@ spec:
       optional: true
     - kind: Secret
       name: opscenter-features-cred
-      valuesKey: cluster-profile-manager.yaml
+      valuesKey: opscenter-features.yaml
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
