@@ -5,6 +5,9 @@
 {{ $_ := set $vals.helm "repositories" $helmrepos }}
 {{ $_ := set $vals.helm "createNamespace" $.Values.helm.createNamespace }}
 
+{{ $ofVals := dig "opscenter-features" "values" dict $.Values.helm.releases | deepCopy }}
+{{- include "ace-installer.featureCred.unsetPaths" (dict "vals" $ofVals "paths" (include "ace-installer.featureCred.profileCredPaths" $ | fromYamlArray)) }}
+
 {{ $helmreleases := printf `
 ace:
   version: %q
@@ -51,16 +54,16 @@ opscenter-features:
   (dig "acerproxy" "version" "" $.Values.helm.releases)
   (dig "flux2" "version" "" $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
-  ((dig "opscenter-features" "values" "helm" "releases" "catalog-manager" "values" (dict) $.Values.helm.releases) | toJson)
-  ((dig "opscenter-features" "values" "helm" "releases" "inbox-agent" "values" (dict) $.Values.helm.releases) | toJson)
-  ((dig "opscenter-features" "values" "helm" "releases" "kubedb" "values" (dict) $.Values.helm.releases) | toJson)
-  ((dig "opscenter-features" "values" "helm" "releases" "kube-prometheus-stack" "values" (dict) $.Values.helm.releases) | toJson)
-  ((dig "opscenter-features" "values" "helm" "releases" "kubestash" "values" (dict) $.Values.helm.releases) | toJson)
-  ((dig "opscenter-features" "values" "helm" "releases" "monitoring-operator" "values" (dict) $.Values.helm.releases) | toJson)
-  ((dig "opscenter-features" "values" "helm" "releases" "license-proxyserver" "values" (dict) $.Values.helm.releases) | toJson)
-  ((dig "opscenter-features" "values" "helm" "releases" "prom-label-proxy" "values" (dict) $.Values.helm.releases) | toJson)
-  ((dig "opscenter-features" "values" "helm" "releases" "service-gateway-presets" "values" (dict) $.Values.helm.releases) | toJson)
-  ((dig "opscenter-features" "values" "helm" "releases" "stash-presets" "values" (dict) $.Values.helm.releases) | toJson)
+  ((dig "helm" "releases" "catalog-manager" "values" (dict) $ofVals) | toJson)
+  ((dig "helm" "releases" "inbox-agent" "values" (dict) $ofVals) | toJson)
+  ((dig "helm" "releases" "kubedb" "values" (dict) $ofVals) | toJson)
+  ((dig "helm" "releases" "kube-prometheus-stack" "values" (dict) $ofVals) | toJson)
+  ((dig "helm" "releases" "kubestash" "values" (dict) $ofVals) | toJson)
+  ((dig "helm" "releases" "monitoring-operator" "values" (dict) $ofVals) | toJson)
+  ((dig "helm" "releases" "license-proxyserver" "values" (dict) $ofVals) | toJson)
+  ((dig "helm" "releases" "prom-label-proxy" "values" (dict) $ofVals) | toJson)
+  ((dig "helm" "releases" "service-gateway-presets" "values" (dict) $ofVals) | toJson)
+  ((dig "helm" "releases" "stash-presets" "values" (dict) $ofVals) | toJson)
   | fromYaml }}
 
 {{ $gate := printf `
@@ -102,7 +105,7 @@ opscenter-features:
   values:
     licenseServer: %v
 `
-  ((dig "opscenter-features" "values" "licenseServer" (dict) $.Values.helm.releases) | toJson)
+  ((dig "licenseServer" (dict) $ofVals) | toJson)
   | fromYaml }}
 {{ $helmreleases = mergeOverwrite $helmreleases $ls }}
 {{- end }}
