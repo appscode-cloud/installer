@@ -1,0 +1,25 @@
+{{- $releases := .Values.helm.releases }}
+{{- $featureCredPaths := include "ace-installer.featureCred.credPaths" . | fromYaml }}
+{{- $creds := dict
+  "ace" (include "ace-installer.aceCredPaths" . | fromYamlArray)
+  "opscenter-features" (include "ace-installer.featureCred.profileCredPaths" . | fromYamlArray)
+  "stash-presets" (index $featureCredPaths "stash-presets")
+  "service-gateway-presets" (index $featureCredPaths "service-gateway-presets")
+}}
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ace-installer-cred
+  namespace: {{ .Release.Namespace }}
+  labels:
+    reconcile.fluxcd.io/watch: Enabled
+stringData:
+{{- range $name, $paths := $creds }}
+{{- with (index $releases $name) }}
+{{- if .enabled }}
+  {{ $name }}.yaml: |
+    {{- include "ace-installer.featureCred.pickPaths" (dict "vals" (dig "values" dict .) "paths" $paths) | nindent 4 }}
+{{- end }}
+{{- end }}
+{{- end }}

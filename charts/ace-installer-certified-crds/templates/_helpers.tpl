@@ -170,3 +170,62 @@ Returns if ubi images are to be used
 {{- define "operator.ubi" -}}
 {{ ternary "-ubi" "" (list "operator" "all" | has (dig "distro" "ubi" "" (.Values.options | fromYaml))) }}
 {{- end }}
+
+{{- define "ace-installer.featureCred.profileCredPaths" -}}
+{{- $paths := list "licenseServer.token" -}}
+{{- range $child, $childPaths := include "ace-installer.featureCred.credPaths" . | fromYaml -}}
+  {{- range $childPaths -}}
+    {{- $paths = append $paths (printf "helm.releases.%s.values.%s" $child .) -}}
+  {{- end -}}
+{{- end -}}
+{{- toYaml $paths -}}
+{{- end -}}
+
+{{/*
+Removes dotted .paths from .vals in place. Pass a deepCopy: .Values is shared across templates and the cred Secret reads it.
+*/}}
+{{- define "ace-installer.featureCred.unsetPaths" -}}
+{{- $vals := .vals -}}
+{{- range .paths -}}
+  {{- $keys := splitList "." . -}}
+  {{- $parent := $vals -}}
+  {{- range initial $keys -}}
+    {{- if kindIs "map" $parent -}}
+      {{- $parent = get $parent . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if kindIs "map" $parent -}}
+    {{- $_ := unset $parent (last $keys) -}}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Renders the subtree of .vals holding only the non-empty dotted .paths.
+*/}}
+{{- define "ace-installer.featureCred.pickPaths" -}}
+{{- $vals := .vals -}}
+{{- $out := dict -}}
+{{- range .paths -}}
+  {{- $keys := splitList "." . -}}
+  {{- $v := $vals -}}
+  {{- range $keys -}}
+    {{- if kindIs "map" $v -}}
+      {{- $v = get $v . -}}
+    {{- else -}}
+      {{- $v = "" -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if not (empty $v) -}}
+    {{- $cur := $out -}}
+    {{- range initial $keys -}}
+      {{- if not (hasKey $cur .) -}}
+        {{- $_ := set $cur . dict -}}
+      {{- end -}}
+      {{- $cur = get $cur . -}}
+    {{- end -}}
+    {{- $_ := set $cur (last $keys) $v -}}
+  {{- end -}}
+{{- end -}}
+{{- toYaml $out -}}
+{{- end -}}

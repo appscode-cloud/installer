@@ -118,6 +118,11 @@ rules:
   - services
   verbs: ["get", "list", "watch"]
 - apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs: ["create", "patch", "update"]
+- apiGroups:
   - catalog.kubedb.com
   resources:
   - "*"

@@ -14,6 +14,7 @@ helm:
   | fromYaml }}
 
 {{ $vals :=  (omit $.Values "clusterMetadata") | deepCopy }}
+{{- include "opscenter-features.unsetPaths" (dict "vals" $vals "paths" (include "opscenter-features.profileCredPaths" $ | fromYamlArray)) }}
 {{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
@@ -58,6 +59,9 @@ spec:
       name: ace-features-cred
       valuesKey: cluster-profile-manager.yaml
       optional: true
+    - kind: Secret
+      name: opscenter-features-cred
+      valuesKey: opscenter-features.yaml
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}

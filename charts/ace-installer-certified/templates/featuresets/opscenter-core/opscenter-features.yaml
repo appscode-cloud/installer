@@ -8,7 +8,9 @@
 {{ $_ := set $defaults.helm "repositories" $helmrepos }}
 {{ $_ := set $defaults.helm "createNamespace" $.Values.helm.createNamespace }}
 
-{{ $vals := dig "values" dict . }}
+{{ $credPaths := include "ace-installer.featureCred.profileCredPaths" $ | fromYamlArray }}
+{{ $vals := dig "values" dict . | deepCopy }}
+{{- include "ace-installer.featureCred.unsetPaths" (dict "vals" $vals "paths" $credPaths) }}
 {{ $vals = mergeOverwrite $defaults $vals }}
 
 {{- if eq (include "distro.openshift" $) "true" }}
@@ -59,6 +61,10 @@ spec:
         kind: HelmRepository
         name: bootstrap
         namespace: {{ $.Release.Namespace }}
+  valuesFrom:
+    - kind: Secret
+      name: ace-installer-cred
+      valuesKey: opscenter-features.yaml
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
