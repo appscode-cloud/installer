@@ -1,0 +1,14 @@
+{{- $credPaths := include "opscenter-features.credPaths" . | fromYaml }}
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: opscenter-features-cred
+  namespace: {{ .Release.Namespace }}
+stringData:
+{{- range $child, $paths := $credPaths }}
+  {{ $child }}.yaml: |
+    {{- include "opscenter-features.pickPaths" (dict "vals" (dig $child "values" (dict) $.Values.helm.releases) "paths" $paths) | nindent 4 }}
+{{- end }}
+  cluster-profile-manager.yaml: |
+    {{- include "opscenter-features.pickPaths" (dict "vals" $.Values "paths" (include "opscenter-features.profileCredPaths" $ | fromYamlArray)) | nindent 4 }}

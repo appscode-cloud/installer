@@ -170,3 +170,136 @@ Returns if ubi images are to be used
 {{- define "operator.ubi" -}}
 {{ ternary "-ubi" "" (list "operator" "all" | has (dig "distro" "ubi" "" (.Values.options | fromYaml))) }}
 {{- end }}
+
+{{- define "ace-installer.aceCredPaths" -}}
+- global.platform.token
+- global.infra.kms.masterKeyURL
+- global.infra.tls.ca.key
+- global.infra.tls.certificate.key
+- global.infra.tls.jks.password
+- global.infra.tls.jks.keystore
+- global.infra.dns.auth.cloudflare.token
+- global.infra.dns.auth.route53.AWS_ACCESS_KEY_ID
+- global.infra.dns.auth.route53.AWS_SECRET_ACCESS_KEY
+- global.infra.dns.auth.cloudDNS.GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+- global.infra.dns.auth.azureDNS.servicePrincipalAppPassword
+- global.infra.objstore.s3.AWS_ACCESS_KEY_ID
+- global.infra.objstore.s3.AWS_SECRET_ACCESS_KEY
+- global.infra.objstore.azure.AZURE_ACCOUNT_KEY
+- global.infra.objstore.gcs.GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+- s3proxy.s3proxy.auth.accessKeyId
+- s3proxy.s3proxy.auth.secretAccessKey
+- openfga.datastoreURI
+- openfga.authn.preshared.keys
+- perses.config.database.sql.password
+- perses.config.security.encryption_key
+- pgoutbox.app.config.database.password
+- settings.db.auth.password
+- settings.cache.auth.password
+- settings.smtp.password
+- settings.grafana.secretKey
+- settings.inboxServer.adminJWTPrivateKey
+- settings.nats.operatorCreds
+- settings.nats.systemCreds
+- settings.nats.adminCreds
+- settings.nats.systemUserCreds
+- settings.nats.adminUserCreds
+- settings.openfga.preSharedKey
+- settings.perses.encryptionKey
+- settings.security.csrfSecretKey
+- settings.security.oauth2JWTSecret
+- setupJob.config.admin.password
+{{- end -}}
+
+{{- define "ace-installer.featureCred.credPaths" -}}
+stash-presets:
+- kubestash.encryptionSecret
+- kubestash.backend.s3.auth.AWS_ACCESS_KEY_ID
+- kubestash.backend.s3.auth.AWS_SECRET_ACCESS_KEY
+- kubestash.backend.azure.auth.AZURE_ACCOUNT_KEY
+- kubestash.backend.gcs.auth.GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+service-gateway-presets:
+- infra.tls.ca.key
+- infra.tls.certificate.key
+- infra.tls.jks.password
+- infra.tls.jks.keystore
+- infra.dns.auth.cloudflare.token
+- infra.dns.auth.route53.AWS_ACCESS_KEY_ID
+- infra.dns.auth.route53.AWS_SECRET_ACCESS_KEY
+- infra.dns.auth.cloudDNS.GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+- infra.dns.auth.azureDNS.servicePrincipalAppPassword
+- cluster.tls.ca.key
+prom-label-proxy:
+- infra.tls.ca.key
+- infra.tls.certificate.key
+- infra.tls.jks.password
+- infra.tls.jks.keystore
+service-backend:
+- server.oidc.clientSecret
+- server.cookie.signingKey
+- server.cookie.encryptionKey
+inbox-server:
+- james.secret.jwtPrivateKey
+- james.secret.dkimPrivateKey
+- james.env.jamesKeyStorePassword
+- postgresql.auth.password
+{{- end -}}
+
+{{- define "ace-installer.featureCred.profileCredPaths" -}}
+{{- $paths := list "licenseServer.token" -}}
+{{- range $child, $childPaths := include "ace-installer.featureCred.credPaths" . | fromYaml -}}
+  {{- range $childPaths -}}
+    {{- $paths = append $paths (printf "helm.releases.%s.values.%s" $child .) -}}
+  {{- end -}}
+{{- end -}}
+{{- toYaml $paths -}}
+{{- end -}}
+
+{{/*
+Removes dotted .paths from .vals in place. Pass a deepCopy: .Values is shared across templates and the cred Secret reads it.
+*/}}
+{{- define "ace-installer.featureCred.unsetPaths" -}}
+{{- $vals := .vals -}}
+{{- range .paths -}}
+  {{- $keys := splitList "." . -}}
+  {{- $parent := $vals -}}
+  {{- range initial $keys -}}
+    {{- if kindIs "map" $parent -}}
+      {{- $parent = get $parent . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if kindIs "map" $parent -}}
+    {{- $_ := unset $parent (last $keys) -}}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Renders the subtree of .vals holding only the non-empty dotted .paths.
+*/}}
+{{- define "ace-installer.featureCred.pickPaths" -}}
+{{- $vals := .vals -}}
+{{- $out := dict -}}
+{{- range .paths -}}
+  {{- $keys := splitList "." . -}}
+  {{- $v := $vals -}}
+  {{- range $keys -}}
+    {{- if kindIs "map" $v -}}
+      {{- $v = get $v . -}}
+    {{- else -}}
+      {{- $v = "" -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if not (empty $v) -}}
+    {{- $cur := $out -}}
+    {{- range initial $keys -}}
+      {{- if not (hasKey $cur .) -}}
+        {{- $_ := set $cur . dict -}}
+      {{- end -}}
+      {{- $cur = get $cur . -}}
+    {{- end -}}
+    {{- $_ := set $cur (last $keys) $v -}}
+  {{- end -}}
+{{- end -}}
+{{- toYaml $out -}}
+{{- end -}}

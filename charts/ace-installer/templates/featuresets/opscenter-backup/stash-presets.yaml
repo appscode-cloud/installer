@@ -3,7 +3,8 @@
 
 {{ $defaults := dict }}
 
-{{ $vals := dig "values" dict . }}
+{{ $vals := dig "values" dict . | deepCopy }}
+{{- include "ace-installer.featureCred.unsetPaths" (dict "vals" $vals "paths" (index (include "ace-installer.featureCred.credPaths" $ | fromYaml) "stash-presets")) }}
 {{ $vals = mergeOverwrite $defaults $vals }}
 
 apiVersion: helm.toolkit.fluxcd.io/v2
@@ -44,6 +45,10 @@ spec:
         kind: HelmRepository
         name: appscode-charts-oci
         namespace: {{ $.Release.Namespace }}
+  valuesFrom:
+    - kind: Secret
+      name: ace-installer-cred
+      valuesKey: stash-presets.yaml
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}

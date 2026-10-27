@@ -9,7 +9,8 @@ migrate:
   (include "image.ghcr" (merge (dict "_repo" "appscode-images/postgres") $))
   | fromYaml }}
 
-{{ $vals := dig "inbox-server" "values" (dict) .Values.helm.releases }}
+{{ $vals := dig "inbox-server" "values" (dict) .Values.helm.releases | deepCopy }}
+{{- include "opscenter-features.unsetPaths" (dict "vals" $vals "paths" (index (include "opscenter-features.credPaths" . | fromYaml) "inbox-server")) }}
 {{ $vals = mergeOverwrite $defaults $vals }}
 
 {{- if eq (include "distro.openshift" $) "true" }}
@@ -51,6 +52,10 @@ spec:
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
+  valuesFrom:
+    - kind: Secret
+      name: opscenter-features-cred
+      valuesKey: inbox-server.yaml
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}

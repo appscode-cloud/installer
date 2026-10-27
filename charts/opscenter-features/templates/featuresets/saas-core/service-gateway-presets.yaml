@@ -35,7 +35,8 @@ chart:
   (dig "service-gateway-presets" "version" "" .Values.helm.releases)
   | fromYaml }}
 
-{{ $vals := dig "service-gateway-presets" "values" (dict) .Values.helm.releases }}
+{{ $vals := dig "service-gateway-presets" "values" (dict) .Values.helm.releases | deepCopy }}
+{{- include "opscenter-features.unsetPaths" (dict "vals" $vals "paths" (index (include "opscenter-features.credPaths" . | fromYaml) "service-gateway-presets")) }}
 {{ $vals = mergeOverwrite $defaults $vals }}
 
 {{- if eq (include "distro.openshift" $) "true" }}
@@ -73,6 +74,10 @@ spec:
       kind: HelmRepository
       name: appscode-charts-oci
       namespace: {{ .Release.Namespace }}
+  valuesFrom:
+    - kind: Secret
+      name: opscenter-features-cred
+      valuesKey: service-gateway-presets.yaml
 {{- with $vals }}
   {{- dict "values" . | toYaml | nindent 2 }}
 {{- end }}
