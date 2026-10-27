@@ -5,6 +5,8 @@ kind: Secret
 metadata:
   name: opscenter-features-cred
   namespace: {{ .Release.Namespace }}
+  labels:
+    reconcile.fluxcd.io/watch: Enabled
 stringData:
 {{- range $child, $paths := $credPaths }}
   {{ $child }}.yaml: |

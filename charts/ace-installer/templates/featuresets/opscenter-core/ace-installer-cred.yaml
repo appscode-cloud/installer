@@ -12,6 +12,8 @@ kind: Secret
 metadata:
   name: ace-installer-cred
   namespace: {{ .Release.Namespace }}
+  labels:
+    reconcile.fluxcd.io/watch: Enabled
 stringData:
 {{- range $name, $paths := $creds }}
 {{- with (index $releases $name) }}
