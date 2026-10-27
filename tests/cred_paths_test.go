@@ -152,7 +152,7 @@ func renderChart(chartDir string, vals map[string]any, tmpDir string) ([]map[str
 	}
 }
 
-// checkCreds reports sentinels rendered in a HelmRelease or Feature spec.values, and sentinels missing from the
+// checkCreds reports sentinels rendered in a HelmRelease, Feature or ClusterChartPreset spec.values, and sentinels missing from the
 // Secret keys that their owner pulls in through valuesFrom.
 func checkCreds(docs []map[string]any, sentinels map[string]cred) []string {
 	var msgs []string
@@ -165,7 +165,7 @@ func checkCreds(docs []map[string]any, sentinels map[string]cred) []string {
 		case "Secret":
 			data, _ := doc["stringData"].(map[string]any)
 			secrets[name] = data
-		case "HelmRelease", "Feature":
+		case "HelmRelease", "Feature", "ClusterChartPreset":
 			raw, err := yaml.Marshal(dig(doc, "spec", "values"))
 			if err != nil {
 				msgs = append(msgs, fmt.Sprintf("%s/%s: %v", kind, name, err))
@@ -175,6 +175,9 @@ func checkCreds(docs []map[string]any, sentinels map[string]cred) []string {
 				if bytes.Contains(raw, []byte(s)) {
 					msgs = append(msgs, fmt.Sprintf("%s/%s: raw cred %s rendered in spec.values; unset it there and pass it via valuesFrom", kind, name, sentinels[s].path))
 				}
+			}
+			if kind == "ClusterChartPreset" {
+				continue
 			}
 
 			refs[name] = [][2]string{}
