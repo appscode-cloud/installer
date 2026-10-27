@@ -19,9 +19,10 @@ spec:
         kind: Secret
         name: {{ include "ace.fullname" . }}-gw-cert
         namespace: {{ .Release.Namespace }}
-{{- $secretName := printf "%s-ingress-cert" (include "ace.fullname" .) }}
-{{- $existing := lookup "v1" "Secret" .Release.Namespace $secretName }}
-{{- if $existing }}
+{{- $gwCert := lookup "v1" "Secret" .Release.Namespace (printf "%s-gw-cert" (include "ace.fullname" .)) }}
+{{- $legacyCert := lookup "v1" "Secret" .Release.Namespace (printf "%s-ingress-cert" (include "ace.fullname" .)) }}
+{{- /* The legacy cert is a non-renewing snapshot; serving it next to gw-cert breaks Envoy once it expires. */}}
+{{- if and $legacyCert (not $gwCert) }}
       - group: ""
         kind: Secret
         name: {{ include "ace.fullname" . }}-ingress-cert
