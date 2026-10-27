@@ -126,40 +126,6 @@ Returns if ubi images are to be used
 {{ ternary "-ubi" "" (list "operator" "all" | has .Values.distro.ubi) }}
 {{- end }}
 
-{{- define "opscenter-features.credPaths" -}}
-stash-presets:
-- kubestash.encryptionSecret
-- kubestash.backend.s3.auth.AWS_ACCESS_KEY_ID
-- kubestash.backend.s3.auth.AWS_SECRET_ACCESS_KEY
-- kubestash.backend.azure.auth.AZURE_ACCOUNT_KEY
-- kubestash.backend.gcs.auth.GOOGLE_SERVICE_ACCOUNT_JSON_KEY
-service-gateway-presets:
-- infra.tls.ca.key
-- infra.tls.certificate.key
-- infra.tls.jks.password
-- infra.tls.jks.keystore
-- infra.dns.auth.cloudflare.token
-- infra.dns.auth.route53.AWS_ACCESS_KEY_ID
-- infra.dns.auth.route53.AWS_SECRET_ACCESS_KEY
-- infra.dns.auth.cloudDNS.GOOGLE_SERVICE_ACCOUNT_JSON_KEY
-- infra.dns.auth.azureDNS.servicePrincipalAppPassword
-- cluster.tls.ca.key
-prom-label-proxy:
-- infra.tls.ca.key
-- infra.tls.certificate.key
-- infra.tls.jks.password
-- infra.tls.jks.keystore
-service-backend:
-- server.oidc.clientSecret
-- server.cookie.signingKey
-- server.cookie.encryptionKey
-inbox-server:
-- james.secret.jwtPrivateKey
-- james.secret.dkimPrivateKey
-- james.env.jamesKeyStorePassword
-- postgresql.auth.password
-{{- end -}}
-
 {{- define "opscenter-features.profileCredPaths" -}}
 {{- $paths := list "licenseServer.token" -}}
 {{- range $child, $childPaths := include "opscenter-features.credPaths" . | fromYaml -}}

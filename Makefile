@@ -224,8 +224,12 @@ gen-chart-doc-%:
 .PHONY: manifests
 manifests: gen-crds gen-schema patch-schema gen-chart-doc
 
+.PHONY: gen-cred-paths
+gen-cred-paths:
+	@go run ./cmd/gen-cred-paths
+
 .PHONY: gen
-gen: codegen manifests
+gen: codegen manifests gen-cred-paths
 
 .PHONY: refresh
 refresh: gen update-catalog fmt
