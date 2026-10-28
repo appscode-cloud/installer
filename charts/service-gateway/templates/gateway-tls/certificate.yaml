@@ -41,6 +41,7 @@ spec:
     - "api.byte.builders"
     {{- end }}
   {{- end }}
+  {{- if eq .Values.infra.tls.issuer "ca" }}
     - prom-label-proxy
     - prom-label-proxy.monitoring.svc
     - prom-label-proxy.monitoring.svc.cluster.local
@@ -53,6 +54,7 @@ spec:
     - "*.otel-nats"
     - "*.otel-nats.{{ .Release.Namespace }}.svc"
     - "*.otel-nats.{{ .Release.Namespace }}.svc.cluster.local"
+  {{- end }}
   usages:
     - key agreement
     - digital signature
