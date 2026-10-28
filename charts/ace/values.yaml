@@ -296,8 +296,12 @@ settings:
     enabled: true
     replicas: 2
     config:
-      num_init_children: "32"
-      max_pool: "3"
+      num_init_children: "46"
+      max_pool: "2"
+      process_management_mode: "static"
+      load_balance_mode: "on"
+      statement_level_load_balance: "off"
+      disable_load_balance_on_write: "always"
       listen_backlog_multiplier: "4"
       child_life_time: "0"
       child_max_connections: "1000"
