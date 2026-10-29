@@ -30,7 +30,7 @@ spec:
           {{- toYaml .Values.settings.pgpool.resources | nindent 10 }}
     {{- if eq (include "distro.openshift" $) "true" }}
         securityContext:
-          runAsGroup: {{ .Values.securityContext.runAsUser }}
+          runAsGroup: 0
           runAsUser: {{ .Values.securityContext.runAsUser }}
           capabilities:
             drop:
@@ -41,12 +41,31 @@ spec:
       securityContext:
         fsGroup: {{ .Values.securityContext.runAsUser }}
         runAsUser: {{ .Values.securityContext.runAsUser }}
-        runAsGroup: {{ .Values.securityContext.runAsUser }}
+        runAsGroup: 0
     {{- end }}
 {{- if .Values.global.monitoring }}
   monitor:
     agent: {{ .Values.global.monitoring.agent }}
     prometheus:
+      {{- if or .Values.global.monitoring.exporter.resources (eq (include "distro.openshift" $) "true") }}
+      exporter:
+      {{- with .Values.global.monitoring.exporter.resources }}
+        resources:
+          {{- toYaml . | nindent 10 }}
+      {{- end }}
+      {{- if eq (include "distro.openshift" $) "true" }}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsGroup: {{ .Values.securityContext.runAsUser }}
+          runAsNonRoot: true
+          runAsUser: {{ .Values.securityContext.runAsUser }}
+          seccompProfile:
+            type: RuntimeDefault
+      {{- end }}
+      {{- end }}
       serviceMonitor:
         interval: 30s
         labels:

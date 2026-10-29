@@ -149,6 +149,8 @@ type AceIngressNginx struct {
 type AceGateway struct {
 	Enabled      bool `json:"enabled"`
 	*GatewaySpec `json:",inline,omitempty"`
+	// +optional
+	LoadBalancer *GatewayLoadBalancer `json:"loadBalancer,omitempty"`
 }
 
 type AceIngressDns struct {

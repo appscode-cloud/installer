@@ -31,6 +31,8 @@ spec:
     allowedRoutes:
       namespaces:
         from: Same
+{{- /* OpenShift Degrades the ingress operator on unmanaged Gateway API CRDs (TCPRoute), so NATS and s3proxy use their own LoadBalancer Services there. */}}
+{{- if ne (include "distro.openshift" .) "true" }}
   - allowedRoutes:
       namespaces:
         from: Same
@@ -49,4 +51,5 @@ spec:
     name: s3proxy-tcp
     port: 4224
     protocol: TCP
+{{- end }}
 {{- end }}

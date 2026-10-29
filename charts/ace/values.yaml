@@ -27,6 +27,10 @@ gateway:
     enabled: true
     secret:
       name: "ace-cert"
+  # OpenShift only: NATS (4222) is exposed by its own LoadBalancer Service.
+  # Use the same IP-sharing annotations as the Envoy Service to share its IP.
+  loadBalancer:
+    annotations: {}
 
 ingress-nginx:
   enabled: false
