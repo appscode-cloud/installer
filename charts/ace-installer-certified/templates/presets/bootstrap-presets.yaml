@@ -22,6 +22,8 @@ acerproxy:
 # b3 import flow
 flux2:
   version: %q
+fargocd:
+  version: %q
 opscenter-features:
   version: %q
   values:
@@ -53,6 +55,7 @@ opscenter-features:
   (dig "license-proxyserver" "version" .Chart.AppVersion $.Values.helm.releases)
   (dig "acerproxy" "version" "" $.Values.helm.releases)
   (dig "flux2" "version" "" $.Values.helm.releases)
+  (dig "fargocd" "version" "" $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
   ((dig "helm" "releases" "catalog-manager" "values" (dict) $ofVals) | toJson)
   ((dig "helm" "releases" "inbox-agent" "values" (dict) $ofVals) | toJson)

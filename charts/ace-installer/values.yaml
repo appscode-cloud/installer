@@ -80,6 +80,8 @@ helm:
     external-dns-operator:
       enabled: true
       version: "v2026.6.22"
+    fargocd:
+      version: "v2026.9.18"
     flux2:
       enabled: false
       version: "2.19.1"
