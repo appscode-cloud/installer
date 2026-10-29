@@ -29,6 +29,10 @@ type GatewaySpec struct {
 	TLS         *GatewayTLS       `json:"tls"`
 }
 
+type GatewayLoadBalancer struct {
+	Annotations map[string]string `json:"annotations"`
+}
+
 type GatewayTLS struct {
 	Enabled bool                  `json:"enabled"`
 	Secret  *LocalObjectReference `json:"secret"`

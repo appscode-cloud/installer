@@ -8,6 +8,10 @@ deployment:
       repository: %s
 gateway-converter:
   registryFQDN: %s
+config:
+  envoyGateway:
+    extensionApis:
+      enableBackend: true
 `
   (include "image.ghcr" (merge (dict "_repo" "voyagermesh/gateway") $))
   (include "image.ghcr" (merge (dict "_repo" "appscode/kube-rbac-proxy") $))

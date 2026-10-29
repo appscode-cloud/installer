@@ -1,0 +1,22 @@
+{{- if and (index .Values "gateway" "enabled") (eq (include "distro.openshift" .) "true") }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "s3proxy.fullname" . }}-lb
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "s3proxy.labels" . | nindent 4 }}
+  {{- with .Values.gateway.loadBalancer.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: LoadBalancer
+  ports:
+  - name: api
+    port: 4224
+    targetPort: 4224
+    protocol: TCP
+  selector:
+    {{- include "s3proxy.selectorLabels" . | nindent 4 }}
+{{- end }}

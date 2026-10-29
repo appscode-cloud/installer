@@ -58,6 +58,10 @@ gateway:
     #   paths:
     #     - path: /
     #       pathType: ImplementationSpecific
+  # OpenShift only: s3proxy (4224) is exposed by its own LoadBalancer Service.
+  # Use the same IP-sharing annotations as the Envoy Service to share its IP.
+  loadBalancer:
+    annotations: {}
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
