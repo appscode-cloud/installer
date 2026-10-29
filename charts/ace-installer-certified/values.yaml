@@ -65,6 +65,8 @@ helm:
     akp-crd-manager:
       enabled: true
       version: "v2026.10.30"
+    argo-cd:
+      version: "10.11.6"
     capi-catalog:
       enabled: false
       version: "v2024.10.24"

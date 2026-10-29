@@ -24,6 +24,8 @@ flux2:
   version: %q
 fargocd:
   version: %q
+argo-cd:
+  version: %q
 opscenter-features:
   version: %q
   values:
@@ -56,6 +58,7 @@ opscenter-features:
   (dig "acerproxy" "version" "" $.Values.helm.releases)
   (dig "flux2" "version" "" $.Values.helm.releases)
   (dig "fargocd" "version" "" $.Values.helm.releases)
+  (dig "argo-cd" "version" "" $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
   ((dig "helm" "releases" "catalog-manager" "values" (dict) $ofVals) | toJson)
   ((dig "helm" "releases" "inbox-agent" "values" (dict) $ofVals) | toJson)
