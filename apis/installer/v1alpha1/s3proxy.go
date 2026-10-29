@@ -75,7 +75,7 @@ type S3proxySpec struct {
 	Persistence  PersistenceSpec      `json:"persistence"`
 	StorageClass LocalObjectReference `json:"storageClass"`
 	Ingress      S3proxyIngress       `json:"ingress"`
-	Gateway      AppGateway           `json:"gateway"`
+	Gateway      S3proxyGateway       `json:"gateway"`
 	S3proxy      S3proxyConfig        `json:"s3proxy"`
 	// +optional
 	Distro shared.DistroSpec `json:"distro"`
@@ -86,6 +86,12 @@ type S3proxyIngress struct {
 	ClassName   string            `json:"className"`
 	Annotations map[string]string `json:"annotations"`
 	Domain      string            `json:"domain"`
+}
+
+type S3proxyGateway struct {
+	AppGateway `json:",inline"`
+	// +optional
+	LoadBalancer *GatewayLoadBalancer `json:"loadBalancer,omitempty"`
 }
 
 type S3proxyConfig struct {

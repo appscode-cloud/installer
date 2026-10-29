@@ -1329,6 +1329,18 @@ properties:
         type: object
       enabled:
         type: boolean
+      loadBalancer:
+        properties:
+          annotations:
+            additionalProperties:
+              type: string
+            type: object
+          loadBalancerIP:
+            type: string
+        required:
+        - annotations
+        - loadBalancerIP
+        type: object
       tls:
         properties:
           enabled:
@@ -23993,6 +24005,18 @@ properties:
               - paths
               type: object
             type: array
+          loadBalancer:
+            properties:
+              annotations:
+                additionalProperties:
+                  type: string
+                type: object
+              loadBalancerIP:
+                type: string
+            required:
+            - annotations
+            - loadBalancerIP
+            type: object
           tls:
             properties:
               enabled:

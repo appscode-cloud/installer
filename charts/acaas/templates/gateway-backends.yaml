@@ -19,6 +19,12 @@ spec:
     - fqdn:
         hostname: {{ $rule.upstream }}
         port: 443
+{{- /* OpenShift Degrades the ingress operator on unmanaged Gateway API CRDs (BackendTLSPolicy), so TLS is set on the Backend there. */}}
+{{- if eq (include "distro.openshift" $) "true" }}
+  tls:
+    sni: {{ $rule.upstream }}
+    wellKnownCACertificates: System
+{{- else }}
 ---
 # BackendTLSPolicy: makes Envoy originate TLS to the Backend above. Without it
 # Envoy connects in plaintext on 443 and the upstream (which terminates TLS on
@@ -40,5 +46,6 @@ spec:
   validation:
     hostname: {{ $rule.upstream }}
     wellKnownCACertificates: System
+{{- end }}
 {{- end }}
 {{- end }}

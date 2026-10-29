@@ -35,6 +35,43 @@ spec:
           type: ReplacePrefixMatch
           replacePrefixMatch: /
     backendRefs:
+{{- if eq (include "distro.openshift" .) "true" }}
+    - group: gateway.envoyproxy.io
+      kind: Backend
+      name: {{ include "ace.fullname" . }}-nats
+      namespace: {{ .Release.Namespace }}
+      weight: 1
+---
+{{- /* OpenShift Degrades the ingress operator on unmanaged Gateway API CRDs (BackendTLSPolicy, TCPRoute). */}}
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: Backend
+metadata:
+  name: {{ include "ace.fullname" . }}-nats
+  namespace: {{ .Release.Namespace }}
+spec:
+  endpoints:
+  - fqdn:
+      hostname: {{ include "ace.fullname" . }}-nats.{{ .Release.Namespace }}.svc
+      port: 443
+  tls:
+    caCertificateRefs:
+    {{- if and
+      (or (eq .Values.global.infra.tls.issuer "letsencrypt") (eq .Values.global.infra.tls.issuer "letsencrypt-staging"))
+      (index .Values "gateway" "enabled") }}
+    - group: ""
+      kind: Secret
+      name: {{ include "ace.fullname" . }}-acme-ca-cert
+    {{- else }}
+    - group: ""
+      kind: Secret
+      name: {{ include "ace.fullname" . }}-gw-cert
+    {{- end }}
+  {{- if eq (index .Values "global" "platform" "hostType") "ip" }}
+    sni: {{ include "ace.fullname" . }}-nats
+  {{- else }}
+    sni: {{ printf "%s" .Values.global.platform.host }}
+  {{- end }}
+{{- else }}
     - group: ""
       kind: Service
       name: {{ include "ace.fullname" . }}-nats
@@ -92,4 +129,5 @@ spec:
       namespace: {{ .Release.Namespace }}
       port: 4222
       weight: 1
+{{- end }}
 {{- end }}

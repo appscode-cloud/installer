@@ -42,6 +42,13 @@ spec:
         type: PathPrefix
         value: {{ .path }}
     backendRefs:
+    {{- if eq (include "distro.openshift" $) "true" }}
+    - group: gateway.envoyproxy.io
+      kind: Backend
+      name: {{ include "s3proxy.fullname" $ }}
+      namespace: {{ $.Release.Namespace }}
+      weight: 1
+    {{- else }}
     - group: ""
       kind: Service
       name: {{ include "s3proxy.fullname" $ }}
@@ -49,9 +56,41 @@ spec:
       port: {{ $.Values.service.port }}
       weight: 1
     {{- end }}
+    {{- end }}
   {{- end }}
 
 ---
+{{- if eq (include "distro.openshift" .) "true" }}
+{{- /* OpenShift Degrades the ingress operator on unmanaged Gateway API CRDs (BackendTLSPolicy, TCPRoute). */}}
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: Backend
+metadata:
+  name: {{ include "s3proxy.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  endpoints:
+  - fqdn:
+      hostname: {{ include "s3proxy.fullname" . }}.{{ .Release.Namespace }}.svc
+      port: {{ .Values.service.port }}
+  tls:
+    caCertificateRefs:
+    {{- if and
+      (or (eq .Values.global.infra.tls.issuer "letsencrypt") (eq .Values.global.infra.tls.issuer "letsencrypt-staging"))
+      (index .Values "gateway" "enabled") }}
+    - group: ""
+      kind: Secret
+      name: {{ include "ace.fullname" . }}-acme-ca-cert
+    {{- else }}
+    - group: ""
+      kind: Secret
+      name: {{ include "ace.fullname" . }}-gw-cert
+    {{- end }}
+  {{- if eq (index .Values "global" "platform" "hostType") "ip" }}
+    sni: {{ include "ace.fullname" . }}-s3proxy
+  {{- else }}
+    sni: {{ .Values.global.platform.host }}
+  {{- end }}
+{{- else }}
 apiVersion: gateway.networking.k8s.io/v1
 kind: BackendTLSPolicy
 metadata:
@@ -81,6 +120,9 @@ spec:
     hostname: {{ .Values.global.platform.host }}
   {{- end }}
 {{- end }}
+{{- end }}
+
+{{- if ne (include "distro.openshift" .) "true" }}
 
 ---
 apiVersion: gateway.networking.k8s.io/v1alpha2
@@ -103,4 +145,5 @@ spec:
       namespace: {{ .Release.Namespace }}
       port: 4224
       weight: 1
+{{- end }}
 {{- end }}
