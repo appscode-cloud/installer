@@ -1335,11 +1335,8 @@ properties:
             additionalProperties:
               type: string
             type: object
-          loadBalancerIP:
-            type: string
         required:
         - annotations
-        - loadBalancerIP
         type: object
       tls:
         properties:
@@ -24011,11 +24008,8 @@ properties:
                 additionalProperties:
                   type: string
                 type: object
-              loadBalancerIP:
-                type: string
             required:
             - annotations
-            - loadBalancerIP
             type: object
           tls:
             properties:

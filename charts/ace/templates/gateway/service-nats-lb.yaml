@@ -12,9 +12,6 @@ metadata:
   {{- end }}
 spec:
   type: LoadBalancer
-  {{- with .Values.gateway.loadBalancer.loadBalancerIP }}
-  loadBalancerIP: {{ . }}
-  {{- end }}
   ports:
   - name: client
     port: 4222

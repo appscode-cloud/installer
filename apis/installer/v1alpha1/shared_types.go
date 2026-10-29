@@ -30,8 +30,7 @@ type GatewaySpec struct {
 }
 
 type GatewayLoadBalancer struct {
-	Annotations    map[string]string `json:"annotations"`
-	LoadBalancerIP string            `json:"loadBalancerIP"`
+	Annotations map[string]string `json:"annotations"`
 }
 
 type GatewayTLS struct {
