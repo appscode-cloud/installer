@@ -66,7 +66,7 @@
 - ghcr.io/appscode-charts/operator-shard-manager:v2026.6.22
 - ghcr.io/appscode-charts/opscenter-features:v2026.10.12
 - ghcr.io/appscode-charts/otel-nats:v2026.9.22
-- ghcr.io/appscode-charts/panopticon:v2026.6.22
+- ghcr.io/appscode-charts/panopticon:v2026.9.18
 - ghcr.io/appscode-charts/prepare-cluster:v2023.12.21
 - ghcr.io/appscode-charts/prom-label-proxy:v2026.9.22
 - ghcr.io/appscode-charts/prometheus-adapter:4.9.0

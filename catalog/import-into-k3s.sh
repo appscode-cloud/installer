@@ -242,7 +242,7 @@ k3s ctr images import images/appscode-charts-opskubedbcom-solropsrequest-editor-
 k3s ctr images import images/appscode-charts-opskubedbcom-weaviateopsrequest-editor-v0.38.0.tar
 k3s ctr images import images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.38.0.tar
 k3s ctr images import images/appscode-charts-otel-nats-v2026.9.22.tar
-k3s ctr images import images/appscode-charts-panopticon-v2026.6.22.tar
+k3s ctr images import images/appscode-charts-panopticon-v2026.9.18.tar
 k3s ctr images import images/appscode-charts-prepare-cluster-v2023.12.21.tar
 k3s ctr images import images/appscode-charts-prom-label-proxy-v2026.9.22.tar
 k3s ctr images import images/appscode-charts-prometheus-adapter-4.9.0.tar

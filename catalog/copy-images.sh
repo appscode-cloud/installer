@@ -253,7 +253,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/op
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-weaviateopsrequest-editor:v0.38.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-weaviateopsrequest-editor:v0.38.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.38.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.38.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/otel-nats:v2026.9.22 $IMAGE_REGISTRY/appscode-charts/otel-nats:v2026.9.22
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2026.6.22 $IMAGE_REGISTRY/appscode-charts/panopticon:v2026.6.22
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2026.9.18 $IMAGE_REGISTRY/appscode-charts/panopticon:v2026.9.18
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prepare-cluster:v2023.12.21 $IMAGE_REGISTRY/appscode-charts/prepare-cluster:v2023.12.21
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prom-label-proxy:v2026.9.22 $IMAGE_REGISTRY/appscode-charts/prom-label-proxy:v2026.9.22
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prometheus-adapter:4.9.0 $IMAGE_REGISTRY/appscode-charts/prometheus-adapter:4.9.0
