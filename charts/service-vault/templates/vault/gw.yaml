@@ -1,3 +1,6 @@
+{{- if .Values.vaultServer.serverAddress }}
+# TCP passthrough: vault terminates TLS itself, so spokes see the cert signed by the
+# vault CA that the hub AppBinding hands them as caBundle.
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
@@ -6,27 +9,24 @@ metadata:
 spec:
   gatewayClassName: ace
   listeners:
-    - name: vault
-      protocol: HTTPS
+    - name: vault-tcp
+      protocol: TCP
       port: 8200
-      tls:
-        certificateRefs:
-        - group: ""
-          kind: Secret
-          name: {{ include "service-vault.fullname" . }}-cert
-          namespace: {{ .Release.Namespace }}
-        mode: Terminate
+    - name: grpc-proxy-tcp
+      protocol: TCP
+      port: 50053
 ---
-apiVersion: gateway.networking.k8s.io/v1
-kind: HTTPRoute
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TCPRoute
 metadata:
   name: vault
   namespace: {{ .Release.Namespace }}
 spec:
   parentRefs:
-    - name: vault
-  hostnames:
-    - {{ include "service-vault.gatewayHost" . | quote }}
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: vault
+      sectionName: vault-tcp
   rules:
     - backendRefs:
         - group: ""
@@ -34,7 +34,23 @@ spec:
           name: {{ .Values.vaultServer.name }}
           port: 8200
           weight: 1
-      matches:
-        - path:
-            type: PathPrefix
-            value: /
+---
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TCPRoute
+metadata:
+  name: vault-grpc-proxy
+  namespace: {{ .Release.Namespace }}
+spec:
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: vault
+      sectionName: grpc-proxy-tcp
+  rules:
+    - backendRefs:
+        - group: ""
+          kind: Service
+          name: {{ .Values.vaultServer.name }}
+          port: 50053
+          weight: 1
+{{- end }}
