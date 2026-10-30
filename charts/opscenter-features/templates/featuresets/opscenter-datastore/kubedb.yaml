@@ -36,6 +36,7 @@ sidekick:
 
 {{- if eq (include "distro.openshift" $) "true" }}
 {{ $vals = mergeOverwrite $vals (dict "global" (dict "distro" .Values.distro)) }}
+{{ $vals = mergeOverwrite $vals (dict "kubedb-crd-manager" (dict "removeUnusedCRDs" false)) }}
 {{- end }}
 
 apiVersion: ui.k8s.appscode.com/v1alpha1
