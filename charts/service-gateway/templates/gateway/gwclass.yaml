@@ -28,13 +28,15 @@ spec:
     name: {{ include "tenant.name" . }}
     namespace: {{ .Release.Namespace }}
 {{- end }}
-{{- if .Capabilities.APIVersions.Has "gateway.envoyproxy.io/v1alpha1/EnvoyProxy" }}
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: EnvoyProxy
 metadata:
   name: {{ include "tenant.name" . }}
   namespace: {{ .Release.Namespace }}
+  annotations:
+    # CRD is installed by the crd-manager pre-install hook, after Argo CD's dry-run
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   mergeGateways: true
   provider:
@@ -122,4 +124,3 @@ spec:
               externalIPs: {{- toYaml .Values.envoy.service.externalIPs | nindent 14 }}
         {{- end }}
         type: {{ .Values.envoy.service.type }}
-{{- end }}
