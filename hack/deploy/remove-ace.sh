@@ -235,7 +235,30 @@ for kind in mutatingwebhookconfigurations validatingwebhookconfigurations; do
         done
 done
 
+# helm never deletes hook objects on uninstall (e.g. kube-ui-server's aggregated ClusterRoles)
+kubectl get clusterroles,clusterrolebindings -l helm.toolkit.fluxcd.io/name -o json | jq -r '.items[]
+    | select(.metadata.annotations["helm.sh/hook"])
+    | "\(.kind | ascii_downcase) \(.metadata.name) \(.metadata.labels["helm.toolkit.fluxcd.io/namespace"]) \(.metadata.labels["helm.toolkit.fluxcd.io/name"])"' |
+    while read -r kind name ns release; do
+        kubectl get "$hr" "$release" -n "$ns" >/dev/null 2>&1 || kubectl delete "$kind" "$name" --ignore-not-found
+    done
+
 if [[ $fullPrune == true ]]; then
+    # the default GatewayClass is kept on uninstall (helm.sh/resource-policy: keep); Envoy Gateway is no longer
+    # around to clear its gateway-exists finalizer
+    if crdExists gatewayclasses.gateway.networking.k8s.io; then
+        # shellcheck disable=SC2046
+        timeout=30s deleteAndWait gatewayclasses.gateway.networking.k8s.io default $(kubectl get gatewayclasses.gateway.networking.k8s.io -o json |
+            jq -r '.items[] | select(.metadata.annotations["catalog.appscode.com/gateway-config"]) | .metadata.name')
+    fi
+    # created at runtime by the KubeDB and KubeStash operators, outside any release
+    kubectl get clusterroles,clusterrolebindings -o json | jq -r '.items[]
+        | select((.metadata.name | test("^kubedb:[a-z-]+-reader$")) or .metadata.labels["app.kubernetes.io/managed-by"] == "kubestash.com")
+        | "\(.kind | ascii_downcase) \(.metadata.name)"' |
+        while read -r kind name; do
+            kubectl delete "$kind" "$name" --ignore-not-found
+        done
+
     crds=$(kubectl get crd -o json | jq -r --arg re "^($appscodeGroups)$" '.items[] | select(.spec.group | test($re)) | .metadata.name')
     for crd in $crds; do
         patchAll "$crd" '{"metadata":{"finalizers":null}}' .metadata.finalizers
