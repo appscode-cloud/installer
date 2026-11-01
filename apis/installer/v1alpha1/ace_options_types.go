@@ -342,8 +342,10 @@ type AceOptionsInfraKms struct {
 type AceOptionsSettings struct {
 	DB    AceOptionsDBSettings    `json:"db"`
 	Cache AceOptionsCacheSettings `json:"cache"`
-	SMTP  AceOptionsSMTPSettings  `json:"smtp"`
-	Proxy *AceOptionsProxy        `json:"proxy,omitempty"`
+	// +optional
+	PgPool *AceOptionsPgPoolSettings `json:"pgpool,omitempty"`
+	SMTP   AceOptionsSMTPSettings    `json:"smtp"`
+	Proxy  *AceOptionsProxy          `json:"proxy,omitempty"`
 	// +optional
 	Marketplace *AceOptionsMarketplace `json:"marketplace,omitempty"`
 
@@ -403,6 +405,12 @@ type AceOptionsDBSettings struct {
 type AceOptionsCacheSettings struct {
 	Persistence PersistenceSpec           `json:"persistence"`
 	Resources   core.ResourceRequirements `json:"resources"`
+}
+
+type AceOptionsPgPoolSettings struct {
+	Enabled   bool                      `json:"enabled"`
+	Replicas  int                       `json:"replicas"`
+	Resources core.ResourceRequirements `json:"resources"`
 }
 
 type AceOptionsSMTPSettings struct {
