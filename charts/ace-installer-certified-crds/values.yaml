@@ -66,6 +66,7 @@ helm:
       enabled: true
       version: "v2026.10.30"
     argo-cd:
+      enabled: false
       version: "10.11.6"
     capi-catalog:
       enabled: false
@@ -83,6 +84,7 @@ helm:
       enabled: true
       version: "v2026.6.22"
     fargocd:
+      enabled: false
       version: "v2026.9.18"
     flux2:
       enabled: false
