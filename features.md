@@ -15,6 +15,8 @@ graph TD;
   cluster-profile-manager-->cluster-auth-manager;
   cluster-proxy-manager-->cluster-manager-hub;
   cluster-proxy-manager-->cluster-profile-manager;
+  config-syncer-manager-->cluster-manager-hub;
+  config-syncer-manager-->cluster-profile-manager;
   fluxcd-manager-->cluster-manager-hub;
   fluxcd-manager-->cluster-profile-manager;
   hub-cluster-robot-->cluster-manager-hub;

@@ -101,7 +101,8 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cl
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-presets:v2026.10.30 $IMAGE_REGISTRY/appscode-charts/cluster-presets:v2026.10.30
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-profile-manager:v2026.9.18 $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2026.9.18
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-proxy-manager:v2026.6.26 $IMAGE_REGISTRY/appscode-charts/cluster-proxy-manager:v2026.6.26
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/config-syncer:v0.15.5 $IMAGE_REGISTRY/appscode-charts/config-syncer:v0.15.5
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/config-syncer-manager:v1.0.0 $IMAGE_REGISTRY/appscode-charts/config-syncer-manager:v1.0.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/config-syncer:v1.0.0 $IMAGE_REGISTRY/appscode-charts/config-syncer:v1.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/corekubestashcom-backupbatch-editor:v0.39.0 $IMAGE_REGISTRY/appscode-charts/corekubestashcom-backupbatch-editor:v0.39.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/corekubestashcom-backupblueprint-editor:v0.39.0 $IMAGE_REGISTRY/appscode-charts/corekubestashcom-backupblueprint-editor:v0.39.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/corekubestashcom-backupconfiguration-editor-options:v0.39.0 $IMAGE_REGISTRY/appscode-charts/corekubestashcom-backupconfiguration-editor-options:v0.39.0
