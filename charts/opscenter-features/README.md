@@ -86,7 +86,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.cert-manager-csi-driver-cacerts.version                   |                                 | <code>"v2026.9.18"</code>                  |
 | helm.releases.cluster-autoscaler.version                                |                                 | <code>"9.29.0"</code>                      |
 | helm.releases.cluster-presets.version                                   |                                 | <code>"v2026.10.30"</code>                 |
-| helm.releases.config-syncer.version                                     |                                 | <code>"v0.15.5"</code>                     |
+| helm.releases.config-syncer.version                                     |                                 | <code>"v1.0.0"</code>                      |
 | helm.releases.crossplane.version                                        |                                 | <code>"1.14.0"</code>                      |
 | helm.releases.csi-driver-nfs.version                                    |                                 | <code>"v4.7.0"</code>                      |
 | helm.releases.external-dns-operator.version                             |                                 | <code>"v2026.6.22"</code>                  |
@@ -168,6 +168,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.hub-cluster-robot.version                                 |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.fluxcd-manager.version                                    |                                 | <code>"v2026.9.18"</code>                  |
 | helm.releases.license-proxyserver-manager.version                       |                                 | <code>"v2026.9.18"</code>                  |
+| helm.releases.config-syncer-manager.version                             |                                 | <code>"v1.0.0"</code>                      |
 | helm.releases.inbox-server.version                                      |                                 | <code>"v2025.12.25"</code>                 |
 | helm.releases.inbox-agent.version                                       |                                 | <code>"v2026.6.2"</code>                   |
 | helm.releases.inbox-ui.version                                          |                                 | <code>"v2026.10.30"</code>                 |

@@ -92,7 +92,8 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-c
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-presets-v2026.10.30.tar $IMAGE_REGISTRY/appscode-charts/cluster-presets:v2026.10.30
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-profile-manager-v2026.9.18.tar $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2026.9.18
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-proxy-manager-v2026.6.26.tar $IMAGE_REGISTRY/appscode-charts/cluster-proxy-manager:v2026.6.26
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-config-syncer-v0.15.5.tar $IMAGE_REGISTRY/appscode-charts/config-syncer:v0.15.5
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-config-syncer-manager-v1.0.0.tar $IMAGE_REGISTRY/appscode-charts/config-syncer-manager:v1.0.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-config-syncer-v1.0.0.tar $IMAGE_REGISTRY/appscode-charts/config-syncer:v1.0.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-corekubestashcom-backupbatch-editor-v0.39.0.tar $IMAGE_REGISTRY/appscode-charts/corekubestashcom-backupbatch-editor:v0.39.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-corekubestashcom-backupblueprint-editor-v0.39.0.tar $IMAGE_REGISTRY/appscode-charts/corekubestashcom-backupblueprint-editor:v0.39.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-corekubestashcom-backupconfiguration-editor-options-v0.39.0.tar $IMAGE_REGISTRY/appscode-charts/corekubestashcom-backupconfiguration-editor-options:v0.39.0

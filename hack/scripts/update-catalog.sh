@@ -73,6 +73,7 @@ feature_chart_exclusions=(
     # kubeops/installer
     cert-manager-csi-driver-cacerts
     config-syncer
+    config-syncer-manager
     external-dns-operator
     falco-ui-server
     gatekeeper-grafana-dashboards
