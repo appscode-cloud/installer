@@ -169,7 +169,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.fluxcd-manager.version                                    |                                 | <code>"v2026.9.18"</code>                  |
 | helm.releases.license-proxyserver-manager.version                       |                                 | <code>"v2026.9.18"</code>                  |
 | helm.releases.inbox-server.version                                      |                                 | <code>"v2025.12.25"</code>                 |
-| helm.releases.inbox-agent.version                                       |                                 | <code>"v2026.6.2"</code>                   |
+| helm.releases.autodba.version                                           |                                 | <code>"0.5.0"</code>                       |
 | helm.releases.inbox-ui.version                                          |                                 | <code>"v2026.10.30"</code>                 |
 | licenseServer.baseURL                                                   |                                 | <code>""</code>                            |
 | licenseServer.token                                                     |                                 | <code>""</code>                            |

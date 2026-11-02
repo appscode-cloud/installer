@@ -1,0 +1,57 @@
+{{- /* AutoDBA takes the inbox endpoints the platform already passes to inbox-agent. */ -}}
+{{ $inbox := dig "inbox-agent" "values" "inboxServer" (dict) .Values.helm.releases }}
+{{ $defaults := dict
+  "autodba-james" (dict "enabled" false)
+  "autodba-ui" (dict "enabled" false)
+  "autodba-controller" (dict
+    "llmProvider" "anthropic"
+    "llm" (dict "existingSecret" "autodba-llm")
+    "tokens" (dict "generate" true)
+    "inbox" (dict
+      "jmapSessionURL" (dig "jmapSessionEndpoint" "" $inbox)
+      "webAdminURL" (dig "webadminEndpoint" "" $inbox)
+      "emailDomain" (dig "emailDomain" "" $inbox)
+    )
+  )
+}}
+
+{{ $vals := dig "autodba" "values" (dict) .Values.helm.releases | deepCopy }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: autodba
+  labels:
+    app.kubernetes.io/part-of: opscenter-observability
+spec:
+  title: AutoDBA (ALPHA)
+  description: |
+    Diagnoses KubeDB alerts, proposes fixes for admins to approve in the inbox,
+    and sends every other alert to the inbox. Needs a Secret autodba-llm with
+    key apiKey in the autodba namespace.
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-observability
+  featureBlock: autodba
+  recommended: false
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/name: autodba-controller
+  chart:
+    name: autodba
+    namespace: autodba
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "autodba" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
