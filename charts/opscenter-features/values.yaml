@@ -255,8 +255,10 @@ helm:
       version: "v2026.9.18"
     inbox-server:
       version: "v2025.12.25"
-    inbox-agent:
-      version: "v2026.6.2"
+    autodba:
+      version: "0.5.0"
+    autodba-knowledge:
+      version: "0.1.0"
     inbox-ui:
       version: "v2026.10.30"
 licenseServer:

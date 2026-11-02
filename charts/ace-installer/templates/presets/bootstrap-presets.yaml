@@ -27,6 +27,8 @@ opscenter-features:
   values:
     helm:
       releases:
+        autodba:
+          values: %s
         catalog-manager:
           values: %s
         inbox-agent:
@@ -54,6 +56,7 @@ opscenter-features:
   (dig "acerproxy" "version" "" $.Values.helm.releases)
   (dig "flux2" "version" "" $.Values.helm.releases)
   (dig "opscenter-features" "version" .Chart.AppVersion $.Values.helm.releases)
+  ((dig "helm" "releases" "autodba" "values" (dict) $ofVals) | toJson)
   ((dig "helm" "releases" "catalog-manager" "values" (dict) $ofVals) | toJson)
   ((dig "helm" "releases" "inbox-agent" "values" (dict) $ofVals) | toJson)
   ((dig "helm" "releases" "kubedb" "values" (dict) $ofVals) | toJson)

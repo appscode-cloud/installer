@@ -1,0 +1,49 @@
+{{- /* Hub side of AutoDBA: docs search for spoke controllers, reached only through b3. */ -}}
+{{ $defaults := dict
+  "image" (dict "repository" (include "image.ghcr" (merge (dict "_repo" "appscode/autodba-knowledge") $)))
+  "docs" (dict "repository" (include "image.ghcr" (merge (dict "_repo" "appscode/autodba-docs") $)))
+  "embedder" (dict "repository" (include "image.ghcr" (merge (dict "_repo" "huggingface/text-embeddings-inference") $)))
+  "reranker" (dict "repository" (include "image.ghcr" (merge (dict "_repo" "huggingface/text-embeddings-inference") $)))
+  "postgres" (dict "repository" (include "image.dockerHub" (merge (dict "_repo" "pgvector/pgvector") $)))
+}}
+
+{{ $vals := dig "autodba-knowledge" "values" (dict) .Values.helm.releases | deepCopy }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: autodba-knowledge
+  labels:
+    app.kubernetes.io/part-of: opscenter-observability
+spec:
+  title: AutoDBA Knowledge (ALPHA)
+  description: |
+    Searches the KubeDB, KubeStash and KubeVault docs for AutoDBA on every
+    cluster, so its plans cite the docs for the installed release. Runs on
+    the hub with an embedding model, a reranker and Postgres with pgvector.
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-observability
+  featureBlock: autodba-knowledge
+  recommended: false
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/name: autodba-knowledge
+  chart:
+    name: autodba-knowledge
+    namespace: ace
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "autodba-knowledge" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
