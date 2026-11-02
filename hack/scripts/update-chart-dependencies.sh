@@ -16,6 +16,8 @@
 
 set -e
 
+helm repo add cadence https://cadence-workflow.github.io/cadence-charts || true
+
 helm dependency update charts/platform-grafana-dashboards
 helm dependency update charts/platform-opscenter
 helm dependency update charts/acaas
