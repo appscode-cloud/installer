@@ -4,7 +4,7 @@ go 1.25.6
 
 require (
 	go.bytebuilders.dev/catalog v0.1.2-0.20261006105413-f96363d5bf8d
-	go.bytebuilders.dev/resource-model v0.4.1-0.20260908050049-ce9aabf9ad5c
+	go.bytebuilders.dev/resource-model v0.4.1-0.20261104051707-a20a8ea03ba7
 	go.bytebuilders.dev/ui-wizards v0.39.0
 	go.openviz.dev/installer v0.0.0-20260619044110-702becd1dd97
 	gomodules.xyz/go-sh v0.2.0

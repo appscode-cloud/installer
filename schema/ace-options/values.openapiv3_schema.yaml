@@ -1367,14 +1367,29 @@ properties:
         properties:
           argoCD:
             properties:
-              deployPrincipal:
-                type: boolean
               enabled:
                 type: boolean
-              existingKubeconfig:
-                type: string
-              principalServiceType:
-                type: string
+              inClusterArgo:
+                properties:
+                  deployPrincipal:
+                    type: boolean
+                  principalServiceType:
+                    enum:
+                      - LoadBalancer
+                      - NodePort
+                    type: string
+                type: object
+              managedArgo:
+                properties:
+                  argoCDClusterName:
+                    description: Name this cluster is registered as inside the existing
+                      Argo CD
+                    type: string
+                  existingKubeconfig:
+                    type: string
+                  namespace:
+                    type: string
+                type: object
             type: object
           createCAPICluster:
             type: boolean
