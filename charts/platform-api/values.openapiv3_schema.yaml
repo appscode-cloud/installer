@@ -1818,6 +1818,10 @@ properties:
     properties:
       enabled:
         type: boolean
+      podAnnotations:
+        additionalProperties:
+          type: string
+        type: object
       replicaCount:
         type: integer
       resources:

@@ -25,7 +25,7 @@ spec:
     metadata:
       annotations:
         kubectl.kubernetes.io/default-container: worker
-        {{- with .Values.podAnnotations }}
+        {{- with .Values.worker.podAnnotations }}
           {{- toYaml . | nindent 8 }}
         {{- end }}
       labels:

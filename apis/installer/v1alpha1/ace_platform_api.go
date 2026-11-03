@@ -48,6 +48,9 @@ type PlatformApiWorkerSpec struct {
 	Enabled      bool                      `json:"enabled"`
 	ReplicaCount int                       `json:"replicaCount"`
 	Resources    core.ResourceRequirements `json:"resources"`
+	// Annotations passed to worker pods
+	//+optional
+	PodAnnotations map[string]string `json:"podAnnotations"`
 }
 
 type PlatformApiSpec struct {

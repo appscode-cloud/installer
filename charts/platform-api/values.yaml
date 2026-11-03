@@ -84,6 +84,8 @@ resources:
 worker:
   enabled: true
   replicaCount: 1
+  # Annotations passed to worker pods
+  podAnnotations: {}
   resources:
     requests:
       cpu: 250m
