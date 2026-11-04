@@ -18,6 +18,8 @@ set -eou pipefail
 
 # cert-manager must be pre-installed
 
+bash ./hack/scripts/install-gateway-crds.sh
+
 tenant=ace
 echo "Installing cluster service-gateway"
 kubectl create ns $tenant || true
