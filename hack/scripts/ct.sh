@@ -69,6 +69,11 @@ for dir in charts/*/; do
             applyFluxCRDs
             ct_cleanup=false
         fi
+        if [[ "$dir" = "service-gateway" ]]; then
+            kubectl delete crds --all
+            bash ./hack/scripts/install-gateway-crds.sh
+            ct_cleanup=false
+        fi
         if [[ "$dir" = "ace-installer-certified" ]]; then
             helm install -n $ns ace-installer-certified-crds charts/ace-installer-certified-crds
         fi
