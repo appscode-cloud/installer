@@ -1,0 +1,13 @@
+# Argo CD runs Helm hooks only during a sync, and an app whose resources are all hooks
+# reports Synced without ever syncing. This non-hook object makes Argo CD sync (and run
+# the crd-manager Job) on install and whenever the chart version or feature gates change.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "akp-crd-manager.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "akp-crd-manager.labels" . | nindent 4 }}
+data:
+  chartVersion: {{ .Chart.Version | quote }}
+  featureGates: {{ .Values.featureGates | toJson | quote }}
