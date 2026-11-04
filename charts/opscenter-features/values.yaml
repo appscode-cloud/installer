@@ -246,7 +246,7 @@ helm:
     cluster-auth-manager:
       version: "v2026.2.16"
     cluster-profile-manager:
-      version: "v2026.9.18"
+      version: "v2026.11.7"
     hub-cluster-robot:
       version: "v2026.2.16"
     fluxcd-manager:

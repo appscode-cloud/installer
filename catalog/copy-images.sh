@@ -99,7 +99,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cl
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-hub:v2026.2.16 $IMAGE_REGISTRY/appscode-charts/cluster-manager-hub:v2026.2.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-spoke:v2026.2.16 $IMAGE_REGISTRY/appscode-charts/cluster-manager-spoke:v2026.2.16
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-presets:v2026.10.30 $IMAGE_REGISTRY/appscode-charts/cluster-presets:v2026.10.30
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-profile-manager:v2026.9.18 $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2026.9.18
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-profile-manager:v2026.11.7 $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2026.11.7
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-proxy-manager:v2026.6.26 $IMAGE_REGISTRY/appscode-charts/cluster-proxy-manager:v2026.6.26
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/config-syncer-manager:v1.0.0 $IMAGE_REGISTRY/appscode-charts/config-syncer-manager:v1.0.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/config-syncer:v1.0.0 $IMAGE_REGISTRY/appscode-charts/config-syncer:v1.0.0

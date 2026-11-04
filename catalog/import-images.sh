@@ -90,7 +90,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-c
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-manager-hub-v2026.2.16.tar $IMAGE_REGISTRY/appscode-charts/cluster-manager-hub:v2026.2.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-manager-spoke-v2026.2.16.tar $IMAGE_REGISTRY/appscode-charts/cluster-manager-spoke:v2026.2.16
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-presets-v2026.10.30.tar $IMAGE_REGISTRY/appscode-charts/cluster-presets:v2026.10.30
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-profile-manager-v2026.9.18.tar $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2026.9.18
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-profile-manager-v2026.11.7.tar $IMAGE_REGISTRY/appscode-charts/cluster-profile-manager:v2026.11.7
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-cluster-proxy-manager-v2026.6.26.tar $IMAGE_REGISTRY/appscode-charts/cluster-proxy-manager:v2026.6.26
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-config-syncer-manager-v1.0.0.tar $IMAGE_REGISTRY/appscode-charts/config-syncer-manager:v1.0.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-config-syncer-v1.0.0.tar $IMAGE_REGISTRY/appscode-charts/config-syncer:v1.0.0
