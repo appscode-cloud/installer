@@ -41,6 +41,19 @@ operator-build:
 operator-push:
 	$(CONTAINER_TOOL) push "$(IMG)"
 
+.PHONY: docker-buildx
+PLATFORMS ?= linux/arm64,linux/amd64
+docker-buildx:
+	$(CONTAINER_TOOL) buildx create --name akp-installer-builder --use
+	$(CONTAINER_TOOL) buildx build --push --platform="$(PLATFORMS)" --build-arg VERSION="$(BUNDLE_VERSION)" --tag "$(IMG)" -f Dockerfile .
+	$(CONTAINER_TOOL) buildx rm akp-installer-builder
+
+.PHONY: docker-certify-redhat
+docker-certify-redhat:
+	@preflight check container "$(IMG)" \
+		--submit \
+		--certification-component-id=6aee958cf9f0d46f5a1fe8ff
+
 .PHONY: bundle-build
 bundle-build:
 	$(CONTAINER_TOOL) build -f bundle.Dockerfile -t "$(BUNDLE_IMG)" .
