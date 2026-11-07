@@ -1,3 +1,37 @@
+{{- $caSecretName := .Values.vaultServer.tls.caSecretName }}
+{{- if not $caSecretName }}
+{{- $caSecretName = printf "%s-ca" (include "service-vault.fullname" .) }}
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: {{ include "service-vault.fullname" . }}-selfsigned
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-vault.labels" . | nindent 4 }}
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "service-vault.fullname" . }}-ca
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "service-vault.labels" . | nindent 4 }}
+spec:
+  isCA: true
+  commonName: {{ include "service-vault.fullname" . }}-ca
+  secretName: {{ $caSecretName }}
+  privateKey:
+    algorithm: ECDSA
+    rotationPolicy: Never
+    size: 256
+  issuerRef:
+    name: {{ include "service-vault.fullname" . }}-selfsigned
+    kind: Issuer
+    group: cert-manager.io
+---
+{{- end }}
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
@@ -6,9 +40,5 @@ metadata:
   labels:
     {{- include "service-vault.labels" . | nindent 4 }}
 spec:
-  {{- if .Values.vaultServer.tls.caSecretName }}
   ca:
-    secretName: {{ .Values.vaultServer.tls.caSecretName }}
-  {{- else }}
-  selfSigned: {}
-  {{- end }}
+    secretName: {{ $caSecretName }}

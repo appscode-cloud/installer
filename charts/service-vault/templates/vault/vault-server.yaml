@@ -9,6 +9,10 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "service-vault.labels" . | nindent 4 }}
+  {{- with .Values.vaultServer.serverAddress }}
+  annotations:
+    kubevault.com/server-address: {{ . | quote }}
+  {{- end }}
 spec:
   allowedSecretEngines:
     namespaces:
@@ -21,6 +25,17 @@ spec:
       name: {{ include "service-vault.fullname" . }}-ca-issuer
       kind: Issuer
       apiGroup: cert-manager.io
+    {{- with .Values.vaultServer.serverAddress }}
+    # the operator only adds LoadBalancer ingress to the server cert SANs, not this address
+    certificates:
+      - alias: server
+        {{- if regexMatch "^[0-9.]+$|:" . }}
+        ipAddresses:
+        {{- else }}
+        dnsNames:
+        {{- end }}
+          - {{ . | quote }}
+    {{- end }}
   backend:
     raft:
       storage:
@@ -42,11 +57,16 @@ spec:
       spec:
         type: {{ .Values.vaultServer.serviceType }}
   {{- end }}
+  {{- with .Values.vaultServer.relay.clusterSet }}
+  {{- if and (eq (toString $.Values.vaultServer.serviceType) "ClusterIP") (not $.Values.vaultServer.serverAddress) }}
+  {{- fail "vaultServer.relay.clusterSet requires vaultServer.serviceType=LoadBalancer or vaultServer.serverAddress set to an externally-resolvable address" }}
+  {{- end }}
   relayPlacementRef:
-    name: {{ .Values.vaultServer.relay.clusterSet }}
+    name: {{ . }}
   relayTemplate:
-    namespace: {{ .Values.vaultServer.relay.namespace }}
-    bootstrapTokenTTL: {{ .Values.vaultServer.relay.bootstrapTokenTTL }}
+    namespace: {{ $.Values.vaultServer.relay.namespace }}
+    bootstrapTokenTTL: {{ $.Values.vaultServer.relay.bootstrapTokenTTL }}
+  {{- end }}
   monitor:
     agent: prometheus.io
     prometheus:

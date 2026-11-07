@@ -510,6 +510,8 @@ properties:
       replicas:
         format: int32
         type: integer
+      serverAddress:
+        type: string
       serviceType:
         type: string
       terminationPolicy:
@@ -541,6 +543,7 @@ properties:
     - persistence
     - relay
     - replicas
+    - serverAddress
     - serviceType
     - terminationPolicy
     - tls
