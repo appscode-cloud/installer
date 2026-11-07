@@ -28,7 +28,7 @@ import (
 	"strings"
 	"testing"
 
-	"go.bytebuilders.dev/installer/apis/installer/v1alpha1"
+	v1 "go.bytebuilders.dev/installer/apis/installer/v1"
 
 	utilyaml "k8s.io/apimachinery/pkg/util/yaml"
 	"sigs.k8s.io/yaml"
@@ -76,16 +76,16 @@ func installerCredValues() *credValues {
 	for _, r := range []string{"ace", "opscenter-features", "stash-presets", "service-gateway-presets"} {
 		c.set("helm.releases."+r+".enabled", true)
 	}
-	c.setCreds("ace", "helm.releases.ace.values.", v1alpha1.ACECredPaths)
-	c.setCreds("opscenter-features", "helm.releases.opscenter-features.values.", v1alpha1.OpscenterFeaturesCredPaths())
-	c.setCreds("stash-presets", "helm.releases.stash-presets.values.", v1alpha1.FeatureCredPaths["stash-presets"])
-	c.setCreds("service-gateway-presets", "helm.releases.service-gateway-presets.values.", v1alpha1.GatewayCredPaths)
+	c.setCreds("ace", "helm.releases.ace.values.", v1.ACECredPaths)
+	c.setCreds("opscenter-features", "helm.releases.opscenter-features.values.", v1.OpscenterFeaturesCredPaths())
+	c.setCreds("stash-presets", "helm.releases.stash-presets.values.", v1.FeatureCredPaths["stash-presets"])
+	c.setCreds("service-gateway-presets", "helm.releases.service-gateway-presets.values.", v1.GatewayCredPaths)
 	return c
 }
 
 func opscenterFeaturesCredValues() *credValues {
 	c := newCredValues()
-	for _, p := range v1alpha1.OpscenterFeaturesCredPaths() {
+	for _, p := range v1.OpscenterFeaturesCredPaths() {
 		owner := "opscenter-features"
 		if rest, ok := strings.CutPrefix(p, "helm.releases."); ok {
 			owner, _, _ = strings.Cut(rest, ".")

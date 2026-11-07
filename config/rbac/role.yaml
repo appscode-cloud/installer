@@ -32,7 +32,7 @@ rules:
   - create
 
 ##
-## Rules for installer.akp.appscode.com/v1alpha1, Kind: AkpInstaller
+## Rules for installer.akp.appscode.com/v1, Kind: AkpInstaller
 ##
 - apiGroups:
   - installer.akp.appscode.com

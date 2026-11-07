@@ -17,7 +17,7 @@ spec:
       displayName: AKP Installer
       kind: AkpInstaller
       name: akpinstallers.installer.akp.appscode.com
-      version: v1alpha1
+      version: v1
   description: Installs and manages the AppsCode Kubernetes Platform using the AKP installer Helm chart.
   displayName: AKP Installer
   install:

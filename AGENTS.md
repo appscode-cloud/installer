@@ -11,7 +11,7 @@ Sibling pattern to `kubeops.dev/installer`, `kubevault.dev/installer`, etc. — 
 ## Architecture
 
 - `charts/` — one subdirectory per Helm chart. Standard layout (`Chart.yaml`, `values.yaml`, `templates/`, generated `doc.yaml` / `README.md` / `values.openapiv3_schema.yaml`).
-- `apis/installer/v1alpha1/` — Go types backing chart values. Used for OpenAPI / values-schema generation and as a typed surface for downstream programs.
+- `apis/installer/v1/` — Go types backing chart values. Used for OpenAPI / values-schema generation and as a typed surface for downstream programs.
 - `catalog/` — image catalog driven by `kmodules.xyz/image-packer`.
 - `cmd/`, `pkg/` — codegen + installer helpers.
 - `hack/scripts/` — release / codegen scripts (`update-catalog.sh`, `update-chart-dependencies.sh`, `import-crds.sh`, `ct.sh`, etc.).
@@ -21,7 +21,7 @@ Sibling pattern to `kubeops.dev/installer`, `kubevault.dev/installer`, etc. — 
 
 ## Common commands
 
-- `make gen` — full regen (clientset + manifests + values schemas + chart docs). Run after `apis/installer/v1alpha1/*_types.go` changes.
+- `make gen` — full regen (clientset + manifests + values schemas + chart docs). Run after `apis/installer/v1/*_types.go` changes.
 - `make manifests` — CRDs / values schemas / chart docs.
 - `make gen-values-schema` — regenerate `values.openapiv3_schema.yaml`.
 - `make gen-chart-doc` — per-chart `README.md`.
@@ -41,7 +41,7 @@ Helpers (invoked outside Make):
 ## Conventions
 
 - Module path is `go.bytebuilders.dev/installer` (vanity URL); imports must use that.
-- Edit `apis/installer/v1alpha1/*_types.go` to change a chart's values surface, then run `make gen` so the generated clientset, `values.openapiv3_schema.yaml`, and per-chart `README.md` stay in sync.
+- Edit `apis/installer/v1/*_types.go` to change a chart's values surface, then run `make gen` so the generated clientset, `values.openapiv3_schema.yaml`, and per-chart `README.md` stay in sync.
 - Do not hand-edit `zz_generated.*.go`, chart `README.md` files, `values.openapiv3_schema.yaml`, or anything under `catalog/` except `imagelist.yaml`.
 - License: `LICENSE.md`. Sign off commits (`git commit -s`).
 - Vendor directory is checked in; keep `go mod tidy && go mod vendor` clean.
@@ -55,4 +55,4 @@ Helpers (invoked outside Make):
   make gen-chart-doc
   ```
 - `charts/ace-installer` is generated from `charts/akp-installer` by `hack/scripts/generate-ace-installer.sh`; edit AKP source files, then run `make update-legacy-chart`. `make verify` includes a non-mutating check that verifies their source files remain in sync (generated `README.md` files are excluded).
-- Adding a new chart: create `charts/<name>/`, add a values-schema Go type under `apis/installer/v1alpha1/`, list images in `imagelist.yaml`, then run `make gen`.
+- Adding a new chart: create `charts/<name>/`, add a values-schema Go type under `apis/installer/v1/`, list images in `imagelist.yaml`, then run `make gen`.

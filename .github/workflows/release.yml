@@ -40,8 +40,8 @@ jobs:
         uses: docker/login-action@4907a6ddec9925e35a0a9e82d7399ccc52663121 # v4.1.0
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: 1gtm
+          password: ${{ secrets.LGTM_GITHUB_TOKEN }}
 
       - name: Publish Red Hat Operator Bundle
         run: |

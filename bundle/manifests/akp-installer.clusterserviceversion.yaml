@@ -5,7 +5,7 @@ metadata:
     alm-examples: |-
       [
         {
-          "apiVersion": "installer.akp.appscode.com/v1alpha1",
+          "apiVersion": "installer.akp.appscode.com/v1",
           "kind": "AkpInstaller",
           "metadata": {
             "name": "akpinstaller-sample"
@@ -348,7 +348,7 @@ spec:
       displayName: AKP Installer
       kind: AkpInstaller
       name: akpinstallers.installer.akp.appscode.com
-      version: v1alpha1
+      version: v1
   description: Installs and manages the AppsCode Kubernetes Platform using the AKP
     installer Helm chart.
   displayName: AKP Installer
