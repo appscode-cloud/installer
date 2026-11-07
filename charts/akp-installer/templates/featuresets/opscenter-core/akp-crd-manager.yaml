@@ -1,0 +1,48 @@
+{{- with (index .Values "helm" "releases" "akp-crd-manager") }}
+{{- if .enabled }}
+
+{{ $defaults := dict "registryFQDN" (include "registry.ghcr" $) }}
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+{{- if eq (include "distro.openshift" $) "true" }}
+{{ $vals = mergeOverwrite $vals (pick ($.Values.options | fromYaml) "distro") }}
+{{- end }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: akp-crd-manager
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: akp-crd-manager
+    app.kubernetes.io/part-of: opscenter-core
+spec:
+  interval: 5m
+  timeout: 30m
+  releaseName: akp-crd-manager
+  targetNamespace: kubeops
+  storageNamespace: kubeops
+  install:
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    remediation:
+      retries: -1
+  upgrade:
+    remediation:
+      retries: -1
+  chart:
+    spec:
+      chart: akp-crd-manager
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: bootstrap
+        namespace: {{ $.Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}

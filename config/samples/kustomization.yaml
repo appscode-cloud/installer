@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- installer_v1alpha1_akpinstaller.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples

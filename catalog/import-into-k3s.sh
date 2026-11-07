@@ -37,6 +37,7 @@ k3s ctr images import images/appscode-charts-ace-installer-v2026.10.30.tar
 k3s ctr images import images/appscode-charts-ace-v2026.10.30.tar
 k3s ctr images import images/appscode-charts-aceshifter-v2026.10.30.tar
 k3s ctr images import images/appscode-charts-akp-crd-manager-v2026.10.30.tar
+k3s ctr images import images/appscode-charts-akp-installer-v2026.10.30.tar
 k3s ctr images import images/appscode-charts-appscode-otel-stack-v2026.9.22.tar
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-cassandraautoscaler-editor-v0.39.0.tar
 k3s ctr images import images/appscode-charts-autoscalingkubedbcom-clickhouseautoscaler-editor-v0.39.0.tar

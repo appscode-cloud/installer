@@ -36,7 +36,7 @@ crd-importer \
 
 crd-importer \
     --input=https://github.com/x-helm/apimachinery/raw/${X_HELM_APIMACHINERY_TAG}/crds/charts.x-helm.dev_clusterchartpresets.yaml \
-    --out=./charts/ace-installer/crds
+    --out=./charts/akp-installer/crds
 
 crd-importer \
     --input=https://github.com/kmodules/resource-metadata/raw/${KMODULES_RESOURCE_METADATA_TAG}/crds/ui.k8s.appscode.com_features.yaml \

@@ -1,0 +1,31 @@
+# Sample values used only by `image-packer list` to render the releases that are
+# disabled in values.yaml. Not consumed by `ct` or `helm install`.
+
+helm:
+  releases:
+    ace:
+      enabled: true
+    acerproxy:
+      enabled: true
+    capi-catalog:
+      enabled: true
+    catalog-manager:
+      enabled: true
+    flux2:
+      enabled: true
+    kubestash:
+      enabled: true
+    prom-label-proxy:
+      enabled: true
+    service-gateway-presets:
+      enabled: true
+    stash-presets:
+      enabled: true
+    cluster-manager-spoke:
+      enabled: true
+    spoke-cluster-addons:
+      enabled: true
+    vcluster:
+      enabled: true
+    vcluster-plugin-ace:
+      enabled: true

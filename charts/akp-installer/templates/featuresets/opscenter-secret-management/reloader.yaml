@@ -1,0 +1,73 @@
+{{- with (index .Values "helm" "releases" "reloader") }}
+{{- if .enabled }}
+
+{{ $defaults := printf `
+reloader:
+  deployment:
+    image:
+      name: %s
+    securityContext:
+      seccompProfile:
+        type: RuntimeDefault
+    containerSecurityContext:
+      capabilities:
+        drop:
+          - ALL
+      allowPrivilegeEscalation: false
+  readOnlyRootFileSystem: true
+` (include "image.ghcr" (merge (dict "_repo" "appscode/reloader") $)) | fromYaml }}
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+{{- if eq (include "distro.openshift" $) "true" }}
+
+{{ $oc := printf `
+reloader:
+  isOpenshift: true
+` | fromYaml }}
+{{ $vals = mergeOverwrite $vals $oc }}
+
+{{- end }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: reloader
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: reloader
+    app.kubernetes.io/part-of: opscenter-secret-management
+spec:
+  interval: 5m
+  timeout: 30m
+  releaseName: reloader
+  targetNamespace: kubeops
+  storageNamespace: kubeops
+  install:
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    # crds: CreateReplace
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
+  dependsOn:
+  - name: opscenter-features
+    namespace: {{ $.Release.Namespace }}
+  chart:
+    spec:
+      chart: reloader
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: appscode-charts-oci
+        namespace: {{ $.Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}

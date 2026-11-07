@@ -13,6 +13,8 @@ ace:
   version: %q
 ace-installer:
   version: %q
+akp-installer:
+  version: %q
 # billing ui
 license-proxyserver:
   version: %q
@@ -53,6 +55,7 @@ opscenter-features:
           values: %s
 `
   (dig "ace" "version" .Chart.AppVersion $.Values.helm.releases)
+  .Chart.Version
   .Chart.Version
   (dig "license-proxyserver" "version" .Chart.AppVersion $.Values.helm.releases)
   (dig "acerproxy" "version" "" $.Values.helm.releases)

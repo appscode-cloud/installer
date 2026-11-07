@@ -21,5 +21,5 @@ limitations under the License.
 // +k8s:openapi-gen=true
 // +k8s:defaulter-gen=TypeMeta
 
-// +groupName=installer.bytebuilders.dev
+// +groupName=installer.akp.appscode.com
 package v1alpha1

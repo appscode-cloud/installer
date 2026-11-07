@@ -128,6 +128,10 @@ image-packer list-feature-charts --root-dir=charts --output-dir=catalog "${exclu
 
 image-packer ace-up --dir=.
 
+# image-packer's ACE catalog generator still publishes the legacy chart name.
+AKP_CHART_REF="ghcr.io/appscode-charts/akp-installer:$(yq -r '.version' charts/akp-installer/Chart.yaml)" \
+    yq -y --indentless -i 'map(select(startswith("ghcr.io/appscode-charts/akp-installer:") | not)) + [env.AKP_CHART_REF] | sort' catalog/ace.yaml
+
 image-packer list-editor-charts \
     --output-dir=catalog \
     --apiGroup=autoscaling.kubedb.com \
