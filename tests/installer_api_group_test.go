@@ -22,7 +22,7 @@ import (
 	"testing"
 
 	"go.bytebuilders.dev/installer/apis/installer"
-	"go.bytebuilders.dev/installer/apis/installer/v1alpha1"
+	v1 "go.bytebuilders.dev/installer/apis/installer/v1"
 
 	"k8s.io/apimachinery/pkg/runtime"
 	"sigs.k8s.io/yaml"
@@ -30,15 +30,15 @@ import (
 
 func TestInstallerAPIGroup(t *testing.T) {
 	const group = "installer.akp.appscode.com"
-	if installer.GroupName != group || v1alpha1.SchemeGroupVersion.Group != group {
-		t.Fatalf("installer API group = %q, scheme group = %q", installer.GroupName, v1alpha1.SchemeGroupVersion.Group)
+	if installer.GroupName != group || v1.SchemeGroupVersion.Group != group || v1.SchemeGroupVersion.Version != "v1" {
+		t.Fatalf("installer API group/version = %q, scheme group/version = %v", installer.GroupName, v1.SchemeGroupVersion)
 	}
 	scheme := runtime.NewScheme()
-	if err := v1alpha1.AddToScheme(scheme); err != nil {
+	if err := v1.AddToScheme(scheme); err != nil {
 		t.Fatal(err)
 	}
 	for _, kind := range []string{"AceInstaller", "AkpInstaller"} {
-		if !scheme.Recognizes(v1alpha1.SchemeGroupVersion.WithKind(kind)) {
+		if !scheme.Recognizes(v1.SchemeGroupVersion.WithKind(kind)) {
 			t.Errorf("%s is not registered in %s", kind, group)
 		}
 	}
@@ -61,7 +61,12 @@ func TestInstallerAPIGroup(t *testing.T) {
 					Name string `json:"name"`
 				} `json:"metadata"`
 				Spec struct {
-					Group string `json:"group"`
+					Group    string `json:"group"`
+					Versions []struct {
+						Name    string `json:"name"`
+						Served  bool   `json:"served"`
+						Storage bool   `json:"storage"`
+					} `json:"versions"`
 				} `json:"spec"`
 			}
 			if err := yaml.Unmarshal(data, &crd); err != nil {
@@ -69,6 +74,9 @@ func TestInstallerAPIGroup(t *testing.T) {
 			}
 			if crd.Spec.Group != group || crd.Metadata.Name != "akpinstallers."+group {
 				t.Errorf("CRD name = %q, group = %q", crd.Metadata.Name, crd.Spec.Group)
+			}
+			if len(crd.Spec.Versions) != 1 || crd.Spec.Versions[0].Name != "v1" || !crd.Spec.Versions[0].Served || !crd.Spec.Versions[0].Storage {
+				t.Errorf("CRD versions = %+v, want only served storage version v1", crd.Spec.Versions)
 			}
 		})
 	}

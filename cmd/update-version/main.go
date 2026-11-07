@@ -23,7 +23,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"go.bytebuilders.dev/installer/apis/installer/v1alpha1"
+	v1 "go.bytebuilders.dev/installer/apis/installer/v1"
 
 	"sigs.k8s.io/kustomize/kyaml/yaml"
 	y2 "sigs.k8s.io/yaml"
@@ -82,7 +82,7 @@ func process(filename string, charts map[string]string) error {
 		return err
 	}
 
-	var spec v1alpha1.OpscenterFeaturesSpec
+	var spec v1.OpscenterFeaturesSpec
 	err = yaml.Unmarshal(inputYAML, &spec)
 	if err != nil {
 		return err
