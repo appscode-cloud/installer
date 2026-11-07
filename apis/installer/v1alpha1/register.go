@@ -63,6 +63,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&AceList{},
 		&AceInstaller{},
 		&AceInstallerList{},
+		&AkpInstaller{},
+		&AkpInstallerList{},
 		&Acerproxy{},
 		&AcerproxyList{},
 		&Aceshifter{},

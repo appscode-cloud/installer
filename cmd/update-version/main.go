@@ -59,12 +59,12 @@ func main() {
 		}
 		charts[name] = md.Version
 
-		if name == "ace-installer" {
+		if name == "akp-installer" {
 			charts["kube-ui-server"] = md.Version
 		}
 	}
 
-	err = process("charts/ace-installer/values.yaml", charts)
+	err = process("charts/akp-installer/values.yaml", charts)
 	if err != nil {
 		panic(err)
 	}

@@ -34,7 +34,7 @@ type define struct {
 
 func main() {
 	files := map[string][]define{
-		"charts/ace-installer/templates/_cred_paths.tpl": {
+		"charts/akp-installer/templates/_cred_paths.tpl": {
 			{"ace-installer.aceCredPaths", v1alpha1.ACECredPaths},
 			{"ace-installer.featureCred.credPaths", v1alpha1.FeatureCredPaths},
 		},

@@ -29,13 +29,14 @@ Sibling pattern to `kubeops.dev/installer`, `kubevault.dev/installer`, etc. — 
 - `make refresh` — `gen update-catalog fmt`. **ALWAYS run this before opening a PR** so generated files are current.
 - `make fmt`, `make lint`, `make unit-tests` / `make test` — standard.
 - `make ct` — chart-testing.
-- `make verify` — module-tidy verification.
+- `make verify` — generated-file, module-tidy, catalog, and installer-chart sync verification.
 - `make add-license` / `make check-license` — manage license headers.
 
 Helpers (invoked outside Make):
 
 - `./hack/scripts/update-catalog.sh` — regenerate `catalog/` from `imagelist.yaml`.
 - `./hack/scripts/import-crds.sh` — pull CRDs from sibling repos into chart `crds/` dirs.
+- `bash ./hack/scripts/generate-ace-installer.sh --verify` — verify that `charts/ace-installer` source files match the generated copy of `charts/akp-installer`.
 
 ## Conventions
 
@@ -53,4 +54,5 @@ Helpers (invoked outside Make):
   chart-packer crd-only --input charts/ace-installer --output charts
   make gen-chart-doc
   ```
+- `charts/ace-installer` is generated from `charts/akp-installer` by `hack/scripts/generate-ace-installer.sh`; edit AKP source files, then run `make update-legacy-chart`. `make verify` includes a non-mutating check that verifies their source files remain in sync (generated `README.md` files are excluded).
 - Adding a new chart: create `charts/<name>/`, add a values-schema Go type under `apis/installer/v1alpha1/`, list images in `imagelist.yaml`, then run `make gen`.

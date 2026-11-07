@@ -1,0 +1,18 @@
+project:
+  name: AKP Installer
+  shortName: AKP Installer
+  url: https://github.com/appscode-cloud/installer
+  description: AKP Installer
+  app: charts for ACE
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: akp-installer
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.29+
+release:
+  name: akp-installer
+  namespace: kubeops

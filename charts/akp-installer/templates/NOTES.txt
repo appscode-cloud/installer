@@ -1,0 +1,3 @@
+To verify that ACE installer is setup, run:
+
+  watch 'kubectl get helmreleases.helm.toolkit.fluxcd.io -A;echo;kubectl get certs,pg,rd,jobs,pods -n ace'

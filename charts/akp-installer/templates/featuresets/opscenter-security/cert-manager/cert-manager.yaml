@@ -1,0 +1,113 @@
+{{- with (index .Values "helm" "releases" "cert-manager") }}
+{{- if .enabled }}
+
+{{ $defaults := printf `
+installCRDs: true
+extraArgs:
+- --enable-gateway-api
+image:
+  repository: %s
+webhook:
+  image:
+    repository: %s
+cainjector:
+  image:
+    repository: %s
+acmesolver:
+  image:
+    repository: %s
+startupapicheck:
+  image:
+    repository: %s
+`
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/cert-manager-controller") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/cert-manager-webhook") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/cert-manager-cainjector") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/cert-manager-acmesolver") $))
+  (include "image.ghcr" (merge (dict "_repo" "appscode-images/cert-manager-startupapicheck") $))
+  | fromYaml }}
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+
+{{ $vals := dig "values" dict . }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+{{- if eq (include "distro.openshift" $) "true" }}
+
+{{ $oc := printf `
+image:
+  tag: %s-ubi
+webhook:
+  image:
+    tag: %s-ubi
+cainjector:
+  image:
+    tag: %s-ubi
+acmesolver:
+  image:
+    tag: %s-ubi
+startupapicheck:
+  image:
+    tag: %s-ubi
+`
+  .version
+  .version
+  .version
+  .version
+  .version
+  | fromYaml }}
+{{ $vals = mergeOverwrite $vals $oc }}
+
+{{- end }}
+
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: cert-manager
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: cert-manager
+    app.kubernetes.io/part-of: opscenter-security
+spec:
+  interval: 5m
+  timeout: 30m
+  releaseName: cert-manager
+  targetNamespace: cert-manager
+  storageNamespace: cert-manager
+  install:
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    # crds: CreateReplace
+    remediation:
+      retries: -1
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: -1
+  dependsOn:
+  - name: opscenter-features
+    namespace: {{ $.Release.Namespace }}
+  {{- if and (dig "gateway-api" "enabled" false $.Values.helm.releases) (eq (include "distro.openshift" $) "false") }}
+  - name: gateway-api
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
+  {{- if (dig "akp-crd-manager" "enabled" false $.Values.helm.releases) }}
+  - name: akp-crd-manager
+    namespace: {{ $.Release.Namespace }}
+  {{- end }}
+  chart:
+    spec:
+      chart: cert-manager
+      version: {{ .version | quote }}
+      interval: 60m
+      sourceRef:
+        kind: HelmRepository
+        name: appscode-charts-oci
+        namespace: {{ $.Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
+
+{{- end }}
+{{- end }}

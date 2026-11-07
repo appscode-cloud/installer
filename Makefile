@@ -171,6 +171,7 @@ gen-crds:
 			$(CRD_OPTIONS)                  \
 			paths="./apis/..."              \
 			output:crd:artifacts:config=.crds
+	@cp .crds/installer.akp.appscode.com_akpinstallers.yaml config/crd/bases/installer.akp.appscode.com_akpinstallers.yaml
 
 .PHONY: patch-schema
 patch-schema:
@@ -183,7 +184,7 @@ gen-values-schema: $(BUILD_DIRS)
 	@for dir in charts/*/; do \
 		dir=$${dir%*/}; \
 		dir=$${dir##*/}; \
-		crd_file=.crds/installer.bytebuilders.dev_$$(echo $$dir | tr -d '-')s.yaml; \
+		crd_file=.crds/installer.akp.appscode.com_$$(echo $$dir | tr -d '-')s.yaml; \
 		if [ ! -f $${crd_file} ]; then \
 			continue; \
 		fi; \
@@ -196,7 +197,7 @@ gen-external-schema: $(BUILD_DIRS)
 	@for dir in schema/*/; do \
 		dir=$${dir%*/}; \
 		dir=$${dir##*/}; \
-		crd_file=.crds/installer.bytebuilders.dev_$$(echo $$dir | tr -d '-')s.yaml; \
+		crd_file=.crds/installer.akp.appscode.com_$$(echo $$dir | tr -d '-')s.yaml; \
 		if [ ! -f $${crd_file} ]; then \
 			continue; \
 		fi; \
@@ -230,6 +231,7 @@ gen-cred-paths:
 
 .PHONY: gen
 gen: codegen manifests gen-cred-paths
+	@$(MAKE) update-legacy-chart --no-print-directory
 
 .PHONY: refresh
 refresh: gen update-catalog fmt
@@ -254,29 +256,37 @@ install-chart-packer:
 	mv $(BIN_DIR)/chart-packer-$(OS)-$(ARCH) $(BIN_DIR)/chart-packer
 	rm -f $(BIN_DIR)/chart-packer.tar.gz
 
+.PHONY: update-legacy-chart
+update-legacy-chart:
+	bash ./hack/scripts/generate-ace-installer.sh
+	@$(MAKE) gen-chart-doc-ace-installer --no-print-directory
+
 .PHONY: update-chart-dependencies
 update-chart-dependencies:
 	./hack/scripts/update-chart-dependencies.sh
 
 .PHONY: update-certified-charts
 update-certified-charts: update-chart-dependencies install-chart-packer
-	rm -rf charts/ace-installer-certified charts/ace-installer-certified-crds
-	PATH="$(BIN_DIR):$$PATH" chart-packer crd-less --input charts/ace-installer --output charts
-	PATH="$(BIN_DIR):$$PATH" chart-packer crd-only --input charts/ace-installer --output charts
+	rm -rf charts/akp-installer-certified charts/akp-installer-certified-crds
+	PATH="$(BIN_DIR):$$PATH" chart-packer crd-less --input charts/akp-installer --output charts
+	helm dependency update charts/akp-installer-certified
+	PATH="$(BIN_DIR):$$PATH" chart-packer crd-less --input charts/akp-installer --output charts
+	PATH="$(BIN_DIR):$$PATH" chart-packer crd-only --input charts/akp-installer --output charts
 	@$(MAKE) gen-chart-doc --no-print-directory
-	helm dependency update charts/ace-installer-certified
 	@# Revert Chart.lock if the only change is the `generated:` timestamp line
-	@if ! git diff --quiet -- charts/ace-installer-certified/Chart.lock; then \
-		changed=$$(git diff -U0 -- charts/ace-installer-certified/Chart.lock | grep -E '^[+-]' | grep -vE '^(\+\+\+|---)' | grep -vE '^[+-]generated:'); \
+	@if ! git diff --quiet -- charts/akp-installer-certified/Chart.lock; then \
+		changed=$$(git diff -U0 -- charts/akp-installer-certified/Chart.lock | grep -E '^[+-]' | grep -vE '^(\+\+\+|---)' | grep -vE '^[+-]generated:'); \
 		if [ -z "$$changed" ]; then \
-			echo "Reverting charts/ace-installer-certified/Chart.lock (only generated: timestamp changed)"; \
-			git checkout -- charts/ace-installer-certified/Chart.lock; \
+			echo "Reverting charts/akp-installer-certified/Chart.lock (only generated: timestamp changed)"; \
+			git checkout -- charts/akp-installer-certified/Chart.lock; \
 		fi; \
 	fi
 
 .PHONY: update-catalog
 update-catalog: update-certified-charts install-image-packer
 	PATH="$(BIN_DIR):$$PATH" ./hack/scripts/update-catalog.sh
+
+include olm.mk
 
 CHART_REGISTRY     ?= appscode
 CHART_REGISTRY_URL ?= https://charts.appscode.com/stable/
@@ -297,8 +307,8 @@ contents-%:
 	  yq -y --indentless -i '.dependencies |= map(select(.name == "$*").version="$(CHART_VERSION)")' ./charts/ace/Chart.yaml; \
 	  yq -y --indentless -i '.dependencies |= map(select(.name == "$*").version="$(CHART_VERSION)")' ./charts/acaas/Chart.yaml; \
 	  yq -y --indentless -i '.dependencies |= map(select(.name == "$*").version="$(CHART_VERSION)")' ./charts/platform-opscenter/Chart.yaml; \
-	  yq -y --indentless -i '.dependencies |= map(select(.name == "$*").version="$(CHART_VERSION)")' ./charts/ace-installer/Chart.yaml; \
-	  yq -y --indentless -i '.dependencies |= map(select(.name == "$*").version="$(CHART_VERSION)")' ./charts/ace-installer-certified/Chart.yaml; \
+	  yq -y --indentless -i '.dependencies |= map(select(.name == "$*").version="$(CHART_VERSION)")' ./charts/akp-installer/Chart.yaml; \
+	  yq -y --indentless -i '.dependencies |= map(select(.name == "$*").version="$(CHART_VERSION)")' ./charts/akp-installer-certified/Chart.yaml; \
 	fi
 	@if [ -n "$(APP_VERSION)" ]; then \
 		yq -y --indentless -i '.appVersion="$(APP_VERSION)"' ./charts/$*/Chart.yaml; \
@@ -449,7 +459,7 @@ $(BUILD_DIRS):
 dev: gen fmt
 
 .PHONY: verify
-verify: verify-gen verify-modules verify-catalog
+verify: verify-gen verify-modules verify-catalog verify-installer-charts
 
 .PHONY: verify-modules
 verify-modules:
@@ -470,6 +480,10 @@ verify-catalog: update-catalog
 	@if !(git diff --exit-code HEAD); then \
 		echo "catalog image lists are out of date, run ./hack/scripts/update-catalog.sh"; exit 1; \
 	fi
+
+.PHONY: verify-installer-charts
+verify-installer-charts:
+	bash ./hack/scripts/generate-ace-installer.sh --verify
 
 .PHONY: add-license
 add-license:

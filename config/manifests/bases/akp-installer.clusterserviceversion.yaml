@@ -1,0 +1,49 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    alm-examples: '[]'
+    capabilities: Basic Install
+    categories: Integration & Delivery
+    containerImage: ghcr.io/appscode/akp-installer:latest
+    description: Install and manage the AppsCode Kubernetes Platform.
+  name: akp-installer.v0.0.0
+  namespace: placeholder
+spec:
+  apiservicedefinitions: {}
+  customresourcedefinitions:
+    owned:
+    - description: Configures the AKP installer Helm chart.
+      displayName: AKP Installer
+      kind: AkpInstaller
+      name: akpinstallers.installer.akp.appscode.com
+      version: v1alpha1
+  description: Installs and manages the AppsCode Kubernetes Platform using the AKP installer Helm chart.
+  displayName: AKP Installer
+  install:
+    spec:
+      deployments: null
+    strategy: ""
+  installModes:
+  - supported: false
+    type: OwnNamespace
+  - supported: false
+    type: SingleNamespace
+  - supported: false
+    type: MultiNamespace
+  - supported: true
+    type: AllNamespaces
+  keywords:
+  - akp-installer
+  links:
+  - name: AKP Installer
+    url: https://github.com/appscode-cloud/installer
+  maintainers:
+  - email: support@appscode.com
+    name: AppsCode
+  maturity: alpha
+  minKubeVersion: 1.28.0
+  provider:
+    name: AppsCode
+    url: https://appscode.com
+  version: 0.0.0

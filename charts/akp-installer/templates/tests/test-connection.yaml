@@ -1,0 +1,59 @@
+{{- $nodeSelector := .Values.tester.nodeSelector }}
+{{- if .Values.global }}
+  {{ $nodeSelector = default .Values.tester.nodeSelector .Values.global.nodeSelector }}
+{{- end }}
+
+{{- $tolerations := .Values.tester.tolerations }}
+{{- if .Values.global }}
+  {{ $tolerations = default .Values.tester.tolerations .Values.global.tolerations }}
+{{- end }}
+
+{{- $affinity := .Values.tester.affinity }}
+{{- if .Values.global }}
+  {{ $affinity = default .Values.tester.affinity .Values.global.affinity }}
+{{- end }}
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "ace-installer.fullname" . }}-test-connection"
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace-installer.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  {{- if eq "true" ( include "distro.openshift" . ) }}
+  securityContext:
+    {{- toYaml (omit .Values.tester.podSecurityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 4 }}
+  {{- else }}
+  securityContext:
+    {{- toYaml .Values.tester.podSecurityContext | nindent 4 }}
+  {{- end }}
+  containers:
+    - name: tester
+      image: {{ include "tester.image.registry" . }}/{{ .Values.tester.image.repository }}:{{ .Values.tester.image.tag }}{{ include "operator.ubi" . }}
+      imagePullPolicy: {{ .Values.tester.imagePullPolicy  }}
+      command: ["true"]
+      {{- if eq "true" ( include "distro.openshift" . ) }}
+      securityContext:
+        {{- toYaml (omit .Values.tester.securityContext "runAsUser" "runAsGroup" "fsGroup" "supplementalGroups") | nindent 8 }}
+      {{- else }}
+      securityContext:
+        {{- toYaml .Values.tester.securityContext | nindent 8 }}
+      {{- end }}
+      resources:
+        {{- toYaml .Values.tester.resources | nindent 8 }}
+  {{- with $nodeSelector }}
+  nodeSelector:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with $affinity }}
+  affinity:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with $tolerations }}
+  tolerations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  restartPolicy: Never

@@ -103,7 +103,8 @@ func Test_CredsNotInReleaseValues(t *testing.T) {
 
 	for chart, c := range map[string]*credValues{
 		"ace-installer":           installerCredValues(),
-		"ace-installer-certified": installerCredValues(),
+		"akp-installer":           installerCredValues(),
+		"akp-installer-certified": installerCredValues(),
 		"opscenter-features":      opscenterFeaturesCredValues(),
 	} {
 		t.Run(chart, func(t *testing.T) {
