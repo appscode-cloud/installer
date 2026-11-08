@@ -216,6 +216,10 @@ vcluster:
 
 {{ $_ := set $vals.helm "releases" $helmreleases }}
 
+{{- if and (eq $.Values.deploymentType "Hosted") (dig "versions" (list) ($.Values.selfhost | default dict)) }}
+{{- $_ := set $vals "selfhost" (dict "versions" $.Values.selfhost.versions) }}
+{{- end }}
+
 apiVersion: charts.x-helm.dev/v1alpha1
 kind: ClusterChartPreset
 metadata:

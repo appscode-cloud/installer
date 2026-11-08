@@ -36,6 +36,10 @@ dependencies:
   repository: file://../platform-links
   condition: platform-links.enabled
   version: v2026.10.30
+- name: selfhost-api
+  repository: file://../selfhost-api
+  condition: selfhost-api.enabled
+  version: v2026.10.30
 - name: website
   repository: file://../website
   condition: website.enabled

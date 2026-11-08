@@ -17,8 +17,11 @@ dependencies:
 - name: platform-links
   repository: file://../platform-links
   version: v2026.10.30
+- name: selfhost-api
+  repository: file://../selfhost-api
+  version: v2026.10.30
 - name: website
   repository: file://../website
   version: v2026.10.30
-digest: sha256:9cc549576e25800e48ba001f4746335bce5fbb7e62b7375a71fe141a074223a0
-generated: "2026-10-17T11:19:49.378328157Z"
+digest: sha256:70e25d6d347749fb2d589c6f64dd7f4ddf2b08a13d4ed57fb3452010768bbfd5
+generated: "2026-11-08T05:25:17.031386405Z"

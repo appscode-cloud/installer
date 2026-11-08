@@ -109,6 +109,14 @@ rules:
     - jobs
   verbs:
     - '*'
+{{- if eq .Values.global.platform.deploymentType "Hosted" }}
+# for selfhost-api render Jobs that copy the server pod spec
+- apiGroups:
+    - ""
+  resources:
+    - pods
+  verbs: ["get"]
+{{- end }}
 - apiGroups:
     - apps
   resources:
