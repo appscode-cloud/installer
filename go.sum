@@ -344,8 +344,8 @@ kmodules.xyz/offshoot-api v0.34.0 h1:HnOOp8FrCjTWjtNApRDo6Ahe79tOlLrJmyye4xxO4Kk
 kmodules.xyz/offshoot-api v0.34.0/go.mod h1:F+B59yYw4CZJ4uD4xu6C+mMLzIXUtuH7E+SbDICl9jE=
 kmodules.xyz/prober v0.34.0 h1:ElZkZYCjLaytAA0M8EH42To7i9gh1IIX+d0qfaIohys=
 kmodules.xyz/prober v0.34.0/go.mod h1:rsu/fxxfNxY70GDbH6Ju8G66459hi7AhWSSBoiIp8ic=
-kmodules.xyz/resource-metadata v0.51.0 h1:091jSScBfiK3YFaqWKvjnwrvAFcxmNHpSe6Dv49nSbA=
-kmodules.xyz/resource-metadata v0.51.0/go.mod h1:feZ7UFQKMNWk+WjnxbztQoCNnH6DXQMvt/y/HAXiehE=
+kmodules.xyz/resource-metadata v0.51.1 h1:lx3FwUmEjADUP6bn1eet48QZdNHBIEC0seRfvUHUgXU=
+kmodules.xyz/resource-metadata v0.51.1/go.mod h1:feZ7UFQKMNWk+WjnxbztQoCNnH6DXQMvt/y/HAXiehE=
 kmodules.xyz/schema-checker v0.4.3 h1:LKXKNWwJ0bFOqCMbyfZk38uVJIejXsANdp7l+fkIiJQ=
 kmodules.xyz/schema-checker v0.4.3/go.mod h1:JjUB6Ih4gnrBwzJNO91Dz9xa8J92UHyvPSyfX++sksM=
 kubeops.dev/external-dns-operator v0.4.1-0.20260711084336-46e45f490d84 h1:igPhaEvEhmbN/deC6mruuDwmYErFicm4mSn4WQzpfE0=
