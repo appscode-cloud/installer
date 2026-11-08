@@ -146,7 +146,6 @@ type AcaasGateway struct {
 type AcaasIngressRules struct {
 	Blog     ExternalService `json:"blog"`
 	Docs     ExternalService `json:"docs"`
-	Learn    ExternalService `json:"learn"`
 	License  ExternalService `json:"license"`
 	Selfhost ExternalService `json:"selfhost"`
 }

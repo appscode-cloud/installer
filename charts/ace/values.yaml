@@ -564,10 +564,6 @@ settings:
     prefix: ""
     licenseBucket: ""
 
-  firebase:
-    project: ""
-    database: ""
-
   # marketplace:
   #   alertEmails: ""
   #   spreadsheetID: ""

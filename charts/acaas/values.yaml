@@ -72,8 +72,6 @@ gateway:
       upstream: ""
     docs:
       upstream: ""
-    learn:
-      upstream: ""
     license:
       upstream: ""
     selfhost:
@@ -90,8 +88,6 @@ ingress:
     blog:
       upstream: ""
     docs:
-      upstream: ""
-    learn:
       upstream: ""
     license:
       upstream: ""
