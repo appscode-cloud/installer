@@ -169,6 +169,10 @@ helm:
     vcluster-plugin-ace:
       enabled: false
       version: "v0.0.3"
+# Older installer versions that the hosted selfhost-api renders via Jobs.
+# Only published in bootstrap-presets when deploymentType is Hosted.
+selfhost:
+  versions: []
 # controls the self management of the ace cluster
 selfManagement:
   createCAPICluster: false

@@ -50,6 +50,7 @@ for dir in charts/*/; do
         [[ "$dir" = "platform-api" ]] ||
         [[ "$dir" = "platform-links" ]] ||
         [[ "$dir" = "platform-ui" ]] ||
+        [[ "$dir" = "selfhost-api" ]] ||
         [[ "$dir" = "service-backend" ]] ||
         [[ "$dir" = "service-gateway-presets" ]] ||
         [[ "$dir" = "service-provider" ]] ||
