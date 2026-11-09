@@ -54,7 +54,7 @@ deleteHRs() {
     local ns=$1
     shift
     [[ $# -gt 0 ]] || return 0
-    "$deleteHR" "$ns" "$@" --timeout="$timeout" "${forceArgs[@]}"
+    "$deleteHR" "$ns" "$@" --timeout="$timeout" ${forceArgs[@]+"${forceArgs[@]}"}
 }
 
 deleteAndWait() {
@@ -63,19 +63,32 @@ deleteAndWait() {
     [[ $# -gt 0 ]] || return 0
     echo "deleting $resource in $ns: $*"
     kubectl delete "$resource" -n "$ns" "$@" --ignore-not-found --wait=false
-    for name in "$@"; do
-        kubectl wait --for=delete "$resource/$name" -n "$ns" --timeout="$timeout" >/dev/null 2>&1 && continue
+    kubectl wait --for=delete "${@/#/$resource/}" -n "$ns" --timeout="$timeout" >/dev/null 2>&1 && return 0
+    for name in $(kubectl get "$resource" -n "$ns" "$@" --ignore-not-found -o name); do
+        name=${name#*/}
         echo "$resource $ns/$name is stuck, removing finalizers"
         kubectl patch "$resource" "$name" -n "$ns" --type=merge -p '{"metadata":{"finalizers":null}}' || echo "failed to patch $resource $ns/$name"
     done
 }
 
 deleteAll() {
-    local resource=$1 ns
-    for ns in $(kubectl get "$resource" -A -o json | jq -r '[.items[].metadata.namespace // "default"] | unique[]'); do
-        # shellcheck disable=SC2046
-        deleteAndWait "$resource" "$ns" $(kubectl get "$resource" -n "$ns" -o jsonpath='{.items[*].metadata.name}')
-    done
+    local resource=$1 groups ns names
+    groups=$(kubectl get "$resource" -A -o json |
+        jq -r '.items | group_by(.metadata.namespace // "default")[] | "\(.[0].metadata.namespace // "default") \(map(.metadata.name) | join(" "))"')
+    while read -r ns names; do
+        [[ -n $ns ]] || continue
+        # shellcheck disable=SC2086
+        deleteAndWait "$resource" "$ns" $names
+    done <<<"$groups"
+}
+
+stripFinalizers() {
+    local kinds=$1 ref ns name
+    kubectl get "$kinds" -A -o json | jq -r '.items[] | select(.metadata.finalizers)
+        | "\(.kind | ascii_downcase).\(.apiVersion | split("/")[0]) \(.metadata.namespace // "default") \(.metadata.name)"' |
+        while read -r ref ns name; do
+            kubectl patch "$ref" "$name" -n "$ns" --type=merge -p '{"metadata":{"finalizers":null}}'
+        done
 }
 
 patchAll() {
@@ -140,6 +153,11 @@ fi
 if [[ $(jq 'any(.[]; .metadata.finalizers // [] | index("fargocd.appscode.com/finalizer"))' <<<"$allHRJSON") == true ]]; then
     requireController deploy app.kubernetes.io/name=fargocd
     requireController statefulset app.kubernetes.io/name=argocd-application-controller
+    if [[ -z ${ARGO_NS:-} ]]; then
+        ARGO_NS=$(kubectl get deploy -A -l app.kubernetes.io/name=fargocd -o json | jq -r '[.items[0].spec.template.spec.containers[].args[]?
+            | select(startswith("--argo-namespace=")) | ltrimstr("--argo-namespace=")][0] // empty')
+        export ARGO_NS
+    fi
 fi
 
 # Flux is kept: helm-controller skips the uninstall (and HelmChart cleanup) of a suspended HR
@@ -154,7 +172,9 @@ if [[ $(jq 'any(.[]; .metadata.name == "flux2")' <<<"$aceHRJSON") == true ]]; th
 fi
 
 aceHRs=$(jq -r '.[].metadata.name' <<<"$aceHRJSON")
-aceNamespaces=$(jq -c '["ace", "kubeops"] + [.[].spec.targetNamespace // empty] | unique' <<<"$aceHRJSON")
+# a rerun after the HRs are gone still finds their target namespaces in the ace-installer release
+installerNamespaces=$({ helm get manifest -n kubeops ace-installer 2>/dev/null || true; } | awk '$1 == "targetNamespace:" { gsub(/["'\'']/, "", $2); print $2 }' | jq -R . | jq -sc .)
+aceNamespaces=$(jq -c --argjson installer "${installerNamespaces:-[]}" '["ace", "kubeops"] + [.[].spec.targetNamespace // empty] + $installer | unique' <<<"$aceHRJSON")
 echo "ACE HelmReleases: $(echo $aceHRs)"
 
 if [[ $fullPrune != true ]]; then
@@ -171,8 +191,13 @@ fi
 if [[ $fullPrune == true ]]; then
     # their finalizers wait on spoke agents / backup backends; don't block on them
     crdExists managedclusters.cluster.open-cluster-management.io && timeout=30s deleteAll managedclusters.cluster.open-cluster-management.io
-    for kind in $(kubectl api-resources --api-group=kubedb.com -o name); do
+    kubedbKinds=$(kubectl api-resources --api-group=kubedb.com -o name)
+    # all kinds are deleted before waiting, so databases tear down concurrently
+    for kind in $kubedbKinds; do
         patchAll "$kind" '{"spec":{"deletionPolicy":"WipeOut"}}' true
+        kubectl delete "$kind" -A --all --wait=false
+    done
+    for kind in $kubedbKinds; do
         deleteAll "$kind"
     done
     for kind in backupconfigurations.core.kubestash.com backupsessions.core.kubestash.com restoresessions.core.kubestash.com; do
@@ -243,6 +268,24 @@ kubectl get clusterroles,clusterrolebindings -l helm.toolkit.fluxcd.io/name -o j
         kubectl get "$hr" "$release" -n "$ns" >/dev/null 2>&1 || kubectl delete "$kind" "$name" --ignore-not-found
     done
 
+# Argo CD doesn't prune hooks with their Application, and nothing clears their argocd.argoproj.io/hook-finalizer
+if crdExists applications.argoproj.io; then
+    apps=$(kubectl get applications.argoproj.io -A -o json | jq -c '[.items[] | "\(.metadata.namespace)/\(.metadata.name)"]')
+    # apps outside the Argo CD namespace are tracked as <namespace>_<name>
+    orphanHooks=$(kubectl get clusterroles,clusterrolebindings -o json | jq -r --argjson apps "$apps" --arg argoNS "${ARGO_NS:-argocd}" '.items[]
+        | select(.metadata.annotations["helm.sh/hook"] and .metadata.annotations["argocd.argoproj.io/tracking-id"])
+        | (.metadata.annotations["argocd.argoproj.io/tracking-id"] | split(":")[0]) as $ref
+        | (if ($ref | contains("_")) then ($ref | sub("_"; "/")) else "\($argoNS)/\($ref)" end) as $app
+        | select($apps | index($app) | not)
+        | "\(.kind | ascii_downcase)/\(.metadata.name)"')
+    if [[ -n $orphanHooks ]]; then
+        echo "deleting $(wc -l <<<"$orphanHooks" | tr -d ' ') Argo CD hook objects of deleted Applications"
+        xargs -P 8 -I{} kubectl patch {} --type=merge -p '{"metadata":{"finalizers":null}}' >/dev/null <<<"$orphanHooks"
+        # shellcheck disable=SC2086
+        kubectl delete $orphanHooks --ignore-not-found
+    fi
+fi
+
 if [[ $fullPrune == true ]]; then
     # the default GatewayClass is kept on uninstall (helm.sh/resource-policy: keep); Envoy Gateway is no longer
     # around to clear its gateway-exists finalizer
@@ -260,17 +303,21 @@ if [[ $fullPrune == true ]]; then
         done
 
     crds=$(kubectl get crd -o json | jq -r --arg re "^($appscodeGroups)$" '.items[] | select(.spec.group | test($re)) | .metadata.name')
-    for crd in $crds; do
-        patchAll "$crd" '{"metadata":{"finalizers":null}}' .metadata.finalizers
-    done
-    # shellcheck disable=SC2086
-    deleteAndWait crd default $crds
+    if [[ -n $crds ]]; then
+        stripFinalizers "$(paste -sd, - <<<"$crds")"
+        # shellcheck disable=SC2086
+        deleteAndWait crd default $crds
+    fi
 
+    deleteNamespaces=()
     for ns in $(jq -r '.[]' <<<"$aceNamespaces"); do
         if [[ -n $(kubectl get secret -n "$ns" -l owner=helm -o name) || -n $(kubectl get "$hr" -n "$ns" -o name) ]]; then
             echo "keeping namespace $ns: it still has Helm or Flux releases"
             continue
         fi
-        kubectl delete ns "$ns" --ignore-not-found --timeout="$timeout"
+        deleteNamespaces+=("$ns")
     done
+    if [[ ${#deleteNamespaces[@]} -gt 0 ]]; then
+        kubectl delete ns "${deleteNamespaces[@]}" --ignore-not-found --timeout="$timeout"
+    fi
 fi

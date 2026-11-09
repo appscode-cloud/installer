@@ -42,12 +42,12 @@ stripTerminating() {
     local -a nsArgs
     while IFS='|' read -r kind group objNS name; do
         [[ -n $name ]] || continue
-        ref=${kind,,}${group:+.$group}
+        ref=$(tr "[:upper:]" "[:lower:]" <<<"$kind")${group:+.$group}
         nsArgs=()
         [[ -n $objNS ]] && nsArgs=(-n "$objNS")
-        if [[ -n $(kubectl get "$ref" "$name" "${nsArgs[@]}" --ignore-not-found -o jsonpath='{.metadata.deletionTimestamp}') ]]; then
+        if [[ -n $(kubectl get "$ref" "$name" ${nsArgs[@]+"${nsArgs[@]}"} --ignore-not-found -o jsonpath='{.metadata.deletionTimestamp}') ]]; then
             echo "  removing finalizers of terminating $ref ${objNS:+$objNS/}$name"
-            kubectl patch "$ref" "$name" "${nsArgs[@]}" --type=merge -p '{"metadata":{"finalizers":null}}'
+            kubectl patch "$ref" "$name" ${nsArgs[@]+"${nsArgs[@]}"} --type=merge -p '{"metadata":{"finalizers":null}}'
         fi
     done
 }
@@ -78,6 +78,9 @@ waitGone() {
     kubectl wait --for=delete "$hr/$1" -n "$ns" --timeout="$2" >/dev/null 2>&1
 }
 
+names=()
+appNames=()
+appsJSON=""
 for name in "${args[@]:1}"; do
     hrJSON=$(kubectl get "$hr" "$name" -n "$ns" -o json --ignore-not-found)
     if [[ -z $hrJSON ]]; then
@@ -86,11 +89,21 @@ for name in "${args[@]:1}"; do
     fi
     appName=""
     if [[ $(jq --arg f "$fargocdFinalizer" '.metadata.finalizers // [] | index($f) != null' <<<"$hrJSON") == true ]]; then
-        appName=$(kubectl get "$app" -n "$argoNS" -o json |
-            jq -r --arg key "$ns/$name" '.items[] | select(.metadata.annotations["fargocd.appscode.com/helmrelease"] == $key) | .metadata.name')
+        [[ -n $appsJSON ]] || appsJSON=$(kubectl get "$app" -n "$argoNS" -o json)
+        appName=$(jq -r --arg key "$ns/$name" '.items[] | select(.metadata.annotations["fargocd.appscode.com/helmrelease"] == $key) | .metadata.name' <<<"$appsJSON")
     fi
     echo "deleting $hr $ns/$name${appName:+ (Application $argoNS/$appName)}"
-    kubectl delete "$hr" "$name" -n "$ns" --wait=false
+    names+=("$name")
+    appNames+=("$appName")
+done
+[[ ${#names[@]} -gt 0 ]] || exit 0
+
+# deleted together so independent releases tear down in parallel
+kubectl delete "$hr" -n "$ns" "${names[@]}" --wait=false
+
+for i in "${!names[@]}"; do
+    name=${names[$i]}
+    appName=${appNames[$i]}
     waitGone "$name" "$timeout" && continue
 
     echo "$ns/$name is stuck"
