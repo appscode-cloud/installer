@@ -111,6 +111,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&KubedbUiList{},
 		&KubedbUiPresets{},
 		&KubedbUiPresetsList{},
+		&LearnUi{},
+		&LearnUiList{},
 		&LicenseProxyserver{},
 		&LicenseProxyserverList{},
 		&LicenseProxyserverManager{},

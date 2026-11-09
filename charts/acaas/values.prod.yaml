@@ -6,6 +6,9 @@
 # docs.appscode.com -> appscode.com/docs
 # selfhost.appscode.com -> appscode.com/selfhost
 
+learn-ui:
+  enabled: true
+
 global:
   platform:
     host: appscode.com

@@ -11,6 +11,9 @@ billing-ui:
 deploy-ui:
   enabled: false
 
+learn-ui:
+  enabled: false
+
 marketplace-api:
   enabled: false
 

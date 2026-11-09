@@ -42,6 +42,7 @@ for dir in charts/*/; do
         [[ "$dir" = "dns-proxy" ]] ||
         [[ "$dir" = "gh-ci-webhook" ]] ||
         [[ "$dir" = "grafana" ]] ||
+        [[ "$dir" = "learn-ui" ]] ||
         [[ "$dir" = "license-proxyserver-manager" ]] ||
         [[ "$dir" = "marketplace-api" ]] ||
         [[ "$dir" = "offline-license-server" ]] ||
