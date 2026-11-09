@@ -19,8 +19,9 @@ spec:
     - fqdn:
         hostname: {{ $rule.upstream }}
         port: 443
-{{- /* OpenShift Degrades the ingress operator on unmanaged Gateway API CRDs (BackendTLSPolicy), so TLS is set on the Backend there. */}}
-{{- if eq (include "distro.openshift" $) "true" }}
+{{- $btlsVersion := include "gatewayAPI.backendTLSPolicyVersion" $ }}
+{{- /* Without BackendTLSPolicy (e.g. OpenShift), TLS is set on the Backend instead. */}}
+{{- if not $btlsVersion }}
   tls:
     sni: {{ $rule.upstream }}
     wellKnownCACertificates: System
@@ -29,7 +30,7 @@ spec:
 # BackendTLSPolicy: makes Envoy originate TLS to the Backend above. Without it
 # Envoy connects in plaintext on 443 and the upstream (which terminates TLS on
 # that port) resets the connection with a protocol_error.
-apiVersion: gateway.networking.k8s.io/v1alpha3
+apiVersion: gateway.networking.k8s.io/{{ $btlsVersion }}
 kind: BackendTLSPolicy
 metadata:
   {{- with $.Values.gateway.annotations }}
