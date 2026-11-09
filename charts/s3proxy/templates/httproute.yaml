@@ -42,7 +42,7 @@ spec:
         type: PathPrefix
         value: {{ .path }}
     backendRefs:
-    {{- if eq (include "distro.openshift" $) "true" }}
+    {{- if not (include "gatewayAPI.backendTLSPolicyVersion" $) }}
     - group: gateway.envoyproxy.io
       kind: Backend
       name: {{ include "s3proxy.fullname" $ }}
@@ -60,8 +60,9 @@ spec:
   {{- end }}
 
 ---
-{{- if eq (include "distro.openshift" .) "true" }}
-{{- /* OpenShift Degrades the ingress operator on unmanaged Gateway API CRDs (BackendTLSPolicy, TCPRoute). */}}
+{{- $btlsVersion := include "gatewayAPI.backendTLSPolicyVersion" . }}
+{{- if not $btlsVersion }}
+{{- /* Without BackendTLSPolicy (e.g. OpenShift), upstream TLS is set on an Envoy Backend instead. */}}
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: Backend
 metadata:
@@ -91,7 +92,7 @@ spec:
     sni: {{ .Values.global.platform.host }}
   {{- end }}
 {{- else }}
-apiVersion: gateway.networking.k8s.io/v1
+apiVersion: gateway.networking.k8s.io/{{ $btlsVersion }}
 kind: BackendTLSPolicy
 metadata:
   name: {{ include "ace.fullname" . }}-s3proxy
@@ -122,10 +123,11 @@ spec:
 {{- end }}
 {{- end }}
 
-{{- if ne (include "distro.openshift" .) "true" }}
+{{- $tcpRouteVersion := include "gatewayAPI.tcpRouteVersion" . }}
+{{- if $tcpRouteVersion }}
 
 ---
-apiVersion: gateway.networking.k8s.io/v1alpha2
+apiVersion: gateway.networking.k8s.io/{{ $tcpRouteVersion }}
 kind: TCPRoute
 metadata:
   name: {{ include "s3proxy.fullname" . }}

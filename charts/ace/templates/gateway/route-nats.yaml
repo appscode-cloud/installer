@@ -1,4 +1,6 @@
 {{ if (and (index .Values "gateway" "enabled") (and .Values.nats.enabled (not .Values.nats.nats.externalAccess))) }}
+{{- $btlsVersion := include "gatewayAPI.backendTLSPolicyVersion" . }}
+{{- $tcpRouteVersion := include "gatewayAPI.tcpRouteVersion" . }}
 
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
@@ -35,14 +37,14 @@ spec:
           type: ReplacePrefixMatch
           replacePrefixMatch: /
     backendRefs:
-{{- if eq (include "distro.openshift" .) "true" }}
+{{- if not $btlsVersion }}
     - group: gateway.envoyproxy.io
       kind: Backend
       name: {{ include "ace.fullname" . }}-nats
       namespace: {{ .Release.Namespace }}
       weight: 1
 ---
-{{- /* OpenShift Degrades the ingress operator on unmanaged Gateway API CRDs (BackendTLSPolicy, TCPRoute). */}}
+{{- /* Without BackendTLSPolicy (e.g. OpenShift), upstream TLS is set on an Envoy Backend instead. */}}
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: Backend
 metadata:
@@ -79,7 +81,7 @@ spec:
       port: 443
       weight: 1
 ---
-apiVersion: gateway.networking.k8s.io/v1
+apiVersion: gateway.networking.k8s.io/{{ $btlsVersion }}
 kind: BackendTLSPolicy
 metadata:
   name: {{ include "ace.fullname" . }}-nats
@@ -107,9 +109,10 @@ spec:
   {{- else }}
     hostname: {{ printf "%s" .Values.global.platform.host }}
   {{- end }}
-
+{{- end }}
+{{- if $tcpRouteVersion }}
 ---
-apiVersion: gateway.networking.k8s.io/v1alpha2
+apiVersion: gateway.networking.k8s.io/{{ $tcpRouteVersion }}
 kind: TCPRoute
 metadata:
   name: {{ include "ace.fullname" . }}-nats

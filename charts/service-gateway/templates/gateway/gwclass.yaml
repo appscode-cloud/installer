@@ -4,8 +4,9 @@
   "frontendTLSSecretRef" (dict "name" (printf "%s-gw-cert" (include "tenant.name" .)) "namespace" .Release.Namespace)
 }}
 {{- $multiReplica := and (eq .Values.envoy.provisionerType "Deployment") (gt (int (.Values.envoy.replicas | default 1)) 1) }}
-{{- if .Capabilities.APIVersions.Has "gateway.networking.k8s.io/v1beta1/GatewayClass" }}
-apiVersion: gateway.networking.k8s.io/v1beta1
+{{- $gatewayClassVersion := include "gatewayAPI.servedVersion" (dict "ctx" . "kind" "GatewayClass" "versions" (list "v1" "v1beta1")) }}
+{{- if $gatewayClassVersion }}
+apiVersion: gateway.networking.k8s.io/{{ $gatewayClassVersion }}
 kind: GatewayClass
 metadata:
   name: {{ include "tenant.name" . }}

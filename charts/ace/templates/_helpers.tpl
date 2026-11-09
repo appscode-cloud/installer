@@ -279,3 +279,27 @@ Returns if ubi images are to be used
 {{- define "operator.ubi" -}}
 {{ ternary "-ubi" "" (list "operator" "all" | has (default (dig "ubi" "" (default dict .Values.distro)) .Values.global.distro.ubi)) }}
 {{- end }}
+
+{{/*
+Gateway API kinds are served at different versions depending on which CRD bundle the cluster
+vendor ships (v1.3–v1.7, standard or experimental), and some vendors (OpenShift) omit them.
+Returns the first of .versions the cluster serves for .kind, or "" when the kind is absent.
+*/}}
+{{- define "gatewayAPI.servedVersion" -}}
+{{- $ctx := .ctx -}}
+{{- $kind := .kind -}}
+{{- range .versions -}}
+{{- if $ctx.Capabilities.APIVersions.Has (printf "gateway.networking.k8s.io/%s/%s" . $kind) -}}
+{{- . -}}
+{{- break -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "gatewayAPI.tcpRouteVersion" -}}
+{{- include "gatewayAPI.servedVersion" (dict "ctx" . "kind" "TCPRoute" "versions" (list "v1" "v1alpha2")) -}}
+{{- end -}}
+
+{{- define "gatewayAPI.backendTLSPolicyVersion" -}}
+{{- include "gatewayAPI.servedVersion" (dict "ctx" . "kind" "BackendTLSPolicy" "versions" (list "v1" "v1alpha3")) -}}
+{{- end -}}
