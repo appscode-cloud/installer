@@ -1,0 +1,28 @@
+{{- if and (eq (toString .Values.global.platform.deploymentType) "Hosted") (index .Values "ingress" "enabled") (index .Values "learn-ui" "enabled") }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: learn
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "acaas.labels" . | nindent 4 }}
+spec:
+  ingressClassName: {{ .Values.ingress.className }}
+  rules:
+  - host: {{ .Values.global.platform.host }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ .Release.Name }}-learn-ui
+            port:
+              number: 80
+        path: /learn
+        pathType: Prefix
+  {{- if .Values.ingress.tls.enable }}
+  tls:
+    - hosts:
+        - '{{ .Values.global.platform.host }}'
+      secretName: {{ default (printf "%s-cert" (include "acaas.fullname" .)) .Values.ingress.tls.secret.name }}
+  {{- end }}
+{{- end }}

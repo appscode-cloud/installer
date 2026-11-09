@@ -1,3 +1,6 @@
+learn-ui:
+  enabled: true
+
 global:
   platform:
     host: appscode.ninja

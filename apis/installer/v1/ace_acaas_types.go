@@ -47,6 +47,7 @@ type AcaasSpec struct {
 	Billing        AceBilling        `json:"billing"`
 	BillingUi      AceBillingUi      `json:"billing-ui"`
 	DeployUi       AceDeployUi       `json:"deploy-ui"`
+	LearnUi        AceLearnUi        `json:"learn-ui"`
 	MarketplaceApi AceMarketplaceApi `json:"marketplace-api"`
 	MarketplaceUi  AceMarketplaceUi  `json:"marketplace-ui"`
 	PlatformLinks  AcePlatformLinks  `json:"platform-links"`
@@ -75,6 +76,11 @@ type AceDeployUi struct {
 type AceDnsProxy struct {
 	Enabled       bool `json:"enabled"`
 	*DnsProxySpec `json:",inline,omitempty"`
+}
+
+type AceLearnUi struct {
+	Enabled      bool `json:"enabled"`
+	*LearnUiSpec `json:",inline,omitempty"`
 }
 
 type AceMarketplaceApi struct {

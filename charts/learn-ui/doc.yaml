@@ -1,0 +1,18 @@
+project:
+  name: Learn UI by AppsCode
+  shortName: Learn UI
+  url: https://github.com/appscode-cloud
+  description: AppsCode Learn UI
+  app: a Learn UI
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: learn-ui
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.29+
+release:
+  name: learn-ui
+  namespace: ace
