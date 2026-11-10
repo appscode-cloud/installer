@@ -1,3 +1,4 @@
+---
 properties:
   fullnameOverride:
     type: string

@@ -2,8 +2,8 @@ apiVersion: v2
 name: akp-installer
 description: AKP Installer
 type: application
-version: v2026.10.30
-appVersion: v2026.10.30
+version: v2026.11.15
+appVersion: v2026.11.15
 kubeVersion: '>=1.28.0-0'
 annotations:
   charts.openshift.io/name: akp-installer
@@ -18,4 +18,4 @@ dependencies:
 - name: regcache
   repository: file://../regcache
   condition: regcache.enabled
-  version: v2026.10.30
+  version: v2026.11.15
