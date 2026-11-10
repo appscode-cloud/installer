@@ -126,5 +126,5 @@ type HostPath struct {
 
 type IngressTLS struct {
 	SecretName string   `json:"secretName"`
-	Hosts      []string `json:"hosts"`
+	Hosts      []string `json:"hosts,omitempty"`
 }
