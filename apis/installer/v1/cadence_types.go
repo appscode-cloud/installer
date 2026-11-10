@@ -29,6 +29,7 @@ type CadenceSpec struct {
 	Web       CadenceWebSpec       `json:"web"`
 	Config    CadenceConfigSpec    `json:"config"`
 	Cassandra CadenceCassandraSpec `json:"cassandra"`
+	Schema    CadenceSchemaSpec    `json:"schema"`
 }
 
 // CadenceGlobalSpec holds the values shared by the cadence server services
@@ -63,6 +64,22 @@ type CadenceBusyboxSpec struct {
 // postgres database.
 type CadenceCassandraSpec struct {
 	Enabled bool `json:"enabled"`
+}
+
+type CadenceSchemaSpec struct {
+	CheckSchema CadenceCheckSchemaSpec `json:"checkSchema"`
+}
+
+type CadenceCheckSchemaSpec struct {
+	Postgres CadenceCheckSchemaPostgresSpec `json:"postgres"`
+}
+
+// CadenceCheckSchemaPostgresSpec configures the wait-for-database init
+// container of the schema server job. The cadence chart defaults to the
+// unpinned, root alpine/psql:latest image.
+type CadenceCheckSchemaPostgresSpec struct {
+	Image                    CadenceImageReference `json:"image"`
+	ContainerSecurityContext *core.SecurityContext `json:"containerSecurityContext,omitempty"`
 }
 
 type CadenceConfigSpec struct {
