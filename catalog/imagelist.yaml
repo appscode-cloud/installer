@@ -1,4 +1,3 @@
-- alpine/psql:latest
 - alpine:3.20
 - bats/bats:1.11.0
 - docker.io/openbao/openbao:2.4.3

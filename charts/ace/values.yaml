@@ -143,6 +143,22 @@ cadence:
   # The cadence chart deploys cassandra by default. ace uses its own postgres instead.
   cassandra:
     enabled: false
+  schema:
+    checkSchema:
+      postgres:
+        # Same image as ace-db; provides psql and pg_isready
+        image:
+          repository: ghcr.io/appscode-images/postgres
+          tag: 18.3-bookworm
+          pullPolicy: IfNotPresent
+        containerSecurityContext:
+          runAsUser: 65534
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+          seccompProfile:
+            type: RuntimeDefault
 
 pgoutbox:
   enabled: false
