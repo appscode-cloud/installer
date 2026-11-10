@@ -21,7 +21,7 @@
 - ghcr.io/appscode-images/vault:1.18.4
 - ghcr.io/appscode/ace:v0.2.0
 - ghcr.io/appscode/acerproxy:v0.2.0
-- ghcr.io/appscode/aceshifter:v0.0.3
+- ghcr.io/appscode/aceshifter:v0.0.4
 - ghcr.io/appscode/akp-crd-manager:v0.0.1
 - ghcr.io/appscode/b3:v2026.10.30
 - ghcr.io/appscode/billing-ui:3.0.0
