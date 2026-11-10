@@ -2,6 +2,10 @@
 {{- if .enabled }}
 
 {{ $vals := dig "values" dict . | deepCopy }}
+{{- if (dig "fargocd" "enabled" false $.Values.helm.releases) }}
+{{- /* Argo CD only reruns Jobs that are hooks; plain Jobs get deleted by the ace cleaner PreSync hook and stay Missing. */}}
+{{ $vals = mergeOverwrite (dict "setupJob" (dict "hook" (dict "enable" true)) "openfga" (dict "migrate" (dict "hook" (dict "enable" true)))) $vals }}
+{{- end }}
 {{- include "ace-installer.featureCred.unsetPaths" (dict "vals" $vals "paths" (include "ace-installer.aceCredPaths" $ | fromYamlArray)) }}
 
 apiVersion: helm.toolkit.fluxcd.io/v2
