@@ -24,6 +24,10 @@ dependencies:
   repository: file://../deploy-ui
   condition: deploy-ui.enabled
   version: v2026.10.30
+- name: learn-ui
+  repository: file://../learn-ui
+  condition: learn-ui.enabled
+  version: v2026.10.30
 - name: marketplace-api
   repository: file://../marketplace-api
   condition: marketplace-api.enabled

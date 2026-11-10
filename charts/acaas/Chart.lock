@@ -8,6 +8,9 @@ dependencies:
 - name: deploy-ui
   repository: file://../deploy-ui
   version: v2026.10.30
+- name: learn-ui
+  repository: file://../learn-ui
+  version: v2026.10.30
 - name: marketplace-api
   repository: file://../marketplace-api
   version: v2026.10.30
@@ -20,5 +23,5 @@ dependencies:
 - name: website
   repository: file://../website
   version: v2026.10.30
-digest: sha256:9cc549576e25800e48ba001f4746335bce5fbb7e62b7375a71fe141a074223a0
-generated: "2026-10-17T11:19:49.378328157Z"
+digest: sha256:309dcfc8cbe2ee598c922167b2e479f2db8b4d6a45bb200bafcd52e76354c777
+generated: "2026-11-09T03:55:47.976388306Z"

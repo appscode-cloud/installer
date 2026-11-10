@@ -220,10 +220,6 @@ stringData:
     INSTALLER_PREFIX = installer
     PACKAGES_PREFIX  = packages
 
-    [firebase]
-    PROJECT   = {{ .Values.settings.firebase.project }}
-    DATABASE  = {{ .Values.settings.firebase.database }}
-
   {{- with .Values.settings.marketplace }}
 
     [marketplace]

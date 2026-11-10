@@ -11,6 +11,9 @@ billing-ui:
 deploy-ui:
   enabled: false
 
+learn-ui:
+  enabled: false
+
 marketplace-api:
   enabled: false
 
@@ -72,8 +75,6 @@ gateway:
       upstream: ""
     docs:
       upstream: ""
-    learn:
-      upstream: ""
     license:
       upstream: ""
     selfhost:
@@ -90,8 +91,6 @@ ingress:
     blog:
       upstream: ""
     docs:
-      upstream: ""
-    learn:
       upstream: ""
     license:
       upstream: ""

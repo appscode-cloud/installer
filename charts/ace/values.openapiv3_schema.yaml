@@ -24895,16 +24895,6 @@ properties:
         - resources
         - version
         type: object
-      firebase:
-        properties:
-          database:
-            type: string
-          project:
-            type: string
-        required:
-        - database
-        - project
-        type: object
       grafana:
         properties:
           appMode:
@@ -25223,7 +25213,6 @@ properties:
     - cadence
     - contract
     - db
-    - firebase
     - grafana
     - inboxServer
     - nats

@@ -421,7 +421,6 @@ type Settings struct {
 	Perses      PersesSettings      `json:"perses"`
 	InboxServer InboxServerSettings `json:"inboxServer"`
 	Contract    ContractStorage     `json:"contract"`
-	Firebase    FirebaseSettings    `json:"firebase"`
 	// +optional
 	Marketplace *MarketplaceSettings `json:"marketplace,omitempty"`
 	// +optional
@@ -597,11 +596,6 @@ type ContractStorage struct {
 	Bucket        string `json:"bucket"`
 	Prefix        string `json:"prefix"`
 	LicenseBucket string `json:"licenseBucket"`
-}
-
-type FirebaseSettings struct {
-	Project  string `json:"project"`
-	Database string `json:"database"`
 }
 
 type MarketplaceSettings struct {

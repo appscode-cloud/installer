@@ -4,8 +4,10 @@
 # accounts.appscode.com -> appscode.com/accounts
 # blog.appscode.com -> appscode.com/blog
 # docs.appscode.com -> appscode.com/docs
-# learn.appscode.com -> appscode.com/learn
 # selfhost.appscode.com -> appscode.com/selfhost
+
+learn-ui:
+  enabled: true
 
 global:
   platform:
@@ -18,8 +20,6 @@ gateway:
       upstream: blog-prod.web.app
     docs:
       upstream: byte-builders-docs.web.app
-    learn:
-      upstream: byte-builders-learn.web.app
     license:
       upstream: x.appscode.com
     selfhost:
@@ -31,8 +31,6 @@ ingress:
       upstream: blog-prod.web.app
     docs:
       upstream: byte-builders-docs.web.app
-    learn:
-      upstream: byte-builders-learn.web.app
     license:
       upstream: x.appscode.com
     selfhost:

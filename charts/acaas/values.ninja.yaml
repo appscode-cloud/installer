@@ -1,3 +1,6 @@
+learn-ui:
+  enabled: true
+
 global:
   platform:
     host: appscode.ninja
@@ -9,8 +12,6 @@ gateway:
       upstream: blog-prod.web.app
     docs:
       upstream: bb-docs-qa.web.app
-    learn:
-      upstream: learn-qa.web.app
     license:
       upstream: x.appscode.com
     selfhost:
@@ -22,8 +23,6 @@ ingress:
       upstream: blog-prod.web.app
     docs:
       upstream: bb-docs-qa.web.app
-    learn:
-      upstream: learn-qa.web.app
     license:
       upstream: x.appscode.com
     selfhost:
