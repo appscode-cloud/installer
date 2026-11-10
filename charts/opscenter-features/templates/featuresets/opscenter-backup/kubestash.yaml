@@ -1,6 +1,8 @@
 {{ $defaults := printf `
 global:
   registryFQDN: %q
+ace-user-roles:
+  enabled: false
 kubestash-catalog:
   enabled: true
   proxies: %v
