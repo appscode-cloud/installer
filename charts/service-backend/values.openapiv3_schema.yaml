@@ -592,7 +592,6 @@ properties:
             secretName:
               type: string
           required:
-          - hosts
           - secretName
           type: object
         type: array
