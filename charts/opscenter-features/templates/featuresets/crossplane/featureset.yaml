@@ -7,7 +7,7 @@ spec:
   description: |
     The cloud native control plane framework
   icons:
-    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    - src: https://cdn.appscode.com/k8s/icons/featuresets/crossplane.svg
       type: image/svg+xml
   recommended: false
   chart:

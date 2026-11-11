@@ -7,7 +7,7 @@ spec:
   description: |
     Core features for ACE
   icons:
-  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+  - src: https://cdn.appscode.com/k8s/icons/featuresets/opscenter-core.svg
     type: image/svg+xml
   recommended: true
   requiredFeatures:
