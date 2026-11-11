@@ -14,10 +14,8 @@
 {{ $vals = mergeOverwrite $defaults $vals }}
 
 {{- /* genCA renders a fresh CA per template run; under Argo CD the webhook hooks and cert Secret come from different renders, so let cert-manager own the kubestash webhook cert. */}}
-{{- if dig "cert-manager" "enabled" false $.Values.helm.releases }}
 {{ $kubestashCertManager := dict "enabled" (dig "helm" "releases" "kubestash" "values" "kubestash-operator" "apiserver" "servingCerts" "certManager" "enabled" true $vals) }}
 {{ $vals = mergeOverwrite $vals (dict "helm" (dict "releases" (dict "kubestash" (dict "values" (dict "kubestash-operator" (dict "apiserver" (dict "servingCerts" (dict "certManager" $kubestashCertManager)))))))) }}
-{{- end }}
 
 {{- if eq (include "distro.openshift" $) "true" }}
 {{ $vals = mergeOverwrite $vals (pick ($.Values.options | fromYaml) "distro") }}
