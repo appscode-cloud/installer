@@ -19,6 +19,7 @@ set -euo pipefail
 hr=helmreleases.helm.toolkit.fluxcd.io
 app=applications.argoproj.io
 fargocdFinalizer=fargocd.appscode.com/finalizer
+hookFinalizer=argocd.argoproj.io/hook-finalizer
 argoNS=${ARGO_NS:-argocd}
 timeout=2m
 force=false
@@ -38,17 +39,19 @@ fi
 ns=${args[0]}
 
 stripTerminating() {
-    local kind group objNS name ref
+    local only=${1:-} kind group objNS name ref remaining
     local -a nsArgs
     while IFS='|' read -r kind group objNS name; do
         [[ -n $name ]] || continue
         ref=$(tr "[:upper:]" "[:lower:]" <<<"$kind")${group:+.$group}
         nsArgs=()
         [[ -n $objNS ]] && nsArgs=(-n "$objNS")
-        if [[ -n $(kubectl get "$ref" "$name" ${nsArgs[@]+"${nsArgs[@]}"} --ignore-not-found -o jsonpath='{.metadata.deletionTimestamp}') ]]; then
-            echo "  removing finalizers of terminating $ref ${objNS:+$objNS/}$name"
-            kubectl patch "$ref" "$name" ${nsArgs[@]+"${nsArgs[@]}"} --type=merge -p '{"metadata":{"finalizers":null}}'
-        fi
+        remaining=$(kubectl get "$ref" "$name" ${nsArgs[@]+"${nsArgs[@]}"} --ignore-not-found -o json |
+            jq -c --arg f "$only" 'select(.metadata.deletionTimestamp) | (.metadata.finalizers // [])
+                | if $f == "" then null elif index($f) then . - [$f] else empty end') || continue
+        [[ -n $remaining ]] || continue
+        echo "  removing ${only:-all} finalizers of terminating $ref ${objNS:+$objNS/}$name"
+        kubectl patch "$ref" "$name" ${nsArgs[@]+"${nsArgs[@]}"} --type=merge -p "{\"metadata\":{\"finalizers\":$remaining}}"
     done
 }
 
@@ -56,7 +59,7 @@ stripTerminating() {
 unblockApplication() {
     kubectl get "$app" "$1" -n "$argoNS" -o json |
         jq -r '.status.resources[]? | "\(.kind)|\(.group // "")|\(.namespace // "")|\(.name)"' |
-        stripTerminating
+        stripTerminating "${2:-}"
 }
 
 # Operators are uninstalled in parallel, so finalizers on a release's objects may have no controller left to clear them
@@ -72,6 +75,15 @@ unblockFluxRelease() {
         jq -r '(.items // [.])[] | select(.metadata.deletionTimestamp)
             | "\(.kind)|\(if (.apiVersion | contains("/")) then (.apiVersion | split("/")[0]) else "" end)|\(.metadata.namespace // "")|\(.metadata.name)"' |
         stripTerminating
+}
+
+# a running sync (e.g. waiting on a never-healthy Job) keeps re-applying resources and blocks the cascade delete
+terminateSync() {
+    local phase
+    phase=$(kubectl get "$app" "$1" -n "$argoNS" -o jsonpath='{.status.operationState.phase}')
+    [[ $phase == Running ]] || return 0
+    echo "  terminating running sync of Application $argoNS/$1"
+    kubectl patch "$app" "$1" -n "$argoNS" --type=merge -p '{"status":{"operationState":{"phase":"Terminating"}}}'
 }
 
 waitGone() {
@@ -93,6 +105,7 @@ for name in "${args[@]:1}"; do
         appName=$(jq -r --arg key "$ns/$name" '.items[] | select(.metadata.annotations["fargocd.appscode.com/helmrelease"] == $key) | .metadata.name' <<<"$appsJSON")
     fi
     echo "deleting $hr $ns/$name${appName:+ (Application $argoNS/$appName)}"
+    [[ -z $appName ]] || terminateSync "$appName"
     names+=("$name")
     appNames+=("$appName")
 done
@@ -104,10 +117,16 @@ kubectl delete "$hr" -n "$ns" "${names[@]}" --wait=false
 for i in "${!names[@]}"; do
     name=${names[$i]}
     appName=${appNames[$i]}
+    # nothing ever clears the hook finalizer, so waiting the full timeout for it is pointless; other finalizers may still be doing cleanup
+    if [[ -n $appName ]]; then
+        waitGone "$name" 20s && continue
+        kubectl get "$app" "$appName" -n "$argoNS" >/dev/null 2>&1 && unblockApplication "$appName" "$hookFinalizer"
+    fi
     waitGone "$name" "$timeout" && continue
 
     echo "$ns/$name is stuck"
     if [[ -n $appName ]] && kubectl get "$app" "$appName" -n "$argoNS" >/dev/null 2>&1; then
+        terminateSync "$appName"
         unblockApplication "$appName"
         waitGone "$name" 1m && continue
         if [[ $force != true ]]; then
