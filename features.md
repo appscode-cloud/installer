@@ -24,6 +24,7 @@ graph TD;
   license-proxyserver-manager-->cluster-manager-hub;
   license-proxyserver-manager-->cluster-profile-manager;
   managed-serviceaccount-manager-->cluster-manager-hub;
+  kubestash-->cert-manager;
   kubestash-->license-proxyserver;
   stash-opscenter-->stash;
   stash-opscenter-->panopticon;
