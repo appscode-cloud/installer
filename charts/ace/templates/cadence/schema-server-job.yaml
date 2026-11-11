@@ -1,0 +1,163 @@
+{{- /*
+  Postgres-only copy of the cadence chart's schema-server Job, which the
+  subchart renders with a hard-coded ttlSecondsAfterFinished and no hook.
+  Under Argo CD that leaves ace OutOfSync once the Job is TTL-deleted, and
+  blocks syncs when its immutable pod template changes. As an Argo CD Sync
+  hook it is recreated on each sync and excluded from sync status; Helm and
+  Flux ignore the argocd annotations.
+*/}}
+{{- if and .Values.cadence.enabled (not .Values.cadence.schema.serverJob.enabled) }}
+{{- $c := .Subcharts.cadence }}
+{{- $v := $c.Values }}
+{{- $sql := $v.config.persistence.database.sql }}
+{{- $port := $v.config.persistence.database.postgres.port | default $sql.port | default 5432 }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "cadence.fullname" $c }}-schema-server
+  labels:
+    {{- include "cadence.labels" $c | nindent 4 }}
+    app.kubernetes.io/component: schema-server
+  annotations:
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  backoffLimit: 2
+  activeDeadlineSeconds: 3600
+  ttlSecondsAfterFinished: 60
+  template:
+    metadata:
+      labels:
+        {{- include "cadence.labels" $c | nindent 8 }}
+        app.kubernetes.io/component: schema-server
+    spec:
+      {{- if $v.serviceAccount.create }}
+      serviceAccountName: {{ include "cadence.serviceAccountName" $c }}
+      {{- end }}
+      {{- with concat ($v.global.imagePullSecrets | default list) ($v.frontend.imagePullSecrets | default list) }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with $v.schema.serverJob.nodeSelector | default $v.global.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with $v.schema.serverJob.affinity | default $v.global.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with $v.schema.serverJob.tolerations | default $v.global.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with $v.schema.serverJob.podSecurityContext | default $v.global.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      restartPolicy: OnFailure
+      initContainers:
+      {{- if and $v.cloudSqlProxy.enabled $v.cloudSqlProxy.initContainer }}
+      - {{- toYaml $v.cloudSqlProxy.initContainer | nindent 8 }}
+      {{- end }}
+      - name: wait-for-database
+        image: {{ $v.schema.checkSchema.postgres.image.repository }}:{{ $v.schema.checkSchema.postgres.image.tag }}
+        imagePullPolicy: {{ $v.schema.checkSchema.postgres.image.pullPolicy }}
+        {{- with $v.schema.checkSchema.postgres.containerSecurityContext }}
+        securityContext:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
+        command: ["/bin/sh", "/scripts/wait-postgres.sh"]
+        env:
+        - name: ES_ENABLED
+          value: {{ $v.config.persistence.elasticsearch.enabled | quote }}
+        {{- include "ace.cadence.schemaDBEnv" (dict "c" $c "sql" $sql "port" $port "sslMode" true) | nindent 8 }}
+        volumeMounts:
+        - name: schema-scripts
+          mountPath: /scripts
+          readOnly: true
+        {{- with $v.global.tls.volumeMounts }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      containers:
+      - name: cadence-schema-server
+        {{- $globalImage := $v.global.image | default dict }}
+        {{- $schemaImage := $v.frontend.image | default dict }}
+        image: {{ $schemaImage.repository | default $globalImage.repository }}:{{ $schemaImage.tag | default $globalImage.tag }}
+        imagePullPolicy: {{ $schemaImage.pullPolicy | default $globalImage.pullPolicy | default "IfNotPresent" }}
+        {{- with $v.schema.serverJob.containerSecurityContext | default $v.global.containerSecurityContext }}
+        securityContext:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
+        command: ["/bin/sh", "/scripts/setup-postgres.sh"]
+        env:
+        - name: DB_DRIVER
+          value: "postgres"
+        - name: CADENCE_HOME
+          value: "/etc/cadence"
+        - name: ES_ENABLED
+          value: {{ $v.config.persistence.elasticsearch.enabled | quote }}
+        {{- include "ace.cadence.schemaDBEnv" (dict "c" $c "sql" $sql "port" $port "sslMode" false) | nindent 8 }}
+        volumeMounts:
+        - name: schema-scripts
+          mountPath: /scripts
+          readOnly: true
+        {{- with $v.global.tls.volumeMounts }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+        {{- with $v.schema.resources }}
+        resources:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
+      volumes:
+      - name: schema-scripts
+        configMap:
+          name: {{ include "cadence.fullname" $c }}-schema-scripts
+          defaultMode: 0555
+      {{- with $v.global.tls.volumes }}
+      {{- toYaml . | nindent 6 }}
+      {{- end }}
+{{- end }}
+
+{{- define "ace.cadence.schemaDBEnv" -}}
+{{- $sql := .sql }}
+- name: DB_HOST
+  value: {{ include "cadence.sqlHost" .c | quote }}
+- name: DB_PORT
+  value: {{ .port | quote }}
+- name: DB_NAME
+  value: {{ $sql.dbname | quote }}
+- name: DB_VISIBILITY_NAME
+  value: {{ $sql.visibilityDbname | quote }}
+- name: DB_USER
+  value: {{ $sql.user | quote }}
+{{- if $sql.password }}
+- name: POSTGRES_PWD
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "cadence.fullname" .c }}-frontend-secrets
+      key: POSTGRES_PWD
+{{- end }}
+- name: TLS_ENABLED
+  value: {{ $sql.tls.enabled | quote }}
+{{- if $sql.tls.enabled }}
+{{- if .sslMode }}
+- name: SSL_MODE
+  value: {{ $sql.tls.sslMode | default "require" | quote }}
+{{- end }}
+{{- if $sql.tls.caFile }}
+- name: SSL_CERTFILE
+  value: {{ $sql.tls.caFile | quote }}
+{{- else if $sql.tls.caFiles }}
+- name: SSL_CERTFILE
+  value: {{ index $sql.tls.caFiles 0 | quote }}
+{{- end }}
+{{- if $sql.tls.certFile }}
+- name: SSL_CLIENT_CERT
+  value: {{ $sql.tls.certFile | quote }}
+{{- end }}
+{{- if $sql.tls.keyFile }}
+- name: SSL_CLIENT_KEY
+  value: {{ $sql.tls.keyFile | quote }}
+{{- end }}
+{{- end }}
+{{- end }}

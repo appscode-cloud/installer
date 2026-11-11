@@ -159,6 +159,9 @@ cadence:
             drop: ["ALL"]
           seccompProfile:
             type: RuntimeDefault
+    serverJob:
+      # Rendered by charts/ace/templates/cadence/schema-server-job.yaml as an Argo CD Sync hook instead
+      enabled: false
 
 pgoutbox:
   enabled: false
