@@ -7,7 +7,7 @@ spec:
   description: |
     Tools for CAPG Clusters
   icons:
-    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    - src: https://cdn.appscode.com/k8s/icons/featuresets/capi-capg.svg
       type: image/svg+xml
   recommended: false
   chart:
