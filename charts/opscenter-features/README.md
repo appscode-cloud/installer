@@ -130,7 +130,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.otel-nats.version                                         |                                 | <code>"v2026.9.22"</code>                  |
 | helm.releases.prom-label-proxy.version                                  |                                 | <code>"v2026.9.22"</code>                  |
 | helm.releases.reloader.version                                          |                                 | <code>"2.2.9"</code>                       |
-| helm.releases.scanner.version                                           |                                 | <code>"v2026.1.15"</code>                  |
+| helm.releases.scanner.version                                           |                                 | <code>"v2026.11.11"</code>                 |
 | helm.releases.service-backend.version                                   |                                 | <code>"v2026.11.15"</code>                 |
 | helm.releases.service-gateway.version                                   |                                 | <code>"v2026.11.15"</code>                 |
 | helm.releases.service-gateway-presets.version                           |                                 | <code>"v2026.11.15"</code>                 |
@@ -161,7 +161,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.cluster-manager-hub.version                               |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.cluster-manager-spoke.version                             |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.managed-serviceaccount-manager.version                    |                                 | <code>"v2026.2.16"</code>                  |
-| helm.releases.cluster-proxy-manager.version                             |                                 | <code>"v2026.6.26"</code>                  |
+| helm.releases.cluster-proxy-manager.version                             |                                 | <code>"v2026.11.11"</code>                 |
 | helm.releases.cluster-gateway-manager.version                           |                                 | <code>"v2026.6.26"</code>                  |
 | helm.releases.cluster-auth-manager.version                              |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.cluster-profile-manager.version                           |                                 | <code>"v2026.11.7"</code>                  |

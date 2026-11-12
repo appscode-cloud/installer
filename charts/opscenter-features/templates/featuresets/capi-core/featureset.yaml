@@ -7,7 +7,7 @@ spec:
   description: |
     Cluster Management Tools
   icons:
-    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    - src: https://cdn.appscode.com/k8s/icons/featuresets/capi-core.svg
       type: image/svg+xml
   recommended: false
   chart:

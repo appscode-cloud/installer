@@ -102,7 +102,7 @@ cadence:
   global:
     # Image of the frontend, matching, history and worker services
     image:
-      repository: docker.io/ubercadence/server
+      repository: ghcr.io/appscode-images/cadence-server
       tag: v1.4.2
       pullPolicy: IfNotPresent
     # templates/cadence/cadence-db-secret.yaml creates this secret from settings.db.auth.password
@@ -159,6 +159,9 @@ cadence:
             drop: ["ALL"]
           seccompProfile:
             type: RuntimeDefault
+    serverJob:
+      # Rendered by charts/ace/templates/cadence/schema-server-job.yaml as an Argo CD Sync hook instead
+      enabled: false
 
 pgoutbox:
   enabled: false

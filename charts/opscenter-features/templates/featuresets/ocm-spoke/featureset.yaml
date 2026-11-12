@@ -7,7 +7,7 @@ spec:
   description: |
     Connect as a Spoke to a Multicluster Hub
   icons:
-    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    - src: https://cdn.appscode.com/k8s/icons/featuresets/ocm-spoke.svg
       type: image/svg+xml
   recommended: false
   chart:

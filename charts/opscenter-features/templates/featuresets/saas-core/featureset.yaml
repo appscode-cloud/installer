@@ -7,7 +7,7 @@ spec:
   description: |
     Components for Kubernetes Native Services
   icons:
-    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    - src: https://cdn.appscode.com/k8s/icons/featuresets/saas-core.svg
       type: image/svg+xml
   recommended: false
   chart:

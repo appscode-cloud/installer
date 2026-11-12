@@ -176,7 +176,7 @@ helm:
     reloader:
       version: "2.2.9"
     scanner:
-      version: "v2026.1.15"
+      version: "v2026.11.11"
     service-backend:
       version: "v2026.11.15"
     service-gateway:
@@ -240,7 +240,7 @@ helm:
     managed-serviceaccount-manager:
       version: "v2026.2.16"
     cluster-proxy-manager:
-      version: "v2026.6.26"
+      version: "v2026.11.11"
     cluster-gateway-manager:
       version: "v2026.6.26"
     cluster-auth-manager:

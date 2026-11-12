@@ -7,7 +7,7 @@ spec:
   description: |
     Platform Security Tools
   icons:
-  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+  - src: https://cdn.appscode.com/k8s/icons/featuresets/opscenter-security.svg
     type: image/svg+xml
   recommended: false
   chart:

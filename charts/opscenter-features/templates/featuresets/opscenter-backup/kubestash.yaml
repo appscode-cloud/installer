@@ -36,6 +36,7 @@ spec:
   recommended: true
   requirements:
     features:
+      - cert-manager
       - license-proxyserver
   readinessChecks:
     workloads:

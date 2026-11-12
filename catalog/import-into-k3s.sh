@@ -90,7 +90,7 @@ k3s ctr images import images/appscode-charts-cluster-manager-hub-v2026.2.16.tar
 k3s ctr images import images/appscode-charts-cluster-manager-spoke-v2026.2.16.tar
 k3s ctr images import images/appscode-charts-cluster-presets-v2026.11.15.tar
 k3s ctr images import images/appscode-charts-cluster-profile-manager-v2026.11.7.tar
-k3s ctr images import images/appscode-charts-cluster-proxy-manager-v2026.6.26.tar
+k3s ctr images import images/appscode-charts-cluster-proxy-manager-v2026.11.11.tar
 k3s ctr images import images/appscode-charts-config-syncer-manager-v1.0.0.tar
 k3s ctr images import images/appscode-charts-config-syncer-v1.0.0.tar
 k3s ctr images import images/appscode-charts-corekubestashcom-backupbatch-editor-v0.40.0.tar
@@ -249,7 +249,7 @@ k3s ctr images import images/appscode-charts-prepare-cluster-v2023.12.21.tar
 k3s ctr images import images/appscode-charts-prom-label-proxy-v2026.9.22.tar
 k3s ctr images import images/appscode-charts-prometheus-adapter-4.9.0.tar
 k3s ctr images import images/appscode-charts-reloader-2.2.9.tar
-k3s ctr images import images/appscode-charts-scanner-v2026.1.15.tar
+k3s ctr images import images/appscode-charts-scanner-v2026.11.11.tar
 k3s ctr images import images/appscode-charts-sealed-secrets-2.14.2.tar
 k3s ctr images import images/appscode-charts-secrets-store-csi-driver-provider-aws-0.3.6.tar
 k3s ctr images import images/appscode-charts-secrets-store-csi-driver-provider-gcp-0.1.0.tar

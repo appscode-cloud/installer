@@ -7,7 +7,7 @@ spec:
   description: |
     Tools for Secret Management
   icons:
-  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+  - src: https://cdn.appscode.com/k8s/icons/featuresets/opscenter-secret-management.svg
     type: image/svg+xml
   recommended: false
   chart:

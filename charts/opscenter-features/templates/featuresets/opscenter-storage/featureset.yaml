@@ -7,7 +7,7 @@ spec:
   description: |
     Various Storage Addons for Kubernetes
   icons:
-    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    - src: https://cdn.appscode.com/k8s/icons/featuresets/opscenter-storage.svg
       type: image/svg+xml
   recommended: false
   chart:

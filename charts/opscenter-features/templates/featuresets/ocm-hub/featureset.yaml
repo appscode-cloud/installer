@@ -7,7 +7,7 @@ spec:
   description: |
     Deploys a Multicluster Hub
   icons:
-    - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    - src: https://cdn.appscode.com/k8s/icons/featuresets/ocm-hub.svg
       type: image/svg+xml
   recommended: false
   chart:

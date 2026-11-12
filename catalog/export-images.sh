@@ -98,7 +98,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-manager-spoke:v2026.2.16 images/appscode-charts-cluster-manager-spoke-v2026.2.16.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-presets:v2026.11.15 images/appscode-charts-cluster-presets-v2026.11.15.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-profile-manager:v2026.11.7 images/appscode-charts-cluster-profile-manager-v2026.11.7.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-proxy-manager:v2026.6.26 images/appscode-charts-cluster-proxy-manager-v2026.6.26.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/cluster-proxy-manager:v2026.11.11 images/appscode-charts-cluster-proxy-manager-v2026.11.11.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/config-syncer-manager:v1.0.0 images/appscode-charts-config-syncer-manager-v1.0.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/config-syncer:v1.0.0 images/appscode-charts-config-syncer-v1.0.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/corekubestashcom-backupbatch-editor:v0.40.0 images/appscode-charts-corekubestashcom-backupbatch-editor-v0.40.0.tar
@@ -257,7 +257,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prom-label-proxy:v2026.9.22 images/appscode-charts-prom-label-proxy-v2026.9.22.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prometheus-adapter:4.9.0 images/appscode-charts-prometheus-adapter-4.9.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/reloader:2.2.9 images/appscode-charts-reloader-2.2.9.tar
-$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/scanner:v2026.1.15 images/appscode-charts-scanner-v2026.1.15.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/scanner:v2026.11.11 images/appscode-charts-scanner-v2026.11.11.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sealed-secrets:2.14.2 images/appscode-charts-sealed-secrets-2.14.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-aws:0.3.6 images/appscode-charts-secrets-store-csi-driver-provider-aws-0.3.6.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-gcp:0.1.0 images/appscode-charts-secrets-store-csi-driver-provider-gcp-0.1.0.tar
