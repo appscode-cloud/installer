@@ -1,0 +1,13 @@
+apiVersion: v2
+name: selfhost-api
+description: ACE selfhost installer API server
+type: application
+version: v2026.10.30
+appVersion: v2026.10.30
+home: https://github.com/appscode-cloud
+icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
+sources:
+- https://github.com/appscode-cloud
+maintainers:
+- name: appscode
+  email: support@appscode.com

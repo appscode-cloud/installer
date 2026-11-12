@@ -3300,6 +3300,99 @@ spec:
                   useGateway:
                     type: boolean
                 type: object
+              selfhost:
+                properties:
+                  versions:
+                    description: Older ace-installer versions that can still be rendered;
+                      the latest is helm.releases["ace-installer"].
+                    items:
+                      properties:
+                        helm:
+                          description: Snapshot of the bootstrap helm presets that
+                            shipped with this version.
+                          properties:
+                            createNamespace:
+                              type: boolean
+                            releases:
+                              additionalProperties:
+                                properties:
+                                  enabled:
+                                    type: boolean
+                                  values:
+                                    type: object
+                                    x-kubernetes-preserve-unknown-fields: true
+                                  version:
+                                    type: string
+                                required:
+                                - enabled
+                                - version
+                                type: object
+                              type: object
+                            repositories:
+                              additionalProperties:
+                                properties:
+                                  interval:
+                                    description: Interval at which to check the URL
+                                      for updates.
+                                    pattern: ^([0-9]+(\.[0-9]+)?(ms|s|m|h))+$
+                                    type: string
+                                  provider:
+                                    default: generic
+                                    description: |-
+                                      Provider used for authentication, can be 'aws', 'azure', 'gcp' or 'generic'.
+                                      This field is optional, and only taken into account if the .spec.type field is set to 'oci'.
+                                      When not specified, defaults to 'generic'.
+                                    enum:
+                                    - generic
+                                    - aws
+                                    - azure
+                                    - gcp
+                                    type: string
+                                  secretName:
+                                    description: |-
+                                      SecretRef specifies the Secret containing authentication credentials
+                                      for the HelmRepository.
+                                      For HTTP/S basic auth the secret must contain 'username' and 'password'
+                                      fields.
+                                      For TLS the secret must contain a 'certFile' and 'keyFile', and/or
+                                      'caFile' fields.
+                                    type: string
+                                  timeout:
+                                    description: The timeout of index downloading,
+                                      defaults to 60s.
+                                    type: string
+                                  type:
+                                    description: |-
+                                      Type of the HelmRepository.
+                                      When this field is set to  "oci", the URL field value must be prefixed with "oci://".
+                                    enum:
+                                    - default
+                                    - oci
+                                    type: string
+                                  url:
+                                    description: |-
+                                      URL of the Helm repository, a valid URL contains at least a protocol and
+                                      host.
+                                    type: string
+                                required:
+                                - url
+                                type: object
+                              type: object
+                          required:
+                          - createNamespace
+                          - releases
+                          - repositories
+                          type: object
+                        image:
+                          type: string
+                        version:
+                          type: string
+                      required:
+                      - image
+                      - version
+                      type: object
+                    type: array
+                type: object
               tester:
                 properties:
                   affinity:

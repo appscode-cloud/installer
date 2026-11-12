@@ -1587,6 +1587,74 @@ properties:
       useGateway:
         type: boolean
     type: object
+  selfhost:
+    properties:
+      versions:
+        items:
+          properties:
+            helm:
+              properties:
+                createNamespace:
+                  type: boolean
+                releases:
+                  additionalProperties:
+                    properties:
+                      enabled:
+                        type: boolean
+                      values:
+                        type: object
+                        x-kubernetes-preserve-unknown-fields: true
+                      version:
+                        type: string
+                    required:
+                    - enabled
+                    - version
+                    type: object
+                  type: object
+                repositories:
+                  additionalProperties:
+                    properties:
+                      interval:
+                        pattern: ^([0-9]+(\.[0-9]+)?(ms|s|m|h))+$
+                        type: string
+                      provider:
+                        default: generic
+                        enum:
+                        - generic
+                        - aws
+                        - azure
+                        - gcp
+                        type: string
+                      secretName:
+                        type: string
+                      timeout:
+                        type: string
+                      type:
+                        enum:
+                        - default
+                        - oci
+                        type: string
+                      url:
+                        type: string
+                    required:
+                    - url
+                    type: object
+                  type: object
+              required:
+              - createNamespace
+              - releases
+              - repositories
+              type: object
+            image:
+              type: string
+            version:
+              type: string
+          required:
+          - image
+          - version
+          type: object
+        type: array
+    type: object
   tester:
     properties:
       affinity:
