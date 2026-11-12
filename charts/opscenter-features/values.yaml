@@ -176,7 +176,7 @@ helm:
     reloader:
       version: "2.2.9"
     scanner:
-      version: "v2026.1.15"
+      version: "v2026.11.11"
     service-backend:
       version: "v2026.10.30"
     service-gateway:

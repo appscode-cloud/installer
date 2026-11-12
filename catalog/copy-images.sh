@@ -260,7 +260,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/pr
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prom-label-proxy:v2026.9.22 $IMAGE_REGISTRY/appscode-charts/prom-label-proxy:v2026.9.22
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prometheus-adapter:4.9.0 $IMAGE_REGISTRY/appscode-charts/prometheus-adapter:4.9.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/reloader:2.2.9 $IMAGE_REGISTRY/appscode-charts/reloader:2.2.9
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/scanner:v2026.1.15 $IMAGE_REGISTRY/appscode-charts/scanner:v2026.1.15
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/scanner:v2026.11.11 $IMAGE_REGISTRY/appscode-charts/scanner:v2026.11.11
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/sealed-secrets:2.14.2 $IMAGE_REGISTRY/appscode-charts/sealed-secrets:2.14.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-aws:0.3.6 $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-aws:0.3.6
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/secrets-store-csi-driver-provider-gcp:0.1.0 $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-gcp:0.1.0
