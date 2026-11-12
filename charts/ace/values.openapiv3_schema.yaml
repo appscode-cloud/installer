@@ -715,8 +715,16 @@ properties:
             required:
             - postgres
             type: object
+          serverJob:
+            properties:
+              enabled:
+                type: boolean
+            required:
+            - enabled
+            type: object
         required:
         - checkSchema
+        - serverJob
         type: object
       web:
         properties:

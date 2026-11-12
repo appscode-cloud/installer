@@ -68,6 +68,13 @@ type CadenceCassandraSpec struct {
 
 type CadenceSchemaSpec struct {
 	CheckSchema CadenceCheckSchemaSpec `json:"checkSchema"`
+	ServerJob   CadenceServerJobSpec   `json:"serverJob"`
+}
+
+// CadenceServerJobSpec disables the cadence chart's own schema Job; the ace
+// chart renders it as an Argo CD Sync hook instead.
+type CadenceServerJobSpec struct {
+	Enabled bool `json:"enabled"`
 }
 
 type CadenceCheckSchemaSpec struct {
