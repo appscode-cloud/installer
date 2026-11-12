@@ -66,7 +66,20 @@ spec:
         securityContext:
           {{- toYaml . | nindent 10 }}
         {{- end }}
-        command: ["/bin/sh", "/scripts/wait-postgres.sh"]
+        # After the wait, mark each database that already has a schema_version
+        # row, so cadence-schema-server skips "setup-schema -v 0.0" for it.
+        command:
+        - /bin/sh
+        - -ec
+        - |
+          . /scripts/postgres-utils.sh
+          wait_postgres_ready
+          for db in "$DB_NAME" "$DB_VISIBILITY_NAME"; do
+            if [ -n "$(psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -d "$db" -tAc 'SELECT 1 FROM schema_version LIMIT 1' 2>/dev/null)" ]; then
+              echo "Schema of $db exists"
+              touch "/schema-state/$db"
+            fi
+          done
         env:
         - name: ES_ENABLED
           value: {{ $v.config.persistence.elasticsearch.enabled | quote }}
@@ -90,7 +103,23 @@ spec:
         securityContext:
           {{- toYaml . | nindent 10 }}
         {{- end }}
-        command: ["/bin/sh", "/scripts/setup-postgres.sh"]
+        # The subchart's setup-postgres.sh runs "setup-schema -v 0.0" on every
+        # run. On an existing database that resets schema_version to 0.0, the
+        # next update-schema fails on the existing tables (error swallowed), and
+        # the cadence pods wait for the schema forever. Drop that line for each
+        # database marked by wait-for-database.
+        command:
+        - /bin/sh
+        - -ec
+        - |
+          script=$(cat /scripts/setup-postgres.sh)
+          if [ -f "/schema-state/$DB_NAME" ]; then
+            script=$(printf '%s\n' "$script" | sed '/"$DB_NAME" setup-schema/d')
+          fi
+          if [ -f "/schema-state/$DB_VISIBILITY_NAME" ]; then
+            script=$(printf '%s\n' "$script" | sed '/"$DB_VISIBILITY_NAME" setup-schema/d')
+          fi
+          printf '%s\n' "$script" | sh
         env:
         - name: DB_DRIVER
           value: "postgres"
