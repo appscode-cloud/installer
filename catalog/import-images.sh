@@ -251,7 +251,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-p
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prom-label-proxy-v2026.9.22.tar $IMAGE_REGISTRY/appscode-charts/prom-label-proxy:v2026.9.22
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prometheus-adapter-4.9.0.tar $IMAGE_REGISTRY/appscode-charts/prometheus-adapter:4.9.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-reloader-2.2.9.tar $IMAGE_REGISTRY/appscode-charts/reloader:2.2.9
-$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-scanner-v2026.1.15.tar $IMAGE_REGISTRY/appscode-charts/scanner:v2026.1.15
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-scanner-v2026.11.11.tar $IMAGE_REGISTRY/appscode-charts/scanner:v2026.11.11
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-sealed-secrets-2.14.2.tar $IMAGE_REGISTRY/appscode-charts/sealed-secrets:2.14.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-secrets-store-csi-driver-provider-aws-0.3.6.tar $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-aws:0.3.6
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-secrets-store-csi-driver-provider-gcp-0.1.0.tar $IMAGE_REGISTRY/appscode-charts/secrets-store-csi-driver-provider-gcp:0.1.0
