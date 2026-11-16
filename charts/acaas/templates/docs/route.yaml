@@ -24,14 +24,13 @@ spec:
         - path:
             type: PathPrefix
             value: /docs
-      backendRefs:
-        - group: gateway.envoyproxy.io
-          kind: Backend
-          name: docs
-          port: 443
-          weight: 1
       filters:
-        - type: URLRewrite
-          urlRewrite:
-            hostname: {{ .Values.gateway.rules.docs.upstream }}
+        - type: RequestRedirect
+          requestRedirect:
+            hostname: kubedb.com
+            path:
+              type: ReplaceFullPath
+              replaceFullPath: /docs/platform
+            scheme: http
+            statusCode: 301
 {{- end }}
