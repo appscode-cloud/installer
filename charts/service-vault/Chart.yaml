@@ -14,4 +14,4 @@ maintainers:
 dependencies:
 - name: kubevault
   repository: oci://ghcr.io/appscode-charts
-  version: v2026.10.12
+  version: v2026.11.15

@@ -97,7 +97,7 @@ helm:
       version: v1.5.1
     kubedb:
       enabled: true
-      version: "v2026.10.12"
+      version: "v2026.11.15"
       values: # +doc-gen:break
         global:
           featureGates:
@@ -121,7 +121,7 @@ helm:
           enabled: false
     kubestash:
       enabled: false
-      version: "v2026.10.12"
+      version: "v2026.11.15"
     kube-ui-server:
       enabled: true
       version: "v2026.10.30"

@@ -119,7 +119,7 @@ k3s ctr images import images/appscode-charts-gatekeeper-3.13.3.tar
 k3s ctr images import images/appscode-charts-gateway-api-v2026.9.18.tar
 k3s ctr images import images/appscode-charts-gcp-credential-manager-v2026.3.11.tar
 k3s ctr images import images/appscode-charts-grafana-operator-v2026.6.12.tar
-k3s ctr images import images/appscode-charts-hub-cluster-robot-v2026.2.16.tar
+k3s ctr images import images/appscode-charts-hub-cluster-robot-v2026.11.11.tar
 k3s ctr images import images/appscode-charts-inbox-agent-v2026.6.2.tar
 k3s ctr images import images/appscode-charts-inbox-server-v2025.12.25.tar
 k3s ctr images import images/appscode-charts-inbox-ui-v2026.10.30.tar
@@ -128,12 +128,12 @@ k3s ctr images import images/appscode-charts-keda-2.19.0.tar
 k3s ctr images import images/appscode-charts-kube-grafana-dashboards-v2023.10.1.tar
 k3s ctr images import images/appscode-charts-kube-prometheus-stack-69.2.2.tar
 k3s ctr images import images/appscode-charts-kube-ui-server-v2026.10.30.tar
-k3s ctr images import images/appscode-charts-kubedb-opscenter-v2026.10.12.tar
+k3s ctr images import images/appscode-charts-kubedb-opscenter-v2026.11.15.tar
 k3s ctr images import images/appscode-charts-kubedb-provider-aws-v2024.1.31.tar
 k3s ctr images import images/appscode-charts-kubedb-provider-azure-v2024.1.31.tar
 k3s ctr images import images/appscode-charts-kubedb-provider-gcp-v2024.1.31.tar
 k3s ctr images import images/appscode-charts-kubedb-ui-presets-v2026.10.30.tar
-k3s ctr images import images/appscode-charts-kubedb-v2026.10.12.tar
+k3s ctr images import images/appscode-charts-kubedb-v2026.11.15.tar
 k3s ctr images import images/appscode-charts-kubedbcom-aerospike-editor-v0.40.0.tar
 k3s ctr images import images/appscode-charts-kubedbcom-cassandra-editor-options-v0.40.0.tar
 k3s ctr images import images/appscode-charts-kubedbcom-cassandra-editor-v0.40.0.tar
@@ -197,9 +197,9 @@ k3s ctr images import images/appscode-charts-kubedbcom-weaviate-editor-options-v
 k3s ctr images import images/appscode-charts-kubedbcom-weaviate-editor-v0.40.0.tar
 k3s ctr images import images/appscode-charts-kubedbcom-zookeeper-editor-options-v0.40.0.tar
 k3s ctr images import images/appscode-charts-kubedbcom-zookeeper-editor-v0.40.0.tar
-k3s ctr images import images/appscode-charts-kubestash-v2026.10.12.tar
-k3s ctr images import images/appscode-charts-kubevault-opscenter-v2026.10.12.tar
-k3s ctr images import images/appscode-charts-kubevault-v2026.10.12.tar
+k3s ctr images import images/appscode-charts-kubestash-v2026.11.15.tar
+k3s ctr images import images/appscode-charts-kubevault-opscenter-v2026.11.15.tar
+k3s ctr images import images/appscode-charts-kubevault-v2026.11.15.tar
 k3s ctr images import images/appscode-charts-kyverno-policies-3.2.5.tar
 k3s ctr images import images/appscode-charts-kyverno-3.2.6.tar
 k3s ctr images import images/appscode-charts-license-proxyserver-manager-v2026.9.18.tar

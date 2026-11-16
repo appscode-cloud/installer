@@ -1,6 +1,6 @@
 dependencies:
 - name: kubevault
   repository: oci://ghcr.io/appscode-charts
-  version: v2026.10.12
-digest: sha256:42c5583efc963f16d0bd0feca163fd611f13eb310ecc18b920d16d5a91b7f195
-generated: "2026-10-12T16:57:01.469699424Z"
+  version: v2026.11.15
+digest: sha256:672e9b50382f794c2ae8d4e32210d53c4b006228706ad711776bf623dbe93659
+generated: "2026-11-16T06:12:36.498542639Z"
