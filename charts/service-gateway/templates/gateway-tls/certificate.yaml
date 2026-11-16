@@ -32,7 +32,9 @@ spec:
   {{- end }}
 
   {{- if eq .Values.infra.hostType "domain" }}
+  {{- if le (len (include "gateway.domain" .)) 64 }}
   commonName: {{ include "gateway.domain" . }}
+  {{- end }}
   dnsNames:
     - {{ include "gateway.domain" . }}
     {{- if and (eq (dig "mode" "" (.Values.gatewayClass.annotations | default dict)) "hosted") (eq .Values.infra.host "appscode.com") }}
