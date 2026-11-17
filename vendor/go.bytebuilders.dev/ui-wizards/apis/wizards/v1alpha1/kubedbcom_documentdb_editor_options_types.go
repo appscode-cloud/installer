@@ -64,7 +64,7 @@ type KubedbcomDocumentDBEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-// +kubebuilder:validation:Enum=primary;standby;stats
+// +kubebuilder:validation:Enum=primary;standby;stats;dashboard;secondary
 type DocumentDBServiceAlias string
 
 type DocumentDBServiceTemplate struct {

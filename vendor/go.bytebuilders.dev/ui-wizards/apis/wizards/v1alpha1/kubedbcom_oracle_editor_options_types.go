@@ -66,7 +66,7 @@ type KubedbcomOracleEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-// +kubebuilder:validation:Enum=primary;standby;stats
+// +kubebuilder:validation:Enum=primary;standby;stats;dashboard;secondary
 type OracleServiceAlias string
 
 type OracleServiceTemplate struct {

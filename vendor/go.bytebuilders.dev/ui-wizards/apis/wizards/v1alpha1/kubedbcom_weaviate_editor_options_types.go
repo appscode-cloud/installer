@@ -69,7 +69,7 @@ type KubedbcomWeaviateEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-// +kubebuilder:validation:Enum=primary;standby;stats
+// +kubebuilder:validation:Enum=primary;standby;stats;dashboard;secondary
 type WeaviateServiceAlias string
 
 type WeaviateServiceTemplate struct {

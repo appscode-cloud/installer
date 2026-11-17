@@ -214,8 +214,8 @@ go.bytebuilders.dev/catalog v0.1.2-0.20261006105413-f96363d5bf8d h1:ia7rE0fSSp44
 go.bytebuilders.dev/catalog v0.1.2-0.20261006105413-f96363d5bf8d/go.mod h1:mPiLkGWB48GWjsL3mVIrasruKgWBFxmeNFzcAJOIp3U=
 go.bytebuilders.dev/resource-model v0.4.1-0.20261104051707-a20a8ea03ba7 h1:7YtD+sB9yUaRJHfrCc1Ude0NksYzjYPmRAfd6rG+twg=
 go.bytebuilders.dev/resource-model v0.4.1-0.20261104051707-a20a8ea03ba7/go.mod h1:wGndjj3y+Yjh7+e8Wjc6joqzZCC16WZfKNx9adAFVkw=
-go.bytebuilders.dev/ui-wizards v0.39.2-0.20261117052502-bc8a5e8d1f5e h1:9+ERWgJU/aIuo11FnGr2XoQYWXRNHeGYoKC97kKGS88=
-go.bytebuilders.dev/ui-wizards v0.39.2-0.20261117052502-bc8a5e8d1f5e/go.mod h1:Gvl3KLmo5MQ2KNWM4p652q3Jj1NzYhIenAW4iX854Os=
+go.bytebuilders.dev/ui-wizards v0.39.1 h1:XPJgZizey5Qr+c5pp5aCJyrnm8JsYavNnvuJigyKvjI=
+go.bytebuilders.dev/ui-wizards v0.39.1/go.mod h1:Gvl3KLmo5MQ2KNWM4p652q3Jj1NzYhIenAW4iX854Os=
 go.openviz.dev/installer v0.0.0-20260619044110-702becd1dd97 h1:8fc2qZRqIL8swjMKUnmiWK/ijjEUQ9Zmhe3qRIkUrj8=
 go.openviz.dev/installer v0.0.0-20260619044110-702becd1dd97/go.mod h1:lGQ+iSgf2XHY2lTpPsuyIEp9Dfp6cLpjqzTgvy+XDmo=
 go.uber.org/automaxprocs v1.6.0 h1:O3y2/QNTOdbF+e/dpXNNW7Rx2hZ4sTIPyybbxyNqTUs=

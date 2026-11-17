@@ -65,7 +65,7 @@ type KubedbcomClickhouseEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-// +kubebuilder:validation:Enum=primary;standby;stats
+// +kubebuilder:validation:Enum=primary;standby;stats;dashboard;secondary
 type ClickhouseServiceAlias string
 
 type ClickhouseServiceTemplate struct {

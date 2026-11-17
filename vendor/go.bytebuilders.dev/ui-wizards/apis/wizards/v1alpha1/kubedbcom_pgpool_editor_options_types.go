@@ -65,7 +65,7 @@ type KubedbcomPgpoolEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-// +kubebuilder:validation:Enum=primary;standby;stats
+// +kubebuilder:validation:Enum=primary;standby;stats;dashboard;secondary
 type PgpoolServiceAlias string
 
 type PgpoolServiceTemplate struct {

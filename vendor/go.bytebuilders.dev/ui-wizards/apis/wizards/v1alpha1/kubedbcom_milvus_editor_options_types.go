@@ -75,7 +75,7 @@ type KubedbcomMilvusEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-// +kubebuilder:validation:Enum=primary;standby;stats
+// +kubebuilder:validation:Enum=primary;standby;stats;dashboard;secondary
 type MilvusServiceAlias string
 
 type MilvusServiceTemplate struct {

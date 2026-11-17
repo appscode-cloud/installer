@@ -145,8 +145,6 @@ type BackupProfile struct {
 	By BackupBy `json:"by"`
 	// +kubebuilder:default=Restic
 	Via kubestashapi.Driver `json:"via"`
-	// +optional
-	BackupStorage *BackupStorageProfile `json:"backupStorage,omitempty"`
 }
 
 // +kubebuilder:validation:Enum=BackupConfiguration;BackupBlueprint
@@ -156,12 +154,6 @@ type ArchiverProfile struct {
 	Enable ToggleProfileOnBoolean `json:"enable"`
 	// +kubebuilder:default=Restic
 	Via kubestashapi.Driver `json:"via"`
-	// +optional
-	BackupStorage *BackupStorageProfile `json:"backupStorage,omitempty"`
-}
-
-type BackupStorageProfile struct {
-	Toggle bool `json:"toggle"`
 }
 
 // *** Backup-related ends *** //

@@ -65,7 +65,7 @@ type KubedbcomDruidEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-// +kubebuilder:validation:Enum=primary;standby;stats
+// +kubebuilder:validation:Enum=primary;standby;stats;dashboard;secondary
 type DruidServiceAlias string
 
 type DruidServiceTemplate struct {

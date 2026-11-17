@@ -67,7 +67,7 @@ type KubedbcomKafkaEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-// +kubebuilder:validation:Enum=primary;stats;broker
+// +kubebuilder:validation:Enum=primary;standby;stats
 type KafkaServiceAlias string
 
 type KafkaServiceTemplate struct {

@@ -68,7 +68,7 @@ type KubedbcomCassandraEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-// +kubebuilder:validation:Enum=primary;standby;stats
+// +kubebuilder:validation:Enum=primary;standby;stats;dashboard;secondary
 type CassandraServiceAlias string
 
 type CassandraServiceTemplate struct {

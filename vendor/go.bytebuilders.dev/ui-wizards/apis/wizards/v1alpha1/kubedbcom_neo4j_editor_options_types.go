@@ -71,7 +71,7 @@ type KubedbcomNeo4jEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-// +kubebuilder:validation:Enum=primary;standby;stats
+// +kubebuilder:validation:Enum=primary;standby;stats;dashboard;secondary
 type Neo4jServiceAlias string
 
 type Neo4jServiceTemplate struct {

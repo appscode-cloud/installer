@@ -64,7 +64,7 @@ type KubedbcomRabbitMQEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-// +kubebuilder:validation:Enum=primary;stats;dashboard
+// +kubebuilder:validation:Enum=primary;standby;stats;dashboard;secondary
 type RabbitMQServiceAlias string
 
 type RabbitMQServiceTemplate struct {
