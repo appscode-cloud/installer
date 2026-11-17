@@ -382,11 +382,15 @@ backup:
     toggle: true
   by: BackupConfiguration
   via: Restic
+  backupStorage:
+    toggle: false
 archiver:
   enable:
     toggle: true
     default: false
   via: Restic
+  backupStorage:
+    toggle: false
 pointInTimeRecovery:
   default: false
   toggle: true

@@ -59,8 +59,10 @@ type KubedbcomPostgresEditorOptionsSpecSpec struct {
 	AuthSecret     AuthSecret             `json:"authSecret"`
 	Configuration  string                 `json:"configuration"`
 	// +optional
-	ArchiverName string       `json:"archiverName"`
-	Init         InitDatabase `json:"init"`
+	ArchiverName string `json:"archiverName"`
+	// +optional
+	Archiver *ArchiverOverride `json:"archiver,omitempty"`
+	Init     InitDatabase      `json:"init"`
 	// +optional
 	ServiceTemplates []PostgresServiceTemplate `json:"serviceTemplates"`
 	Admin            AdminOptions              `json:"admin"`
@@ -70,7 +72,7 @@ type KubedbcomPostgresEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-// +kubebuilder:validation:Enum=primary;standby;stats
+// +kubebuilder:validation:Enum=primary;standby;stats;readreplica
 type PostgresServiceAlias string
 
 type PostgresServiceTemplate struct {

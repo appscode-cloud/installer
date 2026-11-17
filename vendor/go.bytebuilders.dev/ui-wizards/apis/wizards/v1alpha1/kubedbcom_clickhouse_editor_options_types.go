@@ -53,9 +53,12 @@ type KubedbcomClickhouseEditorOptionsSpecSpec struct {
 	PodResources   PodResources       `json:"podResources"`
 	AuthSecret     AuthSecret         `json:"authSecret"`
 	DeletionPolicy DeletionPolicy     `json:"deletionPolicy"`
+	Configuration  string             `json:"configuration"`
 	// +optional
-	Init          InitScriptOnly `json:"init"`
-	Configuration string         `json:"configuration"`
+	ArchiverName string `json:"archiverName"`
+	// +optional
+	Archiver *ArchiverOverride `json:"archiver,omitempty"`
+	Init     InitDatabase      `json:"init"`
 	// +optional
 	ServiceTemplates []ClickhouseServiceTemplate `json:"serviceTemplates"`
 	Admin            AdminOptions                `json:"admin"`
@@ -65,7 +68,7 @@ type KubedbcomClickhouseEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-// +kubebuilder:validation:Enum=primary;standby;stats;dashboard;secondary
+// +kubebuilder:validation:Enum=primary;standby;stats
 type ClickhouseServiceAlias string
 
 type ClickhouseServiceTemplate struct {

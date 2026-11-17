@@ -60,8 +60,10 @@ type KubedbcomMssqlserverEditorOptionsSpecSpec struct {
 	DeletionPolicy DeletionPolicy          `json:"deletionPolicy"`
 	Configuration  string                  `json:"configuration"`
 	// +optional
-	ArchiverName string       `json:"archiverName"`
-	Init         InitDatabase `json:"init"`
+	ArchiverName string `json:"archiverName"`
+	// +optional
+	Archiver *ArchiverOverride `json:"archiver,omitempty"`
+	Init     InitDatabase      `json:"init"`
 	// +optional
 	ServiceTemplates []MssqlserverServiceTemplate `json:"serviceTemplates"`
 	Admin            AdminOptions                 `json:"admin"`
@@ -71,7 +73,7 @@ type KubedbcomMssqlserverEditorOptionsSpecSpec struct {
 	Openshift Openshift `json:"openshift"`
 }
 
-// +kubebuilder:validation:Enum=primary;standby;stats;dashboard;secondary
+// +kubebuilder:validation:Enum=primary;standby;stats
 type MssqlserverServiceAlias string
 
 type MssqlserverServiceTemplate struct {
