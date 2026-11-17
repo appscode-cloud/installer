@@ -231,9 +231,11 @@ The following table lists the configurable parameters of the `kubedb-ui-presets`
 | backup.enable.toggle                       |                                                                                                      | <code>true</code>                   |
 | backup.by                                  |                                                                                                      | <code>BackupConfiguration</code>    |
 | backup.via                                 |                                                                                                      | <code>Restic</code>                 |
+| backup.backupStorage.toggle                |                                                                                                      | <code>false</code>                  |
 | archiver.enable.toggle                     |                                                                                                      | <code>true</code>                   |
 | archiver.enable.default                    |                                                                                                      | <code>false</code>                  |
 | archiver.via                               |                                                                                                      | <code>Restic</code>                 |
+| archiver.backupStorage.toggle              |                                                                                                      | <code>false</code>                  |
 | pointInTimeRecovery.default                |                                                                                                      | <code>false</code>                  |
 | pointInTimeRecovery.toggle                 |                                                                                                      | <code>true</code>                   |
 | gitOps.enable.toggle                       |                                                                                                      | <code>true</code>                   |
