@@ -1,4 +1,4 @@
-{{- $anyBackend := or (index .Values "billing-ui" "enabled") (index .Values "deploy-ui" "enabled") (index .Values "marketplace-api" "enabled") (index .Values "marketplace-ui" "enabled") (index .Values "platform-links" "enabled") (index .Values "website" "enabled") }}
+{{- $anyBackend := or (index .Values "billing-ui" "enabled") (index .Values "deploy-ui" "enabled") (index .Values "marketplace-api" "enabled") (index .Values "marketplace-ui" "enabled") (index .Values "platform-links" "enabled") (index .Values "selfhost-api" "enabled") (index .Values "website" "enabled") }}
 {{- if and (index .Values "gateway" "enabled") $anyBackend }}
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
@@ -76,6 +76,20 @@ spec:
         - kind: Service
           name: {{ .Release.Name }}-platform-links
           port: 80
+  {{- end }}
+
+  {{- if (index .Values "selfhost-api" "enabled") }}
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api/v1/ace-installer
+      backendRefs:
+        - kind: Service
+          name: {{ .Release.Name }}-selfhost-api
+          port: 80
+      # Older installer versions are rendered by a Job synchronously within the request.
+      timeouts:
+        request: 300s
   {{- end }}
 
   {{- if (index .Values "website" "enabled") }}

@@ -20,6 +20,9 @@ marketplace-ui:
 platform-links:
   enabled: false
 
+selfhost-api:
+  enabled: false
+
 website:
   enabled: false
 

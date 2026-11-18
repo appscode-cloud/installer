@@ -125,6 +125,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&PlatformOpscenters{},
 		&PlatformUi{},
 		&PlatformUiList{},
+		&SelfhostApi{},
+		&SelfhostApiList{},
 		&Smtprelay{},
 		&SmtprelayList{},
 		&StashPresets{},

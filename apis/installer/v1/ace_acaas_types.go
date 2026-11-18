@@ -50,6 +50,7 @@ type AcaasSpec struct {
 	MarketplaceApi AceMarketplaceApi `json:"marketplace-api"`
 	MarketplaceUi  AceMarketplaceUi  `json:"marketplace-ui"`
 	PlatformLinks  AcePlatformLinks  `json:"platform-links"`
+	SelfhostApi    AceSelfhostApi    `json:"selfhost-api"`
 	Website        AceWebsite        `json:"website"`
 
 	Global  AcaasGlobalValues `json:"global"`
@@ -80,6 +81,11 @@ type AceDnsProxy struct {
 type AceMarketplaceApi struct {
 	Enabled             bool `json:"enabled"`
 	*MarketplaceApiSpec `json:",inline,omitempty"`
+}
+
+type AceSelfhostApi struct {
+	Enabled          bool `json:"enabled"`
+	*SelfhostApiSpec `json:",inline,omitempty"`
 }
 
 type AceMarketplaceUi struct {

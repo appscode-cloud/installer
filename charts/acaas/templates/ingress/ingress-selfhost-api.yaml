@@ -1,0 +1,30 @@
+{{- if and (index .Values "ingress" "enabled") (index .Values "selfhost-api" "enabled") }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ace-hosted-selfhost-api
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "acaas.labels" . | nindent 4 }}
+  # Older installer versions are rendered by a Job synchronously within the request.
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+spec:
+  ingressClassName: {{ .Values.ingress.className }}
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: {{ .Release.Name }}-selfhost-api
+            port:
+              number: 80
+        path: /api/v1/ace-installer
+        pathType: Prefix
+    host: {{ .Values.global.platform.host }}
+  tls:
+  - secretName: {{ default (printf "%s-cert" (include "acaas.fullname" .)) .Values.ingress.tls.secret.name }}
+    hosts:
+    - '{{ .Values.global.platform.host }}'
+{{- end }}
