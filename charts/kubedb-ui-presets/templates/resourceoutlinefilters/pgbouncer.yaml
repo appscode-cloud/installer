@@ -6,6 +6,7 @@ spec:
   actions:
   - items:
       Reconfigure: true
+      Rotate Auth: true
       Update Version: true
     name: Operations
     show: true
