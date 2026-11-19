@@ -929,7 +929,7 @@ kmodules.xyz/custom-resources/crds
 # kmodules.xyz/go-containerregistry v0.0.15
 ## explicit; go 1.24.0
 kmodules.xyz/go-containerregistry/name
-# kmodules.xyz/image-packer v0.0.0-20261017085800-d6c2b59bd12d
+# kmodules.xyz/image-packer v0.0.0-20261110190620-702e4ab75469
 ## explicit; go 1.25.0
 kmodules.xyz/image-packer/pkg/lib
 # kmodules.xyz/monitoring-agent-api v0.34.0
@@ -944,7 +944,7 @@ kmodules.xyz/offshoot-api/api/v1
 # kmodules.xyz/prober v0.34.0
 ## explicit; go 1.24.0
 kmodules.xyz/prober/api/v1
-# kmodules.xyz/resource-metadata v0.51.1
+# kmodules.xyz/resource-metadata v0.52.0
 ## explicit; go 1.25.0
 kmodules.xyz/resource-metadata/apis/shared
 kmodules.xyz/resource-metadata/apis/ui
@@ -957,7 +957,7 @@ kmodules.xyz/schema-checker
 ## explicit; go 1.25.0
 kubeops.dev/external-dns-operator/apis/external
 kubeops.dev/external-dns-operator/apis/external/v1alpha1
-# kubeops.dev/installer v0.0.0-20261017111602-ec2b982d67b8
+# kubeops.dev/installer v0.0.0-20261118231202-ac6e83dddbb7
 ## explicit; go 1.25.0
 kubeops.dev/installer/apis/installer
 kubeops.dev/installer/apis/installer/v1alpha1
