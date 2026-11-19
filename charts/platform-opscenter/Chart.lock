@@ -1,12 +1,12 @@
 dependencies:
 - name: platform-grafana-dashboards
   repository: file://../platform-grafana-dashboards
-  version: v2026.10.30
+  version: v2026.11.15
 - name: openfga-alerts
   repository: oci://ghcr.io/appscode-charts
   version: v2026.7.14
 - name: nats-alerts
   repository: oci://ghcr.io/appscode-charts
   version: v2026.2.24
-digest: sha256:b849da16526ea00f87c5f29fcfa21566c8379247ec0c88ee2b84816d976b41b8
-generated: "2026-11-10T16:35:34.038960333Z"
+digest: sha256:8e3885f415b6e39fed2f4de4f4a5b0f3df128b6d26625aa979af215ec1f5c45e
+generated: "2026-11-10T21:29:08.220126123Z"

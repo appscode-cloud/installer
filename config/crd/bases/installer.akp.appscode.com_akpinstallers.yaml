@@ -64,6 +64,8 @@ spec:
                       properties:
                         enabled:
                           type: boolean
+                        namespace:
+                          type: string
                         values:
                           type: object
                           x-kubernetes-preserve-unknown-fields: true
@@ -3318,6 +3320,8 @@ spec:
                                 properties:
                                   enabled:
                                     type: boolean
+                                  namespace:
+                                    type: string
                                   values:
                                     type: object
                                     x-kubernetes-preserve-unknown-fields: true
