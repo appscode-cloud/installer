@@ -8,6 +8,7 @@ spec:
       Update Version: true
       Reconfigure: true
       Restart: true
+      Rotate Auth: true
     name: Operations
     show: true
   - items:
