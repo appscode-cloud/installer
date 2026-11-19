@@ -25,8 +25,8 @@ if [ -z "${TAG}" ]; then
     exit 1
 fi
 
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/acaas:v2026.10.30 $IMAGE_REGISTRY/acaas:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace-installer:v2026.10.30 $IMAGE_REGISTRY/ace-installer:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace:v2026.10.30 $IMAGE_REGISTRY/ace:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/akp-installer:v2026.10.30 $IMAGE_REGISTRY/akp-installer:$TAG
-crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/service-gateway:v2026.10.30 $IMAGE_REGISTRY/service-gateway:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/acaas:v2026.11.15 $IMAGE_REGISTRY/acaas:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace-installer:v2026.11.15 $IMAGE_REGISTRY/ace-installer:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/ace:v2026.11.15 $IMAGE_REGISTRY/ace:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/akp-installer:v2026.11.15 $IMAGE_REGISTRY/akp-installer:$TAG
+crane cp --allow-nondistributable-artifacts ghcr.io/appscode-charts/service-gateway:v2026.11.15 $IMAGE_REGISTRY/service-gateway:$TAG
