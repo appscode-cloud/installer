@@ -140,12 +140,19 @@ persistence:
   nats: 2Gi
   b3: 5Gi
 
-# ---- NATS with JetStream (b3's task manager, the patch console's agent ingest) ----
+# ---- NATS in operator mode, with JetStream (b3's per-account NATS, the patch console's agent ingest) ----
+# One server. WebSocket on 8080, routed at /nats for browsers.
 nats:
   enabled: true
   image:
     repository: ghcr.io/appscode-images/nats
     tag: 2.12.6-alpine
+    digest: ""
+    pullPolicy: IfNotPresent
+  # Makes the operator, system and admin identities once (nsc), in a hook Job.
+  natsBox:
+    repository: natsio/nats-box
+    tag: 0.19.2
     digest: ""
     pullPolicy: IfNotPresent
   resources:
@@ -162,6 +169,8 @@ b3:
   replicaCount: 1
   appName: Kubepatch
   runMode: GA
+  # The site administration organization `b3 dev` makes, owned by the administrator.
+  siteOrganization: kubepatch
   logLevel: Info
   # [session] and [cache]. `memory` is right for one replica; use `redis` (provider config and
   # host strings in b3's format) for more.
@@ -262,7 +271,8 @@ patchConsole:
 
 # ---- the first AKP site administrator ----
 akpBootstrap:
-  # Make the administrator `casdoor.admin` in AKP's iam: an iam account, linked to its Casdoor user.
+  # Run `b3 admin iam-bootstrap-admin` for `casdoor.admin`: a site administrator in iam, which links it to the
+  # Casdoor user of the same name at the first sign-in.
   enabled: true
 
 # ---- sub-charts ----
