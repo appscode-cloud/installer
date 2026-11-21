@@ -25,6 +25,7 @@
 - ghcr.io/appscode/akp-crd-manager:v0.0.1
 - ghcr.io/appscode/b3:v2026.11.15
 - ghcr.io/appscode/billing-ui:3.1.0
+- ghcr.io/appscode/casdoor:v4.29.0-3391e5fe
 - ghcr.io/appscode/catalog-manager:v0.15.0
 - ghcr.io/appscode/cert-manager-webhook-ace:v0.0.2
 - ghcr.io/appscode/cloudflare-dns-proxy:v0.0.5
@@ -48,6 +49,8 @@
 - ghcr.io/appscode/offline-license-server:v0.0.76
 - ghcr.io/appscode/openfga:v1.11.3
 - ghcr.io/appscode/outboxsyncer:v0.6.0
+- ghcr.io/appscode/patch-console-ui:dev
+- ghcr.io/appscode/patch-console:dev
 - ghcr.io/appscode/pgoutbox:v0.0.4
 - ghcr.io/appscode/platform-ui:3.1.0
 - ghcr.io/appscode/prom-authproxy:v0.0.2
