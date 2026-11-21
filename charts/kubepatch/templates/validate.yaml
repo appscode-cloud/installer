@@ -3,7 +3,7 @@
 {{- if not .Values.credentials.existingSecret }}{{ fail "production: credentials.existingSecret is required (generated credentials are for tests)" }}{{ end }}
 {{- if eq .Values.tls.mode "selfSigned" }}{{ fail "production: tls.mode must be existing or none, not selfSigned" }}{{ end }}
 {{- if not .Values.postgres.external.enabled }}{{ fail "production: postgres.external.enabled is required (the chart-run Postgres is a single pod)" }}{{ end }}
-{{- $images := dict "casdoor" .Values.casdoor.image "nats" .Values.nats.image "b3" .Values.b3.image "patchConsole" .Values.patchConsole.image "patchConsoleUi" .Values.patchConsole.ui.image }}
+{{- $images := dict "casdoor" .Values.casdoor.image "nats" .Values.nats.image "natsBox" .Values.nats.natsBox "b3" .Values.b3.image "patchConsole" .Values.patchConsole.image "patchConsoleUi" .Values.patchConsole.ui.image }}
 {{- range $name, $img := $images }}
 {{- if not $img.digest }}{{ fail (printf "production: %s image needs a digest (sha256:...)" $name) }}{{ end }}
 {{- end }}

@@ -190,6 +190,7 @@ type KubepatchPersistence struct {
 type KubepatchNATS struct {
 	Enabled bool           `json:"enabled"`
 	Image   KubepatchImage `json:"image"`
+	NatsBox KubepatchImage `json:"natsBox"`
 	// +optional
 	Resources core.ResourceRequirements `json:"resources"`
 }
