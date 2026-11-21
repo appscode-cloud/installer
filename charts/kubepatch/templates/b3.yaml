@@ -1,0 +1,175 @@
+{{- if .Values.b3.enabled }}
+{{- $fn := include "kubepatch.fullname" . }}
+{{- $name := include "kubepatch.b3name" . }}
+{{- $b3 := .Values.b3 }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kubepatch.labels" . | nindent 4 }}
+spec:
+  ports:
+  - { name: http, port: 80, targetPort: http }
+  selector:
+    {{- include "kubepatch.selector" (dict "root" . "component" "b3") | nindent 4 }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $name }}-headless
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kubepatch.labels" . | nindent 4 }}
+spec:
+  clusterIP: None
+  ports:
+  - { name: http, port: 80, targetPort: http }
+  selector:
+    {{- include "kubepatch.selector" (dict "root" . "component" "b3") | nindent 4 }}
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ $name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kubepatch.labels" . | nindent 4 }}
+spec:
+  replicas: {{ $b3.replicaCount }}
+  podManagementPolicy: Parallel
+  serviceName: {{ $name }}-headless
+  selector:
+    matchLabels:
+      {{- include "kubepatch.selector" (dict "root" . "component" "b3") | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "kubepatch.selector" (dict "root" . "component" "b3") | nindent 8 }}
+      annotations:
+        kubectl.kubernetes.io/default-container: b3
+        # app.ini is a Secret made in secrets.yaml; restart when it changes.
+        checksum/app-ini: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum | trunc 16 }}
+        {{- with $b3.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- include "kubepatch.imagePullSecrets" . | nindent 6 }}
+      securityContext:
+        fsGroup: 65534
+      initContainers:
+      # Creates AKP's tables and iam's before the API takes traffic. Retries until Postgres is up.
+      - name: migrate
+        image: {{ include "kubepatch.image" (dict "root" . "image" $b3.image) }}
+        imagePullPolicy: {{ $b3.image.pullPolicy }}
+        args: ["migrate"]
+        securityContext:
+          {{- toYaml $b3.securityContext | nindent 10 }}
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+        - { name: data, mountPath: /data }
+        - { name: config, mountPath: /data/b3/conf }
+      containers:
+      - name: b3
+        image: {{ include "kubepatch.image" (dict "root" . "image" $b3.image) }}
+        imagePullPolicy: {{ $b3.image.pullPolicy }}
+        args: ["api"]
+        securityContext:
+          {{- toYaml $b3.securityContext | nindent 10 }}
+        ports:
+        - { name: http, containerPort: 3003 }
+        # /healthz is served in every identity mode; /api/v1/version is not mounted in v2_only.
+        startupProbe:
+          httpGet: { path: /healthz, port: http }
+          periodSeconds: 10
+          failureThreshold: 60
+        livenessProbe:
+          httpGet: { path: /healthz, port: http }
+          timeoutSeconds: 10
+          periodSeconds: 20
+          failureThreshold: 6
+        readinessProbe:
+          httpGet: { path: /healthz, port: http }
+          timeoutSeconds: 5
+          periodSeconds: 10
+        resources:
+          {{- toYaml $b3.resources | nindent 10 }}
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+        - { name: data, mountPath: /data }
+        - { name: config, mountPath: /data/b3/conf }
+      volumes:
+      - name: tmp
+        emptyDir: {}
+      - name: config
+        secret:
+          secretName: {{ $fn }}-app-ini
+          items:
+          - { key: app.ini, path: app.ini, mode: 0444 }
+          - { key: user.ini, path: user.ini, mode: 0444 }
+          - { key: system.ini, path: system.ini, mode: 0444 }
+      {{- with $b3.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with $b3.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      {{- with .Values.persistence.storageClassName }}
+      storageClassName: {{ . }}
+      {{- end }}
+      resources:
+        requests:
+          storage: {{ .Values.persistence.b3 }}
+{{- if $b3.worker.enabled }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $name }}-worker
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kubepatch.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "kubepatch.selector" (dict "root" . "component" "b3-worker") | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "kubepatch.selector" (dict "root" . "component" "b3-worker") | nindent 8 }}
+      annotations:
+        checksum/app-ini: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum | trunc 16 }}
+    spec:
+      {{- include "kubepatch.imagePullSecrets" . | nindent 6 }}
+      containers:
+      - name: worker
+        image: {{ include "kubepatch.image" (dict "root" . "image" $b3.image) }}
+        imagePullPolicy: {{ $b3.image.pullPolicy }}
+        args: ["worker"]
+        securityContext:
+          {{- toYaml $b3.securityContext | nindent 10 }}
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+        - { name: data, mountPath: /data }
+        - { name: config, mountPath: /data/b3/conf }
+      volumes:
+      - { name: tmp, emptyDir: {} }
+      - { name: data, emptyDir: {} }
+      - name: config
+        secret:
+          secretName: {{ $fn }}-app-ini
+          items:
+          - { key: app.ini, path: app.ini, mode: 0444 }
+          - { key: user.ini, path: user.ini, mode: 0444 }
+          - { key: system.ini, path: system.ini, mode: 0444 }
+{{- end }}
+{{- end }}

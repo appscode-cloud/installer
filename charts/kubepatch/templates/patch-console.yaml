@@ -1,0 +1,252 @@
+{{- if .Values.patchConsole.enabled }}
+{{- $fn := include "kubepatch.fullname" . }}
+{{- $pc := .Values.patchConsole }}
+{{- $cred := include "kubepatch.credentialsSecret" . }}
+{{- $public := include "kubepatch.publicUrl" . }}
+{{- $casdoorEndpoint := default (printf "http://%s-casdoor.%s.svc:8000" $fn .Release.Namespace) .Values.casdoor.endpoint }}
+{{- $labels := include "kubepatch.labels" . }}
+{{- $podSec := dict "runAsNonRoot" true "seccompProfile" (dict "type" "RuntimeDefault") }}
+{{- $ctrSec := dict "allowPrivilegeEscalation" false "readOnlyRootFilesystem" true "capabilities" (dict "drop" (list "ALL")) }}
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ $fn }}-patch
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- $labels | nindent 4 }}
+automountServiceAccountToken: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fn }}-patch-hub
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- $labels | nindent 4 }}
+spec:
+  replicas: {{ $pc.hub.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "kubepatch.selector" (dict "root" . "component" "patch-hub") | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "kubepatch.selector" (dict "root" . "component" "patch-hub") | nindent 8 }}
+      annotations:
+        checksum/db: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum | trunc 16 }}
+    spec:
+      serviceAccountName: {{ $fn }}-patch
+      automountServiceAccountToken: false
+      {{- include "kubepatch.imagePullSecrets" . | nindent 6 }}
+      securityContext:
+        {{- toYaml $podSec | nindent 8 }}
+      initContainers:
+      # Schema first: iam's tables and the console's. Retries until Postgres is up.
+      - name: migrate
+        image: {{ include "kubepatch.image" (dict "root" . "image" $pc.image) }}
+        imagePullPolicy: {{ $pc.image.pullPolicy }}
+        args: ["migrate", "up"]
+        securityContext:
+          {{- toYaml $ctrSec | nindent 10 }}
+        env:
+        {{- include "kubepatch.patchEnv" . | nindent 8 }}
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+        - { name: database-url, mountPath: /var/run/secrets/patch-console/database, readOnly: true }
+      containers:
+      - name: hub
+        image: {{ include "kubepatch.image" (dict "root" . "image" $pc.image) }}
+        imagePullPolicy: {{ $pc.image.pullPolicy }}
+        args: ["hub"]
+        securityContext:
+          {{- toYaml $ctrSec | nindent 10 }}
+        ports:
+        - { name: http, containerPort: 8080 }
+        env:
+        {{- include "kubepatch.patchEnv" . | nindent 8 }}
+        - name: PATCH_CONSOLE_PUBLIC_URL
+          value: {{ $public | quote }}
+        - name: IAM_ROOT_KEY
+          valueFrom: { secretKeyRef: { name: {{ $cred }}, key: patch-iam-root-key } }
+        - name: CASDOOR_ENDPOINT
+          value: {{ $casdoorEndpoint | quote }}
+        - name: CASDOOR_PUBLIC_URL
+          value: {{ include "kubepatch.casdoorPublicUrl" . | quote }}
+        - name: CASDOOR_ORGANIZATION
+          value: {{ .Values.casdoor.organization | quote }}
+        - name: CASDOOR_APPLICATION
+          value: {{ .Values.casdoor.patchApplication.name | quote }}
+        - name: CASDOOR_CLIENT_ID
+          value: {{ .Values.casdoor.patchApplication.clientId | quote }}
+        - name: CASDOOR_CLIENT_SECRET
+          valueFrom: { secretKeyRef: { name: {{ $cred }}, key: patch-casdoor-client-secret } }
+        {{- if .Values.nats.enabled }}
+        - name: PATCH_CONSOLE_NATS_URL
+          value: {{ include "kubepatch.natsUrl" . | quote }}
+        - name: PATCH_CONSOLE_NATS_MANAGE_STREAM
+          value: "true"
+        {{- end }}
+        - name: PATCH_CONSOLE_CLUSTER_DIRECTORY
+          value: {{ default (ternary "akp" "table" (ne $pc.akp.tokenSecret "")) $pc.hub.clusterDirectory | quote }}
+        - name: PATCH_CONSOLE_PRODUCTION
+          value: {{ .Values.production | quote }}
+        {{- /* The hub refuses an http AKP URL: it calls AKP at its public address, whose certificate it must trust. */}}
+        {{- if and (or $pc.akp.url .Values.b3.enabled) $pc.akp.tokenSecret }}
+        - name: PATCH_CONSOLE_AKP_URL
+          value: {{ default $public $pc.akp.url | quote }}
+        {{- end }}
+        {{- if and (eq .Values.tls.mode "selfSigned") (not $pc.akp.url) $pc.akp.tokenSecret }}
+        - name: PATCH_CONSOLE_AKP_CA_FILE
+          value: /var/run/secrets/kubepatch/tls/tls.crt
+        {{- end }}
+        {{- if $pc.akp.tokenSecret }}
+        - name: PATCH_CONSOLE_AKP_TOKEN_VALUE
+          valueFrom: { secretKeyRef: { name: {{ $pc.akp.tokenSecret }}, key: token } }
+        # A reference, resolved at each call: the client never keeps the credential.
+        - name: PATCH_CONSOLE_AKP_TOKEN
+          value: env:PATCH_CONSOLE_AKP_TOKEN_VALUE
+        {{- end }}
+        - name: PATCH_CONSOLE_BLOB_DIR
+          value: /var/lib/patch-console/blobs
+        {{- with $pc.hub.extraEnv }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+        livenessProbe:
+          httpGet: { path: /healthz, port: http }
+        readinessProbe:
+          httpGet: { path: /readyz, port: http }
+        resources:
+          {{- toYaml $pc.hub.resources | nindent 10 }}
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+        - { name: blobs, mountPath: /var/lib/patch-console/blobs }
+        - { name: database-url, mountPath: /var/run/secrets/patch-console/database, readOnly: true }
+        {{- if eq .Values.tls.mode "selfSigned" }}
+        - { name: tls, mountPath: /var/run/secrets/kubepatch/tls, readOnly: true }
+        {{- end }}
+      volumes:
+      {{- if eq .Values.tls.mode "selfSigned" }}
+      - name: tls
+        secret:
+          secretName: {{ include "kubepatch.tlsSecret" . }}
+          items:
+          - { key: tls.crt, path: tls.crt }
+      {{- end }}
+      - { name: tmp, emptyDir: {} }
+      - name: blobs
+        {{- if $pc.blobStore.existingClaim }}
+        persistentVolumeClaim:
+          claimName: {{ $pc.blobStore.existingClaim }}
+        {{- else }}
+        # Lost with the pod: components stay in the database, SBOM documents do not.
+        emptyDir:
+          sizeLimit: 2Gi
+        {{- end }}
+      - name: database-url
+        secret:
+          secretName: {{ $fn }}-patch-database
+          items:
+          - { key: url, path: url }
+      {{- with $pc.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with $pc.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $fn }}-patch-hub
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- $labels | nindent 4 }}
+spec:
+  ports:
+  - name: http
+    port: {{ $pc.hub.service.port }}
+    targetPort: http
+    # The hub serves h2c: Connect streaming needs HTTP/2 end to end.
+    appProtocol: kubernetes.io/h2c
+  selector:
+    {{- include "kubepatch.selector" (dict "root" . "component" "patch-hub") | nindent 4 }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fn }}-patch-ui
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- $labels | nindent 4 }}
+spec:
+  replicas: {{ $pc.ui.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "kubepatch.selector" (dict "root" . "component" "patch-ui") | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "kubepatch.selector" (dict "root" . "component" "patch-ui") | nindent 8 }}
+    spec:
+      serviceAccountName: {{ $fn }}-patch
+      automountServiceAccountToken: false
+      {{- include "kubepatch.imagePullSecrets" . | nindent 6 }}
+      securityContext:
+        {{- toYaml $podSec | nindent 8 }}
+      containers:
+      - name: ui
+        image: {{ include "kubepatch.image" (dict "root" . "image" $pc.ui.image) }}
+        imagePullPolicy: {{ $pc.image.pullPolicy }}
+        securityContext:
+          {{- toYaml $ctrSec | nindent 10 }}
+        env:
+        # The UI's nginx proxies the console's API prefix (/patch/api) here.
+        - name: HUB_UPSTREAM
+          value: http://{{ $fn }}-patch-hub:{{ $pc.hub.service.port }}
+        ports:
+        - { name: http, containerPort: 8080 }
+        volumeMounts:
+        - { name: nginx-conf, mountPath: /etc/nginx/conf.d }
+        - { name: nginx-cache, mountPath: /var/cache/nginx }
+        - { name: nginx-run, mountPath: /var/run }
+        - { name: tmp, mountPath: /tmp }
+        - { name: console-config, mountPath: /usr/share/nginx/html/patch/config.js, subPath: config.js, readOnly: true }
+        readinessProbe:
+          httpGet: { path: /patch/, port: http }
+        resources:
+          {{- toYaml $pc.ui.resources | nindent 10 }}
+      volumes:
+      - { name: nginx-conf, emptyDir: {} }
+      - { name: nginx-cache, emptyDir: {} }
+      - { name: nginx-run, emptyDir: {} }
+      - { name: tmp, emptyDir: {} }
+      - name: console-config
+        configMap:
+          name: {{ $fn }}-patch-ui-config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $fn }}-patch-ui-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- $labels | nindent 4 }}
+data:
+  config.js: |
+    window.__PATCH_CONSOLE__ = {{ toJson (dict "clusterUiBaseUrl" (ternary (printf "%s/console" (include "kubepatch.publicUrl" .)) "" (index .Values "cluster-ui" "enabled")) "clusterUiCveReportPath" "/clusters/{cluster}/security/cve-report") }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $fn }}-patch-ui
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- $labels | nindent 4 }}
+spec:
+  ports:
+  - { name: http, port: 80, targetPort: http }
+  selector:
+    {{- include "kubepatch.selector" (dict "root" . "component" "patch-ui") | nindent 4 }}
+{{- end }}

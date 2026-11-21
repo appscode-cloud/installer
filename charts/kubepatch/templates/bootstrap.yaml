@@ -1,0 +1,117 @@
+{{- $fn := include "kubepatch.fullname" . }}
+{{- $cred := include "kubepatch.credentialsSecret" . }}
+{{- $pg := .Values.postgres }}
+{{- $admin := .Values.casdoor.admin }}
+{{- if and .Values.b3.enabled .Values.akpBootstrap.enabled .Values.casdoor.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ $fn }}-akp-bootstrap
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kubepatch.labels" . | nindent 4 }}
+  annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-weight: "5"
+    helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
+spec:
+  backoffLimit: 30
+  template:
+    metadata:
+      labels:
+        {{- include "kubepatch.selector" (dict "root" . "component" "akp-bootstrap") | nindent 8 }}
+    spec:
+      restartPolicy: OnFailure
+      {{- include "kubepatch.imagePullSecrets" . | nindent 6 }}
+      containers:
+      - name: bootstrap
+        image: {{ include "kubepatch.image" (dict "root" . "image" $pg.image) }}
+        imagePullPolicy: {{ $pg.image.pullPolicy }}
+        command: ["bash", "-c"]
+        args:
+        - |
+          set -euo pipefail
+          # b3 makes iam's tables and the id sequence when it starts; wait for both.
+          for i in $(seq 1 90); do
+            if [ "$(psql -tAc "select to_regclass('iam_account') is not null and to_regclass('akp_account_id_seq') is not null")" = t ]; then break; fi
+            sleep 5
+          done
+          # The administrator is an iam site administrator whose id comes from AKP's numeric
+          # sequence (b3 refuses other ids), linked to its Casdoor user. Safe to run again.
+          psql -v ON_ERROR_STOP=1 -v n="$ADMIN_NAME" -v e="$ADMIN_EMAIL" -v d="$ADMIN_DISPLAY" -v cid="$ADMIN_CASDOOR_ID" <<'SQL'
+          INSERT INTO iam_account (id, kind, name, lower_name, display_name, email, site_admin)
+          SELECT nextval('akp_account_id_seq')::text, 1, :'n', lower(:'n'), :'d', :'e', true
+          WHERE NOT EXISTS (SELECT 1 FROM iam_account WHERE lower_name = lower(:'n'));
+          INSERT INTO iam_identity (issuer, subject, account_id)
+          SELECT 'casdoor', :'cid', id FROM iam_account WHERE lower_name = lower(:'n')
+          ON CONFLICT DO NOTHING;
+          SQL
+        env:
+        - { name: PGHOST, value: {{ include "kubepatch.pgHost" . | quote }} }
+        - { name: PGPORT, value: {{ include "kubepatch.pgPort" . | quote }} }
+        - { name: PGDATABASE, value: {{ $pg.databases.akp.name | quote }} }
+        - { name: PGUSER, value: {{ $pg.databases.akp.user | quote }} }
+        - { name: PGSSLMODE, value: {{ include "kubepatch.pgSslmode" . | quote }} }
+        - name: PGPASSWORD
+          valueFrom: { secretKeyRef: { name: {{ $cred }}, key: akp-db-password } }
+        - name: ADMIN_CASDOOR_ID
+          valueFrom: { secretKeyRef: { name: {{ $cred }}, key: admin-casdoor-id } }
+        - { name: ADMIN_NAME, value: {{ $admin.username | quote }} }
+        - { name: ADMIN_EMAIL, value: {{ $admin.email | quote }} }
+        - { name: ADMIN_DISPLAY, value: {{ $admin.displayName | quote }} }
+{{- end }}
+{{- if and .Values.patchConsole.enabled .Values.patchConsole.bootstrap.enabled .Values.casdoor.enabled }}
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ $fn }}-patch-bootstrap
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kubepatch.labels" . | nindent 4 }}
+  annotations:
+    helm.sh/hook: post-install
+    helm.sh/hook-weight: "5"
+    helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
+spec:
+  backoffLimit: 30
+  template:
+    metadata:
+      labels:
+        {{- include "kubepatch.selector" (dict "root" . "component" "patch-bootstrap") | nindent 8 }}
+    spec:
+      restartPolicy: OnFailure
+      automountServiceAccountToken: false
+      {{- include "kubepatch.imagePullSecrets" . | nindent 6 }}
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: bootstrap
+        image: {{ include "kubepatch.image" (dict "root" . "image" .Values.patchConsole.image) }}
+        imagePullPolicy: {{ .Values.patchConsole.image.pullPolicy }}
+        # The first site administrator, linked to their Casdoor user, and an organization they own.
+        # Only at install: a second run would find the name taken. Retried until `migrate up` has made the schema.
+        args: ["iam", "bootstrap", "--name", "$(ADMIN_NAME)", "--email", "$(ADMIN_EMAIL)", "--casdoor-user-id", "$(ADMIN_CASDOOR_ID)", "--org", "$(ORG)"]
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop: ["ALL"]
+        env:
+        - { name: PATCH_CONSOLE_DATABASE_URL_FILE, value: /var/run/secrets/patch-console/database/url }
+        - name: ADMIN_CASDOOR_ID
+          valueFrom: { secretKeyRef: { name: {{ $cred }}, key: admin-casdoor-id } }
+        - { name: ADMIN_NAME, value: {{ $admin.username | quote }} }
+        - { name: ADMIN_EMAIL, value: {{ $admin.email | quote }} }
+        - { name: ORG, value: {{ .Values.patchConsole.bootstrap.organization | quote }} }
+        volumeMounts:
+        - { name: database-url, mountPath: /var/run/secrets/patch-console/database, readOnly: true }
+      volumes:
+      - name: database-url
+        secret:
+          secretName: {{ $fn }}-patch-database
+          items:
+          - { key: url, path: url }
+{{- end }}
