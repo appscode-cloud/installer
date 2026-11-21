@@ -110,6 +110,10 @@ imagePullSecrets:
 {{- $r = append $r (dict "path" "/iam" "svc" (include "kubepatch.b3name" .) "port" 80) -}}
 {{- end -}}
 {{- end -}}
+{{- if .Values.nats.enabled -}}
+{{- /* Placeholder: browsers reach NATS over WebSocket here once the UI uses it. */ -}}
+{{- $r = append $r (dict "path" "/nats" "svc" (printf "%s-nats" $fn) "port" 8080) -}}
+{{- end -}}
 {{- if index .Values "cluster-ui" "enabled" -}}
 {{- $r = append $r (dict "path" "/console" "svc" (include "kubepatch.svc.clusterUi" .) "port" 80) -}}
 {{- end -}}

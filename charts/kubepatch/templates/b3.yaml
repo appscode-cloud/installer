@@ -59,7 +59,8 @@ spec:
       securityContext:
         fsGroup: 65534
       initContainers:
-      # Creates AKP's tables and iam's before the API takes traffic. Retries until Postgres is up.
+      # The order is b3's own (docs/iam-modes.md, "A fresh install in v2_only"): the tables of the product, the first
+      # site administrator, then the NATS accounts and the site organization. Each retries until what it needs is up.
       - name: migrate
         image: {{ include "kubepatch.image" (dict "root" . "image" $b3.image) }}
         imagePullPolicy: {{ $b3.image.pullPolicy }}
@@ -70,6 +71,40 @@ spec:
         - { name: tmp, mountPath: /tmp }
         - { name: data, mountPath: /data }
         - { name: config, mountPath: /data/b3/conf }
+        {{- if .Values.nats.enabled }}
+        - { name: nats-creds, mountPath: /nats/creds, readOnly: true }
+        {{- end }}
+      {{- if .Values.akpBootstrap.enabled }}
+      - name: bootstrap-admin
+        image: {{ include "kubepatch.image" (dict "root" . "image" $b3.image) }}
+        imagePullPolicy: {{ $b3.image.pullPolicy }}
+        args: ["admin", "iam-bootstrap-admin", "--name", {{ .Values.casdoor.admin.username | quote }}, "--email", {{ .Values.casdoor.admin.email | quote }}, "--full-name", {{ .Values.casdoor.admin.displayName | quote }}]
+        securityContext:
+          {{- toYaml $b3.securityContext | nindent 10 }}
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+        - { name: data, mountPath: /data }
+        - { name: config, mountPath: /data/b3/conf }
+        {{- if .Values.nats.enabled }}
+        - { name: nats-creds, mountPath: /nats/creds, readOnly: true }
+        {{- end }}
+      {{- end }}
+      {{- if .Values.nats.enabled }}
+      - name: setup
+        image: {{ include "kubepatch.image" (dict "root" . "image" $b3.image) }}
+        imagePullPolicy: {{ $b3.image.pullPolicy }}
+        args: ["dev", "--setup-config=/setup/config.yaml", "--timeout=10m"]
+        securityContext:
+          {{- toYaml $b3.securityContext | nindent 10 }}
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+        - { name: data, mountPath: /data }
+        - { name: config, mountPath: /data/b3/conf }
+        {{- if .Values.nats.enabled }}
+        - { name: nats-creds, mountPath: /nats/creds, readOnly: true }
+        {{- end }}
+        - { name: setup-config, mountPath: /setup, readOnly: true }
+      {{- end }}
       containers:
       - name: b3
         image: {{ include "kubepatch.image" (dict "root" . "image" $b3.image) }}
@@ -99,9 +134,20 @@ spec:
         - { name: tmp, mountPath: /tmp }
         - { name: data, mountPath: /data }
         - { name: config, mountPath: /data/b3/conf }
+        {{- if .Values.nats.enabled }}
+        - { name: nats-creds, mountPath: /nats/creds, readOnly: true }
+        {{- end }}
       volumes:
       - name: tmp
         emptyDir: {}
+      {{- if .Values.nats.enabled }}
+      - name: nats-creds
+        secret:
+          secretName: {{ $fn }}-nats-creds
+      {{- end }}
+      - name: setup-config
+        secret:
+          secretName: {{ $fn }}-setup-config
       - name: config
         secret:
           secretName: {{ $fn }}-app-ini

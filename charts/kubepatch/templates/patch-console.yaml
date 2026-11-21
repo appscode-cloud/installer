@@ -80,12 +80,7 @@ spec:
           value: {{ .Values.casdoor.patchApplication.clientId | quote }}
         - name: CASDOOR_CLIENT_SECRET
           valueFrom: { secretKeyRef: { name: {{ $cred }}, key: patch-casdoor-client-secret } }
-        {{- if .Values.nats.enabled }}
-        - name: PATCH_CONSOLE_NATS_URL
-          value: {{ include "kubepatch.natsUrl" . | quote }}
-        - name: PATCH_CONSOLE_NATS_MANAGE_STREAM
-          value: "true"
-        {{- end }}
+        # Agents report over HTTPS (the console's /patch/api); the hub does not join the operator-mode NATS.
         - name: PATCH_CONSOLE_CLUSTER_DIRECTORY
           value: {{ default (ternary "akp" "table" (ne $pc.akp.tokenSecret "")) $pc.hub.clusterDirectory | quote }}
         - name: PATCH_CONSOLE_PRODUCTION
