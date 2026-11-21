@@ -61,8 +61,8 @@ type KubepatchSpec struct {
 	B3               KubepatchB3           `json:"b3"`
 	PatchConsole     KubepatchPatchConsole `json:"patchConsole"`
 	AkpBootstrap     KubepatchAkpBootstrap `json:"akpBootstrap"`
-	PlatformUI       KubepatchPlatformUi   `json:"platform-ui"`
-	ClusterUI        KubepatchClusterUi    `json:"cluster-ui"`
+	PlatformUI       KubepatchUIChart      `json:"platform-ui"`
+	ClusterUI        KubepatchUIChart      `json:"cluster-ui"`
 }
 
 type KubepatchGlobal struct {
@@ -356,16 +356,21 @@ type KubepatchAkpBootstrap struct {
 	Enabled bool `json:"enabled"`
 }
 
-// KubepatchPlatformUi is the platform-ui subchart; the rest of its values are those of the chart.
-type KubepatchPlatformUi struct {
-	Enabled         bool `json:"enabled"`
-	*PlatformUiSpec `json:",inline,omitempty"`
+// KubepatchUIImage is the part of a UI sub-chart's image the umbrella sets; the rest are the chart's own defaults.
+type KubepatchUIImage struct {
+	// +optional
+	Tag string `json:"tag"`
+	// +optional
+	PullPolicy string `json:"pullPolicy"`
 }
 
-// KubepatchClusterUi is the cluster-ui subchart; the rest of its values are those of the chart.
-type KubepatchClusterUi struct {
-	Enabled        bool `json:"enabled"`
-	*ClusterUiSpec `json:",inline,omitempty"`
+// KubepatchUIChart is the platform-ui or cluster-ui sub-chart; see those charts for all their values.
+type KubepatchUIChart struct {
+	Enabled      bool             `json:"enabled"`
+	RegistryFQDN string           `json:"registryFQDN"`
+	Image        KubepatchUIImage `json:"image"`
+	// +optional
+	LoginURL string `json:"loginURL"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

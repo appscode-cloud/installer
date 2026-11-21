@@ -198,7 +198,7 @@ spec:
       containers:
       - name: ui
         image: {{ include "kubepatch.image" (dict "root" . "image" $pc.ui.image) }}
-        imagePullPolicy: {{ $pc.image.pullPolicy }}
+        imagePullPolicy: {{ $pc.ui.image.pullPolicy }}
         securityContext:
           {{- toYaml $ctrSec | nindent 10 }}
         env:
