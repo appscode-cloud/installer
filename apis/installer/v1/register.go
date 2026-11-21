@@ -155,6 +155,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&ServiceVaultList{},
 		&ServiceBackend{},
 		&ServiceBackendList{},
+		&Trustconsole{},
+		&TrustconsoleList{},
 		&Website{},
 		&WebsiteList{},
 	)

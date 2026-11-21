@@ -1,0 +1,295 @@
+{{- $fn := include "trustconsole.fullname" . }}
+{{- $host := include "trustconsole.host" . }}
+{{- $routes := include "trustconsole.routes" . | fromJsonArray }}
+{{- $casdoorHost := include "trustconsole.casdoorHost" . }}
+{{- $trustHost := include "trustconsole.trustHost" . }}
+{{- $tlsSecret := include "trustconsole.tlsSecret" . }}
+{{- if eq .Values.routing.mode "gateway" }}
+{{- $gw := .Values.routing.gateway }}
+{{- if $gw.create }}
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: {{ $fn }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "trustconsole.labels" . | nindent 4 }}
+  {{- with $gw.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  gatewayClassName: {{ $gw.className }}
+  listeners:
+  {{- if ne .Values.tls.mode "none" }}
+  - name: https
+    protocol: HTTPS
+    port: {{ default .Values.routing.httpsPort .Values.routing.gateway.listenerPort }}
+    tls:
+      mode: Terminate
+      certificateRefs:
+      - group: ""
+        kind: Secret
+        name: {{ $tlsSecret }}
+  {{- else }}
+  - name: http
+    protocol: HTTP
+    port: {{ default .Values.routing.httpsPort .Values.routing.gateway.listenerPort }}
+  {{- end }}
+    allowedRoutes:
+      namespaces:
+        from: Same
+---
+{{- end }}
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ $fn }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "trustconsole.labels" . | nindent 4 }}
+spec:
+  {{- include "trustconsole.parentRefs" (dict "root" .) | nindent 2 }}
+  hostnames:
+  - {{ $host | quote }}
+  rules:
+  {{- if .Values.routing.rootRedirect }}
+  - matches:
+    - path:
+        type: Exact
+        value: /
+    filters:
+    - type: RequestRedirect
+      requestRedirect:
+        path:
+          type: ReplaceFullPath
+          replaceFullPath: {{ .Values.routing.rootRedirect }}
+        # Envoy would put the listener's own port in the address: the public one is httpsPort.
+        port: {{ .Values.routing.httpsPort }}
+        statusCode: 302
+  {{- end }}
+  {{- range $routes }}
+  - matches:
+    - path:
+        type: PathPrefix
+        value: {{ .path }}
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ .svc }}
+      port: {{ .port }}
+      weight: 1
+    {{- if .timeout }}
+    timeouts:
+      backendRequest: {{ .timeout }}
+      request: {{ .timeout }}
+    {{- end }}
+  {{- end }}
+{{- if .Values.casdoor.enabled }}
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ $fn }}-casdoor
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "trustconsole.labels" . | nindent 4 }}
+spec:
+  {{- include "trustconsole.parentRefs" (dict "root" .) | nindent 2 }}
+  hostnames:
+  - {{ $casdoorHost | quote }}
+  rules:
+  - backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ $fn }}-casdoor
+      port: 8000
+      weight: 1
+{{- end }}
+{{- if .Values.trustConsole.enabled }}
+---
+# The Trust Console has its own host: the hub's API prefix /api is AKP's too.
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ $fn }}-trust
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "trustconsole.labels" . | nindent 4 }}
+spec:
+  {{- include "trustconsole.parentRefs" (dict "root" .) | nindent 2 }}
+  hostnames:
+  - {{ $trustHost | quote }}
+  rules:
+  - matches:
+    - path:
+        type: Exact
+        value: /
+    filters:
+    - type: RequestRedirect
+      requestRedirect:
+        path:
+          type: ReplaceFullPath
+          replaceFullPath: /trust/
+        # Envoy would put the listener's own port in the address: the public one is httpsPort.
+        port: {{ .Values.routing.httpsPort }}
+        statusCode: 302
+  - name: streaming
+    matches:
+    - path:
+        type: Exact
+        value: /api/trustconsole.v1.PostureService/WatchPosture
+    filters:
+    - type: URLRewrite
+      urlRewrite:
+        path:
+          type: ReplaceFullPath
+          replaceFullPath: /trustconsole.v1.PostureService/WatchPosture
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ $fn }}-trust-hub
+      port: {{ .Values.trustConsole.hub.service.port }}
+  - name: unary
+    matches:
+    - path:
+        type: PathPrefix
+        value: /api
+    filters:
+    - type: URLRewrite
+      urlRewrite:
+        path:
+          type: ReplacePrefixMatch
+          replacePrefixMatch: /
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ $fn }}-trust-hub
+      port: {{ .Values.trustConsole.hub.service.port }}
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /trust
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ $fn }}-trust-ui
+      port: 80
+{{- end }}
+{{- if $gw.backendTrafficPolicy }}
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: BackendTrafficPolicy
+metadata:
+  name: {{ $fn }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  targetRefs:
+  - group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    name: {{ $fn }}
+  retry:
+    numRetries: 2
+    retryOn:
+      triggers:
+      - connect-failure
+      - refused-stream
+      - reset-before-request
+    perRetry:
+      backOff:
+        baseInterval: 100ms
+        maxInterval: 1s
+{{- end }}
+{{- if and .Values.trustConsole.enabled $gw.backendTrafficPolicy }}
+---
+# WatchPosture is a stream: no request timeout, an hour of idle.
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: BackendTrafficPolicy
+metadata:
+  name: {{ $fn }}-trust-streaming
+  namespace: {{ .Release.Namespace }}
+spec:
+  targetRefs:
+  - group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    name: {{ $fn }}-trust
+    sectionName: streaming
+  timeout:
+    http:
+      requestTimeout: 0s
+      streamIdleTimeout: 1h
+{{- end }}
+{{- else if eq .Values.routing.mode "ingress" }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $fn }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "trustconsole.labels" . | nindent 4 }}
+  {{- with .Values.routing.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- with .Values.routing.ingress.className }}
+  ingressClassName: {{ . }}
+  {{- end }}
+  {{- if ne .Values.tls.mode "none" }}
+  tls:
+  - secretName: {{ $tlsSecret }}
+    hosts:
+    - {{ $host | quote }}
+    {{- if .Values.casdoor.enabled }}
+    - {{ $casdoorHost | quote }}
+    {{- end }}
+    {{- if .Values.trustConsole.enabled }}
+    - {{ $trustHost | quote }}
+    {{- end }}
+  {{- end }}
+  rules:
+  - host: {{ $host | quote }}
+    http:
+      paths:
+      {{- range $routes }}
+      - path: {{ .path }}
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .svc }}
+            port:
+              number: {{ .port }}
+      {{- end }}
+  {{- if .Values.casdoor.enabled }}
+  - host: {{ $casdoorHost | quote }}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ $fn }}-casdoor
+            port:
+              number: 8000
+  {{- end }}
+  {{- if .Values.trustConsole.enabled }}
+  # The hub's Ingress has no portable path rewrite: it accepts /api/ itself (stripAPIPrefix).
+  - host: {{ $trustHost | quote }}
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ $fn }}-trust-hub
+            port:
+              number: {{ .Values.trustConsole.hub.service.port }}
+      - path: /trust
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ $fn }}-trust-ui
+            port:
+              number: 80
+  {{- end }}
+{{- end }}
