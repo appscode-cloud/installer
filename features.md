@@ -75,6 +75,7 @@ graph TD;
   patch-console-agent-->license-proxyserver;
   patch-console-agent-->scanner;
   patch-console-agent-->kyverno;
+  patch-console-agent-->kube-bench;
   scanner-->license-proxyserver;
   scanner-->grafana-operator;
   catalog-manager-->cert-manager;

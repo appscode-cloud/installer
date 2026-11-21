@@ -43,6 +43,8 @@ spec:
       - license-proxyserver
       - scanner
       - kyverno
+      # The agent chart renders a Role in the kube-bench namespace, which has to exist first.
+      - kube-bench
   readinessChecks:
     workloads:
       - group: apps
