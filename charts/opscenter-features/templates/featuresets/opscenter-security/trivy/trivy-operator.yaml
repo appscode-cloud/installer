@@ -1,7 +1,8 @@
+{{- /* The operator image is only published to Docker Hub (aquasec/), not to ghcr.io; the chart needs a non-empty registry. */ -}}
 {{ $defaults := printf `
 image:
   registry: %s
-  repository: aquasecurity/trivy-operator
+  repository: aquasec/trivy-operator
 trivy:
   image:
     registry: %s
@@ -13,7 +14,7 @@ policiesBundle:
   registry: %s
   repository: aquasecurity/trivy-checks
 `
-  (include "registry.ghcr" $)
+  (default "docker.io" (include "registry.dockerHub" $))
   (include "registry.ghcr" $)
   (include "registry.ghcr" $)
   (include "registry.ghcr" $)
