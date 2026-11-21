@@ -259,7 +259,7 @@ bundle: kustomize operator-sdk ## Generate bundle manifests and metadata, then v
 	$(OPERATOR_SDK) bundle validate ./bundle --select-optional name=good-practices
 	@awk 'BEGIN{s=0} {if(!s && ($$0=="" || $$0=="---")){next} s=1; print}' config/crd/bases/installer.kubedb.com_kubedbs.yaml > bundle/manifests/installer.kubedb.com_kubedbs.yaml
 
-BUNDLE_CSV := bundle/manifests/kubedb-installer.clusterserviceversion.yaml
+BUNDLE_CSV := bundle/manifests/akp-installer.clusterserviceversion.yaml
 
 # Previous stable (non-rc) release tag, used to populate spec.replaces: the
 # highest version-sorted tag immediately below the one being built.
