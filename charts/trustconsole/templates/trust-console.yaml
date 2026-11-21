@@ -1,0 +1,195 @@
+{{- if .Values.trustConsole.enabled }}
+{{- $fn := include "trustconsole.fullname" . }}
+{{- $tc := .Values.trustConsole }}
+{{- $cred := include "trustconsole.credentialsSecret" . }}
+{{- $casdoorEndpoint := default (printf "http://%s-casdoor.%s.svc:8000" $fn .Release.Namespace) .Values.casdoor.endpoint }}
+{{- $labels := include "trustconsole.labels" . }}
+{{- /* Numeric: the images name their user (trust, nginx), which the kubelet cannot check is not root. */ -}}
+{{- $podSec := dict "runAsNonRoot" true "runAsUser" 65532 "seccompProfile" (dict "type" "RuntimeDefault") }}
+{{- $ctrSec := dict "allowPrivilegeEscalation" false "readOnlyRootFilesystem" true "capabilities" (dict "drop" (list "ALL")) }}
+{{- $hubImage := include "trustconsole.image" (dict "root" . "image" $tc.image) }}
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ $fn }}-trust
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- $labels | nindent 4 }}
+automountServiceAccountToken: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fn }}-trust-hub
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- $labels | nindent 4 }}
+spec:
+  replicas: {{ $tc.hub.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "trustconsole.selector" (dict "root" . "component" "trust-hub") | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "trustconsole.selector" (dict "root" . "component" "trust-hub") | nindent 8 }}
+      annotations:
+        checksum/db: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum | trunc 16 }}
+    spec:
+      serviceAccountName: {{ $fn }}-trust
+      automountServiceAccountToken: false
+      {{- include "trustconsole.imagePullSecrets" . | nindent 6 }}
+      securityContext:
+        {{- toYaml $podSec | nindent 8 }}
+      initContainers:
+      # iam's tables (iam_*) and the console's, then the catalog of controls. Both retry until Postgres is up.
+      - name: migrate
+        image: {{ $hubImage }}
+        imagePullPolicy: {{ $tc.image.pullPolicy }}
+        args: ["migrate", "up"]
+        securityContext:
+          {{- toYaml $ctrSec | nindent 10 }}
+        env:
+        {{- include "trustconsole.trustDbEnv" . | nindent 8 }}
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+      - name: catalog-seed
+        image: {{ $hubImage }}
+        imagePullPolicy: {{ $tc.image.pullPolicy }}
+        args: ["catalog", "seed"]
+        securityContext:
+          {{- toYaml $ctrSec | nindent 10 }}
+        env:
+        {{- include "trustconsole.trustDbEnv" . | nindent 8 }}
+        - { name: ORG, value: {{ $tc.org | quote }} }
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+      containers:
+      - name: hub
+        image: {{ $hubImage }}
+        imagePullPolicy: {{ $tc.image.pullPolicy }}
+        args: ["hub"]
+        securityContext:
+          {{- toYaml $ctrSec | nindent 10 }}
+        ports:
+        - { name: http, containerPort: 8080 }
+        env:
+        {{- include "trustconsole.trustDbEnv" . | nindent 8 }}
+        - { name: HTTP_ADDR, value: ":8080" }
+        - { name: ORG, value: {{ $tc.org | quote }} }
+        - { name: POD_NAMESPACE, valueFrom: { fieldRef: { fieldPath: metadata.namespace } } }
+        - { name: CONSOLE_BASE_URL, value: {{ include "trustconsole.trustPublicUrl" . | quote }} }
+        # Where the UI is served under that address: sign-in sends the browser back to it.
+        - { name: CONSOLE_APP_PREFIX, value: /trust }
+        - { name: CASDOOR_ENDPOINT, value: {{ $casdoorEndpoint | quote }} }
+        - { name: CASDOOR_PUBLIC_URL, value: {{ include "trustconsole.casdoorPublicUrl" . | quote }} }
+        - { name: CASDOOR_ORGANIZATION, value: {{ .Values.casdoor.organization | quote }} }
+        - { name: CASDOOR_APPLICATION, value: {{ .Values.casdoor.trustApplication.name | quote }} }
+        - { name: CASDOOR_CLIENT_ID, value: {{ .Values.casdoor.trustApplication.clientId | quote }} }
+        - name: CASDOOR_CLIENT_SECRET
+          valueFrom: { secretKeyRef: { name: {{ $cred }}, key: trust-casdoor-client-secret } }
+        - name: IAM_CSRF_KEY
+          valueFrom: { secretKeyRef: { name: {{ $cred }}, key: trust-iam-csrf-key } }
+        - { name: IAM_TRUSTED_PROXY_HOPS, value: "1" }
+        - { name: VALKEY_ADDR, value: {{ include "trustconsole.valkeyAddr" . | quote }} }
+        - { name: OPENFGA_API_URL, value: {{ include "trustconsole.openfgaUrl" . | quote }} }
+        # The Casdoor user who becomes the console's administrator at the first sign-in.
+        - { name: CONSOLE_BOOTSTRAP_ADMINS, value: {{ .Values.casdoor.admin.username | quote }} }
+        - { name: SESSION_COOKIE_SECURE, value: "true" }
+        {{- with $tc.hub.extraEnv }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+        livenessProbe:
+          httpGet: { path: /healthz/live, port: http }
+        readinessProbe:
+          httpGet: { path: /healthz/ready, port: http }
+        resources:
+          {{- toYaml $tc.hub.resources | nindent 10 }}
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+      volumes:
+      - { name: tmp, emptyDir: {} }
+      {{- with $tc.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with $tc.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $fn }}-trust-hub
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- $labels | nindent 4 }}
+spec:
+  ports:
+  - name: http
+    port: {{ $tc.hub.service.port }}
+    targetPort: http
+    # The hub serves h2c: Connect streaming needs HTTP/2 end to end.
+    appProtocol: kubernetes.io/h2c
+  selector:
+    {{- include "trustconsole.selector" (dict "root" . "component" "trust-hub") | nindent 4 }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fn }}-trust-ui
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- $labels | nindent 4 }}
+spec:
+  replicas: {{ $tc.ui.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "trustconsole.selector" (dict "root" . "component" "trust-ui") | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "trustconsole.selector" (dict "root" . "component" "trust-ui") | nindent 8 }}
+    spec:
+      serviceAccountName: {{ $fn }}-trust
+      automountServiceAccountToken: false
+      {{- include "trustconsole.imagePullSecrets" . | nindent 6 }}
+      securityContext:
+        {{- toYaml $podSec | nindent 8 }}
+      containers:
+      - name: ui
+        image: {{ include "trustconsole.image" (dict "root" . "image" $tc.ui.image) }}
+        imagePullPolicy: {{ $tc.ui.image.pullPolicy }}
+        securityContext:
+          {{- toYaml $ctrSec | nindent 10 }}
+        ports:
+        - { name: http, containerPort: 8080 }
+        volumeMounts:
+        - { name: nginx-conf, mountPath: /etc/nginx/conf.d }
+        - { name: nginx-cache, mountPath: /var/cache/nginx }
+        - { name: nginx-run, mountPath: /var/run }
+        - { name: tmp, mountPath: /tmp }
+        readinessProbe:
+          httpGet: { path: /trust/, port: http }
+        resources:
+          {{- toYaml $tc.ui.resources | nindent 10 }}
+      volumes:
+      - { name: nginx-conf, emptyDir: {} }
+      - { name: nginx-cache, emptyDir: {} }
+      - { name: nginx-run, emptyDir: {} }
+      - { name: tmp, emptyDir: {} }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $fn }}-trust-ui
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- $labels | nindent 4 }}
+spec:
+  ports:
+  - { name: http, port: 80, targetPort: http }
+  selector:
+    {{- include "trustconsole.selector" (dict "root" . "component" "trust-ui") | nindent 4 }}
+{{- end }}

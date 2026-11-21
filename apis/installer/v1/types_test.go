@@ -70,6 +70,7 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1.ServiceGatewaySpec{}},
 		sc.TestCase{Obj: v1.ServiceProviderSpec{}},
 		sc.TestCase{Obj: v1.ServiceVaultSpec{}},
+		sc.TestCase{Obj: v1.TrustconsoleSpec{}},
 		sc.TestCase{Obj: v1.SmtprelaySpec{}},
 		sc.TestCase{Obj: v1.StashPresetsSpec{}},
 		sc.TestCase{Obj: v1.WebsiteSpec{}},

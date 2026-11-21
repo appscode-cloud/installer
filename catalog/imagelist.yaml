@@ -58,6 +58,8 @@
 - ghcr.io/appscode/service-provider:v0.0.2
 - ghcr.io/appscode/smtprelay:v0.0.4
 - ghcr.io/appscode/trickster:v2.0.0
+- ghcr.io/appscode/trust-console-ui:dev
+- ghcr.io/appscode/trust-console:dev
 - ghcr.io/appscode/website:v2026.11.15
 - ghcr.io/kubevault/kubevault-crd-manager:v0.3.0
 - ghcr.io/kubevault/vault-exporter:v0.1.1
@@ -75,3 +77,5 @@
 - natsio/nats-box:0.19.2
 - natsio/nats-server-config-reloader:0.22.3
 - natsio/prometheus-nats-exporter:0.19.2
+- openfga/openfga:v1.18.1
+- valkey/valkey:8.1.3
