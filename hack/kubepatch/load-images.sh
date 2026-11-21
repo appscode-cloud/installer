@@ -60,7 +60,7 @@ all_images() {
 }
 
 checkout() { # dir repo ref
-    if [ -d "$1/.git" ]; then
+    if [ -e "$1/.git" ]; then
         git -C "$1" fetch -q origin "$3"
     else
         git clone -q "$2" "$1"
