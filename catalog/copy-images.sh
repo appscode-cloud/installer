@@ -256,6 +256,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/op
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.40.0 $IMAGE_REGISTRY/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.40.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/otel-nats:v2026.9.22 $IMAGE_REGISTRY/appscode-charts/otel-nats:v2026.9.22
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2026.9.18 $IMAGE_REGISTRY/appscode-charts/panopticon:v2026.9.18
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/patch-console-agent:0.1.0 $IMAGE_REGISTRY/appscode-charts/patch-console-agent:0.1.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prepare-cluster:v2023.12.21 $IMAGE_REGISTRY/appscode-charts/prepare-cluster:v2023.12.21
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prom-label-proxy:v2026.9.22 $IMAGE_REGISTRY/appscode-charts/prom-label-proxy:v2026.9.22
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prometheus-adapter:4.9.0 $IMAGE_REGISTRY/appscode-charts/prometheus-adapter:4.9.0
@@ -286,6 +287,7 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/su
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/tenant-operator:v2026.9.22 $IMAGE_REGISTRY/appscode-charts/tenant-operator:v2026.9.22
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/thanos-operator:v2026.6.2 $IMAGE_REGISTRY/appscode-charts/thanos-operator:v2026.6.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/topolvm:15.0.0 $IMAGE_REGISTRY/appscode-charts/topolvm:15.0.0
+$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/trivy-operator:0.38.1 $IMAGE_REGISTRY/appscode-charts/trivy-operator:0.38.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-alert:v0.12.0 $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-alert:v0.12.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-backup-option:v0.12.0 $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-backup-option:v0.12.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-backupconfiguration:v0.12.0 $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-backupconfiguration:v0.12.0

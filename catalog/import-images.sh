@@ -247,6 +247,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-o
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.40.0.tar $IMAGE_REGISTRY/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.40.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-otel-nats-v2026.9.22.tar $IMAGE_REGISTRY/appscode-charts/otel-nats:v2026.9.22
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-panopticon-v2026.9.18.tar $IMAGE_REGISTRY/appscode-charts/panopticon:v2026.9.18
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-patch-console-agent-0.1.0.tar $IMAGE_REGISTRY/appscode-charts/patch-console-agent:0.1.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prepare-cluster-v2023.12.21.tar $IMAGE_REGISTRY/appscode-charts/prepare-cluster:v2023.12.21
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prom-label-proxy-v2026.9.22.tar $IMAGE_REGISTRY/appscode-charts/prom-label-proxy:v2026.9.22
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-prometheus-adapter-4.9.0.tar $IMAGE_REGISTRY/appscode-charts/prometheus-adapter:4.9.0
@@ -277,6 +278,7 @@ $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-s
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-tenant-operator-v2026.9.22.tar $IMAGE_REGISTRY/appscode-charts/tenant-operator:v2026.9.22
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-thanos-operator-v2026.6.2.tar $IMAGE_REGISTRY/appscode-charts/thanos-operator:v2026.6.2
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-topolvm-15.0.0.tar $IMAGE_REGISTRY/appscode-charts/topolvm:15.0.0
+$CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-trivy-operator-0.38.1.tar $IMAGE_REGISTRY/appscode-charts/trivy-operator:0.38.1
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uibytebuildersdev-component-alert-v0.12.0.tar $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-alert:v0.12.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uibytebuildersdev-component-backup-option-v0.12.0.tar $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-backup-option:v0.12.0
 $CMD push --allow-nondistributable-artifacts --insecure images/appscode-charts-uibytebuildersdev-component-backupconfiguration-v0.12.0.tar $IMAGE_REGISTRY/appscode-charts/uibytebuildersdev-component-backupconfiguration:v0.12.0
