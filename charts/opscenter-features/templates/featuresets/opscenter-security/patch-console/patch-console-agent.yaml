@@ -11,9 +11,16 @@ agent:
     - trivy-operator
   kubeBench:
     enabled: true
+    jobs:
+      enabled: true
 `
   (include "registry.ghcr" $)
   | fromYaml }}
+
+{{- /* The kube-bench image is named with its registry; follow the Docker Hub proxy when one is set. */ -}}
+{{- with include "registry.dockerHub" $ }}
+{{ $defaults = mergeOverwrite $defaults (dict "agent" (dict "kubeBench" (dict "jobs" (dict "image" (dict "repository" (printf "%s/aquasec/kube-bench" .)))))) }}
+{{- end }}
 
 {{ $vals := dig "patch-console-agent" "values" (dict) .Values.helm.releases }}
 {{ $vals = mergeOverwrite $defaults $vals }}
@@ -43,8 +50,6 @@ spec:
       - license-proxyserver
       - scanner
       - kyverno
-      # The agent chart renders a Role in the kube-bench namespace, which has to exist first.
-      - kube-bench
   readinessChecks:
     workloads:
       - group: apps

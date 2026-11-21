@@ -123,8 +123,6 @@ helm:
       version: "69.2.2"
     kubedb-ui-presets:
       version: "v2026.11.15"
-    kube-bench:
-      version: "0.1.0"
     kube-ui-server:
       version: "v2026.11.15"
     kubedb:

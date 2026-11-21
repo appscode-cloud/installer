@@ -104,7 +104,6 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kube-grafana-dashboards.version                           |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.kube-prometheus-stack.version                             |                                 | <code>"69.2.2"</code>                      |
 | helm.releases.kubedb-ui-presets.version                                 |                                 | <code>"v2026.11.15"</code>                 |
-| helm.releases.kube-bench.version                                        |                                 | <code>"0.1.0"</code>                       |
 | helm.releases.kube-ui-server.version                                    |                                 | <code>"v2026.11.15"</code>                 |
 | helm.releases.kubedb.version                                            |                                 | <code>"v2026.11.15"</code>                 |
 | helm.releases.kubedb-opscenter.version                                  |                                 | <code>"v2026.11.15"</code>                 |
