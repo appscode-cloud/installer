@@ -150,3 +150,8 @@ parentRefs:
 {{- toYaml .root.Values.routing.gateway.parentRefs | nindent 0 }}
 {{- end }}
 {{- end }}
+
+{{/* The b3 probe: GetBranding answers without a session. */}}
+{{- define "kubepatch.b3probe" -}}
+["curl", "-fsS", "-o", "/dev/null", "-m", "4", "-X", "POST", "-H", "Content-Type: application/json", "-d", "{}", "http://localhost:3003/api/v2/akp.branding.v2.BrandingService/GetBranding"]
+{{- end -}}

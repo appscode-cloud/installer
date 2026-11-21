@@ -79,7 +79,7 @@ spec:
       labels:
         {{- include "kubepatch.selector" (dict "root" . "component" "nats-keys") | nindent 8 }}
     spec:
-      restartPolicy: OnFailure
+      restartPolicy: Never
       serviceAccountName: {{ $fn }}-nats-keys
       {{- include "kubepatch.imagePullSecrets" . | nindent 6 }}
       securityContext:
@@ -91,6 +91,7 @@ spec:
       - name: nsc
         image: {{ include "kubepatch.image" (dict "root" . "image" .Values.nats.natsBox) }}
         imagePullPolicy: {{ .Values.nats.natsBox.pullPolicy }}
+        workingDir: /tmp
         command: ["sh", "-c"]
         args:
         - |
@@ -100,6 +101,7 @@ spec:
           k() { curl -sS --cacert $SA/ca.crt -H "Authorization: Bearer $(cat $SA/token)" "$@"; }
           if [ "$(k -o /dev/null -w '%{http_code}' $API/$CREDS)" = 200 ]; then echo "the NATS identities exist: nothing to do"; exit 0; fi
 
+          rm -rf /tmp/nsc /tmp/nkeys /tmp/cfg /tmp/data /tmp/out
           export HOME=/tmp NSC_HOME=/tmp/nsc NKEYS_PATH=/tmp/nkeys XDG_CONFIG_HOME=/tmp/cfg XDG_DATA_HOME=/tmp/data
           nsc add operator --name kubepatch --sys >/dev/null
           nsc add account --name ADMIN >/dev/null
@@ -161,13 +163,13 @@ spec:
             data=""
             for f in "$@"; do data="$data\"$(basename $f)\":\"$(b64 $f)\","; done
             printf '{"apiVersion":"v1","kind":"Secret","metadata":{"name":"%s","labels":{"app.kubernetes.io/part-of":"kubepatch"}},"data":{%s}}' "$name" "${data%,}" |
-              k -f -o /dev/null -w '%{http_code}\n' -X POST -H 'Content-Type: application/json' -d @- $API
+              k -o /tmp/resp -w '%{http_code}' -X POST -H 'Content-Type: application/json' -d @- $API
           }
           # The server's Secret goes second: its presence is what a second run finds, after the credentials are in.
           code=$(post $CREDS /tmp/out/Operator.creds /tmp/out/SYS.creds /tmp/out/sys.creds /tmp/out/ADMIN.creds /tmp/out/admin.creds /tmp/out/Operator.jwt /tmp/out/SYS.jwt)
-          [ "$code" = 201 ] || { echo "creating $CREDS: HTTP $code"; exit 1; }
+          [ "$code" = 201 ] || { echo "creating $CREDS: HTTP $code"; cat /tmp/resp; exit 1; }
           code=$(post $SERVER /tmp/out/nats.conf /tmp/out/Operator.jwt)
-          [ "$code" = 201 ] || { echo "creating $SERVER: HTTP $code"; exit 1; }
+          [ "$code" = 201 ] || { echo "creating $SERVER: HTTP $code"; cat /tmp/resp; exit 1; }
           echo "NATS identities made"
         env:
         - { name: NS, value: {{ $ns | quote }} }

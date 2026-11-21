@@ -35,6 +35,14 @@ spec:
         image: {{ include "kubepatch.image" (dict "root" . "image" $pg.image) }}
         imagePullPolicy: {{ $pg.image.pullPolicy }}
         command: ["bash", "-c"]
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+          runAsNonRoot: true
+          runAsUser: 999
+          seccompProfile:
+            type: RuntimeDefault
         args:
         - |
           set -eu
