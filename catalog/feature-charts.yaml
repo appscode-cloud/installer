@@ -42,6 +42,7 @@
 - ghcr.io/appscode-charts/inbox-ui:v2026.11.15
 - ghcr.io/appscode-charts/keda-add-ons-http:0.12.0
 - ghcr.io/appscode-charts/keda:2.19.0
+- ghcr.io/appscode-charts/kube-bench:0.1.0
 - ghcr.io/appscode-charts/kube-grafana-dashboards:v2023.10.1
 - ghcr.io/appscode-charts/kube-prometheus-stack:69.2.2
 - ghcr.io/appscode-charts/kube-ui-server:v2026.11.15
@@ -68,6 +69,7 @@
 - ghcr.io/appscode-charts/opscenter-features:v2026.11.15
 - ghcr.io/appscode-charts/otel-nats:v2026.9.22
 - ghcr.io/appscode-charts/panopticon:v2026.9.18
+- ghcr.io/appscode-charts/patch-console-agent:0.1.0
 - ghcr.io/appscode-charts/prepare-cluster:v2023.12.21
 - ghcr.io/appscode-charts/prom-label-proxy:v2026.9.22
 - ghcr.io/appscode-charts/prometheus-adapter:4.9.0
@@ -91,6 +93,7 @@
 - ghcr.io/appscode-charts/tenant-operator:v2026.9.22
 - ghcr.io/appscode-charts/thanos-operator:v2026.6.2
 - ghcr.io/appscode-charts/topolvm:15.0.0
+- ghcr.io/appscode-charts/trivy-operator:0.38.1
 - ghcr.io/appscode-charts/uik8sappscodecom-featureset-capi-capa-editor:v0.40.0
 - ghcr.io/appscode-charts/uik8sappscodecom-featureset-capi-capg-editor:v0.40.0
 - ghcr.io/appscode-charts/uik8sappscodecom-featureset-capi-capz-editor:v0.40.0

@@ -104,6 +104,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.kube-grafana-dashboards.version                           |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.kube-prometheus-stack.version                             |                                 | <code>"69.2.2"</code>                      |
 | helm.releases.kubedb-ui-presets.version                                 |                                 | <code>"v2026.11.15"</code>                 |
+| helm.releases.kube-bench.version                                        |                                 | <code>"0.1.0"</code>                       |
 | helm.releases.kube-ui-server.version                                    |                                 | <code>"v2026.11.15"</code>                 |
 | helm.releases.kubedb.version                                            |                                 | <code>"v2026.11.15"</code>                 |
 | helm.releases.kubedb-opscenter.version                                  |                                 | <code>"v2026.11.15"</code>                 |
@@ -125,6 +126,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.opencost-grafana-dashboards.version                       |                                 | <code>"v2023.10.1"</code>                  |
 | helm.releases.opscenter-features.version                                |                                 | <code>"v2026.11.15"</code>                 |
 | helm.releases.panopticon.version                                        |                                 | <code>"v2026.9.18"</code>                  |
+| helm.releases.patch-console-agent.version                               |                                 | <code>"0.1.0"</code>                       |
 | helm.releases.prepare-cluster.version                                   |                                 | <code>"v2023.12.21"</code>                 |
 | helm.releases.prometheus-adapter.version                                |                                 | <code>"4.9.0"</code>                       |
 | helm.releases.otel-nats.version                                         |                                 | <code>"v2026.9.22"</code>                  |
@@ -143,6 +145,7 @@ The following table lists the configurable parameters of the `opscenter-features
 | helm.releases.supervisor.version                                        |                                 | <code>"v2026.2.16"</code>                  |
 | helm.releases.tenant-operator.version                                   |                                 | <code>"v2026.9.22"</code>                  |
 | helm.releases.thanos-operator.version                                   |                                 | <code>"v2026.6.2"</code>                   |
+| helm.releases.trivy-operator.version                                    |                                 | <code>"0.38.1"</code>                      |
 | helm.releases.victoria-metrics-operator.version                         |                                 | <code>0.67.3</code>                        |
 | helm.releases.topolvm.version                                           |                                 | <code>"15.0.0"</code>                      |
 | helm.releases.voyager.version                                           |                                 | <code>"v2026.3.23"</code>                  |

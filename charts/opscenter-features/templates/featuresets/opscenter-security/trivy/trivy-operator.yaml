@@ -1,0 +1,60 @@
+{{ $defaults := printf `
+image:
+  registry: %s
+  repository: aquasecurity/trivy-operator
+trivy:
+  image:
+    registry: %s
+    repository: aquasecurity/trivy
+nodeCollector:
+  registry: %s
+  repository: aquasecurity/node-collector
+policiesBundle:
+  registry: %s
+  repository: aquasecurity/trivy-checks
+`
+  (include "registry.ghcr" $)
+  (include "registry.ghcr" $)
+  (include "registry.ghcr" $)
+  (include "registry.ghcr" $)
+  | fromYaml }}
+
+{{ $vals := dig "trivy-operator" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: trivy-operator
+  labels:
+    app.kubernetes.io/part-of: opscenter-security
+spec:
+  title: Trivy Operator
+  description: |
+    Kubernetes-native security reports (configuration audit, RBAC and infrastructure assessment, CIS and NSA compliance) built on Trivy.
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-security
+  featureBlock: trivy-operator
+  recommended: false
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/instance: trivy-operator
+          app.kubernetes.io/name: trivy-operator
+  chart:
+    name: trivy-operator
+    namespace: trivy-system
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "trivy-operator" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
