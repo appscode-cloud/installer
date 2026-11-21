@@ -6726,6 +6726,7 @@ func (in *KubepatchList) DeepCopyObject() runtime.Object {
 func (in *KubepatchNATS) DeepCopyInto(out *KubepatchNATS) {
 	*out = *in
 	out.Image = in.Image
+	out.NatsBox = in.NatsBox
 	in.Resources.DeepCopyInto(&out.Resources)
 }
 

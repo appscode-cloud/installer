@@ -112,7 +112,10 @@ DOCKERFILE
 build_patch_console() {
     local dir=$WORK/patch-console uidf
     # The module graph holds the private go.appscode.dev/iam, fetched over ssh from the agent.
-    [ -n "${SSH_AUTH_SOCK:-}" ] || { echo "start an ssh-agent with a key that can read go.appscode.dev/iam" >&2; exit 1; }
+    [ -n "${SSH_AUTH_SOCK:-}" ] || {
+        echo "start an ssh-agent with a key that can read go.appscode.dev/iam" >&2
+        exit 1
+    }
     DOCKER_BUILDKIT=1 docker build --ssh default -t "$PATCH_IMAGE:$(patch_tag)" -f "$dir/Dockerfile" "$dir"
     # The UI Dockerfile builds on node:alpine, where `npm ci` skips rolldown's musl binding (npm bug 4828) and
     # `vite build` fails; the same build on a glibc node image works. Build with a copy that only swaps the base.
@@ -147,7 +150,10 @@ PY
 }
 
 build_uis() {
-    [ -n "${SSH_AUTH_SOCK:-}" ] || { echo "start an ssh-agent with a key that can read the private git dependencies" >&2; exit 1; }
+    [ -n "${SSH_AUTH_SOCK:-}" ] || {
+        echo "start an ssh-agent with a key that can read the private git dependencies" >&2
+        exit 1
+    }
     build_ui "$WORK/platform-ui" "$PLATFORM_UI_IMAGE" "$(platform_ui_tag)"
     build_ui "$WORK/cluster-ui" "$CLUSTER_UI_IMAGE" "$(cluster_ui_tag)"
 }
@@ -186,14 +192,29 @@ import() {
 }
 
 case "${1:-}" in
-fetch) fetch ;;
-build) build_b3; build_patch_console; build_uis ;;
-build-uis) build_uis ;;
-build-b3) build_b3 ;;
-build-patch-console) build_patch_console ;;
-pull) pull_public ;;
-save) save ;;
-import) import ;;
-all) fetch; build_b3; build_patch_console; build_uis; pull_public; save; import ;;
-*) sed -n 17,40p "$0" >&2; exit 1 ;;
+    fetch) fetch ;;
+    build)
+        build_b3
+        build_patch_console
+        build_uis
+        ;;
+    build-uis) build_uis ;;
+    build-b3) build_b3 ;;
+    build-patch-console) build_patch_console ;;
+    pull) pull_public ;;
+    save) save ;;
+    import) import ;;
+    all)
+        fetch
+        build_b3
+        build_patch_console
+        build_uis
+        pull_public
+        save
+        import
+        ;;
+    *)
+        sed -n 17,40p "$0" >&2
+        exit 1
+        ;;
 esac
