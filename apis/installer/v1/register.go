@@ -97,6 +97,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&InboxUiList{},
 		&IngressNginx{},
 		&IngressNginxList{},
+		&Kubepatch{},
+		&KubepatchList{},
 		&KubedbUi{},
 		&KubedbUiList{},
 		&KubedbUiPresets{},

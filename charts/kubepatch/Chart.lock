@@ -1,0 +1,9 @@
+dependencies:
+- name: platform-ui
+  repository: file://../platform-ui
+  version: v2026.11.15
+- name: cluster-ui
+  repository: file://../cluster-ui
+  version: v2026.11.15
+digest: sha256:08e17fa0fbbd8ab6ff9a2a9603c9f3e55b37940ed834ac214d103d6f2ea27d5e
+generated: "2026-11-21T07:54:16.341593168+06:00"

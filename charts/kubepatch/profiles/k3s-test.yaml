@@ -1,0 +1,27 @@
+# A single-node k3s for tests: local-path storage, the self-signed certificate, generated credentials,
+# images loaded with `hack/kubepatch/load-images.sh`. Set the host on the command line:
+#   helm install kubepatch charts/kubepatch -n kubepatch --create-namespace \
+#     -f charts/kubepatch/profiles/k3s-test.yaml --set global.platform.host=<ip>.nip.io
+global:
+  platform:
+    host: kubepatch.example.com
+persistence:
+  storageClassName: local-path
+  postgres: 5Gi
+  nats: 1Gi
+  b3: 2Gi
+b3:
+  image:
+    tag: kubepatch-09233644f9
+patchConsole:
+  image:
+    tag: kubepatch
+  ui:
+    image:
+      tag: kubepatch
+platform-ui:
+  image:
+    tag: "3.1.0"
+cluster-ui:
+  image:
+    tag: "3.1.0"

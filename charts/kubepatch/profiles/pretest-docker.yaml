@@ -1,0 +1,7 @@
+# The pre-test in k3s-in-docker.sh: the cluster's HTTPS is published on host port 18443 of the Docker host.
+# nip.io names resolve to the Docker host's address, which the pods reach too (the hub calls AKP at its public URL).
+global:
+  platform:
+    host: 10.2.0.122.nip.io
+routing:
+  httpsPort: 18443

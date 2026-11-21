@@ -1,0 +1,98 @@
+{{- if .Values.nats.enabled }}
+{{- $fn := include "kubepatch.fullname" . }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $fn }}-nats
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kubepatch.labels" . | nindent 4 }}
+data:
+  nats.conf: |
+    port: 4222
+    http: 8222
+    server_name: {{ $fn }}-nats
+    jetstream {
+      store_dir: /data
+    }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $fn }}-nats
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kubepatch.labels" . | nindent 4 }}
+spec:
+  ports:
+  - { name: client, port: 4222, targetPort: client }
+  - { name: monitor, port: 8222, targetPort: monitor }
+  selector:
+    {{- include "kubepatch.selector" (dict "root" . "component" "nats") | nindent 4 }}
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ $fn }}-nats
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kubepatch.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  serviceName: {{ $fn }}-nats
+  selector:
+    matchLabels:
+      {{- include "kubepatch.selector" (dict "root" . "component" "nats") | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "kubepatch.selector" (dict "root" . "component" "nats") | nindent 8 }}
+    spec:
+      {{- include "kubepatch.imagePullSecrets" . | nindent 6 }}
+      securityContext:
+        fsGroup: 65534
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: nats
+        image: {{ include "kubepatch.image" (dict "root" . "image" .Values.nats.image) }}
+        imagePullPolicy: {{ .Values.nats.image.pullPolicy }}
+        args: ["-c", "/etc/nats/nats.conf"]
+        securityContext:
+          allowPrivilegeEscalation: false
+          # The nats-server binary carries a file capability; with every capability dropped it cannot exec.
+          capabilities:
+            drop: ["ALL"]
+            add: ["NET_BIND_SERVICE"]
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 65534
+        ports:
+        - { name: client, containerPort: 4222 }
+        - { name: monitor, containerPort: 8222 }
+        readinessProbe:
+          httpGet: { path: /healthz, port: monitor }
+        livenessProbe:
+          httpGet: { path: /healthz, port: monitor }
+          initialDelaySeconds: 10
+        resources:
+          {{- toYaml .Values.nats.resources | nindent 10 }}
+        volumeMounts:
+        - { name: config, mountPath: /etc/nats, readOnly: true }
+        - { name: data, mountPath: /data }
+      volumes:
+      - name: config
+        configMap:
+          name: {{ $fn }}-nats
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      {{- with .Values.persistence.storageClassName }}
+      storageClassName: {{ . }}
+      {{- end }}
+      resources:
+        requests:
+          storage: {{ .Values.persistence.nats }}
+{{- end }}
