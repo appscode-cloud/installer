@@ -1,0 +1,20 @@
+project:
+  name: Trust Console by AppsCode
+  shortName: Trust Console
+  url: https://github.com/appscode-cloud
+  description: Trust Console next to AKP v2 (v2_only), one Casdoor
+  app: the Trust Console
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: trustconsole
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.29+
+- A default StorageClass (or set persistence.storageClassName)
+- Gateway API and a Gateway controller (or an Ingress controller with routing.mode=ingress)
+release:
+  name: trustconsole
+  namespace: trustconsole

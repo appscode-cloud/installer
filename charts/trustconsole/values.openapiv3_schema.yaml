@@ -1,0 +1,1162 @@
+properties:
+  akpBootstrap:
+    properties:
+      enabled:
+        type: boolean
+    required:
+    - enabled
+    type: object
+  b3:
+    properties:
+      appName:
+        type: string
+      cache:
+        properties:
+          adapter:
+            type: string
+          host:
+            type: string
+        required:
+        - adapter
+        type: object
+      cadence:
+        properties:
+          domain:
+            type: string
+          host:
+            type: string
+          port:
+            type: integer
+          taskList:
+            type: string
+        required:
+        - domain
+        - port
+        - taskList
+        type: object
+      enabled:
+        type: boolean
+      extraAppIni:
+        type: string
+      iam:
+        properties:
+          federation:
+            properties:
+              enabled:
+                type: boolean
+            required:
+            - enabled
+            type: object
+          mode:
+            type: string
+          scim:
+            properties:
+              enabled:
+                type: boolean
+            required:
+            - enabled
+            type: object
+        required:
+        - federation
+        - mode
+        - scim
+        type: object
+      image:
+        properties:
+          digest:
+            type: string
+          pullPolicy:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - repository
+        - tag
+        type: object
+      inbox:
+        properties:
+          jmapURL:
+            type: string
+          webAdminURL:
+            type: string
+        type: object
+      logLevel:
+        type: string
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      podAnnotations:
+        additionalProperties:
+          type: string
+        type: object
+      replicaCount:
+        type: integer
+      resources:
+        properties:
+          claims:
+            items:
+              properties:
+                name:
+                  type: string
+                request:
+                  type: string
+              required:
+              - name
+              type: object
+            type: array
+            x-kubernetes-list-map-keys:
+            - name
+            x-kubernetes-list-type: map
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+      runMode:
+        type: string
+      securityContext:
+        properties:
+          allowPrivilegeEscalation:
+            type: boolean
+          appArmorProfile:
+            properties:
+              localhostProfile:
+                type: string
+              type:
+                type: string
+            required:
+            - type
+            type: object
+          capabilities:
+            properties:
+              add:
+                items:
+                  type: string
+                type: array
+                x-kubernetes-list-type: atomic
+              drop:
+                items:
+                  type: string
+                type: array
+                x-kubernetes-list-type: atomic
+            type: object
+          privileged:
+            type: boolean
+          procMount:
+            type: string
+          readOnlyRootFilesystem:
+            type: boolean
+          runAsGroup:
+            format: int64
+            type: integer
+          runAsNonRoot:
+            type: boolean
+          runAsUser:
+            format: int64
+            type: integer
+          seLinuxOptions:
+            properties:
+              level:
+                type: string
+              role:
+                type: string
+              type:
+                type: string
+              user:
+                type: string
+            type: object
+          seccompProfile:
+            properties:
+              localhostProfile:
+                type: string
+              type:
+                type: string
+            required:
+            - type
+            type: object
+          windowsOptions:
+            properties:
+              gmsaCredentialSpec:
+                type: string
+              gmsaCredentialSpecName:
+                type: string
+              hostProcess:
+                type: boolean
+              runAsUserName:
+                type: string
+            type: object
+        type: object
+      session:
+        properties:
+          provider:
+            type: string
+          providerConfig:
+            type: string
+        required:
+        - provider
+        type: object
+      siteOrganization:
+        type: string
+      smtp:
+        properties:
+          enabled:
+            type: boolean
+          existingSecret:
+            type: string
+          from:
+            type: string
+          host:
+            type: string
+          tlsEnabled:
+            type: boolean
+          username:
+            type: string
+        required:
+        - enabled
+        type: object
+      tolerations:
+        items:
+          properties:
+            effect:
+              type: string
+            key:
+              type: string
+            operator:
+              type: string
+            tolerationSeconds:
+              format: int64
+              type: integer
+            value:
+              type: string
+          type: object
+        type: array
+      worker:
+        properties:
+          enabled:
+            type: boolean
+        required:
+        - enabled
+        type: object
+    required:
+    - appName
+    - cache
+    - cadence
+    - enabled
+    - iam
+    - image
+    - inbox
+    - logLevel
+    - replicaCount
+    - runMode
+    - session
+    - siteOrganization
+    - smtp
+    - worker
+    type: object
+  casdoor:
+    properties:
+      admin:
+        properties:
+          displayName:
+            type: string
+          email:
+            type: string
+          username:
+            type: string
+        required:
+        - displayName
+        - email
+        - username
+        type: object
+      akpApplication:
+        properties:
+          clientId:
+            type: string
+          name:
+            type: string
+        required:
+        - clientId
+        - name
+        type: object
+      enabled:
+        type: boolean
+      endpoint:
+        type: string
+      host:
+        type: string
+      image:
+        properties:
+          digest:
+            type: string
+          pullPolicy:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - repository
+        - tag
+        type: object
+      mfa:
+        properties:
+          rule:
+            type: string
+        required:
+        - rule
+        type: object
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      organization:
+        type: string
+      podAnnotations:
+        additionalProperties:
+          type: string
+        type: object
+      resources:
+        properties:
+          claims:
+            items:
+              properties:
+                name:
+                  type: string
+                request:
+                  type: string
+              required:
+              - name
+              type: object
+            type: array
+            x-kubernetes-list-map-keys:
+            - name
+            x-kubernetes-list-type: map
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+      tolerations:
+        items:
+          properties:
+            effect:
+              type: string
+            key:
+              type: string
+            operator:
+              type: string
+            tolerationSeconds:
+              format: int64
+              type: integer
+            value:
+              type: string
+          type: object
+        type: array
+      trustApplication:
+        properties:
+          clientId:
+            type: string
+          name:
+            type: string
+        required:
+        - clientId
+        - name
+        type: object
+    required:
+    - admin
+    - akpApplication
+    - enabled
+    - image
+    - mfa
+    - organization
+    - trustApplication
+    type: object
+  cluster-ui:
+    properties:
+      enabled:
+        type: boolean
+      image:
+        properties:
+          pullPolicy:
+            type: string
+          tag:
+            type: string
+        type: object
+      loginURL:
+        type: string
+      registryFQDN:
+        type: string
+    required:
+    - enabled
+    - image
+    - registryFQDN
+    type: object
+  credentials:
+    properties:
+      existingSecret:
+        type: string
+    type: object
+  fullnameOverride:
+    type: string
+  global:
+    properties:
+      imagePullSecrets:
+        items:
+          type: string
+        type: array
+      imageRegistry:
+        type: string
+      platform:
+        properties:
+          deploymentType:
+            type: string
+          host:
+            type: string
+          hostType:
+            type: string
+        required:
+        - deploymentType
+        - host
+        - hostType
+        type: object
+    required:
+    - platform
+    type: object
+  nameOverride:
+    type: string
+  nats:
+    properties:
+      enabled:
+        type: boolean
+      image:
+        properties:
+          digest:
+            type: string
+          pullPolicy:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - repository
+        - tag
+        type: object
+      natsBox:
+        properties:
+          digest:
+            type: string
+          pullPolicy:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - repository
+        - tag
+        type: object
+      resources:
+        properties:
+          claims:
+            items:
+              properties:
+                name:
+                  type: string
+                request:
+                  type: string
+              required:
+              - name
+              type: object
+            type: array
+            x-kubernetes-list-map-keys:
+            - name
+            x-kubernetes-list-type: map
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+    required:
+    - enabled
+    - image
+    - natsBox
+    type: object
+  openfga:
+    properties:
+      apiUrl:
+        type: string
+      enabled:
+        type: boolean
+      image:
+        properties:
+          digest:
+            type: string
+          pullPolicy:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - repository
+        - tag
+        type: object
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      resources:
+        properties:
+          claims:
+            items:
+              properties:
+                name:
+                  type: string
+                request:
+                  type: string
+              required:
+              - name
+              type: object
+            type: array
+            x-kubernetes-list-map-keys:
+            - name
+            x-kubernetes-list-type: map
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+      tolerations:
+        items:
+          properties:
+            effect:
+              type: string
+            key:
+              type: string
+            operator:
+              type: string
+            tolerationSeconds:
+              format: int64
+              type: integer
+            value:
+              type: string
+          type: object
+        type: array
+    required:
+    - enabled
+    - image
+    type: object
+  persistence:
+    properties:
+      b3:
+        type: string
+      nats:
+        type: string
+      postgres:
+        type: string
+      storageClassName:
+        type: string
+    required:
+    - b3
+    - nats
+    - postgres
+    type: object
+  platform-ui:
+    properties:
+      enabled:
+        type: boolean
+      image:
+        properties:
+          pullPolicy:
+            type: string
+          tag:
+            type: string
+        type: object
+      loginURL:
+        type: string
+      registryFQDN:
+        type: string
+    required:
+    - enabled
+    - image
+    - registryFQDN
+    type: object
+  postgres:
+    properties:
+      databases:
+        properties:
+          akp:
+            properties:
+              name:
+                type: string
+              user:
+                type: string
+            required:
+            - name
+            - user
+            type: object
+          casdoor:
+            properties:
+              name:
+                type: string
+              user:
+                type: string
+            required:
+            - name
+            - user
+            type: object
+          openfga:
+            properties:
+              name:
+                type: string
+              user:
+                type: string
+            required:
+            - name
+            - user
+            type: object
+          trustconsole:
+            properties:
+              name:
+                type: string
+              user:
+                type: string
+            required:
+            - name
+            - user
+            type: object
+        required:
+        - akp
+        - casdoor
+        - openfga
+        - trustconsole
+        type: object
+      external:
+        properties:
+          enabled:
+            type: boolean
+          host:
+            type: string
+          port:
+            type: integer
+          sslmode:
+            type: string
+        required:
+        - enabled
+        type: object
+      image:
+        properties:
+          digest:
+            type: string
+          pullPolicy:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - repository
+        - tag
+        type: object
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      podAnnotations:
+        additionalProperties:
+          type: string
+        type: object
+      resources:
+        properties:
+          claims:
+            items:
+              properties:
+                name:
+                  type: string
+                request:
+                  type: string
+              required:
+              - name
+              type: object
+            type: array
+            x-kubernetes-list-map-keys:
+            - name
+            x-kubernetes-list-type: map
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+      tolerations:
+        items:
+          properties:
+            effect:
+              type: string
+            key:
+              type: string
+            operator:
+              type: string
+            tolerationSeconds:
+              format: int64
+              type: integer
+            value:
+              type: string
+          type: object
+        type: array
+    required:
+    - databases
+    - external
+    - image
+    type: object
+  production:
+    type: boolean
+  routing:
+    properties:
+      gateway:
+        properties:
+          annotations:
+            additionalProperties:
+              type: string
+            type: object
+          backendTrafficPolicy:
+            type: boolean
+          className:
+            type: string
+          create:
+            type: boolean
+          listenerPort:
+            type: integer
+          parentRefs:
+            items:
+              additionalProperties:
+                type: string
+              type: object
+            type: array
+        required:
+        - className
+        - create
+        type: object
+      httpsPort:
+        type: integer
+      ingress:
+        properties:
+          annotations:
+            additionalProperties:
+              type: string
+            type: object
+          className:
+            type: string
+        type: object
+      mode:
+        type: string
+      rootRedirect:
+        type: string
+    required:
+    - gateway
+    - ingress
+    - mode
+    type: object
+  tls:
+    properties:
+      existingSecret:
+        type: string
+      mode:
+        type: string
+      validityDays:
+        type: integer
+    required:
+    - mode
+    type: object
+  trustConsole:
+    properties:
+      enabled:
+        type: boolean
+      host:
+        type: string
+      hub:
+        properties:
+          extraEnv:
+            items:
+              properties:
+                name:
+                  type: string
+                value:
+                  type: string
+                valueFrom:
+                  properties:
+                    configMapKeyRef:
+                      properties:
+                        key:
+                          type: string
+                        name:
+                          default: ''
+                          type: string
+                        optional:
+                          type: boolean
+                      required:
+                      - key
+                      type: object
+                      x-kubernetes-map-type: atomic
+                    fieldRef:
+                      properties:
+                        apiVersion:
+                          type: string
+                        fieldPath:
+                          type: string
+                      required:
+                      - fieldPath
+                      type: object
+                      x-kubernetes-map-type: atomic
+                    fileKeyRef:
+                      properties:
+                        key:
+                          type: string
+                        optional:
+                          default: false
+                          type: boolean
+                        path:
+                          type: string
+                        volumeName:
+                          type: string
+                      required:
+                      - key
+                      - path
+                      - volumeName
+                      type: object
+                      x-kubernetes-map-type: atomic
+                    resourceFieldRef:
+                      properties:
+                        containerName:
+                          type: string
+                        divisor:
+                          anyOf:
+                          - type: integer
+                          - type: string
+                          pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                          x-kubernetes-int-or-string: true
+                        resource:
+                          type: string
+                      required:
+                      - resource
+                      type: object
+                      x-kubernetes-map-type: atomic
+                    secretKeyRef:
+                      properties:
+                        key:
+                          type: string
+                        name:
+                          default: ''
+                          type: string
+                        optional:
+                          type: boolean
+                      required:
+                      - key
+                      type: object
+                      x-kubernetes-map-type: atomic
+                  type: object
+              required:
+              - name
+              type: object
+            type: array
+          replicaCount:
+            type: integer
+          resources:
+            properties:
+              claims:
+                items:
+                  properties:
+                    name:
+                      type: string
+                    request:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+          service:
+            properties:
+              port:
+                type: integer
+            required:
+            - port
+            type: object
+        required:
+        - replicaCount
+        - service
+        type: object
+      image:
+        properties:
+          digest:
+            type: string
+          pullPolicy:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - repository
+        - tag
+        type: object
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      org:
+        type: string
+      tolerations:
+        items:
+          properties:
+            effect:
+              type: string
+            key:
+              type: string
+            operator:
+              type: string
+            tolerationSeconds:
+              format: int64
+              type: integer
+            value:
+              type: string
+          type: object
+        type: array
+      ui:
+        properties:
+          image:
+            properties:
+              digest:
+                type: string
+              pullPolicy:
+                type: string
+              repository:
+                type: string
+              tag:
+                type: string
+            required:
+            - repository
+            - tag
+            type: object
+          replicaCount:
+            type: integer
+          resources:
+            properties:
+              claims:
+                items:
+                  properties:
+                    name:
+                      type: string
+                    request:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
+              limits:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+              requests:
+                additionalProperties:
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                  x-kubernetes-int-or-string: true
+                type: object
+            type: object
+        required:
+        - image
+        - replicaCount
+        type: object
+    required:
+    - enabled
+    - hub
+    - image
+    - org
+    - ui
+    type: object
+  valkey:
+    properties:
+      addr:
+        type: string
+      enabled:
+        type: boolean
+      image:
+        properties:
+          digest:
+            type: string
+          pullPolicy:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - repository
+        - tag
+        type: object
+      nodeSelector:
+        additionalProperties:
+          type: string
+        type: object
+      resources:
+        properties:
+          claims:
+            items:
+              properties:
+                name:
+                  type: string
+                request:
+                  type: string
+              required:
+              - name
+              type: object
+            type: array
+            x-kubernetes-list-map-keys:
+            - name
+            x-kubernetes-list-type: map
+          limits:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+          requests:
+            additionalProperties:
+              anyOf:
+              - type: integer
+              - type: string
+              pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+              x-kubernetes-int-or-string: true
+            type: object
+        type: object
+      tolerations:
+        items:
+          properties:
+            effect:
+              type: string
+            key:
+              type: string
+            operator:
+              type: string
+            tolerationSeconds:
+              format: int64
+              type: integer
+            value:
+              type: string
+          type: object
+        type: array
+    required:
+    - enabled
+    - image
+    type: object
+required:
+- akpBootstrap
+- b3
+- casdoor
+- cluster-ui
+- credentials
+- global
+- nats
+- openfga
+- persistence
+- platform-ui
+- postgres
+- routing
+- tls
+- trustConsole
+- valkey
+type: object

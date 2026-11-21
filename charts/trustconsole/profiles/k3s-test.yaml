@@ -1,0 +1,52 @@
+# The demo on the single-node k3s of the kubepatch demo (10.2.0.5), next to the kubepatch release: local-path storage, the
+# self-signed certificate, generated credentials, a Gateway of its own on port 8443 of Voyager Gateway (GatewayClass ace; the
+# kubepatch Gateway holds 443 and is not touched). Images are imported with `k3s ctr`; the ones also used by kubepatch are
+# pinned by the digest of what that import named.
+# Name resolution: three names resolve to the host, `trustconsole.appscode.test` (AKP and its UIs),
+# `casdoor.trustconsole.appscode.test` and `trust.trustconsole.appscode.test` (the Trust Console): put all three on 10.2.0.5 in
+# /etc/hosts. Not nip.io: b3 sets its cookies on the last two labels of the host, and nip.io is on the public suffix list.
+global:
+  platform:
+    host: trustconsole.appscode.test
+routing:
+  # Public URLs are on 443; this Gateway listens on 8443 because the kubepatch Gateway holds 443 on this host. Browsers and curl
+  # reach it as :443 through a mapping (chrome --host-resolver-rules="MAP <name> 10.2.0.5:8443", curl --connect-to).
+  gateway:
+    listenerPort: 8443
+    backendTrafficPolicy: true
+persistence:
+  storageClassName: local-path
+  postgres: 5Gi
+  nats: 2Gi
+  b3: 2Gi
+postgres:
+  image:
+    digest: sha256:8d320c6facbcd077b88a697de873a6bb15f3b3aff0f341ff86033def5fe545a3
+casdoor:
+  image:
+    digest: sha256:b2c5cb6b0711046e565aa107fc96f96341fa747b3193c4cb5f7373d2e6726ff9
+nats:
+  image:
+    digest: sha256:6d54143242cf436185758a68227af81987045332daa7dc7170f84073c99222e4
+  natsBox:
+    digest: sha256:8031d190c7ee24081f3f27cc939fb647a1eeb29ebb5c60fef9b5b6c7a846d6a2
+b3:
+  image:
+    # b3 fix-v2-only-cold-boot (a3c72f5a32) plus the two small patches of the kubepatch demo (b3 dev stops after the NATS accounts
+    # in v2_only; iam-bootstrap-admin registers the KMS keeper): the image the kubepatch demo imported, local only, no digest.
+    tag: kubepatch-a3c72f5a32-dev2
+# 3.1.0 of platform-ui and cluster-ui call b3's v1 API, which v2_only does not mount: the builds of platform-ui feat/iam-ui and
+# cluster-ui feat/akp-v2-client speak v2. Local images of the kubepatch demo, no digest.
+platform-ui:
+  image:
+    tag: kubepatch-6e9d41b92c
+cluster-ui:
+  image:
+    tag: kubepatch-eae279409c
+# trust-console design/platform-and-akp-console (1f106b95c3), built on a build host, imported with k3s ctr.
+trustConsole:
+  image:
+    tag: tc-1f106b95c3
+  ui:
+    image:
+      tag: tc-1f106b95c3

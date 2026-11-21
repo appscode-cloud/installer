@@ -1,0 +1,73 @@
+{{- if .Values.valkey.enabled }}
+{{- $fn := include "trustconsole.fullname" . }}
+{{- $v := .Values.valkey }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $fn }}-valkey
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "trustconsole.labels" . | nindent 4 }}
+spec:
+  ports:
+  - { name: valkey, port: 6379, targetPort: valkey }
+  selector:
+    {{- include "trustconsole.selector" (dict "root" . "component" "valkey") | nindent 4 }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fn }}-valkey
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "trustconsole.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "trustconsole.selector" (dict "root" . "component" "valkey") | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "trustconsole.selector" (dict "root" . "component" "valkey") | nindent 8 }}
+    spec:
+      automountServiceAccountToken: false
+      {{- include "trustconsole.imagePullSecrets" . | nindent 6 }}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 999
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: valkey
+        image: {{ include "trustconsole.image" (dict "root" . "image" $v.image) }}
+        imagePullPolicy: {{ $v.image.pullPolicy }}
+        # Rate-limit state is cache-shaped: a restart forgets it, which is the accepted cost of no volume.
+        args: ["--save", "", "--appendonly", "no"]
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop: ["ALL"]
+        ports:
+        - { name: valkey, containerPort: 6379 }
+        readinessProbe:
+          exec: { command: ["valkey-cli", "ping"] }
+        livenessProbe:
+          exec: { command: ["valkey-cli", "ping"] }
+          initialDelaySeconds: 10
+        resources:
+          {{- toYaml $v.resources | nindent 10 }}
+        volumeMounts:
+        - { name: data, mountPath: /data }
+      volumes:
+      - { name: data, emptyDir: {} }
+      {{- with $v.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with $v.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}
