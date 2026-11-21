@@ -123,6 +123,8 @@ helm:
       version: "69.2.2"
     kubedb-ui-presets:
       version: "v2026.11.15"
+    kube-bench:
+      version: "0.1.0"
     kube-ui-server:
       version: "v2026.11.15"
     kubedb:
@@ -165,6 +167,8 @@ helm:
       version: "v2026.11.15"
     panopticon:
       version: "v2026.9.18"
+    patch-console-agent:
+      version: "0.1.0"
     prepare-cluster:
       version: "v2023.12.21"
     prometheus-adapter:
@@ -201,6 +205,8 @@ helm:
       version: "v2026.9.22"
     thanos-operator:
       version: "v2026.6.2"
+    trivy-operator:
+      version: "0.38.1"
     victoria-metrics-operator:
       version: 0.67.3
     topolvm:
