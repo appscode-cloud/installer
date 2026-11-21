@@ -75,6 +75,13 @@ properties:
         - repository
         - tag
         type: object
+      inbox:
+        properties:
+          jmapURL:
+            type: string
+          webAdminURL:
+            type: string
+        type: object
       logLevel:
         type: string
       nodeSelector:
@@ -250,6 +257,7 @@ properties:
     - enabled
     - iam
     - image
+    - inbox
     - logLevel
     - replicaCount
     - runMode
