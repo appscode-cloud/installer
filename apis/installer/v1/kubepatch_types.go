@@ -210,19 +210,20 @@ type KubepatchSMTP struct {
 }
 
 type KubepatchB3 struct {
-	Enabled      bool               `json:"enabled"`
-	Image        KubepatchImage     `json:"image"`
-	ReplicaCount int                `json:"replicaCount"`
-	AppName      string             `json:"appName"`
-	RunMode      string             `json:"runMode"`
-	LogLevel     string             `json:"logLevel"`
-	Session      KubepatchB3Session `json:"session"`
-	Cache        KubepatchB3Cache   `json:"cache"`
-	IAM          KubepatchB3IAM     `json:"iam"`
-	SMTP         KubepatchSMTP      `json:"smtp"`
-	Inbox        KubepatchB3Inbox   `json:"inbox"`
-	Worker       KubepatchEnabled   `json:"worker"`
-	Cadence      KubepatchB3Cadence `json:"cadence"`
+	Enabled          bool               `json:"enabled"`
+	Image            KubepatchImage     `json:"image"`
+	ReplicaCount     int                `json:"replicaCount"`
+	AppName          string             `json:"appName"`
+	RunMode          string             `json:"runMode"`
+	LogLevel         string             `json:"logLevel"`
+	SiteOrganization string             `json:"siteOrganization"`
+	Session          KubepatchB3Session `json:"session"`
+	Cache            KubepatchB3Cache   `json:"cache"`
+	IAM              KubepatchB3IAM     `json:"iam"`
+	SMTP             KubepatchSMTP      `json:"smtp"`
+	Inbox            KubepatchB3Inbox   `json:"inbox"`
+	Worker           KubepatchEnabled   `json:"worker"`
+	Cadence          KubepatchB3Cadence `json:"cadence"`
 	// +optional
 	ExtraAppIni string `json:"extraAppIni"`
 	// +optional

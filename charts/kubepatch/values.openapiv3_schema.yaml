@@ -210,6 +210,8 @@ properties:
         required:
         - provider
         type: object
+      siteOrganization:
+        type: string
       smtp:
         properties:
           enabled:
@@ -262,6 +264,7 @@ properties:
     - replicaCount
     - runMode
     - session
+    - siteOrganization
     - smtp
     - worker
     type: object
