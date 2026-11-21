@@ -5,7 +5,7 @@ go 1.25.6
 require (
 	go.bytebuilders.dev/catalog v0.1.2-0.20261006105413-f96363d5bf8d
 	go.bytebuilders.dev/resource-model v0.4.1-0.20261104051707-a20a8ea03ba7
-	go.bytebuilders.dev/ui-wizards v0.39.2-0.20261117163227-9262393559b2
+	go.bytebuilders.dev/ui-wizards v0.39.1
 	go.openviz.dev/installer v0.0.0-20260619044110-702becd1dd97
 	gomodules.xyz/go-sh v0.2.0
 	k8s.io/api v0.34.8
@@ -73,7 +73,7 @@ require (
 	github.com/huandu/xstrings v1.5.0 // indirect
 	github.com/imdario/mergo v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
-	github.com/klauspost/compress v1.18.2 // indirect
+	github.com/klauspost/compress v1.20.5 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.7 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
