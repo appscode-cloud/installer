@@ -1,0 +1,29 @@
+diff --git a/cmd/dev.go b/cmd/dev.go
+index b15503527d..aa5fe6544d 100644
+--- a/cmd/dev.go
++++ b/cmd/dev.go
+@@ -187,6 +187,11 @@ func runDev(clx *cli.Context) error {
+ 		}
+ 	}
+ 
++	if models.IdentityFromIAM() {
++		log.Info("setup job: [iam] MODE = v2_only: the NATS accounts are ready; the first administrator is made by `b3 admin iam-bootstrap-admin`")
++		return nil
++	}
++
+ 	user, err := runCreateDevUser(aceSetupConfig)
+ 	if err != nil {
+ 		return err
+diff --git a/cmd/iam_bootstrap_admin.go b/cmd/iam_bootstrap_admin.go
+index 41b1e9af04..d323a7b74e 100644
+--- a/cmd/iam_bootstrap_admin.go
++++ b/cmd/iam_bootstrap_admin.go
+@@ -62,6 +62,8 @@ func runIAMBootstrapAdmin(c *cli.Context) error {
+ 	if err := waitForDatabaseToBeReady(time.Minute); err != nil {
+ 		return err
+ 	}
++	// The NATS seeds in nats_account are sealed by the KMS keeper: register it before the admin connection reads them.
++	routers.InitializeXKMSAndOauth2()
+ 	if setting.IAM.Mode != setting.ModeV2Only {
+ 		return fmt.Errorf("[iam] MODE is %s: this command makes the first account of v2_only, and the other modes keep their accounts in ac_*", setting.IAM.Mode)
+ 	}
