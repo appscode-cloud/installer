@@ -54,9 +54,6 @@ CONTAINER_TOOL ?= docker
 # Image URL to use all building/pushing image targets
 IMG ?= $(IMAGE_TAG_BASE):$(VERSION)
 
-.PHONY: all
-all: docker-build
-
 ##@ General
 
 # The help target prints out all targets with their descriptions organized
@@ -153,8 +150,7 @@ deploy: kustomize ## Deploy controller to the K8s cluster specified in ~/.kube/c
 undeploy: ## Undeploy controller from the K8s cluster specified in ~/.kube/config.
 	$(KUSTOMIZE) build config/default | kubectl delete -f -
 
-OS := $(shell uname -s | tr '[:upper:]' '[:lower:]')
-ARCH := $(shell uname -m | sed 's/x86_64/amd64/' | sed 's/aarch64/arm64/')
+LOCALBIN ?= $(BIN_DIR)
 
 .PHONY: kustomize
 KUSTOMIZE = $(LOCALBIN)/kustomize
@@ -165,7 +161,7 @@ ifeq (,$(shell which kustomize 2>/dev/null))
 	set -e ;\
 	mkdir -p $(dir $(KUSTOMIZE)) ;\
 	curl -sSLo - https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v5.6.0/kustomize_v5.6.0_$(OS)_$(ARCH).tar.gz | \
-	tar xzf - -C $(dir $(HELM_OPERATOR)) ;\
+	tar xzf - -C $(dir $(KUSTOMIZE)) ;\
 	}
 else
 KUSTOMIZE = $(shell which kustomize)
@@ -220,33 +216,11 @@ ROLE_AGGREGATOR = $(shell which role-aggregator)
 endif
 endif
 
-.PHONY: gen-custom-role
-gen-custom-role: role-aggregator ## Generate custom role for kubedb from selected charts.
-	@# role-aggregator runs `helm template` on each chart, so any chart with
-	@# dependencies (e.g. kubedb-autoscaler -> storage-metrics-server) must have
-	@# them fetched into its charts/ directory first.
-	helm dependency build charts/kubedb-autoscaler
-	$(ROLE_AGGREGATOR) \
-		--name kubedb-role \
-		--dir config/rbac/role.yaml \
-		--chart charts/kubedb-autoscaler \
-		--chart charts/kubedb-crd-manager \
-		--chart charts/kubedb-dashboard \
-		--chart charts/kubedb-gitops \
-		--chart charts/kubedb-courier \
-		--chart charts/kubedb-ops-manager \
-		--chart charts/kubedb-provisioner \
-		--chart charts/kubedb-schema-manager \
-		--chart charts/kubedb-webhook-server \
-		--output config/rbac/custom_role.yaml
-
-
 .PHONY: bundle
 bundle: kustomize operator-sdk ## Generate bundle manifests and metadata, then validate generated files.
 	$(OPERATOR_SDK) generate kustomize manifests -q
 	cd config/manager && $(KUSTOMIZE) edit set image controller=$(IMG)
-	@$(MAKE) gen-custom-role --no-print-directory
-	@cd config/manifests/bases && sed -i.bak 's|^\([[:space:]]*containerImage:[[:space:]]*\).*|\1$(IMG)|' kubedb-installer.clusterserviceversion.yaml && rm -f kubedb-installer.clusterserviceversion.yaml.bak
+	@cd config/manifests/bases && sed -i.bak 's|^\([[:space:]]*containerImage:[[:space:]]*\).*|\1$(IMG)|' akp-installer.clusterserviceversion.yaml && rm -f akp-installer.clusterserviceversion.yaml.bak
 	$(KUSTOMIZE) build config/manifests | $(OPERATOR_SDK) generate bundle $(BUNDLE_GEN_FLAGS)
 	@grep -q '^  com.redhat.openshift.versions: v4.14-v4.21$$' bundle/metadata/annotations.yaml || { \
 		echo ''; \
@@ -257,9 +231,9 @@ bundle: kustomize operator-sdk ## Generate bundle manifests and metadata, then v
 	$(OPERATOR_SDK) bundle validate ./bundle --select-optional name=capabilities
 	$(OPERATOR_SDK) bundle validate ./bundle --select-optional name=categories
 	$(OPERATOR_SDK) bundle validate ./bundle --select-optional name=good-practices
-	@awk 'BEGIN{s=0} {if(!s && ($$0=="" || $$0=="---")){next} s=1; print}' config/crd/bases/installer.kubedb.com_kubedbs.yaml > bundle/manifests/installer.kubedb.com_kubedbs.yaml
+	@awk 'BEGIN{s=0} {if(!s && ($$0=="" || $$0=="---")){next} s=1; print}' config/crd/bases/installer.akp.appscode.com_akpinstallers.yaml > bundle/manifests/installer.akp.appscode.com_akpinstallers.yaml
 
-BUNDLE_CSV := bundle/manifests/kubedb-installer.clusterserviceversion.yaml
+BUNDLE_CSV := bundle/manifests/akp-installer.clusterserviceversion.yaml
 
 # Previous stable (non-rc) release tag, used to populate spec.replaces: the
 # highest version-sorted tag immediately below the one being built.
