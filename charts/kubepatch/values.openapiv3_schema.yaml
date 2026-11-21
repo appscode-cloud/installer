@@ -466,6 +466,20 @@ properties:
         - repository
         - tag
         type: object
+      natsBox:
+        properties:
+          digest:
+            type: string
+          pullPolicy:
+            type: string
+          repository:
+            type: string
+          tag:
+            type: string
+        required:
+        - repository
+        - tag
+        type: object
       resources:
         properties:
           claims:
@@ -502,6 +516,7 @@ properties:
     required:
     - enabled
     - image
+    - natsBox
     type: object
   patchConsole:
     properties:
