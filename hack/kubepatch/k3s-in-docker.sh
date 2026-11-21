@@ -61,7 +61,10 @@ down() {
 }
 
 case "${1:-}" in
-up) up ;;
-down) down ;;
-*) echo "usage: $0 up|down" >&2; exit 1 ;;
+    up) up ;;
+    down) down ;;
+    *)
+        echo "usage: $0 up|down" >&2
+        exit 1
+        ;;
 esac

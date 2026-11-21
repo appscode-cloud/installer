@@ -35,7 +35,7 @@
 set -euo pipefail
 
 B3_IMAGE=${B3_IMAGE:-ghcr.io/appscode/b3}
-B3_TAG=${B3_TAG:-}                       # default: kubepatch-<short sha of B3_DIR>
+B3_TAG=${B3_TAG:-} # default: kubepatch-<short sha of B3_DIR>
 PATCH_IMAGE=${PATCH_IMAGE:-ghcr.io/appscode/patch-console}
 PATCH_UI_IMAGE=${PATCH_UI_IMAGE:-ghcr.io/appscode/patch-console-ui}
 PATCH_TAG=${PATCH_TAG:-kubepatch}
@@ -48,7 +48,10 @@ all_images() {
 }
 
 b3_tag() {
-    if [ -n "$B3_TAG" ]; then echo "$B3_TAG"; return; fi
+    if [ -n "$B3_TAG" ]; then
+        echo "$B3_TAG"
+        return
+    fi
     echo "kubepatch-$(git -C "${B3_DIR:?B3_DIR is required}" rev-parse --short=10 HEAD)"
 }
 
@@ -80,7 +83,10 @@ DOCKERFILE
 build_patch_console() {
     local dir=${PATCH_CONSOLE_DIR:?PATCH_CONSOLE_DIR is required}
     # The module graph holds the private go.appscode.dev/iam, fetched over ssh from the agent.
-    [ -n "${SSH_AUTH_SOCK:-}" ] || { echo "start an ssh-agent with a key that can read go.appscode.dev/iam" >&2; exit 1; }
+    [ -n "${SSH_AUTH_SOCK:-}" ] || {
+        echo "start an ssh-agent with a key that can read go.appscode.dev/iam" >&2
+        exit 1
+    }
     DOCKER_BUILDKIT=1 docker build --ssh default -t "$PATCH_IMAGE:$PATCH_TAG" -f "$dir/Dockerfile" "$dir"
     # The UI Dockerfile builds on node:alpine, where `npm ci` skips rolldown's musl binding (npm bug 4828) and `vite build`
     # fails; the same build on a glibc node image works. Build with a copy of the Dockerfile that only swaps the base.
@@ -118,12 +124,24 @@ import() {
 }
 
 case "${1:-}" in
-build) build_b3; build_patch_console ;;
-build-b3) build_b3 ;;
-build-patch-console) build_patch_console ;;
-pull) pull_public ;;
-save) save ;;
-import) import ;;
-all) build_b3; build_patch_console; pull_public; save; import ;;
-*) sed -n 17,36p "$0" >&2; exit 1 ;;
+    build)
+        build_b3
+        build_patch_console
+        ;;
+    build-b3) build_b3 ;;
+    build-patch-console) build_patch_console ;;
+    pull) pull_public ;;
+    save) save ;;
+    import) import ;;
+    all)
+        build_b3
+        build_patch_console
+        pull_public
+        save
+        import
+        ;;
+    *)
+        sed -n 17,36p "$0" >&2
+        exit 1
+        ;;
 esac
