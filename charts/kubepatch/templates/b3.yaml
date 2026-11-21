@@ -60,7 +60,7 @@ spec:
         fsGroup: 65534
       initContainers:
       # The order is b3's own (docs/iam-modes.md, "A fresh install in v2_only"): the tables of the product, the first
-      # site administrator, then the NATS accounts and the site organization. Each retries until what it needs is up.
+      # site administrator, then the NATS accounts and the site organization (b3 dev), then the first site administrator, whose NATS account needs the setup first. Each retries until what it needs is up.
       - name: migrate
         image: {{ include "kubepatch.image" (dict "root" . "image" $b3.image) }}
         imagePullPolicy: {{ $b3.image.pullPolicy }}
@@ -74,21 +74,6 @@ spec:
         {{- if .Values.nats.enabled }}
         - { name: nats-creds, mountPath: /nats/creds, readOnly: true }
         {{- end }}
-      {{- if .Values.akpBootstrap.enabled }}
-      - name: bootstrap-admin
-        image: {{ include "kubepatch.image" (dict "root" . "image" $b3.image) }}
-        imagePullPolicy: {{ $b3.image.pullPolicy }}
-        args: ["admin", "iam-bootstrap-admin", "--name", {{ .Values.casdoor.admin.username | quote }}, "--email", {{ .Values.casdoor.admin.email | quote }}, "--full-name", {{ .Values.casdoor.admin.displayName | quote }}]
-        securityContext:
-          {{- toYaml $b3.securityContext | nindent 10 }}
-        volumeMounts:
-        - { name: tmp, mountPath: /tmp }
-        - { name: data, mountPath: /data }
-        - { name: config, mountPath: /data/b3/conf }
-        {{- if .Values.nats.enabled }}
-        - { name: nats-creds, mountPath: /nats/creds, readOnly: true }
-        {{- end }}
-      {{- end }}
       {{- if .Values.nats.enabled }}
       - name: setup
         image: {{ include "kubepatch.image" (dict "root" . "image" $b3.image) }}
@@ -105,6 +90,21 @@ spec:
         {{- end }}
         - { name: setup-config, mountPath: /setup, readOnly: true }
       {{- end }}
+      {{- if .Values.akpBootstrap.enabled }}
+      - name: bootstrap-admin
+        image: {{ include "kubepatch.image" (dict "root" . "image" $b3.image) }}
+        imagePullPolicy: {{ $b3.image.pullPolicy }}
+        args: ["admin", "iam-bootstrap-admin", "--name", {{ .Values.casdoor.admin.username | quote }}, "--email", {{ .Values.casdoor.admin.email | quote }}, "--full-name", {{ .Values.casdoor.admin.displayName | quote }}]
+        securityContext:
+          {{- toYaml $b3.securityContext | nindent 10 }}
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+        - { name: data, mountPath: /data }
+        - { name: config, mountPath: /data/b3/conf }
+        {{- if .Values.nats.enabled }}
+        - { name: nats-creds, mountPath: /nats/creds, readOnly: true }
+        {{- end }}
+      {{- end }}
       containers:
       - name: b3
         image: {{ include "kubepatch.image" (dict "root" . "image" $b3.image) }}
@@ -114,18 +114,22 @@ spec:
           {{- toYaml $b3.securityContext | nindent 10 }}
         ports:
         - { name: http, containerPort: 3003 }
-        # /healthz is served in every identity mode; /api/v1/version is not mounted in v2_only.
+        # v2_only serves neither /healthz nor /api/v1/version: a Connect call that needs no sign-in is the probe.
         startupProbe:
-          httpGet: { path: /healthz, port: http }
+          exec:
+            command: {{ include "kubepatch.b3probe" . }}
           periodSeconds: 10
+          timeoutSeconds: 5
           failureThreshold: 60
         livenessProbe:
-          httpGet: { path: /healthz, port: http }
+          exec:
+            command: {{ include "kubepatch.b3probe" . }}
           timeoutSeconds: 10
           periodSeconds: 20
           failureThreshold: 6
         readinessProbe:
-          httpGet: { path: /healthz, port: http }
+          exec:
+            command: {{ include "kubepatch.b3probe" . }}
           timeoutSeconds: 5
           periodSeconds: 10
         resources:
