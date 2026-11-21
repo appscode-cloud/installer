@@ -35,9 +35,12 @@ patchConsole:
     image:
       tag: kubepatch-d7fb9feba9
       digest: sha256:1d17d4331f0db96b82150422809006083c8aa6cf15b19e5227c626889667d29d
+# 3.1.0 of platform-ui and cluster-ui call b3's v1 API, which v2_only does not mount (404 on /api/v1/user and
+# /api/v1/branding). These are builds of platform-ui feat/iam-ui (6e9d41b92c) and cluster-ui feat/akp-v2-client
+# (eae279409c), which speak the v2 API; load-images.sh builds them. No digest: the images are local only.
 platform-ui:
   image:
-    tag: 3.1.0@sha256:42a801a4b88ffd472c86f18a4c297d670af333778861be183e648437d92aa1a1
+    tag: kubepatch-6e9d41b92c
 cluster-ui:
   image:
-    tag: 3.1.0@sha256:0d4642de141449481a434512e6738ebd234be3b42dd632e59ae9428f1c802595
+    tag: kubepatch-eae279409c

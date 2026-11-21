@@ -43,20 +43,27 @@ set -euo pipefail
 WORK=${WORK:-$HOME/kubepatch-build}
 B3_REF=${B3_REF:-fix-v2-only-cold-boot}
 PATCH_REF=${PATCH_REF:-master}
+# 3.1.0 of the two UIs speaks b3's v1 API, which v2_only does not mount: build the branches that speak the v2 API.
+PLATFORM_UI_REF=${PLATFORM_UI_REF:-feat/iam-ui}
+CLUSTER_UI_REF=${CLUSTER_UI_REF:-feat/akp-v2-client}
+PLATFORM_UI_IMAGE=${PLATFORM_UI_IMAGE:-ghcr.io/appscode/platform-ui}
+CLUSTER_UI_IMAGE=${CLUSTER_UI_IMAGE:-ghcr.io/appscode/cluster-ui}
 OUT=${OUT:-$WORK/images}
 B3_REPO=${B3_REPO:-git@github.com:appscode-cloud/b3.git}
 PATCH_REPO=${PATCH_REPO:-git@github.com:appscode-cloud/patch-console.git}
 B3_IMAGE=${B3_IMAGE:-ghcr.io/appscode/b3}
 PATCH_IMAGE=${PATCH_IMAGE:-ghcr.io/appscode/patch-console}
 PATCH_UI_IMAGE=${PATCH_UI_IMAGE:-ghcr.io/appscode/patch-console-ui}
-PUBLIC_IMAGES=${PUBLIC_IMAGES:-"ghcr.io/appscode/platform-ui:3.1.0 ghcr.io/appscode/cluster-ui:3.1.0 ghcr.io/appscode/casdoor:v4.29.0-3391e5fe ghcr.io/appscode-images/postgres:18.3-bookworm ghcr.io/appscode-images/nats:2.12.6-alpine natsio/nats-box:0.19.2"}
+PUBLIC_IMAGES=${PUBLIC_IMAGES:-"ghcr.io/appscode/casdoor:v4.29.0-3391e5fe ghcr.io/appscode-images/postgres:18.3-bookworm ghcr.io/appscode-images/nats:2.12.6-alpine natsio/nats-box:0.19.2"}
 BUILD_IMAGE=${BUILD_IMAGE:-ghcr.io/appscode/golang-dev:1.27}
 
 b3_tag() { echo "kubepatch-$(git -C "$WORK/b3" rev-parse --short=10 HEAD)"; }
+platform_ui_tag() { echo "kubepatch-$(git -C "$WORK/platform-ui" rev-parse --short=10 HEAD)"; }
+cluster_ui_tag() { echo "kubepatch-$(git -C "$WORK/cluster-ui" rev-parse --short=10 HEAD)"; }
 patch_tag() { echo "kubepatch-$(git -C "$WORK/patch-console" rev-parse --short=10 HEAD)"; }
 
 all_images() {
-    echo "$B3_IMAGE:$(b3_tag)" "$PATCH_IMAGE:$(patch_tag)" "$PATCH_UI_IMAGE:$(patch_tag)" $PUBLIC_IMAGES
+    echo "$B3_IMAGE:$(b3_tag)" "$PATCH_IMAGE:$(patch_tag)" "$PATCH_UI_IMAGE:$(patch_tag)" "$PLATFORM_UI_IMAGE:$(platform_ui_tag)" "$CLUSTER_UI_IMAGE:$(cluster_ui_tag)" $PUBLIC_IMAGES
 }
 
 checkout() { # dir repo ref
@@ -73,6 +80,8 @@ fetch() {
     mkdir -p "$WORK"
     checkout "$WORK/b3" "$B3_REPO" "$B3_REF"
     checkout "$WORK/patch-console" "$PATCH_REPO" "$PATCH_REF"
+    checkout "$WORK/platform-ui" git@github.com:appscode-cloud/platform-ui.git "$PLATFORM_UI_REF"
+    checkout "$WORK/cluster-ui" git@github.com:appscode-cloud/cluster-ui.git "$CLUSTER_UI_REF"
 }
 
 build_b3() {
@@ -115,6 +124,34 @@ build_patch_console() {
     rm -f "$uidf"
 }
 
+# The two UIs fetch private git dependencies at `npm install`: over ssh from the agent, on a glibc node image
+# (npm bug 4828 again on alpine).
+build_ui() { # dir image tag
+    local dir=$1 df
+    df=$(mktemp "$dir/Dockerfile.kp.XXXXXX")
+    python3 - "$dir/Dockerfile" "$df" <<'PY'
+import re, sys
+s = open(sys.argv[1]).read()
+s = s.replace("node:22-alpine", "node:22-bookworm", 1)
+# the build stage reaches the private git dependencies with an ssh key from the agent, not a token
+setup = ('RUN apt-get update && apt-get install -y --no-install-recommends git openssh-client && rm -rf /var/lib/apt/lists/* \\\n'
+         ' && mkdir -p -m 0700 /root/.ssh && ssh-keyscan github.com >> /root/.ssh/known_hosts \\\n'
+         ' && git config --global url."git@github.com:".insteadOf "https://github.com/"\n\n')
+start = s.index("RUN apk add") if "RUN apk add" in s else s.index("# add git credentials on build")
+s = s[:start] + setup + s[s.index("WORKDIR /app"):]
+s = re.sub(r"^RUN (NODE_OPTIONS=\S+ CYPRESS_INSTALL_BINARY=0 npm install|npm ci)$", r"RUN --mount=type=ssh \1", s, flags=re.M)
+open(sys.argv[2], "w").write(s)
+PY
+    DOCKER_BUILDKIT=1 docker build --ssh default --provenance=false -t "$2:$3" -f "$df" "$dir"
+    rm -f "$df"
+}
+
+build_uis() {
+    [ -n "${SSH_AUTH_SOCK:-}" ] || { echo "start an ssh-agent with a key that can read the private git dependencies" >&2; exit 1; }
+    build_ui "$WORK/platform-ui" "$PLATFORM_UI_IMAGE" "$(platform_ui_tag)"
+    build_ui "$WORK/cluster-ui" "$CLUSTER_UI_IMAGE" "$(cluster_ui_tag)"
+}
+
 pull_public() {
     for i in $PUBLIC_IMAGES; do docker pull -q "$i" >/dev/null; done
 }
@@ -135,8 +172,13 @@ import() {
     if [ -n "${DOCKER_K3S:-}" ]; then
         docker exec -i "$DOCKER_K3S" ctr images import - <"$tar"
     elif [ -n "${TARGET:-}" ]; then
-        # Only the import touches the host: `ctr images import` into k3s' own containerd.
+        # Only the import touches the host: `ctr images import` into k3s' own containerd. An image that is
+        # imported (not pulled) is known by its tag only, so give it a name by digest too: a pod that pins the
+        # digest then finds it instead of asking a registry.
         ssh "$TARGET" 'sudo k3s ctr images import -' <"$tar"
+        while read -r img _ repodigest; do
+            [ -n "$repodigest" ] && ssh "$TARGET" "sudo k3s ctr -n k8s.io images tag --force $img $repodigest" >/dev/null
+        done <"$OUT/kubepatch-images.digests"
     else
         echo "set TARGET (ssh target) or DOCKER_K3S (container name)" >&2
         exit 1
@@ -145,12 +187,13 @@ import() {
 
 case "${1:-}" in
 fetch) fetch ;;
-build) build_b3; build_patch_console ;;
+build) build_b3; build_patch_console; build_uis ;;
+build-uis) build_uis ;;
 build-b3) build_b3 ;;
 build-patch-console) build_patch_console ;;
 pull) pull_public ;;
 save) save ;;
 import) import ;;
-all) fetch; build_b3; build_patch_console; pull_public; save; import ;;
+all) fetch; build_b3; build_patch_console; build_uis; pull_public; save; import ;;
 *) sed -n 17,40p "$0" >&2; exit 1 ;;
 esac

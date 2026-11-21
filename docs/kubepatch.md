@@ -1,8 +1,9 @@
 # Kubepatch
 
 Kubepatch is the patch console (hub and UI) and AKP v2 (b3 running `[iam] MODE = v2_only`, with platform-ui and
-cluster-ui), served from **one host**. One Casdoor, with one application per product, signs people in. The
-chart is `charts/kubepatch`. It does not depend on the `ace` chart (no KubeDB, OpenFGA, Redis, Cadence or setup job).
+cluster-ui), served from **one host**. One Casdoor, with one application per product, signs people in. NATS runs in
+operator mode, as b3 needs it. The chart is `charts/kubepatch`; it does not depend on the `ace` chart (no KubeDB,
+OpenFGA, Redis, Cadence or setup job).
 
 ## Layout
 
@@ -12,6 +13,7 @@ chart is `charts/kubepatch`. It does not depend on the `ace` chart (no KubeDB, O
 | `/api`, `/accounts`, `/iam` (only with federation or SCIM) | b3 |
 | `/console` | cluster-ui |
 | `/id` | platform-ui |
+| `/nats` | NATS WebSocket (placeholder route: the UIs do not use it yet) |
 | `/` | redirect to `routing.rootRedirect` (`/id/`) |
 | `casdoor.<host>` | Casdoor (its own host: Casdoor cannot live under a path) |
 
@@ -19,74 +21,83 @@ chart is `charts/kubepatch`. It does not depend on the `ace` chart (no KubeDB, O
 or `none`. Postgres 18 (databases `akp`, `patchconsole`, `casdoor`), NATS with JetStream, Casdoor, b3, the patch console
 and the two UIs are in the chart. `postgres.external.enabled` points at your own Postgres instead.
 
+## b3 start-up order (`docs/iam-modes.md`, "A fresh install in v2_only" in b3)
+
+The b3 pod runs init containers in this order, then `b3 api`:
+
+1. `b3 migrate`: the product tables.
+2. `b3 dev --setup-config`: records the NATS operator, system and admin accounts (the creds are in Secret
+   `<release>-nats-creds`) and their streams. In v2_only it must stop there.
+3. `b3 admin iam-bootstrap-admin --name <admin>`: the first site administrator, who needs the NATS account of step 2. iam
+   links the account to the Casdoor user of the same name at the first sign-in (`CASDOOR_ADOPT_BY_NAME`).
+
+## NATS in operator mode
+
+A hook Job (`<release>-nats-keys`, image `natsio/nats-box`) makes the operator, the system account `SYS` with user `sys`
+and the account `ADMIN` with user `admin` with `nsc`, once, and writes two Secrets through the API: `<release>-nats-creds`
+(`Operator.creds`, `SYS.creds`, `sys.creds`, `ADMIN.creds`, `admin.creds`, the JWTs) and `<release>-nats-server`
+(`nats.conf` with the operator JWT, the system account and a full account resolver on the PVC). The seeds are in no value,
+no template and no log. The Secrets are not Helm's, so they outlive the release: `hack/kubepatch/teardown.sh` removes
+them. NATS has a WebSocket listener (8080, TLS ends at the gateway) in the Service, and `/nats` routes to it.
+
 ## Install
 
 ```sh
-helm dependency update charts/kubepatch      # copies platform-ui and cluster-ui in
+helm dependency update charts/kubepatch
 helm install kubepatch charts/kubepatch -n kubepatch --create-namespace \
-  -f charts/kubepatch/profiles/k3s-test.yaml --set global.platform.host=<ip>.nip.io
+  -f charts/kubepatch/profiles/k3s-test.yaml
 ```
 
-`global.platform.host` is the one public name (a DNS name, not an address; `<ip>.nip.io` works for a test). The chart
-makes a self-signed certificate for it and for `casdoor.<host>`. Every secret is generated once (`lookup`, kept on
-uninstall) unless `credentials.existingSecret` names yours; the keys are listed in `values.yaml`.
+`global.platform.host` is the one public name (a DNS name, not an address). The chart makes a self-signed certificate
+for it and for `casdoor.<host>`. Every secret is generated once (`lookup`, kept on uninstall) unless
+`credentials.existingSecret` names yours. Production: `profiles/production.yaml` (`production: true` refuses generated
+credentials, a self-signed certificate, the chart's Postgres and images without a digest).
 
-Production: `profiles/production.yaml` (`production: true` refuses generated credentials, a self-signed certificate,
-the chart's Postgres and any image without a digest; the sub-chart images are pinned as `<tag>@sha256:<digest>`).
+## The k3s demo (`profiles/k3s-test.yaml`)
 
-## Test on a single-node k3s
+1. Gateway: `helm install voyager-gateway oci://ghcr.io/appscode-charts/voyager-gateway --version v2026.10.10 -n
+   voyager-gateway-system --create-namespace -f <values>` with the controller name `gateway.voyagermesh.com/ace`,
+   `crd-manager.featureGates.GatewayOfficial=false` and `updateExistingCRDs=false` (k3s owns the Gateway API CRDs), then
+   `kubectl apply -f hack/kubepatch/gateway.yaml` (an EnvoyProxy and the GatewayClass `ace`: without `parametersRef` the
+   Voyager infrastructure runner panics). ServiceLB publishes the Gateway's Service on 80 and 443.
+2. Images: `hack/kubepatch/load-images.sh all` on a build host (docker, buildx, an ssh agent that can read the private
+   repositories) builds b3, the patch console and the two UIs, pulls the rest, saves a tarball and imports it with
+   `sudo k3s ctr images import` over ssh (`TARGET=ubuntu@host`), then names each image by digest too, so the profile's
+   digest pins resolve. Nothing is pushed.
+3. `helm install` as above. Browse `https://kubepatch.10.2.0.5.nip.io/id/` (a self-signed certificate; the nip.io names
+   resolve to the host, or put both names in `/etc/hosts`).
+4. Everything the demo created is listed in `hack/kubepatch/teardown.sh` (`--yes` removes it).
 
-1. The Gateway API CRDs and a Gateway controller (Envoy Gateway / Voyager Gateway) with a GatewayClass named
-   `routing.gateway.className` (`ace`). For a throwaway cluster in Docker, `hack/kubepatch/k3s-in-docker.sh up`.
-2. Images: b3 and the patch console are not published. Build them and import into k3s with
-   `hack/kubepatch/load-images.sh` (`build`, `pull`, `save`, `import`; set `TARGET=user@host` or `DOCKER_K3S=<name>`).
-   Nothing is pushed anywhere and no registry credential is used.
-3. `helm install` with `profiles/k3s-test.yaml` as above. Open `https://<host>/id/`, `https://<host>/patch/`.
+## Findings of the demo (what does not work yet)
 
-## First administrator
-
-Casdoor seeds the organization (`casdoor.organization`), the two applications and the user `casdoor.admin.username`;
-its password is the key `admin-password` of the credentials Secret. Two post-install Jobs link that user to an
-administrator in each product: for AKP, an `iam_account` (site administrator, id from `akp_account_id_seq`) with an
-`iam_identity` row for the Casdoor user; for the console, `patch-console iam bootstrap --org`.
-
-The console reads AKP's clusters with an iam API token: sign in to AKP as the administrator, make a token, put it in a
-Secret (`kubectl create secret generic <name> --from-literal=token=...`) and set `patchConsole.akp.tokenSecret`.
+- **platform-ui and cluster-ui 3.1.0 do not work with b3 v2_only**: they call `GET /api/v1/user`, `/api/v1/branding`,
+  `/api/v1/user/settings/*`, which v2_only does not mount (404), and land on `/id/404`. platform-ui `feat/iam-ui`
+  (6e9d41b92c) and cluster-ui `feat/akp-v2-client` (eae279409c) call the v2 API and load once signed in; the profile uses
+  them.
+- **No UI can sign in to AKP in v2_only.** The sign-in form of platform-ui sends the browser to `/accounts/user/login`,
+  which v2_only does not serve (it answers `302 /id/404`). Signing in works at the API: `POST /api/v1/user/signin` (the
+  external-console contract route) with `{"username","password"}` sets the iam session cookies, and with them `/id/`
+  (Overview) and `/console/` (Kubernetes) load. `iam.identity.v1.SignInService/Password` answers a session id and a CSRF
+  token in the body and sets no cookie.
+- b3 sets its cookies with `Domain=nip.io` for a `*.nip.io` host (the last two labels); nip.io is on the public suffix list.
+- b3 serves neither `/healthz` nor `/api/v1/version` in v2_only: the probes are `exec curl` of the Connect call
+  `akp.branding.v2.BrandingService/GetBranding`.
+- `b3 dev` creates the first user and organization through `ac_user` (fails in v2_only), and `b3 admin
+  iam-bootstrap-admin` leaves the KMS keeper unregistered, so with NATS on it cannot open the NATS admin connection. The
+  demo image carries two small patches (`hack/kubepatch/b3-dev.patch`); both belong in b3's `fix-v2-only-cold-boot`.
+- The AKP cluster directory of the patch console needs an iam token with a scope and an organization (none yet: `b3 dev` was
+  to make the site organization). The hub runs with the `table` directory.
+- The console (`patch-console` sign-in through Casdoor, with the application's redirect URI) works in a browser.
 
 ## Choices
 
-- **Not ace.** ace brings KubeDB Postgres and Redis, Cadence, OpenFGA and a setup job. In `v2_only` none of them is needed.
-- **Redis is not run.** b3's `[session]` and `[cache]` are `memory`, right for one replica; set `b3.session` and
-  `b3.cache` to Redis for more.
-- **Cadence is not run.** `b3 worker` (and so `b3.worker.enabled`) runs Cadence workflows; without it those workflows
-  (cluster operations dispatched by the API) do not run. Point `b3.cadence.host` at a Cadence to turn it on.
-- **b3 is templated here**, not taken from `charts/platform-api`: that chart probes `/api/v1/version`, which v2_only does not mount (probes use `/healthz`).
-- **One Casdoor, one organization, two applications.** Users are shared. Second factors (`casdoor.mfa.rule`) are an
-  organization setting, so both applications follow it; separate rules per product need a second organization. Step-up needs
-  Casdoor `ghcr.io/appscode/casdoor:v4.29.0-3391e5fe`.
-- **Console routes**: `/patch` goes to the console's nginx, which proxies `/patch/api` to the hub. This needs the console
-  of the `shared-host` change (API under `/patch/api`; before it the UI calls `/api`, which is AKP's).
-- The patch console's own Helm chart is not a dependency: its pieces are templated here so `global.platform.host` is the
-  only place the address is written. The delta from `charts/patch-console` of patch-console master: no
-  NetworkPolicy, ServiceMonitor, Ingress/HTTPRoute (the umbrella routes), the migration runs as an init container of the hub.
-
-## Known gaps
-
-- **b3 on `connectgrpc` does not start on an empty database in `v2_only`** (commit 09233644f9): `InitOrgAuthSources` and
-  `MigrateOrgTypeForOrganizations` read identity tables (`org_auth_source`, `ac_user`) that v2_only never creates.
-- **b3 needs NATS in operator mode**: `b3 api` waits for an admin NATS connection made from an operator, system and admin
-  account that `b3 dev` (the ace setup job) creates. This chart runs plain NATS with JetStream; operator-mode NATS and the
-  setup step are not done.
-- b3 refuses to start without an inbox server address; none runs, b3 logs that it does not answer.
-- b3 logs `[kms] MASTER_KEY_URL` at start.
-- Platform settings edited in b3's UI are written back as Secrets (`ace-user-config`, `ace-system-config`): not supported, all settings are in app.ini.
-- `npm ci` of the console UI image fails on the alpine base (rolldown's musl binding is skipped); `load-images.sh` builds it on a glibc node.
-- The images of b3, patch-console and patch-console-ui are not in `catalog/imagelist.yaml`: they are unpublished (the catalog test needs multi-arch published images); Casdoor is amd64 only.
+- **Not ace.** In v2_only none of KubeDB, Redis, Cadence, OpenFGA or the setup job is needed. Cadence is not run
+  (`b3.worker.enabled` is off): `b3 worker` workflows do not run.
+- **b3 is templated here**, not taken from `charts/platform-api` (that chart probes `/api/v1/version`).
+- **One Casdoor, one organization, two applications**; the second-factor rule is an organization setting.
+- The patch console is templated here (not a sub-chart) so `global.platform.host` is the only place the address is
+  written; its hub does not join the operator-mode NATS (agents report over HTTPS).
 
 ## Uninstall
 
-```sh
-helm uninstall kubepatch -n kubepatch
-kubectl -n kubepatch delete pvc --all                  # Postgres, NATS and b3 data
-kubectl -n kubepatch delete secret kubepatch-credentials kubepatch-tls   # kept by helm.sh/resource-policy
-```
+`hack/kubepatch/teardown.sh --yes` on the host.
