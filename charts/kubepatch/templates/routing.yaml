@@ -70,14 +70,6 @@ spec:
     - path:
         type: PathPrefix
         value: {{ .path }}
-    {{- if .rewrite }}
-    filters:
-    - type: URLRewrite
-      urlRewrite:
-        path:
-          type: ReplacePrefixMatch
-          replacePrefixMatch: {{ .rewrite }}
-    {{- end }}
     backendRefs:
     - group: ""
       kind: Service
