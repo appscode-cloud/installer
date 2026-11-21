@@ -229,6 +229,7 @@ patchConsole:
       repository: ghcr.io/appscode/patch-console-ui
       tag: dev
       digest: ""
+      pullPolicy: IfNotPresent
     replicaCount: 1
     resources:
       requests: { cpu: 50m, memory: 64Mi }
@@ -269,6 +270,7 @@ platform-ui:
   enabled: true
   registryFQDN: ghcr.io
   image:
+    tag: ""
     pullPolicy: IfNotPresent
   # Where an unauthenticated person is sent.
   loginURL: ""
@@ -277,5 +279,6 @@ cluster-ui:
   enabled: true
   registryFQDN: ghcr.io
   image:
+    tag: ""
     pullPolicy: IfNotPresent
   loginURL: ""
