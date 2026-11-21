@@ -136,7 +136,6 @@ $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/in
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/inbox-ui:v2026.11.15 $IMAGE_REGISTRY/appscode-charts/inbox-ui:v2026.11.15
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/keda-add-ons-http:0.12.0 $IMAGE_REGISTRY/appscode-charts/keda-add-ons-http:0.12.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/keda:2.19.0 $IMAGE_REGISTRY/appscode-charts/keda:2.19.0
-$CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-bench:0.1.0 $IMAGE_REGISTRY/appscode-charts/kube-bench:0.1.0
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-grafana-dashboards:v2023.10.1 $IMAGE_REGISTRY/appscode-charts/kube-grafana-dashboards:v2023.10.1
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-prometheus-stack:69.2.2 $IMAGE_REGISTRY/appscode-charts/kube-prometheus-stack:69.2.2
 $CMD cp --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/kube-ui-server:v2026.11.15 $IMAGE_REGISTRY/appscode-charts/kube-ui-server:v2026.11.15
