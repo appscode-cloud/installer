@@ -44,9 +44,9 @@ cluster-ui:
   image:
     tag: kubepatch-eae279409c
 # trust-console design/platform-and-akp-console (1f106b95c3), built on a build host, imported with k3s ctr.
-trustConsole:
+trust-console-api:
   image:
     tag: tc-1f106b95c3
-  ui:
-    image:
-      tag: tc-1f106b95c3
+trust-console-ui:
+  image:
+    tag: tc-1f106b95c3

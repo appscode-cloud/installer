@@ -2,6 +2,8 @@
 # images you mirrored (`docker buildx imagetools inspect <image>`).
 production: true
 global:
+  credentials:
+    secretName: <the same Secret as credentials.existingSecret>
   platform:
     host: <host>
   imageRegistry: ""
@@ -31,12 +33,12 @@ nats:
 b3:
   image:
     digest: sha256:0000000000000000000000000000000000000000000000000000000000000000
-trustConsole:
+trust-console-api:
   image:
     digest: sha256:0000000000000000000000000000000000000000000000000000000000000000
-  ui:
-    image:
-      digest: sha256:0000000000000000000000000000000000000000000000000000000000000000
+trust-console-ui:
+  image:
+    digest: sha256:0000000000000000000000000000000000000000000000000000000000000000
 openfga:
   image:
     digest: sha256:0000000000000000000000000000000000000000000000000000000000000000

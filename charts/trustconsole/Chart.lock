@@ -1,9 +1,15 @@
 dependencies:
+- name: trust-console-api
+  repository: file://../trust-console-api
+  version: v2026.11.15
+- name: trust-console-ui
+  repository: file://../trust-console-ui
+  version: v2026.11.15
 - name: platform-ui
   repository: file://../platform-ui
   version: v2026.11.15
 - name: cluster-ui
   repository: file://../cluster-ui
   version: v2026.11.15
-digest: sha256:08e17fa0fbbd8ab6ff9a2a9603c9f3e55b37940ed834ac214d103d6f2ea27d5e
-generated: "2026-11-21T07:54:16.341593168+06:00"
+digest: sha256:c9ae78523daaf6b3e9fca3c33c6cbd69bac4448d9dfc2ab05d401ea29d351618
+generated: "2026-11-22T11:57:48.028446038+06:00"

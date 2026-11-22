@@ -17,4 +17,4 @@ Casdoor user "{{ .Values.casdoor.admin.username }}"; its password is the key `ad
 The patch console reads AKP's clusters with an iam API token. Make one as that administrator, then:
 
   kubectl -n {{ .Release.Namespace }} create secret generic {{ include "kubepatch.fullname" . }}-akp-token --from-literal=token=<token>
-  helm upgrade ... --set patchConsole.akp.tokenSecret={{ include "kubepatch.fullname" . }}-akp-token
+  helm upgrade ... --set patch-console-api.akp.tokenSecret={{ include "kubepatch.fullname" . }}-akp-token

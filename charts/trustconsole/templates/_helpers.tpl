@@ -85,7 +85,8 @@ imagePullSecrets:
 {{- end -}}
 
 {{- define "trustconsole.credentialsSecret" -}}
-{{- default (printf "%s-credentials" (include "trustconsole.fullname" .)) .Values.credentials.existingSecret -}}
+{{/* The trust-console-api sub-chart names it the same way: global.credentials.secretName, or <release>-credentials. */}}
+{{- default (printf "%s-credentials" .Release.Name) .Values.credentials.existingSecret -}}
 {{- end -}}
 
 {{- define "trustconsole.tlsSecret" -}}
@@ -137,21 +138,7 @@ imagePullSecrets:
 {{- printf "https://%s%s" (include "trustconsole.trustHost" .) (include "trustconsole.portSuffix" .) -}}
 {{- end -}}
 
-{{- define "trustconsole.openfgaUrl" -}}
-{{- if .Values.openfga.enabled -}}
-{{- printf "http://%s-openfga.%s.svc:8080" (include "trustconsole.fullname" .) .Release.Namespace -}}
-{{- else -}}
-{{- required "openfga.apiUrl is required when openfga.enabled is false" .Values.openfga.apiUrl -}}
-{{- end -}}
-{{- end -}}
-
-{{- define "trustconsole.valkeyAddr" -}}
-{{- if .Values.valkey.enabled -}}
-{{- printf "%s-valkey.%s.svc:6379" (include "trustconsole.fullname" .) .Release.Namespace -}}
-{{- else -}}
-{{- required "valkey.addr is required when valkey.enabled is false" .Values.valkey.addr -}}
-{{- end -}}
-{{- end -}}
+{{- define "trustconsole.casdoorName" -}}{{ printf "%s-casdoor" .Release.Name }}{{- end -}}
 
 {{- define "trustconsole.parentRefs" }}
 parentRefs:
@@ -171,11 +158,12 @@ parentRefs:
 ["curl", "-fsS", "-o", "/dev/null", "-m", "4", "-X", "POST", "-H", "Content-Type: application/json", "-d", "{}", "http://localhost:3003/api/v2/akp.branding.v2.BrandingService/GetBranding"]
 {{- end -}}
 
-{{/* The hub's database URL, for the migrate, catalog-seed and hub containers. */}}
-{{- define "trustconsole.trustDbEnv" -}}
-- name: TRUST_CONSOLE_DATABASE_URL
-  valueFrom:
-    secretKeyRef:
-      name: {{ include "trustconsole.fullname" . }}-trust-database
-      key: url
+{{/* The image of a sub-chart that follows the registryFQDN / image.{registry,repository,tag,digest} convention. */}}
+{{- define "trustconsole.subchartImage" -}}
+{{- $repo := printf "%s/%s" (list .registryFQDN .image.registry | compact | join "/") .image.repository -}}
+{{- if .image.digest -}}
+{{ $repo }}@{{ .image.digest }}
+{{- else -}}
+{{ $repo }}:{{ required "the image tag is required" .image.tag }}
+{{- end -}}
 {{- end -}}

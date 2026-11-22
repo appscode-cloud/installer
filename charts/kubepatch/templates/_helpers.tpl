@@ -85,7 +85,8 @@ imagePullSecrets:
 {{- end -}}
 
 {{- define "kubepatch.credentialsSecret" -}}
-{{- default (printf "%s-credentials" (include "kubepatch.fullname" .)) .Values.credentials.existingSecret -}}
+{{/* The patch console sub-charts name it the same way: global.credentials.secretName, or <release>-credentials. */}}
+{{- default (printf "%s-credentials" .Release.Name) .Values.credentials.existingSecret -}}
 {{- end -}}
 
 {{- define "kubepatch.tlsSecret" -}}
@@ -96,12 +97,14 @@ imagePullSecrets:
 {{- define "kubepatch.svc.platformUi" -}}{{ printf "%s-platform-ui" .Release.Name }}{{- end -}}
 {{- define "kubepatch.svc.clusterUi" -}}{{ printf "%s-cluster-ui" .Release.Name }}{{- end -}}
 
+{{- define "kubepatch.casdoorName" -}}{{ printf "%s-casdoor" .Release.Name }}{{- end -}}
+
 {{/* The console's own nginx serves /patch and proxies /patch/api to the hub. The routes are shared by the Gateway API and Ingress renderings: list of dicts {path, svc, port}. */}}
 {{- define "kubepatch.routes" -}}
 {{- $fn := include "kubepatch.fullname" . -}}
 {{- $r := list -}}
-{{- if .Values.patchConsole.enabled -}}
-{{- $r = append $r (dict "path" "/patch" "svc" (printf "%s-patch-ui" $fn) "port" 80) -}}
+{{- if (index .Values "patch-console-ui" "enabled") -}}
+{{- $r = append $r (dict "path" "/patch" "svc" (printf "%s-patch-console-ui" .Release.Name) "port" 80) -}}
 {{- end -}}
 {{- if .Values.b3.enabled -}}
 {{- $r = append $r (dict "path" "/api" "svc" (include "kubepatch.b3name" .) "port" 80 "timeout" "55s") -}}
@@ -154,4 +157,14 @@ parentRefs:
 {{/* The b3 probe: GetBranding answers without a session. */}}
 {{- define "kubepatch.b3probe" -}}
 ["curl", "-fsS", "-o", "/dev/null", "-m", "4", "-X", "POST", "-H", "Content-Type: application/json", "-d", "{}", "http://localhost:3003/api/v2/akp.branding.v2.BrandingService/GetBranding"]
+{{- end -}}
+
+{{/* The image of a sub-chart that follows the registryFQDN / image.{registry,repository,tag,digest} convention. */}}
+{{- define "kubepatch.subchartImage" -}}
+{{- $repo := printf "%s/%s" (list .registryFQDN .image.registry | compact | join "/") .image.repository -}}
+{{- if .image.digest -}}
+{{ $repo }}@{{ .image.digest }}
+{{- else -}}
+{{ $repo }}:{{ required "the image tag is required" .image.tag }}
+{{- end -}}
 {{- end -}}

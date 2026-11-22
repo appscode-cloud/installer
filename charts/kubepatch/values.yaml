@@ -14,12 +14,17 @@
 production: false
 
 global:
+  # The sub-charts read these. `credentials.existingSecret` must be repeated here when it is set.
+  credentials:
+    secretName: ""
   platform:
     # The one public host, a DNS name (not an address): `kubepatch.example.com` or `<ip>.nip.io`.
     # Casdoor is served at `casdoor.<host>` unless `casdoor.host` says otherwise.
     host: kubepatch.example.com
     hostType: domain
     deploymentType: CloudDemo
+    # The public HTTPS port, as `routing.httpsPort` (set both when it is not 443).
+    httpsPort: 443
   # Registry prefix for every image this chart pulls itself (Postgres, NATS, Casdoor, patch
   # console, b3), e.g. `registry.example.com/mirror`. platform-ui and cluster-ui have their own
   # `registryFQDN` and `image.registry`, set them next to this one.
@@ -225,49 +230,12 @@ b3:
   nodeSelector: {}
   tolerations: []
 
-# ---- the patch console (hub + UI) ----
+# ---- the patch console (hub + UI): the patch-console-api and patch-console-ui sub-charts ----
 patchConsole:
-  enabled: true
-  image:
-    repository: ghcr.io/appscode/patch-console
-    tag: dev
-    digest: ""
-    pullPolicy: IfNotPresent
-  ui:
-    image:
-      repository: ghcr.io/appscode/patch-console-ui
-      tag: dev
-      digest: ""
-      pullPolicy: IfNotPresent
-    replicaCount: 1
-    resources:
-      requests: { cpu: 50m, memory: 64Mi }
-  hub:
-    replicaCount: 1
-    service:
-      port: 8080
-    # akp: the cluster list comes from AKP; table: clusters typed into the console. Empty: akp once
-    # `akp.tokenSecret` is set, table before (the hub will not start in akp mode without a token).
-    clusterDirectory: ""
-    resources:
-      requests: { cpu: 250m, memory: 256Mi }
-      limits: { memory: 1Gi }
-    extraEnv: []
-  # AKP's cluster registry. Empty url: this chart's public URL (the hub refuses http, so it goes out through the
-  # Gateway, trusting the self-signed certificate when tls.mode is selfSigned). The token is an iam API token of a site administrator;
-  # make it after the first sign-in and put it in this Secret (key `token`), see docs.
-  akp:
-    url: ""
-    tokenSecret: ""
   # Run `patch-console iam bootstrap` for the first administrator.
   bootstrap:
     enabled: true
     organization: kubepatch
-  # An existing PersistentVolumeClaim for SBOM documents; empty keeps them in the pod's emptyDir.
-  blobStore:
-    existingClaim: ""
-  nodeSelector: {}
-  tolerations: []
 
 # ---- the first AKP site administrator ----
 akpBootstrap:
@@ -276,6 +244,35 @@ akpBootstrap:
   enabled: true
 
 # ---- sub-charts ----
+# The hub. It reads `global.platform.host`, `global.platform.httpsPort` and `global.credentials.secretName`; the
+# Casdoor settings must agree with `casdoor.*` above (the chart refuses a mismatch). Its database Secret is made
+# here: `<release>-patch-console-api-database`. The image is `ghcr.io/appscode/patch-console`, tag `dev` until released.
+patch-console-api:
+  enabled: true
+  image:
+    tag: dev
+  casdoor:
+    organization: kubepatch
+    application: patch-console
+    clientId: patch-console
+  # AKP's cluster registry. Empty url: this chart's public URL (the hub refuses http, so it goes out through the
+  # Gateway, trusting the self-signed certificate when tls.mode is selfSigned and `caSecret.name` is the `<release>-tls` Secret).
+  # The token is an iam API token of a site administrator; make it after the first sign-in and put it in
+  # `tokenSecret` (key `token`), see docs.
+  akp:
+    url: ""
+    tokenSecret: ""
+    caSecret:
+      name: kubepatch-tls
+
+patch-console-ui:
+  enabled: true
+  image:
+    tag: dev
+  # Links to cluster-ui, served at /console of the same host.
+  clusterUi:
+    enabled: true
+
 platform-ui:
   enabled: true
   registryFQDN: ghcr.io

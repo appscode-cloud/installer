@@ -2,7 +2,7 @@
 {{- $cred := include "kubepatch.credentialsSecret" . }}
 {{- $pg := .Values.postgres }}
 {{- $admin := .Values.casdoor.admin }}
-{{- if and .Values.patchConsole.enabled .Values.patchConsole.bootstrap.enabled .Values.casdoor.enabled }}
+{{- if and (index .Values "patch-console-api" "enabled") .Values.patchConsole.bootstrap.enabled .Values.casdoor.enabled }}
 ---
 apiVersion: batch/v1
 kind: Job
@@ -64,8 +64,8 @@ spec:
         - { name: work, mountPath: /work }
       containers:
       - name: bootstrap
-        image: {{ include "kubepatch.image" (dict "root" . "image" .Values.patchConsole.image) }}
-        imagePullPolicy: {{ .Values.patchConsole.image.pullPolicy }}
+        image: {{ include "kubepatch.subchartImage" (index .Values "patch-console-api") }}
+        imagePullPolicy: {{ index .Values "patch-console-api" "image" "pullPolicy" }}
         # The first site administrator, linked to their Casdoor user, and an organization they own.
         # Only at install: a second run would find the name taken. Retried until `migrate up` has made the schema.
         command: ["/bin/sh", "-c"]
@@ -88,7 +88,7 @@ spec:
       - { name: work, emptyDir: {} }
       - name: database-url
         secret:
-          secretName: {{ $fn }}-patch-database
+          secretName: {{ .Release.Name }}-patch-console-api-database
           items:
           - { key: url, path: url }
 {{- end }}

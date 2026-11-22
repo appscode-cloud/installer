@@ -27,14 +27,14 @@ b3:
     # a3c72f5a32 plus the patch in hack/kubepatch/b3-dev.patch (b3 dev stops after the NATS accounts in v2_only; iam-bootstrap-admin registers the KMS keeper); no digest: the image is local only
     tag: kubepatch-a3c72f5a32-dev2
     digest: ""
-patchConsole:
+patch-console-api:
   image:
     tag: kubepatch-d7fb9feba9
     digest: sha256:f81d5334ab78768c1daee002c3603eef806db5e23bf77057c37aa7e58c272670
-  ui:
-    image:
-      tag: kubepatch-d7fb9feba9
-      digest: sha256:1d17d4331f0db96b82150422809006083c8aa6cf15b19e5227c626889667d29d
+patch-console-ui:
+  image:
+    tag: kubepatch-d7fb9feba9
+    digest: sha256:1d17d4331f0db96b82150422809006083c8aa6cf15b19e5227c626889667d29d
 # 3.1.0 of platform-ui and cluster-ui call b3's v1 API, which v2_only does not mount (404 on /api/v1/user and
 # /api/v1/branding). These are builds of platform-ui feat/iam-ui (6e9d41b92c) and cluster-ui feat/akp-v2-client
 # (eae279409c), which speak the v2 API; load-images.sh builds them. No digest: the images are local only.

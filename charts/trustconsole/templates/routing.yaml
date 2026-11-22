@@ -90,7 +90,7 @@ spec:
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: {{ $fn }}-casdoor
+  name: {{ include "trustconsole.casdoorName" . }}
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "trustconsole.labels" . | nindent 4 }}
@@ -102,11 +102,11 @@ spec:
   - backendRefs:
     - group: ""
       kind: Service
-      name: {{ $fn }}-casdoor
+      name: {{ include "trustconsole.casdoorName" . }}
       port: 8000
       weight: 1
 {{- end }}
-{{- if .Values.trustConsole.enabled }}
+{{- if (index .Values "trust-console-api" "enabled") }}
 ---
 # The Trust Console has its own host: the hub's API prefix /api is AKP's too.
 apiVersion: gateway.networking.k8s.io/v1
@@ -148,8 +148,8 @@ spec:
     backendRefs:
     - group: ""
       kind: Service
-      name: {{ $fn }}-trust-hub
-      port: {{ .Values.trustConsole.hub.service.port }}
+      name: {{ .Release.Name }}-trust-console-api
+      port: {{ index .Values "trust-console-api" "service" "port" }}
   - name: unary
     matches:
     - path:
@@ -164,8 +164,8 @@ spec:
     backendRefs:
     - group: ""
       kind: Service
-      name: {{ $fn }}-trust-hub
-      port: {{ .Values.trustConsole.hub.service.port }}
+      name: {{ .Release.Name }}-trust-console-api
+      port: {{ index .Values "trust-console-api" "service" "port" }}
   - matches:
     - path:
         type: PathPrefix
@@ -173,7 +173,7 @@ spec:
     backendRefs:
     - group: ""
       kind: Service
-      name: {{ $fn }}-trust-ui
+      name: {{ .Release.Name }}-trust-console-ui
       port: 80
 {{- end }}
 {{- if $gw.backendTrafficPolicy }}
@@ -200,7 +200,7 @@ spec:
         baseInterval: 100ms
         maxInterval: 1s
 {{- end }}
-{{- if and .Values.trustConsole.enabled $gw.backendTrafficPolicy }}
+{{- if and (index .Values "trust-console-api" "enabled") $gw.backendTrafficPolicy }}
 ---
 # WatchPosture is a stream: no request timeout, an hour of idle.
 apiVersion: gateway.envoyproxy.io/v1alpha1
@@ -243,7 +243,7 @@ spec:
     {{- if .Values.casdoor.enabled }}
     - {{ $casdoorHost | quote }}
     {{- end }}
-    {{- if .Values.trustConsole.enabled }}
+    {{- if (index .Values "trust-console-api" "enabled") }}
     - {{ $trustHost | quote }}
     {{- end }}
   {{- end }}
@@ -268,11 +268,11 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: {{ $fn }}-casdoor
+            name: {{ include "trustconsole.casdoorName" . }}
             port:
               number: 8000
   {{- end }}
-  {{- if .Values.trustConsole.enabled }}
+  {{- if (index .Values "trust-console-api" "enabled") }}
   # The hub's Ingress has no portable path rewrite: it accepts /api/ itself (stripAPIPrefix).
   - host: {{ $trustHost | quote }}
     http:
@@ -281,14 +281,14 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: {{ $fn }}-trust-hub
+            name: {{ .Release.Name }}-trust-console-api
             port:
-              number: {{ .Values.trustConsole.hub.service.port }}
+              number: {{ index .Values "trust-console-api" "service" "port" }}
       - path: /trust
         pathType: Prefix
         backend:
           service:
-            name: {{ $fn }}-trust-ui
+            name: {{ .Release.Name }}-trust-console-ui
             port:
               number: 80
   {{- end }}

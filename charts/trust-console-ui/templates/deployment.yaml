@@ -1,0 +1,61 @@
+{{- $fn := include "trust-console-ui.fullname" . }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fn }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "trust-console-ui.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "trust-console-ui.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "trust-console-ui.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "trust-console-ui.serviceAccountName" . }}
+      automountServiceAccountToken: false
+      {{- include "trust-console-ui.imagePullSecrets" . | nindent 6 }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+      - name: ui
+        image: {{ include "trust-console-ui.image" . }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 10 }}
+        ports:
+        - { name: http, containerPort: 8080 }
+        volumeMounts:
+        - { name: nginx-conf, mountPath: /etc/nginx/conf.d }
+        - { name: nginx-cache, mountPath: /var/cache/nginx }
+        - { name: nginx-run, mountPath: /var/run }
+        - { name: tmp, mountPath: /tmp }
+        readinessProbe:
+          httpGet: { path: /trust/, port: http }
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
+      volumes:
+      - { name: nginx-conf, emptyDir: {} }
+      - { name: nginx-cache, emptyDir: {} }
+      - { name: nginx-run, emptyDir: {} }
+      - { name: tmp, emptyDir: {} }
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

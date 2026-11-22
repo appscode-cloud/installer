@@ -1,0 +1,56 @@
+# Default values for trust-console-ui.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# The Trust Console UI: nginx serving /trust. The hub is routed by the Gateway or Ingress.
+
+replicaCount: 1
+
+# Docker registry fqdn used to pull app related images.
+registryFQDN: ghcr.io
+
+image:
+  # Docker registry used to pull app container image
+  registry: appscode
+  repository: trust-console-ui
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+  # A digest ("sha256:...") wins over the tag.
+  digest: ""
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  name: ""
+
+podAnnotations: {}
+
+# Numeric: the image names its user (nginx), which the kubelet cannot check is not root.
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 65532
+  seccompProfile:
+    type: RuntimeDefault
+
+securityContext: # +doc-gen:break
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: ["ALL"]
+
+service:
+  port: 80
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

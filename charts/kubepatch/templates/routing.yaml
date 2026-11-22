@@ -87,7 +87,7 @@ spec:
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: {{ $fn }}-casdoor
+  name: {{ include "kubepatch.casdoorName" . }}
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "kubepatch.labels" . | nindent 4 }}
@@ -99,7 +99,7 @@ spec:
   - backendRefs:
     - group: ""
       kind: Service
-      name: {{ $fn }}-casdoor
+      name: {{ include "kubepatch.casdoorName" . }}
       port: 8000
       weight: 1
 {{- end }}
@@ -173,7 +173,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: {{ $fn }}-casdoor
+            name: {{ include "kubepatch.casdoorName" . }}
             port:
               number: 8000
   {{- end }}

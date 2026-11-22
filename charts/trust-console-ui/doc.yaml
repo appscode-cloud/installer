@@ -1,0 +1,18 @@
+project:
+  name: Trust Console Ui by AppsCode
+  shortName: Trust Console Ui
+  url: https://github.com/appscode-cloud
+  description: Trust Console UI
+  app: a Trust Console Ui
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: trust-console-ui
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.29+
+release:
+  name: trust-console-ui
+  namespace: ace

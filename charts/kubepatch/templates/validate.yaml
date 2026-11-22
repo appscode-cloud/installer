@@ -3,7 +3,7 @@
 {{- if not .Values.credentials.existingSecret }}{{ fail "production: credentials.existingSecret is required (generated credentials are for tests)" }}{{ end }}
 {{- if eq .Values.tls.mode "selfSigned" }}{{ fail "production: tls.mode must be existing or none, not selfSigned" }}{{ end }}
 {{- if not .Values.postgres.external.enabled }}{{ fail "production: postgres.external.enabled is required (the chart-run Postgres is a single pod)" }}{{ end }}
-{{- $images := dict "casdoor" .Values.casdoor.image "nats" .Values.nats.image "natsBox" .Values.nats.natsBox "b3" .Values.b3.image "patchConsole" .Values.patchConsole.image "patchConsoleUi" .Values.patchConsole.ui.image }}
+{{- $images := dict "casdoor" .Values.casdoor.image "nats" .Values.nats.image "natsBox" .Values.nats.natsBox "b3" .Values.b3.image "patchConsole" (index .Values "patch-console-api" "image") "patchConsoleUi" (index .Values "patch-console-ui" "image") }}
 {{- range $name, $img := $images }}
 {{- if not $img.digest }}{{ fail (printf "production: %s image needs a digest (sha256:...)" $name) }}{{ end }}
 {{- end }}
@@ -12,9 +12,17 @@
 {{- if not (contains "@sha256:" $tag) }}{{ fail (printf "production: %s.image.tag must be pinned as <tag>@sha256:<digest>" $c) }}{{ end }}
 {{- end }}
 {{- end }}
-{{- if and .Values.patchConsole.enabled (not .Values.casdoor.enabled) (not .Values.casdoor.endpoint) }}
+{{- if and (index .Values "patch-console-api" "enabled") (not .Values.casdoor.enabled) (not .Values.casdoor.endpoint) }}
 {{ fail "casdoor.endpoint is required when casdoor.enabled is false" }}
 {{- end }}
 {{- if not (has .Values.routing.mode (list "gateway" "ingress" "none")) }}{{ fail "routing.mode must be gateway, ingress or none" }}{{ end }}
 {{- if not (has .Values.tls.mode (list "selfSigned" "existing" "none")) }}{{ fail "tls.mode must be selfSigned, existing or none" }}{{ end }}
 {{- if and (eq .Values.tls.mode "existing") (not .Values.tls.existingSecret) }}{{ fail "tls.existingSecret is required when tls.mode is existing" }}{{ end }}
+{{- /* The sub-charts read the shared settings from `global` and their own values: they must agree with this chart's. */ -}}
+{{- $g := .Values.global }}
+{{- if ne (int $g.platform.httpsPort) (int .Values.routing.httpsPort) }}{{ fail "global.platform.httpsPort must equal routing.httpsPort" }}{{ end }}
+{{- if ne (default "" $g.credentials.secretName) (default "" .Values.credentials.existingSecret) }}{{ fail "global.credentials.secretName must equal credentials.existingSecret (the sub-charts read the first)" }}{{ end }}
+{{- $api := index .Values "patch-console-api" }}
+{{- if ne $api.casdoor.organization .Values.casdoor.organization }}{{ fail "patch-console-api.casdoor.organization must equal casdoor.organization" }}{{ end }}
+{{- if ne $api.casdoor.application .Values.casdoor.patchApplication.name }}{{ fail "patch-console-api.casdoor.application must equal casdoor.patchApplication.name" }}{{ end }}
+{{- if ne $api.casdoor.clientId .Values.casdoor.patchApplication.clientId }}{{ fail "patch-console-api.casdoor.clientId must equal casdoor.patchApplication.clientId" }}{{ end }}

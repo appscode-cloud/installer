@@ -12,6 +12,14 @@ maintainers:
 - name: appscode
   email: support@appscode.com
 dependencies:
+- name: patch-console-api
+  repository: file://../patch-console-api
+  condition: patch-console-api.enabled
+  version: v2026.11.15
+- name: patch-console-ui
+  repository: file://../patch-console-ui
+  condition: patch-console-ui.enabled
+  version: v2026.11.15
 - name: platform-ui
   repository: file://../platform-ui
   condition: platform-ui.enabled

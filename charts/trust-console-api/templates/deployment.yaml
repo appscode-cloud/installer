@@ -1,0 +1,116 @@
+{{- $fn := include "trust-console-api.fullname" . }}
+{{- $image := include "trust-console-api.image" . }}
+{{- $cred := include "trust-console-api.credentialsSecret" . }}
+{{- $c := .Values.casdoor }}
+{{- $g := (default dict .Values.global).platform | default dict }}
+{{- $port := ternary "" (printf ":%d" (int $g.httpsPort)) (or (not $g.httpsPort) (eq (int $g.httpsPort) 443)) }}
+{{- $public := default (printf "https://trust.%s%s" (required "global.platform.host (or publicUrl) is required" $g.host) $port) .Values.publicUrl }}
+{{- $casdoorEndpoint := default (printf "http://%s-casdoor.%s.svc:8000" .Release.Name .Release.Namespace) $c.endpoint }}
+{{- $casdoorPublic := default (printf "https://casdoor.%s%s" (required "global.platform.host (or casdoor.publicUrl) is required" $g.host) $port) $c.publicUrl }}
+{{- $openfga := default (printf "http://%s-openfga.%s.svc:8080" .Release.Name .Release.Namespace) .Values.openfga.apiUrl }}
+{{- $valkey := default (printf "%s-valkey.%s.svc:6379" .Release.Name .Release.Namespace) .Values.valkey.addr }}
+{{- $dbEnv := dict "name" "TRUST_CONSOLE_DATABASE_URL" "valueFrom" (dict "secretKeyRef" (dict "name" (default (printf "%s-database" $fn) .Values.database.secretName) "key" .Values.database.secretKey)) }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fn }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "trust-console-api.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "trust-console-api.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "trust-console-api.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "trust-console-api.serviceAccountName" . }}
+      automountServiceAccountToken: false
+      {{- include "trust-console-api.imagePullSecrets" . | nindent 6 }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+      # iam's tables (iam_*) and the console's, then the catalog of controls. Both retry until Postgres is up.
+      - name: migrate
+        image: {{ $image }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        args: ["migrate", "up"]
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 10 }}
+        env:
+        - {{ toJson $dbEnv }}
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+      - name: catalog-seed
+        image: {{ $image }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        args: ["catalog", "seed"]
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 10 }}
+        env:
+        - {{ toJson $dbEnv }}
+        - { name: ORG, value: {{ .Values.org | quote }} }
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+      containers:
+      - name: hub
+        image: {{ $image }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        args: ["hub"]
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 10 }}
+        ports:
+        - { name: http, containerPort: 8080 }
+        env:
+        - {{ toJson $dbEnv }}
+        - { name: HTTP_ADDR, value: ":8080" }
+        - { name: ORG, value: {{ .Values.org | quote }} }
+        - { name: POD_NAMESPACE, valueFrom: { fieldRef: { fieldPath: metadata.namespace } } }
+        - { name: CONSOLE_BASE_URL, value: {{ $public | quote }} }
+        - { name: CONSOLE_APP_PREFIX, value: {{ .Values.appPrefix | quote }} }
+        - { name: CASDOOR_ENDPOINT, value: {{ $casdoorEndpoint | quote }} }
+        - { name: CASDOOR_PUBLIC_URL, value: {{ $casdoorPublic | quote }} }
+        - { name: CASDOOR_ORGANIZATION, value: {{ required "casdoor.organization is required" $c.organization | quote }} }
+        - { name: CASDOOR_APPLICATION, value: {{ $c.application | quote }} }
+        - { name: CASDOOR_CLIENT_ID, value: {{ $c.clientId | quote }} }
+        - name: CASDOOR_CLIENT_SECRET
+          valueFrom: { secretKeyRef: { name: {{ default $cred $c.clientSecret.secretName }}, key: {{ $c.clientSecret.secretKey }} } }
+        - name: IAM_CSRF_KEY
+          valueFrom: { secretKeyRef: { name: {{ default $cred $c.csrfKey.secretName }}, key: {{ $c.csrfKey.secretKey }} } }
+        - { name: IAM_TRUSTED_PROXY_HOPS, value: "1" }
+        - { name: VALKEY_ADDR, value: {{ $valkey | quote }} }
+        - { name: OPENFGA_API_URL, value: {{ $openfga | quote }} }
+        - { name: CONSOLE_BOOTSTRAP_ADMINS, value: {{ $c.bootstrapAdmins | quote }} }
+        - { name: SESSION_COOKIE_SECURE, value: "true" }
+        {{- with .Values.extraEnv }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+        livenessProbe:
+          httpGet: { path: /healthz/live, port: http }
+        readinessProbe:
+          httpGet: { path: /healthz/ready, port: http }
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+      volumes:
+      - { name: tmp, emptyDir: {} }
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
