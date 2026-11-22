@@ -787,6 +787,8 @@ properties:
             type: string
           create:
             type: boolean
+          listenerPort:
+            type: integer
           parentRefs:
             items:
               additionalProperties:

@@ -110,8 +110,10 @@ type KubepatchRouting struct {
 }
 
 type KubepatchRoutingGateway struct {
-	Create    bool   `json:"create"`
-	ClassName string `json:"className"`
+	Create bool `json:"create"`
+	// +optional
+	ListenerPort int    `json:"listenerPort"`
+	ClassName    string `json:"className"`
 	// +optional
 	Annotations map[string]string `json:"annotations"`
 	// +optional

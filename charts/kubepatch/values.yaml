@@ -56,6 +56,9 @@ routing:
   gateway:
     # Render the Gateway too. false: attach to an existing one with `parentRefs`.
     create: true
+    # The port of the Gateway's listener, when it is not 443 (443 is taken, or a load balancer maps it). The public
+    # URLs stay on `routing.httpsPort`.
+    listenerPort: 0
     className: ace
     annotations: {}
     # Used when create is false, e.g. [{name: gw, namespace: infra, sectionName: https}].
