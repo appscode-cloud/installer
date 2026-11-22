@@ -92,3 +92,24 @@ openfga:
 
 cadence:
   enabled: true
+
+# The consoles of the TrustConsole and KubePatch lines, so their images reach the catalog.
+patch-console-api:
+  enabled: true
+  casdoor:
+    organization: sample
+  database:
+    secretName: sample
+
+patch-console-ui:
+  enabled: true
+
+trust-console-api:
+  enabled: true
+  casdoor:
+    organization: sample
+  database:
+    secretName: sample
+
+trust-console-ui:
+  enabled: true

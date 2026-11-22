@@ -101,3 +101,7 @@ credentials, a self-signed certificate, the chart's Postgres and images without 
 ## Uninstall
 
 `hack/kubepatch/teardown.sh --yes` on the host.
+
+## Structure
+
+The hub and the UI are not rendered by this chart: it depends on the `patch-console-api` and `patch-console-ui` charts (see `docs/product-line.md`), which the ace chart can enable too. This chart keeps what they need around them (Postgres, NATS in operator mode, Casdoor, the Gateway, the Secrets and the first-administrator jobs). Values that were `patchConsole.*` are now `patch-console-api.*` and `patch-console-ui.*`; the settings the sub-charts share with this chart (`global.platform.host`, `global.platform.httpsPort`, `global.credentials.secretName`, the Casdoor organization and application) are checked against each other in `templates/validate.yaml`.

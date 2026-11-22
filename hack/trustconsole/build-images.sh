@@ -87,4 +87,4 @@ echo "built $IMAGE:$TAG and $UI_IMAGE:$TAG ($OUT/trust-console-images.tar)"
 if [ -n "${TARGET:-}" ]; then
     ssh "$TARGET" 'sudo k3s ctr -n k8s.io images import -' <"$OUT/trust-console-images.tar"
 fi
-echo "set trustConsole.image.tag and trustConsole.ui.image.tag to $TAG"
+echo "set trust-console-api.image.tag and trust-console-ui.image.tag to $TAG"

@@ -78,7 +78,7 @@ casdoor:
   endpoint: ""
   # The URL the browser reaches Casdoor at. Empty: `casdoor.<global.platform.host>`.
   publicUrl: ""
-  organization: ""
+  organization: trustconsole
   application: trust-console
   clientId: trust-console
   # Empty name: the credentials Secret, which is `global.credentials.secretName` or `<release>-credentials`.
@@ -109,3 +109,13 @@ valkey:
 # without them and the features behind them stay off. NATS_URL needs a server without operator mode:
 # the hub opens its NATS connection without credentials.
 extraEnv: []
+
+# Read from the parent chart's `global`.
+global:
+  platform:
+    host: appscode.ninja
+    # The public HTTPS port when it is not 443.
+    httpsPort: 443
+  # The Secret with the console's credentials. Empty: `<release>-credentials`.
+  credentials:
+    secretName: ""

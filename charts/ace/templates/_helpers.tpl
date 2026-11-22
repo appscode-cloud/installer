@@ -303,3 +303,44 @@ Returns the first of .versions the cluster serves for .kind, or "" when the kind
 {{- define "gatewayAPI.backendTLSPolicyVersion" -}}
 {{- include "gatewayAPI.servedVersion" (dict "ctx" . "kind" "BackendTLSPolicy" "versions" (list "v1" "v1alpha3")) -}}
 {{- end -}}
+
+{{/*
+The product line this install is: AKP (everything, the default), TrustConsole or KubePatch.
+*/}}
+{{- define "ace.productLine" -}}
+{{- $pl := default "AKP" .Values.ProductLine -}}
+{{- if not (has $pl (list "AKP" "TrustConsole" "KubePatch")) -}}
+{{- fail (printf "ProductLine must be AKP, TrustConsole or KubePatch, not %q" $pl) -}}
+{{- end -}}
+{{- $pl -}}
+{{- end }}
+
+{{/*
+Whether the product line has an AKP feature of ace's own templates: dict "root" . "name" <feature>.
+Prints "true" or nothing. AKP has all of them; the lines on AKP v2 keep what they use:
+TrustConsole the cache (its hub's Valkey is the Redis protocol), KubePatch none.
+*/}}
+{{- define "ace.feature" -}}
+{{- $pl := include "ace.productLine" .root -}}
+{{- $line := dict "TrustConsole" (list "cache") "KubePatch" (list) -}}
+{{- if or (eq $pl "AKP") (has .name (get $line $pl)) -}}true{{- end -}}
+{{- end }}
+
+{{/*
+The identity mode of AKP (b3's [iam] MODE): v1_only, dual or v2_only, or nothing when `global.akp.mode` is
+unset (b3's own default, which is what ace has always run). The lines on AKP v2 are v2_only.
+*/}}
+{{- define "ace.akpMode" -}}
+{{- $mode := dig "akp" "mode" "" .Values.global -}}
+{{- if and $mode (not (has $mode (list "v1_only" "dual" "v2_only"))) -}}
+{{- fail (printf "global.akp.mode must be v1_only, dual or v2_only, not %q" $mode) -}}
+{{- end -}}
+{{- if ne (include "ace.productLine" .) "AKP" -}}
+{{- if and $mode (ne $mode "v2_only") -}}
+{{- fail (printf "ProductLine %s runs AKP in v2_only, not global.akp.mode %s" (include "ace.productLine" .) $mode) -}}
+{{- end -}}
+v2_only
+{{- else -}}
+{{- $mode -}}
+{{- end -}}
+{{- end }}

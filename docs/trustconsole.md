@@ -85,3 +85,7 @@ It runs next to the kubepatch release on the same k3s (10.2.0.5, namespace `trus
   and cluster-ui load with that session.
 - platform-ui and cluster-ui build API URLs without the port: see the demo above.
 - The two UIs and b3 are the kubepatch demo's local builds, not released images.
+
+## Structure
+
+The hub and the UI are not rendered by this chart: it depends on the `trust-console-api` and `trust-console-ui` charts (see `docs/product-line.md`), which the ace chart can enable too. This chart keeps what they need around them (Postgres, NATS in operator mode, Casdoor, the Gateway, the Secrets and the first-administrator jobs). Values that were `trustConsole.*` are now `trust-console-api.*` and `trust-console-ui.*`; the settings the sub-charts share with this chart (`global.platform.host`, `global.platform.httpsPort`, `global.credentials.secretName`, the Casdoor organization and application) are checked against each other in `templates/validate.yaml`.

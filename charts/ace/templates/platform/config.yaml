@@ -33,8 +33,12 @@ stringData:
     LOG_SQL = {{ .Values.settings.db.logSQL }}
 
     [session]
+{{- if include "ace.feature" (dict "root" . "name" "cache") }}
     PROVIDER = redis
     PROVIDER_CONFIG = {{ template "settings.session.host" . }}
+{{- else }}
+    PROVIDER = memory
+{{- end }}
     COOKIE_NAME = {{ .Values.settings.platform.cookieName}}
     ; https://intercom.help/progressier/en/articles/6894845-why-aren-t-cookies-working-inside-an-iframe
     COOKIE_SECURE=true
@@ -42,9 +46,14 @@ stringData:
     COOKIE_SAME_SITE = 4
 
     [cache]
+{{- if include "ace.feature" (dict "root" . "name" "cache") }}
     ADAPTER = redis
     INTERVAL = {{ .Values.settings.cache.cacheInterval }}
     HOST = {{ template "settings.cache.host" . }}
+{{- else }}
+    ADAPTER = memory
+    INTERVAL = {{ .Values.settings.cache.cacheInterval }}
+{{- end }}
 
 {{- with .Values.settings.smtp }}
 
@@ -107,6 +116,26 @@ stringData:
 
     [kms]
     MASTER_KEY_URL = '{{ include "settings.kms.masterKeyURL" . }}'
+{{- with (include "ace.akpMode" .) }}
+
+    [iam]
+    MODE = {{ . }}
+{{- if ne . "v1_only" }}
+    PUBLIC_URL = https://{{ $.Values.global.platform.host }}
+    PUBLIC_PATH = {{ $.Values.settings.iam.publicPath }}
+    FEDERATION_ENABLED = {{ $.Values.settings.iam.federation.enabled }}
+    SCIM_ENABLED = {{ $.Values.settings.iam.scim.enabled }}
+{{- with $.Values.settings.iam.casdoor }}
+    CASDOOR_ENDPOINT = {{ .endpoint }}
+    CASDOOR_CLIENT_ID = {{ .clientId }}
+    CASDOOR_CLIENT_SECRET = {{ .clientSecret }}
+    CASDOOR_ORGANIZATION = {{ .organization }}
+    CASDOOR_APPLICATION = {{ .application }}
+    CASDOOR_REDIRECT_URI = https://{{ $.Values.global.platform.host }}{{ $.Values.settings.iam.publicPath }}/casdoor/callback
+    CASDOOR_ADOPT_BY_NAME = {{ .adoptByName }}
+{{- end }}
+{{- end }}
+{{- end }}
 
   {{- if .Values.nats.enabled }}
 

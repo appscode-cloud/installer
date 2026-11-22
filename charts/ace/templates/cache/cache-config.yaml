@@ -1,3 +1,4 @@
+{{- if include "ace.feature" (dict "root" . "name" "cache") -}}
 apiVersion: v1
 kind: Secret
 metadata:
@@ -13,3 +14,4 @@ type: Opaque
 stringData:
   redis.conf: |
     appendonly no
+{{- end }}

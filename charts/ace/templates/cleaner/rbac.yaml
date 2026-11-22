@@ -1,3 +1,4 @@
+{{- if include "ace.feature" (dict "root" . "name" "cleaner") -}}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -43,3 +44,4 @@ subjects:
 - kind: ServiceAccount
   name: {{ include "appscode.serviceAccountName" . }}-cleaner
   namespace: {{ .Release.Namespace }}
+{{- end }}

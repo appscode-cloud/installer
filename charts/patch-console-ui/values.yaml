@@ -65,3 +65,10 @@ clusterUi:
   # Where cluster-ui is served. Empty: `https://<global.platform.host>/console`.
   baseUrl: ""
   cveReportPath: /clusters/{cluster}/security/cve-report
+
+# Read from the parent chart's `global`.
+global:
+  platform:
+    host: appscode.ninja
+    # The public HTTPS port when it is not 443.
+    httpsPort: 443

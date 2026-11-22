@@ -45,7 +45,10 @@ type BillingUi struct {
 
 // BillingUiSpec is the schema for BillingUi Operator values file
 type BillingUiSpec struct {
-	ReplicaCount int `json:"replicaCount"`
+	// The image tag in AKP v1_only mode (global.akp.mode) when image.tag is empty.
+	// +optional
+	V1OnlyImageTag string `json:"v1OnlyImageTag"`
+	ReplicaCount   int    `json:"replicaCount"`
 	//+optional
 	RegistryFQDN string         `json:"registryFQDN"`
 	Image        ImageReference `json:"image"`

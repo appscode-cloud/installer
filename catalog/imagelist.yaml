@@ -50,7 +50,9 @@
 - ghcr.io/appscode/openfga:v1.11.3
 - ghcr.io/appscode/outboxsyncer:v0.6.0
 - ghcr.io/appscode/patch-console-ui:dev
+- ghcr.io/appscode/patch-console-ui:v2026.11.15
 - ghcr.io/appscode/patch-console:dev
+- ghcr.io/appscode/patch-console:v2026.11.15
 - ghcr.io/appscode/pgoutbox:v0.0.4
 - ghcr.io/appscode/platform-ui:3.1.0
 - ghcr.io/appscode/prom-authproxy:v0.0.2
@@ -59,7 +61,9 @@
 - ghcr.io/appscode/smtprelay:v0.0.4
 - ghcr.io/appscode/trickster:v2.0.0
 - ghcr.io/appscode/trust-console-ui:dev
+- ghcr.io/appscode/trust-console-ui:v2026.11.15
 - ghcr.io/appscode/trust-console:dev
+- ghcr.io/appscode/trust-console:v2026.11.15
 - ghcr.io/appscode/website:v2026.11.15
 - ghcr.io/kubevault/kubevault-crd-manager:v0.3.0
 - ghcr.io/kubevault/vault-exporter:v0.1.1

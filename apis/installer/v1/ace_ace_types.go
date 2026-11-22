@@ -52,25 +52,31 @@ type Ace struct {
 
 // AceSpec is the schema for Ace Operator values file
 type AceSpec struct {
-	PlatformUi     AcePlatformUi     `json:"platform-ui"`
-	ClusterUi      AceClusterUi      `json:"cluster-ui"`
-	Grafana        AceGrafana        `json:"grafana"`
-	Perses         AcePerses         `json:"perses"`
-	KubedbUi       AceKubedbUi       `json:"kubedb-ui"`
-	PlatformApi    AcePlatformApi    `json:"platform-api"`
-	IngressNginx   AceIngressNginx   `json:"ingress-nginx"`
-	Gateway        AceGateway        `json:"gateway"`
-	IngressDns     AceIngressDns     `json:"ingress-dns"`
-	Nats           AceNats           `json:"nats"`
-	NatsDns        AceNatsDns        `json:"nats-dns"`
-	Trickster      AceTrickster      `json:"trickster"`
-	Openfga        AceOpenfga        `json:"openfga"`
-	Cadence        AceCadence        `json:"cadence"`
-	S3proxy        AceS3proxy        `json:"s3proxy"`
-	PgOutbox       AcePgOutbox       `json:"pgoutbox"`
-	OutboxSyncer   AceOutboxSyncer   `json:"outbox-syncer"`
-	PostgresAlerts AcePostgresAlerts `json:"postgres-alerts"`
-	RedisAlerts    AceRedisAlerts    `json:"redis-alerts"`
+	// The product this install is: AKP (the default), TrustConsole or KubePatch.
+	ProductLine     ProductLine        `json:"ProductLine"`
+	PlatformUi      AcePlatformUi      `json:"platform-ui"`
+	ClusterUi       AceClusterUi       `json:"cluster-ui"`
+	Grafana         AceGrafana         `json:"grafana"`
+	Perses          AcePerses          `json:"perses"`
+	KubedbUi        AceKubedbUi        `json:"kubedb-ui"`
+	PlatformApi     AcePlatformApi     `json:"platform-api"`
+	PatchConsoleApi AcePatchConsoleApi `json:"patch-console-api"`
+	PatchConsoleUi  AcePatchConsoleUi  `json:"patch-console-ui"`
+	TrustConsoleApi AceTrustConsoleApi `json:"trust-console-api"`
+	TrustConsoleUi  AceTrustConsoleUi  `json:"trust-console-ui"`
+	IngressNginx    AceIngressNginx    `json:"ingress-nginx"`
+	Gateway         AceGateway         `json:"gateway"`
+	IngressDns      AceIngressDns      `json:"ingress-dns"`
+	Nats            AceNats            `json:"nats"`
+	NatsDns         AceNatsDns         `json:"nats-dns"`
+	Trickster       AceTrickster       `json:"trickster"`
+	Openfga         AceOpenfga         `json:"openfga"`
+	Cadence         AceCadence         `json:"cadence"`
+	S3proxy         AceS3proxy         `json:"s3proxy"`
+	PgOutbox        AcePgOutbox        `json:"pgoutbox"`
+	OutboxSyncer    AceOutboxSyncer    `json:"outbox-syncer"`
+	PostgresAlerts  AcePostgresAlerts  `json:"postgres-alerts"`
+	RedisAlerts     AceRedisAlerts     `json:"redis-alerts"`
 	// KubeBindServer AceKubeBindServer `json:"kube-bind-server"`
 	Global             AceGlobalValues           `json:"global"`
 	Settings           Settings                  `json:"settings"`
@@ -105,6 +111,26 @@ type AceSpec struct {
 	// +listType=map
 	// +listMapKey=name
 	Env []core.EnvVar `json:"env"`
+}
+
+type AcePatchConsoleApi struct {
+	Enabled              bool `json:"enabled"`
+	*PatchConsoleApiSpec `json:",inline,omitempty"`
+}
+
+type AcePatchConsoleUi struct {
+	Enabled             bool `json:"enabled"`
+	*PatchConsoleUiSpec `json:",inline,omitempty"`
+}
+
+type AceTrustConsoleApi struct {
+	Enabled              bool `json:"enabled"`
+	*TrustConsoleApiSpec `json:",inline,omitempty"`
+}
+
+type AceTrustConsoleUi struct {
+	Enabled             bool `json:"enabled"`
+	*TrustConsoleUiSpec `json:",inline,omitempty"`
 }
 
 type AcePlatformUi struct {
@@ -218,7 +244,16 @@ type AceRedisAlerts struct {
 	Form    AceAlertForm `json:"form,omitempty"`
 }
 
+// AceGlobalAkp is how ace runs AKP.
+type AceGlobalAkp struct {
+	// AKP's identity mode (b3's [iam] MODE): v1_only, dual or v2_only. Empty: b3's default; the UIs keep the
+	// chart's tag. v1_only pins the UIs to ace v2026.10.30's release; the lines on AKP v2 are v2_only.
+	// +optional
+	Mode string `json:"mode"`
+}
+
 type AceGlobalValues struct {
+	Akp              AceGlobalAkp           `json:"akp"`
 	NameOverride     string                 `json:"nameOverride"`
 	FullnameOverride string                 `json:"fullnameOverride"`
 	Platform         AcePlatformSettings    `json:"platform"`
@@ -408,7 +443,33 @@ type InfraFileserver struct {
 	Prefix  string `json:"prefix"`
 }
 
+// IamSettings is b3's [iam] section, written when global.akp.mode is dual or v2_only.
+type IamSettings struct {
+	PublicPath string             `json:"publicPath"`
+	Federation AceEnabledSpec     `json:"federation"`
+	SCIM       AceEnabledSpec     `json:"scim"`
+	Casdoor    IamCasdoorSettings `json:"casdoor"`
+}
+
+type AceEnabledSpec struct {
+	Enabled bool `json:"enabled"`
+}
+
+type IamCasdoorSettings struct {
+	// In-cluster URL of Casdoor.
+	// +optional
+	Endpoint string `json:"endpoint"`
+	// +optional
+	Organization string `json:"organization"`
+	Application  string `json:"application"`
+	ClientID     string `json:"clientId"`
+	// +optional
+	ClientSecret string `json:"clientSecret"`
+	AdoptByName  bool   `json:"adoptByName"`
+}
+
 type Settings struct {
+	Iam         IamSettings         `json:"iam"`
 	DB          DBSettings          `json:"db"`
 	Cache       CacheSettings       `json:"cache"`
 	Smtp        SmtpSettings        `json:"smtp"`

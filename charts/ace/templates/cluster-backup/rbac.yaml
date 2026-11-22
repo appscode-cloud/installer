@@ -1,3 +1,4 @@
+{{- if include "ace.feature" (dict "root" . "name" "clusterBackup") -}}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -25,3 +26,4 @@ roleRef:
   kind: ClusterRole
   name: {{ include "ace.fullname" . }}-cluster-resource-reader
   apiGroup: rbac.authorization.k8s.io
+{{- end }}

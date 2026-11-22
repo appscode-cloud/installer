@@ -50,23 +50,28 @@ type KubepatchSpec struct {
 	// +optional
 	NameOverride string `json:"nameOverride"`
 	// +optional
-	FullnameOverride string                `json:"fullnameOverride"`
-	Credentials      KubepatchCredentials  `json:"credentials"`
-	Routing          KubepatchRouting      `json:"routing"`
-	TLS              KubepatchTLS          `json:"tls"`
-	Casdoor          KubepatchCasdoor      `json:"casdoor"`
-	Postgres         KubepatchPostgres     `json:"postgres"`
-	Persistence      KubepatchPersistence  `json:"persistence"`
-	NATS             KubepatchNATS         `json:"nats"`
-	B3               KubepatchB3           `json:"b3"`
-	PatchConsole     KubepatchPatchConsole `json:"patchConsole"`
-	AkpBootstrap     KubepatchAkpBootstrap `json:"akpBootstrap"`
-	PlatformUI       KubepatchUIChart      `json:"platform-ui"`
-	ClusterUI        KubepatchUIChart      `json:"cluster-ui"`
+	FullnameOverride string                   `json:"fullnameOverride"`
+	Credentials      KubepatchCredentials     `json:"credentials"`
+	Routing          KubepatchRouting         `json:"routing"`
+	TLS              KubepatchTLS             `json:"tls"`
+	Casdoor          KubepatchCasdoor         `json:"casdoor"`
+	Postgres         KubepatchPostgres        `json:"postgres"`
+	Persistence      KubepatchPersistence     `json:"persistence"`
+	NATS             KubepatchNATS            `json:"nats"`
+	B3               KubepatchB3              `json:"b3"`
+	PatchConsole     KubepatchPatchConsole    `json:"patchConsole"`
+	PatchConsoleApi  KubepatchPatchConsoleApi `json:"patch-console-api"`
+	PatchConsoleUi   KubepatchPatchConsoleUi  `json:"patch-console-ui"`
+	AkpBootstrap     KubepatchAkpBootstrap    `json:"akpBootstrap"`
+	PlatformUI       KubepatchUIChart         `json:"platform-ui"`
+	ClusterUI        KubepatchUIChart         `json:"cluster-ui"`
 }
 
 type KubepatchGlobal struct {
-	Platform KubepatchPlatform `json:"platform"`
+	// The Secret the sub-charts read the credentials from: credentials.existingSecret.
+	// +optional
+	Credentials KubepatchGlobalCredentials `json:"credentials"`
+	Platform    KubepatchPlatform          `json:"platform"`
 	// Registry prefix for the images this chart pulls itself.
 	// +optional
 	ImageRegistry string `json:"imageRegistry"`
@@ -74,7 +79,15 @@ type KubepatchGlobal struct {
 	ImagePullSecrets []string `json:"imagePullSecrets"`
 }
 
+type KubepatchGlobalCredentials struct {
+	// +optional
+	SecretName string `json:"secretName"`
+}
+
 type KubepatchPlatform struct {
+	// The public HTTPS port, as routing.httpsPort.
+	// +optional
+	HTTPSPort      int    `json:"httpsPort"`
 	Host           string `json:"host"`
 	HostType       string `json:"hostType"`
 	DeploymentType string `json:"deploymentType"`
@@ -210,19 +223,20 @@ type KubepatchSMTP struct {
 }
 
 type KubepatchB3 struct {
-	Enabled      bool               `json:"enabled"`
-	Image        KubepatchImage     `json:"image"`
-	ReplicaCount int                `json:"replicaCount"`
-	AppName      string             `json:"appName"`
-	RunMode      string             `json:"runMode"`
-	LogLevel     string             `json:"logLevel"`
-	Session      KubepatchB3Session `json:"session"`
-	Cache        KubepatchB3Cache   `json:"cache"`
-	IAM          KubepatchB3IAM     `json:"iam"`
-	SMTP         KubepatchSMTP      `json:"smtp"`
-	Inbox        KubepatchB3Inbox   `json:"inbox"`
-	Worker       KubepatchEnabled   `json:"worker"`
-	Cadence      KubepatchB3Cadence `json:"cadence"`
+	Enabled          bool               `json:"enabled"`
+	Image            KubepatchImage     `json:"image"`
+	ReplicaCount     int                `json:"replicaCount"`
+	AppName          string             `json:"appName"`
+	RunMode          string             `json:"runMode"`
+	LogLevel         string             `json:"logLevel"`
+	SiteOrganization string             `json:"siteOrganization"`
+	Session          KubepatchB3Session `json:"session"`
+	Cache            KubepatchB3Cache   `json:"cache"`
+	IAM              KubepatchB3IAM     `json:"iam"`
+	SMTP             KubepatchSMTP      `json:"smtp"`
+	Inbox            KubepatchB3Inbox   `json:"inbox"`
+	Worker           KubepatchEnabled   `json:"worker"`
+	Cadence          KubepatchB3Cadence `json:"cadence"`
 	// +optional
 	ExtraAppIni string `json:"extraAppIni"`
 	// +optional
@@ -238,17 +252,44 @@ type KubepatchB3 struct {
 }
 
 type KubepatchPatchConsole struct {
-	Enabled   bool                           `json:"enabled"`
-	Image     KubepatchImage                 `json:"image"`
-	UI        KubepatchPatchConsoleUI        `json:"ui"`
-	Hub       KubepatchPatchConsoleHub       `json:"hub"`
-	AKP       KubepatchPatchConsoleAKP       `json:"akp"`
 	Bootstrap KubepatchPatchConsoleBootstrap `json:"bootstrap"`
-	BlobStore KubepatchPatchConsoleBlobStore `json:"blobStore"`
+}
+
+// KubepatchPatchConsoleApi is the part of the patch-console-api sub-chart the umbrella sets; see that chart for all
+// its values.
+type KubepatchPatchConsoleApi struct {
+	Enabled bool                     `json:"enabled"`
+	Image   KubepatchSubChartImage   `json:"image"`
+	Casdoor KubepatchSubChartCasdoor `json:"casdoor"`
+	AKP     KubepatchPatchConsoleAKP `json:"akp"`
+}
+
+// KubepatchSubChartImage is the part of a sub-chart's image the umbrella sets.
+type KubepatchSubChartImage struct {
 	// +optional
-	NodeSelector map[string]string `json:"nodeSelector"`
+	Tag string `json:"tag"`
+}
+
+type KubepatchSubChartCasdoor struct {
+	Organization string `json:"organization"`
+	Application  string `json:"application"`
+	ClientID     string `json:"clientId"`
+}
+
+type KubepatchPatchConsoleAKP struct {
 	// +optional
-	Tolerations []core.Toleration `json:"tolerations"`
+	URL string `json:"url"`
+	// +optional
+	TokenSecret string               `json:"tokenSecret"`
+	CASecret    LocalObjectReference `json:"caSecret"`
+}
+
+// KubepatchPatchConsoleUi is the part of the patch-console-ui sub-chart the umbrella sets; see that chart for all
+// its values.
+type KubepatchPatchConsoleUi struct {
+	Enabled   bool                   `json:"enabled"`
+	Image     KubepatchSubChartImage `json:"image"`
+	ClusterUi KubepatchEnabled       `json:"clusterUi"`
 }
 
 type KubepatchEnabled struct {
@@ -315,42 +356,9 @@ type KubepatchB3Cadence struct {
 	TaskList string `json:"taskList"`
 }
 
-type KubepatchPatchConsoleUI struct {
-	Image        KubepatchImage `json:"image"`
-	ReplicaCount int            `json:"replicaCount"`
-	// +optional
-	Resources core.ResourceRequirements `json:"resources"`
-}
-
-type KubepatchPatchConsoleService struct {
-	Port int `json:"port"`
-}
-
-type KubepatchPatchConsoleHub struct {
-	ReplicaCount     int                          `json:"replicaCount"`
-	Service          KubepatchPatchConsoleService `json:"service"`
-	ClusterDirectory string                       `json:"clusterDirectory"`
-	// +optional
-	Resources core.ResourceRequirements `json:"resources"`
-	// +optional
-	ExtraEnv []core.EnvVar `json:"extraEnv"`
-}
-
-type KubepatchPatchConsoleAKP struct {
-	// +optional
-	URL string `json:"url"`
-	// +optional
-	TokenSecret string `json:"tokenSecret"`
-}
-
 type KubepatchPatchConsoleBootstrap struct {
 	Enabled      bool   `json:"enabled"`
 	Organization string `json:"organization"`
-}
-
-type KubepatchPatchConsoleBlobStore struct {
-	// +optional
-	ExistingClaim string `json:"existingClaim"`
 }
 
 type KubepatchAkpBootstrap struct {

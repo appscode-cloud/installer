@@ -1,3 +1,4 @@
+{{- if include "ace.feature" (dict "root" . "name" "cache") -}}
 {{ $csc := printf `
 allowPrivilegeEscalation: false
 capabilities:
@@ -69,3 +70,4 @@ spec:
               {{- toYaml $csc | nindent 14 }}
             nodeSelector:
               kubernetes.io/os: linux
+{{- end }}

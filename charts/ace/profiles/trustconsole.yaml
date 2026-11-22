@@ -1,0 +1,43 @@
+# ProductLine TrustConsole: the Trust Console and AKP v2 (v2_only), with platform-ui and cluster-ui. The hub's OpenFGA is
+# ace's, its Valkey is ace's Redis (same protocol). Casdoor, Postgres and the Secrets named below are made outside this chart.
+#   helm install ace charts/ace -f charts/ace/profiles/trustconsole.yaml --set global.platform.host=<host> ...
+ProductLine: TrustConsole
+# Off by default in the AKP line only: these are on in values.yaml.
+cadence:
+  enabled: false
+postgres-alerts:
+  enabled: false
+redis-alerts:
+  enabled: false
+platform-ui:
+  enabled: true
+cluster-ui:
+  enabled: true
+platform-api:
+  enabled: true
+openfga:
+  enabled: true
+trust-console-api:
+  enabled: true
+  casdoor:
+    organization: trustconsole
+  database:
+    # A Secret with the key `url`: postgres://user:pass@host:5432/db?sslmode=... (Postgres 18+)
+    secretName: trust-console-database
+  # ace's Redis Service, release `ace` in namespace `ace`.
+  valkey:
+    addr: ace-cache.ace.svc:6379
+  openfga:
+    apiUrl: http://ace-openfga.ace.svc:8080
+trust-console-ui:
+  enabled: true
+global:
+  # The Trust Console's Secrets: keys trust-casdoor-client-secret and trust-iam-csrf-key.
+  credentials:
+    secretName: ace-credentials
+settings:
+  iam:
+    casdoor:
+      endpoint: http://casdoor.casdoor.svc:8000
+      organization: trustconsole
+      clientSecret: CHANGE-ME

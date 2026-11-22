@@ -24,6 +24,22 @@ dependencies:
   repository: file://../kubedb-ui
   condition: kubedb-ui.enabled
   version: v2026.11.15
+- name: patch-console-api
+  repository: file://../patch-console-api
+  condition: patch-console-api.enabled
+  version: v2026.11.15
+- name: patch-console-ui
+  repository: file://../patch-console-ui
+  condition: patch-console-ui.enabled
+  version: v2026.11.15
+- name: trust-console-api
+  repository: file://../trust-console-api
+  condition: trust-console-api.enabled
+  version: v2026.11.15
+- name: trust-console-ui
+  repository: file://../trust-console-ui
+  condition: trust-console-ui.enabled
+  version: v2026.11.15
 - name: platform-api
   repository: file://../platform-api
   condition: platform-api.enabled

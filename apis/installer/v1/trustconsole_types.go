@@ -50,25 +50,30 @@ type TrustconsoleSpec struct {
 	// +optional
 	NameOverride string `json:"nameOverride"`
 	// +optional
-	FullnameOverride string                   `json:"fullnameOverride"`
-	Credentials      TrustconsoleCredentials  `json:"credentials"`
-	Routing          TrustconsoleRouting      `json:"routing"`
-	TLS              TrustconsoleTLS          `json:"tls"`
-	Casdoor          TrustconsoleCasdoor      `json:"casdoor"`
-	Postgres         TrustconsolePostgres     `json:"postgres"`
-	Persistence      TrustconsolePersistence  `json:"persistence"`
-	NATS             TrustconsoleNATS         `json:"nats"`
-	B3               TrustconsoleB3           `json:"b3"`
-	TrustConsole     TrustconsoleTrustConsole `json:"trustConsole"`
-	OpenFGA          TrustconsoleOpenFGA      `json:"openfga"`
-	Valkey           TrustconsoleValkey       `json:"valkey"`
-	AkpBootstrap     TrustconsoleAkpBootstrap `json:"akpBootstrap"`
-	PlatformUI       TrustconsoleUIChart      `json:"platform-ui"`
-	ClusterUI        TrustconsoleUIChart      `json:"cluster-ui"`
+	FullnameOverride string                      `json:"fullnameOverride"`
+	Credentials      TrustconsoleCredentials     `json:"credentials"`
+	Routing          TrustconsoleRouting         `json:"routing"`
+	TLS              TrustconsoleTLS             `json:"tls"`
+	Casdoor          TrustconsoleCasdoor         `json:"casdoor"`
+	Postgres         TrustconsolePostgres        `json:"postgres"`
+	Persistence      TrustconsolePersistence     `json:"persistence"`
+	NATS             TrustconsoleNATS            `json:"nats"`
+	B3               TrustconsoleB3              `json:"b3"`
+	TrustConsole     TrustconsoleTrustConsole    `json:"trustConsole"`
+	TrustConsoleApi  TrustconsoleTrustConsoleApi `json:"trust-console-api"`
+	TrustConsoleUi   TrustconsoleTrustConsoleUi  `json:"trust-console-ui"`
+	OpenFGA          TrustconsoleOpenFGA         `json:"openfga"`
+	Valkey           TrustconsoleValkey          `json:"valkey"`
+	AkpBootstrap     TrustconsoleAkpBootstrap    `json:"akpBootstrap"`
+	PlatformUI       TrustconsoleUIChart         `json:"platform-ui"`
+	ClusterUI        TrustconsoleUIChart         `json:"cluster-ui"`
 }
 
 type TrustconsoleGlobal struct {
-	Platform TrustconsolePlatform `json:"platform"`
+	// The Secret the sub-charts read the credentials from: credentials.existingSecret.
+	// +optional
+	Credentials TrustconsoleGlobalCredentials `json:"credentials"`
+	Platform    TrustconsolePlatform          `json:"platform"`
 	// Registry prefix for the images this chart pulls itself.
 	// +optional
 	ImageRegistry string `json:"imageRegistry"`
@@ -76,7 +81,15 @@ type TrustconsoleGlobal struct {
 	ImagePullSecrets []string `json:"imagePullSecrets"`
 }
 
+type TrustconsoleGlobalCredentials struct {
+	// +optional
+	SecretName string `json:"secretName"`
+}
+
 type TrustconsolePlatform struct {
+	// The public HTTPS port, as routing.httpsPort.
+	// +optional
+	HTTPSPort      int    `json:"httpsPort"`
 	Host           string `json:"host"`
 	HostType       string `json:"hostType"`
 	DeploymentType string `json:"deploymentType"`
@@ -245,27 +258,46 @@ type TrustconsoleB3 struct {
 }
 
 type TrustconsoleTrustConsole struct {
-	Enabled bool `json:"enabled"`
-	// Empty: trust.<global.platform.host>
+	// Host the browser reaches the console at. Empty: trust.<global.platform.host>. Set trust-console-api.publicUrl too.
 	// +optional
-	Host  string                      `json:"host"`
-	Org   string                      `json:"org"`
-	Image TrustconsoleImage           `json:"image"`
-	UI    TrustconsoleTrustConsoleUI  `json:"ui"`
-	Hub   TrustconsoleTrustConsoleHub `json:"hub"`
+	Host string `json:"host"`
+}
+
+// TrustconsoleTrustConsoleApi is the part of the trust-console-api sub-chart the umbrella sets; see that chart for
+// all its values.
+type TrustconsoleTrustConsoleApi struct {
+	Enabled bool                        `json:"enabled"`
+	Image   TrustconsoleSubChartImage   `json:"image"`
+	Org     string                      `json:"org"`
+	Casdoor TrustconsoleSubChartCasdoor `json:"casdoor"`
 	// +optional
-	NodeSelector map[string]string `json:"nodeSelector"`
+	ExtraEnv []core.EnvVar `json:"extraEnv"`
+}
+
+type TrustconsoleSubChartCasdoor struct {
+	Organization    string `json:"organization"`
+	Application     string `json:"application"`
+	ClientID        string `json:"clientId"`
+	BootstrapAdmins string `json:"bootstrapAdmins"`
+}
+
+// TrustconsoleSubChartImage is the part of a sub-chart's image the umbrella sets.
+type TrustconsoleSubChartImage struct {
 	// +optional
-	Tolerations []core.Toleration `json:"tolerations"`
+	Tag string `json:"tag"`
+}
+
+// TrustconsoleTrustConsoleUi is the part of the trust-console-ui sub-chart the umbrella sets; see that chart for all
+// its values.
+type TrustconsoleTrustConsoleUi struct {
+	Enabled bool                      `json:"enabled"`
+	Image   TrustconsoleSubChartImage `json:"image"`
 }
 
 // TrustconsoleOpenFGA is the authorization store of the hub.
 type TrustconsoleOpenFGA struct {
 	Enabled bool              `json:"enabled"`
 	Image   TrustconsoleImage `json:"image"`
-	// In-cluster API URL when enabled is false.
-	// +optional
-	APIURL string `json:"apiUrl"`
 	// +optional
 	Resources core.ResourceRequirements `json:"resources"`
 	// +optional
@@ -278,9 +310,6 @@ type TrustconsoleOpenFGA struct {
 type TrustconsoleValkey struct {
 	Enabled bool              `json:"enabled"`
 	Image   TrustconsoleImage `json:"image"`
-	// host:port when enabled is false.
-	// +optional
-	Addr string `json:"addr"`
 	// +optional
 	Resources core.ResourceRequirements `json:"resources"`
 	// +optional
@@ -352,26 +381,6 @@ type TrustconsoleB3Cadence struct {
 	Port     int    `json:"port"`
 	Domain   string `json:"domain"`
 	TaskList string `json:"taskList"`
-}
-
-type TrustconsoleTrustConsoleUI struct {
-	Image        TrustconsoleImage `json:"image"`
-	ReplicaCount int               `json:"replicaCount"`
-	// +optional
-	Resources core.ResourceRequirements `json:"resources"`
-}
-
-type TrustconsoleTrustConsoleService struct {
-	Port int `json:"port"`
-}
-
-type TrustconsoleTrustConsoleHub struct {
-	ReplicaCount int                             `json:"replicaCount"`
-	Service      TrustconsoleTrustConsoleService `json:"service"`
-	// +optional
-	Resources core.ResourceRequirements `json:"resources"`
-	// +optional
-	ExtraEnv []core.EnvVar `json:"extraEnv"`
 }
 
 type TrustconsoleAkpBootstrap struct {

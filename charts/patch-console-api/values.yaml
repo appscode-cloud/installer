@@ -82,7 +82,7 @@ casdoor:
   endpoint: ""
   # The URL the browser reaches Casdoor at. Empty: `casdoor.<global.platform.host>`.
   publicUrl: ""
-  organization: ""
+  organization: kubepatch
   application: patch-console
   clientId: patch-console
   # Empty name: the credentials Secret.
@@ -112,3 +112,13 @@ blobStore:
 
 # Extra environment for the hub.
 extraEnv: []
+
+# Read from the parent chart's `global`.
+global:
+  platform:
+    host: appscode.ninja
+    # The public HTTPS port when it is not 443.
+    httpsPort: 443
+  # The Secret with the console's credentials. Empty: `<release>-credentials`.
+  credentials:
+    secretName: ""
