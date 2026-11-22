@@ -1,0 +1,73 @@
+# Default values for akp-prereqs.
+#
+# Install it BEFORE the ace chart, in the same namespace and with the same `global.platform.host`: ace takes the
+# generated credentials (Secret `<release>-credentials`, `<release>-nats-creds`) as its own values, see
+# hack/akp-v2-demo/ace-values.sh. Not for production: one Postgres pod, a self-signed certificate, generated credentials.
+
+global:
+  platform:
+    # The one public host, a DNS name (not an address). Casdoor is served at `casdoor.<host>`.
+    host: akp.appscode.test
+  # The public HTTPS port, when it is not 443 (used in Casdoor's URLs).
+  httpsPort: 443
+  imagePullSecrets: []
+
+# The Gateway the Casdoor route attaches to: the one the ace chart makes (`<ace fullname>`, listener `https`).
+gateway:
+  name: ace
+  sectionName: https
+
+# The certificate of the Gateway: a Secret `tls.secretName`, which ace's Gateway reads (`<ace fullname>-gw-cert`).
+tls:
+  secretName: ace-gw-cert
+  validityDays: 3650
+
+persistence:
+  storageClassName: ""
+  postgres: 5Gi
+
+postgres:
+  image:
+    repository: ghcr.io/appscode-images/postgres
+    tag: 18.3-bookworm
+    digest: ""
+    pullPolicy: IfNotPresent
+  # Databases made at the first start: the one of b3 (and iam), and Casdoor's.
+  databases:
+    akp: { name: akp, user: akp }
+    casdoor: { name: casdoor, user: casdoor }
+  resources:
+    requests: { cpu: 250m, memory: 512Mi }
+
+casdoor:
+  image:
+    repository: ghcr.io/appscode/casdoor
+    tag: v4.29.0-3391e5fe
+    digest: ""
+    pullPolicy: IfNotPresent
+  # Host the browser reaches Casdoor at. Empty: `casdoor.<global.platform.host>`.
+  host: ""
+  # One organization, one application (b3's iam signs people in through it).
+  organization: akp
+  application:
+    name: akp
+    clientId: akp
+  # Redirect URI of the application: <public URL><iam publicPath>/casdoor/callback (b3's hosted sign-in).
+  iamPublicPath: /iam
+  # Second factors: Optional, Prompt or Required (an organization setting).
+  mfaRule: Optional
+  # The first person: a Casdoor user (password generated into the credentials Secret, key `admin-password`).
+  admin:
+    username: admin
+    email: admin@akp.local
+    displayName: Administrator
+  resources:
+    requests: { cpu: 100m, memory: 256Mi }
+
+# The operator, system and admin identities NATS runs on (operator mode), made once by `nsc` in a hook Job.
+nats:
+  natsBox:
+    repository: natsio/nats-box
+    tag: 0.19.2
+    digest: ""
+    pullPolicy: IfNotPresent

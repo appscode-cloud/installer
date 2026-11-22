@@ -1,0 +1,192 @@
+# AKP v2 on a single-node k3s: the ace chart with ProductLine AKP and `global.akp.mode: v2_only` (b3 in `[iam] MODE = v2_only`,
+# platform-ui and cluster-ui, Casdoor's hosted pages as the only sign-in), routed through the Gateway of Voyager Gateway.
+#
+# What ace does not make comes from the `akp-prereqs` chart (Postgres 18, Casdoor, the NATS identities, a self-signed Gateway
+# certificate) and from hack/akp-v2-demo/ace-values.sh (the credentials as ace's own values, kept out of this file).
+# The operators ace expects (KubeDB, KubeStash, cert-manager) are not on the cluster: `disableFeatures` leaves out what
+# needs them. See docs/akp-v2-demo.md; the images come from hack/akp-v2-demo/load-images.sh.
+ProductLine: AKP
+disableFeatures: [db, cache, clusterBackup, cleaner, consoleImporter]
+
+global:
+  akp:
+    mode: v2_only
+  platform:
+    host: akp.appscode.test
+    hostType: domain
+    deploymentType: CloudDemo
+  infra:
+    storageClass:
+      name: local-path
+    tls:
+      # The Gateway certificate is made by akp-prereqs (`<ace fullname>-gw-cert`), not by cert-manager.
+      issuer: external
+    kms:
+      masterKeyURL: ""   # ace-values.sh
+    objstore:
+      # No bucket credential Secret: b3 keeps its data on the PVC.
+      enableCredLess: true
+
+# Cadence runs the workflows of `b3 worker` (cluster import, ...). Its databases are made by akp-prereqs.
+cadence:
+  enabled: true
+  config:
+    persistence:
+      database:
+        sql:
+          hosts: akp-prereqs-postgres.akp.svc
+          user: akp
+postgres-alerts:
+  enabled: false
+redis-alerts:
+  enabled: false
+
+gateway:
+  enabled: true
+
+# Perses and Grafana create their tables (org, user, ...) in the database of b3: creating an organization writes to them.
+perses:
+  enabled: true
+  testFramework:
+    enabled: false
+  image:
+    pullPolicy: IfNotPresent
+  config:
+    database:
+      sql:
+        user: akp
+        addr: akp-prereqs-postgres.akp.svc:5432
+        db_name: akp
+        # password: ace-values.sh
+  envVars:
+  - name: PLATFORM_APISERVER_DOMAIN
+    value: http://ace-platform-api.akp.svc
+
+grafana:
+  enabled: true
+  image:
+    pullPolicy: IfNotPresent
+  settings:
+    secretName:
+      grafanaConfig: ace-grafana-config
+
+# The images of the demo are built from the branches below and imported into k3s (load-images.sh): b3 `fix-v2-only-cold-boot`,
+# platform-ui and cluster-ui `akp-v2-iam`. Their tags are the short commit ids.
+platform-ui:
+  enabled: true
+  image:
+    tag: akp-65ebe1c9fc
+    pullPolicy: IfNotPresent
+  # Where an unauthenticated person is sent: iam's hosted Casdoor sign-in (<public URL><settings.iam.publicPath>/casdoor/login).
+  loginURL: https://akp.appscode.test/iam/casdoor/login
+cluster-ui:
+  enabled: true
+  image:
+    tag: akp-f27166523a
+    pullPolicy: IfNotPresent
+  loginURL: https://akp.appscode.test/iam/casdoor/login
+
+platform-api:
+  enabled: true
+  image:
+    tag: akp-212c3403e8-csrf
+    pullPolicy: IfNotPresent
+  worker:
+    enabled: true
+  gotenberg:
+    pullPolicy: IfNotPresent
+  geoipdb:
+    pullPolicy: IfNotPresent
+  settings:
+    secretName:
+      platformConfig: ace-config
+      platformUserConfig: ace-user-config
+      platformSystemConfig: ace-system-config
+      nats: ace-nats-cred
+      setupConfig: ace-setup-config
+  # The NATS identities b3 reads ([nats] OPERATOR_CREDS ... under settings.nats.mountPath).
+  volumes:
+  - name: nats-cred
+    secret:
+      secretName: ace-nats-cred
+  volumeMounts:
+  - name: nats-cred
+    mountPath: /nats/creds
+    readOnly: true
+  iam:
+    bootstrapAdmin:
+      name: admin
+      email: admin@akp.local
+      fullName: Administrator
+  # The first administrator is written to Grafana and Perses only if their tables exist (b3 does not sync them later in
+  # v2_only): wait for both before `b3 admin iam-bootstrap-admin`. They make the tables in the database of b3 when they start.
+  extraInitContainers:
+  - name: wait-for-dashboards
+    image: ghcr.io/appscode-images/postgres@sha256:8d320c6facbcd077b88a697de873a6bb15f3b3aff0f341ff86033def5fe545a3
+    imagePullPolicy: IfNotPresent
+    command:
+    - sh
+    - -c
+    - |
+      until [ "$(psql -h akp-prereqs-postgres.akp.svc -U akp -d akp -tAc "select count(*) from information_schema.tables where table_name in ('user','org','org_user','perses_users')")" = 4 ]; do
+        echo "waiting for the tables of Grafana and Perses"; sleep 5
+      done
+    env:
+    - name: PGPASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: akp-prereqs-credentials
+          key: akp-db-password
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop: ["ALL"]
+      runAsNonRoot: true
+      runAsUser: 999
+
+# NATS in operator mode with JetStream (the operator, the system account and its JWTs are ace-values.sh's).
+nats:
+  enabled: true
+  nats:
+    jetstream:
+      enabled: true
+      fileStorage:
+        enabled: true
+        size: 2Gi
+    image:
+      registry: ghcr.io
+      repository: appscode-images/nats
+      tag: 2.12.6-alpine
+  websocket:
+    enabled: true
+    port: 8080
+    noTLS: true
+
+settings:
+  platform:
+    appName: AKP
+    serviceEnableCaptcha: false
+    serviceRegisterEmailConfirm: false
+  db:
+    host: akp-prereqs-postgres.akp.svc:5432
+    databaseName: akp
+    auth:
+      username: akp
+  iam:
+    publicPath: /iam
+    casdoor:
+      endpoint: http://akp-prereqs-casdoor.akp.svc:8000
+      publicUrl: https://casdoor.akp.appscode.test
+      organization: akp
+      application: akp
+      clientId: akp
+      adoptByName: true
+
+# The first site administrator is made by `b3 admin iam-bootstrap-admin` (platform-api.iam above); the Casdoor user
+# of the same name signs in with the password in akp-prereqs-credentials (`admin-password`).
+setupJob:
+  config:
+    admin:
+      username: admin
+      email: admin@akp.local
+      displayName: Administrator

@@ -130,18 +130,28 @@ stringData:
     #################################### Cache server #############################
     [remote_cache]
     # Either "redis", "memcached" or "database" default is "database"
+{{- if include "ace.feature" (dict "root" . "name" "cache") }}
     type = redis
+{{- else }}
+    type = database
+{{- end }}
 
     # cache connectionstring options
     # database: will use Grafana primary database.
     # redis: config like redis server e.g. `addr=127.0.0.1:6379,pool_size=100,db=grafana`
     # memcache: 127.0.0.1:11211
+{{- if include "ace.feature" (dict "root" . "name" "cache") }}
     connstr = {{ template "grafana.cache.host" . }}
+{{- end }}
 
     #################################### Session #############################
     [session]
     # Either "memory", "file", "redis", "mysql", "postgres", "memcache", default is "file"
+{{- if include "ace.feature" (dict "root" . "name" "cache") }}
     provider = redis
+{{- else }}
+    provider = memory
+{{- end }}
 
     # Provider config options
     # memory: not have any config yet
@@ -154,7 +164,7 @@ stringData:
     # memcache: 127.0.0.1:11211
 
 
-    provider_config = {{ template "grafana.session.host" . }}
+{{ if include "ace.feature" (dict "root" . "name" "cache") }}    provider_config = {{ template "grafana.session.host" . }}{{ end }}
 
     # Session cookie name
     cookie_name = {{ .Values.settings.platform.cookieName }}

@@ -1,3 +1,4 @@
+{{- if include "ace.feature" (dict "root" . "name" "db") -}}
 {{- $dbUser := ternary .Values.securityContext.runAsUser 70 (eq (include "distro.openshift" $) "true") }}
 {{- $resizePolicy := list (dict "resourceName" "cpu" "restartPolicy" "NotRequired") (dict "resourceName" "memory" "restartPolicy" "NotRequired") }}
 apiVersion: kubedb.com/v1
@@ -115,4 +116,5 @@ spec:
         interval: 30s
         labels:
           {{- toYaml .Values.global.monitoring.serviceMonitor.labels | nindent 10 }}
+{{- end }}
 {{- end }}

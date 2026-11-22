@@ -1,4 +1,4 @@
-{{- if .Values.settings.pgpool.enabled }}
+{{- if and .Values.settings.pgpool.enabled (include "ace.feature" (dict "root" . "name" "db")) }}
 apiVersion: kubedb.com/v1alpha2
 kind: Pgpool
 metadata:

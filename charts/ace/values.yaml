@@ -8,6 +8,11 @@
 # and the chart refuses a combination that does not fit the line.
 ProductLine: AKP
 
+# Features of ace's own templates to leave out, in any product line: db, cache (KubeDB Postgres and Redis), clusterBackup,
+# cleaner, consoleImporter, grafanaConfig, cadence, setupJob. For a cluster without the operators behind them: the
+# database is then `settings.db.host`, and b3 keeps its session and cache in memory (one replica).
+disableFeatures: []
+
 platform-ui:
   enabled: false
 
@@ -385,12 +390,17 @@ settings:
     casdoor:
       # In-cluster URL of Casdoor.
       endpoint: ""
+      # Casdoor as a browser reaches it, for the hosted sign-in redirect. Empty: `endpoint`.
+      publicUrl: ""
       organization: ""
       application: akp
       clientId: akp
       clientSecret: ""
       adoptByName: true
   db:
+    # Host:port of a Postgres that is not the KubeDB one of this chart (with `disableFeatures: [db]`). Empty: the
+    # KubeDB Postgres (or its Pgpool) of this chart.
+    host: ""
     version: "18.3"
     databaseName: bb
     deletionPolicy: Halt

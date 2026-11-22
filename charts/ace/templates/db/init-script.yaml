@@ -1,3 +1,4 @@
+{{- if include "ace.feature" (dict "root" . "name" "db") -}}
 apiVersion: v1
 kind: Secret
 metadata:
@@ -22,3 +23,4 @@ stringData:
      CREATE DATABASE {{ .visibilityDbname }};
      {{- end }}
      {{- end }}
+{{- end }}

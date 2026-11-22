@@ -87,7 +87,12 @@ type PlatformApiSpec struct {
 	Tolerations []core.Toleration `json:"tolerations"`
 	// If specified, the pod's scheduling constraints
 	// +optional
-	Affinity     *core.Affinity     `json:"affinity"`
+	Affinity *core.Affinity `json:"affinity"`
+	// Init containers that run before the chart's own.
+	// +optional
+	ExtraInitContainers []core.Container `json:"extraInitContainers"`
+	// +optional
+	Iam          PlatformApiIam     `json:"iam"`
 	Volumes      []core.Volume      `json:"volumes"`
 	VolumeMounts []core.VolumeMount `json:"volumeMounts"`
 	Persistence  PersistenceSpec    `json:"persistence"`
@@ -124,6 +129,22 @@ type AceAPISettings struct {
 type AceAPISettingsSecretName struct {
 	AceSettingsSecretName         `json:",inline,omitempty"`
 	GcpMarketplaceReportingSecret string `json:"gcpMarketplaceReportingSecret"`
+	// v2_only: the Secret with `config.yaml` of `b3 dev --setup-config` (ace: <release>-setup-config). Empty: no setup step.
+	// +optional
+	SetupConfig string `json:"setupConfig"`
+}
+
+// PlatformApiIam is read when global.akp.mode is v2_only.
+type PlatformApiIam struct {
+	BootstrapAdmin PlatformApiBootstrapAdmin `json:"bootstrapAdmin"`
+}
+
+// PlatformApiBootstrapAdmin is the first site administrator, made by `b3 admin iam-bootstrap-admin` before the API starts.
+type PlatformApiBootstrapAdmin struct {
+	Enabled  bool   `json:"enabled"`
+	Name     string `json:"name"`
+	Email    string `json:"email"`
+	FullName string `json:"fullName"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

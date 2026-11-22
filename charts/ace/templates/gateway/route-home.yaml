@@ -28,6 +28,16 @@ spec:
       - path:
           type: PathPrefix
           value: /
+    {{- if eq (include "ace.akpMode" .) "v2_only" }}
+    # v2_only has no /accounts/selfhost-home: the portal is platform-ui
+    filters:
+    - type: RequestRedirect
+      requestRedirect:
+        path:
+          type: ReplaceFullPath
+          replaceFullPath: /id/
+        statusCode: 302
+    {{- else }}
     filters:
     - type: URLRewrite
       urlRewrite:
@@ -41,5 +51,6 @@ spec:
       namespace: {{ .Release.Namespace }}
       port: 80
       weight: 1
+    {{- end }}
 
 {{- end }}

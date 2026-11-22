@@ -1,0 +1,17 @@
+# Values of the akp-prereqs release of the AKP v2 demo on a single-node k3s (local-path storage). The images are pinned by digest;
+# hack/akp-v2-demo/load-images.sh imports (or the node pulls) exactly these.
+global:
+  platform:
+    host: akp.appscode.test
+persistence:
+  storageClassName: local-path
+  postgres: 5Gi
+postgres:
+  image:
+    digest: sha256:8d320c6facbcd077b88a697de873a6bb15f3b3aff0f341ff86033def5fe545a3
+casdoor:
+  image:
+    digest: sha256:b2c5cb6b0711046e565aa107fc96f96341fa747b3193c4cb5f7373d2e6726ff9
+nats:
+  natsBox:
+    digest: sha256:8031d190c7ee24081f3f27cc939fb647a1eeb29ebb5c60fef9b5b6c7a846d6a2

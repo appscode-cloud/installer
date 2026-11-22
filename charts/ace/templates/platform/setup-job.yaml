@@ -1,4 +1,4 @@
-{{- if include "ace.feature" (dict "root" . "name" "setupJob") -}}
+{{- if and (include "ace.feature" (dict "root" . "name" "setupJob")) (ne (include "ace.akpMode" .) "v2_only") -}}
 {{- $infra := .Values.global.infra -}}
 
 {{- $mountCACerts := or

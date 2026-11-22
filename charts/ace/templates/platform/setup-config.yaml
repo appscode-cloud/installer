@@ -19,7 +19,10 @@ stringData:
       reloadPlatformAccounts: true
       {{- end }}
     importerServiceAccount: {{ include "appscode.serviceAccountName" . }}-importer
+    {{- /* v2_only has no ac_user to list: `b3 dev` fails on it */}}
+    {{- if ne (include "ace.akpMode" .) "v2_only" }}
     syncPersesAccounts: true
+    {{- end }}
     {{- with .Values.setupJob.config }}
     {{- . | toYaml | nindent 4 }}
     {{- end }}

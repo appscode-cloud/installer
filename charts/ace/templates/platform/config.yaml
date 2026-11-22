@@ -127,6 +127,9 @@ stringData:
     SCIM_ENABLED = {{ $.Values.settings.iam.scim.enabled }}
 {{- with $.Values.settings.iam.casdoor }}
     CASDOOR_ENDPOINT = {{ .endpoint }}
+{{- if .publicUrl }}
+    CASDOOR_PUBLIC_URL = {{ .publicUrl }}
+{{- end }}
     CASDOOR_CLIENT_ID = {{ .clientId }}
     CASDOOR_CLIENT_SECRET = {{ .clientSecret }}
     CASDOOR_ORGANIZATION = {{ .organization }}

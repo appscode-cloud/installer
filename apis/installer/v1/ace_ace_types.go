@@ -53,7 +53,11 @@ type Ace struct {
 // AceSpec is the schema for Ace Operator values file
 type AceSpec struct {
 	// The product this install is: AKP (the default), TrustConsole or KubePatch.
-	ProductLine     ProductLine        `json:"ProductLine"`
+	ProductLine ProductLine `json:"ProductLine"`
+	// Features of ace's own templates to leave out in any product line (db, cache, clusterBackup, cleaner,
+	// consoleImporter, grafanaConfig, cadence, setupJob), for a cluster without the operators behind them.
+	// +optional
+	DisableFeatures []string           `json:"disableFeatures"`
 	PlatformUi      AcePlatformUi      `json:"platform-ui"`
 	ClusterUi       AceClusterUi       `json:"cluster-ui"`
 	Grafana         AceGrafana         `json:"grafana"`
@@ -459,6 +463,9 @@ type IamCasdoorSettings struct {
 	// In-cluster URL of Casdoor.
 	// +optional
 	Endpoint string `json:"endpoint"`
+	// Casdoor as a browser reaches it, for the hosted sign-in redirect. Empty: Endpoint.
+	// +optional
+	PublicURL string `json:"publicUrl"`
 	// +optional
 	Organization string `json:"organization"`
 	Application  string `json:"application"`
@@ -498,6 +505,9 @@ type PgPoolSettings struct {
 }
 
 type DBSettings struct {
+	// Host:port of a Postgres that is not the KubeDB one of this chart (with disableFeatures: [db]).
+	// +optional
+	Host           string                    `json:"host"`
 	Version        string                    `json:"version"`
 	DatabaseName   string                    `json:"databaseName"`
 	DeletionPolicy string                    `json:"deletionPolicy"`

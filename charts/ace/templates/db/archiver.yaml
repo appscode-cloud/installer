@@ -1,3 +1,4 @@
+{{- if include "ace.feature" (dict "root" . "name" "db") -}}
 {{ $csc := printf `
 allowPrivilegeEscalation: false
 capabilities:
@@ -80,3 +81,4 @@ spec:
     ref:
       name: {{ .Values.global.infra.kubestash.storageRef.name }}
       namespace: {{ .Values.global.infra.kubestash.storageRef.namespace }}
+{{- end }}
