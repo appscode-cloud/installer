@@ -2,7 +2,7 @@
 # hack/akp-v2-demo/load-images.sh imports (or the node pulls) exactly these.
 global:
   platform:
-    host: akp.appscode.test
+    host: akp.10.2.0.73.nip.io
 persistence:
   storageClassName: local-path
   postgres: 5Gi

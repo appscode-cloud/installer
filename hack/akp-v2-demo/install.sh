@@ -21,13 +21,13 @@
 #   hack/akp-v2-demo/install.sh ace        the ace chart: ProductLine AKP, global.akp.mode v2_only
 #   hack/akp-v2-demo/install.sh all
 #
-# Settings: HOST (public name, default akp.appscode.test: it appears in charts/ace/profiles/akp-v2-demo.yaml and
+# Settings: HOST (public name, default akp.10.2.0.73.nip.io: it appears in charts/ace/profiles/akp-v2-demo.yaml and
 # hack/akp-v2-demo/prereqs-values.yaml too, change all three), NS (default akp).
 
 set -euo pipefail
 
 NS=${NS:-akp}
-HOST=${HOST:-akp.appscode.test}
+HOST=${HOST:-akp.10.2.0.73.nip.io}
 GWNS=voyager-gateway-system
 here=$(cd "$(dirname "$0")" && pwd)
 root=$(cd "$here/../.." && pwd)

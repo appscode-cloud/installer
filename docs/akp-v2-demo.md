@@ -54,12 +54,12 @@ Go types for the new values are in `apis/installer/v1`; schemas and READMEs are 
 ## Run it
 
 On a build host (docker, an ssh agent that can read the private repositories) build and import the images; on the k3s host
-install. Pick a name that is not a public suffix (`akp.appscode.test`, not `*.nip.io`: b3 sets cookies for the last two labels
-of the host and browsers may refuse `Domain=nip.io`). Put it in `/etc/hosts` on the machines whose browser you use:
-
-```
-10.2.0.73  akp.appscode.test casdoor.akp.appscode.test
-```
+install. The demo host is `akp.10.2.0.73.nip.io` (Casdoor at `casdoor.akp.10.2.0.73.nip.io`): nip.io resolves both names to
+10.2.0.73, so no hosts-file step is needed (check with `getent hosts akp.10.2.0.73.nip.io`). Cookies: iam's hosted sign-in sets
+`akp_iam_session` (HttpOnly, Secure, SameSite=Lax) and `_csrf` (Secure, SameSite=Lax) **host-only**, which any browser accepts.
+b3's v1 session middleware also sets `i_like_ace` and `lang` with `Domain=nip.io` (it derives the cookie domain from the host, no
+setting); headless Chromium 1.65 kept them, and v2_only does not use them. If a browser rejects them the sign-in is unaffected.
+A name under a domain of your own avoids the question.
 
 ```sh
 # build host
@@ -70,7 +70,7 @@ hack/akp-v2-demo/install.sh all          # gateway, prereqs, ace
 
 `HOST=<name> hack/akp-v2-demo/install.sh ...` uses another name; then change it in `charts/ace/profiles/akp-v2-demo.yaml` and
 `hack/akp-v2-demo/prereqs-values.yaml` too (the Casdoor URL and the sign-in URL are in the profile).
-By IP: `curl -k --resolve akp.appscode.test:443:10.2.0.73 https://akp.appscode.test/...` (or `-H 'Host: ...'`).
+By IP: `curl -k -H 'Host: akp.10.2.0.73.nip.io' https://10.2.0.73/...`.
 
 The first site administrator is `admin`; its password is in Secret `akp-prereqs-credentials` (key `admin-password`) and is the
 password of the Casdoor user `admin`. Other Secrets: `akp-prereqs-nats-creds` (the NATS identities), `ace-gw-cert`.
@@ -84,6 +84,11 @@ before Grafana). This is the answer to the `org does not exist` the Trust Consol
 (`b3 dev` in `v2_only` makes none).
 
 ## Findings (what does not work, or is not b3's yet)
+
+- Changing the host of a running install: delete Secret `ace-gw-cert` (the certificate is made once, for the host), upgrade both
+  releases with the new host, and restart the pods. The Casdoor application is seeded only into an empty Casdoor database
+  (`initDataNewOnly`): to change its redirect URI, recreate that database; then delete the old link
+  (`delete from iam_identity where account_id = '1'`) or sign-in is refused with "the account is linked to another Casdoor user".
 
 - **CSRF cookie name.** iam's hosted sign-in sets `iam_csrf`; platform-ui, cluster-ui and ui-modules (`akp-v2-iam`) read `_csrf` for
   `X-Csrf-Token`. After a completed sign-in every AKP v2 call answers `missing or invalid CSRF token` and the UI loops back to

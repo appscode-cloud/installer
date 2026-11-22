@@ -7,7 +7,7 @@
 global:
   platform:
     # The one public host, a DNS name (not an address). Casdoor is served at `casdoor.<host>`.
-    host: akp.appscode.test
+    host: akp.10.2.0.73.nip.io
   # The public HTTPS port, when it is not 443 (used in Casdoor's URLs).
   httpsPort: 443
   imagePullSecrets: []

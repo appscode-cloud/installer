@@ -12,7 +12,7 @@ global:
   akp:
     mode: v2_only
   platform:
-    host: akp.appscode.test
+    host: akp.10.2.0.73.nip.io
     hostType: domain
     deploymentType: CloudDemo
   infra:
@@ -78,13 +78,13 @@ platform-ui:
     tag: akp-65ebe1c9fc
     pullPolicy: IfNotPresent
   # Where an unauthenticated person is sent: iam's hosted Casdoor sign-in (<public URL><settings.iam.publicPath>/casdoor/login).
-  loginURL: https://akp.appscode.test/iam/casdoor/login
+  loginURL: https://akp.10.2.0.73.nip.io/iam/casdoor/login
 cluster-ui:
   enabled: true
   image:
     tag: akp-f27166523a
     pullPolicy: IfNotPresent
-  loginURL: https://akp.appscode.test/iam/casdoor/login
+  loginURL: https://akp.10.2.0.73.nip.io/iam/casdoor/login
 
 platform-api:
   enabled: true
@@ -176,7 +176,7 @@ settings:
     publicPath: /iam
     casdoor:
       endpoint: http://akp-prereqs-casdoor.akp.svc:8000
-      publicUrl: https://casdoor.akp.appscode.test
+      publicUrl: https://casdoor.akp.10.2.0.73.nip.io
       organization: akp
       application: akp
       clientId: akp
