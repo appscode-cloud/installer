@@ -1,3 +1,4 @@
+{{- if include "ace.feature" (dict "root" . "name" "db") -}}
 apiVersion: v1
 kind: Secret
 metadata:
@@ -25,3 +26,4 @@ stringData:
     synchronized_standby_slots='{{ . }}'
     {{- end }}
   {{- end }}
+{{- end }}

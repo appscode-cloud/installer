@@ -1,0 +1,126 @@
+{{- $pg := .Values.postgres }}
+{{- $name := include "akp-prereqs.postgres" . }}
+{{- $cred := include "akp-prereqs.credentials" . }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $name }}-init
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "akp-prereqs.labels" . | nindent 4 }}
+data:
+  # Runs once, at the first start of an empty data directory.
+  10-databases.sh: |
+    #!/bin/bash
+    set -euo pipefail
+    mk() {
+      psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname postgres <<SQL
+    CREATE ROLE "$1" LOGIN PASSWORD '$3';
+    CREATE DATABASE "$2" OWNER "$1";
+    SQL
+    }
+    mkdb() {
+      psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname postgres -c "CREATE DATABASE \"$1\" OWNER \"$2\""
+    }
+    mk {{ $pg.databases.akp.user }} {{ $pg.databases.akp.name }} "$AKP_DB_PASSWORD"
+    # Cadence (`b3 worker`'s workflows, the cluster import) keeps its data next to b3's, as the owner of that database.
+    mkdb cadence {{ $pg.databases.akp.user }}
+    mkdb cadence_visibility {{ $pg.databases.akp.user }}
+    mk {{ $pg.databases.casdoor.user }} {{ $pg.databases.casdoor.name }} "$CASDOOR_DB_PASSWORD"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "akp-prereqs.labels" . | nindent 4 }}
+spec:
+  ports:
+  - name: postgres
+    port: 5432
+    targetPort: postgres
+  selector:
+    {{- include "akp-prereqs.selector" (dict "root" . "component" "postgres") | nindent 4 }}
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ $name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "akp-prereqs.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  serviceName: {{ $name }}
+  selector:
+    matchLabels:
+      {{- include "akp-prereqs.selector" (dict "root" . "component" "postgres") | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "akp-prereqs.selector" (dict "root" . "component" "postgres") | nindent 8 }}
+    spec:
+      {{- include "akp-prereqs.imagePullSecrets" . | nindent 6 }}
+      securityContext:
+        fsGroup: 999
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: postgres
+        image: {{ include "akp-prereqs.image" (dict "root" . "image" $pg.image) }}
+        imagePullPolicy: {{ $pg.image.pullPolicy }}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+          runAsNonRoot: true
+          runAsUser: 999
+        env:
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          valueFrom: { secretKeyRef: { name: {{ $cred }}, key: postgres-password } }
+        - name: AKP_DB_PASSWORD
+          valueFrom: { secretKeyRef: { name: {{ $cred }}, key: akp-db-password } }
+        - name: CASDOOR_DB_PASSWORD
+          valueFrom: { secretKeyRef: { name: {{ $cred }}, key: casdoor-db-password } }
+        ports:
+        - name: postgres
+          containerPort: 5432
+        readinessProbe:
+          exec:
+            command: ["pg_isready", "-U", "postgres"]
+          periodSeconds: 5
+          failureThreshold: 12
+        livenessProbe:
+          exec:
+            command: ["pg_isready", "-U", "postgres"]
+          initialDelaySeconds: 30
+          periodSeconds: 20
+        resources:
+          {{- toYaml $pg.resources | nindent 10 }}
+        volumeMounts:
+        - name: data
+          mountPath: /var/lib/postgresql
+        - name: init
+          mountPath: /docker-entrypoint-initdb.d
+          readOnly: true
+      volumes:
+      - name: init
+        configMap:
+          name: {{ $name }}-init
+          defaultMode: 0555
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      {{- with .Values.persistence.storageClassName }}
+      storageClassName: {{ . }}
+      {{- end }}
+      resources:
+        requests:
+          storage: {{ .Values.persistence.postgres }}

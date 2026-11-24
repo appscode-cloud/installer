@@ -1,0 +1,16 @@
+Demo patch for b3 fix-v2-only-cold-boot (212c3403e8). Not b3's code: see docs/akp-v2-demo.md ("Findings").
+
+iam's hosted Casdoor sign-in sets the CSRF cookie `iam_csrf`; platform-ui, cluster-ui and ui-modules (branches
+akp-v2-iam) read `_csrf` for the X-Csrf-Token header of every AKP v2 call, so after a completed sign-in every call
+answers "missing or invalid CSRF token". Naming the cookie `_csrf` makes the UIs send the token.
+
+--- a/modules/iamadapter/adapter.go
++++ b/modules/iamadapter/adapter.go
+@@ -267,6 +267,7 @@ func (a *Adapter) hostedConfig() casdoor.HostedConfig {
+ 		ReturnToHosts: h.ReturnToHosts,
+ 		AllowHTTP:     h.AllowHTTP,
+ 		ClientIP:      a.cfg.ClientIP,
++		CSRFCookie:    "_csrf",
+ 		Logger:        slog.Default(),
+ 	}
+ 	if a.Bridge != nil {

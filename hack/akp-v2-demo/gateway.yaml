@@ -1,0 +1,44 @@
+# The GatewayClass of the AKP v2 demo. Voyager Gateway needs the class to point at an EnvoyProxy (without
+# parametersRef its infrastructure runner panics), and the Gateway's Service is a LoadBalancer that k3s' ServiceLB
+# publishes on the node. Apply after installing the voyager-gateway chart:
+#   sudo k3s kubectl apply -f hack/akp-v2-demo/gateway.yaml
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: EnvoyProxy
+metadata:
+  name: ace
+  namespace: voyager-gateway-system
+  labels:
+    app.kubernetes.io/part-of: akp
+spec:
+  mergeGateways: true
+  provider:
+    type: Kubernetes
+    kubernetes:
+      envoyDeployment:
+        container:
+          image: ghcr.io/voyagermesh/envoy:v1.38.8-ac
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+            runAsNonRoot: true
+            runAsUser: 65532
+            seccompProfile:
+              type: RuntimeDefault
+      envoyService:
+        type: LoadBalancer
+        externalTrafficPolicy: Cluster
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: GatewayClass
+metadata:
+  name: ace
+  labels:
+    app.kubernetes.io/part-of: akp
+spec:
+  controllerName: gateway.voyagermesh.com/ace
+  parametersRef:
+    group: gateway.envoyproxy.io
+    kind: EnvoyProxy
+    name: ace
+    namespace: voyager-gateway-system

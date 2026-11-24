@@ -157,3 +157,18 @@ Returns if ubi images are to be used
 {{- define "operator.ubi" -}}
 {{ ternary "-ubi" "" (list "operator" "all" | has .Values.distro.ubi) }}
 {{- end }}
+
+{{/*
+The probe of the API container. v2_only serves neither /healthz nor /api/v1/version: a Connect call that needs no
+sign-in is the probe there (the image has curl).
+*/}}
+{{- define "platform-api.probe" -}}
+{{- if eq (dig "akp" "mode" "" (default dict .Values.global)) "v2_only" -}}
+exec:
+  command: ["curl", "-fsS", "-o", "/dev/null", "-m", "4", "-X", "POST", "-H", "Content-Type: application/json", "-d", "{}", "http://localhost:3003/api/v2/akp.branding.v2.BrandingService/GetBranding"]
+{{- else -}}
+httpGet:
+  path: /api/v1/version
+  port: http
+{{- end -}}
+{{- end }}

@@ -173,7 +173,9 @@ Returns the ServiceMonitor labels
 Determine database host name
 */}}
 {{- define "settings.database.host" -}}
-{{- if .Values.settings.pgpool.enabled -}}
+{{- if .Values.settings.db.host -}}
+{{- .Values.settings.db.host -}}
+{{- else if .Values.settings.pgpool.enabled -}}
 {{- printf "%s-pgpool.%s.svc:9999" (include "ace.fullname" .) .Release.Namespace -}}
 {{- else -}}
 {{- printf "%s-db.%s.svc:5432" (include "ace.fullname" .) .Release.Namespace -}}
@@ -317,13 +319,14 @@ The product line this install is: AKP (everything, the default), TrustConsole or
 
 {{/*
 Whether the product line has an AKP feature of ace's own templates: dict "root" . "name" <feature>.
-Prints "true" or nothing. AKP has all of them; the lines on AKP v2 keep what they use:
+Prints "true" or nothing. `disableFeatures` turns a feature off in any line (the ones that need an operator the cluster
+does not have: db, cache, clusterBackup, caProviderClass). AKP has all of them; the lines on AKP v2 keep what they use:
 TrustConsole the cache (its hub's Valkey is the Redis protocol), KubePatch none.
 */}}
 {{- define "ace.feature" -}}
 {{- $pl := include "ace.productLine" .root -}}
 {{- $line := dict "TrustConsole" (list "cache") "KubePatch" (list) -}}
-{{- if or (eq $pl "AKP") (has .name (get $line $pl)) -}}true{{- end -}}
+{{- if and (or (eq $pl "AKP") (has .name (get $line $pl))) (not (has .name (default (list) .root.Values.disableFeatures))) -}}true{{- end -}}
 {{- end }}
 
 {{/*

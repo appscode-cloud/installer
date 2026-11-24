@@ -63,18 +63,14 @@ spec:
               containerPort: 3003
               protocol: TCP
           startupProbe:
-            httpGet:
-              path: /api/v1/version
-              port: http
+            {{- include "platform-api.probe" . | nindent 12 }}
             # wait for cert and nats to be ready
             initialDelaySeconds: 60
             timeoutSeconds: 5
             failureThreshold: 18
             periodSeconds: 30
           livenessProbe:
-            httpGet:
-              path: /api/v1/version
-              port: http
+            {{- include "platform-api.probe" . | nindent 12 }}
             # /api/v1/version is served by the same process as every other request, so it
             # stalls whenever the process does. Restart only a genuinely wedged process
             # (~2m); the 1s/30s default kills all replicas together on transient slowness.
@@ -82,9 +78,7 @@ spec:
             periodSeconds: 20
             failureThreshold: 6
           readinessProbe:
-            httpGet:
-              path: /api/v1/version
-              port: http
+            {{- include "platform-api.probe" . | nindent 12 }}
             timeoutSeconds: 5
             periodSeconds: 10
             failureThreshold: 3
@@ -192,6 +186,9 @@ spec:
             - containerPort: 3000
               protocol: TCP
       initContainers:
+        {{- with .Values.extraInitContainers }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
         - name: maxmind-mmdb
           {{- if eq "true" ( include "distro.openshift" . ) }}
           securityContext:
@@ -206,6 +203,34 @@ spec:
           volumeMounts:
             - name: maxmind-mmdb
               mountPath: /data/b3/maxmind-geoip
+{{- if eq (dig "akp" "mode" "" (default dict .Values.global)) "v2_only" }}
+        {{- /* b3 order in v2_only (b3 docs/iam-modes.md): tables, NATS accounts, first site administrator. Each is safe to retry. */}}
+        {{- $mounts := list (dict "name" "tmp" "mountPath" "/tmp") (dict "name" "data" "mountPath" "/data") (dict "name" "config" "mountPath" "/data/b3/conf") }}
+        {{- range .Values.volumeMounts }}{{ $mounts = append $mounts . }}{{ end }}
+        {{- $steps := list (dict "name" "migrate" "args" (list "migrate")) }}
+        {{- if .Values.settings.secretName.setupConfig }}
+        {{- $steps = append $steps (dict "name" "setup" "args" (list "dev" "--setup-config=/setup/config.yaml" "--timeout=10m") "setup" true) }}
+        {{- end }}
+        {{- if .Values.iam.bootstrapAdmin.enabled }}
+        {{- $steps = append $steps (dict "name" "bootstrap-admin" "args" (list "admin" "iam-bootstrap-admin" "--name" .Values.iam.bootstrapAdmin.name "--email" .Values.iam.bootstrapAdmin.email "--full-name" .Values.iam.bootstrapAdmin.fullName)) }}
+        {{- end }}
+        {{- range $steps }}
+        - name: {{ .name }}
+          securityContext:
+            {{- toYaml $.Values.securityContext | nindent 12 }}
+          image: {{ include "image.registry" $ }}/{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}
+          imagePullPolicy: {{ $.Values.image.pullPolicy }}
+          args:
+            {{- toYaml .args | nindent 12 }}
+          volumeMounts:
+            {{- toYaml $mounts | nindent 12 }}
+            {{- if .setup }}
+            - name: setup-config
+              mountPath: /setup
+              readOnly: true
+            {{- end }}
+        {{- end }}
+{{- end }}
       volumes:
         - name: maxmind-mmdb
           emptyDir: {}
@@ -255,6 +280,11 @@ spec:
           secret:
             defaultMode: 420
             secretName: {{ include "platform-api.fullname" . }}-license
+        {{- end }}
+        {{- if and (eq (dig "akp" "mode" "" (default dict .Values.global)) "v2_only") .Values.settings.secretName.setupConfig }}
+        - name: setup-config
+          secret:
+            secretName: {{ .Values.settings.secretName.setupConfig }}
         {{- end }}
         {{- with $cpc := (include "settings.caProviderClass" .) }}
         - name: cacerts

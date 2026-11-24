@@ -57,6 +57,23 @@ spec:
     timeouts:
       backendRequest: 55s
       request: 55s
+  {{- if has (include "ace.akpMode" .) (list "dual" "v2_only") }}
+  # iam's hosted Casdoor sign-in (<settings.iam.publicPath>/casdoor/login and /callback) and its public mount
+  - matches:
+    - path:
+        type: PathPrefix
+        value: {{ .Values.settings.iam.publicPath }}
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ include "ace.fullname" . }}-platform-api
+      namespace: {{ .Release.Namespace }}
+      port: 80
+      weight: 1
+    timeouts:
+      backendRequest: 55s
+      request: 55s
+  {{- end }}
   - matches:
     - path:
         type: PathPrefix

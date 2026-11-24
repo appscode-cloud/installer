@@ -151,6 +151,20 @@ settings:
     objstore: ""
     nats: ""
     gcpMarketplaceReportingSecret: ""
+    # v2_only: the Secret with `config.yaml` of `b3 dev --setup-config` (ace: <release>-setup-config). Empty: no setup step.
+    setupConfig: ""
+
+# Only read when global.akp.mode is v2_only: the first site administrator, made by `b3 admin iam-bootstrap-admin`
+# before the API starts. iam links it to the Casdoor user of the same name at the first sign-in.
+iam:
+  bootstrapAdmin:
+    enabled: true
+    name: admin
+    email: admin@example.com
+    fullName: Administrator
+
+# Init containers that run before the chart's own (e.g. a wait for tables another workload makes in the database).
+extraInitContainers: []
 
 # List of sources to populate environment variables in the container
 envFrom: []
