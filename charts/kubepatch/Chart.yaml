@@ -1,0 +1,30 @@
+apiVersion: v2
+name: kubepatch
+description: Kubepatch, the patch console and AKP v2 (identity mode v2_only) with Casdoor, behind one host
+type: application
+version: v2026.11.15
+appVersion: v2026.11.15
+home: https://github.com/appscode-cloud
+icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
+sources:
+- https://github.com/appscode-cloud
+maintainers:
+- name: appscode
+  email: support@appscode.com
+dependencies:
+- name: patch-console-api
+  repository: file://../patch-console-api
+  condition: patch-console-api.enabled
+  version: v2026.11.15
+- name: patch-console-ui
+  repository: file://../patch-console-ui
+  condition: patch-console-ui.enabled
+  version: v2026.11.15
+- name: platform-ui
+  repository: file://../platform-ui
+  condition: platform-ui.enabled
+  version: v2026.11.15
+- name: cluster-ui
+  repository: file://../cluster-ui
+  condition: cluster-ui.enabled
+  version: v2026.11.15

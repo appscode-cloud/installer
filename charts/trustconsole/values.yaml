@@ -1,0 +1,324 @@
+# Default values for trustconsole.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Trust Console is the Trust Console (hub + UI) next to AKP v2 (b3 in `[iam] MODE = v2_only`, with
+# platform-ui and cluster-ui). One Casdoor with one organization and an application per product signs
+# people in (single sign-on at Casdoor); each product keeps its own iam tables in its own database.
+# AKP and its UIs are served from `global.platform.host`, the Trust Console from `trustConsole.host`
+# (the hub's API prefix `/api` is AKP's too, so it cannot share a host). The chart needs no ace chart,
+# Redis or Cadence; it runs OpenFGA and Valkey for the hub, which needs both.
+#
+# Production: set `production: true`, give every Secret as an existing one and pin every image
+# by digest (see `production` below).
+
+# When true the chart refuses defaults that are only fit for a test: generated
+# credentials, a self-signed certificate, floating image tags, a chart-run Postgres.
+production: false
+
+global:
+  # The sub-charts read these. `credentials.existingSecret` must be repeated here when it is set.
+  credentials:
+    secretName: ""
+  platform:
+    # The one public host, a DNS name (not an address): `trustconsole.example.com` or `<ip>.nip.io`.
+    # Casdoor is served at `casdoor.<host>` unless `casdoor.host` says otherwise.
+    host: trustconsole.example.com
+    hostType: domain
+    deploymentType: CloudDemo
+    # The public HTTPS port, as `routing.httpsPort` (set both when it is not 443).
+    httpsPort: 443
+  # Registry prefix for every image this chart pulls itself (Postgres, NATS, Casdoor, OpenFGA, Valkey,
+  # Trust Console, b3), e.g. `registry.example.com/mirror`. platform-ui and cluster-ui have their own
+  # `registryFQDN` and `image.registry`, set them next to this one.
+  imageRegistry: ""
+  # Names of existing image pull Secrets, for the pods this chart creates itself.
+  imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+# Where the generated secrets come from. Every secret is made once (`lookup`, kept on uninstall with
+# `helm.sh/resource-policy: keep`) unless `existingSecret` names one you made. Keys:
+# kms-master-key, postgres-password, akp-db-password, trustconsole-db-password, openfga-db-password, casdoor-db-password,
+# casdoor-admin-password, akp-secret-key, akp-jwt-secret, akp-casdoor-client-secret,
+# trust-casdoor-client-secret, trust-iam-csrf-key, admin-password.
+credentials:
+  existingSecret: ""
+
+# ---- routing: one host, one Gateway or Ingress ----
+routing:
+  # gateway: Gateway API HTTPRoutes (first class; Envoy Gateway / Voyager Gateway).
+  # ingress: one Ingress, for clusters without a Gateway API controller.
+  # none:    render no route, the operator routes by hand.
+  mode: gateway
+  # The port browsers use for HTTPS, when it is not 443: it is in every public URL (Casdoor's, the redirect URIs).
+  # platform-ui and cluster-ui build their API addresses without a port, so keep 443 and map the Gateway's port to it
+  # (`gateway.listenerPort`) with a load balancer or a DNAT when 443 is taken.
+  httpsPort: 443
+  # Where `/` goes: the portal everyone lands on.
+  rootRedirect: /id/
+  gateway:
+    # Render the Gateway too. false: attach to an existing one with `parentRefs`.
+    create: true
+    # The port of the Gateway's listener, when it is not httpsPort (443 is taken, or a load balancer maps it).
+    listenerPort: 0
+    className: ace
+    annotations: {}
+    # Used when create is false, e.g. [{name: gw, namespace: infra, sectionName: https}].
+    parentRefs: []
+    # Retry only what the backend never saw; keeps a restart from failing a POST. Needs the
+    # Envoy Gateway BackendTrafficPolicy CRD.
+    backendTrafficPolicy: false
+  ingress:
+    className: ""
+    annotations: {}
+
+tls:
+  # selfSigned: the chart makes a certificate for the host and Casdoor's host, once, and keeps it.
+  # existing:   `existingSecret` is a kubernetes.io/tls Secret that covers both names.
+  # none:       the Gateway or Ingress is given no certificate (TLS is terminated elsewhere).
+  mode: selfSigned
+  existingSecret: ""
+  validityDays: 3650
+
+# ---- identity: Casdoor, one organization, an application per product ----
+casdoor:
+  enabled: true
+  image:
+    repository: ghcr.io/appscode/casdoor
+    tag: v4.29.0-3391e5fe
+    digest: ""
+    pullPolicy: IfNotPresent
+  # Host the browser reaches Casdoor at. Empty: `casdoor.<global.platform.host>`.
+  host: ""
+  # In-cluster URL of Casdoor for b3 and the Trust Console hub. Empty: this chart's own Service.
+  endpoint: ""
+  organization: trustconsole
+  # The Casdoor application of AKP (b3's iam signs people in through it, with the API).
+  akpApplication:
+    name: akp
+    clientId: akp
+  # The Casdoor application of the Trust Console (hosted sign-in, the browser is redirected).
+  trustApplication:
+    name: trust-console
+    clientId: trust-console
+  # Second factors. `Optional` lets a person turn one on, `Prompt` asks at each sign-in,
+  # `Required` forces it. It is set on the organization, so both applications follow it.
+  mfa:
+    rule: Optional
+  # The first people: a Casdoor user (and, in each product, a site administrator linked to it).
+  # The password is generated into the credentials Secret (`admin-password`).
+  admin:
+    username: admin
+    email: admin@trustconsole.local
+    displayName: Administrator
+  resources:
+    requests: { cpu: 100m, memory: 256Mi }
+  # Extra pod labels, annotations and node placement.
+  podAnnotations: {}
+  nodeSelector: {}
+  tolerations: []
+
+# ---- Postgres 18: shared by b3 (iam too), the Trust Console, OpenFGA and Casdoor ----
+postgres:
+  image:
+    repository: ghcr.io/appscode-images/postgres
+    tag: 18.3-bookworm
+    digest: ""
+    pullPolicy: IfNotPresent
+  # Databases made at first start: akp (b3 and iam), trustconsole, openfga, casdoor.
+  external:
+    # true: use your own Postgres 18+ and do not run one. Create the databases and roles named
+    # below, and put their passwords in the credentials Secret.
+    enabled: false
+    host: ""
+    port: 5432
+    sslmode: require
+  databases:
+    akp: { name: akp, user: akp }
+    trustconsole: { name: trustconsole, user: trustconsole }
+    openfga: { name: openfga, user: openfga }
+    casdoor: { name: casdoor, user: casdoor }
+  resources:
+    requests: { cpu: 250m, memory: 512Mi }
+  podAnnotations: {}
+  nodeSelector: {}
+  tolerations: []
+
+persistence:
+  # Empty: the cluster's default StorageClass.
+  storageClassName: ""
+  postgres: 10Gi
+  nats: 2Gi
+  b3: 5Gi
+
+# ---- NATS in operator mode, with JetStream (b3's per-account NATS) ----
+# One server. WebSocket on 8080, routed at /nats for browsers.
+nats:
+  enabled: true
+  image:
+    repository: ghcr.io/appscode-images/nats
+    tag: 2.12.6-alpine
+    digest: ""
+    pullPolicy: IfNotPresent
+  # Makes the operator, system and admin identities once (nsc), in a hook Job.
+  natsBox:
+    repository: natsio/nats-box
+    tag: 0.19.2
+    digest: ""
+    pullPolicy: IfNotPresent
+  resources:
+    requests: { cpu: 100m, memory: 128Mi }
+
+# ---- b3: AKP v2 ----
+b3:
+  enabled: true
+  image:
+    repository: ghcr.io/appscode/b3
+    tag: v2026.11.15
+    digest: ""
+    pullPolicy: IfNotPresent
+  replicaCount: 1
+  appName: Trust Console
+  runMode: GA
+  # The site administration organization `b3 dev` makes, owned by the administrator.
+  siteOrganization: trustconsole
+  logLevel: Info
+  # [session] and [cache]. `memory` is right for one replica; use `redis` (provider config and
+  # host strings in b3's format) for more.
+  session:
+    provider: memory
+    providerConfig: ""
+  cache:
+    adapter: memory
+    host: ""
+  iam:
+    # b3 refuses to start in v2_only without Postgres.
+    mode: v2_only
+    federation:
+      enabled: false
+    scim:
+      enabled: false
+  smtp:
+    enabled: false
+    host: ""
+    from: ""
+    username: ""
+    existingSecret: ""   # key `password`
+    tlsEnabled: false
+  # b3 needs these addresses to start, and uses an inbox server for platform mail boxes when there is one.
+  # Empty: where the installer's inbox server would be; nothing answers and b3 logs it.
+  inbox:
+    jmapURL: ""
+    webAdminURL: ""
+  # Cadence runs `b3 worker`'s workflows. Not run here: see docs. Point at yours to turn it on.
+  worker:
+    enabled: false
+  cadence:
+    host: ""
+    port: 7933
+    domain: ace-domain
+    taskList: ace-task-list
+  # Extra lines appended to app.ini, for settings this chart does not name.
+  extraAppIni: ""
+  resources:
+    requests: { cpu: 500m, memory: 1Gi }
+  # Run as this user; the image has none of its own.
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 65534
+    seccompProfile:
+      type: RuntimeDefault
+  podAnnotations: {}
+  nodeSelector: {}
+  tolerations: []
+
+# ---- the Trust Console (hub + UI): the trust-console-api and trust-console-ui sub-charts ----
+trustConsole:
+  # Host the browser reaches the console at. Empty: `trust.<global.platform.host>`. When you set it, set
+  # `trust-console-api.publicUrl` to its URL too: the sub-chart cannot read this value.
+  host: ""
+
+# ---- OpenFGA: the hub authorizes every request through it and will not start without it ----
+openfga:
+  enabled: true
+  image:
+    repository: openfga/openfga
+    tag: v1.18.1
+    digest: ""
+    pullPolicy: IfNotPresent
+  # When `enabled` is false set `trust-console-api.openfga.apiUrl`.
+  resources:
+    requests: { cpu: 100m, memory: 128Mi }
+  nodeSelector: {}
+  tolerations: []
+
+# ---- Valkey: the hub's login rate limit ----
+valkey:
+  enabled: true
+  image:
+    repository: valkey/valkey
+    tag: 8.1.3
+    digest: ""
+    pullPolicy: IfNotPresent
+  # When `enabled` is false set `trust-console-api.valkey.addr`.
+  resources:
+    requests: { cpu: 50m, memory: 64Mi }
+  nodeSelector: {}
+  tolerations: []
+
+# ---- the first AKP site administrator ----
+akpBootstrap:
+  # Run `b3 admin iam-bootstrap-admin` for `casdoor.admin`: a site administrator in iam, which links it to the
+  # Casdoor user of the same name at the first sign-in. (The Trust Console's first administrator is the same
+  # name, through CONSOLE_BOOTSTRAP_ADMINS.)
+  enabled: true
+
+# ---- sub-charts ----
+# The hub. It reads `global.platform.host`, `global.platform.httpsPort` and `global.credentials.secretName`; the
+# Casdoor settings must agree with `casdoor.*` above (the chart refuses a mismatch). Its database Secret is made
+# here: `<release>-trust-console-api-database`. OpenFGA and Valkey are found at `<release>-openfga` and
+# `<release>-valkey`. The image is `ghcr.io/appscode/trust-console`, tag `dev` until released.
+trust-console-api:
+  enabled: true
+  image:
+    tag: dev
+  # The organization the hub serves (the hub is one organization per install).
+  org: default
+  casdoor:
+    organization: trustconsole
+    application: trust-console
+    clientId: trust-console
+    # Must be `casdoor.admin.username`.
+    bootstrapAdmins: admin
+  # Extra environment for the hub, e.g. NATS_URL, CADENCE_HOST_PORT, EVIDENCE_BUCKET_URL: the hub starts
+  # without them and the features behind them stay off. NATS_URL needs a server without operator mode:
+  # the hub opens its NATS connection without credentials.
+  extraEnv: []
+
+trust-console-ui:
+  enabled: true
+  image:
+    tag: dev
+
+platform-ui:
+  enabled: true
+  registryFQDN: ghcr.io
+  image:
+    tag: ""
+    pullPolicy: IfNotPresent
+  # Where an unauthenticated person is sent.
+  loginURL: ""
+
+cluster-ui:
+  enabled: true
+  registryFQDN: ghcr.io
+  image:
+    tag: ""
+    pullPolicy: IfNotPresent
+  loginURL: ""

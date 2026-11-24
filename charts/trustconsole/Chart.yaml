@@ -1,0 +1,30 @@
+apiVersion: v2
+name: trustconsole
+description: Trust Console next to AKP v2 (identity mode v2_only), with iam on one Casdoor, OpenFGA, Valkey and the platform UIs
+type: application
+version: v2026.11.15
+appVersion: v2026.11.15
+home: https://github.com/appscode-cloud
+icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
+sources:
+- https://github.com/appscode-cloud
+maintainers:
+- name: appscode
+  email: support@appscode.com
+dependencies:
+- name: trust-console-api
+  repository: file://../trust-console-api
+  condition: trust-console-api.enabled
+  version: v2026.11.15
+- name: trust-console-ui
+  repository: file://../trust-console-ui
+  condition: trust-console-ui.enabled
+  version: v2026.11.15
+- name: platform-ui
+  repository: file://../platform-ui
+  condition: platform-ui.enabled
+  version: v2026.11.15
+- name: cluster-ui
+  repository: file://../cluster-ui
+  condition: cluster-ui.enabled
+  version: v2026.11.15

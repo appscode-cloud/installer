@@ -1,3 +1,4 @@
+{{- if include "ace.feature" (dict "root" . "name" "grafanaConfig") -}}
 kind: Secret
 apiVersion: v1
 metadata:
@@ -738,3 +739,4 @@ stringData:
     [expressions]
     # Enable or disable the expressions functionality.
     enabled = true
+{{- end }}

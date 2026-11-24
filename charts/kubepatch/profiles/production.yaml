@@ -1,0 +1,47 @@
+# Production shape: nothing generated, nothing floating. Fill every <...>. Digests are of the
+# images you mirrored (`docker buildx imagetools inspect <image>`).
+production: true
+global:
+  credentials:
+    secretName: <the same Secret as credentials.existingSecret>
+  platform:
+    host: <host>
+  imageRegistry: ""
+  imagePullSecrets: []
+credentials:
+  existingSecret: <secret with the keys listed in values.yaml>
+tls:
+  mode: existing
+  existingSecret: <kubernetes.io/tls Secret for <host> and casdoor.<host>>
+postgres:
+  external:
+    enabled: true
+    host: <postgres 18 host>
+    sslmode: verify-full
+  image:
+    digest: sha256:0000000000000000000000000000000000000000000000000000000000000000
+casdoor:
+  image:
+    digest: sha256:0000000000000000000000000000000000000000000000000000000000000000
+  mfa:
+    rule: Required
+nats:
+  image:
+    digest: sha256:0000000000000000000000000000000000000000000000000000000000000000
+  natsBox:
+    digest: sha256:0000000000000000000000000000000000000000000000000000000000000000
+b3:
+  image:
+    digest: sha256:0000000000000000000000000000000000000000000000000000000000000000
+patch-console-api:
+  image:
+    digest: sha256:0000000000000000000000000000000000000000000000000000000000000000
+patch-console-ui:
+  image:
+    digest: sha256:0000000000000000000000000000000000000000000000000000000000000000
+platform-ui:
+  image:
+    tag: "3.1.0@sha256:0000000000000000000000000000000000000000000000000000000000000000"
+cluster-ui:
+  image:
+    tag: "3.1.0@sha256:0000000000000000000000000000000000000000000000000000000000000000"

@@ -26,3 +26,5 @@ helm dependency update charts/akp-installer
 helm dependency update charts/ace-installer
 helm dependency update charts/service-gateway
 helm dependency update charts/service-vault
+helm dependency update charts/kubepatch
+helm dependency update charts/trustconsole

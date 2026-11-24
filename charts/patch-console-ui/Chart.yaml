@@ -1,0 +1,13 @@
+apiVersion: v2
+name: patch-console-ui
+description: Patch console UI
+type: application
+version: v2026.11.15
+appVersion: v2026.11.15
+home: https://github.com/appscode-cloud
+icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
+sources:
+- https://github.com/appscode-cloud
+maintainers:
+- name: appscode
+  email: support@appscode.com

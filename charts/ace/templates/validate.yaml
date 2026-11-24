@@ -1,0 +1,27 @@
+{{- /* The product line: what it needs, what does not fit it. */ -}}
+{{- $pl := include "ace.productLine" . -}}
+{{- $mode := include "ace.akpMode" . -}}
+{{- $on := dict -}}
+{{- range $c := list "platform-ui" "cluster-ui" "kubedb-ui" "platform-api" "grafana" "perses" "trickster" "s3proxy" "openfga" "cadence" "pgoutbox" "outbox-syncer" "platform-opscenter" "postgres-alerts" "redis-alerts" "patch-console-api" "patch-console-ui" "trust-console-api" "trust-console-ui" -}}
+{{- if (default dict (index $.Values $c)).enabled }}{{ $_ := set $on $c true }}{{ end -}}
+{{- end -}}
+{{- $akpOnly := list "kubedb-ui" "grafana" "perses" "trickster" "s3proxy" "cadence" "pgoutbox" "outbox-syncer" "platform-opscenter" "postgres-alerts" "redis-alerts" -}}
+{{- $line := dict
+  "AKP" (dict "need" (list) "refuse" (list))
+  "TrustConsole" (dict "need" (list "platform-ui" "cluster-ui" "platform-api" "openfga" "trust-console-api" "trust-console-ui") "refuse" (concat $akpOnly (list "patch-console-api" "patch-console-ui")))
+  "KubePatch" (dict "need" (list "platform-ui" "cluster-ui" "platform-api" "patch-console-api" "patch-console-ui") "refuse" (concat $akpOnly (list "openfga" "trust-console-api" "trust-console-ui")))
+-}}
+{{- range $c := (get $line $pl).need -}}
+{{- if not (hasKey $on $c) }}{{ fail (printf "ProductLine %s needs %s.enabled (see profiles/)" $pl $c) }}{{ end -}}
+{{- end -}}
+{{- range $c := (get $line $pl).refuse -}}
+{{- if hasKey $on $c }}{{ fail (printf "ProductLine %s does not use %s: set %s.enabled to false" $pl $c $c) }}{{ end -}}
+{{- end -}}
+{{- if has $mode (list "dual" "v2_only") -}}
+{{- if not .Values.settings.iam.casdoor.endpoint }}{{ fail (printf "global.akp.mode %s needs settings.iam.casdoor.endpoint" $mode) }}{{ end -}}
+{{- if not .Values.settings.iam.casdoor.organization }}{{ fail (printf "global.akp.mode %s needs settings.iam.casdoor.organization" $mode) }}{{ end -}}
+{{- if not .Values.settings.iam.casdoor.clientSecret }}{{ fail (printf "global.akp.mode %s needs settings.iam.casdoor.clientSecret" $mode) }}{{ end -}}
+{{- end -}}
+{{- range $c := list "patch-console-api" "trust-console-api" -}}
+{{- if hasKey $on $c }}{{ if not (index $.Values $c "database" "secretName") }}{{ fail (printf "%s.database.secretName is required: the Secret with the database URL of the hub" $c) }}{{ end }}{{ end -}}
+{{- end -}}

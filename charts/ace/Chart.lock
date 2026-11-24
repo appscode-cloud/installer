@@ -8,6 +8,18 @@ dependencies:
 - name: kubedb-ui
   repository: file://../kubedb-ui
   version: v2026.11.15
+- name: patch-console-api
+  repository: file://../patch-console-api
+  version: v2026.11.15
+- name: patch-console-ui
+  repository: file://../patch-console-ui
+  version: v2026.11.15
+- name: trust-console-api
+  repository: file://../trust-console-api
+  version: v2026.11.15
+- name: trust-console-ui
+  repository: file://../trust-console-ui
+  version: v2026.11.15
 - name: platform-api
   repository: file://../platform-api
   version: v2026.11.15
@@ -50,5 +62,5 @@ dependencies:
 - name: redis-alerts
   repository: oci://ghcr.io/appscode-charts
   version: v2026.7.14
-digest: sha256:6a239e0436ec2313f162d34ca06f6310dfcfc6888cb71cce65a0d095ac917b37
-generated: "2026-11-10T21:29:09.416972716Z"
+digest: sha256:58f4041f6b6f34f0a9d0cc26af7bca4563a6c766ba2c01c949903cbf060a37b6
+generated: "2026-11-22T12:00:33.512459789+06:00"

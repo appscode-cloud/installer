@@ -724,6 +724,8 @@ properties:
           type: string
       type: object
     type: array
+  v1OnlyImageTag:
+    type: string
 required:
 - autoscaling
 - image

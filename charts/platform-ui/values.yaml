@@ -90,3 +90,7 @@ loginURL: ""
 distro:
   openshift: false
   ubi: ""
+
+# The image tag used in AKP's v1_only mode (`global.akp.mode`) when `image.tag` is empty: the last release of this UI
+# that speaks only AKP's v1 API (ace v2026.10.30). The other modes use the chart appVersion.
+v1OnlyImageTag: 2.5.0

@@ -1,0 +1,82 @@
+{{- if .Values.casdoor.enabled }}
+{{- $fn := include "kubepatch.fullname" . }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "kubepatch.casdoorName" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kubepatch.labels" . | nindent 4 }}
+spec:
+  ports:
+  - name: http
+    port: 8000
+    targetPort: http
+  selector:
+    {{- include "kubepatch.selector" (dict "root" . "component" "casdoor") | nindent 4 }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "kubepatch.casdoorName" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kubepatch.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "kubepatch.selector" (dict "root" . "component" "casdoor") | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "kubepatch.selector" (dict "root" . "component" "casdoor") | nindent 8 }}
+      annotations:
+        # The configuration is a Secret made in secrets.yaml; restart when it changes.
+        checksum/conf: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum | trunc 16 }}
+        {{- with .Values.casdoor.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- include "kubepatch.imagePullSecrets" . | nindent 6 }}
+      {{- if not .Values.postgres.external.enabled }}
+      initContainers:
+      - name: wait-for-postgres
+        image: {{ include "kubepatch.image" (dict "root" . "image" .Values.postgres.image) }}
+        imagePullPolicy: {{ .Values.postgres.image.pullPolicy }}
+        command: ["sh", "-c", "until pg_isready -h {{ include "kubepatch.pgHost" . }} -p {{ include "kubepatch.pgPort" . }}; do sleep 2; done"]
+      {{- end }}
+      containers:
+      - name: casdoor
+        image: {{ include "kubepatch.image" (dict "root" . "image" .Values.casdoor.image) }}
+        imagePullPolicy: {{ .Values.casdoor.image.pullPolicy }}
+        ports:
+        - name: http
+          containerPort: 8000
+        volumeMounts:
+        - { name: conf, mountPath: /conf/app.conf, subPath: app.conf, readOnly: true }
+        - { name: conf, mountPath: /conf/init_data.json, subPath: init_data.json, readOnly: true }
+        readinessProbe:
+          httpGet: { path: /api/health, port: http }
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 24
+        livenessProbe:
+          httpGet: { path: /api/health, port: http }
+          initialDelaySeconds: 60
+          periodSeconds: 10
+        resources:
+          {{- toYaml .Values.casdoor.resources | nindent 10 }}
+      volumes:
+      - name: conf
+        secret:
+          secretName: {{ $fn }}-casdoor-conf
+      {{- with .Values.casdoor.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.casdoor.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}

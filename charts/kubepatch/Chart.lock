@@ -1,0 +1,15 @@
+dependencies:
+- name: patch-console-api
+  repository: file://../patch-console-api
+  version: v2026.11.15
+- name: patch-console-ui
+  repository: file://../patch-console-ui
+  version: v2026.11.15
+- name: platform-ui
+  repository: file://../platform-ui
+  version: v2026.11.15
+- name: cluster-ui
+  repository: file://../cluster-ui
+  version: v2026.11.15
+digest: sha256:4465c24aa4c2ee1b99fff06aa6bfa0c5dfed1c804651242a9a2dcaa5e4836dc9
+generated: "2026-11-22T11:56:22.63820374+06:00"

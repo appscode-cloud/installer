@@ -84,3 +84,16 @@ Returns if ubi images are to be used
 {{- define "operator.ubi" -}}
 {{ ternary "-ubi" "" (list "operator" "all" | has .Values.distro.ubi) }}
 {{- end }}
+
+{{/*
+The image tag when `image.tag` is empty: the chart appVersion, the release of the AKP v2 UIs. In AKP's v1_only mode
+(`global.akp.mode`) it is `v1OnlyImageTag`, the last release of this UI that speaks only AKP's v1 API.
+*/}}
+{{- define "billing-ui.defaultImageTag" -}}
+{{- $akp := (default dict .Values.global).akp | default dict -}}
+{{- if and (eq (default "" $akp.mode) "v1_only") .Values.v1OnlyImageTag -}}
+{{ .Values.v1OnlyImageTag }}
+{{- else -}}
+{{ .Chart.AppVersion }}
+{{- end -}}
+{{- end }}

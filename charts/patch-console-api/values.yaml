@@ -1,0 +1,124 @@
+# Default values for patch-console-api.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# The patch console hub: the API the console's UI and the agents talk to. It signs people in through
+# Casdoor (hosted pages) and keeps its data in Postgres 18+. Every secret is an existing Secret.
+
+replicaCount: 1
+
+# Docker registry fqdn used to pull app related images.
+registryFQDN: ghcr.io
+
+image:
+  # Docker registry used to pull app container image
+  registry: appscode
+  repository: patch-console
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+  # A digest ("sha256:...") wins over the tag.
+  digest: ""
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext:
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+
+securityContext: # +doc-gen:break
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: ["ALL"]
+
+service:
+  port: 8080
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 256Mi
+  limits:
+    memory: 1Gi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# Refuse nothing, but tell the hub it is a production install.
+production: false
+
+# The address people reach the console at. Empty: `https://<global.platform.host>`, with
+# `:<global.platform.httpsPort>` when that is not 443.
+publicUrl: ""
+
+# Postgres: a Secret with the connection URL (`postgres://user:pass@host:5432/db?sslmode=...`).
+# Empty name: `<release>-patch-console-api-database`.
+database:
+  secretName: ""
+  secretKey: url
+
+# The iam root key of the console, from a Secret. Empty name: the credentials Secret, which is
+# `global.credentials.secretName` or `<release>-credentials`.
+iam:
+  rootKey:
+    secretName: ""
+    secretKey: patch-iam-root-key
+
+# Hosted sign-in on Casdoor.
+casdoor:
+  # In-cluster URL. Empty: `http://<release>-casdoor.<namespace>.svc:8000`.
+  endpoint: ""
+  # The URL the browser reaches Casdoor at. Empty: `casdoor.<global.platform.host>`.
+  publicUrl: ""
+  organization: kubepatch
+  application: patch-console
+  clientId: patch-console
+  # Empty name: the credentials Secret.
+  clientSecret:
+    secretName: ""
+    secretKey: patch-casdoor-client-secret
+
+# akp: the cluster list comes from AKP; table: clusters typed into the console. Empty: akp once
+# `akp.tokenSecret` is set, table before (the hub will not start in akp mode without a token).
+clusterDirectory: ""
+
+# AKP's cluster registry.
+akp:
+  # Empty: this install's public URL (the hub refuses http).
+  url: ""
+  # A Secret with the iam API token of a site administrator, key `token`.
+  tokenSecret: ""
+  # A Secret with the certificate (key `tls.crt`) the hub trusts when it calls AKP at its own public
+  # address, for a self-signed one. Ignored when `akp.url` is set.
+  caSecret:
+    name: ""
+
+blobStore:
+  # An existing PersistentVolumeClaim for SBOM documents; empty keeps them in an emptyDir.
+  existingClaim: ""
+  sizeLimit: 2Gi
+
+# Extra environment for the hub.
+extraEnv: []
+
+# Read from the parent chart's `global`.
+global:
+  platform:
+    host: appscode.ninja
+    # The public HTTPS port when it is not 443.
+    httpsPort: 443
+  # The Secret with the console's credentials. Empty: `<release>-credentials`.
+  credentials:
+    secretName: ""

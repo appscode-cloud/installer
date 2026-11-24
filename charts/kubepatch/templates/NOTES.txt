@@ -1,0 +1,20 @@
+Kubepatch is installed in namespace {{ .Release.Namespace }}.
+
+  Portal:         https://{{ include "kubepatch.host" . }}/id/        (AKP sign-in, organizations)
+  Console:        https://{{ include "kubepatch.host" . }}/console/   (clusters)
+  Patch console:  https://{{ include "kubepatch.host" . }}/patch/
+  Casdoor:        {{ include "kubepatch.casdoorPublicUrl" . }}/
+{{- if eq .Values.tls.mode "selfSigned" }}
+
+The certificate is self-signed: a browser warns, `curl` needs -k.
+{{- end }}
+
+The generated credentials are in Secret {{ include "kubepatch.credentialsSecret" . }}. The first administrator is
+Casdoor user "{{ .Values.casdoor.admin.username }}"; its password is the key `admin-password`:
+
+  kubectl -n {{ .Release.Namespace }} get secret {{ include "kubepatch.credentialsSecret" . }} -o jsonpath='{.data.admin-password}' | base64 -d
+
+The patch console reads AKP's clusters with an iam API token. Make one as that administrator, then:
+
+  kubectl -n {{ .Release.Namespace }} create secret generic {{ include "kubepatch.fullname" . }}-akp-token --from-literal=token=<token>
+  helm upgrade ... --set patch-console-api.akp.tokenSecret={{ include "kubepatch.fullname" . }}-akp-token

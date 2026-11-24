@@ -1,0 +1,18 @@
+project:
+  name: Patch Console Api by AppsCode
+  shortName: Patch Console Api
+  url: https://github.com/appscode-cloud
+  description: "Patch console hub: the API and the event ingest of the patch console"
+  app: a Patch Console Api
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: patch-console-api
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.29+
+release:
+  name: patch-console-api
+  namespace: ace

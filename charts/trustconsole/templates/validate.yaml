@@ -1,0 +1,33 @@
+{{- /* Refuse a production install that still relies on test defaults. */ -}}
+{{- if .Values.production }}
+{{- if not .Values.credentials.existingSecret }}{{ fail "production: credentials.existingSecret is required (generated credentials are for tests)" }}{{ end }}
+{{- if eq .Values.tls.mode "selfSigned" }}{{ fail "production: tls.mode must be existing or none, not selfSigned" }}{{ end }}
+{{- if not .Values.postgres.external.enabled }}{{ fail "production: postgres.external.enabled is required (the chart-run Postgres is a single pod)" }}{{ end }}
+{{- $images := dict "casdoor" .Values.casdoor.image "nats" .Values.nats.image "natsBox" .Values.nats.natsBox "b3" .Values.b3.image "trustConsole" (index .Values "trust-console-api" "image") "trustConsoleUi" (index .Values "trust-console-ui" "image") "openfga" .Values.openfga.image "valkey" .Values.valkey.image }}
+{{- range $name, $img := $images }}
+{{- if not $img.digest }}{{ fail (printf "production: %s image needs a digest (sha256:...)" $name) }}{{ end }}
+{{- end }}
+{{- range $c := list "platform-ui" "cluster-ui" }}
+{{- $tag := toString (index $.Values $c "image" "tag") }}
+{{- if not (contains "@sha256:" $tag) }}{{ fail (printf "production: %s.image.tag must be pinned as <tag>@sha256:<digest>" $c) }}{{ end }}
+{{- end }}
+{{- end }}
+{{- if and (index .Values "trust-console-api" "enabled") (not .Values.casdoor.enabled) (not .Values.casdoor.endpoint) }}
+{{ fail "casdoor.endpoint is required when casdoor.enabled is false" }}
+{{- end }}
+{{- if not (has .Values.routing.mode (list "gateway" "ingress" "none")) }}{{ fail "routing.mode must be gateway, ingress or none" }}{{ end }}
+{{- if not (has .Values.tls.mode (list "selfSigned" "existing" "none")) }}{{ fail "tls.mode must be selfSigned, existing or none" }}{{ end }}
+{{- if and (eq .Values.tls.mode "existing") (not .Values.tls.existingSecret) }}{{ fail "tls.existingSecret is required when tls.mode is existing" }}{{ end }}
+{{- /* The sub-charts read the shared settings from `global` and their own values: they must agree with this chart's. */ -}}
+{{- $g := .Values.global }}
+{{- if ne (int $g.platform.httpsPort) (int .Values.routing.httpsPort) }}{{ fail "global.platform.httpsPort must equal routing.httpsPort" }}{{ end }}
+{{- if ne (default "" $g.credentials.secretName) (default "" .Values.credentials.existingSecret) }}{{ fail "global.credentials.secretName must equal credentials.existingSecret (the sub-charts read the first)" }}{{ end }}
+{{- $api := index .Values "trust-console-api" }}
+{{- if ne $api.casdoor.organization .Values.casdoor.organization }}{{ fail "trust-console-api.casdoor.organization must equal casdoor.organization" }}{{ end }}
+{{- if ne $api.casdoor.application .Values.casdoor.trustApplication.name }}{{ fail "trust-console-api.casdoor.application must equal casdoor.trustApplication.name" }}{{ end }}
+{{- if ne $api.casdoor.clientId .Values.casdoor.trustApplication.clientId }}{{ fail "trust-console-api.casdoor.clientId must equal casdoor.trustApplication.clientId" }}{{ end }}
+{{- if ne $api.casdoor.bootstrapAdmins .Values.casdoor.admin.username }}{{ fail "trust-console-api.casdoor.bootstrapAdmins must equal casdoor.admin.username" }}{{ end }}
+{{- if and .Values.casdoor.host (not $api.casdoor.publicUrl) }}{{ fail "casdoor.host is set: set trust-console-api.casdoor.publicUrl to its URL too" }}{{ end }}
+{{- if and .Values.trustConsole.host (not $api.publicUrl) }}{{ fail "trustConsole.host is set: set trust-console-api.publicUrl to its URL too" }}{{ end }}
+{{- if and (not .Values.openfga.enabled) (not $api.openfga.apiUrl) }}{{ fail "openfga.enabled is false: set trust-console-api.openfga.apiUrl" }}{{ end }}
+{{- if and (not .Values.valkey.enabled) (not $api.valkey.addr) }}{{ fail "valkey.enabled is false: set trust-console-api.valkey.addr" }}{{ end }}

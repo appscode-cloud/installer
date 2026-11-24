@@ -55,6 +55,9 @@ type AceOptions struct {
 
 // AceOptionsSpec is the schema for AceOptions Operator values file
 type AceOptionsSpec struct {
+	// The product this install is: AKP (the default), TrustConsole or KubePatch.
+	// +optional
+	ProductLine          ProductLine                     `json:"ProductLine"`
 	Context              AceDeploymentContext            `json:"context"`
 	Release              ObjectReference                 `json:"release"`
 	Registry             RegistrySpec                    `json:"registry"`
@@ -67,6 +70,10 @@ type AceOptionsSpec struct {
 	Perses               AceOptionsComponentSpec         `json:"perses"`
 	KubedbUi             AceOptionsComponentSpec         `json:"kubedb-ui"`
 	PlatformApi          AceOptionsComponentSpec         `json:"platform-api"`
+	PatchConsoleApi      AceOptionsComponentSpec         `json:"patch-console-api"`
+	PatchConsoleUi       AceOptionsComponentSpec         `json:"patch-console-ui"`
+	TrustConsoleApi      AceOptionsComponentSpec         `json:"trust-console-api"`
+	TrustConsoleUi       AceOptionsComponentSpec         `json:"trust-console-ui"`
 	Ingress              AceOptionsIngressNginx          `json:"ingress"`
 	Gateway              AceOptionsGateway               `json:"gateway"`
 	Nats                 AceOptionsNatsSettings          `json:"nats"`

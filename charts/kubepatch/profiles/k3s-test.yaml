@@ -1,0 +1,46 @@
+# The demo on a single-node k3s (kubepatch-demo, 10.2.0.5): local-path storage, the self-signed certificate, generated
+# credentials, the Gateway of Voyager Gateway (GatewayClass ace). Images are imported with
+# hack/kubepatch/load-images.sh, so every image is pinned by the digest of what was imported.
+# Name resolution: `kubepatch.10.2.0.5.nip.io` and `casdoor.kubepatch.10.2.0.5.nip.io` resolve to the host through nip.io; without
+# internet DNS put both names on the host's address in /etc/hosts.
+global:
+  platform:
+    host: kubepatch.10.2.0.5.nip.io
+persistence:
+  storageClassName: local-path
+  postgres: 5Gi
+  nats: 2Gi
+  b3: 2Gi
+postgres:
+  image:
+    digest: sha256:8d320c6facbcd077b88a697de873a6bb15f3b3aff0f341ff86033def5fe545a3
+casdoor:
+  image:
+    digest: sha256:b2c5cb6b0711046e565aa107fc96f96341fa747b3193c4cb5f7373d2e6726ff9
+nats:
+  image:
+    digest: sha256:6d54143242cf436185758a68227af81987045332daa7dc7170f84073c99222e4
+  natsBox:
+    digest: sha256:8031d190c7ee24081f3f27cc939fb647a1eeb29ebb5c60fef9b5b6c7a846d6a2
+b3:
+  image:
+    # a3c72f5a32 plus the patch in hack/kubepatch/b3-dev.patch (b3 dev stops after the NATS accounts in v2_only; iam-bootstrap-admin registers the KMS keeper); no digest: the image is local only
+    tag: kubepatch-a3c72f5a32-dev2
+    digest: ""
+patch-console-api:
+  image:
+    tag: kubepatch-d7fb9feba9
+    digest: sha256:f81d5334ab78768c1daee002c3603eef806db5e23bf77057c37aa7e58c272670
+patch-console-ui:
+  image:
+    tag: kubepatch-d7fb9feba9
+    digest: sha256:1d17d4331f0db96b82150422809006083c8aa6cf15b19e5227c626889667d29d
+# 3.1.0 of platform-ui and cluster-ui call b3's v1 API, which v2_only does not mount (404 on /api/v1/user and
+# /api/v1/branding). These are builds of platform-ui feat/iam-ui (6e9d41b92c) and cluster-ui feat/akp-v2-client
+# (eae279409c), which speak the v2 API; load-images.sh builds them. No digest: the images are local only.
+platform-ui:
+  image:
+    tag: kubepatch-6e9d41b92c
+cluster-ui:
+  image:
+    tag: kubepatch-eae279409c

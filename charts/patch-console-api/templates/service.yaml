@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "patch-console-api.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "patch-console-api.labels" . | nindent 4 }}
+spec:
+  ports:
+  - name: http
+    port: {{ .Values.service.port }}
+    targetPort: http
+    # The hub serves h2c: Connect streaming needs HTTP/2 end to end.
+    appProtocol: kubernetes.io/h2c
+  selector:
+    {{- include "patch-console-api.selectorLabels" . | nindent 4 }}

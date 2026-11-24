@@ -46,3 +46,5 @@ _testmain.go
 /charts/platform-opscenter/charts
 /charts/service-gateway/charts
 /charts/service-vault/charts
+/charts/kubepatch/charts
+/charts/trustconsole/charts

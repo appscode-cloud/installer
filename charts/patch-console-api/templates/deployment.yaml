@@ -1,0 +1,152 @@
+{{- $fn := include "patch-console-api.fullname" . }}
+{{- $image := include "patch-console-api.image" . }}
+{{- $public := default (include "patch-console-api.baseUrl" .) .Values.publicUrl }}
+{{- $cred := include "patch-console-api.credentialsSecret" . }}
+{{- $c := .Values.casdoor }}
+{{- $g := (default dict .Values.global).platform | default dict }}
+{{- $casdoorEndpoint := default (printf "http://%s-casdoor.%s.svc:8000" .Release.Name .Release.Namespace) $c.endpoint }}
+{{- $casdoorPublic := default (printf "https://casdoor.%s%s" (required "global.platform.host (or casdoor.publicUrl) is required" $g.host) (ternary "" (printf ":%d" (int $g.httpsPort)) (or (not $g.httpsPort) (eq (int $g.httpsPort) 443)))) $c.publicUrl }}
+{{- $dbSecret := default (printf "%s-database" $fn) .Values.database.secretName }}
+{{- $akp := .Values.akp }}
+{{- $caFile := and $akp.caSecret.name $akp.tokenSecret (not $akp.url) }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fn }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "patch-console-api.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "patch-console-api.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "patch-console-api.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "patch-console-api.serviceAccountName" . }}
+      automountServiceAccountToken: false
+      {{- include "patch-console-api.imagePullSecrets" . | nindent 6 }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+      # Schema first: iam's tables and the console's. Retries until Postgres is up.
+      - name: migrate
+        image: {{ $image }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        args: ["migrate", "up"]
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 10 }}
+        env:
+        - { name: HTTP_ADDR, value: ":8080" }
+        - { name: PATCH_CONSOLE_DATABASE_URL_FILE, value: /var/run/secrets/patch-console/database/url }
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+        - { name: database-url, mountPath: /var/run/secrets/patch-console/database, readOnly: true }
+      containers:
+      - name: hub
+        image: {{ $image }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        args: ["hub"]
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 10 }}
+        ports:
+        - { name: http, containerPort: 8080 }
+        env:
+        - { name: HTTP_ADDR, value: ":8080" }
+        - { name: PATCH_CONSOLE_DATABASE_URL_FILE, value: /var/run/secrets/patch-console/database/url }
+        - name: PATCH_CONSOLE_PUBLIC_URL
+          value: {{ $public | quote }}
+        - name: IAM_ROOT_KEY
+          valueFrom: { secretKeyRef: { name: {{ default $cred .Values.iam.rootKey.secretName }}, key: {{ .Values.iam.rootKey.secretKey }} } }
+        - name: CASDOOR_ENDPOINT
+          value: {{ $casdoorEndpoint | quote }}
+        - name: CASDOOR_PUBLIC_URL
+          value: {{ $casdoorPublic | quote }}
+        - name: CASDOOR_ORGANIZATION
+          value: {{ required "casdoor.organization is required" $c.organization | quote }}
+        - name: CASDOOR_APPLICATION
+          value: {{ $c.application | quote }}
+        - name: CASDOOR_CLIENT_ID
+          value: {{ $c.clientId | quote }}
+        - name: CASDOOR_CLIENT_SECRET
+          valueFrom: { secretKeyRef: { name: {{ default $cred $c.clientSecret.secretName }}, key: {{ $c.clientSecret.secretKey }} } }
+        # Agents report over HTTPS (the console's /patch/api); the hub does not join the operator-mode NATS.
+        - name: PATCH_CONSOLE_CLUSTER_DIRECTORY
+          value: {{ default (ternary "akp" "table" (ne $akp.tokenSecret "")) .Values.clusterDirectory | quote }}
+        - name: PATCH_CONSOLE_PRODUCTION
+          value: {{ .Values.production | quote }}
+        {{- if $akp.tokenSecret }}
+        - name: PATCH_CONSOLE_AKP_URL
+          value: {{ default $public $akp.url | quote }}
+        {{- end }}
+        {{- if $caFile }}
+        - name: PATCH_CONSOLE_AKP_CA_FILE
+          value: /var/run/secrets/patch-console/akp-ca/tls.crt
+        {{- end }}
+        {{- if $akp.tokenSecret }}
+        - name: PATCH_CONSOLE_AKP_TOKEN_VALUE
+          valueFrom: { secretKeyRef: { name: {{ $akp.tokenSecret }}, key: token } }
+        # A reference, resolved at each call: the client never keeps the credential.
+        - name: PATCH_CONSOLE_AKP_TOKEN
+          value: env:PATCH_CONSOLE_AKP_TOKEN_VALUE
+        {{- end }}
+        - name: PATCH_CONSOLE_BLOB_DIR
+          value: /var/lib/patch-console/blobs
+        {{- with .Values.extraEnv }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+        livenessProbe:
+          httpGet: { path: /healthz, port: http }
+        readinessProbe:
+          httpGet: { path: /readyz, port: http }
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
+        volumeMounts:
+        - { name: tmp, mountPath: /tmp }
+        - { name: blobs, mountPath: /var/lib/patch-console/blobs }
+        - { name: database-url, mountPath: /var/run/secrets/patch-console/database, readOnly: true }
+        {{- if $caFile }}
+        - { name: akp-ca, mountPath: /var/run/secrets/patch-console/akp-ca, readOnly: true }
+        {{- end }}
+      volumes:
+      {{- if $caFile }}
+      - name: akp-ca
+        secret:
+          secretName: {{ $akp.caSecret.name }}
+          items:
+          - { key: tls.crt, path: tls.crt }
+      {{- end }}
+      - { name: tmp, emptyDir: {} }
+      - name: blobs
+        {{- if .Values.blobStore.existingClaim }}
+        persistentVolumeClaim:
+          claimName: {{ .Values.blobStore.existingClaim }}
+        {{- else }}
+        # Lost with the pod: components stay in the database, SBOM documents do not.
+        emptyDir:
+          sizeLimit: {{ .Values.blobStore.sizeLimit }}
+        {{- end }}
+      - name: database-url
+        secret:
+          secretName: {{ $dbSecret }}
+          items:
+          - { key: {{ .Values.database.secretKey }}, path: url }
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

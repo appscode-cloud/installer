@@ -2,6 +2,12 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+# The product this install is: AKP (everything, as ace has always been), TrustConsole or KubePatch. The lines on
+# AKP v2 (TrustConsole, KubePatch) run AKP in v2_only and take only what they use of ace's own templates; the
+# sub-charts below are enabled by the profile of the line (profiles/trustconsole.yaml, profiles/kubepatch.yaml),
+# and the chart refuses a combination that does not fit the line.
+ProductLine: AKP
+
 platform-ui:
   enabled: false
 
@@ -18,6 +24,20 @@ kubedb-ui:
   enabled: false
 
 platform-api:
+  enabled: false
+
+# The consoles of the TrustConsole and KubePatch lines. Each hub needs a Secret with its database URL
+# (`database.secretName`) and the credentials Secret (`global.credentials.secretName`), made outside this chart.
+patch-console-api:
+  enabled: false
+
+patch-console-ui:
+  enabled: false
+
+trust-console-api:
+  enabled: false
+
+trust-console-ui:
   enabled: false
 
 gateway:
@@ -193,6 +213,13 @@ global:
   nameOverride: "ace"
   fullnameOverride: ""
 
+  # AKP's identity mode (b3's [iam] MODE): v1_only, dual or v2_only. Empty: nothing is written, b3's own default,
+  # and the UIs keep the chart's tag. v1_only pins the UIs to the last release that speaks only AKP's v1 API
+  # (ace v2026.10.30); dual and v2_only use the UIs of this release. Sign-in in dual and v2_only is on the Casdoor
+  # (`settings.iam.casdoor`) hosted pages. The lines on AKP v2 are always v2_only.
+  akp:
+    mode: ""
+
   platform:
     host: appscode.ninja
     hostType: domain
@@ -348,6 +375,21 @@ global:
       prefix: ""
 
 settings:
+  # b3's [iam] section, written when `global.akp.mode` is dual or v2_only.
+  iam:
+    publicPath: /iam
+    federation:
+      enabled: false
+    scim:
+      enabled: false
+    casdoor:
+      # In-cluster URL of Casdoor.
+      endpoint: ""
+      organization: ""
+      application: akp
+      clientId: akp
+      clientSecret: ""
+      adoptByName: true
   db:
     version: "18.3"
     databaseName: bb

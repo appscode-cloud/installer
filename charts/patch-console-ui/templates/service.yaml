@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "patch-console-ui.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "patch-console-ui.labels" . | nindent 4 }}
+spec:
+  ports:
+  - { name: http, port: {{ .Values.service.port }}, targetPort: http }
+  selector:
+    {{- include "patch-console-ui.selectorLabels" . | nindent 4 }}

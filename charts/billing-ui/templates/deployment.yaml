@@ -38,7 +38,7 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           {{- end }}
-          image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ include "image.registry" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default (include "billing-ui.defaultImageTag" .) }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http

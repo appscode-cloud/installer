@@ -1,0 +1,94 @@
+{{- $fn := include "kubepatch.fullname" . }}
+{{- $cred := include "kubepatch.credentialsSecret" . }}
+{{- $pg := .Values.postgres }}
+{{- $admin := .Values.casdoor.admin }}
+{{- if and (index .Values "patch-console-api" "enabled") .Values.patchConsole.bootstrap.enabled .Values.casdoor.enabled }}
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ $fn }}-patch-bootstrap
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kubepatch.labels" . | nindent 4 }}
+  annotations:
+    helm.sh/hook: post-install
+    helm.sh/hook-weight: "5"
+    helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
+spec:
+  backoffLimit: 30
+  template:
+    metadata:
+      labels:
+        {{- include "kubepatch.selector" (dict "root" . "component" "patch-bootstrap") | nindent 8 }}
+    spec:
+      restartPolicy: OnFailure
+      automountServiceAccountToken: false
+      {{- include "kubepatch.imagePullSecrets" . | nindent 6 }}
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      initContainers:
+      # Casdoor made the user from the seed with an id of its own; the console links its administrator to it.
+      - name: casdoor-user-id
+        image: {{ include "kubepatch.image" (dict "root" . "image" $pg.image) }}
+        imagePullPolicy: {{ $pg.image.pullPolicy }}
+        command: ["bash", "-c"]
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+          runAsNonRoot: true
+          runAsUser: 999
+          seccompProfile:
+            type: RuntimeDefault
+        args:
+        - |
+          set -eu
+          for i in $(seq 1 90); do
+            id=$(psql -tAc "select id from \"user\" where owner = '{{ .Values.casdoor.organization }}' and name = '{{ $admin.username }}'" || true)
+            [ -n "$id" ] && { printf %s "$id" > /work/casdoor-user-id; exit 0; }
+            sleep 5
+          done
+          exit 1
+        env:
+        - { name: PGHOST, value: {{ include "kubepatch.pgHost" . | quote }} }
+        - { name: PGPORT, value: {{ include "kubepatch.pgPort" . | quote }} }
+        - { name: PGDATABASE, value: {{ $pg.databases.casdoor.name | quote }} }
+        - { name: PGUSER, value: {{ $pg.databases.casdoor.user | quote }} }
+        - { name: PGSSLMODE, value: {{ include "kubepatch.pgSslmode" . | quote }} }
+        - name: PGPASSWORD
+          valueFrom: { secretKeyRef: { name: {{ $cred }}, key: casdoor-db-password } }
+        volumeMounts:
+        - { name: work, mountPath: /work }
+      containers:
+      - name: bootstrap
+        image: {{ include "kubepatch.subchartImage" (index .Values "patch-console-api") }}
+        imagePullPolicy: {{ index .Values "patch-console-api" "image" "pullPolicy" }}
+        # The first site administrator, linked to their Casdoor user, and an organization they own.
+        # Only at install: a second run would find the name taken. Retried until `migrate up` has made the schema.
+        command: ["/bin/sh", "-c"]
+        args:
+        - exec /patch-console iam bootstrap --name "$ADMIN_NAME" --email "$ADMIN_EMAIL" --casdoor-user-id "$(cat /work/casdoor-user-id)" --org "$ORG"
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop: ["ALL"]
+        env:
+        - { name: PATCH_CONSOLE_DATABASE_URL_FILE, value: /var/run/secrets/patch-console/database/url }
+        - { name: ADMIN_NAME, value: {{ $admin.username | quote }} }
+        - { name: ADMIN_EMAIL, value: {{ $admin.email | quote }} }
+        - { name: ORG, value: {{ .Values.patchConsole.bootstrap.organization | quote }} }
+        volumeMounts:
+        - { name: work, mountPath: /work }
+        - { name: database-url, mountPath: /var/run/secrets/patch-console/database, readOnly: true }
+      volumes:
+      - { name: work, emptyDir: {} }
+      - name: database-url
+        secret:
+          secretName: {{ .Release.Name }}-patch-console-api-database
+          items:
+          - { key: url, path: url }
+{{- end }}

@@ -1,0 +1,18 @@
+project:
+  name: Patch Console Ui by AppsCode
+  shortName: Patch Console Ui
+  url: https://github.com/appscode-cloud
+  description: Patch console UI
+  app: a Patch Console Ui
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: patch-console-ui
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.29+
+release:
+  name: patch-console-ui
+  namespace: ace

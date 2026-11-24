@@ -1,0 +1,70 @@
+{{- $fn := include "patch-console-ui.fullname" . }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fn }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "patch-console-ui.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "patch-console-ui.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum | trunc 16 }}
+        {{- with .Values.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      labels:
+        {{- include "patch-console-ui.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "patch-console-ui.serviceAccountName" . }}
+      automountServiceAccountToken: false
+      {{- include "patch-console-ui.imagePullSecrets" . | nindent 6 }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+      - name: ui
+        image: {{ include "patch-console-ui.image" . }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 10 }}
+        env:
+        # The UI's nginx proxies the console's API prefix (/patch/api) here.
+        - name: HUB_UPSTREAM
+          value: http://{{ default (printf "%s-patch-console-api" .Release.Name) .Values.hub.service }}:{{ .Values.hub.port }}
+        ports:
+        - { name: http, containerPort: 8080 }
+        volumeMounts:
+        - { name: nginx-conf, mountPath: /etc/nginx/conf.d }
+        - { name: nginx-cache, mountPath: /var/cache/nginx }
+        - { name: nginx-run, mountPath: /var/run }
+        - { name: tmp, mountPath: /tmp }
+        - { name: console-config, mountPath: /usr/share/nginx/html/patch/config.js, subPath: config.js, readOnly: true }
+        readinessProbe:
+          httpGet: { path: /patch/, port: http }
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
+      volumes:
+      - { name: nginx-conf, emptyDir: {} }
+      - { name: nginx-cache, emptyDir: {} }
+      - { name: nginx-run, emptyDir: {} }
+      - { name: tmp, emptyDir: {} }
+      - name: console-config
+        configMap:
+          name: {{ $fn }}-config
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

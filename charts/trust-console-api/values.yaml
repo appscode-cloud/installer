@@ -1,0 +1,121 @@
+# Default values for trust-console-api.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# The Trust Console hub: the API of the Trust Console. It signs people in through Casdoor (hosted
+# pages), authorizes every request through OpenFGA, rate-limits logins in Valkey and keeps its data
+# in Postgres 18+. Every secret is an existing Secret.
+
+replicaCount: 1
+
+# Docker registry fqdn used to pull app related images.
+registryFQDN: ghcr.io
+
+image:
+  # Docker registry used to pull app container image
+  registry: appscode
+  repository: trust-console
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+  # A digest ("sha256:...") wins over the tag.
+  digest: ""
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  name: ""
+
+podAnnotations: {}
+
+# Numeric: the image names its user (trust), which the kubelet cannot check is not root.
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 65532
+  seccompProfile:
+    type: RuntimeDefault
+
+securityContext: # +doc-gen:break
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: ["ALL"]
+
+service:
+  port: 8080
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 256Mi
+  limits:
+    memory: 2Gi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# The organization the hub serves (the hub is one organization per install).
+org: default
+
+# The address people reach the Trust Console at. Empty: `https://trust.<global.platform.host>`, with
+# `:<global.platform.httpsPort>` when that is not 443.
+publicUrl: ""
+
+# Postgres: a Secret with the connection URL (`postgres://user:pass@host:5432/db?sslmode=...`).
+# Empty name: `<release>-trust-console-api-database`.
+database:
+  secretName: ""
+  secretKey: url
+
+# Hosted sign-in on Casdoor.
+casdoor:
+  # In-cluster URL. Empty: `http://<release>-casdoor.<namespace>.svc:8000`.
+  endpoint: ""
+  # The URL the browser reaches Casdoor at. Empty: `casdoor.<global.platform.host>`.
+  publicUrl: ""
+  organization: trustconsole
+  application: trust-console
+  clientId: trust-console
+  # Empty name: the credentials Secret, which is `global.credentials.secretName` or `<release>-credentials`.
+  clientSecret:
+    secretName: ""
+    secretKey: trust-casdoor-client-secret
+  # The CSRF key of the console's iam.
+  csrfKey:
+    secretName: ""
+    secretKey: trust-iam-csrf-key
+  # The Casdoor user who becomes the console's administrator at the first sign-in.
+  bootstrapAdmins: admin
+
+# Where the UI is served under the public address: sign-in sends the browser back to it.
+appPrefix: /trust
+
+# OpenFGA: the hub authorizes every request through it and will not start without it.
+openfga:
+  # Empty: `http://<release>-openfga.<namespace>.svc:8080`.
+  apiUrl: ""
+
+# Valkey: the hub's login rate limit.
+valkey:
+  # host:port. Empty: `<release>-valkey.<namespace>.svc:6379`.
+  addr: ""
+
+# Extra environment for the hub, e.g. NATS_URL, CADENCE_HOST_PORT, EVIDENCE_BUCKET_URL: the hub starts
+# without them and the features behind them stay off. NATS_URL needs a server without operator mode:
+# the hub opens its NATS connection without credentials.
+extraEnv: []
+
+# Read from the parent chart's `global`.
+global:
+  platform:
+    host: appscode.ninja
+    # The public HTTPS port when it is not 443.
+    httpsPort: 443
+  # The Secret with the console's credentials. Empty: `<release>-credentials`.
+  credentials:
+    secretName: ""

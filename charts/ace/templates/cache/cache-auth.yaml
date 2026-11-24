@@ -1,3 +1,4 @@
+{{- if include "ace.feature" (dict "root" . "name" "cache") -}}
 apiVersion: v1
 kind: Secret
 metadata:
@@ -13,3 +14,4 @@ type: kubernetes.io/basic-auth
 stringData:
   username: '{{ .Values.settings.cache.auth.username }}'
   password: '{{ .Values.settings.cache.auth.password }}'
+{{- end }}

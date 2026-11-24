@@ -1,3 +1,4 @@
+{{- if include "ace.feature" (dict "root" . "name" "cache") -}}
 apiVersion: kubedb.com/v1
 kind: Redis
 metadata:
@@ -84,4 +85,5 @@ spec:
         interval: 30s
         labels:
           {{- toYaml .Values.global.monitoring.serviceMonitor.labels | nindent 10 }}
+{{- end }}
 {{- end }}

@@ -45,7 +45,10 @@ type AccountsUi struct {
 
 // AccountsUiSpec is the schema for AccountsUi Operator values file
 type AccountsUiSpec struct {
-	ReplicaCount int `json:"replicaCount"`
+	// The image tag in AKP v1_only mode (global.akp.mode) when image.tag is empty.
+	// +optional
+	V1OnlyImageTag string `json:"v1OnlyImageTag"`
+	ReplicaCount   int    `json:"replicaCount"`
 	// +optional
 	License string `json:"license"`
 	//+optional
