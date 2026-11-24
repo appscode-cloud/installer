@@ -253,6 +253,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/opskubedbcom-zookeeperopsrequest-editor:v0.40.0 images/appscode-charts-opskubedbcom-zookeeperopsrequest-editor-v0.40.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/otel-nats:v2026.9.22 images/appscode-charts-otel-nats-v2026.9.22.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/panopticon:v2026.9.18 images/appscode-charts-panopticon-v2026.9.18.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/patch-console-agent:0.1.0 images/appscode-charts-patch-console-agent-0.1.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prepare-cluster:v2023.12.21 images/appscode-charts-prepare-cluster-v2023.12.21.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prom-label-proxy:v2026.9.22 images/appscode-charts-prom-label-proxy-v2026.9.22.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/prometheus-adapter:4.9.0 images/appscode-charts-prometheus-adapter-4.9.0.tar
@@ -283,6 +284,7 @@ $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/tenant-operator:v2026.9.22 images/appscode-charts-tenant-operator-v2026.9.22.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/thanos-operator:v2026.6.2 images/appscode-charts-thanos-operator-v2026.6.2.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/topolvm:15.0.0 images/appscode-charts-topolvm-15.0.0.tar
+$CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/trivy-operator:0.38.1 images/appscode-charts-trivy-operator-0.38.1.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-alert:v0.12.0 images/appscode-charts-uibytebuildersdev-component-alert-v0.12.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-backup-option:v0.12.0 images/appscode-charts-uibytebuildersdev-component-backup-option-v0.12.0.tar
 $CMD pull --allow-nondistributable-artifacts --insecure ghcr.io/appscode-charts/uibytebuildersdev-component-backupconfiguration:v0.12.0 images/appscode-charts-uibytebuildersdev-component-backupconfiguration-v0.12.0.tar

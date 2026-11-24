@@ -1,0 +1,77 @@
+{{ $defaults := printf `
+image:
+  registry: %s
+  repository: appscode/patch-console
+agent:
+  collectors:
+    - inventory
+    - appscode-scanner
+    - kyverno
+    - kube-bench
+    - trivy-operator
+  kubeBench:
+    enabled: true
+    jobs:
+      enabled: true
+`
+  (include "registry.ghcr" $)
+  | fromYaml }}
+
+{{- /* The kube-bench image is named with its registry; follow the Docker Hub proxy when one is set. */ -}}
+{{- with include "registry.dockerHub" $ }}
+{{ $defaults = mergeOverwrite $defaults (dict "agent" (dict "kubeBench" (dict "jobs" (dict "image" (dict "repository" (printf "%s/aquasec/kube-bench" .)))))) }}
+{{- end }}
+
+{{ $vals := dig "patch-console-agent" "values" (dict) .Values.helm.releases }}
+{{ $vals = mergeOverwrite $defaults $vals }}
+
+{{- /* The chart refuses production mode without a pinned image digest, so a digest in the values turns it on. */ -}}
+{{ $digest := dig "image" "digest" "" $vals }}
+{{ $vals = mergeOverwrite (dict "production" (ne $digest "")) $vals }}
+
+apiVersion: ui.k8s.appscode.com/v1alpha1
+kind: Feature
+metadata:
+  name: patch-console-agent
+  labels:
+    app.kubernetes.io/part-of: opscenter-security
+spec:
+  title: Patch Console Agent
+  description: |
+    Read-only agent that reports the cluster's inventory, scan, policy and compliance results to Patch Console.
+  icons:
+  - src: https://cdn.appscode.com/k8s/icons/menu/cluster.svg
+    type: image/svg+xml
+  featureSet: opscenter-security
+  featureBlock: patch-console-agent
+  recommended: false
+  requirements:
+    features:
+      - license-proxyserver
+      - scanner
+      - kyverno
+  readinessChecks:
+    workloads:
+      - group: apps
+        version: v1
+        kind: Deployment
+        selector:
+          app.kubernetes.io/name: patch-console-agent
+  chart:
+    name: patch-console-agent
+    namespace: patch-console-agent
+    createNamespace: {{ $.Values.helm.createNamespace }}
+    version: {{ dig "patch-console-agent" "version" "" $.Values.helm.releases }}
+    sourceRef:
+      kind: HelmRepository
+      name: appscode-charts-oci
+      namespace: {{ .Release.Namespace }}
+  # Hub URL, cluster identity and the one-time enrollment token. AKP writes this Secret next to the HelmRelease
+  # (the release namespace, not the chart's namespace) before the release installs.
+  valuesFrom:
+    - kind: Secret
+      name: patch-console-agent-bootstrap
+      valuesKey: values.yaml
+{{- with $vals }}
+  {{- dict "values" . | toYaml | nindent 2 }}
+{{- end }}
