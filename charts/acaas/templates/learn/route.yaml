@@ -1,4 +1,4 @@
-{{ if and (eq (toString .Values.global.platform.deploymentType) "Hosted") (index .Values "gateway" "enabled") }}
+{{- if and (eq (toString .Values.global.platform.deploymentType) "Hosted") (index .Values "gateway" "enabled") (index .Values "learn-ui" "enabled") }}
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
@@ -8,6 +8,8 @@ metadata:
   {{- end }}
   name: learn
   namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "acaas.labels" . | nindent 4 }}
 spec:
   parentRefs:
     - group: gateway.networking.k8s.io
@@ -25,13 +27,7 @@ spec:
             type: PathPrefix
             value: /learn
       backendRefs:
-        - group: gateway.envoyproxy.io
-          kind: Backend
-          name: learn
-          port: 443
-          weight: 1
-      filters:
-        - type: URLRewrite
-          urlRewrite:
-            hostname: {{ .Values.gateway.rules.learn.upstream }}
+        - kind: Service
+          name: {{ .Release.Name }}-learn-ui
+          port: 80
 {{- end }}

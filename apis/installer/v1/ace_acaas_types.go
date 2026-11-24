@@ -35,7 +35,7 @@ const (
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:path=aces,singular=ace,categories={kubeops,appscode}
+// +kubebuilder:resource:path=acaass,singular=acaas,categories={kubeops,appscode}
 type Acaas struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
@@ -47,6 +47,7 @@ type AcaasSpec struct {
 	Billing        AceBilling        `json:"billing"`
 	BillingUi      AceBillingUi      `json:"billing-ui"`
 	DeployUi       AceDeployUi       `json:"deploy-ui"`
+	LearnUi        AceLearnUi        `json:"learn-ui"`
 	MarketplaceApi AceMarketplaceApi `json:"marketplace-api"`
 	MarketplaceUi  AceMarketplaceUi  `json:"marketplace-ui"`
 	PlatformLinks  AcePlatformLinks  `json:"platform-links"`
@@ -76,6 +77,11 @@ type AceDeployUi struct {
 type AceDnsProxy struct {
 	Enabled       bool `json:"enabled"`
 	*DnsProxySpec `json:",inline,omitempty"`
+}
+
+type AceLearnUi struct {
+	Enabled      bool `json:"enabled"`
+	*LearnUiSpec `json:",inline,omitempty"`
 }
 
 type AceMarketplaceApi struct {
@@ -152,7 +158,6 @@ type AcaasGateway struct {
 type AcaasIngressRules struct {
 	Blog     ExternalService `json:"blog"`
 	Docs     ExternalService `json:"docs"`
-	Learn    ExternalService `json:"learn"`
 	License  ExternalService `json:"license"`
 	Selfhost ExternalService `json:"selfhost"`
 }
