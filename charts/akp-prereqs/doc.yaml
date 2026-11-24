@@ -1,0 +1,19 @@
+project:
+  name: AKP Prereqs by AppsCode
+  shortName: AKP Prereqs
+  url: https://github.com/appscode-cloud
+  description: Postgres, Casdoor, NATS identities and the gateway certificate for AKP v2
+  app: an AKP Prereqs
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: akp-prereqs
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.29+
+- A default StorageClass (or set persistence.storageClassName)
+release:
+  name: akp-prereqs
+  namespace: akp

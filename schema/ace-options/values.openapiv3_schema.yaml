@@ -3,9 +3,9 @@ properties:
     description: 'The product this install is: AKP (the default), TrustConsole or
       KubePatch.'
     enum:
-    - AKP
-    - TrustConsole
-    - KubePatch
+      - AKP
+      - TrustConsole
+      - KubePatch
     type: string
   branding:
     properties:
@@ -63,17 +63,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -84,8 +84,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -101,7 +101,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   cloudProviderOptions:
     properties:
@@ -162,17 +162,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -183,8 +183,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -200,16 +200,16 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   context:
     properties:
       actionType:
         enum:
-        - Create
-        - Reconfigure
-        - Upgrade
-        - PromoteToProd
+          - Create
+          - Reconfigure
+          - Upgrade
+          - PromoteToProd
         type: string
       adminPassword:
         type: string
@@ -260,14 +260,14 @@ properties:
         type: string
       deploymentType:
         enum:
-        - Hosted
-        - SelfHostedProduction
-        - CloudDemo
-        - OnpremDemo
-        - KubeAppDemo
-        - AWSMarketplace
-        - AzureMarketplace
-        - GoogleCloudMarketplace
+          - Hosted
+          - SelfHostedProduction
+          - CloudDemo
+          - OnpremDemo
+          - KubeAppDemo
+          - AWSMarketplace
+          - AzureMarketplace
+          - GoogleCloudMarketplace
         type: string
       grafanaSecretKey:
         type: string
@@ -278,7 +278,7 @@ properties:
           adminJWTPrivateKey:
             type: string
         required:
-        - adminJWTPrivateKey
+          - adminJWTPrivateKey
         type: object
       installerName:
         type: string
@@ -320,7 +320,7 @@ properties:
               type: string
             type: array
         required:
-        - preSharedKeys
+          - preSharedKeys
         type: object
       persesEncryptionKey:
         type: string
@@ -341,8 +341,8 @@ properties:
                       AZURE_ACCOUNT_NAME:
                         type: string
                     required:
-                    - AZURE_ACCOUNT_KEY
-                    - AZURE_ACCOUNT_NAME
+                      - AZURE_ACCOUNT_KEY
+                      - AZURE_ACCOUNT_NAME
                     type: object
                   gcs:
                     properties:
@@ -351,8 +351,8 @@ properties:
                       GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
                         type: string
                     required:
-                    - GOOGLE_PROJECT_ID
-                    - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                      - GOOGLE_PROJECT_ID
+                      - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
                     type: object
                   s3:
                     properties:
@@ -363,8 +363,8 @@ properties:
                       CA_CERT_DATA:
                         type: string
                     required:
-                    - AWS_ACCESS_KEY_ID
-                    - AWS_SECRET_ACCESS_KEY
+                      - AWS_ACCESS_KEY_ID
+                      - AWS_SECRET_ACCESS_KEY
                     type: object
                 type: object
               bucket:
@@ -380,9 +380,9 @@ properties:
                 description: Required for s3 buckets
                 type: string
             required:
-            - auth
-            - bucket
-            - enableCredLess
+              - auth
+              - bucket
+              - enableCredLess
             type: object
         type: object
       proxyServiceDomain:
@@ -406,8 +406,8 @@ properties:
           signingKey:
             type: string
         required:
-        - encryptionKey
-        - signingKey
+          - encryptionKey
+          - signingKey
         type: object
       syncableEntities:
         items:
@@ -420,15 +420,15 @@ properties:
       version:
         type: string
     required:
-    - actionType
-    - deploymentType
-    - inboxServer
-    - installerName
-    - licenseOwnerID
-    - licenseOwnerName
-    - openfga
-    - uploadID
-    - version
+      - actionType
+      - deploymentType
+      - inboxServer
+      - installerName
+      - licenseOwnerID
+      - licenseOwnerName
+      - openfga
+      - uploadID
+      - version
     type: object
   distro:
     properties:
@@ -436,13 +436,13 @@ properties:
         type: boolean
       ubi:
         enum:
-        - all
-        - catalog
-        - operator
+          - all
+          - catalog
+          - operator
         type: string
     required:
-    - openshift
-    - ubi
+      - openshift
+      - ubi
     type: object
   gateway:
     properties:
@@ -454,18 +454,18 @@ properties:
         type: boolean
       exposeVia:
         enum:
-        - LoadBalancer
-        - NodePort
-        - ClusterIP
-        - HostPort
+          - LoadBalancer
+          - NodePort
+          - ClusterIP
+          - HostPort
         type: string
       externalIPs:
         items:
           type: string
         type: array
     required:
-    - enabled
-    - exposeVia
+      - enabled
+      - exposeVia
     type: object
   grafana:
     properties:
@@ -510,17 +510,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -531,8 +531,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -548,7 +548,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   infra:
     properties:
@@ -559,7 +559,7 @@ properties:
               masterKeyURL:
                 type: string
             required:
-            - masterKeyURL
+              - masterKeyURL
             type: object
           objstore:
             properties:
@@ -572,8 +572,8 @@ properties:
                       AZURE_ACCOUNT_NAME:
                         type: string
                     required:
-                    - AZURE_ACCOUNT_KEY
-                    - AZURE_ACCOUNT_NAME
+                      - AZURE_ACCOUNT_KEY
+                      - AZURE_ACCOUNT_NAME
                     type: object
                   gcs:
                     properties:
@@ -582,8 +582,8 @@ properties:
                       GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
                         type: string
                     required:
-                    - GOOGLE_PROJECT_ID
-                    - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                      - GOOGLE_PROJECT_ID
+                      - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
                     type: object
                   s3:
                     properties:
@@ -594,8 +594,8 @@ properties:
                       CA_CERT_DATA:
                         type: string
                     required:
-                    - AWS_ACCESS_KEY_ID
-                    - AWS_SECRET_ACCESS_KEY
+                      - AWS_ACCESS_KEY_ID
+                      - AWS_SECRET_ACCESS_KEY
                     type: object
                 type: object
               bucket:
@@ -611,20 +611,20 @@ properties:
                 description: Required for s3 buckets
                 type: string
             required:
-            - auth
-            - bucket
-            - enableCredLess
+              - auth
+              - bucket
+              - enableCredLess
             type: object
           provider:
             enum:
-            - gcs
-            - s3
-            - azure
-            - swift
+              - gcs
+              - s3
+              - azure
+              - swift
             type: string
         required:
-        - objstore
-        - provider
+          - objstore
+          - provider
         type: object
       dns:
         properties:
@@ -670,12 +670,12 @@ properties:
                   tenantID:
                     type: string
                 required:
-                - hostedZoneName
-                - resourceGroupName
-                - servicePrincipalAppID
-                - servicePrincipalAppPassword
-                - subscriptionID
-                - tenantID
+                  - hostedZoneName
+                  - resourceGroupName
+                  - servicePrincipalAppID
+                  - servicePrincipalAppPassword
+                  - subscriptionID
+                  - tenantID
                 type: object
               cloudDNS:
                 description: "## Google CloudDNS\n\nTo use Google CloudDNS as your\
@@ -699,8 +699,8 @@ properties:
                   GOOGLE_SERVICE_ACCOUNT_JSON_KEY:
                     type: string
                 required:
-                - GOOGLE_PROJECT_ID
-                - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+                  - GOOGLE_PROJECT_ID
+                  - GOOGLE_SERVICE_ACCOUNT_JSON_KEY
                 type: object
               cloudflare:
                 description: "## Cloudflare\n\nTo use Cloudflare as your DNS provider,\
@@ -716,7 +716,7 @@ properties:
                   token:
                     type: string
                 required:
-                - token
+                  - token
                 type: object
               route53:
                 description: "## Route53\n\nTo use Route53 as your DNS provider, you\
@@ -754,27 +754,27 @@ properties:
                   AWS_SECRET_ACCESS_KEY:
                     type: string
                 required:
-                - AWS_ACCESS_KEY_ID
-                - AWS_REGION
-                - AWS_SECRET_ACCESS_KEY
+                  - AWS_ACCESS_KEY_ID
+                  - AWS_REGION
+                  - AWS_SECRET_ACCESS_KEY
                 type: object
             type: object
           provider:
             enum:
-            - none
-            - external
-            - cloudflare
-            - route53
-            - cloudDNS
-            - azureDNS
+              - none
+              - external
+              - cloudflare
+              - route53
+              - cloudDNS
+              - azureDNS
             type: string
           targetIPs:
             items:
               type: string
             type: array
         required:
-        - auth
-        - provider
+          - auth
+          - provider
         type: object
       kubestash:
         properties:
@@ -790,7 +790,7 @@ properties:
                   prefix:
                     type: string
                 required:
-                - container
+                  - container
                 type: object
               gcs:
                 properties:
@@ -802,7 +802,7 @@ properties:
                   prefix:
                     type: string
                 required:
-                - bucket
+                  - bucket
                 type: object
               provider:
                 type: string
@@ -819,21 +819,21 @@ properties:
                   region:
                     type: string
                 required:
-                - bucket
-                - endpoint
+                  - bucket
+                  - endpoint
                 type: object
             required:
-            - provider
+              - provider
             type: object
           retentionPolicy:
             default: keep-1mo
             description: RetentionPolicy indicates the policy to follow to clean old
               backup snapshots
             enum:
-            - keep-1wk
-            - keep-1mo
-            - keep-3mo
-            - keep-1yr
+              - keep-1wk
+              - keep-1mo
+              - keep-3mo
+              - keep-1yr
             type: string
           schedule:
             description: Schedule specifies the schedule for invoking backup sessions
@@ -844,16 +844,16 @@ properties:
                 type: boolean
             type: object
         required:
-        - backend
-        - retentionPolicy
-        - storageSecret
+          - backend
+          - retentionPolicy
+          - storageSecret
         type: object
       storageClass:
         properties:
           name:
             type: string
         required:
-        - name
+          - name
         type: object
       tls:
         properties:
@@ -865,13 +865,13 @@ properties:
                 type: string
               solver:
                 enum:
-                - Gateway
-                - Ingress
+                  - Gateway
+                  - Ingress
                 type: string
             required:
-            - email
-            - gatewayName
-            - solver
+              - email
+              - gatewayName
+              - solver
             type: object
           ca:
             properties:
@@ -902,10 +902,10 @@ properties:
             type: object
           issuer:
             enum:
-            - ca
-            - letsencrypt
-            - letsencrypt-staging
-            - external
+              - ca
+              - letsencrypt
+              - letsencrypt-staging
+              - external
             type: string
           jks:
             properties:
@@ -918,16 +918,16 @@ properties:
                 format: byte
                 type: string
             required:
-            - password
+              - password
             type: object
         required:
-        - issuer
+          - issuer
         type: object
     required:
-    - cloudServices
-    - dns
-    - kubestash
-    - tls
+      - cloudServices
+      - dns
+      - kubestash
+      - tls
     type: object
   ingress:
     properties:
@@ -939,10 +939,10 @@ properties:
         type: boolean
       exposeVia:
         enum:
-        - LoadBalancer
-        - NodePort
-        - ClusterIP
-        - HostPort
+          - LoadBalancer
+          - NodePort
+          - ClusterIP
+          - HostPort
         type: string
       externalIPs:
         items:
@@ -953,8 +953,8 @@ properties:
         items:
           description: 'ref: https://github.com/kubernetes-sigs/external-dns/blob/v0.13.1/pkg/apis/externaldns/types.go#L325'
           enum:
-          - A
-          - CNAME
+            - A
+            - CNAME
           type: string
         type: array
       nodeSelector:
@@ -996,17 +996,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -1017,8 +1017,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -1034,9 +1034,9 @@ properties:
             type: object
         type: object
     required:
-    - enabled
-    - exposeVia
-    - nodeSelector
+      - enabled
+      - exposeVia
+      - nodeSelector
     type: object
   initialSetup:
     properties:
@@ -1111,9 +1111,9 @@ properties:
                   sessionToken:
                     type: string
                 required:
-                - accessKeyID
-                - secretAccessKey
-                - sessionToken
+                  - accessKeyID
+                  - secretAccessKey
+                  - sessionToken
                 type: object
               azure:
                 properties:
@@ -1126,10 +1126,10 @@ properties:
                   tenantID:
                     type: string
                 required:
-                - clientID
-                - clientSecret
-                - subscriptionID
-                - tenantID
+                  - clientID
+                  - clientSecret
+                  - subscriptionID
+                  - tenantID
                 type: object
               azureStorage:
                 properties:
@@ -1138,8 +1138,8 @@ properties:
                   key:
                     type: string
                 required:
-                - account
-                - key
+                  - account
+                  - key
                 type: object
               cloudflareStorage:
                 properties:
@@ -1150,16 +1150,16 @@ properties:
                   secretAccessKey:
                     type: string
                 required:
-                - accessKeyID
-                - accountID
-                - secretAccessKey
+                  - accessKeyID
+                  - accountID
+                  - secretAccessKey
                 type: object
               digitalocean:
                 properties:
                   token:
                     type: string
                 required:
-                - token
+                  - token
                 type: object
               googleCloud:
                 properties:
@@ -1168,8 +1168,8 @@ properties:
                   serviceAccount:
                     type: string
                 required:
-                - projectID
-                - serviceAccount
+                  - projectID
+                  - serviceAccount
                 type: object
               googleOAuth:
                 properties:
@@ -1185,7 +1185,7 @@ properties:
                       type: string
                     type: array
                 required:
-                - accessToken
+                  - accessToken
                 type: object
               hetzner:
                 properties:
@@ -1194,8 +1194,8 @@ properties:
                   token:
                     type: string
                 required:
-                - sshKeyName
-                - token
+                  - sshKeyName
+                  - token
                 type: object
               hetznerStorage:
                 properties:
@@ -1204,22 +1204,22 @@ properties:
                   secretAccessKey:
                     type: string
                 required:
-                - accessKeyID
-                - secretAccessKey
+                  - accessKeyID
+                  - secretAccessKey
                 type: object
               kubevirt:
                 properties:
                   kubeConfig:
                     type: string
                 required:
-                - kubeConfig
+                  - kubeConfig
                 type: object
               linode:
                 properties:
                   token:
                     type: string
                 required:
-                - token
+                  - token
                 type: object
               name:
                 type: string
@@ -1233,8 +1233,8 @@ properties:
                   projectID:
                     type: string
                 required:
-                - apiKey
-                - projectID
+                  - apiKey
+                  - projectID
                 type: object
               rancher:
                 properties:
@@ -1245,9 +1245,9 @@ properties:
                   secretAccessKey:
                     type: string
                 required:
-                - accessKeyID
-                - endpoint
-                - secretAccessKey
+                  - accessKeyID
+                  - endpoint
+                  - secretAccessKey
                 type: object
               scaleway:
                 properties:
@@ -1256,8 +1256,8 @@ properties:
                   token:
                     type: string
                 required:
-                - organization
-                - token
+                  - organization
+                  - token
                 type: object
               swift:
                 properties:
@@ -1278,39 +1278,39 @@ properties:
                   username:
                     type: string
                 required:
-                - password
-                - username
+                  - password
+                  - username
                 type: object
               type:
                 enum:
-                - Aws
-                - Azure
-                - AzureStorage
-                - CloudflareStorage
-                - DigitalOcean
-                - GoogleCloud
-                - GoogleOAuth
-                - Hetzner
-                - HetznerStorage
-                - KubeVirt
-                - Linode
-                - Packet
-                - Rancher
-                - Scaleway
-                - Vultr
-                - Swift
+                  - Aws
+                  - Azure
+                  - AzureStorage
+                  - CloudflareStorage
+                  - DigitalOcean
+                  - GoogleCloud
+                  - GoogleOAuth
+                  - Hetzner
+                  - HetznerStorage
+                  - KubeVirt
+                  - Linode
+                  - Packet
+                  - Rancher
+                  - Scaleway
+                  - Vultr
+                  - Swift
                 type: string
               vultr:
                 properties:
                   token:
                     type: string
                 required:
-                - token
+                  - token
                 type: object
             required:
-            - name
-            - ownerID
-            - type
+              - name
+              - ownerID
+              - type
             type: object
           status:
             properties:
@@ -1339,10 +1339,10 @@ properties:
               memory:
                 type: integer
             required:
-            - cpu
-            - machineCount
-            - machineType
-            - memory
+              - cpu
+              - machineCount
+              - machineType
+              - memory
             type: object
           googleProjectID:
             type: string
@@ -1364,10 +1364,10 @@ properties:
                 memory:
                   type: integer
               required:
-              - cpu
-              - machineCount
-              - machineType
-              - memory
+                - cpu
+                - machineCount
+                - machineType
+                - memory
               type: object
             type: array
         type: object
@@ -1383,8 +1383,8 @@ properties:
                     type: boolean
                   principalServiceType:
                     enum:
-                    - LoadBalancer
-                    - NodePort
+                      - LoadBalancer
+                      - NodePort
                     type: string
                 type: object
               managedArgo:
@@ -1417,8 +1417,8 @@ properties:
                     type: string
                   type: array
               required:
-              - enabled
-              - features
+                - enabled
+                - features
               type: object
             type: object
           import:
@@ -1438,8 +1438,8 @@ properties:
               organizationClaimID:
                 type: string
             required:
-            - meteringServiceProxyToken
-            - organizationClaimID
+              - meteringServiceProxyToken
+              - organizationClaimID
             type: object
           azure:
             description: https://learn.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/publish-notifications
@@ -1447,7 +1447,7 @@ properties:
               applicationId:
                 type: string
             required:
-            - applicationId
+              - applicationId
             type: object
           gcp:
             description: https://cloud.google.com/service-infrastructure/docs/service-control/reference/rest/v2/services/report
@@ -1455,7 +1455,7 @@ properties:
               serviceControlProxyToken:
                 type: string
             required:
-            - serviceControlProxyToken
+              - serviceControlProxyToken
             type: object
         type: object
     type: object
@@ -1502,17 +1502,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -1523,8 +1523,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -1540,7 +1540,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   monitoring:
     properties:
@@ -1567,14 +1567,14 @@ properties:
               to:
                 type: string
             required:
-            - authUsername
-            - enabled
-            - from
-            - password
-            - requireTLS
-            - sendResolved
-            - smarthost
-            - to
+              - authUsername
+              - enabled
+              - from
+              - password
+              - requireTLS
+              - sendResolved
+              - smarthost
+              - to
             type: object
           webhook:
             properties:
@@ -1587,40 +1587,40 @@ properties:
                       url:
                         type: string
                     required:
-                    - url
+                      - url
                     type: object
                   mattermost:
                     properties:
                       url:
                         type: string
                     required:
-                    - url
+                      - url
                     type: object
                   msTeams:
                     properties:
                       url:
                         type: string
                     required:
-                    - url
+                      - url
                     type: object
                   slack:
                     properties:
                       url:
                         type: string
                     required:
-                    - url
+                      - url
                     type: object
                 type: object
               sendResolved:
                 type: boolean
             required:
-            - enabled
-            - providers
-            - sendResolved
+              - enabled
+              - providers
+              - sendResolved
             type: object
         required:
-        - email
-        - webhook
+          - email
+          - webhook
         type: object
       centralizedOTEL:
         type: boolean
@@ -1661,17 +1661,17 @@ properties:
                         only the result of this request.'
                       type: string
                   required:
-                  - name
+                    - name
                   type: object
                 type: array
                 x-kubernetes-list-map-keys:
-                - name
+                  - name
                 x-kubernetes-list-type: map
               limits:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Limits describes the maximum amount of compute resources
@@ -1682,8 +1682,8 @@ properties:
               requests:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Requests describes the minimum amount of compute resources
@@ -1699,7 +1699,7 @@ properties:
                 type: object
             type: object
         required:
-        - resources
+          - resources
         type: object
       serviceMonitor:
         properties:
@@ -1708,19 +1708,19 @@ properties:
               type: string
             type: object
         required:
-        - labels
+          - labels
         type: object
     required:
-    - agent
-    - exporter
-    - serviceMonitor
+      - agent
+      - exporter
+      - serviceMonitor
     type: object
   nats:
     properties:
       exposeVia:
         enum:
-        - Ingress
-        - HostPort
+          - Ingress
+          - HostPort
         type: string
       nodeSelector:
         additionalProperties:
@@ -1763,17 +1763,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -1784,8 +1784,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -1801,9 +1801,9 @@ properties:
             type: object
         type: object
     required:
-    - exposeVia
-    - nodeSelector
-    - replicas
+      - exposeVia
+      - nodeSelector
+      - replicas
     type: object
   openfga:
     properties:
@@ -1848,17 +1848,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -1869,8 +1869,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -1886,7 +1886,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   outbox-syncer:
     properties:
@@ -1931,17 +1931,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -1952,8 +1952,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -1969,7 +1969,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   patch-console-api:
     properties:
@@ -2014,17 +2014,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -2035,8 +2035,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -2052,7 +2052,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   patch-console-ui:
     properties:
@@ -2097,17 +2097,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -2118,8 +2118,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -2135,7 +2135,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   perses:
     properties:
@@ -2180,17 +2180,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -2201,8 +2201,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -2218,7 +2218,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   pgoutbox:
     properties:
@@ -2263,17 +2263,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -2284,8 +2284,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -2301,7 +2301,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   platform-api:
     properties:
@@ -2346,17 +2346,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -2367,8 +2367,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -2384,7 +2384,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   platform-ui:
     properties:
@@ -2429,17 +2429,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -2450,8 +2450,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -2467,7 +2467,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   regcache:
     properties:
@@ -2512,17 +2512,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -2533,8 +2533,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -2550,7 +2550,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   registry:
     properties:
@@ -2572,8 +2572,8 @@ properties:
           username:
             type: string
         required:
-        - password
-        - username
+          - password
+          - username
         type: object
       helm:
         properties:
@@ -2640,8 +2640,8 @@ properties:
           More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/'
         type: string
     required:
-    - name
-    - namespace
+      - name
+      - namespace
     type: object
   s3proxy:
     properties:
@@ -2686,17 +2686,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -2707,8 +2707,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -2724,7 +2724,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   secretManagement:
     properties:
@@ -2771,17 +2771,17 @@ properties:
                         only the result of this request.'
                       type: string
                   required:
-                  - name
+                    - name
                   type: object
                 type: array
                 x-kubernetes-list-map-keys:
-                - name
+                  - name
                 x-kubernetes-list-type: map
               limits:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Limits describes the maximum amount of compute resources
@@ -2792,8 +2792,8 @@ properties:
               requests:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Requests describes the minimum amount of compute resources
@@ -2809,10 +2809,10 @@ properties:
                 type: object
             type: object
         required:
-        - enabled
+          - enabled
         type: object
     required:
-    - vault
+      - vault
     type: object
   settings:
     properties:
@@ -2822,12 +2822,12 @@ properties:
             properties:
               size:
                 anyOf:
-                - type: integer
-                - type: string
+                  - type: integer
+                  - type: string
                 pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                 x-kubernetes-int-or-string: true
             required:
-            - size
+              - size
             type: object
           resources:
             description: ResourceRequirements describes the compute resource requirements.
@@ -2864,17 +2864,17 @@ properties:
                         only the result of this request.'
                       type: string
                   required:
-                  - name
+                    - name
                   type: object
                 type: array
                 x-kubernetes-list-map-keys:
-                - name
+                  - name
                 x-kubernetes-list-type: map
               limits:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Limits describes the maximum amount of compute resources
@@ -2885,8 +2885,8 @@ properties:
               requests:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Requests describes the minimum amount of compute resources
@@ -2902,8 +2902,8 @@ properties:
                 type: object
             type: object
         required:
-        - persistence
-        - resources
+          - persistence
+          - resources
         type: object
       db:
         properties:
@@ -2911,12 +2911,12 @@ properties:
             properties:
               size:
                 anyOf:
-                - type: integer
-                - type: string
+                  - type: integer
+                  - type: string
                 pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                 x-kubernetes-int-or-string: true
             required:
-            - size
+              - size
             type: object
           resources:
             description: ResourceRequirements describes the compute resource requirements.
@@ -2953,17 +2953,17 @@ properties:
                         only the result of this request.'
                       type: string
                   required:
-                  - name
+                    - name
                   type: object
                 type: array
                 x-kubernetes-list-map-keys:
-                - name
+                  - name
                 x-kubernetes-list-type: map
               limits:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Limits describes the maximum amount of compute resources
@@ -2974,8 +2974,8 @@ properties:
               requests:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Requests describes the minimum amount of compute resources
@@ -2991,8 +2991,8 @@ properties:
                 type: object
             type: object
         required:
-        - persistence
-        - resources
+          - persistence
+          - resources
         type: object
       domainWhiteList:
         description: 'DomainWhiteList is an array of domain names that are allowed.
@@ -3020,8 +3020,8 @@ properties:
               secret:
                 type: string
             required:
-            - productCode
-            - secret
+              - productCode
+              - secret
             type: object
           azure:
             properties:
@@ -3037,10 +3037,10 @@ properties:
               tenantID:
                 type: string
             required:
-            - clientID
-            - clientSecret
-            - secret
-            - tenantID
+              - clientID
+              - clientSecret
+              - secret
+              - tenantID
             type: object
           gcp:
             properties:
@@ -3049,17 +3049,17 @@ properties:
               testUploadID:
                 type: string
             required:
-            - secret
-            - testUploadID
+              - secret
+              - testUploadID
             type: object
           spreadsheetCredential:
             type: string
           spreadsheetID:
             type: string
         required:
-        - alertEmails
-        - spreadsheetCredential
-        - spreadsheetID
+          - alertEmails
+          - spreadsheetCredential
+          - spreadsheetID
         type: object
       pgpool:
         properties:
@@ -3102,17 +3102,17 @@ properties:
                         only the result of this request.'
                       type: string
                   required:
-                  - name
+                    - name
                   type: object
                 type: array
                 x-kubernetes-list-map-keys:
-                - name
+                  - name
                 x-kubernetes-list-type: map
               limits:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Limits describes the maximum amount of compute resources
@@ -3123,8 +3123,8 @@ properties:
               requests:
                 additionalProperties:
                   anyOf:
-                  - type: integer
-                  - type: string
+                    - type: integer
+                    - type: string
                   pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                   x-kubernetes-int-or-string: true
                 description: 'Requests describes the minimum amount of compute resources
@@ -3140,9 +3140,9 @@ properties:
                 type: object
             type: object
         required:
-        - enabled
-        - replicas
-        - resources
+          - enabled
+          - replicas
+          - resources
         type: object
       proxy:
         properties:
@@ -3153,9 +3153,9 @@ properties:
           noProxy:
             type: string
         required:
-        - httpProxy
-        - httpsProxy
-        - noProxy
+          - httpProxy
+          - httpsProxy
+          - noProxy
         type: object
       smtp:
         properties:
@@ -3175,15 +3175,15 @@ properties:
           username:
             type: string
         required:
-        - enabled
-        - host
+          - enabled
+          - host
         type: object
       tenantSpreadPolicy:
         type: string
     required:
-    - cache
-    - db
-    - smtp
+      - cache
+      - db
+      - smtp
     type: object
   trickster:
     properties:
@@ -3228,17 +3228,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -3249,8 +3249,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -3266,7 +3266,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   trust-console-api:
     properties:
@@ -3311,17 +3311,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -3332,8 +3332,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -3349,7 +3349,7 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
   trust-console-ui:
     properties:
@@ -3394,17 +3394,17 @@ properties:
                     only the result of this request.'
                   type: string
               required:
-              - name
+                - name
               type: object
             type: array
             x-kubernetes-list-map-keys:
-            - name
+              - name
             x-kubernetes-list-type: map
           limits:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Limits describes the maximum amount of compute resources
@@ -3415,8 +3415,8 @@ properties:
           requests:
             additionalProperties:
               anyOf:
-              - type: integer
-              - type: string
+                - type: integer
+                - type: string
               pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
               x-kubernetes-int-or-string: true
             description: 'Requests describes the minimum amount of compute resources
@@ -3432,37 +3432,37 @@ properties:
             type: object
         type: object
     required:
-    - enabled
+      - enabled
     type: object
 required:
-- branding
-- cadence
-- cloudProviderOptions
-- cluster-ui
-- context
-- gateway
-- grafana
-- infra
-- ingress
-- initialSetup
-- kubedb-ui
-- monitoring
-- nats
-- openfga
-- outbox-syncer
-- patch-console-api
-- patch-console-ui
-- perses
-- pgoutbox
-- platform-api
-- platform-ui
-- regcache
-- registry
-- release
-- s3proxy
-- secretManagement
-- settings
-- trickster
-- trust-console-api
-- trust-console-ui
+  - branding
+  - cadence
+  - cloudProviderOptions
+  - cluster-ui
+  - context
+  - gateway
+  - grafana
+  - infra
+  - ingress
+  - initialSetup
+  - kubedb-ui
+  - monitoring
+  - nats
+  - openfga
+  - outbox-syncer
+  - patch-console-api
+  - patch-console-ui
+  - perses
+  - pgoutbox
+  - platform-api
+  - platform-ui
+  - regcache
+  - registry
+  - release
+  - s3proxy
+  - secretManagement
+  - settings
+  - trickster
+  - trust-console-api
+  - trust-console-ui
 type: object
