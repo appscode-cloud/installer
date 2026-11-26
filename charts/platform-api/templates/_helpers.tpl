@@ -162,6 +162,63 @@ Returns if ubi images are to be used
 The probe of the API container. v2_only serves neither /healthz nor /api/v1/version: a Connect call that needs no
 sign-in is the probe there (the image has curl).
 */}}
+{{/*
+Object storage credentials and b3 config Secret names, shared by the API container and the v2_only init steps
+(which run what ace's setup Job runs in the other modes).
+*/}}
+{{- define "platform-api.b3Env" -}}
+{{- $root := .root -}}
+{{- $infra := .infra -}}
+{{- $objstoreSecret := include "settings.objstoreSecretName" $root -}}
+{{- if or (and $objstoreSecret (eq $infra.objstore.provider "gcs")) (eq .deploymentType "Hosted") }}
+- name: GOOGLE_APPLICATION_CREDENTIALS
+  value: {{ $infra.objstore.mountPath }}/sa.json
+{{- end }}
+{{- if and $objstoreSecret (eq $infra.objstore.provider "s3") }}
+- name: AWS_ACCESS_KEY_ID
+  valueFrom:
+    secretKeyRef:
+      name: {{ $objstoreSecret }}
+      key: AWS_ACCESS_KEY_ID
+- name: AWS_SECRET_ACCESS_KEY
+  valueFrom:
+    secretKeyRef:
+      name: {{ $objstoreSecret }}
+      key: AWS_SECRET_ACCESS_KEY
+{{- if $infra.objstore.s3.AWS_REGION }}
+- name: AWS_REGION
+  valueFrom:
+    secretKeyRef:
+      name: {{ $objstoreSecret }}
+      key: AWS_REGION
+{{- end }}
+{{- end }}
+{{- if and $objstoreSecret (eq $infra.objstore.provider "azure") }}
+- name: AZURE_STORAGE_ACCOUNT
+  valueFrom:
+    secretKeyRef:
+      name: {{ $objstoreSecret }}
+      key: AZURE_ACCOUNT_NAME
+- name: AZURE_STORAGE_KEY
+  valueFrom:
+    secretKeyRef:
+      name: {{ $objstoreSecret }}
+      key: AZURE_ACCOUNT_KEY
+{{- end }}
+{{- with include "settings.platformConfigSecretName" $root }}
+- name: B3_CONFIG_SECRET_NAME
+  value: {{ . }}
+{{- end }}
+{{- with include "settings.platformUserConfigSecretName" $root }}
+- name: B3_USER_CONFIG_SECRET_NAME
+  value: {{ . }}
+{{- end }}
+{{- with include "settings.platformSystemConfigSecretName" $root }}
+- name: B3_SYSTEM_CONFIG_SECRET_NAME
+  value: {{ . }}
+{{- end }}
+{{- end }}
+
 {{- define "platform-api.probe" -}}
 {{- if eq (dig "akp" "mode" "" (default dict .Values.global)) "v2_only" -}}
 exec:
