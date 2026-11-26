@@ -20,6 +20,11 @@
 {{- range $c := (get $line $pl).refuse -}}
 {{- if hasKey $on $c }}{{ fail (printf "ProductLine %s does not use %s: set %s.enabled to false" $pl $c $c) }}{{ end -}}
 {{- end -}}
+{{- if eq $mode "v2_only" -}}
+{{- range $c := list "pgoutbox" "outbox-syncer" -}}
+{{- if hasKey $on $c }}{{ fail (printf "global.akp.mode v2_only does not use %s: b3 creates no ac_* tables for it to read; set %s.enabled to false" $c $c) }}{{ end -}}
+{{- end -}}
+{{- end -}}
 {{- if has $mode (list "dual" "v2_only") -}}
 {{- if not .Values.settings.iam.casdoor.endpoint }}{{ fail (printf "global.akp.mode %s needs settings.iam.casdoor.endpoint" $mode) }}{{ end -}}
 {{- if not .Values.settings.iam.casdoor.organization }}{{ fail (printf "global.akp.mode %s needs settings.iam.casdoor.organization" $mode) }}{{ end -}}
