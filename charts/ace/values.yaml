@@ -391,7 +391,7 @@ global:
 settings:
   # b3's [iam] section, written when `global.akp.mode` is dual or v2_only.
   iam:
-    publicPath: /iam
+    publicPath: /accounts/iam
     federation:
       enabled: false
     scim:
