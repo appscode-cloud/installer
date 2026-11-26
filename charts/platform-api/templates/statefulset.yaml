@@ -106,52 +106,8 @@ spec:
                   name: {{ . }}
                   key: consumer-id
           {{- end }}
-          {{- if or (and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "gcs")) (eq $deploymentType "Hosted") }}
-            - name: GOOGLE_APPLICATION_CREDENTIALS
-              value: {{ $infra.objstore.mountPath }}/sa.json
-          {{- end }}
-          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "s3") }}
-            - name: AWS_ACCESS_KEY_ID
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "settings.objstoreSecretName" . }}
-                  key: AWS_ACCESS_KEY_ID
-            - name: AWS_SECRET_ACCESS_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "settings.objstoreSecretName" . }}
-                  key: AWS_SECRET_ACCESS_KEY
-            {{- if $infra.objstore.s3.AWS_REGION }}
-            - name: AWS_REGION
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "settings.objstoreSecretName" . }}
-                  key: AWS_REGION
-            {{- end }}
-          {{- end }}
-          {{- if and (include "settings.objstoreSecretName" .) (eq $infra.objstore.provider "azure") }}
-            - name: AZURE_STORAGE_ACCOUNT
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "settings.objstoreSecretName" . }}
-                  key: AZURE_ACCOUNT_NAME
-            - name: AZURE_STORAGE_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "settings.objstoreSecretName" . }}
-                  key: AZURE_ACCOUNT_KEY
-          {{- end }}
-          {{- if (include "settings.platformConfigSecretName" .) }}
-            - name: B3_CONFIG_SECRET_NAME
-              value: {{ include "settings.platformConfigSecretName" . }}
-          {{- end }}
-          {{- if (include "settings.platformUserConfigSecretName" .) }}
-            - name: B3_USER_CONFIG_SECRET_NAME
-              value: {{ include "settings.platformUserConfigSecretName" . }}
-          {{- end }}
-          {{- if (include "settings.platformSystemConfigSecretName" .) }}
-            - name: B3_SYSTEM_CONFIG_SECRET_NAME
-              value: {{ include "settings.platformSystemConfigSecretName" . }}
+          {{- with include "platform-api.b3Env" (dict "root" . "infra" $infra "deploymentType" $deploymentType) | trim }}
+            {{- . | nindent 12 }}
           {{- end }}
             - name: GEO_LOCATION_DB_PATH
               value: /data/b3/maxmind-geoip/GeoLite2-City.mmdb
@@ -206,6 +162,10 @@ spec:
 {{- if eq (dig "akp" "mode" "" (default dict .Values.global)) "v2_only" }}
         {{- /* b3 order in v2_only (b3 docs/iam-modes.md): tables, NATS accounts, first site administrator. Each is safe to retry. */}}
         {{- $mounts := list (dict "name" "tmp" "mountPath" "/tmp") (dict "name" "data" "mountPath" "/data") (dict "name" "config" "mountPath" "/data/b3/conf") }}
+        {{- if include "settings.objstoreSecretName" . }}{{ $mounts = append $mounts (dict "name" "objstore-cred" "mountPath" $infra.objstore.mountPath) }}{{ end }}
+        {{- if include "settings.caProviderClass" . }}{{ $mounts = append $mounts (dict "name" "cacerts" "mountPath" "/etc/ssl/certs") }}{{ end }}
+        {{- /* b3's [nats] *_CREDS paths; ace's setup Job mounts the same Secret there in the other modes. */}}
+        {{- if include "settings.natsSecretName" . }}{{ $mounts = append $mounts (dict "name" "nats-cred" "mountPath" (dig "nats" "mountPath" "/nats/creds" .Values.settings)) }}{{ end }}
         {{- range .Values.volumeMounts }}{{ $mounts = append $mounts . }}{{ end }}
         {{- $steps := list (dict "name" "migrate" "args" (list "migrate")) }}
         {{- if .Values.settings.secretName.setupConfig }}
@@ -222,6 +182,10 @@ spec:
           imagePullPolicy: {{ $.Values.image.pullPolicy }}
           args:
             {{- toYaml .args | nindent 12 }}
+          {{- with include "platform-api.b3Env" (dict "root" $ "infra" $infra "deploymentType" $deploymentType) | trim }}
+          env:
+            {{- . | nindent 12 }}
+          {{- end }}
           volumeMounts:
             {{- toYaml $mounts | nindent 12 }}
             {{- if .setup }}
@@ -285,6 +249,14 @@ spec:
         - name: setup-config
           secret:
             secretName: {{ .Values.settings.secretName.setupConfig }}
+        {{- end }}
+        {{- if eq (dig "akp" "mode" "" (default dict .Values.global)) "v2_only" }}
+        {{- with $secretName := (include "settings.natsSecretName" .) }}
+        - name: nats-cred
+          secret:
+            defaultMode: 420
+            secretName: {{ $secretName }}
+        {{- end }}
         {{- end }}
         {{- with $cpc := (include "settings.caProviderClass" .) }}
         - name: cacerts
