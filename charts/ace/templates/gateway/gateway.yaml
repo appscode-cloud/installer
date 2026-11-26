@@ -12,25 +12,24 @@ spec:
   - name: https
     protocol: HTTPS
     port: 443
-    tls:
-      mode: Terminate
-      certificateRefs:
-      - group: ""
-        kind: Secret
-        name: {{ include "ace.fullname" . }}-gw-cert
-        namespace: {{ .Release.Namespace }}
-{{- $gwCert := lookup "v1" "Secret" .Release.Namespace (printf "%s-gw-cert" (include "ace.fullname" .)) }}
-{{- $legacyCert := lookup "v1" "Secret" .Release.Namespace (printf "%s-ingress-cert" (include "ace.fullname" .)) }}
-{{- /* The legacy cert is a non-renewing snapshot; serving it next to gw-cert breaks Envoy once it expires. */}}
-{{- if and $legacyCert (not $gwCert) }}
-      - group: ""
-        kind: Secret
-        name: {{ include "ace.fullname" . }}-ingress-cert
-        namespace: {{ .Release.Namespace }}
-{{- end }}
+    {{- include "ace.gateway.tls" . | nindent 4 }}
     allowedRoutes:
       namespaces:
         from: Same
+{{- /* An IP has no subdomains: Casdoor and the Trust Console, which need a host of their own, get a port each. */}}
+{{- if eq .Values.global.platform.hostType "ip" }}
+{{- range $l := list (dict "name" "casdoor" "port" (include "ace.casdoorPort" $) "on" $.Values.casdoor.enabled) (dict "name" "trust-console" "port" (include "ace.trustConsolePort" $) "on" (index $.Values "trust-console-api" "enabled")) }}
+{{- if $l.on }}
+  - name: {{ $l.name }}
+    protocol: HTTPS
+    port: {{ $l.port }}
+    {{- include "ace.gateway.tls" $ | nindent 4 }}
+    allowedRoutes:
+      namespaces:
+        from: Same
+{{- end }}
+{{- end }}
+{{- end }}
 {{- /* Without TCPRoute (e.g. OpenShift), NATS and s3proxy use their own LoadBalancer Services. */}}
 {{- if include "gatewayAPI.tcpRouteVersion" . }}
   - allowedRoutes:

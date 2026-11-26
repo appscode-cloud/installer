@@ -33,3 +33,25 @@
 {{- if and (or .Values.casdoor.enabled (hasKey $on "patch-console-ui") (hasKey $on "trust-console-api")) (not .Values.gateway.enabled) -}}
 {{- fail "Casdoor and the consoles are routed on the Gateway only: set gateway.enabled" -}}
 {{- end -}}
+{{- /* Sub-charts cannot read ace's helpers: on an IP their default URLs (casdoor.<ip>, trust.<ip>) are wrong, so they must be set. */ -}}
+{{- if eq .Values.global.platform.hostType "ip" -}}
+{{- $casdoorUrl := include "ace.casdoorPublicUrl" . -}}
+{{- $want := list -}}
+{{- if .Values.casdoor.enabled -}}
+{{- $want = append $want (list "casdoor.publicUrl" .Values.casdoor.publicUrl $casdoorUrl) -}}
+{{- if has $mode (list "dual" "v2_only") -}}
+{{- $want = append $want (list "settings.iam.casdoor.publicUrl" .Values.settings.iam.casdoor.publicUrl $casdoorUrl) -}}
+{{- end -}}
+{{- end -}}
+{{- if hasKey $on "trust-console-api" -}}
+{{- $api := index .Values "trust-console-api" -}}
+{{- $want = append $want (list "trust-console-api.publicUrl" $api.publicUrl (include "ace.trustConsolePublicUrl" .)) -}}
+{{- $want = append $want (list "trust-console-api.casdoor.publicUrl" (dig "casdoor" "publicUrl" "" $api) $casdoorUrl) -}}
+{{- end -}}
+{{- if hasKey $on "patch-console-api" -}}
+{{- $want = append $want (list "patch-console-api.casdoor.publicUrl" (dig "casdoor" "publicUrl" "" (index .Values "patch-console-api")) $casdoorUrl) -}}
+{{- end -}}
+{{- range $w := $want -}}
+{{- if ne (index $w 1) (index $w 2) }}{{ fail (printf "global.platform.hostType is ip: set %s to %s" (index $w 0) (index $w 2)) }}{{ end -}}
+{{- end -}}
+{{- end -}}

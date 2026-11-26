@@ -1,6 +1,6 @@
 {{- if and (index .Values "gateway" "enabled") (index .Values "trust-console-api" "enabled") }}
 {{- $port := index .Values "trust-console-api" "service" "port" | default 8080 }}
-# The Trust Console has a host of its own: the hub's API prefix /api is AKP's too.
+# The Trust Console has a host of its own (a port of its own on an IP): the hub's API prefix /api is AKP's too.
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
@@ -9,14 +9,7 @@ metadata:
   labels:
     {{- include "ace.labels" . | nindent 4 }}
 spec:
-  parentRefs:
-  - group: gateway.networking.k8s.io
-    kind: Gateway
-    name: {{ include "ace.fullname" . }}
-    namespace: {{ .Release.Namespace }}
-    sectionName: https
-  hostnames:
-  - {{ include "ace.trustConsoleHost" . }}
+  {{- include "ace.gateway.ownHost" (dict "root" . "listener" "trust-console" "host" (include "ace.trustConsoleHost" .)) | nindent 2 }}
   rules:
   - matches:
     - path:

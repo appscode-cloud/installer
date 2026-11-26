@@ -1,5 +1,5 @@
 {{- if and (index .Values "gateway" "enabled") .Values.casdoor.enabled }}
-# Casdoor cannot be served under a path: it has a host of its own.
+# Casdoor cannot be served under a path: it has a host of its own (a port of its own on an IP).
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
@@ -8,14 +8,7 @@ metadata:
   labels:
     {{- include "ace.labels" . | nindent 4 }}
 spec:
-  parentRefs:
-  - group: gateway.networking.k8s.io
-    kind: Gateway
-    name: {{ include "ace.fullname" . }}
-    namespace: {{ .Release.Namespace }}
-    sectionName: https
-  hostnames:
-  - {{ include "ace.casdoorHost" . }}
+  {{- include "ace.gateway.ownHost" (dict "root" . "listener" "casdoor" "host" (include "ace.casdoorHost" .)) | nindent 2 }}
   rules:
   - matches:
     - path:

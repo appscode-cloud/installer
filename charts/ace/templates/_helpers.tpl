@@ -367,6 +367,65 @@ v2_only
 {{- printf "casdoor.%s" .Values.global.platform.host -}}
 {{- end }}
 
+{{/* Gateway listener ports of Casdoor and the Trust Console when global.platform.hostType is ip. */}}
+{{- define "ace.casdoorPort" -}}8443{{- end }}
+{{- define "ace.trustConsolePort" -}}9443{{- end }}
+
+{{- define "ace.casdoorPublicUrl" -}}
+{{- if eq .Values.global.platform.hostType "ip" -}}
+{{- printf "https://%s:%s" .Values.global.platform.host (include "ace.casdoorPort" .) -}}
+{{- else -}}
+{{- printf "https://%s" (include "ace.casdoorHost" .) -}}
+{{- end -}}
+{{- end }}
+
+{{- define "ace.trustConsolePublicUrl" -}}
+{{- if eq .Values.global.platform.hostType "ip" -}}
+{{- printf "https://%s:%s" .Values.global.platform.host (include "ace.trustConsolePort" .) -}}
+{{- else -}}
+{{- printf "https://%s" (include "ace.trustConsoleHost" .) -}}
+{{- end -}}
+{{- end }}
+
+{{/*
+parentRefs and hostnames of a route that needs a host of its own: dict "root" . "listener" <ip listener> "host" <domain host>.
+On an IP, the route attaches to its own listener; on a domain, to https with its hostname.
+*/}}
+{{- define "ace.gateway.ownHost" -}}
+parentRefs:
+- group: gateway.networking.k8s.io
+  kind: Gateway
+  name: {{ include "ace.fullname" .root }}
+  namespace: {{ .root.Release.Namespace }}
+  {{- if eq .root.Values.global.platform.hostType "ip" }}
+  sectionName: {{ .listener }}
+  {{- else }}
+  sectionName: https
+hostnames:
+- {{ .host }}
+  {{- end }}
+{{- end }}
+
+{{/* TLS of an HTTPS listener of the ace Gateway. */}}
+{{- define "ace.gateway.tls" -}}
+tls:
+  mode: Terminate
+  certificateRefs:
+  - group: ""
+    kind: Secret
+    name: {{ include "ace.fullname" . }}-gw-cert
+    namespace: {{ .Release.Namespace }}
+{{- $gwCert := lookup "v1" "Secret" .Release.Namespace (printf "%s-gw-cert" (include "ace.fullname" .)) }}
+{{- $legacyCert := lookup "v1" "Secret" .Release.Namespace (printf "%s-ingress-cert" (include "ace.fullname" .)) }}
+{{- /* The legacy cert is a non-renewing snapshot; serving it next to gw-cert breaks Envoy once it expires. */}}
+{{- if and $legacyCert (not $gwCert) }}
+  - group: ""
+    kind: Secret
+    name: {{ include "ace.fullname" . }}-ingress-cert
+    namespace: {{ .Release.Namespace }}
+{{- end }}
+{{- end }}
+
 {{/* postgres://user:pass@host/<settings.db.databaseName>: the database the console hubs share with b3. */}}
 {{- define "ace.consoleDatabaseUrl" -}}
 {{- $a := .Values.settings.db.auth -}}

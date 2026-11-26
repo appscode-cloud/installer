@@ -60,6 +60,23 @@ into an empty Casdoor database only. On AKP, an external Casdoor works too: set 
 - The Trust Console has its own host, `trust.<global.platform.host>`, because its hub's `/api` prefix is AKP's too.
 - Casdoor and the consoles are routed on the Gateway only (`gateway.enabled`).
 
+## IP installs
+
+An IP has no subdomains, so on `global.platform.hostType: ip` Casdoor and the Trust Console each get an HTTPS listener of
+their own on the ace Gateway, with the same certificate (its IP SAN covers every port):
+
+| | domain | IP |
+|---|---|---|
+| Casdoor | `https://casdoor.<host>` | `https://<ip>:8443` |
+| Trust Console | `https://trust.<host>` | `https://<ip>:9443` |
+
+Envoy Gateway adds the listener ports to its LoadBalancer Service, so 8443 and 9443 must be open next to 443. The sub-charts
+cannot compute these URLs, so on an IP ace refuses a values file unless they are set: `casdoor.publicUrl`,
+`settings.iam.casdoor.publicUrl` (AKP in dual/v2_only), `trust-console-api.publicUrl`, `trust-console-api.casdoor.publicUrl`
+and `patch-console-api.casdoor.publicUrl`. The installer sets them, along with the Casdoor redirect URIs.
+
+Browsers share cookies across the ports of one IP: products on different ports must not use the same cookie name.
+
 ## Standalone charts
 
 `charts/kubepatch`, `charts/trustconsole` and `charts/akp-prereqs` (with `hack/kubepatch`, `hack/trustconsole`,
