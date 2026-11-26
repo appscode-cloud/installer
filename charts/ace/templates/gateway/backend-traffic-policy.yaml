@@ -1,4 +1,4 @@
-{{ if (index .Values "gateway" "enabled") }}
+{{ if and (index .Values "gateway" "enabled") (include "ace.hasProduct" (dict "root" . "product" "AKP")) }}
 
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: BackendTrafficPolicy

@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "casdoor.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "casdoor.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "casdoor.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        checksum/conf: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum | trunc 16 }}
+        {{- with .Values.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      labels:
+        {{- include "casdoor.selectorLabels" . | nindent 8 }}
+    spec:
+      automountServiceAccountToken: false
+      {{- include "casdoor.imagePullSecrets" . | nindent 6 }}
+      {{- with .Values.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+      - name: casdoor
+        image: {{ include "casdoor.image" . }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        {{- with .Values.securityContext }}
+        securityContext:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
+        ports:
+        - name: http
+          containerPort: {{ .Values.service.port }}
+        volumeMounts:
+        - { name: conf, mountPath: /conf/app.conf, subPath: app.conf, readOnly: true }
+        - { name: conf, mountPath: /conf/init_data.json, subPath: init_data.json, readOnly: true }
+        readinessProbe:
+          httpGet: { path: /api/health, port: http }
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 24
+        livenessProbe:
+          httpGet: { path: /api/health, port: http }
+          initialDelaySeconds: 60
+          periodSeconds: 10
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
+      volumes:
+      - name: conf
+        secret:
+          secretName: {{ include "casdoor.fullname" . }}-conf
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

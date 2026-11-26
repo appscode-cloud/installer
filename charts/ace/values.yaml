@@ -2,10 +2,10 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-# The product this install is: AKP (everything, as ace has always been), TrustConsole or KubePatch. The lines on
-# AKP v2 (TrustConsole, KubePatch) run AKP in v2_only and take only what they use of ace's own templates; the
-# sub-charts below are enabled by the profile of the line (profiles/trustconsole.yaml, profiles/kubepatch.yaml),
-# and the chart refuses a combination that does not fit the line.
+# The products this install runs: AKP (everything, as ace has always been), TrustConsole, KubePatch, or AKP_Plus (all
+# three behind one Casdoor sign-in, AKP in v2_only). TrustConsole and KubePatch do not run b3 web. The sub-charts of a
+# line are enabled by the installer (lib-selfhost) or a profile (profiles/); the chart refuses a combination that does
+# not fit the line (templates/validate.yaml).
 ProductLine: AKP
 
 # Features of ace's own templates to leave out, in any product line: db, cache (KubeDB Postgres and Redis), clusterBackup,
@@ -31,8 +31,9 @@ kubedb-ui:
 platform-api:
   enabled: false
 
-# The consoles of the TrustConsole and KubePatch lines. Each hub needs a Secret with its database URL
-# (`database.secretName`) and the credentials Secret (`global.credentials.secretName`), made outside this chart.
+# The consoles of the TrustConsole and KubePatch lines. Each hub uses b3's database (settings.db): this chart makes
+# the Secret with its URL unless `database.secretName` is set. The credentials Secret (`global.credentials.secretName`)
+# is made outside this chart.
 patch-console-api:
   enabled: false
 
@@ -44,6 +45,14 @@ trust-console-api:
 
 trust-console-ui:
   enabled: false
+
+# Casdoor: the sign-in of AKP in dual and v2_only, and of the consoles. Served at casdoor.<global.platform.host>; its
+# database is made on this chart's Postgres. Its `database.host`/`password`, `adminPassword` and `applications` are set
+# by the installer.
+casdoor:
+  enabled: false
+  database:
+    name: casdoor
 
 gateway:
   annotations: {}

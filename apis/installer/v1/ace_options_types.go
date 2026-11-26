@@ -55,9 +55,11 @@ type AceOptions struct {
 
 // AceOptionsSpec is the schema for AceOptions Operator values file
 type AceOptionsSpec struct {
-	// The product this install is: AKP (the default), TrustConsole or KubePatch.
+	// The products this install runs: AKP (the default), TrustConsole, KubePatch or AKP_Plus (all three).
 	// +optional
-	ProductLine          ProductLine                     `json:"ProductLine"`
+	ProductLine ProductLine `json:"ProductLine"`
+	// +optional
+	Akp                  AceOptionsAkp                   `json:"akp"`
 	Context              AceDeploymentContext            `json:"context"`
 	Release              ObjectReference                 `json:"release"`
 	Registry             RegistrySpec                    `json:"registry"`
@@ -74,6 +76,7 @@ type AceOptionsSpec struct {
 	PatchConsoleUi       AceOptionsComponentSpec         `json:"patch-console-ui"`
 	TrustConsoleApi      AceOptionsComponentSpec         `json:"trust-console-api"`
 	TrustConsoleUi       AceOptionsComponentSpec         `json:"trust-console-ui"`
+	Casdoor              AceOptionsComponentSpec         `json:"casdoor"`
 	Ingress              AceOptionsIngressNginx          `json:"ingress"`
 	Gateway              AceOptionsGateway               `json:"gateway"`
 	Nats                 AceOptionsNatsSettings          `json:"nats"`
@@ -169,6 +172,13 @@ type HelmRepositories struct {
 
 type AceOptionsSecretManagement struct {
 	Vault AceOptionsComponentSpec `json:"vault"`
+}
+
+type AceOptionsAkp struct {
+	// How people sign in to AKP; read only on the AKP line (AKP_Plus is always v2_only). Empty: b3's default.
+	// dual and v2_only sign in on Casdoor.
+	// +optional
+	Mode AkpMode `json:"mode"`
 }
 
 type AceOptionsComponentSpec struct {

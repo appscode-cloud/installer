@@ -17,6 +17,9 @@ stringData:
      {{- if .Values.openfga.enabled }}
      CREATE DATABASE openfga;
      {{- end }}
+     {{- if .Values.casdoor.enabled }}
+     CREATE DATABASE {{ .Values.casdoor.database.name }};
+     {{- end }}
      {{- if .Values.cadence.enabled }}
      {{- with .Values.cadence.config.persistence.database.sql }}
      CREATE DATABASE {{ .dbname }};

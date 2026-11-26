@@ -20,6 +20,9 @@ dependencies:
 - name: trust-console-ui
   repository: file://../trust-console-ui
   version: v2026.11.15
+- name: casdoor
+  repository: file://../casdoor
+  version: v2026.11.15
 - name: platform-api
   repository: file://../platform-api
   version: v2026.11.15
@@ -62,5 +65,5 @@ dependencies:
 - name: redis-alerts
   repository: oci://ghcr.io/appscode-charts
   version: v2026.7.14
-digest: sha256:58f4041f6b6f34f0a9d0cc26af7bca4563a6c766ba2c01c949903cbf060a37b6
-generated: "2026-11-22T12:00:33.512459789+06:00"
+digest: sha256:6e38d3e2e08b5546f23a534914584a2562b1745e3d77ef3300aaf96b0df36cf7
+generated: "2026-11-26T10:19:59.230442+06:00"

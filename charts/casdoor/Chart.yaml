@@ -1,0 +1,13 @@
+apiVersion: v2
+name: casdoor
+description: Casdoor, the identity provider behind AKP, the Trust Console and the patch console
+type: application
+version: v2026.11.15
+appVersion: v4.29.0-3391e5fe
+home: https://github.com/appscode-cloud
+icon: https://cdn.appscode.com/images/products/bytebuilders/icons/android-icon-192x192.png
+sources:
+- https://github.com/appscode-cloud
+maintainers:
+- name: appscode
+  email: support@appscode.com

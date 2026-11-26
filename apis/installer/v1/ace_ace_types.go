@@ -52,7 +52,7 @@ type Ace struct {
 
 // AceSpec is the schema for Ace Operator values file
 type AceSpec struct {
-	// The product this install is: AKP (the default), TrustConsole or KubePatch.
+	// The products this install runs: AKP (the default), TrustConsole, KubePatch or AKP_Plus (all three).
 	ProductLine ProductLine `json:"ProductLine"`
 	// Features of ace's own templates to leave out in any product line (db, cache, clusterBackup, cleaner,
 	// consoleImporter, grafanaConfig, cadence, setupJob), for a cluster without the operators behind them.
@@ -68,6 +68,7 @@ type AceSpec struct {
 	PatchConsoleUi  AcePatchConsoleUi  `json:"patch-console-ui"`
 	TrustConsoleApi AceTrustConsoleApi `json:"trust-console-api"`
 	TrustConsoleUi  AceTrustConsoleUi  `json:"trust-console-ui"`
+	Casdoor         AceCasdoor         `json:"casdoor"`
 	IngressNginx    AceIngressNginx    `json:"ingress-nginx"`
 	Gateway         AceGateway         `json:"gateway"`
 	IngressDns      AceIngressDns      `json:"ingress-dns"`
@@ -135,6 +136,11 @@ type AceTrustConsoleApi struct {
 type AceTrustConsoleUi struct {
 	Enabled             bool `json:"enabled"`
 	*TrustConsoleUiSpec `json:",inline,omitempty"`
+}
+
+type AceCasdoor struct {
+	Enabled      bool `json:"enabled"`
+	*CasdoorSpec `json:",inline,omitempty"`
 }
 
 type AcePlatformUi struct {
@@ -251,9 +257,9 @@ type AceRedisAlerts struct {
 // AceGlobalAkp is how ace runs AKP.
 type AceGlobalAkp struct {
 	// AKP's identity mode (b3's [iam] MODE): v1_only, dual or v2_only. Empty: b3's default; the UIs keep the
-	// chart's tag. v1_only pins the UIs to ace v2026.10.30's release; the lines on AKP v2 are v2_only.
+	// chart's tag. v1_only pins the UIs to ace v2026.10.30's release. Read on AKP only; AKP_Plus is v2_only.
 	// +optional
-	Mode string `json:"mode"`
+	Mode AkpMode `json:"mode"`
 }
 
 type AceGlobalValues struct {
