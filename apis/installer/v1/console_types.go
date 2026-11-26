@@ -21,38 +21,81 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-// ProductLine is the product an ace install is: AKP, or one of the lines on AKP v2.
-// +kubebuilder:validation:Enum=AKP;TrustConsole;KubePatch
+// ProductLine is the set of products an ace install runs.
+// +kubebuilder:validation:Enum=AKP;TrustConsole;KubePatch;AKP_Plus
 type ProductLine string
 
 const (
-	// ProductLineAKP is everything ace installs.
-	ProductLineAKP ProductLine = "AKP"
-	// ProductLineTrustConsole is the Trust Console on AKP v2 (v2_only).
+	ProductLineAKP          ProductLine = "AKP"
 	ProductLineTrustConsole ProductLine = "TrustConsole"
-	// ProductLineKubePatch is the patch console on AKP v2 (v2_only).
-	ProductLineKubePatch ProductLine = "KubePatch"
+	ProductLineKubePatch    ProductLine = "KubePatch"
+	// ProductLineAKPPlus is AKP, the Trust Console and the patch console behind one Casdoor sign-in.
+	ProductLineAKPPlus ProductLine = "AKP_Plus"
 )
 
-// Components are the ace sub-charts a product line enables, as the keys of the AceSpec sub-charts.
-// ace refuses (templates/validate.yaml) a values file that does not fit its line.
-func (p ProductLine) Components() (need, refuse []string) {
-	akpOnly := []string{"kubedb-ui", "grafana", "perses", "trickster", "s3proxy", "cadence", "pgoutbox", "outbox-syncer", "platform-opscenter", "postgres-alerts", "redis-alerts"}
-	switch p {
-	case ProductLineTrustConsole:
-		return []string{"platform-ui", "cluster-ui", "platform-api", "openfga", "trust-console-api", "trust-console-ui"},
-			append(append([]string{}, akpOnly...), "patch-console-api", "patch-console-ui")
-	case ProductLineKubePatch:
-		return []string{"platform-ui", "cluster-ui", "platform-api", "patch-console-api", "patch-console-ui"},
-			append(append([]string{}, akpOnly...), "openfga", "trust-console-api", "trust-console-ui")
+// AkpMode is b3's [iam] MODE: v1_only, dual or v2_only. Empty is b3's default. No enum marker: the empty
+// default must pass the values schema.
+type AkpMode string
+
+const (
+	AkpModeV1Only AkpMode = "v1_only"
+	AkpModeDual   AkpMode = "dual"
+	AkpModeV2Only AkpMode = "v2_only"
+)
+
+func (p ProductLine) HasAKP() bool {
+	return p == "" || p == ProductLineAKP || p == ProductLineAKPPlus
+}
+
+func (p ProductLine) HasTrustConsole() bool {
+	return p == ProductLineTrustConsole || p == ProductLineAKPPlus
+}
+
+func (p ProductLine) HasKubePatch() bool {
+	return p == ProductLineKubePatch || p == ProductLineAKPPlus
+}
+
+// AkpMode is the mode b3 runs in for this line: the requested one on AKP, v2_only on AKP_Plus (one Casdoor
+// sign-in for every product), none where b3 web does not run.
+func (p ProductLine) AkpMode(requested AkpMode) AkpMode {
+	switch {
+	case p == ProductLineAKPPlus:
+		return AkpModeV2Only
+	case p.HasAKP():
+		return requested
 	default:
-		return nil, nil
+		return ""
 	}
 }
 
-// IsV2Only tells whether the line runs AKP in b3's v2_only identity mode.
-func (p ProductLine) IsV2Only() bool {
-	return p == ProductLineTrustConsole || p == ProductLineKubePatch
+func (p ProductLine) NeedsCasdoor(requested AkpMode) bool {
+	m := p.AkpMode(requested)
+	return m == AkpModeDual || m == AkpModeV2Only || p.HasTrustConsole() || p.HasKubePatch()
+}
+
+// Components are the ace sub-charts a product line needs and refuses, as the keys of the AceSpec sub-charts.
+// casdoor on AKP depends on the mode: see NeedsCasdoor. ace enforces the same sets in templates/validate.yaml.
+func (p ProductLine) Components() (need, refuse []string) {
+	akp := []string{"platform-api", "platform-ui", "cluster-ui", "kubedb-ui", "grafana", "perses", "trickster", "s3proxy", "cadence", "pgoutbox", "outbox-syncer", "platform-opscenter", "postgres-alerts", "redis-alerts"}
+	trust := []string{"trust-console-api", "trust-console-ui"}
+	patch := []string{"patch-console-api", "patch-console-ui"}
+	join := func(lists ...[]string) []string {
+		var out []string
+		for _, l := range lists {
+			out = append(out, l...)
+		}
+		return out
+	}
+	switch p {
+	case ProductLineTrustConsole:
+		return join([]string{"casdoor", "openfga"}, trust), join(akp, patch)
+	case ProductLineKubePatch:
+		return join([]string{"casdoor"}, patch), join(akp, []string{"openfga"}, trust)
+	case ProductLineAKPPlus:
+		return join([]string{"casdoor", "openfga", "platform-api", "platform-ui", "cluster-ui"}, trust, patch), nil
+	default:
+		return nil, nil
+	}
 }
 
 // ConsoleImage is the image of a console sub-chart: registryFQDN/registry/repository:tag, a digest wins over the tag.

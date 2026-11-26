@@ -1,0 +1,47 @@
+{{- if and (index .Values "gateway" "enabled") (index .Values "patch-console-ui" "enabled") }}
+# The patch console's nginx serves /patch and proxies /patch/api to the hub.
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ include "ace.fullname" . }}-patch-console
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "ace.labels" . | nindent 4 }}
+spec:
+  parentRefs:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: {{ include "ace.fullname" . }}
+    namespace: {{ .Release.Namespace }}
+    sectionName: https
+  hostnames:
+  - {{ .Values.global.platform.host }}
+  rules:
+  {{- if not (include "ace.hasProduct" (dict "root" . "product" "AKP")) }}
+  - matches:
+    - path:
+        type: Exact
+        value: /
+    filters:
+    - type: RequestRedirect
+      requestRedirect:
+        path:
+          type: ReplaceFullPath
+          replaceFullPath: /patch/
+        statusCode: 302
+  {{- end }}
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /patch
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ .Release.Name }}-patch-console-ui
+      namespace: {{ .Release.Namespace }}
+      port: 80
+      weight: 1
+    timeouts:
+      backendRequest: 55s
+      request: 55s
+{{- end }}

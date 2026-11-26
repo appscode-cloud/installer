@@ -1,18 +1,21 @@
-{{- /* The product line: what it needs, what does not fit it. */ -}}
+{{- /* The product line: what it needs, what does not fit it. Same sets as apis/installer/v1.ProductLine.Components. */ -}}
 {{- $pl := include "ace.productLine" . -}}
 {{- $mode := include "ace.akpMode" . -}}
 {{- $on := dict -}}
-{{- range $c := list "platform-ui" "cluster-ui" "kubedb-ui" "platform-api" "grafana" "perses" "trickster" "s3proxy" "openfga" "cadence" "pgoutbox" "outbox-syncer" "platform-opscenter" "postgres-alerts" "redis-alerts" "patch-console-api" "patch-console-ui" "trust-console-api" "trust-console-ui" -}}
+{{- range $c := list "platform-ui" "cluster-ui" "kubedb-ui" "platform-api" "grafana" "perses" "trickster" "s3proxy" "openfga" "cadence" "pgoutbox" "outbox-syncer" "platform-opscenter" "postgres-alerts" "redis-alerts" "patch-console-api" "patch-console-ui" "trust-console-api" "trust-console-ui" "casdoor" -}}
 {{- if (default dict (index $.Values $c)).enabled }}{{ $_ := set $on $c true }}{{ end -}}
 {{- end -}}
-{{- $akpOnly := list "kubedb-ui" "grafana" "perses" "trickster" "s3proxy" "cadence" "pgoutbox" "outbox-syncer" "platform-opscenter" "postgres-alerts" "redis-alerts" -}}
+{{- $akp := list "platform-api" "platform-ui" "cluster-ui" "kubedb-ui" "grafana" "perses" "trickster" "s3proxy" "cadence" "pgoutbox" "outbox-syncer" "platform-opscenter" "postgres-alerts" "redis-alerts" -}}
+{{- $trust := list "trust-console-api" "trust-console-ui" -}}
+{{- $patch := list "patch-console-api" "patch-console-ui" -}}
 {{- $line := dict
   "AKP" (dict "need" (list) "refuse" (list))
-  "TrustConsole" (dict "need" (list "platform-ui" "cluster-ui" "platform-api" "openfga" "trust-console-api" "trust-console-ui") "refuse" (concat $akpOnly (list "patch-console-api" "patch-console-ui")))
-  "KubePatch" (dict "need" (list "platform-ui" "cluster-ui" "platform-api" "patch-console-api" "patch-console-ui") "refuse" (concat $akpOnly (list "openfga" "trust-console-api" "trust-console-ui")))
+  "TrustConsole" (dict "need" (concat (list "casdoor" "openfga") $trust) "refuse" (concat $akp $patch))
+  "KubePatch" (dict "need" (concat (list "casdoor") $patch) "refuse" (concat $akp (list "openfga") $trust))
+  "AKP_Plus" (dict "need" (concat (list "casdoor" "openfga" "platform-api" "platform-ui" "cluster-ui") $trust $patch) "refuse" (list))
 -}}
 {{- range $c := (get $line $pl).need -}}
-{{- if not (hasKey $on $c) }}{{ fail (printf "ProductLine %s needs %s.enabled (see profiles/)" $pl $c) }}{{ end -}}
+{{- if not (hasKey $on $c) }}{{ fail (printf "ProductLine %s needs %s.enabled" $pl $c) }}{{ end -}}
 {{- end -}}
 {{- range $c := (get $line $pl).refuse -}}
 {{- if hasKey $on $c }}{{ fail (printf "ProductLine %s does not use %s: set %s.enabled to false" $pl $c $c) }}{{ end -}}
@@ -22,6 +25,33 @@
 {{- if not .Values.settings.iam.casdoor.organization }}{{ fail (printf "global.akp.mode %s needs settings.iam.casdoor.organization" $mode) }}{{ end -}}
 {{- if not .Values.settings.iam.casdoor.clientSecret }}{{ fail (printf "global.akp.mode %s needs settings.iam.casdoor.clientSecret" $mode) }}{{ end -}}
 {{- end -}}
+{{- if and (or (hasKey $on "patch-console-api") (hasKey $on "trust-console-api")) (not (include "ace.feature" (dict "root" . "name" "db"))) -}}
 {{- range $c := list "patch-console-api" "trust-console-api" -}}
-{{- if hasKey $on $c }}{{ if not (index $.Values $c "database" "secretName") }}{{ fail (printf "%s.database.secretName is required: the Secret with the database URL of the hub" $c) }}{{ end }}{{ end -}}
+{{- if hasKey $on $c }}{{ if not (index $.Values $c "database" "secretName") }}{{ fail (printf "%s.database.secretName is required when the db feature is off: the Secret with the database URL of the hub" $c) }}{{ end }}{{ end -}}
+{{- end -}}
+{{- end -}}
+{{- if and (or .Values.casdoor.enabled (hasKey $on "patch-console-ui") (hasKey $on "trust-console-api")) (not .Values.gateway.enabled) -}}
+{{- fail "Casdoor and the consoles are routed on the Gateway only: set gateway.enabled" -}}
+{{- end -}}
+{{- /* Sub-charts cannot read ace's helpers: on an IP their default URLs (casdoor.<ip>, trust.<ip>) are wrong, so they must be set. */ -}}
+{{- if eq .Values.global.platform.hostType "ip" -}}
+{{- $casdoorUrl := include "ace.casdoorPublicUrl" . -}}
+{{- $want := list -}}
+{{- if .Values.casdoor.enabled -}}
+{{- $want = append $want (list "casdoor.publicUrl" .Values.casdoor.publicUrl $casdoorUrl) -}}
+{{- if has $mode (list "dual" "v2_only") -}}
+{{- $want = append $want (list "settings.iam.casdoor.publicUrl" .Values.settings.iam.casdoor.publicUrl $casdoorUrl) -}}
+{{- end -}}
+{{- end -}}
+{{- if hasKey $on "trust-console-api" -}}
+{{- $api := index .Values "trust-console-api" -}}
+{{- $want = append $want (list "trust-console-api.publicUrl" $api.publicUrl (include "ace.trustConsolePublicUrl" .)) -}}
+{{- $want = append $want (list "trust-console-api.casdoor.publicUrl" (dig "casdoor" "publicUrl" "" $api) $casdoorUrl) -}}
+{{- end -}}
+{{- if hasKey $on "patch-console-api" -}}
+{{- $want = append $want (list "patch-console-api.casdoor.publicUrl" (dig "casdoor" "publicUrl" "" (index .Values "patch-console-api")) $casdoorUrl) -}}
+{{- end -}}
+{{- range $w := $want -}}
+{{- if ne (index $w 1) (index $w 2) }}{{ fail (printf "global.platform.hostType is ip: set %s to %s" (index $w 0) (index $w 2)) }}{{ end -}}
+{{- end -}}
 {{- end -}}

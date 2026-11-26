@@ -307,43 +307,128 @@ Returns the first of .versions the cluster serves for .kind, or "" when the kind
 {{- end -}}
 
 {{/*
-The product line this install is: AKP (everything, the default), TrustConsole or KubePatch.
+The products this install runs: AKP (the default), TrustConsole, KubePatch or AKP_Plus (all three).
 */}}
 {{- define "ace.productLine" -}}
 {{- $pl := default "AKP" .Values.ProductLine -}}
-{{- if not (has $pl (list "AKP" "TrustConsole" "KubePatch")) -}}
-{{- fail (printf "ProductLine must be AKP, TrustConsole or KubePatch, not %q" $pl) -}}
+{{- if not (has $pl (list "AKP" "TrustConsole" "KubePatch" "AKP_Plus")) -}}
+{{- fail (printf "ProductLine must be AKP, TrustConsole, KubePatch or AKP_Plus, not %q" $pl) -}}
 {{- end -}}
 {{- $pl -}}
 {{- end }}
 
+{{/* "true" or nothing: dict "root" . "product" "AKP"|"TrustConsole"|"KubePatch". */}}
+{{- define "ace.hasProduct" -}}
+{{- $pl := include "ace.productLine" .root -}}
+{{- if or (eq $pl .product) (eq $pl "AKP_Plus") }}true{{ end -}}
+{{- end }}
+
 {{/*
-Whether the product line has an AKP feature of ace's own templates: dict "root" . "name" <feature>.
+Whether the product line has a feature of ace's own templates: dict "root" . "name" <feature>.
 Prints "true" or nothing. `disableFeatures` turns a feature off in any line (the ones that need an operator the cluster
-does not have: db, cache, clusterBackup, caProviderClass). AKP has all of them; the lines on AKP v2 keep what they use:
-TrustConsole the cache (its hub's Valkey is the Redis protocol), KubePatch none.
+does not have: db, cache, clusterBackup, caProviderClass). AKP and AKP_Plus have all of them; TrustConsole keeps the
+database and the cache (its hub's Valkey is the Redis protocol), KubePatch the database.
 */}}
 {{- define "ace.feature" -}}
 {{- $pl := include "ace.productLine" .root -}}
-{{- $line := dict "TrustConsole" (list "cache") "KubePatch" (list) -}}
-{{- if and (or (eq $pl "AKP") (has .name (get $line $pl))) (not (has .name (default (list) .root.Values.disableFeatures))) -}}true{{- end -}}
+{{- $line := dict "TrustConsole" (list "db" "cache") "KubePatch" (list "db") -}}
+{{- if and (or (eq $pl "AKP") (eq $pl "AKP_Plus") (has .name (get $line $pl))) (not (has .name (default (list) .root.Values.disableFeatures))) -}}true{{- end -}}
 {{- end }}
 
 {{/*
 The identity mode of AKP (b3's [iam] MODE): v1_only, dual or v2_only, or nothing when `global.akp.mode` is
-unset (b3's own default, which is what ace has always run). The lines on AKP v2 are v2_only.
+unset (b3's own default, which is what ace has always run). The mode is read on AKP only: AKP_Plus is v2_only (one
+Casdoor sign-in for every product), and TrustConsole and KubePatch do not run b3 web.
 */}}
 {{- define "ace.akpMode" -}}
+{{- $pl := include "ace.productLine" . -}}
 {{- $mode := dig "akp" "mode" "" .Values.global -}}
 {{- if and $mode (not (has $mode (list "v1_only" "dual" "v2_only"))) -}}
 {{- fail (printf "global.akp.mode must be v1_only, dual or v2_only, not %q" $mode) -}}
 {{- end -}}
-{{- if ne (include "ace.productLine" .) "AKP" -}}
-{{- if and $mode (ne $mode "v2_only") -}}
-{{- fail (printf "ProductLine %s runs AKP in v2_only, not global.akp.mode %s" (include "ace.productLine" .) $mode) -}}
+{{- if eq $pl "AKP" -}}
+{{- $mode -}}
+{{- else if eq $pl "AKP_Plus" -}}
+{{- /* Set, not defaulted: platform-api and the UI charts read global.akp.mode themselves. */ -}}
+{{- if ne $mode "v2_only" -}}
+{{- fail (printf "ProductLine AKP_Plus runs AKP in v2_only: set global.akp.mode to v2_only, not %q" $mode) -}}
 {{- end -}}
 v2_only
-{{- else -}}
-{{- $mode -}}
+{{- else if $mode -}}
+{{- fail (printf "global.akp.mode is for the AKP line; ProductLine %s does not run AKP" $pl) -}}
 {{- end -}}
+{{- end }}
+
+{{/* trust.<global.platform.host>: the Trust Console's hub shares AKP's /api prefix, so it has a host of its own. */}}
+{{- define "ace.trustConsoleHost" -}}
+{{- printf "trust.%s" .Values.global.platform.host -}}
+{{- end }}
+
+{{- define "ace.casdoorHost" -}}
+{{- printf "casdoor.%s" .Values.global.platform.host -}}
+{{- end }}
+
+{{/* Gateway listener ports of Casdoor and the Trust Console when global.platform.hostType is ip. */}}
+{{- define "ace.casdoorPort" -}}8443{{- end }}
+{{- define "ace.trustConsolePort" -}}9443{{- end }}
+
+{{- define "ace.casdoorPublicUrl" -}}
+{{- if eq .Values.global.platform.hostType "ip" -}}
+{{- printf "https://%s:%s" .Values.global.platform.host (include "ace.casdoorPort" .) -}}
+{{- else -}}
+{{- printf "https://%s" (include "ace.casdoorHost" .) -}}
+{{- end -}}
+{{- end }}
+
+{{- define "ace.trustConsolePublicUrl" -}}
+{{- if eq .Values.global.platform.hostType "ip" -}}
+{{- printf "https://%s:%s" .Values.global.platform.host (include "ace.trustConsolePort" .) -}}
+{{- else -}}
+{{- printf "https://%s" (include "ace.trustConsoleHost" .) -}}
+{{- end -}}
+{{- end }}
+
+{{/*
+parentRefs and hostnames of a route that needs a host of its own: dict "root" . "listener" <ip listener> "host" <domain host>.
+On an IP, the route attaches to its own listener; on a domain, to https with its hostname.
+*/}}
+{{- define "ace.gateway.ownHost" -}}
+parentRefs:
+- group: gateway.networking.k8s.io
+  kind: Gateway
+  name: {{ include "ace.fullname" .root }}
+  namespace: {{ .root.Release.Namespace }}
+  {{- if eq .root.Values.global.platform.hostType "ip" }}
+  sectionName: {{ .listener }}
+  {{- else }}
+  sectionName: https
+hostnames:
+- {{ .host }}
+  {{- end }}
+{{- end }}
+
+{{/* TLS of an HTTPS listener of the ace Gateway. */}}
+{{- define "ace.gateway.tls" -}}
+tls:
+  mode: Terminate
+  certificateRefs:
+  - group: ""
+    kind: Secret
+    name: {{ include "ace.fullname" . }}-gw-cert
+    namespace: {{ .Release.Namespace }}
+{{- $gwCert := lookup "v1" "Secret" .Release.Namespace (printf "%s-gw-cert" (include "ace.fullname" .)) }}
+{{- $legacyCert := lookup "v1" "Secret" .Release.Namespace (printf "%s-ingress-cert" (include "ace.fullname" .)) }}
+{{- /* The legacy cert is a non-renewing snapshot; serving it next to gw-cert breaks Envoy once it expires. */}}
+{{- if and $legacyCert (not $gwCert) }}
+  - group: ""
+    kind: Secret
+    name: {{ include "ace.fullname" . }}-ingress-cert
+    namespace: {{ .Release.Namespace }}
+{{- end }}
+{{- end }}
+
+{{/* postgres://user:pass@host/<settings.db.databaseName>: the database the console hubs share with b3. */}}
+{{- define "ace.consoleDatabaseUrl" -}}
+{{- $a := .Values.settings.db.auth -}}
+{{- printf "postgres://%s:%s@%s/%s?sslmode=disable" (urlquery $a.username) (urlquery $a.password) (include "settings.database.host" .) .Values.settings.db.databaseName -}}
 {{- end }}

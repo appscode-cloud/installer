@@ -40,6 +40,10 @@ dependencies:
   repository: file://../trust-console-ui
   condition: trust-console-ui.enabled
   version: v2026.11.15
+- name: casdoor
+  repository: file://../casdoor
+  condition: casdoor.enabled
+  version: v2026.11.15
 - name: platform-api
   repository: file://../platform-api
   condition: platform-api.enabled

@@ -1,4 +1,4 @@
-{{ if (index .Values "ingress-nginx" "enabled") }}
+{{ if and (index .Values "ingress-nginx" "enabled") (include "ace.hasProduct" (dict "root" . "product" "AKP")) }}
 
 apiVersion: networking.k8s.io/v1
 kind: Ingress

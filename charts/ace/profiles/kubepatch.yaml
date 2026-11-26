@@ -1,5 +1,5 @@
-# ProductLine KubePatch: the patch console and AKP v2 (v2_only), with platform-ui and cluster-ui. Casdoor signs people
-# in (hosted pages); it, Postgres and the Secrets named below are made outside this chart.
+# ProductLine KubePatch: the patch console, without b3 web. Casdoor (a sub-chart) signs people in on its hosted pages;
+# the hub uses b3's database on this chart's Postgres. The credentials Secret named below is made outside this chart.
 #   helm install ace charts/ace -f charts/ace/profiles/kubepatch.yaml --set global.platform.host=<host> ...
 ProductLine: KubePatch
 # Off by default in the AKP line only: these are on in values.yaml.
@@ -9,28 +9,25 @@ postgres-alerts:
   enabled: false
 redis-alerts:
   enabled: false
-platform-ui:
+gateway:
   enabled: true
-cluster-ui:
+# Casdoor runs on this chart's Postgres; the installer sets its passwords and applications.
+casdoor:
   enabled: true
-platform-api:
-  enabled: true
+  database:
+    host: ace-pgpool.ace.svc
+    port: 9999
+    password: CHANGE-ME
+  adminPassword: CHANGE-ME
+  organization:
+    name: kubepatch
 patch-console-api:
   enabled: true
   casdoor:
     organization: kubepatch
-  database:
-    # A Secret with the key `url`: postgres://user:pass@host:5432/db?sslmode=... (Postgres 18+)
-    secretName: patch-console-database
 patch-console-ui:
   enabled: true
 global:
   # The patch console's Secrets: keys patch-iam-root-key and patch-casdoor-client-secret.
   credentials:
     secretName: ace-credentials
-settings:
-  iam:
-    casdoor:
-      endpoint: http://casdoor.casdoor.svc:8000
-      organization: kubepatch
-      clientSecret: CHANGE-ME

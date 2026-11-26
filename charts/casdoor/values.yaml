@@ -1,0 +1,84 @@
+# Default values for casdoor.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+# Docker registry fqdn used to pull app related images.
+registryFQDN: ghcr.io
+
+image:
+  # Docker registry used to pull app container image
+  registry: appscode
+  repository: casdoor
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+  # A digest ("sha256:...") wins over the tag.
+  digest: ""
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  port: 8000
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# The URL the browser reaches Casdoor at. Empty: `https://casdoor.<global.platform.host>`, with
+# `:<global.platform.httpsPort>` when that is not 443. Casdoor cannot be served under a path.
+publicUrl: ""
+
+# Postgres. The database must exist.
+database:
+  host: ""
+  port: 5432
+  name: casdoor
+  user: postgres
+  password: ""
+  sslmode: disable
+
+# Password of Casdoor's built-in `admin` (organization `built-in`).
+adminPassword: ""
+
+# The one organization every application signs people in to.
+organization:
+  name: akp
+  displayName: AKP
+  # Optional, Prompt or Required.
+  mfaRule: Optional
+
+# The key Casdoor signs tokens with. Empty: generated at the first install and kept.
+jwt:
+  certificate: ""
+  privateKey: ""
+
+# Seeded into an empty Casdoor database only (initDataNewOnly): later changes are not applied.
+# - name, displayName, clientId, clientSecret, redirectUris: [...]
+applications: []
+
+# The first people of the organization: name, displayName, email, password, tag.
+users: []
+
+# Read from the parent chart's `global`.
+global:
+  platform:
+    host: appscode.ninja
+    # The public HTTPS port when it is not 443.
+    httpsPort: 443

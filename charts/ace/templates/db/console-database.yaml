@@ -1,0 +1,19 @@
+{{- /* The console hubs share b3's database: one Secret per hub with its URL, unless the hub names its own. */ -}}
+{{- if include "ace.feature" (dict "root" . "name" "db") -}}
+{{- range $c := list "patch-console-api" "trust-console-api" -}}
+{{- $v := index $.Values $c -}}
+{{- if and $v.enabled (not $v.database.secretName) }}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ $.Release.Name }}-{{ $c }}-database
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    {{- include "ace.labels" $ | nindent 4 }}
+type: Opaque
+stringData:
+  {{ default "url" $v.database.secretKey }}: {{ include "ace.consoleDatabaseUrl" $ | quote }}
+{{- end -}}
+{{- end -}}
+{{- end -}}

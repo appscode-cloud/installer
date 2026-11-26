@@ -1,4 +1,4 @@
-{{ if (index .Values "gateway" "enabled") }}
+{{ if and (index .Values "gateway" "enabled") (include "ace.hasProduct" (dict "root" . "product" "AKP")) }}
 
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
