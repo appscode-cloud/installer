@@ -1,9 +1,27 @@
-# Kubepatch
+# Kubepatch standalone demo (`charts/kubepatch`)
 
-Kubepatch is the patch console (hub and UI) and AKP v2 (b3 running `[iam] MODE = v2_only`, with platform-ui and
-cluster-ui), served from **one host**. One Casdoor, with one application per product, signs people in. NATS runs in
-operator mode, as b3 needs it. The chart is `charts/kubepatch`; it does not depend on the `ace` chart (no KubeDB,
-OpenFGA, Redis, Cadence or setup job).
+This document describes the **standalone demo chart** `charts/kubepatch`, with its scripts in `hack/kubepatch/`. It is not
+the installer path. The installer path is the `ace` chart with `ProductLine: KubePatch`, described in
+`docs/product-line.md`; read that first for the terms used here (b3, iam, Casdoor, hub, AKP mode, `v2_only`).
+
+## What the demo is
+
+The demo puts the patch console (hub and UI) and **AKP v2** on **one host**. "AKP v2" here means b3 running
+`[iam] MODE = v2_only` with platform-ui and cluster-ui; it is AKP in mode `v2_only`, not a product line. One Casdoor, with
+one application per product, signs people in. NATS runs in operator mode, as b3 needs it. The chart does not depend on
+the `ace` chart: no KubeDB, OpenFGA, Redis, Cadence or setup Job.
+
+How it differs from `ProductLine: KubePatch` in ace:
+
+| | `charts/kubepatch` (this demo) | ace, `ProductLine: KubePatch` |
+|---|---|---|
+| b3 web (b3, platform-ui, cluster-ui) | runs, in `v2_only` | not run; ace refuses it (`charts/ace/templates/validate.yaml:14`) |
+| Postgres | one Postgres 18 pod in the chart | ace's KubeDB Postgres; the hub shares b3's database |
+| Casdoor | templated in the chart | the `charts/casdoor` sub-chart |
+| Patch console URL | `https://<host>/patch` | `https://<host>/patch`, and `/` redirects there |
+
+Both use the same `patch-console-api` and `patch-console-ui` sub-charts (`charts/kubepatch/Chart.yaml`,
+`charts/ace/Chart.yaml`).
 
 ## Layout
 
@@ -15,15 +33,18 @@ OpenFGA, Redis, Cadence or setup job).
 | `/id` | platform-ui |
 | `/nats` | NATS WebSocket (placeholder route: the UIs do not use it yet) |
 | `/` | redirect to `routing.rootRedirect` (`/id/`) |
-| `casdoor.<host>` | Casdoor (its own host: Casdoor cannot live under a path) |
+| `casdoor.<host>` | Casdoor (its own host: Casdoor cannot live under a path, https://github.com/casdoor/casdoor/discussions/2941) |
+
+Source: `charts/kubepatch/templates/_helpers.tpl:102-124`.
 
 `routing.mode` is `gateway` (Gateway API: one Gateway, one HTTPRoute per host; the default), `ingress` (one Ingress)
 or `none`. Postgres 18 (databases `akp`, `patchconsole`, `casdoor`), NATS with JetStream, Casdoor, b3, the patch console
 and the two UIs are in the chart. `postgres.external.enabled` points at your own Postgres instead.
 
-## b3 start-up order (`docs/iam-modes.md`, "A fresh install in v2_only" in b3)
+## b3 start-up order
 
-The b3 pod runs init containers in this order, then `b3 api`:
+Order from b3's `docs/iam-modes.md`, "A fresh install in v2_only" (in the b3 repository; not verified here). The b3 pod
+runs init containers in this order, then `b3 api`:
 
 1. `b3 migrate`: the product tables.
 2. `b3 dev --setup-config`: records the NATS operator, system and admin accounts (the creds are in Secret
@@ -50,8 +71,8 @@ helm install kubepatch charts/kubepatch -n kubepatch --create-namespace \
 
 `global.platform.host` is the one public name (a DNS name, not an address). The chart makes a self-signed certificate
 for it and for `casdoor.<host>`. Every secret is generated once (`lookup`, kept on uninstall) unless
-`credentials.existingSecret` names yours. Production: `profiles/production.yaml` (`production: true` refuses generated
-credentials, a self-signed certificate, the chart's Postgres and images without a digest).
+`credentials.existingSecret` names yours. `profiles/production.yaml` sets `production: true`, which refuses generated
+credentials, a self-signed certificate, the chart's Postgres and images without a digest.
 
 ## The k3s demo (`profiles/k3s-test.yaml`)
 
@@ -68,7 +89,11 @@ credentials, a self-signed certificate, the chart's Postgres and images without 
    resolve to the host, or put both names in `/etc/hosts`).
 4. Everything the demo created is listed in `hack/kubepatch/teardown.sh` (`--yes` removes it).
 
-## Findings of the demo (what does not work yet)
+## Findings of the demo
+
+These were found with the image commits pinned in `charts/kubepatch/profiles/k3s-test.yaml` (b3 `a3c72f5a32`, platform-ui
+`6e9d41b92c`, cluster-ui `eae279409c`). They concern AKP in `v2_only`, so they matter to ace's `AKP` line in `v2_only` and to
+`AKP_Plus`, not to ace's `KubePatch` line (no b3 web there). Whether later b3 and UI releases fix them is unverified.
 
 - **platform-ui and cluster-ui 3.1.0 do not work with b3 v2_only**: they call `GET /api/v1/user`, `/api/v1/branding`,
   `/api/v1/user/settings/*`, which v2_only does not mount (404), and land on `/id/404`. platform-ui `feat/iam-ui`
@@ -78,30 +103,37 @@ credentials, a self-signed certificate, the chart's Postgres and images without 
   which v2_only does not serve (it answers `302 /id/404`). Signing in works at the API: `POST /api/v1/user/signin` (the
   external-console contract route) with `{"username","password"}` sets the iam session cookies, and with them `/id/`
   (Overview) and `/console/` (Kubernetes) load. `iam.identity.v1.SignInService/Password` answers a session id and a CSRF
-  token in the body and sets no cookie.
-- b3 sets its cookies with `Domain=nip.io` for a `*.nip.io` host (the last two labels); nip.io is on the public suffix list.
+  token in the body and sets no cookie. (`docs/akp-v2-demo.md` later routed the UIs to iam's hosted Casdoor sign-in
+  instead, with `loginURL`.)
+- b3 sets its cookies with `Domain=nip.io` for a `*.nip.io` host (the last two labels); nip.io is on the public suffix
+  list (https://publicsuffix.org/list/).
 - b3 serves neither `/healthz` nor `/api/v1/version` in v2_only: the probes are `exec curl` of the Connect call
   `akp.branding.v2.BrandingService/GetBranding`.
 - `b3 dev` creates the first user and organization through `ac_user` (fails in v2_only), and `b3 admin
   iam-bootstrap-admin` leaves the KMS keeper unregistered, so with NATS on it cannot open the NATS admin connection. The
   demo image carries two small patches (`hack/kubepatch/b3-dev.patch`); both belong in b3's `fix-v2-only-cold-boot`.
-- The AKP cluster directory of the patch console needs an iam token with a scope and an organization (none yet: `b3 dev` was
-  to make the site organization). The hub runs with the `table` directory.
+- The AKP cluster directory of the patch console needs an iam token with a scope and an organization (none yet: `b3 dev`
+  was to make the site organization). The hub runs with the `table` directory.
 - The console (`patch-console` sign-in through Casdoor, with the application's redirect URI) works in a browser.
 
-## Choices
+## Choices of the demo chart
 
-- **Not ace.** In v2_only none of KubeDB, Redis, Cadence, OpenFGA or the setup job is needed. Cadence is not run
-  (`b3.worker.enabled` is off): `b3 worker` workflows do not run.
-- **b3 is templated here**, not taken from `charts/platform-api` (that chart probes `/api/v1/version`).
+- **Not ace.** When the demo was made, ace had neither a Casdoor nor a way to run without KubeDB; in v2_only none of
+  KubeDB, Redis, Cadence, OpenFGA or the setup Job is needed. Cadence is not run (`b3.worker.enabled` is off): `b3 worker`
+  workflows do not run. ace now has both (`charts/casdoor`, `disableFeatures`); the demo chart stays as it is.
+- **b3 is templated here**, not taken from `charts/platform-api` (that chart probed `/api/v1/version` at the time; it now
+  has `v2_only` probes, see `docs/akp-v2-demo.md`).
 - **One Casdoor, one organization, two applications**; the second-factor rule is an organization setting.
-- The patch console is templated here (not a sub-chart) so `global.platform.host` is the only place the address is
-  written; its hub does not join the operator-mode NATS (agents report over HTTPS).
+- The hub does not join the operator-mode NATS (agents report over HTTPS).
+
+## Structure
+
+The hub and the UI are not templated by this chart: it depends on the `patch-console-api` and `patch-console-ui`
+charts, which ace uses too. This chart keeps what they need around them (Postgres, NATS in operator mode, Casdoor, the
+Gateway, the Secrets and the first-administrator Jobs). The settings the sub-charts share with this chart
+(`global.platform.host`, `global.platform.httpsPort`, `global.credentials.secretName`, the Casdoor organization and
+application) are checked against each other in `charts/kubepatch/templates/validate.yaml`.
 
 ## Uninstall
 
 `hack/kubepatch/teardown.sh --yes` on the host.
-
-## Structure
-
-The hub and the UI are not rendered by this chart: it depends on the `patch-console-api` and `patch-console-ui` charts (see `docs/product-line.md`), which the ace chart can enable too. This chart keeps what they need around them (Postgres, NATS in operator mode, Casdoor, the Gateway, the Secrets and the first-administrator jobs). Values that were `patchConsole.*` are now `patch-console-api.*` and `patch-console-ui.*`; the settings the sub-charts share with this chart (`global.platform.host`, `global.platform.httpsPort`, `global.credentials.secretName`, the Casdoor organization and application) are checked against each other in `templates/validate.yaml`.

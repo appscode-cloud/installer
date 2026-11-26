@@ -349,8 +349,9 @@ Casdoor sign-in for every product), and TrustConsole and KubePatch do not run b3
 {{- if eq $pl "AKP" -}}
 {{- $mode -}}
 {{- else if eq $pl "AKP_Plus" -}}
-{{- if and $mode (ne $mode "v2_only") -}}
-{{- fail (printf "ProductLine AKP_Plus runs AKP in v2_only, not global.akp.mode %s" $mode) -}}
+{{- /* Set, not defaulted: platform-api and the UI charts read global.akp.mode themselves. */ -}}
+{{- if ne $mode "v2_only" -}}
+{{- fail (printf "ProductLine AKP_Plus runs AKP in v2_only: set global.akp.mode to v2_only, not %q" $mode) -}}
 {{- end -}}
 v2_only
 {{- else if $mode -}}
